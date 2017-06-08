@@ -1,0 +1,678 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>风格 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="缩进和空白
+空白
+
+关键字if、while、for与其后的控制表达式的(括号之间插入一个空格分隔，但括号内的表达式应紧贴括号。例如：
+
+1while␣(1);
+
+双目运算符的两侧各插入一个空格分隔，单目运算符和操作数之间不加空格，例如i␣=␣i␣+␣1、++i、!(i␣&amp;lt;␣1)、-x、&amp;amp">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="风格"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 风格</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="缩进和空白">缩进和空白</h2>
+<h3 id="空白">空白</h3>
+<ol>
+<li>关键字if、while、for与其后的控制表达式的(括号之间插入一个空格分隔，但括号内的表达式应紧贴括号。例如：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span>␣(<span class="number">1</span>);</div></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>双目运算符的两侧各插入一个空格分隔，单目运算符和操作数之间不加空格，例如<code>i␣=␣i␣+␣1</code>、<code>++i</code>、<code>!(i␣&lt;␣1)</code>、<code>-x</code>、<code>&amp;a[1]</code>等。</li>
+<li>后缀运算符和操作数之间也不加空格，例如取结构体成员<code>s.a</code>、函数调用<code>foo(arg1)</code>、取数组成员<code>a[i]</code>。</li>
+<li><code>,</code>号和<code>;</code>号之后要加空格，这是英文的书写习惯，例如<code>for␣(i␣=␣1;␣i␣&lt;␣10;␣i++)</code>、<code>foo(arg1,␣arg2)</code>。</li>
+<li>以上关于双目运算符和后缀运算符的规则并没有严格要求，有时候为了突出优先级也可以写得更紧凑一些，例如<code>for␣(i=1;␣i&lt;10;␣i++)</code>、<code>distance␣=␣sqrt(x*x␣+␣y*y)</code>等。但是省略的空格一定不要误导了读代码的人，例如<code>a||b␣&amp;&amp;␣c</code>很容易让人理解成错误的优先级。</li>
+<li>由于UNIX系统标准的字符终端是24行80列的，接近或大于80个字符的较长语句要折行写，折行后用空格和上面的表达式或参数对齐，例如：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>␣(<span class="built_in">sqrt</span>(x*x␣+␣y*y)␣&gt;␣<span class="number">5.0</span></div><div class="line">    &&␣x␣&lt;␣<span class="number">0.0</span></div><div class="line">    &&␣y␣&gt;␣<span class="number">0.0</span>)</div></pre></td></tr></table></figure></p>
+<p>再比如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">foo(<span class="built_in">sqrt</span>(x*x␣+␣y*y),</div><div class="line">    a[i-<span class="number">1</span>]␣+␣b[i-<span class="number">1</span>]␣+␣c[i-<span class="number">1</span>])</div></pre></td></tr></table></figure></p>
+<ol start="7">
+<li>较长的字符串可以断成多个字符串然后分行书写，例如：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">printf</span>(<span class="string">"This is such a long sentence that "</span></div><div class="line">       <span class="string">"it cannot be held within a line\n"</span>);</div></pre></td></tr></table></figure></p>
+<p>C编译器会自动把相邻的多个字符串接在一起，以上两个字符串相当于一个字符串&quot;This is such a long sentence that it cannot be held within a line\n&quot;。</p>
+<ol start="8">
+<li>有的人喜欢在变量定义语句中用Tab字符，使变量名对齐，这样看起来很美观。</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">→<span class="keyword">int</span>    →a, b;</div><div class="line">→<span class="keyword">double</span> →c;</div></pre></td></tr></table></figure></p>
+<h3 id="缩进">缩进</h3>
+<p>内核代码风格关于缩进的规则有以下几条。</p>
+<ol>
+<li>要用缩进体现出语句块的层次关系，使用Tab字符缩进，不能用空格代替Tab。在标准的字符终端上一个Tab看起来是8个空格的宽度，如果你的文本编辑器可以设置Tab的显示宽度是几个空格，建议也设成8，这样大的缩进使代码看起来非常清晰。如果有的行用空格做缩进，有的行用Tab做缩进，甚至空格和Tab混用，那么一旦改变了文本编辑器的Tab显示宽度就会看起来非常混乱，所以内核代码风格规定只能用Tab做缩进，不能用空格代替Tab。</li>
+<li>if/else、while、do/while、for、switch这些可以带语句块的语句，语句块的{或}应该和关键字写在同一行，用空格隔开，而不是单独占一行。例如应该这样写：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>␣(...)␣{</div><div class="line">       →语句列表</div><div class="line">}␣<span class="keyword">else</span>␣<span class="keyword">if</span>␣(...)␣{</div><div class="line">       →语句列表</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<ol start="3">
+<li>函数定义的<code>{</code>和<code>}</code>单独占一行，这一点和语句块的规定不同，例如：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span>␣foo(<span class="keyword">int</span>␣a,␣<span class="keyword">int</span>␣b)</div><div class="line">{</div><div class="line">       →语句列表</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<ol start="4">
+<li>switch和语句块里的case、default对齐写，也就是说语句块里的case、default标号相对于switch不往里缩进，但标号下的语句要往里缩进。例如：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">switch</span>␣(c)␣{</div><div class="line"><span class="keyword">case</span> <span class="string">'A'</span>:</div><div class="line">       →语句列表</div><div class="line"><span class="keyword">case</span> <span class="string">'B'</span>:</div><div class="line">       →语句列表</div><div class="line"><span class="keyword">default</span>:</div><div class="line">       →语句列表</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>用于goto语句的自定义标号应该顶头写不缩进，而不管标号下的语句缩进到第几层。</p>
+<ol start="5">
+<li>代码中每个逻辑段落之间应该用一个空行分隔开。例如每个函数定义之间应该插入一个空行，头文件、全局变量定义和函数定义之间也应该插入空行，例如：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdlib.h&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> g;</div><div class="line"><span class="keyword">double</span> h;</div><div class="line"></div><div class="line"><span class="keyword">int</span> foo(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">       →语句列表</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> bar(<span class="keyword">int</span> a)</div><div class="line">{</div><div class="line">       →语句列表</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">       →语句列表</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<ol start="6">
+<li>一个函数的语句列表如果很长，也可以根据相关性分成若干组，用空行分隔。这条规定不是严格要求，通常把变量定义组成一组，后面加空行，return语句之前加空行，例如：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">       →<span class="keyword">int</span>    →a, b;</div><div class="line">       →<span class="keyword">double</span> →c;</div><div class="line"></div><div class="line">       →语句组<span class="number">1</span></div><div class="line"></div><div class="line">       →语句组<span class="number">2</span></div><div class="line"></div><div class="line">       →<span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="注释">注释</h2>
+<p>单行注释应采用<code>/*␣comment␣*/</code>的形式，用空格把界定符和文字分开。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p><strong>伟洲注</strong>： 关于注释应该使用 <code>/*...*/</code> 还是 <code>//</code> 具体要看项目的需求。Linux Kernel因为要考虑平台兼容性，不允许使用C99的<code>//</code>注释。但如果程序并不会兼容性有过多要求，使用<code>//</code>进行注释也是个很好的选择。</p>
+</div></p>
+<p>多行注释最常见的是这种形式：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">␣*␣Multi-line</div><div class="line">␣*␣comment</div><div class="line">␣*/</div></pre></td></tr></table></figure></p>
+<p>也有更花哨的形式：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*************\</span></div><div class="line">* Multi-line  *</div><div class="line">* comment     *</div><div class="line">\*************/</div></pre></td></tr></table></figure></p>
+<p>使用注释的场合主要有以下几种。</p>
+<p>整个源文件的顶部注释。说明此模块的相关信息，例如文件名、作者和版本历史等，顶头写不缩进。例如内核源代码目录下的kernel/sched.c文件的开头：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> *  kernel/sched.c</div><div class="line"> *</div><div class="line"> *  Kernel scheduler and related syscalls</div><div class="line"> *</div><div class="line"> *  Copyright (C) 1991-2002  Linus Torvalds</div><div class="line"> *</div><div class="line"> *  1996-12-23  Modified by Dave Grothe to fix bugs in semaphores and</div><div class="line"> *              make semaphores SMP safe</div><div class="line"> *  1998-11-19  Implemented schedule_timeout() and related stuff</div><div class="line"> *              by Andrea Arcangeli</div><div class="line"> *  2002-01-04  New ultra-scalable O(1) scheduler by Ingo Molnar:</div><div class="line"> *              hybrid priority-list and round-robin design with</div><div class="line"> *              an array-switch method of distributing timeslices</div><div class="line"> *              and per-CPU runqueues.  Cleanups and useful suggestions</div><div class="line"> *              by Davide Libenzi, preemptible kernel bits by Robert Love.</div><div class="line"> *  2003-09-03  Interactivity tuning by Con Kolivas.</div><div class="line"> *  2004-04-02  Scheduler domains code by Nick Piggin</div><div class="line"> */</div></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>函数注释。说明此函数的功能、参数、返回值、错误码等，写在函数定义上侧，和此函数定义之间不留空行，顶头写不缩进。</li>
+<li>相对独立的语句组注释。对这一组语句做特别说明，写在语句组上侧，和此语句组之间不留空行，与当前语句组的缩进一致。</li>
+<li>代码行右侧的简短注释。对当前代码行做特别说明，一般为单行注释，和代码之间至少用一个空格隔开，一个源文件中所有的右侧注释最好能上下对齐。内核源代码目录下的lib/radix-tree.c文件中的一个函数包含了上述三种注释：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> *      radix_tree_insert    -    insert into a radix tree</div><div class="line"> *      @root:          radix tree root</div><div class="line"> *      @index:         index key</div><div class="line"> *      @item:          item to insert</div><div class="line"> *</div><div class="line"> *      Insert an item into the radix tree at position @index.</div><div class="line"> */</div><div class="line"><span class="keyword">int</span> radix_tree_insert(<span class="keyword">struct</span> radix_tree_root *root,</div><div class="line">                        <span class="keyword">unsigned</span> <span class="keyword">long</span> index, <span class="keyword">void</span> *item)</div><div class="line">{</div><div class="line">        <span class="keyword">struct</span> radix_tree_node *node = NULL, *slot;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> height, shift;</div><div class="line">        <span class="keyword">int</span> offset;</div><div class="line">        <span class="keyword">int</span> error;</div><div class="line"></div><div class="line">        <span class="comment">/* Make sure the tree is high enough.  */</span></div><div class="line">        <span class="keyword">if</span> ((!index && !root-&gt;rnode) ||</div><div class="line">                        index &gt; radix_tree_maxindex(root-&gt;height)) {</div><div class="line">                error = radix_tree_extend(root, index);</div><div class="line">                <span class="keyword">if</span> (error)</div><div class="line">                        <span class="keyword">return</span> error;</div><div class="line">        }</div><div class="line"></div><div class="line">        slot = root-&gt;rnode;</div><div class="line">        height = root-&gt;height;</div><div class="line">        shift = (height-<span class="number">1</span>) * RADIX_TREE_MAP_SHIFT;</div><div class="line"></div><div class="line">        offset = <span class="number">0</span>;                     <span class="comment">/* uninitialised var warning */</span></div><div class="line">        <span class="keyword">do</span> {</div><div class="line">                <span class="keyword">if</span> (slot == NULL) {</div><div class="line">                        <span class="comment">/* Have to add a child node.  */</span></div><div class="line">                        <span class="keyword">if</span> (!(slot = radix_tree_node_alloc(root)))</div><div class="line">                                <span class="keyword">return</span> -ENOMEM;</div><div class="line">                        <span class="keyword">if</span> (node) {</div><div class="line">                                node-&gt;slots[offset] = slot;</div><div class="line">                                node-&gt;count++;</div><div class="line">                        } <span class="keyword">else</span></div><div class="line">                                root-&gt;rnode = slot;</div><div class="line">                }</div><div class="line"></div><div class="line">                <span class="comment">/* Go a level down */</span></div><div class="line">                offset = (index &gt;&gt; shift) & RADIX_TREE_MAP_MASK;</div><div class="line">                node = slot;</div><div class="line">                slot = node-&gt;slots[offset];</div><div class="line">                shift -= RADIX_TREE_MAP_SHIFT;</div><div class="line">                height--;</div><div class="line">        } <span class="keyword">while</span> (height &gt; <span class="number">0</span>);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (slot != NULL)</div><div class="line">                <span class="keyword">return</span> -EEXIST;</div><div class="line"></div><div class="line">        BUG_ON(!node);</div><div class="line">        node-&gt;count++;</div><div class="line">        node-&gt;slots[offset] = item;</div><div class="line">        BUG_ON(tag_get(node, <span class="number">0</span>, offset));</div><div class="line">        BUG_ON(tag_get(node, <span class="number">1</span>, offset));</div><div class="line"></div><div class="line">        <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<ol start="5">
+<li>复杂的结构体定义比函数更需要注释。例如内核源代码目录下的kernel/sched.c文件中定义了这样一个结构体：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"> * This is the main, per-CPU runqueue data structure.</div><div class="line"> *</div><div class="line"> * Locking rule: those places that want to lock multiple runqueues</div><div class="line"> * (such as the load balancing or the thread migration code), lock</div><div class="line"> * acquire operations must be ordered by ascending &runqueue.</div><div class="line"> */</div><div class="line"><span class="keyword">struct</span> runqueue {</div><div class="line">        spinlock_t lock;</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">         * nr_running and cpu_load should be in the same cacheline because</div><div class="line">         * remote CPUs use both these fields when doing load calculation.</div><div class="line">         */</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> nr_running;</div><div class="line"><span class="preprocessor">#ifdef CONFIG_SMP</span></div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> cpu_load[<span class="number">3</span>];</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> nr_switches;</div><div class="line"></div><div class="line">        <span class="comment">/*</span></div><div class="line">         * This is part of a global counter where only the total sum</div><div class="line">         * over all CPUs matters. A task can increase this counter on</div><div class="line">         * one CPU and if it got migrated afterwards it may decrease</div><div class="line">         * it on another CPU. Always updated under the runqueue lock:</div><div class="line">         */</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> nr_uninterruptible;</div><div class="line"></div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> expired_timestamp;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> timestamp_last_tick;</div><div class="line">        task_t *curr, *idle;</div><div class="line">        <span class="keyword">struct</span> mm_struct *prev_mm;</div><div class="line">        prio_array_t *active, *expired, arrays[<span class="number">2</span>];</div><div class="line">        <span class="keyword">int</span> best_expired_prio;</div><div class="line">        atomic_t nr_iowait;</div><div class="line"></div><div class="line"><span class="preprocessor">#ifdef CONFIG_SMP</span></div><div class="line">        <span class="keyword">struct</span> sched_domain *sd;</div><div class="line"></div><div class="line">        <span class="comment">/* For active balancing */</span></div><div class="line">        <span class="keyword">int</span> active_balance;</div><div class="line">        <span class="keyword">int</span> push_cpu;</div><div class="line"></div><div class="line">        task_t *migration_thread;</div><div class="line">        <span class="keyword">struct</span> list_head migration_queue;</div><div class="line">        <span class="keyword">int</span> cpu;</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line"></div><div class="line"><span class="preprocessor">#ifdef CONFIG_SCHEDSTATS</span></div><div class="line">        <span class="comment">/* latency stats */</span></div><div class="line">        <span class="keyword">struct</span> sched_info rq_sched_info;</div><div class="line"></div><div class="line">        <span class="comment">/* sys_sched_yield() stats */</span></div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> yld_exp_empty;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> yld_act_empty;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> yld_both_empty;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> yld_cnt;</div><div class="line"></div><div class="line">        <span class="comment">/* schedule() stats */</span></div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> sched_switch;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> sched_cnt;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> sched_goidle;</div><div class="line"></div><div class="line">        <span class="comment">/* try_to_wake_up() stats */</span></div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> ttwu_cnt;</div><div class="line">        <span class="keyword">unsigned</span> <span class="keyword">long</span> ttwu_local;</div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line">};</div></pre></td></tr></table></figure></p>
+<ol start="6">
+<li>复杂的宏定义和变量声明也需要注释。例如内核源代码目录下的include/linux/jiffies.h文件中的定义：</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* TICK_USEC_TO_NSEC is the time between ticks in nsec assuming real ACTHZ and  */</span></div><div class="line"><span class="comment">/* a value TUSEC for TICK_USEC (can be set bij adjtimex)                */</span></div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> TICK_USEC_TO_NSEC(TUSEC) (SH_DIV (TUSEC * USER_HZ * 1000, ACTHZ, 8))</span></div><div class="line"></div><div class="line"><span class="comment">/* some arch's have a small-data section that can be accessed register-relative</span></div><div class="line"> * but that can only take up to, say, 4-byte variables. jiffies being part of</div><div class="line"> * an 8-byte variable may not be correctly accessed unless we force the issue</div><div class="line"> */</div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> __jiffy_data  __attribute__((section(".data")))</span></div><div class="line"></div><div class="line"><span class="comment">/*</span></div><div class="line"> * The 64-bit value is not volatile - you MUST NOT read it</div><div class="line"> * without sampling the sequence number in xtime_lock.</div><div class="line"> * get_jiffies_64() will do this for you as appropriate.</div><div class="line"> */</div><div class="line"><span class="keyword">extern</span> u64 __jiffy_data jiffies_64;</div><div class="line"><span class="keyword">extern</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">volatile</span> __jiffy_data jiffies;</div></pre></td></tr></table></figure></p>
+<h2 id="命名">命名</h2>
+<h3 id="变量命名">变量命名</h3>
+<h4 id="普通变量命名">普通变量命名</h4>
+<p>内核编码风格规定变量、函数和类型采用全小写加下划线的方式命名。变量的名字应当使用“名词”或者“形容词+名词”。</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">string</span> table_name;  <span class="comment">// OK - uses underscore.</span></div><div class="line"><span class="built_in">string</span> tableName;   <span class="comment">// Bad - mixed case.</span></div></pre></td></tr></table></figure></p>
+<h4 id="全局变量">全局变量</h4>
+<p>如果不得已需要全局变量,则使全局变量加前缀 <code>g_</code>(表示 global)。例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> g_how_many_people;    <span class="comment">// 全局变量</span></div><div class="line"><span class="keyword">int</span> g_how_much_money;     <span class="comment">// 全局变量</span></div></pre></td></tr></table></figure></p>
+<h4 id="静态变量">静态变量</h4>
+<p>静态变量加前缀 <code>s_</code>(表示 static)。例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> Init(...)</div><div class="line">{</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> s_init_value; <span class="comment">// 静态变量</span></div><div class="line">    ...</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h3 id="常量命名">常量命名</h3>
+<p>常量（比如宏定义和枚举常量）采用全大写加下划线的方式命名：</p>
+<h4 id="const-常量">const 常量</h4>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> DAYS_IN_A_WEEK = <span class="number">7</span>;</div></pre></td></tr></table></figure></p>
+<h4 id="宏">宏</h4>
+<p>通常 <strong>不应该</strong> 使用宏. 如果不得不用, 其命名像常量一样全部大写, 使用下划线：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">define</span> ROUND(x) ...</span></div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> PI_ROUNDED 3.0</span></div></pre></td></tr></table></figure></p>
+<h4 id="枚举常量">枚举常量</h4>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">enum coordinate_type { RECTANGULAR, POLAR };</div></pre></td></tr></table></figure></p>
+<h3 id="函数-类型命名">函数、类型命名</h3>
+<h4 id="常规函数">常规函数</h4>
+<p>统一小写加下划线，和变量的命名方式相同。</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> add_table_entry();</div><div class="line"><span class="keyword">int</span> delete_url();</div><div class="line"></div><div class="line"><span class="keyword">struct</span> complex_struct{</div><div class="line">    <span class="keyword">double</span> x, y;</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">enum</span> coordinate_type { RECTANGULAR, POLAR };</div></pre></td></tr></table></figure></p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>Modern C++ 则建议函数名的每个单词首字母大写, 没有下划线。这种大小写混合的命名方式在c++代码中很普遍，称为 camelcase（驼峰命名法），大概是因为有高有低像驼峰一样。</p>
+</div></p>
+<h2 id="深入阅读">深入阅读</h2>
+<ol>
+<li><a href="http://learn.akae.cn/media/ch09.html" target="_blank" rel="external">编码风格</a></li>
+<li><a href="https://github.com/torvalds/linux/blob/master/Documentation/CodingStyle" target="_blank" rel="external">Linux Coding Style</a></li>
+</ol>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/c-memory.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/c-tables.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

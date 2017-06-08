@@ -1,0 +1,798 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>平铺式窗口管理器-Awesome | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="深入介绍平铺式窗口管理器Awesome。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="平铺式窗口管理器-Awesome"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 平铺式窗口管理器-Awesome</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>深入介绍平铺式窗口管理器Awesome。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<h2 id="awesome简介">Awesome简介</h2>
+<h3 id="什么是窗口管理器？">什么是窗口管理器？</h3>
+<p>这里首先需要解释一下窗口管理器(Windows Manager)和桌面环境(Desktop
+Environment)的概念。窗口管理器负责绘制窗口的边框，处理窗口运行比如移动、最小化之类的行为。而桌面环境则是窗口管理器的超集，它使用窗口管理器及其其他软件提供一个完整的工作环境。比如说，gnome就是一个桌面环境，默认使用Metacity作为窗口管理器。</p>
+<h3 id="什么是平铺式窗口管理器？">什么是平铺式窗口管理器？</h3>
+<p>那么什么是平铺式窗口管理器？简单来说，所谓的平铺就是之所有的窗口都不会相互重叠，而是
+<strong>自动的</strong> 被调整大小使得它们能够刚好占满整个屏幕。</p>
+<p>以往的窗口管理器大多是浮动式窗口管理器，由于屏幕空间有限，当前激活的窗口会浮在最上面，而遮住下面的窗口。如果你同时打开了多个窗口并进行操作，那么你就需要不停的按Alt+Tab来回切换，这有时会让人感到眼花缭乱。</p>
+<p><img src="/images/awesome/awesome-1.png" alt="浮动式窗口管理器的问题"></p>
+<a id="more"></a>
+<p>如果窗口之间不遮掩，那么就没有了这个问题。当然，手动调整窗口大小和位置可以达到这个效果，但这绝对不会是一件让人喜欢干的事情。于是Compiz、KDE，甚至Windows
+7之后的窗口管理器都提供了粘性窗口，可以让窗口在靠近边缘的时候铺满半屏或满屏，如下面这张图：</p>
+<p><img src="/images/awesome/awesome-2.png" alt="粘性窗口"></p>
+<p>但这种做法仍然有不足之处：</p>
+<ol>
+<li>只能平铺不多于两个窗口，如果当前有三个以上的窗口的时候，依然会存在遮掩。对此，Compiz的解决方式是自动将被遮掩的窗口移动到其他桌面，但相信不止我一个人曾被这种古怪的设计搞晕。</li>
+<li>仍然需要用鼠标手动平铺，这对于正在高速敲键盘的码农而言，无疑是“超音速飞机的紧急迫降”。</li>
+</ol>
+<p>平铺式窗口管理器就是针对这种需求提出的窗口管理器，它可以帮助用户将多个窗口按照某种布局方式来平铺在一起。可以看看这张图：</p>
+<p><img src="/images/awesome/awesome-3.png" alt="平铺式窗口管理器"></p>
+<p>并且，用它来调整、切换窗口几乎可以不使用鼠标。这对于硬派的linux狂热者以及痛恨使用笔记本触控板的人来说也是一个不错的选择。</p>
+<h3 id="为什么是awesome？">为什么是Awesome？</h3>
+<p>平铺式窗口管理器并不是一个新概念，在施乐公司几十年前最早开始研究图形界面的时候就已经有了平铺的概念了（尽管和现在我说的不太一样），linux下面也有不少成熟的平铺式窗口管理器–Ion,
+XMonad都是有名的平铺窗口管理器。但是比较之下Awesome有不少鲜明的特点：</p>
+<ul>
+<li>体积小，运行迅速，占用资源少。不过在3.0以后的版本似乎向变得巨大和缓慢的方向发展的趋势。</li>
+<li>支持多种窗口布局。Awesome并不仅仅支持平铺，它还支持好几种各不相同的窗口布局方案。</li>
+<li>使用Lua脚本的配置文件，灵活性高。由于lua脚本的强大能力，Awesome
+3.0甚至把窗口管理器运行的逻辑部分放到了配置文件里面。好处是这使得很多其他窗口管理器里面不可能做到的用法在这里变成了可能，坏处是配置文件及其庞大和复杂。</li>
+<li>更新迅速。它的作者一直在不停地完善Awesome，每次版本升级都能带来一些方便的新特性。不过弊端是造成了Awesome的配置文件一直都在改变，说不定什么时候自己以前的配置文件就不能用了。</li>
+<li>良好的鼠标支持。比起其他平铺式窗口管理器，Awesome的一大优势是它能够提供良好的鼠标支持。只要你喜欢，Awesome完全可以当作一个浮动窗口管理器来使用，但对于键盘控而言，真正吸引他们的当然是Awesome强大的键盘控制能力。</li>
+<li>多显示器支持。Awesome支持多显示器间的窗口管理，这是官网上的一张照片：</li>
+</ul>
+<p><img src="/images/awesome/awesome-4.png" alt="Awesome 的多显示器支持"></p>
+<p>总而言之，对于喜欢折腾自己电脑的人来说，Awesome是一个很不错的玩具。</p>
+<h2 id="安装awesome">安装Awesome</h2>
+<p>Awesome一个最新的稳定版本（3.4.11）已经包含在Ubuntu
+12.04的源里，因此对于Ubuntu 12.04的用户，安装Awesome非常简单：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> apt-get install awesome</div></pre></td></tr></table></figure></p>
+<p>如果需要编译安装Awesome，请参考Awesome的<a href="http://awesome.naquadah.org/wiki/Building_awesome" target="_blank" rel="external">官方wiki编译指南</a>。</p>
+<p>Awesome提供了一个设置文件 <strong>rc.lua</strong> ，放在 <strong>/etc/xdg/Awesome/</strong>
+里，需要把它拷贝到~/.config/Awesome/里。</p>
+<h2 id="awesome初窥">Awesome初窥</h2>
+<h3 id="切换awesome">切换Awesome</h3>
+<p>安装完Awesome后，注销当前用户回到用户选择界面，然后选择使用Awesome桌面环境。对于Ubuntu用户，在用户选择菜单的右上角有一个按钮，点击之后会打开一个桌面环境选择菜单，选择“Awesome”登陆即可。</p>
+<h3 id="状态栏">状态栏</h3>
+<p>第一次启动Awesome后会发现整个屏幕只有一个空空的桌面和顶部的一条类似Windows任务栏的东西。这条任务栏叫做状态栏（Status
+Bar）。</p>
+<h3 id="主菜单">主菜单</h3>
+<p>状态栏的最左侧是Awesome的图标，点击它将会打开一个小菜单，这就是Awesome的主菜单，再点击一次图标就可以将这个菜单关闭。</p>
+<h3 id="标签">标签</h3>
+<p>在Awesome图标的右侧可以看到阿拉伯数字1-9，这些叫做标签（Tag），类似GNome或者KDE下的虚拟桌面。</p>
+<h3 id="布局切换器">布局切换器</h3>
+<p>在状态栏最右侧是布局切换器，布局（Layout）是根据屏幕上的可用空间来调整窗口位置、尺寸的方式。Awesome支持多种布局：</p>
+<ul>
+<li>
+<p>平铺</p>
+<p>Tiled平铺模式下屏幕被分为master和stacking两个区域。master中的窗口包含了需要最多关注的窗口（通常这表示master中的窗口会占据更大的屏幕空间），而stacking区域中包含了其它窗口。如果你想的话master区域可以被划分为多行和多列。</p>
+</li>
+<li>
+<p>最大化 Max</p>
+</li>
+</ul>
+<p>每个窗口都是全屏显示。</p>
+<ul>
+<li>放大 Magnifier</li>
+</ul>
+<p>当前窗口（也就是被鼠标点选中，正在操作的窗口）会显示在屏幕中间，占据大部分屏幕空间。剩下的窗口都处在stacking区域，并放到当前窗口的后面。</p>
+<ul>
+<li>浮动 Floating</li>
+</ul>
+<p>每个窗口都可以自由的移动和调整大小，就好像普通的窗口管理器一样。无论当前是什么布局，对话框窗口总是处在浮动状态。</p>
+<ul>
+<li>螺旋 Spiral</li>
+</ul>
+<p>和平铺有点类似，但窗口的调整采用了螺旋形的排列方式。</p>
+<h2 id="常用快捷键">常用快捷键</h2>
+<p>下面是常用的一些快捷键组合。注意：在默认情况下，Mod4被映射到Win键，即Ctrl和Alt中间夹着的那个Windows徽标键，它可以根据你的喜好来更改。</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mod4 + Enter</td>
+<td>打开终端</td>
+</tr>
+<tr>
+<td>Mod4 + r</td>
+<td>执行程序或命令</td>
+</tr>
+<tr>
+<td>Mod4 + w</td>
+<td>打开Awesome主菜单（鼠标右键关闭）</td>
+</tr>
+<tr>
+<td>Mod4 + Shift + c</td>
+<td>关闭当前窗口或应用</td>
+</tr>
+<tr>
+<td>Mod4 + Control + r</td>
+<td>重启Awesome</td>
+</tr>
+<tr>
+<td>Mod4 + Shift + q</td>
+<td>退出Awesome</td>
+</tr>
+<tr>
+<td>Mod4 + j</td>
+<td>切换到下一个窗口</td>
+</tr>
+<tr>
+<td>Mod4 + k</td>
+<td>切换到前一个窗口</td>
+</tr>
+<tr>
+<td>Mod4 + Left</td>
+<td>查看前一个tag</td>
+</tr>
+<tr>
+<td>Mod4 + Right</td>
+<td>查看后一个tag</td>
+</tr>
+<tr>
+<td>Mod4 + 1-9</td>
+<td>切换到tag 1-9</td>
+</tr>
+<tr>
+<td>Mod4 + Control + j</td>
+<td>切换到下一个屏幕</td>
+</tr>
+<tr>
+<td>Mod4 + Control + k</td>
+<td>切换到上一个屏幕</td>
+</tr>
+<tr>
+<td>Mod4 + Shift + j</td>
+<td>当前窗口和前一个窗口互换位置</td>
+</tr>
+<tr>
+<td>Mod4 + Shift + k</td>
+<td>当前窗口和后一个窗口互换位置</td>
+</tr>
+<tr>
+<td>Mod4 + h</td>
+<td>把主区域的宽度增大5%</td>
+</tr>
+<tr>
+<td>Mod4 + l</td>
+<td>把主区域的宽度减少5%</td>
+</tr>
+<tr>
+<td>Mod4 + m</td>
+<td>最大化窗口</td>
+</tr>
+<tr>
+<td>Mod4 + n</td>
+<td>最小化窗口</td>
+</tr>
+<tr>
+<td>Mod4 + Shift + h</td>
+<td>增加主区域窗口的数量</td>
+</tr>
+<tr>
+<td>Mod4 + Shift + l</td>
+<td>减少主区域窗口的数量</td>
+</tr>
+<tr>
+<td>Mod4 + Space</td>
+<td>切换窗口布局</td>
+</tr>
+<tr>
+<td>Mod4 + Shift + space</td>
+<td>把当前tag更换为前一种布局</td>
+</tr>
+<tr>
+<td>Mod4 + Control + space</td>
+<td>切换当前窗口是否为浮动</td>
+</tr>
+<tr>
+<td>Mod4 + Shift + i</td>
+<td>显示当前窗口的Class和instance，这在写脚本的时候尤其有用</td>
+</tr>
+<tr>
+<td>Mod4 + Shift + r</td>
+<td>重绘当前窗口</td>
+</tr>
+<tr>
+<td>Mod4 + t</td>
+<td>标记窗口（可标记多个）</td>
+</tr>
+<tr>
+<td>Mod4 + Shift + F1~F9</td>
+<td>把标记的窗口移动到第1~9个标记上</td>
+</tr>
+<tr>
+<td>Ctrl + Mod4 + 1~9</td>
+<td>把当前桌面和1~9桌面是显示</td>
+</tr>
+<tr>
+<td>Mod4 + 1~9</td>
+<td>恢复</td>
+</tr>
+<tr>
+<td>Mod4 + Esc</td>
+<td>快速切换到上一个桌面</td>
+</tr>
+</tbody>
+</table>
+<h2 id="定制awesome">定制Awesome</h2>
+<p><div class="alert alert-error"><i class="fa fa-bug"></i>  <p>由于 Awesome 更新的幅度较大，下面的一些配置已经过时。我的最新配置放在 <a href="https://github.com/wzpan/awesome-config" target="_blank" rel="external">github</a> 。</p>
+</div></p>
+<h3 id="找回gnome的指示器">找回Gnome的指示器</h3>
+<p>第一次启动，会发现原本Gnome下的电源管理指示器、网络指示器都不见了，还有Gnome程序的主题变得很难看。</p>
+<p>如果是使用startx/slim等命令来启动X的，可以通过修改 <strong>~/.xinitrc</strong>
+来解决这些问题。参考这个例子：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/sh</span></div><div class="line"></div><div class="line"><span class="comment">#启用gnome的主题</span></div><div class="line">gnome-settings-daemon &    </div><div class="line"><span class="comment">#电源管理程序</span></div><div class="line">gnome-power-manager &      </div><div class="line"><span class="comment">#网络管理程序</span></div><div class="line">nm-applet --sm-disable &                           </div><div class="line"><span class="comment">#自动更新程序</span></div><div class="line">update-notifier &</div><div class="line"></div><div class="line"><span class="keyword">exec</span> awesome</div></pre></td></tr></table></figure></p>
+<p>完成后重启一下，看看网络指示器是不是回来了。</p>
+<p>如果是用kdm/gdm/…等工具来登录管理器的话，这时应该修改的是
+<strong>~/.xprofile</strong> 里的内容。因为系统默认将执行 <strong>~/.xprofile</strong>
+文件的命令，而会忽略 <strong>~/.xinitrc</strong> 。将上面的内容保存成 <strong>./xprofile</strong>
+文件即可，或者干脆使用下面这条命令：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ln -s ~<span class="regexp">/.xinitrc ~/</span>.xprofile</div></pre></td></tr></table></figure></p>
+<p>将.xprofile链接到.xinitrc上。</p>
+<h3 id="定制布局和标签">定制布局和标签</h3>
+<h4 id="定制布局">定制布局</h4>
+<p>如果希望改变默认的布局和修改布局的切换顺序，可以通过修改 <strong>rc.lua</strong>
+文件来实现。找到像这样的一段代码：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">layouts =</div><div class="line"> {</div><div class="line">     awful.<span class="keyword">layout</span>.suit.floating,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.tile,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.tile.left,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.tile.bottom,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.tile.top,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.fair,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.fair.horizontal,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.spiral,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.spiral.dwindle,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.<span class="built_in">max</span>,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.<span class="built_in">max</span>.fullscreen,</div><div class="line">     awful.<span class="keyword">layout</span>.suit.magnifier</div><div class="line"> }</div></pre></td></tr></table></figure></p>
+<p>这是所有Awesome提供的布局方案，并且是按切换顺序排列的。可以通过调整顺序来改变实际的布局切换顺序。如果不喜欢其中的一些布局方案，你可以把相应的代码给去掉。比如，对于我而言，全屏、放大和螺旋式布局都是不常用的，并且我希望第一个布局是平铺，而不是浮动，因此可以改成：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">layouts =</div><div class="line">{</div><div class="line">    awful.<span class="keyword">layout</span>.suit.tile,</div><div class="line">    awful.<span class="keyword">layout</span>.suit.tile.left,</div><div class="line">    awful.<span class="keyword">layout</span>.suit.tile.bottom,</div><div class="line">    awful.<span class="keyword">layout</span>.suit.tile.top,</div><div class="line">    awful.<span class="keyword">layout</span>.suit.fair,</div><div class="line">    awful.<span class="keyword">layout</span>.suit.fair.horizontal,</div><div class="line">    awful.<span class="keyword">layout</span>.suit.floating,</div><div class="line">    awful.<span class="keyword">layout</span>.suit.<span class="built_in">max</span></div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>完成后保存修改，然后按 Mod4 + Control + r 重启 Awesome看看变化。</p>
+<h4 id="浮动窗口">浮动窗口</h4>
+<p>有些程序的窗口不适合采用平铺的方式，比如Firefox的下载窗口，或者Gimp的图层窗口、工具栏窗口等，这时候我们希望将这样的窗口设置为浮动：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">-- 需要自动设置为浮动的程序</div><div class="line">-- 只需要把你想要设置为浮动窗口的程序的Instance或者class按照下面的格式写进去就行</div><div class="line">-- 了。在awesome下用Mod4 + Ctr + i就可以看到当前程序的instance和class名字</div><div class="line">-- { { { Rules</div><div class="line">awful.rules.<span class="variable">rules =</span> {</div><div class="line">   -- All clients will match this rule.</div><div class="line">   {<span class="variable">rule =</span> {},</div><div class="line">    <span class="variable">properties =</span> {<span class="variable">border_width =</span> beautiful.border_width,</div><div class="line">                  <span class="variable">border_color =</span> beautiful.border_normal,</div><div class="line">                  <span class="variable">focus =</span> <span class="constant">true</span>,</div><div class="line">                  <span class="variable">keys =</span> clientkeys,</div><div class="line">                  <span class="variable">buttons =</span> clientbuttons}},</div><div class="line">   {<span class="variable">rule =</span> {<span class="variable">class =</span> <span class="string">"MPlayer"</span>},</div><div class="line">    <span class="variable">properties =</span> {<span class="variable">floating =</span> <span class="constant">true</span>}},</div><div class="line">   {<span class="variable">rule =</span> {<span class="variable">class =</span> <span class="string">"Smplayer"</span>},</div><div class="line">    <span class="variable">properties =</span> {<span class="variable">floating =</span> <span class="constant">true</span>, <span class="variable">tag =</span> tags[<span class="number">1</span>][<span class="number">6</span>]}},</div><div class="line">   { <span class="variable">rule =</span> { <span class="variable">class =</span> <span class="string">"pinentry"</span> },</div><div class="line">     <span class="variable">properties =</span> { <span class="variable">floating =</span> <span class="constant">true</span> } },</div><div class="line">   { <span class="variable">rule =</span> { <span class="variable">class =</span> <span class="string">"gimp"</span> },</div><div class="line">     <span class="variable">properties =</span> { <span class="variable">floating =</span> <span class="constant">true</span> } },</div><div class="line">   {<span class="variable">rule =</span> {<span class="variable">class =</span> <span class="string">"Firefox"</span>},</div><div class="line">     <span class="variable">properties =</span> {<span class="variable">tag =</span> tags[<span class="number">1</span>][<span class="number">1</span>]}},</div><div class="line">   {<span class="variable">rule =</span> {<span class="variable">class =</span> <span class="string">"Firefox"</span>, <span class="variable">name =</span> <span class="string">"Download"</span>},</div><div class="line">     <span class="variable">properties =</span> {<span class="variable">floating =</span> <span class="constant">true</span>}},</div><div class="line">   {<span class="variable">rule =</span> {<span class="variable">class =</span> <span class="string">"VirtualBox"</span>},</div><div class="line">     <span class="variable">properties =</span> {<span class="variable">floating =</span> <span class="constant">true</span>, <span class="variable">tag =</span> tags[<span class="number">1</span>][<span class="number">2</span>]}},</div><div class="line">   -- Set Firefox to always <span class="built_in">map</span> on tags number <span class="number">2</span> of screen <span class="number">1</span>.</div><div class="line">   -- { <span class="variable">rule =</span> { <span class="variable">class =</span> <span class="string">"Firefox"</span> },</div><div class="line">   --   <span class="variable">properties =</span> { <span class="variable">tag =</span> tags[<span class="number">1</span>][<span class="number">2</span>] } },</div><div class="line">}</div><div class="line">-- } } }</div></pre></td></tr></table></figure></p>
+<h4 id="定制标签">定制标签</h4>
+<p>只要你愿意，你可以为每一个标签命名，并为每一个标签设置默认布局。这是
+<strong>rc.lua</strong> 里默认的标签设置：</p>
+<p><figure class="highlight {.lua}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- { { { Tags</span></div><div class="line"><span class="comment">-- Define a tag table which hold all screen tags.</span></div><div class="line">tags = {}</div><div class="line"><span class="keyword">for</span> s = <span class="number">1</span>, screen.count() <span class="built_in">do</span></div><div class="line">    <span class="comment">-- Each screen has its own tag table.</span></div><div class="line">    tags[s] = awful.tag({ <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span> }, s, layouts[<span class="number">1</span>])</div><div class="line"><span class="function"><span class="keyword">end</span></span></div><div class="line"><span class="comment">-- } } }</span></div></pre></td></tr></table></figure></p>
+<p>现在我们可以改变每个标签的名字，并为每一个设置默认布局。参考下面这段代码：</p>
+<p><figure class="highlight {.lua}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- { { { Tags</span></div><div class="line"><span class="comment">-- Define a tag table which will hold all screen tags.</span></div><div class="line">tags = {</div><div class="line">  names  = { <span class="string">"main"</span>, <span class="string">"www"</span>, <span class="string">"im"</span>, <span class="string">"gimp"</span>, <span class="string">"office"</span>, <span class="string">"music"</span>, <span class="string">"virtual"</span>, <span class="number">8</span>, <span class="number">9</span> },</div><div class="line">  layout = { layouts[<span class="number">1</span>], layouts[<span class="number">8</span>], layouts[<span class="number">8</span>], layouts[<span class="number">7</span>], layouts[<span class="number">1</span>],</div><div class="line">             layouts[<span class="number">7</span>], layouts[<span class="number">8</span>], layouts[<span class="number">1</span>], layouts[<span class="number">1</span>]</div><div class="line">}}</div><div class="line"><span class="keyword">for</span> s = <span class="number">1</span>, screen.count() <span class="built_in">do</span></div><div class="line">    <span class="comment">-- Each screen has its own tag table.</span></div><div class="line">    tags[s] = awful.tag(tags.names, s, tags.layout)</div><div class="line"><span class="function"><span class="keyword">end</span></span></div><div class="line"><span class="comment">-- } } }</span></div></pre></td></tr></table></figure></p>
+<p>在这个例子中，我们还为前5个标签分别命名为&quot;main&quot;, “www”, “im”, “gimp” 和&quot;office&quot;，
+你可以根据自己的喜好进行更改。另外，我们还使用 <em>layouts</em>来指定每一个标签的布局，
+&quot;[]&quot;里的数字就是我们刚刚 <a href="#sec-5-2-1">定制布局</a>的时候设置的布局的顺序，例如[1]
+就是第1个布局。</p>
+<h3 id="设置默认终端和编辑器">设置默认终端和编辑器</h3>
+<p>可以在 <strong>rc.lua</strong> 中修改下面的代码来设置默认的终端和编辑器：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">terminal =</span> <span class="string">"xterm"</span></div><div class="line"><span class="variable">editor =</span> os.getenv(<span class="string">"EDITOR"</span>) <span class="constant">or</span> <span class="string">"nano"</span></div></pre></td></tr></table></figure></p>
+<h3 id="修改mod键">修改Mod键</h3>
+<p>要修改默认的Mod键，可以在 <strong>rc.lua</strong> 中修改这一句话：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">modkey =</span> <span class="string">"Mod4"</span></div></pre></td></tr></table></figure></p>
+<p>将&quot;Mod4&quot;改为其他按键即可。</p>
+<h3 id="美化awesome">美化Awesome</h3>
+<h4 id="更换awesome主题">更换Awesome主题</h4>
+<p>觉得默认的主题不够漂亮？Awesome自带了三套主题： <em>default</em> 、 <em>sky</em> 和
+<em>zenburn</em> 。要更换主题，可以打开 <strong>rc.lua</strong> 配置文件，找到这一行内容：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">beautiful.<span class="keyword">init</span>(<span class="string">"/usr/share/awesome/themes/default/theme.lua"</span>)</div></pre></td></tr></table></figure></p>
+<p>把其中的 <em>default</em>
+更换成其他主题名字即可。如果嫌主题太少，这里有很多PP的用户定制主题：<a href="http://awesome.naquadah.org/wiki/Beautiful_themes" target="_blank" rel="external">Beautiful_themes</a>
+。到它的 <a href="https://github.com/mikar/awesome-themes" target="_blank" rel="external">Github主页</a>
+下载下来然后拷贝到~/.config/awesome/themes即可以使用。</p>
+<h4 id="更换背景图片">更换背景图片</h4>
+<p>不喜欢那个黑不溜秋的背景图片？可以修改一下你正在使用的主题的theme.lua文件，将这一句</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">theme.<span class="variable">wallpaper_cmd =</span> { <span class="string">"awsetbg /usr/share/awesome/themes/default/background.png"</span> }</div></pre></td></tr></table></figure></p>
+<p>里的图片的文件路径更改为你喜欢的图片的文件路径即可。</p>
+<h4 id="修改主菜单">修改主菜单</h4>
+<p>可以通过修改 <strong>rc.lua</strong>
+的相应内容来定制主菜单的内容。下面是我的配置。里面的设置完全根据我个人口味，而且用了几个第三方的icon。因此代码仅供参考，不建议照搬：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- { { { Menu</span></div><div class="line"><span class="comment">-- Create a laucher widget and a main menu</span></div><div class="line">myawesomemenu = {</div><div class="line">   { <span class="string">"manual"</span>, terminal .. <span class="string">" -e man awesome"</span> },</div><div class="line">   { <span class="string">"edit config"</span>, editor_cmd .. <span class="string">" "</span> .. awesome.conffile },</div><div class="line">   { <span class="string">"restart"</span>, awesome.restart },</div><div class="line">   { <span class="string">"quit"</span>, awesome.quit }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">-- 创建一个favorite子菜单</span></div><div class="line">myfavoriteapps = {</div><div class="line">   { <span class="string">"Terminal"</span>, terminal },</div><div class="line">   { <span class="string">"Firefox"</span>, <span class="string">"firefox"</span> },</div><div class="line">   { <span class="string">"QQ"</span>, <span class="string">"qq2012"</span>},</div><div class="line">   { <span class="string">"XMind"</span>, <span class="string">"/usr/local/xmind/xmind"</span> },</div><div class="line">   { <span class="string">"Synaptic"</span>, <span class="string">"gksudo synaptic"</span> },</div><div class="line">   { <span class="string">"Transmission"</span>, <span class="string">"transmission-gtk"</span>},</div><div class="line">   { <span class="string">"Software-Center"</span>, <span class="string">"gksudo software-center"</span> },</div><div class="line">   { <span class="string">"Update-Manager"</span>, <span class="string">"gksudo update-manager"</span> },</div><div class="line">   { <span class="string">"JabRef"</span>, <span class="string">"sh /home/ehome/JabRef.sh"</span> }</div><div class="line">}</div><div class="line"></div><div class="line">mymainmenu = awful.menu({ <span class="keyword">items</span> = {</div><div class="line">{ <span class="string">"awesome"</span>, myawesomemenu, beautiful.awesome_icon },</div><div class="line">{ <span class="string">"Debian"</span>, debian.menu.Debian_menu.Debian , theme.deb_icon },</div><div class="line"><span class="comment">-- 添加Favorite菜单，并将icon设置为theme.fav_icon</span></div><div class="line">{ <span class="string">"Favorite"</span>, myfavoriteapps, theme.fav_icon },</div><div class="line">{ <span class="string">"Home"</span>, <span class="string">"dolphin"</span> , theme.home_icon },</div><div class="line"><span class="comment">-- 添加Emacs菜单项</span></div><div class="line">{ <span class="string">"Emacs"</span>, <span class="string">"emacs"</span> },</div><div class="line"><span class="comment">-- 添加Chrome菜单项</span></div><div class="line">{ <span class="string">"Chrome"</span>, <span class="string">"google-chrome"</span> },</div><div class="line"><span class="comment">-- 添加一个关机对话框</span></div><div class="line">{ <span class="string">"Log out"</span>, <span class="string">"/usr/local/shutdown.sh"</span> }</div><div class="line"> }</div><div class="line">})</div><div class="line"></div><div class="line">mylauncher = awful.widget.launcher({</div><div class="line">image = image(beautiful.awesome_icon),</div><div class="line"> menu = mymainmenu })</div><div class="line"><span class="comment">-- } } }</span></div></pre></td></tr></table></figure></p>
+<p>修改的主菜单如下图所示。</p>
+<p><img src="/images/awesome/awesome-5.png" alt="修改后的主菜单"></p>
+<p>5.6 关机对话框</p>
+<p>Awesome有个让人有点不习惯的地方是没有一个可视化的关机对话框。如果不想每次关机都得手动敲命令，可以写一个shell脚本，实现一个可视化的关机对话框，如下图所示。</p>
+<p><img src="/images/awesome/awesome-6.png" alt="关机对话框"></p>
+<p>为了正确执行这个脚本，你需要确保系统已经安装了下列的程序：</p>
+<ul>
+<li>zenity （用来产生对话框）</li>
+<li>gksudo （可视化获取系统权限）</li>
+<li>pm-utils （用来和dbus一起实现挂起功能）</li>
+<li>dbus （实现挂起功能）</li>
+<li>hal （管理硬件）</li>
+<li>slock （实现屏幕锁定）之后创建一个脚本，保存为 shutdown_dialog.sh
+，并在里面添加下面的内容：</li>
+</ul>
+<script src="https://gist.github.com/wzpan/9408566.js"></script>
+<p>完成后，修改 <strong>rc.lua</strong> ，给主菜单添加一个菜单项：</p>
+<p><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">{<span class="string">"Log out"</span>, <span class="string">'your/path/to/shutdown_dialog.sh'</span>},</div></pre></td></tr></table></figure></p>
+<h3 id="使用dmenu">使用dmenu</h3>
+<p>自带的 Mod4 + X 启动工具搜索能力有限，例如，搜索 ‘dc’ 只会找到以 'dc’
+开头的程序，e.g. ‘dcgui’ 或 ‘dc2k’；而使用dmenu的话，可以找到任何包含 'dc’
+字段的程序，e.g. ‘linuxdcpp’。因此，推荐使用dmenu取而代之。</p>
+<p>将 <strong>rc.lua</strong> 的相应内容修改为：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- Prompt</span></div><div class="line"><span class="comment">-- awful.key({ modkey }, "r", function ()</span></div><div class="line">        mypromptbox[mouse.screen]:run() <span class="operator"><span class="keyword">end</span>),</span></div><div class="line">awful.<span class="keyword">key</span>({ modkey }, <span class="string">"r"</span>,</div><div class="line">          <span class="keyword">function</span> ()</div><div class="line">             <span class="keyword">local</span> f_reader = io.popen(</div><div class="line">             <span class="string">"dmenu_path | dmenu -b -nb '"</span>.. beautiful.bg_normal ..<span class="string">"'</span></div><div class="line">             -nf '".. beautiful.fg_normal ..<span class="string">"' -sb '#955'"</span>)</div><div class="line">             <span class="keyword">local</span> command = assert(f_reader:<span class="keyword">read</span>(<span class="string">'*a'</span>))</div><div class="line">             f_reader:<span class="keyword">close</span>()</div><div class="line">             <span class="keyword">if</span> command == <span class="string">""</span> <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span></div><div class="line"></div><div class="line">             <span class="comment">-- Check throught the clients if the class match the command</span></div><div class="line">             <span class="keyword">local</span> lower_command=<span class="keyword">string</span>.<span class="keyword">lower</span>(command)</div><div class="line">             <span class="keyword">for</span> k, c <span class="keyword">in</span> pairs(client.<span class="keyword">get</span>()) <span class="keyword">do</span></div><div class="line">                <span class="keyword">local</span> class=<span class="keyword">string</span>.<span class="keyword">lower</span>(c.class)</div><div class="line">                <span class="keyword">if</span> <span class="keyword">string</span>.<span class="keyword">match</span>(class, lower_command) <span class="keyword">then</span></div><div class="line">                   <span class="keyword">for</span> i, v <span class="keyword">in</span> ipairs(c:tags()) <span class="keyword">do</span></div><div class="line">                      awful.tag.viewonly(v)</div><div class="line">                      c:raise()</div><div class="line">                      c.minimized = <span class="literal">false</span></div><div class="line">                      <span class="keyword">return</span></div><div class="line">                   <span class="keyword">end</span></div><div class="line">                <span class="keyword">end</span></div><div class="line">             <span class="keyword">end</span></div><div class="line">             awful.util.spawn(command)</div><div class="line">          <span class="keyword">end</span>),</div><div class="line"></div><div class="line">awful.<span class="keyword">key</span>({ modkey }, <span class="string">"x"</span>,</div><div class="line">          <span class="keyword">function</span> ()</div><div class="line">             awful.prompt.run({ prompt = <span class="string">"Run Lua code: "</span> },</div><div class="line">                              mypromptbox[mouse.screen].widget,</div><div class="line">                              awful.util.eval, nil,</div><div class="line">                              awful.util.getdir(<span class="string">"cache"</span>) .. <span class="string">"/history_eval"</span>)</div><div class="line">          <span class="keyword">end</span>),</div></pre></td></tr></table></figure></p>
+<h2 id="多显示器支持">多显示器支持</h2>
+<p>Awesome的一大强处在于可以同时控制多个显示器的窗口。你可以随心所欲的把某个窗口移动到另一个显示器上，并且不同的显示器可以使用不同的标签，因此可以组合出各种布局效果。具体的快捷键已经在
+<a href="#sec-4">常用快捷键</a> 提及。</p>
+<p>要使用多个显示器，首先要确保其他的显示器正常工作。在Awesome下，一个新的显示器插入之后并不能立即工作，而需要先经过设置。不同的显卡有不同的设置方法。详细的方法请参考
+<a href="http://awesome.naquadah.org/wiki/Using_Multiple_Screens" target="_blank" rel="external">官方的多显示器设置教程</a>
+。由于我使用的是 nvidia 独显驱动，因此我主要介绍使用 nvidia
+独显的简单设置方法。</p>
+<h3 id="nvidia独显使用多显示器">nvidia独显使用多显示器</h3>
+<p>在设置多显示器之前，建议先备份现有的 xorg.conf 文件：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo <span class="keyword">cp</span> /etc/X11/xorg.<span class="keyword">conf</span> /etc/X11/xorg_single.<span class="keyword">conf</span></div></pre></td></tr></table></figure></p>
+<p>新插入一个显示器后，首先以管理员身份启动
+nvidia设置工具（nvidia-settings），如果配好了 dmenu，也可以 Mod4 + r
+然后输入</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">gksudo</span> nvidia-settings</div></pre></td></tr></table></figure></p>
+<p>启动 nvidia设置工具 。然后选择 X Server Display
+Configuration，如图所示。点击当前为Disabled的那个显示器，然后在
+Configuration 设为
+TwinView，再根据喜好设Position。如果需要将这个显示器设为主显示器，则勾选“Make
+this the primary display for the X screen”。完成后 <strong>不要</strong>
+点击&quot;Apply&quot;按钮，而是点击 “Save to X Configuration File”，覆盖原来的
+xorg.conf 文件。</p>
+<p><img src="/images/awesome/awesome-7.png" alt="nvidia 设置多显示器"></p>
+<p>退出nvidia-settings，然后重启X，或者注销后再登录，此时另一个显示器已经开始工作。</p>
+<h3 id="使用投影仪">使用投影仪</h3>
+<p>如果是投影仪，通常不需要扩展屏幕，而是同步显示器和投影仪的画面。因此
+Position 需要设置为 Clones，而且由于大部分的投影仪分辨率都是 1024<em>768
+，因此需要将主显示器的 Resolution 也设置为 1024</em>768。</p>
+<h3 id="单显示器和多显示器间的切换">单显示器和多显示器间的切换</h3>
+<p>为了方便以后在单显示器和多显示器之间切换，可以将现在的 xorg.conf 备份为
+xorg~mul~.conf
+文件。这样，以后要切换单显示器或多显示器时，只需要使用cp命令将对应的配置文件覆盖当前的
+xorg.conf 文件即可。</p>
+<h2 id="插件">插件</h2>
+<h3 id="什么是插件？">什么是插件？</h3>
+<p>Awesome里的插件指的是你可以在 <em>wibox</em>
+上添加的小插件，通过使用插件（Widget），我们可以在状态栏上添加一些有用的信息，例如内存使用、CPU温度、电池状态，等等。官方wiki上有很详细的介绍：<a href="http://awesome.naquadah.org/wiki/Widgets_in_awesome" target="_blank" rel="external">http://awesome.naquadah.org/wiki/Widgets_in_awesome</a></p>
+<p>对于新手，可以使用其他用户创建的插件库，这些插件库集成了功能齐全的插件，因此免去了自己编写插件的工作。这类的插件库有很多，常用的有<a href="http://awesome.naquadah.org/wiki/Vicious" target="_blank" rel="external">Vicious</a>、
+<a href="http://awesome.naquadah.org/wiki/Obvious" target="_blank" rel="external">Obvious</a> 等。</p>
+<h3 id="创建插件">创建插件</h3>
+<p>要创建插件，可以使用 <em>widget()</em> 函数，例如：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mysystray = widget({<span class="keyword">type</span> = <span class="string">"systray"</span>})</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">myicon =</span> widget({ <span class="variable">type =</span> <span class="string">"imagebox"</span> })</div><div class="line">myicon.<span class="variable">image =</span> image(awful.util.getdir(<span class="string">"config"</span>) .. <span class="string">"/myicon.png"</span>)</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">mytextbox =</span> widget({ <span class="variable">type =</span> <span class="string">"textbox"</span> })</div><div class="line">mytextbox.<span class="variable">text =</span> <span class="string">"Hello, world!"</span></div></pre></td></tr></table></figure></p>
+<h3 id="插件的类型">插件的类型</h3>
+<p>使用 <em>widget()</em>
+函数创建插件的时候需要指定插件类型，Awesome自带的插件包括：</p>
+<ul>
+<li>systray系统托盘插件。Awesome默认已经添加，就在状态栏上位于日期和时间左侧的区域。对于一些支持最小化到系统托盘的程序，例如ibus、chrome、shutter等，它们的图标将被放置在这里。</li>
+<li>imagebox展示一张图片。常用来和textbox一起搭配使用，创建启动器、图标和分隔符。<a href="http://awesome.naquadah.org/wiki/Nice_Icons" target="_blank" rel="external">这里</a>
+收集了很多精美的图标。</li>
+<li>textboxtextbox插件用来显示一段文本，这是最常用的插件。例如，在<a href="#sec-7-2">创建插件</a>部分我们已经创建了一个名为mytextbox的textbox插件，并且插件显示的文本内容是&quot;Hello,
+World!&quot;。要修改文本内容，可以直接修改
+<strong>rc.lua</strong>文件中的相应代码，或在终端中使用下面命令：</li>
+</ul>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="string">"mytextbox.text = "</span>Foo Bar!<span class="string">""</span> | awesome-client</div></pre></td></tr></table></figure></p>
+<p>Awesome还提供了<a href="http://awesome.naquadah.org/doc/api/modules/timer.html" target="_blank" rel="external">计时器的API</a>，
+允许我们周期性的执行或更新插件。例如：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mytimer = timer({ timeout = <span class="number">30</span> })</div><div class="line">mytimer:add_signal(<span class="string">"timeout"</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span> mytextbox.text = <span class="string">"Hello awesome world!"</span> <span class="keyword">end</span>)</div><div class="line">mytimer:start()</div></pre></td></tr></table></figure></p>
+<p>textbox的文本属性（颜色、字体）是可以通过使用
+<a href="http://en.wikipedia.org/wiki/Pango" target="_blank" rel="external">Pango</a>
+标记语言来修改。最简单的例子是：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mytextbox.<span class="keyword">text</span> = <span class="comment">'<span class="xmlDocTag">&lt;span color="white"&gt;</span>Sacrebleu, I have seen a ghost!<span class="xmlDocTag">&lt;/span&gt;</span> '</span></div></pre></td></tr></table></figure></p>
+<p>要了解更多textbox的设置，例如改变背景颜色、边框、文本对齐等，可以参看Awesome的<a href="http://awesome.naquadah.org/doc/api/modules/widget.html#textbox" target="_blank" rel="external">API文档</a>。</p>
+<h3 id="实用插件">实用插件</h3>
+<p><a href="http://awesome.naquadah.org/wiki/User_Contributed_Widgets" target="_blank" rel="external">Awesome的官方Wiki</a>
+收集了丰富的插件。下面介绍其中几个实用的插件。</p>
+<h4 id="音量控制插件">音量控制插件</h4>
+<p>Awesome
+自己不提供音量控制插件，如果未经设置，还会发现原本键盘上的多媒体按键都会失效，这是因为没有让
+Awesome
+绑定这些热键。下面实现一个音量控制插件，并且将音量控制绑定到多媒体键盘的音量加（XF86AudioRaiseVolume）、音量减（XF86AudioLowerVolume）、静音（XF86AudioMute）几个按键上。</p>
+<p>首先实现一个音量控制插件，将它保存为 ~/.config/awesome/volume.lua：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- Create a volume control</span></div><div class="line"></div><div class="line">volume_widget = widget({ type = <span class="string">"textbox"</span>, <span class="property">name</span> = <span class="string">"tb_volume"</span>,</div><div class="line">                         align = <span class="string">"right"</span> })</div><div class="line"></div><div class="line">function update_volume(widget)</div><div class="line">   <span class="keyword">local</span> fd = io.popen(<span class="string">"amixer sget Master"</span>)</div><div class="line">   <span class="keyword">local</span> status = fd:<span class="command">read</span>(<span class="string">"*all"</span>)</div><div class="line">   fd:close()</div><div class="line"></div><div class="line">   <span class="keyword">local</span> volume = tonumber(<span class="type">string</span>.match(status, <span class="string">"(%d?%d?%d)%%"</span>)) / <span class="number">100</span></div><div class="line">   <span class="comment">-- volume = string.format("% 3d", volume)</span></div><div class="line"></div><div class="line">   status = <span class="type">string</span>.match(status, <span class="string">"%[(o[^%]]*)%]"</span>)</div><div class="line"></div><div class="line">   <span class="comment">-- starting colour</span></div><div class="line">   <span class="keyword">local</span> sr, sg, sb = <span class="number">0x3F</span>, <span class="number">0x3F</span>, <span class="number">0x3F</span></div><div class="line">   <span class="comment">-- ending colour</span></div><div class="line">   <span class="keyword">local</span> er, eg, eb = <span class="number">0xDC</span>, <span class="number">0xDC</span>, <span class="number">0xCC</span></div><div class="line"></div><div class="line">   <span class="keyword">local</span> ir = volume * (er - sr) + sr</div><div class="line">   <span class="keyword">local</span> ig = volume * (eg - sg) + sg</div><div class="line">   <span class="keyword">local</span> ib = volume * (eb - sb) + sb</div><div class="line">   interpol_colour = <span class="type">string</span>.format(<span class="string">"%.2x%.2x%.2x"</span>, ir, ig, ib)</div><div class="line">   <span class="keyword">if</span> <span class="type">string</span>.find(status, <span class="string">"on"</span>, <span class="number">1</span>, <span class="constant">true</span>) <span class="keyword">then</span></div><div class="line">      volume = <span class="string">" &lt;span background='#"</span> .. interpol_colour .. <span class="string">"'&gt;   &lt;/span&gt;"</span></div><div class="line">   <span class="keyword">else</span></div><div class="line">      volume = <span class="string">" &lt;span color='red' background='#"</span> .. interpol_colour .. <span class="string">"'&gt;</span></div><div class="line">       M</div><div class="line">      &lt;/span&gt;"</div><div class="line">   <span class="keyword">end</span></div><div class="line">   widget.<span class="type">text</span> = volume</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">update_volume(volume_widget)</div><div class="line">awful.hooks.timer.register(<span class="number">1</span>, function () update_volume(volume_widget) <span class="keyword">end</span>)</div></pre></td></tr></table></figure></p>
+<p>然后编辑 <strong>rc.lua</strong> ，在开头引入这个插件：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- Volume contrl</span></div><div class="line"><span class="built_in">require</span>(<span class="string">"volume"</span>)</div></pre></td></tr></table></figure></p>
+<p>在 wibox 中添加这个插件，例如放在系统托盘的右侧：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">mywibox[s].<span class="variable">widgets =</span> {</div><div class="line"> {</div><div class="line">    ..</div><div class="line">    volume_widget,</div><div class="line">    <span class="variable">s =</span>= <span class="number">1</span> <span class="constant">and</span> mysystray <span class="constant">or</span> nil,</div><div class="line">    ..</div></pre></td></tr></table></figure></p>
+<p>最后绑定到几个多媒体键：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- volume control</span></div><div class="line">awful.key({ }, <span class="string">"XF86AudioRaiseVolume"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span></span></div><div class="line">             awful.util.spawn(<span class="string">"amixer set Master 9%+"</span>) <span class="keyword">end</span>),</div><div class="line">awful.key({ }, <span class="string">"XF86AudioLowerVolume"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span></span></div><div class="line">             awful.util.spawn(<span class="string">"amixer set Master 9%-"</span>) <span class="keyword">end</span>),</div><div class="line">awful.key({ }, <span class="string">"XF86AudioMute"</span>, <span class="function"><span class="keyword">function</span> <span class="params">()</span></span></div><div class="line">             awful.util.spawn(<span class="string">"amixer sset Master toggle"</span>) <span class="keyword">end</span>),</div></pre></td></tr></table></figure></p>
+<p>这个插件将在状态栏放置一个亮度随音量大小改变的白色小方块，当系统处于静音状态时，图标将变为一个红色的
+<strong>M</strong> 字符。</p>
+<h2 id="其他技巧">其他技巧</h2>
+<h3 id="java程序的问题">Java程序的问题</h3>
+<p>很多 Java 程序在 Awesome 中只会呈现一个空白的窗口，这是很多非
+re-parenting 的窗口管理器的通病， Awesome
+也不例外。一个比较推荐的做法是在启动 Java程序前先使用 wmname 向让 JVM
+说明当前在使用一个不同的窗口管理器。用法是：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wmname 窗口管理器名称</div></pre></td></tr></table></figure></p>
+<p>其中的窗口管理器名称需要用户从 JVM 自身包含的一个非 re-parenting
+窗口管理器的列表去指定，多数用户喜欢使用：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wmname LG3D</div></pre></td></tr></table></figure></p>
+<p>来让 JVM 相信现在用的是 Sun 公司自己写的一个非 re-parenting 的窗口管理器
+LG3D 。实践证明，这个命令用在 Awesome 中可以很好工作。完成后再在同个
+session 中执行 Java 程序即可。</p>
+<h3 id="开机自启动程序">开机自启动程序</h3>
+<p>Awesome本身并没有提供自启动程序的功能，这里介绍几种方法，可以不需要借助其他工具实现自启动。更多的方法可以参考<a href="http://awesome.naquadah.org/wiki/Autostart" target="_blank" rel="external">这里</a>。</p>
+<h4 id="传统方法">传统方法</h4>
+<p>我们在介绍如何 <a href="#sec-5-1">找回Gnome的指示器</a>
+的时候已经提到了.xinitrc和.xprofile这两个文件。系统在启动X时
+，默认会执行~/.xinitrc里的命令完成一些初始化工作。如果用kdm/gdm/…等登录管理器，则默认执行~/.xprofile文件的命令，而忽略~/.xinitrc。利用这个特性，我们可以通过修改~/.xinitrc或~/.xprofile文件的内容实现程序的自启动。</p>
+<p>但要注意的是，由于.xinitrc和.xprofile主要用来在启动X时做一些初始化的工作，这个时候X可能还没启动，所以运行图形界面的程序可能会有问题。因此，这种方式比较适合用来执行一些后台命令，例如设置环境变量、启动后台服务等，而不太适合用来启动一些图形界面的程序。</p>
+<h4 id="通过修改-rc-lua-实现自启动的方法">通过修改 rc.lua 实现自启动的方法</h4>
+<p>最简单的方式是在 <strong>rc.lua</strong> 里添加类似这样的代码：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">awful.util.spawn_with_shell(<span class="string">"firefox"</span>)</div><div class="line">awful.util.spawn_with_shell(<span class="string">"thunderbird"</span>)</div><div class="line">awful.util.spawn_with_shell(<span class="string">"amarok"</span>)</div><div class="line">awful.util.spawn_with_shell(<span class="string">"amule"</span>)</div></pre></td></tr></table></figure></p>
+<p>如果要自启动很多程序，重复写这样的语句显得有点suck，所以可以采用循环的方式：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- Autorun programs</span></div><div class="line">autorun = <span class="constant">true</span></div><div class="line">autorunApps = </div><div class="line">{ </div><div class="line">    <span class="string">"firefox"</span>,</div><div class="line">    <span class="string">"thunderbird"</span>,</div><div class="line">    <span class="string">"amarok"</span>,</div><div class="line">    <span class="string">"amule"</span>,</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">if</span> autorun <span class="keyword">then</span></div><div class="line">    <span class="keyword">for</span> app = <span class="number">1</span>, <span class="comment">#autorunApps do</span></div><div class="line">        awful.util.spawn_with_shell(autorunApps[app])</div><div class="line">    <span class="function"><span class="keyword">end</span></span></div><div class="line"><span class="function"><span class="keyword">end</span></span></div></pre></td></tr></table></figure></p>
+<p>其中把autorunApps中的内容替换为你想要运行的程序就可以了。</p>
+<p>但这种自启动方式会在每次启动Awesome的时候都运行这些程序，每次需要重启Awesome时，会发现这些程序又再次启动了一次。因此最好是让这些程序只启动一次。将上面的代码改为：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">run_once</span><span class="params">(cmd)</span></span></div><div class="line">  <span class="title">findme</span> = <span class="title">cmd</span></div><div class="line">  <span class="title">firstspace</span> = <span class="title">cmd</span>:<span class="title">find</span><span class="params">(<span class="string">" "</span>)</span></div><div class="line">  <span class="title">if</span> <span class="title">firstspace</span> <span class="title">then</span></div><div class="line">    <span class="title">findme</span> = <span class="title">cmd</span>:<span class="title">sub</span><span class="params">(<span class="number">0</span>, firstspace-<span class="number">1</span>)</span></div><div class="line">  <span class="title">end</span></div><div class="line">  <span class="title">awful</span>.<span class="title">util</span>.<span class="title">spawn_with_shell</span><span class="params">(<span class="string">"pgrep -u $USER -x "</span> .. findme .. <span class="string">" &gt; /dev/null</span></span></div><div class="line">  	|| (" .. cmd .. <span class="string">")"</span>)</div><div class="line"><span class="title">end</span></div><div class="line"></div><div class="line"><span class="title">run_once</span><span class="params">(<span class="string">"amarok"</span>)</span></div><div class="line"><span class="title">run_once</span><span class="params">(<span class="string">"xscreensaver -no-splash"</span>)</span></div></pre></td></tr></table></figure></p>
+<h3 id="利用naughty实现消息交互">利用Naughty实现消息交互</h3>
+<p>Naughty 是 Awesome 3 中的一个 lua 库，用于实现弹出消息框。利用
+Naughty，我们可以实现在后台执行命令，然后在弹出消息框中显示结果。</p>
+<p>首先要确保 <strong>rc.lua</strong> 的开头有这一行：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="title">require</span><span class="params">(<span class="string">"naughty"</span>)</span></span></div></pre></td></tr></table></figure></p>
+<p>gentoo 用户还需要让 Awesome 添加对 dbus 的使用：</p>
+<p><figure class="highlight {.example}"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> flaggie awesome +dbus</div></pre></td></tr></table></figure></p>
+<p>如果想更改naughty的默认设置，可以添加下面的代码：</p>
+<p><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">naughty.config.default_preset.timeout        = <span class="number">5</span></div><div class="line">naughty.config.default_preset.screen         = <span class="number">1</span></div><div class="line">naughty.config.default_preset.position       = <span class="string">"top_right"</span></div><div class="line">naughty.config.default_preset.margin         = <span class="number">4</span></div><div class="line">naughty.config.default_preset.height         = <span class="number">16</span></div><div class="line">naughty.config.default_preset.width          = <span class="number">300</span></div><div class="line">naughty.config.default_preset.gap            = <span class="number">1</span></div><div class="line">naughty.config.default_preset.ontop          = <span class="keyword">true</span></div><div class="line">naughty.config.default_preset.font           = beautiful.font <span class="keyword">or</span> <span class="string">"Verdana 8"</span></div><div class="line">naughty.config.default_preset.icon           = <span class="keyword">nil</span></div><div class="line">naughty.config.default_preset.icon_size      = <span class="number">16</span></div><div class="line">naughty.config.default_preset.fg             = beautiful.fg_focus <span class="keyword">or</span> <span class="string">'#ffffff'</span></div><div class="line">naughty.config.default_preset.bg             = beautiful.bg_focus <span class="keyword">or</span> <span class="string">'#535d6c'</span></div><div class="line">naughty.config.presets.normal.border_color   = beautiful.border_focus <span class="keyword">or</span> <span class="string">'#535d6c'</span></div><div class="line">naughty.config.default_preset.border_width   = <span class="number">1</span></div><div class="line">naughty.config.default_preset.hover_timeout  = <span class="keyword">nil</span></div></pre></td></tr></table></figure></p>
+<p>下面利用sdcv实现一个词典工具，绑定到 Mod4 + d 上，更多的例子可以参考
+<a href="http://awesome.naquadah.org/wiki/Naughty" target="_blank" rel="external">官方的教程</a> 。</p>
+<p><figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">awful.key({ modkey }, <span class="string">"d"</span>,</div><div class="line">          <span class="function"><span class="keyword">function</span> <span class="params">()</span></span></div><div class="line">             info = <span class="keyword">true</span></div><div class="line">             awful.prompt.run({</div><div class="line">                                 fg_cursor = <span class="string">"black"</span>,bg_cursor=<span class="string">"orange"</span>, prompt = <span class="string">"&lt;span color='#008DFA'&gt;sdcv:&lt;/span&gt;"</span> }, </div><div class="line">                              mypromptbox[mouse.screen].widget,</div><div class="line">                              <span class="function"><span class="keyword">function</span><span class="params">(word)</span></span></div><div class="line">                                 <span class="keyword">local</span> f = <span class="built_in">io</span>.popen(<span class="string">"sdcv -n "</span> .. word)</div><div class="line">                                 <span class="keyword">local</span> fr = <span class="string">""</span></div><div class="line">                                 <span class="keyword">for</span> line <span class="keyword">in</span> f:lines() <span class="keyword">do</span></div><div class="line">                                    fr = fr .. line .. <span class="string">'n'</span></div><div class="line">                                 <span class="keyword">end</span></div><div class="line">                                 f:close()</div><div class="line">                                 naughty.notify({ title = <span class="string">"&lt;span color='red'&gt;"</span> .. word .. <span class="string">"&lt;/span&gt;:"</span>, text = <span class="string">'&lt;span font_desc="Sans 7"&gt;'</span> .. fr ..<span class="string">'&lt;/span&gt;'</span>, timeout = <span class="number">5</span>, width = <span class="number">400</span>, screen = mouse.screen })</div><div class="line">                              <span class="keyword">end</span>)</div><div class="line">          <span class="keyword">end</span>)</div><div class="line">                               )</div></pre></td></tr></table></figure></p>
+<h2 id="参考资料">参考资料</h2>
+<ul>
+<li><a href="http://awesome.naquadah.org/wiki/" target="_blank" rel="external">http://awesome.naquadah.org/wiki/</a></li>
+<li><a href="http://wiki.ubuntu.org.cn/Awesome" target="_blank" rel="external">http://wiki.ubuntu.org.cn/Awesome</a></li>
+<li><a href="http://linuxtoy.org/archives/awesome.html" target="_blank" rel="external">http://linuxtoy.org/archives/awesome.html</a></li>
+</ul>
+<h2 id="下载本文的pdf文档">下载本文的PDF文档</h2>
+<ul>
+<li><a href="http://www.kuaipan.cn/file/id_36358534543179843.htm" target="_blank" rel="external">快盘下载地址</a></li>
+<li><a href="(http://ishare.iask.sina.com.cn/f/25508395.html)">新浪爱问共享资料</a></li>
+<li><a href="https://dl.dropbox.com/u/49734213/Awesome%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97.pdf" target="_blank" rel="external">Dropbox</a></li>
+</ul>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/codes/hacking-logitech-k350-keyboard/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/tools/mindmap/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 ,1 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Jun 7 2012 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/tools/">tools<span>12</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/Awesome/">Awesome<span>3</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,464 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>From WordPress to Ruhoh | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="从wordpress迁移到ruhoh的心得。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="From WordPress to Ruhoh"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> From WordPress to Ruhoh</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>从wordpress迁移到ruhoh的心得。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<p>终于换成用 ruhoh 写博客了。</p>
+<p>之前的 blog 使用 WordPress 来编写。但使用 Wordpress 的在线编辑系统是非常低效的。为了加快效率，我习惯先使用 <a href="http://orgmode.org" target="_blank" rel="external">org-mode</a> 来编写内容。org-mode的强大不必多说，用它可以方便的生成本地页面，通过定制甚至还可以导出成pdf。为了在我编写文章的同时备份 org-mode 格式的草稿，我使用了与 Evernote 结合的方案：先利用 <a href="http://emacs-evernote-mode.googlecode.com/svn/branches/0_41/doc/readme_en.html" target="_blank" rel="external">emacs-evernote-mode</a> 在 Evernote 上创建笔记，然后开 org-mode 编辑内容。这样，编写的文章除了在博客上可以看到，也可以在 Evernote 上阅读。一旦博客托管的服务器出了问题甚至数据全部丢失，我还能从Evernote上找回我的所有文章。有些文章即使不想发布出去，我也可以保存在 Evernote 上，作为自己的私人笔记。这种方式一直用得挺爽，所以我坚持用了一年多的时间。</p>
+<p>但不幸的是，几个月前 Evernote 换了认证协议，以致于 emacs-evernote-mode 不再能够访问 Evernote 的数据。而该项目已然很久没有更新了。没有了 Evernote 的备份支持，我失去了编写文章的冲动，以至于从今年一月份到现在，我的文章产出率几乎为零。<a id="more"></a></p>
+<p>没办法之下，我只好选择弃用 WordPress，投入到 Static Blog Generator 的怀抱。接触静态网站并不是第一次，在这之前我曾经用 <a href="http://webgen.rubyforge.org/" target="_blank" rel="external">webgen</a> 写过一个个人主页，但搭建过程非常繁琐，依赖项太多，给我留下不太好的印象。后来那个项目也停止更新了，我就决定不再使用它。后来看到 <a href="http://freemind.pluskid.org/" target="_blank" rel="external">Pluskid</a> 又开了一个博客，一来就是一篇洋洋洒洒追述自己如何折腾静态博客的经历，看完之后我对他所使用的一个称为 <a href="http://ruhoh.com" target="_blank" rel="external">ruhoh</a> 的项目来了兴趣。于是自己克隆了一个 ruhoh 的 Github 仓库，按照官方说明简单执行了几条命令，就看到了成功生成的主页，顿时挺有好感。</p>
+<p>ruhoh 比起 WordPress ，有不少优点：</p>
+<ol>
+<li>简洁轻便。 WordPress太臃肿了，默认就加载一堆的脚本，不符合<q>简单就是美</q>的思想。相比之下，ruhoh 要清爽很多，只提供最基本的功能，剩下的交给用户决定是否添加。</li>
+<li>支持多种文档格式。ruhoh 默认使用 RedCarpet 作为格式转换器，以支持使用流行的 Markdown 来编写文档。只要你愿意，你也可以自己重写格式转换器，使之支持 Textile、reStructuredText、DocBook、MediaWiki 等格式。</li>
+<li>定制性强。使用 Mustache 来做模板语言。这样，高级用户可以很自由的对博客的功能进行定制，而不用担心会影响到文章的内容。</li>
+<li>免费托管。通过与 Github 等支持 Page 服务的托管商来免费托管你的博客，省下白花花的银两。同时依赖于Git（也可以方便的更换为mercurial），博客也能拥有强大的版本控制能力。</li>
+</ol>
+<p>不过，ruhoh 也不是十全十美的。不可否认 ruhoh 的学习成本较高，如果想要把它打造的更加顺手，那就更加需要花时间折腾了。而且 ruhoh 还处于开发阶段，比起同类的系统比如 <a href="http://octopress.org/" target="_blank" rel="external">Octopress</a> 而言成熟度要差一些。因此如果你只想尽快用上静态博客，我推荐你选择 Octopress。但如果你需要的是一个更为灵活的框架，那么不妨试试 ruhoh 。</p>
+<h2 id="安装配置-ruhoh">安装配置 Ruhoh</h2>
+<p>安装 ruhoh 可以使用 <code>bundle</code> 安装和直接安装 <code>gem</code> 两种。前者的更新要快一些，而且用 bundle 升级 ruhoh 系统是采用全新安装的方式，不会覆盖原来的 ruhoh 系统，显得比较安全。特别是现在 ruhoh 还处于开发阶段，说不定某次升级就出问题了，所以强烈推荐使用第一种方案。</p>
+<h3 id="安装-ruby">安装 Ruby</h3>
+<p>ruhoh依赖Ruby，Arch用户安装Ruby的方法非常简单，只需要一条命令：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ yaourt -S <span class="keyword">ruby</span></div></pre></td></tr></table></figure></p>
+<h3 id="换用淘宝-rubygems-镜像">换用淘宝 RubyGems 镜像</h3>
+<p>由于国内网络原因（你懂的），导致 <a href="http://rubygems.org" target="_blank" rel="external">rubygems.org</a> 存放在 Amazon S3 上面的资源文件间歇性连接失败。为了避免安装 ruhoh 失败，最稳妥的方法还是将 rubygems 源改成淘宝的镜像。</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>gem sources --remove <span class="symbol">https:</span>/<span class="regexp">/rubygems.org/</span></div><div class="line"><span class="variable">$ </span>gem sources -a <span class="symbol">http:</span>/<span class="regexp">/ruby.taobao.org/</span></div></pre></td></tr></table></figure></p>
+<h3 id="安装-ruhoh">安装 Ruhoh</h3>
+<p>先把 ruhoh 的github仓库克隆下来：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>git clone <span class="string">'git://github.com/ruhoh/blog.git'</span> <span class="string">'blog'</span></div><div class="line"><span class="variable">$ </span>cd blog</div></pre></td></tr></table></figure></p>
+<p>同样为了让ruhoh的安装顺利，修改一下 <code>Gemfile</code> 文件如下：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">source 'http:<span class="comment">//ruby.taobao.org/'</span></div><div class="line">gem 'psych', <span class="string">"~&gt; 1.3"</span></div><div class="line">gem 'ruhoh', :git =&gt; 'git:<span class="comment">//github.com/ruhoh/ruhoh.rb.git'</span></div></pre></td></tr></table></figure></p>
+<p>安装 bundle：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>gem install bundle</div></pre></td></tr></table></figure></p>
+<p>之后安装 ruhoh：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>bundle install</div><div class="line"><span class="variable">$ </span>bundle exec rackup -p <span class="number">9292</span></div></pre></td></tr></table></figure></p>
+<p>如果遇到 psych 等依赖项没有安装报错的问题，手动 <code>gem install</code> 之。完成后打开 <a href="http://localhost:9292/" target="_blank" rel="external">http://localhost:9292/</a> 就可以看到本地的一个主页了。</p>
+<h3 id="端口占用问题的解决">端口占用问题的解决</h3>
+<p>有时候会遇到端口占用问题 <code>(Errno::EADDRINUSE)</code>而无法rackup成功，可以使用 <code>lsof</code> 命令查看 9292 端口被什么程序占用：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>lsof -<span class="symbol">i:</span><span class="number">9292</span></div></pre></td></tr></table></figure></p>
+<p>解决方法是换用其他端口即可：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>rackup -p &lt;其他端口&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="文章搬家">文章搬家</h2>
+<p>接下来要做的事情就是把 WordPress 上的内容搬到ruhoh上，包括文章和评论。如果你之前没有用过 WordPress 搭建过博客，可以跳过这一步。评论的搬家比较容易，使用 Disqus 就可以完成多个网站的同步。如何把WordPress上的文章导出并转成ruhoh这类静态博客所解析的 Markdown，也有不少文章已经讨论过：</p>
+<ol>
+<li><a href="http://wendal.net/linux/%E4%BB%8EWordPress%E8%BF%81%E7%A7%BB%E5%88%B0Ruhoh%E7%9A%84%E7%BB%8F%E9%AA%8C/" target="_blank" rel="external">从WordPress迁移到Ruhoh的经验</a></li>
+<li><a href="http://dourok.info/2012/08/20/something-about-ruhoh/" target="_blank" rel="external">Ruhoh札记</a></li>
+</ol>
+<p>大致是先利用 WordPress 自带的文章导出功能将文章导出成 xml 文件，然后利用 pandoc 将文档转换成 markdown 脚本。但要无痛完成转换是非常困难的。如果之前的 WordPress 文章添加了不少特殊的 shortcode 的话，你就需要自己修改转换脚本将这些 shortcode 转换成 Markdown 下该有的格式。反正这个过程真是挺折腾的。真是后悔当初不懂事，用了不少特殊的 shortcode，把自己的博客弄得太 <q>重量级</q> ，给以后的搬家带来不便。</p>
+<h2 id="定制-ruhoh">定制 ruhoh</h2>
+<p>下面简单罗列一下自己做了哪些定制吧。</p>
+<h3 id="更换converter">更换Converter</h3>
+<p>标准的 Markdown 实在太简单，连对表格的支持都缺乏。关于这个问题已经有很多人吐槽过了。</p>
+<p>相比之下，<a href="http://johnmacfarlane.net/pandoc/demo/example9/pandocs-markdown.html" target="_blank" rel="external">Pandoc-Markdown</a> 就要强大许多。而且 Pandoc 支持很多格式的转换，所以选择使用 Pandoc 取代原来的 RedCarpet 对我而言更有诱惑力些。</p>
+<p>要改用 Pandoc 并不复杂，这要感谢 <a href="https://github.com/alphabetum/pandoc-ruby" target="_blank" rel="external">pandoc-ruby</a> 项目实现了 ruby 的接口。我只需要 blog 目录下新建 <code>plugins/converters</code> 目录，在里面编写一个 <code>pandoc.rb</code> 如下：</p>
+<p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> <span class="string">"pandoc-ruby"</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ruhoh</span></span></div><div class="line"></div><div class="line">  <span class="class"><span class="keyword">module</span> <span class="title">Converter</span></span></div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">module</span> <span class="title">Markdown</span></span></div><div class="line"></div><div class="line">      <span class="function"><span class="keyword">def</span> </span><span class="keyword">self</span>.extensions</div><div class="line">        [<span class="string">'.md'</span>, <span class="string">'.markdown'</span>]</div><div class="line">      <span class="keyword">end</span> <span class="comment">#self.extensions</span></div><div class="line"></div><div class="line">      <span class="function"><span class="keyword">def</span> </span><span class="keyword">self</span>.convert(content)</div><div class="line">    converter = <span class="constant">PandocRuby</span>.new(content).to_html(<span class="symbol">:smart</span>,<span class="symbol">:mathjax</span>,<span class="symbol">:email_obfuscation</span> =&gt; <span class="symbol">:javascript</span>)        </div><div class="line">        converter</div><div class="line">      <span class="keyword">end</span> <span class="comment">#self.convert</span></div><div class="line"></div><div class="line">    <span class="keyword">end</span> <span class="comment"># Markdown</span></div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">module</span> <span class="title">Textile</span></span></div><div class="line">      </div><div class="line">      <span class="function"><span class="keyword">def</span> </span><span class="keyword">self</span>.extensions</div><div class="line">        [<span class="string">'.textile'</span>]</div><div class="line">      <span class="keyword">end</span> <span class="comment">#self.extensions</span></div><div class="line"></div><div class="line">      <span class="function"><span class="keyword">def</span> </span><span class="keyword">self</span>.convert(content)</div><div class="line">        converter = <span class="constant">PandocRuby</span>.new(content).to_html(<span class="symbol">:smart</span>,<span class="symbol">:mathjax</span>,<span class="symbol">:<span class="string">'email-obfuscation'</span></span> =&gt; <span class="symbol">:javascript</span>)</div><div class="line">        converter</div><div class="line">      <span class="keyword">end</span> <span class="comment">#self.convert</span></div><div class="line"></div><div class="line">    <span class="keyword">end</span> <span class="comment"># Textile</span></div><div class="line">    </div><div class="line">    <span class="class"><span class="keyword">module</span> <span class="title">RST</span></span></div><div class="line"></div><div class="line">      <span class="function"><span class="keyword">def</span> </span><span class="keyword">self</span>.extensions</div><div class="line">        [<span class="string">'.rst'</span>]</div><div class="line">      <span class="keyword">end</span> <span class="comment">#self.extensions</span></div><div class="line"></div><div class="line">      <span class="function"><span class="keyword">def</span> </span><span class="keyword">self</span>.convert(content)</div><div class="line">        converter = <span class="constant">PandocRuby</span>.new(content).to_html(<span class="symbol">:smart</span>,<span class="symbol">:mathjax</span>,<span class="symbol">:<span class="string">'email-obfuscation'</span></span> =&gt; <span class="symbol">:javascript</span>)</div><div class="line">        converter</div><div class="line">      <span class="keyword">end</span> <span class="comment">#self.convert</span></div><div class="line"></div><div class="line">    <span class="keyword">end</span> <span class="comment"># RST</span></div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">module</span> <span class="title">Html</span></span></div><div class="line">      <span class="function"><span class="keyword">def</span> </span><span class="keyword">self</span>.extensions</div><div class="line">        [<span class="string">'.htm'</span>, <span class="string">'.html'</span>]</div><div class="line">      <span class="keyword">end</span></div><div class="line">      <span class="function"><span class="keyword">def</span> </span><span class="keyword">self</span>.convert(content)</div><div class="line">        content</div><div class="line">      <span class="keyword">end</span> </div><div class="line">    <span class="keyword">end</span> <span class="comment"># Html</span></div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">end</span> <span class="comment"># Converter</span></div><div class="line">  </div><div class="line"></div><div class="line"><span class="keyword">end</span> <span class="comment"># Ruhoh</span></div></pre></td></tr></table></figure></p>
+<p>重写后的 Converter 可以支持使用 Pandoc-Markdown、Textile、reStructuredText 等几种主流的格式来编写博文。与原来的 Markdown 相比强大多了 <span class="margin-note-marker"><sup>1</sup></span> 。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span> 考虑到以后 Markdown 可能会推出更加完善的标准，我也会尽量少用到 Pandoc-Markdown 的特殊标记。以保持向上兼容。</span></span></span></p>
+<h3 id="显示公式">显示公式</h3>
+<p>要在文章中显示公式，MathJax 依然是最优雅的方案。不过这一块也让我折腾了不少时间。鉴于 Pandoc 本身就支持生成 MathJax ，我一开始的想法是在转换器里添加 <code>--mathjax</code> 选项，但发现即使这样做还是不能渲染出公式。后来看了一下 Pandoc 的文档，试着加上 <code>-s</code> 选项为页面添加单独的头部信息就可以显示出公式了。但这样的做法又会使得文章出现了两处头部信息，显得很 ugly。最终我还是回到 Widget 的方案，手动实现了一个 MathJax 的 Widget，然后在 layouts 中引进来：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">version: 'latest'</div><div class="line">style: 'TeX-AMS-MML_HTMLorMML'</div><div class="line">---</div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/x-mathjax-config"</span>&gt;</span><span class="javascript"></span></div><div class="line">        MathJax.Hub.Config({</div><div class="line">            tex2jax: {</div><div class="line">                inlineMath: [[<span class="string">"\\("</span>, <span class="string">"\\)"</span>]],</div><div class="line">                displayMath: [[<span class="string">"\\["</span>, <span class="string">"\\]"</span>]]</div><div class="line">            }</div><div class="line">        });</div><div class="line">    <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span></span></div><div class="line">          <span class="attribute">src</span>=<span class="value">"http://cdn.mathjax.org/mathjax//MathJax.js?config="</span>&gt;<span class="javascript"></span></div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>这样，公式的插入就很很轻松了：</p>
+<ol>
+<li>对于 Markdown，行内公式的格式是 <code>$公式$</code> ，居中公式的格式是 <code>$$公式$$</code>；</li>
+<li>对于 restructedText，行内公式的格式是 <code>:math:公式</code>，居中公式的格式是 <code>..math::公式</code>；</li>
+<li>Textile 的公式插入比较蛋疼，因为 Pandoc 对 Textile 并没有完全支持，所以只好用 <code>&lt;notextile&gt;$公式$&lt;/notextile&gt;</code> 或者 <code>&lt;notextile&gt;$$公式$$&lt;/notextile&gt;</code> 来转义。</li>
+</ol>
+<p>在实际测试中，我发现 Pandoc 的 <code>--mathjax</code> 选项并不是一无是处的，因为它可以检测当前文档中是否有公式的标记，而决定是否在这一页加载 MathJax 脚本！这样就不会影响到没有公式的文章的加载速度了。</p>
+<h3 id="语法高亮">语法高亮</h3>
+<p>ruhoh 自己已经默认集成了 google_prettify 作为语法高亮的插件，但我在使用 ruhoh 2.1.1 版本的时候始终弄不出来高亮效果，后来看 ruhoh 的源码发现这是一个bug：在 ruhoh.rb 项目里有人提出将 google_prettify 移动到一个子目录里，相当于对它降了级，将它作为一个可选的高亮插件，以方便更换其他高亮插件，具体见 <a href="https://github.com/ruhoh/ruhoh.rb/commit/fdeff636da2ec2deb3ce239651c2e52da7883df7#system/widgets" target="_blank" rel="external">这个commit</a> 。但这个建议被采纳后随即引来了一个问题：原来的 <code>config.yml</code> 和 <code>layouts/default.html</code> 两个文件中对 google_prettify 的引用信息没有更新，致使 ruhoh 找不到被移动了位置的 google_prettify 插件。于是我就向 ruhoh 项目报了这个 bug ，作者 <a href="https://github.com/plusjade" target="_blank" rel="external">@plusjade</a> 很快就确认了这个问题，并且恢复了 google_prettify 的默认地位。现在这个 bug 在 ruhoh 2.2 里已经解决。不过这个解决方式并不彻底：plusjade 只是恢复了 google_prettify 作为默认的插件的设置，但实际上 <code>config.yml</code> 和 <code>layouts/default.html</code> 中对 google_prettify 的引用仍然是有问题的。我已经再次向该项目发了一个 <a href="https://github.com/ruhoh/blog/pull/13" target="_blank" rel="external">pull request</a> ，建议使用我的修改。</p>
+<h3 id="个性化">个性化</h3>
+<p>ruhoh 自带的主题比较单调。要想自己的主页更有个性一些，还是得手动调整一番。最理想的状态当然是找到个现有的主题，省的自己折腾。可惜，目前为止我所能搜索到的第三方主题都是基于 ruhoh 1.x 的。而 ruhoh 升级到2.0后就宣布不再兼容1.x版本的主题了 <code>--bb</code>。于是我只好动手。不得不赞一下 twitter-bootstrap ，真是很好很强大，让像我这种没有美工基础的 nerd 也可以做出很好看的页面。</p>
+<p>因为非常喜欢 pluskid 的页面布局，所以我的主题在很大程度上借鉴了他的样式 <span class="margin-note-marker"><sup>2</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">2</span>为了表示感谢，我在 footer 处加上了 <q>theme inspired by pluskid</q> </span></span></span>
+，当然也加上了自己的一些调整。我的博客主题可以在 <a href="https://github.com/wzpan/blog/tree/master/freemind" target="_blank" rel="external">这里</a> 找到。</p>
+<h3 id="rss">RSS</h3>
+<p>之前听说 ruhoh 生成 RSS 会有一堆没用的信息，但这个问题在 ruhoh 2.0 开始已经被解决了。但为了生成一个正确的 rss，首先你得在 <code>config.yml</code> 里设置好。比如你的文章基本都放在 posts 这个 collection 里，那么你就应该在 posts 那一部分将 rss 的 enable 选项设为 <code>true</code> 。千万不要把 _root 那一部分的 <code>rss</code> 选项开启。这样生成的 <code>rss.xml</code> 文件就只有标题和正文，而不会有其他无关的信息。文件存放在 <code>posts/rss.xml</code> 目录下。如果使用其他的 collection，同样使用类似的设置即可。</p>
+<h3 id="自动刷新">自动刷新</h3>
+<p>虽然 ruhoh 提供了预览的能力，但并不能实时预览用户的修改，这样就达不到所见即所得。最好的方式就是一边写文章，一边就能在另一个窗口里看到效果。为此，pluskid在他的文章里推荐使用 <a href="https://github.com/guard/guard-livereload" target="_blank" rel="external">guard-livereload</a> 来实现这个效果。试了一下，体验很好呀。这个小工具的原理也很简单，就是执行一个监听器，监听用户指定的文件，一旦检测到有文件发生改动，就向浏览器发送刷新指令。监听器就是 <a href="https://github.com/guard/guard" target="_blank" rel="external">Guard</a> ，负责发送刷新指令的就是 livereload。</p>
+<p>配置的过程也很简单，先安装好 Guard，然后安装 livereload。接收到刷新后还得让浏览器执行刷新指令，因为是 Chrome 的 heavy user，我选择了安装相应的 <a href="http://feedback.livereload.com/knowledgebase/articles/86242-how-do-i-install-and-use-the-browser-extensions-" target="_blank" rel="external">Chrome 插件</a> 来帮我完成刷新。你也可以根据你的需求选择 Safari/Firefox 的对应插件，或者直接使用 <a href="https://github.com/johnbintz/rack-livereload" target="_blank" rel="external">rack-livereload</a> 。安装完成后，进入博客目录，然后执行下面的命令：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>guard init livereload</div></pre></td></tr></table></figure></p>
+<p>将启动 Guard 监听器，同时会在当前目录下创建一个 <code>Guardfile</code> 文件。将里面的内容修改如下：</p>
+<p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># A sample Guardfile</span></div><div class="line"><span class="comment"># More info at https://github.com/guard/guard#readme</span></div><div class="line">guard <span class="string">'livereload'</span> <span class="keyword">do</span></div><div class="line">  watch(<span class="regexp">%r{\.(yml|ru)}</span>)</div><div class="line">  watch(<span class="regexp">%r{_root/.+\.(html|md)}</span>)</div><div class="line">  watch(<span class="regexp">%r{widgets/.+\.(html|md)}</span>)</div><div class="line">  watch(<span class="regexp">%r{posts/.+\.(md|textile|markdown|rst)}</span>)</div><div class="line">  <span class="comment"># Rails Assets Pipeline</span></div><div class="line">  watch(<span class="regexp">%r{(app|vendor)(/assets/\w+/(.+\.(css|js|html))).*}</span>) { |m| <span class="string">"/assets/<span class="subst">#{m[<span class="number">3</span>]}</span>"</span> }</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure></p>
+<p>根据需要还可以继续添加规则，比如如果要监测 wiki 目录下的文件，可以添加下面这行：</p>
+<p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">watch(<span class="regexp">%r{wiki/.+\.(md|textile|markdown|rst)}</span>)</div></pre></td></tr></table></figure></p>
+<p>完成后就可以在你的修改文章后自动刷新页面了。特别适合像我一样拥有两个显示器的人，可以用一个显示器编写文章，用另一个显示器直接预览效果。进一步提高写博客的效率。</p>
+<h2 id="其他技巧">其他技巧</h2>
+<p>因为使用 bundle 安装方式，ruhoh 的命令都变得好长，做什么都要在前面敲上长长的 <code>bundle exec</code> ，这点的确有点泯灭人性啊！作为一个热爱偷懒的人，当然是不允许这样的情况存在的。</p>
+<h3 id="设置-alias">设置 alias</h3>
+<p>首先先设置 alias ，将常用的几条命令用最简单的命令名称来替代。将这段文本加到终端配置文件里，如果用的是 bash，就加到 <code>~/.bashrc</code> ，如果用的是 zshell，就加到 <code>~/.zshrc</code> 里。</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">export <span class="constant">RUHOH</span>=<span class="regexp">/home/ehome</span><span class="regexp">/Documents/blog</span></div><div class="line">export <span class="constant">PUBLISH</span>=<span class="regexp">/home/ehome</span><span class="regexp">/Documents/wzpan</span>.github.io</div><div class="line"><span class="keyword">alias</span> _rp=<span class="string">'cd $RUHOH && bundle exec rackup -p 9294'</span></div><div class="line"><span class="keyword">alias</span> _gd=<span class="string">'cd $RUHOH && guard'</span></div><div class="line"><span class="keyword">alias</span> _dft=<span class="string">'cd $RUHOH && bundle exec ruhoh posts draft'</span> <span class="comment"># 快速添加草稿</span></div><div class="line"><span class="keyword">alias</span> _tp=<span class="string">'cd $RUHOH && bundle exec ruhoh posts titleize'</span> <span class="comment"># 快速为草稿文件命名</span></div></pre></td></tr></table></figure></p>
+<p>其中注意将 <code>$RUHOH</code> 和 <code>PUBLISH</code> 两个环境变量更改为你机器上对应的博客源文件仓库和存放编译后的页面的仓库。</p>
+<h3 id="交互式更新">交互式更新</h3>
+<p>因为使用 Github Page 服务来托管我的网站，每次 compile 后我还得手动将我的改动提交到 Github 上，才能在网站上看到最新的修改。为了进一步简化这个过程，我编写了一个 shell 脚本用于完成一系列编译和交互式更新的任务：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/zsh</span></div><div class="line"><span class="built_in">cd</span> <span class="variable">$RUHOH</span></div><div class="line">rm -r compiled</div><div class="line">bundle <span class="keyword">exec</span> ruhoh compile</div><div class="line"><span class="built_in">cd</span> -</div><div class="line"><span class="built_in">echo</span> -n <span class="string">"Copy the compiled result to your site repo?[y/n]"</span></div><div class="line"><span class="built_in">read</span> copy_yn</div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$copy_yn</span>"</span> = <span class="string">"y"</span> ]; <span class="keyword">then</span></div><div class="line">        cp -av <span class="variable">$RUHOH</span>/compiled/* <span class="variable">$PUBLISH</span>/</div><div class="line">        <span class="built_in">echo</span> -n <span class="string">"Update your site repo?[y/n]"</span></div><div class="line">        <span class="built_in">read</span> update_site_yn</div><div class="line">        <span class="keyword">case</span> <span class="string">"<span class="variable">$update_site_yn</span>"</span> <span class="keyword">in</span></div><div class="line">            y )</div><div class="line">                <span class="built_in">cd</span> <span class="variable">$PUBLISH</span></div><div class="line">                git add --all</div><div class="line">                <span class="built_in">echo</span> -n <span class="string">"Please enter commit message:"</span></div><div class="line">                <span class="built_in">read</span> commit_message</div><div class="line">                git commit -m <span class="variable">$commit_message</span></div><div class="line">                git push</div><div class="line">                <span class="built_in">cd</span> -</div><div class="line">                <span class="built_in">echo</span> <span class="string">"Congrats! The site repo has been updated"</span></div><div class="line">                ;;</div><div class="line">            n )</div><div class="line">                <span class="built_in">echo</span> <span class="string">"Don't copy them this time."</span></div><div class="line">                ;;</div><div class="line">            *)</div><div class="line">                <span class="built_in">echo</span> <span class="string">"Please enter y or n."</span></div><div class="line">                <span class="keyword">exit</span> <span class="number">1</span></div><div class="line">                ;;</div><div class="line">        <span class="keyword">esac</span></div><div class="line"><span class="keyword">elif</span> [ <span class="string">"<span class="variable">$copy_yn</span>"</span> = <span class="string">"n"</span> ]; <span class="keyword">then</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"Don't copy them this time."</span></div><div class="line"><span class="keyword">else</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"Please enter y or n."</span></div><div class="line">        <span class="keyword">exit</span> <span class="number">1</span></div><div class="line"><span class="keyword">fi</span>    </div><div class="line"><span class="built_in">echo</span> <span class="string">"Update your blog repo?(y/n)"</span></div><div class="line"><span class="built_in">read</span> update_blog_yn</div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$update_blog_yn</span>"</span> = <span class="string">"y"</span> ]; <span class="keyword">then</span></div><div class="line">        <span class="built_in">cd</span> <span class="variable">$RUHOH</span></div><div class="line">        git add --all</div><div class="line">        git commit -m <span class="variable">$commit_message</span></div><div class="line">        git push</div><div class="line">        <span class="built_in">cd</span> -</div><div class="line">        <span class="built_in">echo</span> <span class="string">"Congrats! The blog repo has been updated"</span></div><div class="line"><span class="keyword">elif</span> [ <span class="string">"<span class="variable">$update_blog_yn</span>"</span> = <span class="string">"n"</span> ]; <span class="keyword">then</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"Don't update the blog repo this time."</span></div><div class="line"><span class="keyword">else</span></div><div class="line">        <span class="built_in">echo</span> <span class="string">"Please enter y or n."</span></div><div class="line">        <span class="keyword">exit</span> <span class="number">1</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"All done!"</span></div><div class="line"><span class="keyword">exit</span> <span class="number">0</span></div></pre></td></tr></table></figure></p>
+<p>建议将上述脚本保存为 <code>~/ruhoh_compile</code> ，并执行下面的命令将之设为可执行：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ chmod +x ~/ruhoh_compile <span class="comment"># 需要 root 权限</span></div></pre></td></tr></table></figure></p>
+<p>然后，可以将这个命令追加到 alias 设置中：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alias</span> _cp=<span class="string">'ruhoh_compile'</span> <span class="comment"># 编译和交互式更新</span></div></pre></td></tr></table></figure></p>
+<p>这样，每次要编译只需要执行 <code>_cp</code> 指令，系统会自动完成编译工作，并询问是否将更新提交到远程仓库，根据情况回答 y/n 即可。</p>
+<h2 id="总结">总结</h2>
+<p>总的感觉，ruhoh 的定制性的确很强，逻辑视图也比较清晰，不过因为对 Mustache 不太熟悉，暂时还不能很自如的编写模块来实现其他一些想法。比如 Octopress 提供了简单的方法来方便的插入 gist 上的代码片段，但在 ruhoh 中这个功能暂时没有实现。虽然作者在 1.x 的时候就信誓旦旦地说要实现这个功能（见<a href="http://ruhoh.com/docs/1/create/#toc_17" target="_blank" rel="external">1.0的文档</a>），但到了 2.0 的时候还是没有实现它，而且作者索性把这个想法都从 2.0 的文档里删掉了<code>--bb</code> 。只能期待作者能够在未来的版本中提供更加丰富的模板功能，还有最重要的：一份更加清晰的文档 <span class="margin-note-marker"><sup>3</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">3</span>在软件开发过程中，文档的滞后性真是一件残酷的事实。文档总是跟不上最新的改动，这点在 ruhoh 项目也可见一斑。比如现在 ruhoh 已经更新到 2.2 了，官方的文档还停留在 2.1 。</span></span></span>。</p>
+<p>最后罗列一下经过定制后，我经常用到的命令：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>_rp <span class="comment"># 启动ruhoh服务器</span></div><div class="line"><span class="variable">$ </span>_gd <span class="comment"># 开始监听改动</span></div><div class="line"><span class="variable">$ </span>_dft <span class="comment"># 快速添加草稿</span></div><div class="line"><span class="variable">$ </span>_tp <span class="comment"># 快速为草稿命名</span></div><div class="line"><span class="variable">$ </span>_cp <span class="comment"># 编译和交互式更新</span></div></pre></td></tr></table></figure></p>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/codes/handout-with-script/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/life/evogeo-video/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage', 2, 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Jun 2 2013 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/codes/">codes<span>30</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/ruhoh/">ruhoh<span>3</span></a></li> <li><a data-pjax href="/tags/ruby/">ruby<span>1</span></a></li> <li><a data-pjax href="/tags/LiveReload/">LiveReload<span>2</span></a></li> <li><a data-pjax href="/tags/HaHack/">HaHack<span>3</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

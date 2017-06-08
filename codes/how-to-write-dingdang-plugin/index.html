@@ -1,0 +1,445 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>手把手教你编写叮当机器人插件 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="介绍如何给叮当机器人开发插件，实现天气问答功能，并发布到 dingdang-contrib 。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="手把手教你编写叮当机器人插件"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 手把手教你编写叮当机器人插件</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>介绍如何给叮当机器人开发插件，实现天气问答功能，并发布到 dingdang-contrib 。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<p><a href="http://hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">叮当</a> 是一款可以工作在 Raspberry Pi 上的开源中文语音对话机器人/智能音箱项目，目的是让中国的Hacker们也能快速打造类似 Amazon Echo 的个性化的智能音箱。</p>
+<p>由于叮当是完全开源的，编写插件来满足自己的个性化需求就成了使用叮当的最大乐趣。您可以自由地接入自己需要的服务，让叮当更好的为您服务。</p>
+<p>这篇文章将一步步教你如何编写一个天气插件，并最终发布到 dingdang-contrib 中。</p>
+<p>交互示例：</p>
+<ul>
+<li>用户：天气</li>
+<li>叮当：深圳天气。今天：晴。最高气温：25～30摄氏度；明天：晴。26～31摄氏度；后天：小雨。最高气温：23～29摄氏度。</li>
+</ul>
+<a id="more"></a>
+<h2 id="准备工作">准备工作</h2>
+<h3 id="安装-dingdang-contrib">安装 dingdang-contrib</h3>
+<p>首先需要确保您已安装了叮当的第三方插件库 <a href="https://github.com/dingdang-robot/dingdang-contrib" target="_blank" rel="external">dingdang-contrib</a> ：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> /home/pi/.dingdang</div><div class="line">git clone http://github.com/wzpan/dingdang-contrib contrib</div><div class="line">pip install -r contrib/requirements.txt</div><div class="line"><span class="built_in">sudo</span> apt-get install sox  <span class="comment"># 用于播放音乐</span></div><div class="line"><span class="built_in">sudo</span> apt-get install libsox-fmt-mp3 <span class="comment"># 添加 sox 的 mp3 格式支持</span></div></pre></td></tr></table></figure></p>
+<p>接下来可以在这个插件库中开发您的插件。</p>
+<h3 id="了解天气-api">了解天气 API</h3>
+<p>要实现天气预报功能，少不了要了解一下天气 API 。通过搜索，我找到了一款免费的天气 API —— <a href="https://www.seniverse.com/" target="_blank" rel="external">心知天气</a> 。心知天气提供了天气、空气质量、生活指数等多种数据信息。其中<a href="https://www.seniverse.com/doc#daily" target="_blank" rel="external">逐日天气预报</a>是免费的，可以利用来实现天气预报查询插件。</p>
+<p>选择心知天气的另一个理由是他们的 API 文档非常详细，还提供了多种语言的 <a href="https://github.com/seniverse/seniverse-api-demos" target="_blank" rel="external">demo</a> <span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>连 common-lisp 都有，点个赞！ </span></span></span> 。下面是官方提供的一个 Python 版的示例：</p>
+<p><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">from</span> utils.const_value <span class="keyword">import</span> API, KEY, UNIT, LANGUAGE</div><div class="line"><span class="keyword">from</span> utils.helper <span class="keyword">import</span> getLocation</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fetchWeather</span><span class="params">(location)</span>:</span></div><div class="line">    result = requests.get(API, params={</div><div class="line">        <span class="string">'key'</span>: KEY,</div><div class="line">        <span class="string">'location'</span>: location,</div><div class="line">        <span class="string">'language'</span>: LANGUAGE,</div><div class="line">        <span class="string">'unit'</span>: UNIT</div><div class="line">    }, timeout=<span class="number">1</span>)</div><div class="line">    <span class="keyword">return</span> result.text</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    location = getLocation()</div><div class="line">    result = fetchWeather(location)</div><div class="line">    print(result)</div></pre></td></tr></table></figure></p>
+<p>其中，<code>API</code> 是 API 的地址，逐日天气预报的 API 地址是 <a href="https://api.seniverse.com/v3/weather/daily.json" target="_blank" rel="external">https://api.seniverse.com/v3/weather/daily.json</a> ；<code>KEY</code> 则是心知天气的 API 密钥，每个注册账户都可以得到一个密钥；<code>location</code> 是城市名，例如深圳就是 <code>深圳</code> 或者 <code>shenzhen</code>；而 <code>language</code> 和 <code>unit</code> 分别表示语言和单位，由于是可选参数，这里不做详细介绍。有兴趣的朋友请阅读官方文档。</p>
+<p>整段代码也没有什么特别好说的：先是定义了一个 <code>fetchWeather</code> 函数，该函数使用 requests 模块发起 API 请求，请求超时设置为 1 秒。之后调用这个函数并打印返回的结果。</p>
+<h2 id="编写天气插件">编写天气插件</h2>
+<p>了解了心知天气的 API 后，编写插件就是一件水到渠成的事情了。</p>
+<p>编写插件主要要考虑以下几个问题：</p>
+<ul>
+<li>插件应该使用哪些关键词作为用户指令？</li>
+<li>需要暴露哪些配置项？</li>
+<li>如何处理用户的输入并得到需要的信息？</li>
+</ul>
+<p>下面我们将在编写这个插件的过程中解决这些问题。</p>
+<h3 id="新建插件文件">新建插件文件</h3>
+<p>首先在 <code>~/.dingdang/contrib</code> 中创建一个新的文件 <a href="http://Weather.py" target="_blank" rel="external">Weather.py</a> ：</p>
+<p><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8-*-                                                                                                                                                         # 天气插件</span></div><div class="line"><span class="keyword">import</span> sys</div><div class="line"></div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(<span class="string">'utf8'</span>)</div><div class="line"></div><div class="line"><span class="comment"># Standard module stuff                                                                                                                                                        WORDS = []</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle</span><span class="params">(text, mic, profile, wxbot=None)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    Responds to user-input, typically speech text</div><div class="line">    Arguments:</div><div class="line">        text -- user-input, typically transcribed speech</div><div class="line">        mic -- used to interact with the user (for both input and output)</div><div class="line">        profile -- contains information related to the user (e.g., phone</div><div class="line">        number)</div><div class="line">        wxbot -- wechat bot instance</div><div class="line">    """</div><div class="line">    <span class="keyword">pass</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(text)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">        Returns True if the input is related to weather.</div><div class="line">        Arguments:</div><div class="line">        text -- user-input, typically transcribed speech</div><div class="line">    """</div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure></p>
+<p>这个是插件的模板文件。一个标准的插件至少包含 <code>WORDS</code>，<code>isValid</code> 函数和 <code>handle</code> 函数三个部分。下面将一一介绍。</p>
+<h3 id="关键词设置">关键词设置</h3>
+<p><code>WORDS</code> 是一个关键词列表，用于存储这个插件的指令关键词（的拼音）。当 Active Listening 的 SST 引擎设置成离线引擎时，这里设置的关键词会被自动添加到 PocketSphinx 的语音指令集中，从而使得 PocketSphinx 能识别出这个指令。</p>
+<p><code>WORDS</code> 的另一个作用是作为是否插件的判断标准。如果 contrib 目录中的某个 <code>.py</code> 文件没有 <code>WORDS</code> 变量，那么这个文件就会被当成无效插件，而不会响应它。</p>
+<p>与关键词有关的还有 <code>isValid</code> 函数，该函数用于判断用户输入的指令是否要用这个插件来处理。如果 <code>isValid</code> 返回结果为 <code>true</code> ，<code>handle</code> 函数就会被调用，以处理指令。对于天气插件，关键词可以设置为天气，即只要包含“天气”的输入都使用本插件做处理。因此，可以将 <code>WORDS</code> 和 <code>isValid</code> 函数改写成：</p>
+<p><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">...</div><div class="line"></div><div class="line">WORDS = [<span class="string">"TIANQI"</span>]</div><div class="line"></div><div class="line">...</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(text)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">        Returns True if the input is related to weather.</div><div class="line">        Arguments:</div><div class="line">        text -- user-input, typically transcribed speech</div><div class="line">    """</div><div class="line">    <span class="keyword">return</span> <span class="string">u"天气"</span> <span class="keyword">in</span> text</div></pre></td></tr></table></figure></p>
+<h3 id="handle-函数实现">handle 函数实现</h3>
+<p>接下来需要实现 <code>handle()</code> 函数。</p>
+<p><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle</span><span class="params">(text, mic, profile, wxbot=None)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    Responds to user-input, typically speech text</div><div class="line">    Arguments:</div><div class="line">        text -- user-input, typically transcribed speech</div><div class="line">        mic -- used to interact with the user (for both input and output)</div><div class="line">        profile -- contains information related to the user (e.g., phone</div><div class="line">        number)</div><div class="line">        wxbot -- wechat bot instance</div><div class="line">    """</div><div class="line">    <span class="keyword">pass</span></div></pre></td></tr></table></figure></p>
+<p>这个函数接收四个参数：</p>
+<ul>
+<li><code>text</code> 是STT识别到的用户指令；</li>
+<li><code>mic</code> 是麦克风和喇叭模块，最常用的是通过调用 <code>mic.say()</code> 函数来让喇叭说话；</li>
+<li><code>profile</code> 是用户配置信息，它是一个字典，记录了 <code>~/.dingdang/profile.yml</code> 的全部内容；</li>
+<li><code>wxbot</code> 是一个微信机器人实例，可以利用它给用户发送微信消息。<a href="">Camera</a> 插件提供了通过微信发送照片给用户的例子。</li>
+</ul>
+<p>我们可以把心知的 Demo 给出的 <code>fetchWeather</code> 函数做一点调整，放进代码中方便复用：</p>
+<p><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">fetch_weather</span><span class="params">(api, key, location)</span>:</span></div><div class="line">    result = requests.get(api, params={</div><div class="line">    <span class="string">'key'</span>: key,</div><div class="line">        <span class="string">'location'</span>: location</div><div class="line">    }, timeout=<span class="number">3</span>)</div><div class="line">    res = json.loads(result.text, encoding=<span class="string">'utf-8'</span>)</div><div class="line">    <span class="keyword">return</span> res</div></pre></td></tr></table></figure></p>
+<p>显然，<code>KEY</code> 和 <code>location</code> 应该作为用户的配置项，允许用户在配置文件中进行设置。因此我们可以在 profile.yml 配置文件中添加如下配置：</p>
+<p><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor"># 天气</span></div><div class="line"><span class="preprocessor"># 使用心知天气的接口</span></div><div class="line"><span class="preprocessor"># https://www.seniverse.com/</span></div><div class="line">weather:</div><div class="line">    key: <span class="string">'etxzx9abupxplhic'</span> # 心知天气<span class="constant"> API </span>Key</div><div class="line">    location: <span class="string">'深圳'</span></div></pre></td></tr></table></figure></p>
+<p>接下来在 <code>handle</code> 函数中调用 <code>fetch_weather</code> 函数，得到天气信息：</p>
+<p><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle</span><span class="params">(text, mic, profile, wxbot=None)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    Responds to user-input, typically speech text</div><div class="line">    Arguments:</div><div class="line">        text -- user-input, typically transcribed speech</div><div class="line">        mic -- used to interact with the user (for both input and output)</div><div class="line">        profile -- contains information related to the user (e.g., phone</div><div class="line">        number)</div><div class="line">        wxbot -- wechat bot instance</div><div class="line">    """</div><div class="line">    logger = logging.getLogger(__name__)</div><div class="line">    <span class="comment"># get config                                                                                                                                                                   if 'weather' not in profile or \</span></div><div class="line">       <span class="keyword">not</span> profile[<span class="string">'weather'</span>].has_key(<span class="string">'key'</span>) <span class="keyword">or</span> \</div><div class="line">       <span class="keyword">not</span> profile[<span class="string">'weather'</span>].has_key(<span class="string">'location'</span>):</div><div class="line">        mic.say(<span class="string">'天气插件配置有误，插件使用失败'</span>)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    key = profile[<span class="string">'weather'</span>][<span class="string">'key'</span>]</div><div class="line">    location = profile[<span class="string">'weather'</span>][<span class="string">'location'</span>]</div><div class="line">    WEATHER_API = <span class="string">'https://api.seniverse.com/v3/weather/daily.json'</span></div><div class="line">    <span class="keyword">try</span>:</div><div class="line">        weather = fetch_weather(WEATHER_API, key, location)</div><div class="line">        logger.debug(<span class="string">"Weather report: "</span>, weather)</div><div class="line">        <span class="keyword">if</span> weather.has_key(<span class="string">'results'</span>):</div><div class="line">            daily = weather[<span class="string">'results'</span>][<span class="number">0</span>][<span class="string">'daily'</span>]</div><div class="line">            day_text = [<span class="string">u'今天'</span>, <span class="string">u'明天'</span>, <span class="string">u'后天'</span>]</div><div class="line">            responds = <span class="string">u'%s天气：'</span> % location</div><div class="line">            <span class="keyword">for</span> day <span class="keyword">in</span> range(len(day_text)):</div><div class="line">                responds += <span class="string">u'%s：%s，%s到%s摄氏度。'</span> % (day_text[day], daily[day][<span class="string">'text_day'</span>], daily[day][<span class="string">'low'</span>], daily[day][<span class="string">'high'</span>])</div><div class="line">            mic.say(responds)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            mic.say(<span class="string">'抱歉，我获取不到天气数据，请稍后再试'</span>)</div><div class="line">    <span class="keyword">except</span> Exception, e:</div><div class="line">        logger.error(e)</div><div class="line">        mic.say(<span class="string">'抱歉，我获取不到天气数据，请稍后再试'</span>)</div></pre></td></tr></table></figure></p>
+<p>完成后，可以重启下叮当，看看插件是否能正常工作。</p>
+<h2 id="发布插件">发布插件</h2>
+<p>插件正常工作后，可以将该插件发布到 <a href="https://github.com/dingdang-robot/dingdang-contrib" target="_blank" rel="external">dingdang-contrib</a> ，让更多人用上您的插件。</p>
+<p>首先先访问 <a href="https://github.com/dingdang-robot/dingdang-contrib" target="_blank" rel="external">dingdang-contrib 的 Github 主页</a> ，点击右上角的 【fork】 按钮，将仓库 fork 到自己的账户。如果之前已经 fork 过，这一步可以跳过。</p>
+<p>fork 完仓库后，在您的账户下也会有一个 dingdang-contrib 项目，点击绿色的 【Clone or download】 按钮，记下新的仓库的地址。</p>
+<p><img src="/images/how-to-write-dingdang-plugin/fork-repo.png" alt="复制新的仓库地址"></p>
+<p>之后在树莓派中执行如下命令，添加新的仓库地址：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> ~/.dingdang/contrib</div><div class="line">git remote add mine 新的仓库地址</div></pre></td></tr></table></figure></p>
+<p>将新建的插件提交推送到您的 dingdang-contrib 仓库中：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add Weather.py</div><div class="line">git commit -m <span class="string">"新增天气插件"</span></div><div class="line">git push -u mine master</div></pre></td></tr></table></figure></p>
+<p>完成后访问您的 dingdang-contrib 仓库主页，可以看到一个创建 pull request 的提示：</p>
+<p><img src="/images/how-to-write-dingdang-plugin/pull-request-hint.png" alt="创建pull request的提示"></p>
+<p>点击 【compare and pull request】 按钮，进入 pull request 创建页面，申请将您的改动合并到 dingdang-contrib 项目中：</p>
+<p><img src="/images/how-to-write-dingdang-plugin/pull-request.png" alt="创建一个 pull request"></p>
+<p>在里头认真填写插件的用途、使用示例和配置项。完成后点击 【Create pull requset】 ，完成创建，等待 <a href="https://github.com/dingdang-robot" target="_blank" rel="external">dingdang-robot</a> 组织的审核。</p>
+<p><img src="/images/how-to-write-dingdang-plugin/pull-request-created.png" alt="创建一个 pull request"></p>
+<p>一旦审核通过，您的插件就发布成功了。</p>
+<p>为了让更多人了解您的插件的用途，还应该到 <a href="https://github.com/dingdang-robot/dingdang-contrib/wiki" target="_blank" rel="external">dingdang-contrib 的 Wiki</a> 中添加该插件的用途。先在首页中增加一条插件记录：</p>
+<p><img src="/images/how-to-write-dingdang-plugin/wiki-home-edit.png" alt="增加插件记录"></p>
+<p>完成后首页就增加了您创建的插件的记录：</p>
+<p><img src="/images/how-to-write-dingdang-plugin/wiki-home.png" alt="增加插件记录"></p>
+<p>点击该插件的链接，进入插件详情页创建页面，填入和刚刚创建 pull request 时相同的内容，即插件的用途、使用示例和配置项即可（也可以根据需求增加更多信息）。</p>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+        
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/codes/dingdang-robot-intro/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	May 28 2017 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/codes/">codes<span>30</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/dingdang/">dingdang<span>2</span></a></li> <li><a data-pjax href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

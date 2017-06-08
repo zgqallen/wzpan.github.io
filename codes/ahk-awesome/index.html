@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Awesome Emulator for Windows Using AutoHotKey | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="介绍如何在Windows下利用AutoHotKey打造接近Awesome窗口管理器的体验。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Awesome Emulator for Windows Using AutoHotKey"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> Awesome Emulator for Windows Using AutoHotKey</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>介绍如何在Windows下利用AutoHotKey打造接近Awesome窗口管理器的体验。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<p>我从去年开始使用 <a href="/tools/awesome">Awesome</a> 作为桌面管理器，现在已经成了 Awesome 的中毒用户。以往的窗口管理器在快捷键的设置上太过分散，时而要用到 <code>Alt</code> 和最上排的功能键的组合，时而又要用到 <code>Win</code> 键的组合，记忆起来很困难。而 Awesome 的键位设置借鉴了 Vim 的操作方式，记忆起来容易得多。举个例子，切换窗口用的是 <code>Mod4+j</code> 和 <code>Mod4+k</code> 两个组合键，比起传统的 <code>Alt+Tab</code> 和 <code>Alt+Shift+Tab</code> 而言要好用很多（我相信还有不少用户不知道有 <code>Alt+Shift+Tab</code> 这个东西）。</p>
+<p>但这样的好处是有代价的。等我习惯了 Awesome 的快捷键之后，可怕的事情就来了：一旦我需要离开 Linux 到 Windows 下工作，我很难适应原先的快捷键。一个最常犯的错误就是，我总试图用 <code>Ctrl+Mod4+c</code> 来关闭窗口 <code>--bb</code>。</p>
+<p>既然感觉到别扭，那就要想办法去消除它，否则我很难在 Windows 下愉悦地工作（虽然用 Windows 的机会不多）。但是 Windows 毕竟是一家独大的产物，桌面管理器只有自带的可以选择，甚至连系统快捷键设置界面也欠奉。与之相比，Linux 要自由很多，拥有非常多的桌面环境和窗口管理器可供选择搭配，较为让人熟知的桌面环境就有KDE、GNome、Unity几个派系。<a id="more"></a></p>
+<p>尽管 Windows 不自带修改快捷键的功能，但借助于一个 Windows 下的神器 —— <a href="http://www.autohotkey.com/" target="_blank" rel="external">AutoHotKey</a> ，可以实现甚至更加强悍的功能。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/ahk-awesome/autohotkey.png" alt="autohotkey.png"><b>图 1</b> AutoHotKey</span></span></span> AutoHotKey 的体积只有 3M 左右，但是却非常强大。它是如此好用，以至于我在 Linux 下也希望找到类似的替代品。</p>
+<p>先列举一下经过定制后我常用的一些窗口快捷键：</p>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Win+j</td>
+<td>启动窗口切换条并切换到下一个窗口</td>
+</tr>
+<tr>
+<td>Win+k</td>
+<td>启动窗口切换条并切换到上一个窗口</td>
+</tr>
+<tr>
+<td>Win+Enter</td>
+<td>运行 cmd.exe</td>
+</tr>
+<tr>
+<td>Win+Space</td>
+<td>激活光标所在的窗口</td>
+</tr>
+<tr>
+<td>Ctrl+Win+t</td>
+<td>窗口置顶</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+→</td>
+<td>移动窗口到下一个屏幕</td>
+</tr>
+<tr>
+<td>Ctrl+Shift+←</td>
+<td>移动窗口到上一个屏幕</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+j</td>
+<td>移动光标到下一个屏幕</td>
+</tr>
+<tr>
+<td>Ctrl+Alt+k</td>
+<td>移动光标到上一个屏幕</td>
+</tr>
+</tbody>
+</table>
+<h2 id="具体实现">具体实现</h2>
+<h3 id="窗口切换">窗口切换</h3>
+<p>用其他键来模拟窗口的切换很简单，AutoHotKey已经实现了 <code>AltTab</code> 和 <code>ShiftAltTab</code> 两个动作<span class="margin-note-marker"><sup>1</sup></span><span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>注意这两个动作在 Win8 中已经失效。</span></span></span> ：</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="label">LWin & j::</span> AltTab</div><div class="line"><span class="label">LWin & k::</span> ShiftAltTab</div></pre></td></tr></table></figure></p>
+<p>但因为这两个动作封装得太厉害，我无法在这个基础上加入自动光标跟随的功能。为了让我切换窗口后光标跟随到最新激活的窗口，我只好重新实现一个用 <code>Win+Space</code> 触发的动作：</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="label">#Space::</span></div><div class="line">WinGetPos , , , Width, Height, <span class="literal">A</span></div><div class="line">MouseMove, (width/<span class="number">2</span>), (height/<span class="number">2</span>)</div><div class="line"><span class="keyword">return</span></div></pre></td></tr></table></figure></p>
+<p>在使用 <code>Win+j</code> 或 <code>Win+k</code> 切换窗口后，如果需要将光标移动到新的窗口，只需要按下 <code>Win+Space</code> ，则光标将移动到新的窗口的中心。</p>
+<p>相比之下，直接在现有的 <code>Alt+Tab</code> 快捷键上添加光标跟随要容易一些：</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="label">~!Tab::</span></div><div class="line">KeyWait, Alt</div><div class="line">KeyWait, Tab</div><div class="line">WinGetPos,x,y,width,height,<span class="literal">A</span></div><div class="line"><span class="keyword">While</span> (x &lt; <span class="number">0</span> <span class="literal">Or</span> y &lt; <span class="number">0</span>)</div><div class="line">{</div><div class="line">    Sleep,<span class="number">100</span></div><div class="line">    WinGetPos,x,y,width,height,<span class="literal">A</span></div><div class="line">    IfGreater,<span class="built_in">A_Index</span>,<span class="number">2</span>,<span class="keyword">Break</span></div><div class="line">}</div><div class="line">MouseMove, (width/<span class="number">2</span>), (height/<span class="number">2</span>)</div><div class="line"><span class="keyword">return</span></div></pre></td></tr></table></figure></p>
+<p>这样，每次我使用 <code>Alt+Tab</code> 切换窗口时，光标会自动移动到最新激活的窗口 <span class="margin-note-marker"><sup>2</sup></span>
+<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">2</span>将 <code>Alt+Tab</code> 和 <code>Win+j</code> 的功能区分开也有好处，这样我可以根据是否需要光标跟随来决定选择哪种窗口切换方式</span></span></span> 。</p>
+<h3 id="窗口置顶">窗口置顶</h3>
+<p>利用 AutoHotKey 的 <code>WinSet</code> 函数可以将窗口置顶。</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="label">^#t::</span> </div><div class="line">    WinSet, AlwaysOnTop, Toggle,<span class="literal">A</span> </div><div class="line"><span class="keyword">return</span></div></pre></td></tr></table></figure></p>
+<h3 id="多屏幕操作">多屏幕操作</h3>
+<p>Awesome的一个很棒的功能就是支持多个屏幕的窗口操作，例如将窗口从一个屏幕移动到另一个屏幕。利用 AutoHotKey 同样也可以实现类似的功能。</p>
+<p>对于屏幕间的窗口移动，一个可行的实现方法是先获取该窗口的坐标，如果要移动到上一个屏幕，就将该窗口的x坐标减去当前屏幕的宽度。如果要移动到下一个屏幕，就将该窗口的x坐标加上当前屏幕的宽度。但如果当前窗口处于最大化状态，直接相减可能会出问题，可以采取先恢复到正常大小，移动窗口后再最大化的策略：</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="label">^#left::</span> 			<span class="comment">; 移动窗口到上一个屏幕</span></div><div class="line">WinGet, mm, MinMax, <span class="literal">A</span> 		<span class="comment">; 判断当前窗口是否为最大化</span></div><div class="line">WinRestore, <span class="literal">A</span>  			<span class="comment">; 先恢复该窗口的大小</span></div><div class="line">WinGetPos, X, Y,,,<span class="literal">A</span> 		<span class="comment">; 获取该窗口的位置</span></div><div class="line">WinMove, <span class="literal">A</span>,, X-<span class="built_in">A_ScreenWidth</span>, Y <span class="comment">; 移动窗口</span></div><div class="line"><span class="keyword">if</span>(mm = <span class="number">1</span>){ 			<span class="comment">; 如果为最大化</span></div><div class="line">    WinMaximize, <span class="literal">A</span> </div><div class="line">} </div><div class="line"><span class="keyword">return</span></div><div class="line"></div><div class="line"><span class="label">^#right::</span> </div><div class="line">WinGet, mm, MinMax, <span class="literal">A</span> </div><div class="line">WinRestore, <span class="literal">A</span> </div><div class="line">WinGetPos, X, Y,,,<span class="literal">A</span> </div><div class="line">WinMove, <span class="literal">A</span>,, X+<span class="built_in">A_ScreenWidth</span>, Y</div><div class="line"><span class="keyword">if</span>(mm = <span class="number">1</span>){ </div><div class="line">    WinMaximize, <span class="literal">A</span> </div><div class="line">} </div><div class="line"><span class="keyword">return</span></div></pre></td></tr></table></figure></p>
+<p>光标在多个屏幕间的移动和上面的原理类似。在这个基础上我还添加了一些代码，让光标移动后激活其所在的窗口<span class="margin-note-marker"><sup>3</sup></span><span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">3</span>本来希望将快捷键绑定到 <code>Ctrl+Win+j</code> 和 <code>Ctrl+Win+k</code> 上的，但不知道为什么这两个按键和前面切换窗口的 <code>Win+j</code> 和 <code>Win+k</code> 有冲突，所以只好退而求其次，绑定到了 <code>Ctrl+Alt+j</code> 和 <code>Ctrl+Alt+k</code> 上。</span></span></span>  ：</p>
+<p><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="label">^!j::</span>				<span class="comment">; 移动光标到上一个屏幕</span></div><div class="line">SysGet, ww, <span class="number">0</span> 			<span class="comment">; 获取当前屏幕宽度</span></div><div class="line">MouseGetPos, X, Y,,,<span class="number">1</span> 		<span class="comment">; 获取鼠标位置</span></div><div class="line">MouseMove, X-ww, Y		<span class="comment">; 移动鼠标</span></div><div class="line">MouseGetPos, , , id, control	<span class="comment">; 获取当前鼠标所在的窗口的id</span></div><div class="line">WinGetTitle, title, ahk_id <span class="var_expand">%id%</span>	<span class="comment">; 获取窗口标题</span></div><div class="line">WinActivate, <span class="var_expand">%title%</span>		<span class="comment">; 激活该窗口</span></div><div class="line"><span class="keyword">return</span></div><div class="line"></div><div class="line"><span class="label">^!k::</span></div><div class="line">SysGet, ww, <span class="number">0</span>			</div><div class="line">MouseGetPos, X, Y,,,<span class="number">1</span></div><div class="line">MouseMove, X+ww, Y</div><div class="line">MouseGetPos, , , id, control	</div><div class="line">WinGetTitle, title, ahk_id <span class="var_expand">%id%</span>	</div><div class="line">WinActivate, <span class="var_expand">%title%</span>		</div><div class="line"><span class="keyword">return</span></div></pre></td></tr></table></figure></p>
+<h2 id="总结">总结</h2>
+<p>目前使用 AutoHotKey 基本实现了 Awesome 常用的一些窗口管理功能。最初我还希望实现 Awesome 的 autofocus 功能，让光标在移动时自动激活其所在的窗口。但要实现这个功能似乎只能通过实现一个循环来持续检测光标的位置。考虑到可能因此带来性能的问题，我只好打消了这个念头。</p>
+<p>除此之外，Awesome 还有多标签的特性，类似于虚拟桌面。而 Windows 下同样没有自带虚拟桌面。一个推荐的 workaround 是使用 <a href="http://dexpot.de/" target="_blank" rel="external">Dexpot</a> 来添加虚拟桌面的功能，读者可以自行下载体验。</p>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/codes/notifynet/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/codes/handout-with-script/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Jul 2 2013 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/codes/">codes<span>30</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li> <li><a data-pjax href="/tags/Awesome/">Awesome<span>3</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>基础 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="从命令行执行Ruby
+通过irb启动Ruby的交互式命令行。
+12345678910111213&amp;gt;&amp;gt; puts &#39;hello, world&#39;hello, world=&amp;gt; nil&amp;gt;&amp;gt; language = &#39;Ruby&#39;=&amp;gt; &quot;Ruby&quot;&amp;gt;&amp;gt; puts &quot;">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="基础"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 基础</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="从命令行执行ruby">从命令行执行Ruby</h2>
+<p>通过<code>irb</code>启动Ruby的交互式命令行。</p>
+<p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> puts <span class="string">'hello, world'</span></span></div><div class="line">hello, world</div><div class="line"><span class="output"><span class="status">=&gt;</span> nil</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> language = <span class="string">'Ruby'</span></span></div><div class="line"><span class="output"><span class="status">=&gt;</span> <span class="string">"Ruby"</span></span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> puts <span class="string">"hello. <span class="subst">#{language}</span>"</span></span></div><div class="line">hello, <span class="constant">Ruby</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> nil</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> language = <span class="string">'my Ruby'</span></span></div><div class="line"><span class="output"><span class="status">=&gt;</span> <span class="string">"my Ruby"</span></span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> puts <span class="string">"hello, <span class="subst">#{language}</span>"</span></span></div><div class="line">hello, <span class="constant">Ruby</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> nil</span></div></pre></td></tr></table></figure></p>
+<h2 id="一切都是对象">一切都是对象</h2>
+<p>Ruby是一门纯面向对象语言。在本章中你将看到,Ruby是如何深入挖掘面向对象思想的。先来看一些基本对象:</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">>> 4</div><div class="line">=> 4</div><div class="line">>> 4.class</div><div class="line">=> Fixnum < Integer</div><div class="line">>> 4 + 4</div><div class="line">=> 8</div><div class="line">>> 8</div><div class="line">=> 8</div><div class="line">>> 4.methods</div><div class="line">=> [</div><div class="line">    [  0]                               !()                 Fixnum (BasicObject)</div><div class="line">    [  1]                              !=(arg1)             Fixnum (BasicObject)</div><div class="line">    [  2]                              !~(arg1)             Fixnum (Kernel)</div><div class="line">    [  3]                               %(arg1)             Fixnum</div><div class="line">    [  4]                               &(arg1)             Fixnum</div><div class="line">    [  5]                               *(arg1)             Fixnum</div><div class="line">    [  6]                              **(arg1)             Fixnum</div><div class="line">    [  7]                               +(arg1)             Fixnum</div><div class="line">    [  8]                              +@()                 Fixnum (Numeric)</div><div class="line">    [  9]                               -(arg1)             Fixnum</div><div class="line">    [ 10]                              -@()                 Fixnum</div><div class="line">    [ 11]                               /(arg1)             Fixnum</div><div class="line">    ...</div></pre></td></tr></table></figure></p>
+<h2 id="true-和-false">true 和 false</h2>
+<p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> puts <span class="string">'This appears to be true.'</span></span></div><div class="line"><span class="constant">This</span> appears to be <span class="keyword">true</span>.</div><div class="line"><span class="output"><span class="status">=&gt;</span> nil</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> puts <span class="string">'This appears to be true.'</span> if <span class="string">'random string'</span></span></div><div class="line">(pry)<span class="symbol">:</span><span class="number">21</span><span class="symbol">:</span> <span class="symbol">warning:</span> string literal <span class="keyword">in</span> condition</div><div class="line"><span class="constant">This</span> appears to be <span class="keyword">true</span>.</div><div class="line"><span class="output"><span class="status">=&gt;</span> nil</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> puts <span class="string">'This appears to be true.'</span> if <span class="number">0</span></span></div><div class="line"><span class="constant">This</span> appears to be <span class="keyword">true</span>.</div><div class="line"><span class="output"><span class="status">=&gt;</span> nil</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> puts <span class="string">'This appears to be true.'</span> if true</span></div><div class="line"><span class="constant">This</span> appears to be <span class="keyword">true</span>.</div><div class="line"><span class="output"><span class="status">=&gt;</span> nil</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> puts <span class="string">'This appears to be true.'</span> if false</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> nil</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> puts <span class="string">'This appears to be true.'</span> if nil</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> nil</span></div><div class="line">&gt;&gt;</div></pre></td></tr></table></figure></p>
+<p>也就是说，<strong>除了nil和false之外，其他值都代表true</strong>。C和C++程序员可得小心了,<strong>0也是true</strong>!</p>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+<p>Ruby的逻辑运算符,跟C、C++、C#、Java差不多,但也稍有不同。</p>
+<ul>
+<li>and(也可写为&amp;&amp;)是逻辑与，or(也可写为||)是逻辑或。这两种运算符为短路求值运算符：即用这两种运算符验证表达式时,一旦表达式的值已能明确求出,解释器就不再继续执行后面的表达式代码1</li>
+<li>如果想执行整个表达式的话,可以用&amp;或|进行比较。</li>
+</ul>
+<p>下面,看看它们是如何运行的:</p>
+<p><figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> true and false</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> false</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> true or false</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> true</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> false && false</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> false</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> true && this_will_cause_an_error</span></div><div class="line"><span class="constant">NameError</span><span class="symbol">:</span> undefined local variable <span class="keyword">or</span> method `this_will_cause_an_error<span class="string">' for #&lt;IRB::TopLevel:0x00000003ae4838&gt;</span></div><div class="line">from (pry):29:in `__pry__'</div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> false && this_will_not_cause_an_error</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> false</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> true || this_will_not_cause_an_error</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> true</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> true or this_will_not_cause_an_error</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> true</span></div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> false || this_will_cause_an_error</span></div><div class="line"><span class="constant">NameError</span><span class="symbol">:</span> undefined local variable <span class="keyword">or</span> method `this_will_cause_an_error<span class="string">' for #&lt;IRB::TopLevel:0x00000003ae4838&gt;</span></div><div class="line">from (pry):32:in `__pry__'</div><div class="line"><span class="input"><span class="prompt">&gt;&gt;</span> true | false</span></div><div class="line"><span class="output"><span class="status">=&gt;</span> true</span></div></pre></td></tr></table></figure></p>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/ruby-flow.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc', 2, 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

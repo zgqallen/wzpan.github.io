@@ -1,0 +1,562 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>A Brief Introduction to openFrameworks | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="介绍一个开源的 C++ 开发框架 openFrameworks 。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="A Brief Introduction to openFrameworks"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> A Brief Introduction to openFrameworks</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>介绍一个开源的 C++ 开发框架 openFrameworks 。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<p>作为一个图形图像方向的研究生，我经常都在和 OpenGL 、OpenCV 等多种 C++ 库打交道。这些库遵循着不同的规则和用法；另外，为了让自己的程序具有更多的交互能力，编写界面也是一个家常便饭的工作。</p>
+<p>然而，随着工程复杂性的增加，库的管理和界面的维护也变得越来越困难：一方面，库的增加和删除不仅会增加学习成本，也会对系统的逻辑层带来影响。而另一方面，如果要让自己的项目易于维护，就要尽可能地应用设计模式，让逻辑和界面分离。但对于科研，一味陷入设计模式的桎梏又会带来过早优化的问题，影响科研进度。</p>
+<p>直到后来，我接触到了 <a href="http://openframeworks.cc/" target="_blank" rel="external">openFrameworks</a> ，简直有种相逢恨晚的感觉。openFrameworks 封装了常用的 C++ 库，在此基础上提供了一个直观统一的接口，也大幅简化了编写界面的流程，使得开发图形程序变得很轻松。</p>
+<p>本文将为大家介绍这个让人着迷的开发框架 —— openFrameworks。<a id="more"></a></p>
+<h2 id="什么是-openframeworks">什么是 openFrameworks</h2>
+<p>openFrameworks（以下简称 oF） 是一个开源的、跨平台的 C++ 工具包，它的设计目的为开发创造过程提供一个更加简单和直观的框架。</p>
+<p><img src="/images/openframeworks-intro/0.jpg" alt="openFrameworks"></p>
+<p>oF 的强大之处在于，它不仅是一个通用的胶水（glue），同时它还封装了多种常用的库，包括：</p>
+<ul>
+<li><a href="http://www.opengl.org/" target="_blank" rel="external">OpenGL</a>、<a href="http://glew.sourceforge.net/" target="_blank" rel="external">GLEW</a>、<a href="http://www.opengl.org/resources/libraries/glut/" target="_blank" rel="external">GLUT</a>、<a href="https://code.google.com/p/libtess2/" target="_blank" rel="external">libtess2</a>、<a href="http://cairographics.org/" target="_blank" rel="external">cairo</a> - 用于处理图形；</li>
+<li><a href="http://www.music.mcgill.ca/~gary/rtaudio/" target="_blank" rel="external">rtAudio</a>、<a href="http://www.portaudio.com/" target="_blank" rel="external">PortAudio</a>、<a href="http://http//connect.creativelabs.com/openal" target="_blank" rel="external">OpenAL</a>、<a href="http://kissfft.sourceforge.net/" target="_blank" rel="external">Kiss FFT</a>、<a href="http://www.fmod.org/" target="_blank" rel="external">FMOD</a> - 用于音频的输入、输出和分析；</li>
+<li><a href="http://freetype.sourceforge.net/index2.html" target="_blank" rel="external">FreeType</a> - 用于字体显示；</li>
+<li><a href="http://freeimage.sourceforge.net/" target="_blank" rel="external">FreeImage</a> - 用于图像存储和载入；</li>
+<li><a href="http://developer.apple.com/quicktime/" target="_blank" rel="external">Quicktime</a>、<a href="http://gstreamer.freedesktop.org/" target="_blank" rel="external">GStreamer</a>、<a href="https://github.com/ofTheo/videoInput" target="_blank" rel="external">videoInput</a> - 用于视频播放和截取；</li>
+<li><a href="http://pocoproject.org/" target="_blank" rel="external">Poco</a> - 用于开发网络应用；</li>
+<li><a href="http://opencv.org/" target="_blank" rel="external">OpenCV</a> - 用于计算机视觉；</li>
+<li><a href="http://assimp.sourceforge.net/" target="_blank" rel="external">Assimp</a> - 用于读入 3D 模型。</li>
+</ul>
+<p>这些库虽然遵循着不同的规则和用法，但 oF 在它们基础上提供了一个通用的接口，使得使用它们变得很容易。</p>
+<p>除此之外，oF 的另一亮点在于它具有很好的跨平台特性。目前它支持 5 种操作系统（Windows、OSX、Linux、iOS、Android）以及 4 种 集成开发环境（XCode、Code::Blocks、Visual Studio、Eclipse）。</p>
+<h2 id="安装和配置-of">安装和配置 oF</h2>
+<p>下面介绍如何在 Linux 下安装和配置 oF 。</p>
+<h3 id="下载-of">下载 oF</h3>
+<p>访问 oF 的<a href="http://openframeworks.cc/download/" target="_blank" rel="external">官方下载页面</a>，找到适用于你的操作系统和 IDE 的版本，点击下载。例如，我的计算机是 Linux Arch 64位的系统，所以选择的是 code::blocks (64 bit)。</p>
+<p><img src="/images/openframeworks-intro/download.png" alt="下载 openFrameworks"></p>
+<h3 id="安装依赖">安装依赖</h3>
+<p>下载完成后，将其解压，开启终端，<code>cd</code> 到解压后目录，例如：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> <span class="variable">$HOME</span>/Documents/programming/openFrameworks</div></pre></td></tr></table></figure></p>
+<p>之后，根据你的 Linux 发行版的不同，<code>cd</code> 进入 <em>scripts/linux/&lt;操作系统发行版名称&gt;</em> ，例如：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> scripts/linux/archlinux</div></pre></td></tr></table></figure></p>
+<p>执行两个命令，安装 code::block 和其他依赖（需要 root 权限）：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> ./install_codeblocks.sh</div><div class="line">$ <span class="built_in">sudo</span> ./install_dependencies.sh</div><div class="line">$ <span class="built_in">sudo</span> ./install_codecs.sh</div></pre></td></tr></table></figure></p>
+<h3 id="编译-of">编译 oF</h3>
+<p>安装完依赖后，回到上一级目录：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ..</div></pre></td></tr></table></figure></p>
+<p>编译 oF：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./compileOF.sh</div></pre></td></tr></table></figure></p>
+<p>编译过程中，如果你和我一样遇到找不到 freetype.h 的问题，可能是 FreeType 在 2.5.1 之后改变了头文件的结构导致的。需要将根目录里的 <code>/libs/openFrameworks/graphics/</code> 目录下的 ofTrueTypeFont.cpp 开头部分改为：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "ft2build.h"</span></div><div class="line"><span class="comment">/* Corrected setup of include files for freetype as of 2.5.1 dh</span></div><div class="line">#include "freetype2/freetype/freetype.h"</div><div class="line">#include "freetype2/freetype/ftglyph.h"</div><div class="line">#include "freetype2/freetype/ftoutln.h"</div><div class="line">#include "freetype2/freetype/fttrigon.h"</div><div class="line">*/</div><div class="line"><span class="preprocessor">#include FT_FREETYPE_H</span></div><div class="line"><span class="preprocessor">#include FT_GLYPH_H</span></div><div class="line"><span class="preprocessor">#include FT_OUTLINE_H</span></div><div class="line"><span class="preprocessor">#include FT_TRIGONOMETRY_H</span></div></pre></td></tr></table></figure></p>
+<p>此时的 oF 已经可以工作了。我们可以测试它提供的示例。cd 到根目录里的 <em>/examples/gui/guiExample/</em> 目录，编译该工程并执行：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ make</div><div class="line">$ make run</div></pre></td></tr></table></figure></p>
+<p>将会运行一个界面如下图的程序。与左侧面板里的控件交互将可以改变该形状的属性<span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>多阅读 example 的示例代码是个好习惯。 </span></span></span>。</p>
+<p><img src="/images/openframeworks-intro/example.png" alt="guiExample 程序"></p>
+<h3 id="编译项目生成器">编译项目生成器</h3>
+<p>为了方便日后创建工程，oF 还提供了一个项目生成器 projectGenerator 。使用它前同样需要先编译。回到 <code>compileOF.sh</code> 脚本所在的目录，敲入如下命令：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ./compilePG.sh</div></pre></td></tr></table></figure></p>
+<p>完成后，在 oF 的根目录下找到 projectGenerator 目录，进去里面可以找到 projectGenerator ，我们可以执行它：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> ../../projectGenerator</div><div class="line">$ ./projectGenerator</div></pre></td></tr></table></figure></p>
+<p>程序界面如下图所示。点击左侧的每个黑色按钮将可以修改项目名、生成路径，以及依赖的插件（Addon)。</p>
+<p><img src="/images/openframeworks-intro/projectGenerator.png" alt="projectGenerator"></p>
+<p>点击右下角的 <q>GENERATE PROJECT</q> 按钮后，将会在 Path 字段指定的路径中生成一个项目，如上图所示就是 <code>/home/ehome/Documents/programming/openframeworks/apps/myApps/mySketch</code> ：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> /home/ehome/Documents/programming/openframeworks/apps/myApps</div><div class="line">$ ls</div><div class="line">addons.make  bin  config.make  Makefile  mySketch.cbp  mySketch.workspace  src</div></pre></td></tr></table></figure></p>
+<p>其中：</p>
+<ul>
+<li><strong>addons.make</strong> 文件 - 用于维护这个工程所依赖的插件列表；</li>
+<li><strong>config.make</strong> 文件 - 用于添加查找路径，修改优化标记以及其他的设置；</li>
+<li><strong>Makefile</strong> 文件 - 工程的 Makefile ，一般不需要直接修改它。在 oF 中，make 的目标包括：
+<ul>
+<li>Debug：生成带有调试标记的可执行程序；</li>
+<li>Release：生成经编译器优化的可执行程序；</li>
+<li>clean：清除目标文件和可执行程序；</li>
+<li>CleanDebug：只清除 debug 目标的生成结果；</li>
+<li>CleanRelease：只清除 release 目标的生成结果；</li>
+<li>help：打印帮助信息；</li>
+<li>run：执行生成的可执行程序。</li>
+</ul>
+</li>
+<li><strong>mySketch.cbp</strong> 和 <strong>mySketch.workspace</strong> 文件 - Code::Blocks 的工程文件。</li>
+</ul>
+<h3 id="注册环境变量">注册环境变量</h3>
+<p>我们可以看看 Makefile 文件的内容：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">$ cat Makefile</div><div class="line"><span class="comment"># Attempt to load a config.make file.</span></div><div class="line"><span class="comment"># If none is found, project defaults in config.project.make will be used.</span></div><div class="line">ifneq ($(wildcard config.make),)</div><div class="line">        include config.make</div><div class="line">endif</div><div class="line"></div><div class="line"><span class="comment"># make sure the the OF_ROOT location is defined</span></div><div class="line">ifndef OF_ROOT</div><div class="line">    OF_ROOT=../../..</div><div class="line">endif</div><div class="line"></div><div class="line"><span class="comment"># call the project makefile!</span></div><div class="line">include $(OF_ROOT)/libs/openFrameworksCompiled/project/makefileCommon/compile.project.mk</div></pre></td></tr></table></figure></p>
+<p>如上所示，编译 openFrameWorks 的工程时，系统需要从 oF 的根路径中引入另一个名为 <code>compile.project.mk</code> 的 Makefile，这个根路径存储在 <code>OF_ROOT</code> 变量中，默认值是 <code>../../..</code> ，即当前目录往上三级的目录。之所以使用这个默认值，是因为使用 projectGenerator 生成的项目都默认存放在 <code>oF根目录/apps/myApps</code> 目录下。为了方便在其他地方创建和编译工程，可以人为地定义一个 <code>OF_ROOT</code> 变量。将下面这一行添加到用户主目录下的 <code>.bashrc</code> 文件中：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> OF_ROOT=&lt;你的 oF 根目录&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="入门实例">入门实例</h2>
+<p>接下来将介绍如何开发基于 oF 的 C++ 程序<span class="margin-note-marker"><sup>2</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">2</span>主要参考了 <a href="http://jeffcrouse.info/" target="_blank" rel="external">Jeff Crouse</a> 所编写的教程 <a href="http://openframeworks.cc/tutorials/introduction/001_chapter1.html" target="_blank" rel="external">ofTutorials - Chapter 1 - Getting Started</a>。 </span></span></span>。</p>
+<h3 id="testapp-cpp">testApp.cpp</h3>
+<p>双击 mySketch.cbp 文件，打开 Code::Blocks 开发环境，在左边的项目管理器中双击打开 test.App 文件。如下图所示：</p>
+<p><img src="/images/openframeworks-intro/codeblocks.png" alt="使用 Code::Blocks 开发程序"></p>
+<p>testApp.cpp 将会是你的好朋友。在编辑窗口中，你可以看到如下的内容：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "testApp.h"</span></div><div class="line"> </div><div class="line"><span class="comment">//--------------------------------------------------------------</span></div><div class="line"><span class="keyword">void</span> testApp::setup(){</div><div class="line"> </div><div class="line">}</div><div class="line"> </div><div class="line"><span class="comment">//--------------------------------------------------------------</span></div><div class="line"><span class="keyword">void</span> testApp::update(){</div><div class="line"> </div><div class="line">}</div><div class="line"> </div><div class="line"><span class="comment">//--------------------------------------------------------------</span></div><div class="line"><span class="keyword">void</span> testApp::draw(){</div><div class="line"> </div><div class="line">}</div><div class="line"> </div><div class="line"><span class="comment">//--------------------------------------------------------------</span></div><div class="line"><span class="keyword">void</span> testApp::keyPressed(<span class="keyword">int</span> key){</div><div class="line"> </div><div class="line">}</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure></p>
+<p>上面的代码包含了 4 类函数：</p>
+<ul>
+<li><code>setup</code> - 这个函数将在应用程序生命期的最开始就被调用，甚至在你编写的程序窗口打开之前。利用这个函数，我们可以做一些准备工作，例如在窗口打开之前，先修改窗口的大小；</li>
+<li><code>update</code> 和 <code>draw</code> - 当 <code>setup</code> 函数运行完成后，系统将进入一个 <code>update</code> 和 <code>draw</code> 不断交替运行的循环，这个循环将持续到程序结束。也就是说，<code>setup()</code> 运行完成后，<code>update()</code> 开始运行，然后是 <code>draw()</code> ，然后又是 <code>update()</code> ，然后又是 <code>draw()</code> …… <span class="margin-note-marker"><sup>3</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">3</span>这个交替频率就是帧率，它的默认值取决于你的电脑的处理速度。</span></span></span><code>update()</code> 通常用来更新你的程序的状态（例如改变变量的值），而 <code>draw()</code> 则常用来在你的窗口中绘制内容；</li>
+<li><code>keyPressed</code>、<code>keyReleased</code>、<code>mouseMoved</code>、<code>mouseDragged</code>、<code>mousePressed</code>、<code>mouseReleased</code>、<code>windowResized</code>, <code>gotMessage</code>、<code>dragEvent</code> - 与前面三种函数不同，这类函数仅当用户触发某类事件才会被调用。</li>
+</ul>
+<p>我们先试着直接编译这个项目，此时的程序窗口里还没有东西：</p>
+<p><img src="/images/openframeworks-intro/957951e.png" alt=""></p>
+<h3 id="绘制图形">绘制图形</h3>
+<p>之后，我们可以试着在窗口中画一个圆。oF 提供了 <a href="http://openframeworks.cc/documentation/graphics/ofGraphics.html#!show_ofCircle" target="_blank" rel="external"><code>ofCircle</code></a> 函数用于绘制圆。</p>
+<p>往 <code>draw</code> 函数里头添加一句内容，：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::draw(){</div><div class="line">    ofCircle(<span class="number">200</span>, <span class="number">300</span>, <span class="number">60</span>);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>第二行告诉系统在坐标 (200, 300) 处画一个半径为 60 的圆。</p>
+<p><img src="/images/openframeworks-intro/9579GAl.png" alt=""></p>
+<h3 id="添加颜色">添加颜色</h3>
+<p>现在这个圆看起来很单调，可以给这个圆添加颜色。oF 提供了 <a href="http://openframeworks.cc/documentation/graphics/ofGraphics.html#!show_ofSetColor" target="_blank" rel="external"><code>ofSetColor</code></a> 函数用于设置颜色。将 <code>draw()</code> 函数改为：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::draw(){</div><div class="line">    ofSetColor(<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>);</div><div class="line">    ofCircle(<span class="number">200</span>, <span class="number">300</span>, <span class="number">60</span>);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>新加的这一行（第2行）告诉系统在绘制图形前选择一个颜色，这个颜色的 R、G、B 三原色的色值分别为 (255, 0, 255) 。</p>
+<p><img src="/images/openframeworks-intro/9579TKr.png" alt=""></p>
+<p>我们可以用同样的方法再画一个青色的圆：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::draw(){</div><div class="line">    ofSetColor(<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>);</div><div class="line">    ofCircle(<span class="number">200</span>, <span class="number">300</span>, <span class="number">60</span>);</div><div class="line"> </div><div class="line">    ofSetColor(<span class="number">0</span>, <span class="number">255</span>, <span class="number">255</span>);</div><div class="line">    ofCircle(<span class="number">500</span>, <span class="number">500</span>, <span class="number">100</span>);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><img src="/images/openframeworks-intro/9579gUx.png" alt=""></p>
+<h3 id="其他的形状">其他的形状</h3>
+<p>除了画圆，oF 也可以画其他的图案：</p>
+<ul>
+<li><code>ofRect</code> - 画一个矩形。参数是：(x, y, width, height) ；</li>
+<li><code>ofTriangle</code> - 画一个三角形。参数是三个顶点的坐标：(x1, y1, x2, y2, x3, y3)</li>
+<li><code>ofLine</code> - 画一条线段。参数是两个端点的坐标 (x1, y1, x2, y2)</li>
+<li><code>ofEllipse</code> - 画椭圆。参数是：(x, y, width, height)</li>
+<li><code>ofCurve</code> - 画一条从点 (x1, y1) 到 (x2, y2) 的贝塞尔曲线，曲线的形状由两个控制点 (x0, y0) 和 (x3, y3) 控制 <span class="margin-note-marker"><sup>4</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">4</span><a href="http://zh.wikipedia.org/wiki/%E8%B2%9D%E5%A1%9E%E7%88%BE%E6%9B%B2%E7%B7%9A" target="_blank" rel="external">贝塞尔曲线</a> 的控制点比较难以掌握。如果你用过 Photoshop 里的钢笔工具，你大概就会明白是怎么一回事。 </span></span></span>。</li>
+</ul>
+<h3 id="让形状动起来">让形状动起来</h3>
+<p>接下来我们将编写代码让窗口里的图形动起来。主要的思路就是用两个变量控制圆的坐标，然后在程序的运行过程中改变这个变量。在 test.cpp 文件的开头声明两个变量，分别用于存放圆的 x 坐标和 y 坐标：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "testApp.h"</span></div><div class="line"> </div><div class="line"><span class="keyword">int</span> myCircleX;</div><div class="line"><span class="keyword">int</span> myCircleY;</div></pre></td></tr></table></figure></p>
+<p>在 <code>setup()</code> 函数中为这两个变量添加初始值 <span class="margin-note-marker"><sup>5</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">5</span>别忘了前面介绍的<a href="#testapp.cpp">每类函数的用途</a>。 </span></span></span>：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::setup(){</div><div class="line">    myCircleX = <span class="number">0</span>;</div><div class="line">    myCircleY = <span class="number">200</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>用这两个变量绘制图形：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::draw(){</div><div class="line">    ofSetColor(<span class="number">255</span>, <span class="number">0</span>, <span class="number">255</span>);</div><div class="line">    ofCircle(myCircleX, myCircleY, <span class="number">60</span>);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>要在运行过程中修改这两个变量，可以在 <code>update()</code> 函数中编写相关代码。例如，让这个圆一直向右移动，当超出屏幕时，再回到原来开始的地方：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::update(){</div><div class="line">    myCircleX++;</div><div class="line">    <span class="keyword">if</span> (myCircleX &gt; ofGetWindowWidth())</div><div class="line">        myCircleX = <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>其中，第 3 行的 <code>ofGetWindowWidth()</code> 函数用来获取窗口的宽度<span class="margin-note-marker"><sup>6</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">6</span>如果不考虑拉伸窗口，也可以用 1024 这个值代替，因为 oF 的默认窗口大小是 1024x768 。 </span></span></span>。</p>
+<h3 id="改变帧率">改变帧率</h3>
+<p>你可能会发现上面的程序在运行的时候有一个问题：圆圈的运动存在时快时慢的情况。如前面所说，这是由于你的程序的帧率，或者说 <code>update()</code> 函数和 <code>draw()</code> 函数交替执行的频率不稳定造成的。在 <code>draw()</code> 函数中添加下面这一行代码可以在窗口的左上方显示帧率信息：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ofDrawBitmapString(ofToString(ofGetFrameRate())+<span class="string">"fps"</span>, <span class="number">10</span>, <span class="number">15</span>);</div></pre></td></tr></table></figure></p>
+<p>你可以发现这个数值会在程序运行的过程中存在较大波动，尤其是当你同时还在执行其他耗费计算资源的任务时，这个数值会下降得更加明显，相应的这个圆圈的运动速度也会跟着变慢。</p>
+<p>让窗口中的动画变得更加平滑的方法是把帧率限制在一个合理的值，例如 60 fps ：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::setup(){</div><div class="line">    ofSetFrameRate(<span class="number">60</span>);</div><div class="line"> </div><div class="line">    myCircleX = <span class="number">300</span>;</div><div class="line">    myCircleY = <span class="number">200</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>如果你觉得经过这么一改动之后这个圆圈慢的让你无法忍受，你可以通过修改圆圈的移动速度来加速。例如：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::update(){</div><div class="line">    myCircleX+=<span class="number">4</span>;</div><div class="line">    <span class="keyword">if</span> (myCircleX &gt; ofGetWindowWidth())</div><div class="line">        myCircleX = <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h3 id="添加交互">添加交互</h3>
+<p>接下来，我们将为这个程序添加键盘和鼠标的交互。要添加键盘交互，可以通过修改 <code>keyPressed()</code> 函数和 <code>keyReleased()</code> 函数来完成。其中，<code>keyPressed()</code> 捕获的是按下键盘按键的事件，而 <code>keyReleased()</code> 捕获的是松开键盘按键的事件 <span class="margin-note-marker"><sup>7</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">7</span>额外提一下， oF 似乎并不能很好的识别 DVORAK 等其他键盘布局。解决方法见<a href="http://forum.openframeworks.cc/t/dvorak-keyboard-input-is-not-recognised/13772" target="_blank" rel="external">这个帖子</a>。 </span></span></span>。</p>
+<p>例如：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::keyPressed(<span class="keyword">int</span> key){</div><div class="line">    <span class="keyword">if</span>(<span class="string">'w'</span> == key || <span class="string">'W'</span> == key)</div><div class="line">    {</div><div class="line">        myCircleY-=<span class="number">4</span>;</div><div class="line">    }</div><div class="line">    <span class="keyword">if</span>(<span class="string">'s'</span> == key || <span class="string">'S'</span> == key)</div><div class="line">    {</div><div class="line">        myCircleY+=<span class="number">4</span>;</div><div class="line">    }</div><div class="line">    <span class="keyword">if</span>(<span class="string">'a'</span> == key || <span class="string">'A'</span> == key)</div><div class="line">    {</div><div class="line">        myCircleX-=<span class="number">4</span>;</div><div class="line">    }</div><div class="line">    <span class="keyword">if</span>(<span class="string">'d'</span> == key || <span class="string">'D'</span> == key)</div><div class="line">    {</div><div class="line">        myCircleX+=<span class="number">4</span>;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>将通过 <code>w</code> 、<code>s</code>、<code>a</code>、<code>d</code> 四个按键控制圆圈的运动。出于鲁棒性考虑，小写和大写的字母都要考虑进去，因为按键是通过十进制的 ASCII 码来判断的，而大写字母和小写字母的 ASCII 码是不同的。上面的代码也可以等价的用 ASCII 码来代替<span class="margin-note-marker"><sup>8</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">8</span>温馨小提示：Linux 下可以通过 <code>man ascii</code> 查询每个字母对应的 ASCII 编码。一般人我不告诉他。 </span></span></span> ：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::keyPressed(<span class="keyword">int</span> key){</div><div class="line">    <span class="keyword">if</span>(<span class="number">119</span> == key || <span class="number">87</span> == key)  <span class="comment">// w key</span></div><div class="line">    {</div><div class="line">        myCircleY-=<span class="number">4</span>;</div><div class="line">    }</div><div class="line">    <span class="keyword">if</span>(<span class="number">115</span> == key || <span class="number">83</span> == key)  <span class="comment">// s key</span></div><div class="line">    {</div><div class="line">        myCircleY+=<span class="number">4</span>;</div><div class="line">    }</div><div class="line">    <span class="keyword">if</span>(<span class="number">97</span> == key || <span class="number">65</span> == key)  <span class="comment">// a key</span></div><div class="line">    {</div><div class="line">        myCircleX-=<span class="number">4</span>;</div><div class="line">    }</div><div class="line">    <span class="keyword">if</span>(<span class="number">100</span> == key || <span class="number">68</span> == key)  <span class="comment">// d key</span></div><div class="line">    {</div><div class="line">        myCircleX+=<span class="number">4</span>;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>添加鼠标事件则通过修改 <code>mouseMoved()</code> 、<code>mouseDragged()</code>、<code>mousePressed()</code> 和 <code>mouseReleased()</code> 来完成，顾名思义，分别捕获的是鼠标的移动、拖拽、单击、松开操作。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::mouseMoved(<span class="keyword">int</span> x, <span class="keyword">int</span> y ){</div><div class="line"> </div><div class="line">}</div><div class="line"> </div><div class="line"><span class="keyword">void</span> testApp::mouseDragged(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> button){</div><div class="line"> </div><div class="line">}</div><div class="line"> </div><div class="line"><span class="keyword">void</span> testApp::mousePressed(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> button){</div><div class="line"> </div><div class="line">}</div><div class="line"> </div><div class="line"><span class="keyword">void</span> testApp::mouseReleased(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> button){</div><div class="line"> </div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>例如，我们可以编写代码实现鼠标拖动圆圈：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> testApp::mouseDragged(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> button){</div><div class="line">    <span class="keyword">if</span> (<span class="number">0</span> == button) { <span class="comment">// left button</span></div><div class="line">        <span class="keyword">float</span> distance = ofDist(myCircleX, myCircleY, x, y);</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (distance &lt; <span class="number">100</span>){</div><div class="line">            myCircleX = x;</div><div class="line">            myCircleY = y;        </div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>第 2 行用于判断触发此事件的按键是否为左键；第 3 行的 <code>ofDist()</code> 函数用于计算鼠标当前位置和圆心的距离。如果这个距离小于半径 100 ，则可以判断当前鼠标落在这个圆圈的范围以内，可以用鼠标的位置代替圆心的位置。</p>
+<h3 id="其他优化">其他优化</h3>
+<h4 id="调整圆圈精度">调整圆圈精度</h4>
+<p>如果近一点观察圆圈，你可能会发现圆圈的周围有点粗糙。</p>
+<p><img src="/images/openframeworks-intro/9579SeA.png" alt=""></p>
+<p>可以修改圆圈的绘制精度来让圆圈更加平滑。在 <code>setup()</code> 函数中添加这一句：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ofSetCircleResolution(<span class="number">120</span>);</div></pre></td></tr></table></figure></p>
+<p><img src="/images/openframeworks-intro/9579foG.png" alt=""></p>
+<h4 id="抗锯齿和垂直同步">抗锯齿和垂直同步</h4>
+<p>抗锯齿和垂直同步也是常常使用的优化画面的手段：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ofSetVerticalSync(<span class="keyword">true</span>); 	</div><div class="line">ofEnableSmoothing();</div></pre></td></tr></table></figure></p>
+<h2 id="实用的插件">实用的插件</h2>
+<p>oF 的另外一大杀手锏在于它的社区非常活跃，现在已经开发出了数量可观的第三方插件。这里只收集了极小一部分实用插件。更全面的插件列表可以访问 <a href="http://ofxaddons.com/" target="_blank" rel="external">ofxaddons.com</a> <span class="margin-note-marker"><sup>9</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">9</span>什么？有墙？！其实几乎所有插件都是托管在 Github 上的。所以如果在 Github 上搜 “ofx” ，也可以找到这些 oF 插件哦。 </span></span></span>。</p>
+<ul>
+<li><a href="http://github.com/rezaali/ofxUI" target="_blank" rel="external">ofxUI</a> - 华丽丽的 UI 库。提供了很多新颖而实用的界面控件。</li>
+<li><a href="http://github.com/kylemcdonald/ofxCv" target="_blank" rel="external">ofxCv</a> - OpenCV 的另一套可选的 oF 插件（oF 自带一个 oFOpenCv 插件）；</li>
+<li><a href="https://github.com/underdoeg/ofxLibRocket" target="_blank" rel="external">ofxLibRocket</a> - 对 <a href="http://librocket.com/" target="_blank" rel="external">librocket</a> 库的封装，这个库允许你使用 html 和 css 来布局 C++ 窗口；</li>
+<li><a href="https://github.com/hironishihara/ofxTrueTypeFontUC" target="_blank" rel="external">ofxTrueTypeFontUC</a> - 对 ofTrueTypeFont 类的扩展，使其支持 Unicode 字符（例如汉字）；</li>
+<li><a href="http://github.com/satoruhiga/ofxPCL" target="_blank" rel="external">ofxPCL</a> - 对 PCL（一个专门用于处理点云的库） 的封装；</li>
+<li><a href="https://github.com/YCAMInterlab/ofxTimeline" target="_blank" rel="external">ofxTimeline</a> - 一个用来绘制可编辑的 timeline 控件的插件；</li>
+<li><a href="http://github.com/danomatika/ofxMidi" target="_blank" rel="external">ofxMidi</a> - Midi 音乐的插件；</li>
+<li><a href="http://github.com/latrokles/ofxSpeech" target="_blank" rel="external">ofxSpeech</a> - 语音识别插件；</li>
+<li><a href="https://github.com/timscaffidi/ofxVideoRecorder" target="_blank" rel="external">ofxVideoRecorder</a> - 录制视频插件；</li>
+<li><a href="http://github.com/Flightphase/ofxImageSequence" target="_blank" rel="external">ofxImageSequence</a> - 一个用于像播放视频一样播放图像序列的插件；</li>
+<li><a href="http://github.com/jesusgollonet/ofxGifEncoder" target="_blank" rel="external">ofxGifEncoder</a> - 生成 Gif 动画的插件；</li>
+<li><a href="http://github.com/timscaffidi/ofxVolumetrics" target="_blank" rel="external">ofxVolumetrics</a> - 简单的体绘制插件；</li>
+<li><a href="http://github.com/obviousjim/ofxDelaunay" target="_blank" rel="external">ofxDelaunay</a> -</li>
+<li><a href="https://github.com/kylemcdonald/ofxFft" target="_blank" rel="external">ofxFft</a> - 对两个用于进行傅里叶变换的库 FFTW 和 KissFFT 的封装；</li>
+<li><a href="http://github.com/satoruhiga/ofxNodejs" target="_blank" rel="external">ofxNodejs</a> - 桥接 Node.js 的插件；</li>
+<li><a href="http://github.com/danomatika/ofxLua" target="_blank" rel="external">ofxLua</a> - 桥接 Lua 的插件；</li>
+<li><a href="http://github.com/vanderlin/ofxBox2d" target="_blank" rel="external">ofxBox2d</a> - 对流行的 2D 物理模拟库 <a href="http://box2d.org/about/" target="_blank" rel="external">box2d</a> 的封装；</li>
+<li><a href="https://github.com/NickHardeman/ofxBullet" target="_blank" rel="external">ofxBullet</a> - 对另一个物理模拟库 <a href="http://bulletphysics.org/wordpress/" target="_blank" rel="external">Bullet Physics</a> 的封装；</li>
+<li><a href="https://github.com/genekogan/ofxLearn" target="_blank" rel="external">ofxLearn</a> - 通用的机器学习插件，支持分类、回归、聚类等任务；</li>
+<li><a href="http://github.com/jefftimesten/ofxJSON" target="_blank" rel="external">ofxJSON</a> - 对 Json 库 <a href="jsoncpp.sourceforge.net/%E2%80%8E">JsonCpp</a> 的封装；</li>
+<li><a href="http://github.com/arturoc/ofxHttpServer" target="_blank" rel="external">ofxHttpServer</a> - 一个基于 <a href="https://www.gnu.org/s/libmicrohttpd" target="_blank" rel="external">libmicrohttpd</a> 的 http 服务器插件；</li>
+<li><a href="https://github.com/openframeworks/ofxAddonTemplate" target="_blank" rel="external">ofxAddonTemplate</a> - 一个空的目录框架，可以借鉴它自己编写插件（这都有……<code>--bb</code>）。</li>
+</ul>
+<p>使用这些插件的方法很简单：</p>
+<ol>
+<li>访问这个插件的 Github 项目主页；</li>
+<li>复制它的代码仓库地址；</li>
+<li>进入你的 oF 根目录下的 addons 目录，<code>git clone</code> 这个项目；</li>
+<li>如果这个项目自带 example ，可以直接 <code>make &amp;&amp; make run</code> 编译和执行它看看结果。</li>
+</ol>
+<h2 id="相关链接">相关链接</h2>
+<ul>
+<li><a href="http://www.openframeworks.cc/about/" target="_blank" rel="external">About openFrameworks</a>：更多关于 openFrameworks 的资料，包括设计方法；</li>
+<li><a href="http://openframeworks.cc/tutorials/" target="_blank" rel="external">tutorials</a>：更多 openFrameworks 的教程；</li>
+<li><a href="http://www.openframeworks.cc/documentation/" target="_blank" rel="external">Official Documentation</a>：官方文档；</li>
+<li><a href="http://forum.openframeworks.cc/" target="_blank" rel="external">oF Forum</a>：官方论坛；</li>
+<li><a href="http://ofxaddons.com/" target="_blank" rel="external">ofxaddons.com</a>：这里搜集了非常丰富的 openFrameworks 插件；</li>
+<li><a href="http://www.amazon.com/Programming-Interactivity-Designers-Processing-Openframeworks/dp/0596154143" target="_blank" rel="external">Programming Interactivity</a>：一本介绍 openFrameworks、Processing  以及 Arduino 的好书；</li>
+</ul>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/codes/hexo-theme-freemind/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/codes/learning-utf-8-from-a-bug/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Feb 27 2014 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/codes/">codes<span>30</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li> <li><a data-pjax href="/tags/OpenCV/">OpenCV<span>3</span></a></li> <li><a data-pjax href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

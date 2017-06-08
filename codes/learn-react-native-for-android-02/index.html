@@ -1,0 +1,631 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>学习 React Native for Android：React 基础 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="本文将从一个简单的例子开始，逐步深入 React 的编写细节。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="学习 React Native for Android：React 基础"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 学习 React Native for Android：React 基础</h1>
+		</div>    
+	
+
+
+
+
+   <style type="text/css">
+           img, video {
+                -webkit-box-shadow:0 0 10px rgba(0, 0, 0, .5);  
+                -moz-box-shadow:0 0 10px rgba(0, 0, 0, .5);  
+                box-shadow:0 0 10px rgba(0, 0, 0, .5);  
+           }
+   </style>
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>本文将从一个简单的例子开始，逐步深入 React 的编写细节。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<p>React Native 主张用 React 的开发思维来编写 UI 层。因此在学习 React-Native 之前，了解基本的 React 的语法和存在的坑会对今后 React Native 的开发大有裨益。</p>
+<p>本文将从一个简单的例子开始，逐步完善我们的程序。在这个过程中，我们将一步步探讨如何用 React 来开发网页应用，以及需要注意的陷阱。与其他教程不同，本文将采用类似 <a href="http://zedshaw.com/" target="_blank" rel="external">Zed A. Shaw</a> 的 <a href="http://learncodethehardway.org/" target="_blank" rel="external">《Learn Code the Hard Way》</a> 系列的案例驱动的形式，从例子开始着手。我相信，掌握一门新技术最好的方法就是自己动手。因此，我并不打算面面俱到的列举所有关于 React 的内容，而更倾向于担任一个引路人的角色：把读者们带到 React 花园的门前，然后让读者们在 React 花园里来一场自助游。为了让这个旅途更加有收获，我会在每节内容的最后安排几个练习，并在最后分享一些值得深入学习的文章和教程。</p>
+<a id="more"></a>
+<h2 id="练习0：准备工作">练习0：准备工作</h2>
+<p>下载 React 的 <a href="https://facebook.github.io/react/downloads/react-0.14.0.zip" target="_blank" rel="external">Starter Kit 0.14.0</a> 并解压。得到的目录结构长这样：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">react-0.14.0/       # React 根目录</div><div class="line">|</div><div class="line">+--  build/         # React 的 js 代码</div><div class="line">|</div><div class="line">+--  examples/      # 官方提供的例子</div><div class="line">|     |</div><div class="line">|     +---- basic/</div><div class="line">|     |</div><div class="line">|     +---- basic-click-counter/</div><div class="line">|     |</div><div class="line">|     +---- ...</div><div class="line">|</div><div class="line">+--  README.md      # 说明文档</div></pre></td></tr></table></figure></p>
+<ul>
+<li>build 目录存放的是 React 的 js 文件，我们编写的所有例子都会包含这个目录下的若干文件。</li>
+<li>examples 目录包含了官方提供的例子。</li>
+</ul>
+<p>接下来我们需要启动一个简单的 HTTP 服务器方便我们本地预览我们的应用：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> react-<span class="number">0.14</span>.<span class="number">0</span></div><div class="line">$ python -m SimpleHTTPServer</div></pre></td></tr></table></figure></p>
+<p>接下来可以用浏览器访问 <a href="http://localhost:8000/examples/basic/" target="_blank" rel="external">http://localhost:8000/examples/basic/</a> ，你将看到这样的页面：</p>
+<p><img src="/images/learn-react-native-for-android-02/basic-example.png" alt=""></p>
+<p>该页面会统计用户自打开这个页面开始经过的时间。</p>
+<p>用 Atom 载入整个目录。启动 Atom ，点击 【File】-&gt; 【Add Project Folder】 菜单项，选择 react-0.14.0 目录所在文件夹。</p>
+<p>在根目录下创建一个新的文件夹 test ，在 test 目录下新建页面文件 index.html 。</p>
+<p><img src="/images/learn-react-native-for-android-02/new-file.png" alt=""></p>
+<p>本文后面的大部分练习都只涉及对这个文件进行修改。</p>
+<h4 id="扩展练习">扩展练习</h4>
+<ol>
+<li>访问 examples 目录里的每个例子，感受下用 React 写的网页应用。</li>
+<li>Atom + Nuclide 是 Facebook 推荐的 React IDE 。本系列也将一直使用它学习 React / React Native。熟悉下 Atom 的使用，并选择安装我在<a href="/codes/learn-react-native-for-android-02">上篇博文</a>中推荐的一些插件。</li>
+<li>试试使用 <a href="https://atom.io/packages/browser-plus" target="_blank" rel="external">browser-plus</a> 插件在 Atom 中直接预览页面。</li>
+</ol>
+<h2 id="练习1：hello-world">练习1：Hello World</h2>
+<p>按照惯例，让我们先来实现一个简单的 Hello World 程序。在 index.html 里敲入下面的代码：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react-dom.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">  ReactDOM.render(</div><div class="line">    React.createElement(<span class="string">"h1"</span>, <span class="literal">null</span>, <span class="string">"Hello World!"</span>),</div><div class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>)</div><div class="line">  );</div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>我们先看看这个页面的效果。访问 <a href="http://localhost:8000/test/" target="_blank" rel="external">http://localhost:8000/test/</a> ，你将看到这样的界面：</p>
+<p><img src="/images/learn-react-native-for-android-02/hello-world.png" alt=""></p>
+<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p>如果您的 build 文件夹中没有 react-dom.js 文件，您可能下载的是 0.13 或者更早的版本，建议下载使用 <a href="https://facebook.github.io/react/downloads/react-0.14.0.zip" target="_blank" rel="external">Starter Kit 0.14.0</a> 。</p>
+</div></p>
+<h4 id="代码解读">代码解读</h4>
+<ul>
+<li>程序的第 4 行和第 5 行引用了 build 目录下的 react.js 和 react-dom.js 文件。其中，react.js 是 React 的核心库，react-dom.js 是提供与 DOM 相关的功能。</li>
+</ul>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react-dom.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>第 10 行调用了 <code>ReactDOM.render</code> 函数：</li>
+</ul>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ReactComponent render(</div><div class="line">  ReactElement element,</div><div class="line">  DOMElement container,</div><div class="line">  [<span class="function"><span class="keyword">function</span> <span class="title">callback</span>]</span></div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p>这个函数用来将一个 React 元素 <code>element</code> 渲染到 <code>container</code> 指定的 DOM 中。最后的一个参数 <code>callback</code> 是可选的，用于指定该组件绘制或更新完成后需要执行的回调。</p>
+<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p>某些教程会使用 <code>React.render</code> 来渲染页面，这个函数已经过时。建议使用新的 <code>ReactDOM.render</code> 函数。</p>
+</div></p>
+<p>在我们的例子中，我们用 <code>React.createElement</code> 创建了一个内容为 “Hello World!” 的一级标题。当页面启动时，这个一级标题会被插入到 id 为 <code>container</code> 的 div 容器中。</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ReactElement createElement(</div><div class="line">  string/ReactClass type,</div><div class="line">  [object props],</div><div class="line">  [children ...]</div><div class="line">)</div></pre></td></tr></table></figure></p>
+<p><code>React.createElement</code> 函数的第一个参数是元素类型，可以是 <code>h1</code> 、<code>div</code> 等 HTML 元素，也可以是 ReactClass 类型（后面会提到），接下来是两个可选参数 <code>props</code> 和 <code>children</code> ，分别表示要赋予的属性和子元素。</p>
+<p>打开浏览器的调试工具（例如 Chrome 的审查工具），可以看到带有 “Hello World!” 文字信息的一级标题被插入到了 <code>container</code> 这个 div 容器中：</p>
+<p><img src="/images/learn-react-native-for-android-02/hello-world-dev.png" alt=""></p>
+<h4 id="拓展训练">拓展训练</h4>
+<ol>
+<li>试试将 “Hello World!” 这句话改成其他内容，刷新下页面，看看内容有没有变。</li>
+<li><code>React.DOM</code> 是对 <code>React.createElement</code> 的封装和简化。查下 <code>React.DOM</code> 的<a href="http://facebook.github.io/react/docs/getting-started.html" target="_blank" rel="external">文档</a>，试试将代码用 <code>React.createDOM</code> 重写。</li>
+</ol>
+<h2 id="练习2：jsx">练习2：JSX</h2>
+<p>在练习1中我们使用 React 提供的 <code>render()</code> 函数实现了向指定 DOM 中插入内容的简单功能。但这段文本内容是 Hard-Code 的，没有数据绑定的过程，不利于数据和页面模板的分离。</p>
+<p>另一个很糟糕的问题是，像 <code>React.createElement</code>  这类创建元素的方法不如直接编写 HTML 直观。举个例子，假设现在我们需要在 “Hello World!” 标题和 <code>container</code> 容器中增加一层：把 “Hello World!” 放入一个名为 <code>greeting</code> 的 div 容器，再把这个 <code>greeting</code> 容器放入 <code>container</code> 容器里。从页面层级来看，关系应该是这样的：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">+-------------------------+</div><div class="line">|        container        |</div><div class="line">|  +-------------------+  |</div><div class="line">|  |                   |  |</div><div class="line">|  |      greeting     |  |</div><div class="line">|  |  +-------------+  |  |</div><div class="line">|  |  |Hello World! |  |  |</div><div class="line">|  |  +-------------+  |  |</div><div class="line">|  |                   |  |</div><div class="line">|  +-------------------+  |</div><div class="line">|                         |</div><div class="line">+-------------------------+</div></pre></td></tr></table></figure></p>
+<p>如果用 <code>React.createElement</code> 来实现 <code>greeting</code> 和 “Hello World!” 标题的动态创建，代码如下：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">  ReactDOM.render(</div><div class="line">    React.createElement(<span class="string">"div"</span>, { id: <span class="string">"greeting"</span> },</div><div class="line">        React.createElement(<span class="string">"h1"</span>, <span class="literal">null</span>, <span class="string">"Hello World!"</span>)</div><div class="line">  ), <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>));</div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>可以看到，仅仅是增加一层嵌套，就需要再写一层 <code>React.createElement</code> 。想象一下，当日后我们的项目变得越来越复杂时，我们的代码里可能会有一堆的 <code>Reacte.createElement</code> 嵌套，代码的可读性越来越差，甚至难以继续维护。</p>
+<p>JSX 就是为了解决上面的问题而设计出来的一套扩展语法，它的特点是在 JavaScript 中加入了类 XML 语法特性。我们在开发网页应用的时候，不再需要调用无趣的 <code>Reacte.createElement</code> 来创建页面元素，而可以写 HTML 页面一样完成页面的编写。</p>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <p>JSX 的取名含义应该就是 <strong>JS</strong> + <strong>X</strong>ML 。</p>
+</div></p>
+<p>要使用 JSX ，我们需要对我们的代码做一些改造。将 <code>ReactDOM.render</code> 的内容改成：</p>
+<p><figure class="highlight jsx"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">ReactDOM.render(</div><div class="line">        <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"greeting"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">h1</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>,</div><div class="line">    document.getElementById('container')</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>不过这段代码并不能直接被浏览器渲染，我们需要将它保存到另一个文件 main.jsx 中：</p>
+<p><img src="/images/learn-react-native-for-android-02/main-jsx.png" alt=""></p>
+<p>完成后使用 <code>babel</code> 命令将 main.jsx 转成浏览器支持的 JavaScript 代码：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ npm install --save-dev babel-cli babel-present-react  <span class="comment"># 安装 babel</span></div><div class="line">$ <span class="built_in">echo</span> <span class="string">'{ "presets": [ "react" ],  "plugins": []}'</span>  &gt; ~/.babelrc  <span class="comment"># 将 react 插件添加进 .babelrc</span></div><div class="line">$ <span class="built_in">cd</span> test</div><div class="line">$ babel main.jsx -o main.js</div></pre></td></tr></table></figure></p>
+<p>完成后会在当前目录下生成 main.js 文件，我们打开它看看里面的内容：</p>
+<p><img src="/images/learn-react-native-for-android-02/main-js.png" alt=""></p>
+<p>可以和我们在上一节写的JavaScript代码比较下，是不是一模一样？现在可以在我们页面代码中把个脚本文件引用进来：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react-dom.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"main.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="代码解读-v2">代码解读</h4>
+<p>如前面所说，JSX 其实就是在 JS 的基础上加入了类 XML 的语法。HTML 的标签直接写在 JavaScript 代码中，不加任何引号，这就是 JSX 的语法。它允许 HTML 与 JavaScript 的混写。纯 JS 的代码很难看出页面的逻辑，而加入了 HTML 的标签支持后，程序的可读性就大大提高了。</p>
+<p>为了更详细的说明 JSX 语法的特点，我们对 main.jsx 的代码做点修改，将 “Hello World!” 字符串提取出来作为一个变量 <code>greeting</code> 。</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> greeting = <span class="string">"Hello World!"</span>;</div><div class="line">ReactDOM.render(</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"greeting"</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="title">h1</span>&gt;</span>{greeting}<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>,</div><div class="line">    document.getElementById('container')</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>上面代码体现了 JSX 的基本语法规则：遇到 HTML 标签（以 <code>&lt;</code> 开头），就用 HTML 规则解析；遇到代码块（以 <code>{</code> 开头），就用 JavaScript 规则解析。我们再次用 babel 转换成 JS 代码，结果如下：</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="pi">"use strict"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> greeting = <span class="string">"Hello World!"</span>;</div><div class="line">ReactDOM.render(React.createElement(</div><div class="line">        <span class="string">"div"</span>,</div><div class="line">        { id: <span class="string">"greeting"</span> },</div><div class="line">        React.createElement(</div><div class="line">                <span class="string">"h1"</span>,</div><div class="line">                <span class="literal">null</span>,</div><div class="line">                greeting</div><div class="line">        )</div><div class="line">), <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>));</div></pre></td></tr></table></figure></p>
+<h4 id="即时渲染-jsx">即时渲染 JSX</h4>
+<p>由于是一门扩展语言，JSX 的代码并不能直接被浏览器渲染，所以我们不能直接在代码中引用 JSX 代码，而应该先用 babel 工具转换成 JavaScript 再引用。为了方便调试，我们可以使用 babel 中的 browser.js 来让浏览器支持渲染 JSX 。browser.js 属于 babel-core ，先安装 babel-core 。要注意的是 Babel 从 6.0 开始不再提供 browser.js ，因此我们需要安装版本 5 的 babel-core ：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>npm install babel-core<span class="variable">@5</span></div></pre></td></tr></table></figure></p>
+<p>然后将 index.html 修改成：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react-dom.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../node_modules/babel-core/browser.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/babel"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> greeting = <span class="string">"Hello World!"</span>;</div><div class="line">    ReactDOM.render(</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"greeting"</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="title">h1</span>&gt;</span>{greeting}<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span>,</div><div class="line">    document.getElementById('container')</div><div class="line">  );</div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>程序的第 6 行添加了对 browser.js 的引用，第 10 行开始直接加入 JSX 代码。需要注意的是脚本的类型需要为 <code>text/babel</code> ，用于告诉浏览器这段代码是 JSX 代码，需要使用 browser.js 渲染。</p>
+<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p>browser.js 的原理其实是在页面运行时动态将 JSX 转成 JavaScript 再渲染，这个过程比较耗时。实际发布项目时依然建议使用 babel 将 JSX 预转换成 JavaScript 。</p>
+</div></p>
+<h4 id="扩展练习-v2">扩展练习</h4>
+<ol>
+<li>试试修改 JSX 代码中 HTML 中的部分，看看会有什么变化；</li>
+<li>试试修改 JSX 代码中 JavaScript 的部分，看看 JavaScript 的一些常见语法特性是否能够被支持。例如将第 14 行改为 <code>&lt;h1&gt;{&quot;Hello &quot; + &quot;World!&quot;}&lt;/h1&gt;</code> 。</li>
+<li>试试在 JSX 代码中 JavaScript 的部分写一个 if-else ，看看能否像期望的那样工作。如果不能，需要怎么修改使它工作？（提示：参考 <a href="http://facebook.github.io/react/tips/if-else-in-JSX.html" target="_blank" rel="external">If Else in JSX</a>）</li>
+</ol>
+<h2 id="练习3：组件和属性">练习3：组件和属性</h2>
+<p>为了更好的将页面模块化，React 使用组件来表示每个页面模块。组件可以像其他 HTML 标签一样使用 <code>ReactDOM.render</code> 直接绘制。组件可以包含属性和状态。</p>
+<ul>
+<li><strong>属性（props）</strong>：类似 HTML 中的属性，在绘制的时候可以直接在标签中添加属性，然后在组件中通过 <code>this.props.属性名</code> 获取。</li>
+<li><strong>状态（state）</strong>：维护组件内部的状态。一个组件就是一个状态机。React 把用户界面当作简单状态机，把用户界面想像成拥有不同状态然后渲染这些状态。在 React 中，一旦组件的 state 发生变化，用户界面有改动的部分就会被重绘。组件的状态通常在组件的内部函数 <code>getInitialState()</code> 中声明，使用 <code>setState()</code> 函数更新值，并通过 <code>this.state.状态名</code> 来获取值。</li>
+</ul>
+<p>我们将在下一个练习了解状态的使用。现在先让我们把焦点放在<strong>属性</strong>上。将 main.html 改写成：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react-dom.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../node_modules/babel-core/browser.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/babel"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> Greeting = React.createClass({</div><div class="line">      render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">          <span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"greeting"</span>&gt;</span></span></div><div class="line">            <span class="tag">&lt;<span class="title">h1</span>&gt;</span>{this.props.word}<span class="tag">&lt;/<span class="title">h1</span>&gt;</span></div><div class="line">          <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">        );</div><div class="line">      }</div><div class="line">    });</div><div class="line"></div><div class="line">    ReactDOM.render(</div><div class="line">      <span class="tag">&lt;<span class="title">Greeting</span> <span class="attribute">word</span>=<span class="value">"Hello World!"</span>/&gt;</span>,</div><div class="line">      document.getElementById('container')</div><div class="line">    );</div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="代码解读-v3">代码解读</h4>
+<p>在上面的代码中，我们使用 <code>React.createClass()</code> 来创建一个组件实例。JSX 里约定分别使用首字母大、小写来区分本地组件的类和 HTML 标签。每个组件通常都会有一个 <code>render()</code> 函数，用于指定当调用 <code>ReactDOM.render()</code> 渲染该组件时的方式。该函数会使用 <code>return</code> 语句返回一个页面节点。在我们的例子中，我们将问候语作为一个 word 属性，在 Greeting 组件中通过 <code>this.props.word</code> 来获取，并放入一个一级标题中，再在外层用一个 id 为 “greeting” 的 <code>div</code> 包含。</p>
+<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <ul>
+<li>官方建议组件的取名以大写字母开头，以区分 HTML 标签。</li>
+<li>目前， 一个 component 的 render，只能返回一个节点。如果你需要返回一堆 div ， 那你必须将你的组件用 一个div 或 span 或任何其他的组件包裹。</li>
+</ul>
+</div></p>
+<p>在 <code>ReactDOM.render()</code> 函数中，我们可以像使用其他 HTML 标签一样使用自定义的组件，并传入一个自定义属性 <code>word</code> 。</p>
+<p>经过这么修改，我们把原本 Hard-Code 的 “Hello World!” 字符串改成通过组件属性来传递，这个过程就完成了视图和数据的 <strong>绑定</strong> 。</p>
+<p>现在我们使用 <a href="https://github.com/facebook/react-devtools/" target="_blank" rel="external">react-devtool</a> 来调试 React 程序，看看属性是如何被传入到组件里的。如果你的浏览器还没有装这个插件，现在就装上它（<a href="https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi" target="_blank" rel="external">Chrome 版</a> | <a href="https://addons.mozilla.org/firefox/addon/react-devtools/" target="_blank" rel="external">Firefox 版</a>）。</p>
+<p>打开浏览器的调试工具，点击 React 选项卡，如图所示：</p>
+<p><img src="/images/learn-react-native-for-android-02/react-devtool.png" alt=""></p>
+<p>调试工具左侧的窗口展示了 Greeting 组件完成数据绑定后的结果，右边的窗口展示了 Greeting 组件的所有属性，目前只有一个 <code>word</code> 属性。我们在左边窗口的代码首行单击鼠标右键，可以打开一个菜单。选择 【Show Source】 可以跳进 Greeting 的源码，选择 【Show in Elements Pane】 可以跳进 HTML 元素面板中，如下图所示：</p>
+<p><img src="/images/learn-react-native-for-android-02/invisible-prop.png" alt=""></p>
+<h4 id="扩展练习-v3">扩展练习</h4>
+<ol>
+<li>试试在组件的 <code>render</code> 函数中返回多个根节点，看看会不会报错。</li>
+<li>阅读官方文档有关<a href="http://facebook.github.io/react/docs/reusable-components.html#prop-validation" target="_blank" rel="external">属性验证</a>的内容，编写对 <code>word</code> 属性的类型验证，并尝试将 word 的值修改为数值或者其他类型看看能否通过验证。</li>
+<li>阅读官方文档有关<a href="http://facebook.github.io/react/docs/reusable-components.html#default-prop-values" target="_blank" rel="external">属性默认值</a> 的内容，为 <code>word</code> 属性增加一个默认值 “Hello World” 。</li>
+<li>阅读官方文档有关<a href="http://facebook.github.io/react/docs/jsx-spread.html#spread-attributes" target="_blank" rel="external">扩展属性(Spread Attributes)</a>的内容，为 Greeting 添加一个新属性 <code>date</code> ，并使用 <code>{..props}</code> 传入这两个属性的值。</li>
+</ol>
+<h2 id="练习4：展示一组数据">练习4：展示一组数据</h2>
+<p>我们继续完善我们的例子。现在我们希望能够传入一组人的名字，然后让 Greeting 组件向这些人问好。</p>
+<p>将 index.html 改为：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react-dom.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../node_modules/babel-core/browser.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/babel"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> Greeting = React.createClass({</div><div class="line">      render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">          <span class="xml"><span class="tag">&lt;<span class="title">ol</span> <span class="attribute">id</span>=<span class="value">"greeting"</span>&gt;</span></span></div><div class="line">          {</div><div class="line">            this.props.names.map(function (name) {</div><div class="line">              return <span class="tag">&lt;<span class="title">li</span>&gt;</span>Hello, {name}!<span class="tag">&lt;/<span class="title">li</span>&gt;</span>;</div><div class="line">            })</div><div class="line">          }</div><div class="line">          &lt;<span class="regexp">/ol&gt;</span></div><div class="line">        );</div><div class="line">      }</div><div class="line">    });</div><div class="line"></div><div class="line">    var names = ['Alice', 'Bob', 'Cindy'];</div><div class="line">    ReactDOM.render(</div><div class="line">      &lt;Greeting names={names}/&gt;,</div><div class="line">      <span class="built_in">document</span>.getElementById(<span class="string">'container'</span>)</div><div class="line">    );</div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>刷新下浏览器，效果如下：</p>
+<p><img src="/images/learn-react-native-for-android-02/props-array.png" alt=""></p>
+<h4 id="代码解读-v4">代码解读</h4>
+<p>让我们先看看 <code>ReactDOM.render()</code> 部分：</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> names = [<span class="string">'Alice'</span>, <span class="string">'Bob'</span>, <span class="string">'Cindy'</span>];</div><div class="line">ReactDOM.render(</div><div class="line">  <span class="xml"><span class="tag">&lt;<span class="title">Greeting</span> <span class="attribute">names</span>=<span class="value">{names}</span>/&gt;</span>,</span></div><div class="line">  document.getElementById('container')</div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>这一部分的内容和之前的区别不大，唯一的区别就是 <code>names</code> 属性的取值通过传入一个变量 <code>names</code> 来完成，由于是一个 JavaScript 的列表型变量，因此，<code>names</code> 的两端需要用 <code>{}</code> 包围 。</p>
+<p>我们再看看 <code>Greeting</code> 组件的实现：</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">var Greeting = React.createClass({</div><div class="line">  render: function() {</div><div class="line">    return (</div><div class="line">      &lt;ol id="greeting"&gt;</div><div class="line">      {</div><div class="line">        this.props.names.map(function (name) {</div><div class="line">          return &lt;li&gt;Hello, {name}!&lt;/li&gt;;</div><div class="line">        })</div><div class="line">      }</div><div class="line">      &lt;/ol&gt;</div><div class="line">    );</div><div class="line">  }</div><div class="line">});</div></pre></td></tr></table></figure></p>
+<p>在程序的第 6 行，我们使用 JavaScript 的 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="external"><code>Array.prototype.map()</code></a> 操作将 <code>names</code> 数组的每个值 <code>name</code> 一个个使用 <code>&lt;li&gt;Hello, {name}&lt;/li&gt;</code> 的形式重新创建，得到一个新的数组再返回给 <code>ReactDOM.render()</code> 函数绘制。注意 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="external"><code>Array.prototype.map()</code></a> 操作是一个 JavaScript 操作，所以必须使用 <code>{}</code> 包围。</p>
+<p>打开 React 调试工具，可以看到 names 属性变成了一个列表：</p>
+<p><img src="/images/learn-react-native-for-android-02/props-array-dev.png" alt=""></p>
+<p>注意到调试工具的终端窗口出现了一个警告：</p>
+<p><img src="/images/learn-react-native-for-android-02/key-prop-warning.png" alt=""></p>
+<p>为了解释这个问题，我们先来了解一下虚拟 DOM 。</p>
+<p>HTML 或 XML 文档是使用 DOM （Document Object Model，文档对象模型）来表示和处理的。DOM 技术使得用户页面可以动态地变化，如可以动态地显示或隐藏一个元素，改变它们的属性，增加一个元素等，使得页面的交互性大大地增强。</p>
+<p>然而，DOM 有一个致命的缺点——慢。举个例子，假如我们需要在某个节点动态插入一个元素，那就需要先定位到那个节点再进行插入。假如要插入多个元素，那么节点的定位和插入的时间就要成倍增加。对于一个复杂的页面，整个过程可能非常耗时。</p>
+<p>为了提高页面元素操纵的效率，React 提出了虚拟 DOM 的技术：组件在插入文档之前，并不是真实的 DOM 节点，而是存在于内存之中的一种数据结构，因此称为虚拟 DOM 。与 DOM 相比，虚拟 DOM 放弃了定位和修改节点的过程，而是通过一种称为 DOM diff 的算法找出中这个虚拟 DOM 中发生改动的部分，然后对这些部分进行整体刷新。这样，多次的节点定位和修改就合并成了一次组件的整体刷新。这就是为什么虚拟 DOM 的速度要比 DOM 快的重要原因。</p>
+<p>由上也可看出，虚拟 DOM 技术依赖于 DOM diff 算法的效率和准确性。而这个算法依赖于以下两个假设：</p>
+<ol>
+<li>组件的 DOM 是相对稳定的。虚拟 DOM 在任何一个时刻的快照，和短时间内另一时刻的快照并不会有太大的变化，这样就很容易通过比较找出发生改动的部分。</li>
+<li>类型相同的兄弟节点可以被唯一的标识。如果同类型的兄弟节点没有唯一的标识，那么不同时刻的虚拟 DOM 在同一级的 Diff 结果可能会不稳定。React 允许使用 <code>key</code> 属性来标识节点。</li>
+</ol>
+<p>列表的每个子元素就是类型相同的兄弟节点，如果列表的子元素不加上 <code>key</code> 属性标识，当列表的元素发生改变（例如有个新元素插入到头部），有可能会影响 DOM diff 的判断，从而影响算法的效率和准确性。</p>
+<h4 id="拓展训练-v2">拓展训练</h4>
+<ol>
+<li>对于我们这个例子，如何修改代码来消除这个警告？</li>
+<li>阅读官方文档有关<a href="http://facebook.github.io/react/tips/children-props-type.html" target="_blank" rel="external"><code>this.props.children</code></a>的内容，尝试使用 <code>this.props.children</code> 取代例子中的 <code>this.props.names</code> 展示数据。</li>
+</ol>
+<h2 id="练习5：增加交互">练习5：增加交互</h2>
+<p>到目前为止 Greeting 组件的 <code>name</code> 属性的值都是在代码中事先写好的，程序运行的过程中没法再改变。现在我们对这个例子做些修改，让它在运行时接受我们的输入，并生成问候语。</p>
+<p>修改 index.html 代码如下：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react-dom.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../node_modules/babel-core/browser.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/babel"</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="keyword">var</span> Greeting = React.createClass({</div><div class="line">      getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">return</span> {</div><div class="line">          name_list : []</div><div class="line">        };</div><div class="line">      },</div><div class="line">      render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">        <span class="keyword">return</span> (</div><div class="line">          <span class="xml"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span></div><div class="line">          <span class="tag">&lt;<span class="title">ol</span>&gt;</span></div><div class="line">          {</div><div class="line">            this.state.name_list.map(function (name) {</div><div class="line">              return <span class="tag">&lt;<span class="title">li</span> <span class="attribute">key</span>=<span class="value">{name}</span>&gt;</span>Hello {name}!<span class="tag">&lt;/<span class="title">li</span>&gt;</span>;</div><div class="line">            })</div><div class="line">          }</div><div class="line">          &lt;<span class="regexp">/ol&gt;</span></div><div class="line">          &lt;input ref="name_input" placeholder="Input a name here" type="text"/&gt;</div><div class="line">          <span class="xml"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span>  <span class="attribute">onClick</span>=<span class="value">{this.handleClick}</span> /&gt;</span>          </span></div><div class="line">          <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">        );</div><div class="line">      },</div><div class="line">      handleClick: function(event) {</div><div class="line">        var names = this.state.name_list;</div><div class="line">        var input_name = this.refs.name_input.value;</div><div class="line">        names.push(input_name);</div><div class="line">        this.setState({name_list: names});</div><div class="line">        this.refs.name_input.value = "";</div><div class="line">      }</div><div class="line">    });</div><div class="line"></div><div class="line">    ReactDOM.render(</div><div class="line">      <span class="tag">&lt;<span class="title">Greeting</span>/&gt;</span>,</div><div class="line">      document.getElementById('container')</div><div class="line">    );</div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>刷新下浏览器，此时页面初始化时只有一个文本输入框和一个提交按钮：</p>
+<p><img src="/images/learn-react-native-for-android-02/interactive-demo-init.png" alt=""></p>
+<p>此时注意到调试工具中出现了一个新的 State 对象，该对象包含一个 0 元素的 name_list 列表。</p>
+<p>往文本框中输入名字并点击提交按钮后，页面就会出现相应的问候语：</p>
+<p><img src="/images/learn-react-native-for-android-02/interactive-demo.png" alt=""></p>
+<p>此时调试工具中的 State 对象也发生了相应变化，name_list 中的元素会记录下用户输入的所有名字。</p>
+<h4 id="代码解读-v5">代码解读</h4>
+<p>在练习 3 中我们简单提过状态（state）。React 把用户界面当作简单状态机，把用户界面想像成拥有不同状态然后渲染这些状态。对于在代码中需要动态改变的数据，例如需要对用户输入、服务器请求或者时间变化等作出响应，这时就需要使用 state 。在我们的例子中，此时 Greeting 组件所需要渲染的名字列表是由用户输入的，所以应该将其改写成 state 。</p>
+<ul>
+<li>程序的第 12 ~ 16 行声明了一个 <code>name_list</code> 状态并初始化为一个 0 元素的空列表（<code>[]</code>）。</li>
+</ul>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">  <span class="keyword">return</span> {</div><div class="line">    name_list : []</div><div class="line">  };</div><div class="line">},</div></pre></td></tr></table></figure></p>
+<p>在使用状态的组件中，这个函数通常是必须编写的。否则会报 “Cannot read property ‘name_list’ of null” 错误。</p>
+<ul>
+<li>程序的第 27 ~ 28 行增加了两个页面表单元素，用于接收用户输入和设置响应按钮点击事件为实例的 <code>handleClick()</code> 函数。</li>
+</ul>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">ref</span>=<span class="value">"name_input"</span> <span class="attribute">placeholder</span>=<span class="value">"Input a name here"</span> <span class="attribute">type</span>=<span class="value">"text"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span>  <span class="attribute">onClick</span>=<span class="value">{this.handleClick}</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>程序的第 32 ~ 37 行是对 <code>handleClick()</code> 函数的实现。需要格外注意的一点是获取输入框的内容的方式。</li>
+</ul>
+<p>我们前面已经说到，组件在插入页面前其实是在虚拟 DOM 中的表示，因此，在渲染成最终实际的 DOM 前，你不能通过直接访问组件内的元素来试图获取它的属性。对于我们的代码，Greeting 组件的子节点有一个文本输入框，用于获取用户的输入。这时就必须获取真实的 DOM 节点，虚拟 DOM 是拿不到用户输入的。为了做到这一点，我们在文本输入框添加了一个 ref 属性 <code>name_input</code>，然后通过 <code>this.refs.name_input</code> 就指向这个虚拟 DOM 的子节点。</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">handleClick: function(event) {</div><div class="line">  var names = this.state.name_list;</div><div class="line">  var input_name = this.refs.name_input.value;</div><div class="line">  names.push(input_name);</div><div class="line">  this.setState({name_list: names});</div><div class="line">  this.refs.name_input.value = "";</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>如果需要获取这个元素自身的真实 DOM 节点，可以使用 <a href="http://facebook.github.io/react/docs/top-level-api.html#reactdom.finddomnode" target="_blank" rel="external"><code>ReactDOM.findDOMNode</code></a> 方法。该方法将在虚拟 DOM 插入文档以后才返回该元素实际的 DOM 节点。</p>
+<h4 id="扩展练习-v4">扩展练习</h4>
+<ol>
+<li>阅读官方文档有关 <a href="http://facebook.github.io/react/docs/interactivity-and-dynamic-uis.html#what-components-should-have-state" target="_blank" rel="external">state 与 props 的选择</a>，了解什么时候要用 state ，什么时候要用 props 。</li>
+<li>阅读官方文档有关 <a href="http://facebook.github.io/react/docs/events.html#supported-events" target="_blank" rel="external">React 支持的事件</a> ，为文本框增加一个按键事件：当按下回车键时触发提交。</li>
+<li>这个页面有一个bug：当用户什么都不输入，直接点 sumbit 按钮时，页面将把空文本当成 <code>name</code> 的 state 传入给 Greeting 组件渲染。如下图所示：
+<img src="/images/learn-react-native-for-android-02/interactive-demo-bug.png" alt="">
+怎么对用户的输入进行验证？</li>
+<li>利用 <code>ReactDOM.findDOMNode</code> 函数，增加一个按钮，当点击该按钮时，让输入框获得焦点。</li>
+<li>为了给用户一个输入示例，我们可以给 input 增加一个 <code>value=&quot;Alice&quot;</code> 属性，让它在页面初始时给出一个示例。如下：</li>
+</ol>
+<p><img src="/images/learn-react-native-for-android-02/interactive-hint-bug.png" alt=""></p>
+<p>但这引来了一个 bug ：输入框变成了不可变。怎么解决这个问题？（留意终端的错误警告信息）</p>
+<h2 id="练习6：复合组件">练习6：复合组件</h2>
+<p>通过观察我们上一节的程序，我们可以看到 Greeting 组件其实包含了两个部分：一个用来展示问候语的列表，以及一个输入名字的表单。从功能上看，这两个部分可以各自作为一个独立的组件 NameList 和 NameForm ，然后再组合成一个复合组件 GreetingWidget 。画图示意如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">+-----------------------------+</div><div class="line">|        GreetingWidget       |</div><div class="line">|                             |</div><div class="line">|  +-----------------------+  |</div><div class="line">|  |       NameList        |  |</div><div class="line">|  |                       |  |</div><div class="line">|  +-----------------------+  |</div><div class="line">|                             |</div><div class="line">|  +-----------------------+  |</div><div class="line">|  |       NameForm        |  |</div><div class="line">|  |                       |  |</div><div class="line">|  +-----------------------+  |</div><div class="line">+-----------------------------+</div></pre></td></tr></table></figure></p>
+<p>这样的设计看起来好像很合理，然而在 React 中实现可能会遇到问题。<strong>在 React 里面，数据流是一个方向的：从拥有者到子节点</strong>。这是因为根据 <a href="http://en.wikipedia.org/wiki/Von_Neumann_architecture" target="_blank" rel="external">the Von Neumann model of computing</a> ，数据仅向一个方向传递。你可以认为它是<strong>单向数据绑定</strong>。因此， NameList 里头展示的数据必须由 GreetingWidget 以属性的方式传入，而这些属性又必须从 NameForm 获取。试图从子节点获取数据就违反了 React 单向数据绑定的原则。为了解决这个问题，我们可以以属性的形式传递一个回调函数 <code>onNameSubmit()</code> 给 NameForm 。当点击 NameForm 里的 submit 按钮时，就调用这个回调函数并将 name 数据作为参数交给回调函数处理。</p>
+<p>代码如下：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../build/react-dom.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"../node_modules/babel-core/browser.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"container"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/babel"</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="keyword">var</span> GreetingWidget = React.createClass({</div><div class="line">    getInitialState: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">      <span class="keyword">return</span> {</div><div class="line">        name_list : []</div><div class="line">      };</div><div class="line">    },</div><div class="line">    render: <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{</div><div class="line">      <span class="keyword">return</span> (</div><div class="line">        <span class="xml"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span></div><div class="line">        <span class="tag">&lt;<span class="title">NameList</span> <span class="attribute">name_list</span>=<span class="value">{this.state.name_list}</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">NameForm</span> <span class="attribute">onNameSubmit</span>=<span class="value">{this.handleNameSubmit}</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="title">div</span>&gt;</span></div><div class="line">      );</div><div class="line">    },</div><div class="line">    handleNameSubmit: function(name) {</div><div class="line">      var names = this.state.name_list;</div><div class="line">      names.push(name);</div><div class="line">      this.setState({name_list: names});</div><div class="line">    }</div><div class="line">  });</div><div class="line"></div><div class="line">  var NameForm = React.createClass({</div><div class="line">    handleSubmit: function(e) {</div><div class="line">      e.preventDefault();</div><div class="line">      var name = this.refs.name_input.value;</div><div class="line">      if (!name) {</div><div class="line">        return;</div><div class="line">      }</div><div class="line">      this.props.onNameSubmit(name);</div><div class="line">      this.refs.name_input.value = "";</div><div class="line">      return;</div><div class="line">    },</div><div class="line">    render: function() {</div><div class="line">      return (</div><div class="line">        <span class="tag">&lt;<span class="title">form</span> <span class="attribute">onSubmit</span>=<span class="value">{this.handleSubmit}</span>&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="title">input</span> <span class="attribute">ref</span>=<span class="value">"name_input"</span> <span class="attribute">placeholder</span>=<span class="value">"Input a name here"</span> <span class="attribute">type</span>=<span class="value">"text"</span> /&gt;</span></div><div class="line">          <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> /&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="title">form</span>&gt;</span></div><div class="line">      );</div><div class="line">    }</div><div class="line">  });</div><div class="line"></div><div class="line">  var NameList = React.createClass({</div><div class="line">    render: function() {</div><div class="line">      return (</div><div class="line">        <span class="tag">&lt;<span class="title">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="title">ol</span>&gt;</span></div><div class="line">        {</div><div class="line">          this.props.name_list.map(function (name) {</div><div class="line">            return <span class="tag">&lt;<span class="title">li</span> <span class="attribute">key</span>=<span class="value">{name}</span>&gt;</span>Hello {name}!<span class="tag">&lt;/<span class="title">li</span>&gt;</span>;</div><div class="line">          })</div><div class="line">        }</div><div class="line">        &lt;<span class="regexp">/ol&gt;</span></div><div class="line">        &lt;/div&gt;</div><div class="line">      );</div><div class="line">    }</div><div class="line">  });</div><div class="line"></div><div class="line">  ReactDOM.render(</div><div class="line">    <span class="xml"><span class="tag">&lt;<span class="title">GreetingWidget</span> /&gt;</span>,</span></div><div class="line">    document.getElementById('container')</div><div class="line">  );</div><div class="line">  <span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h4 id="代码解读-v6">代码解读</h4>
+<ul>
+<li>代码的第 11 ~ 30 行是 GreetingWidget 组件的实现，第 32 ~ 51 行是 NameForm 组件的实现。第 53 ~ 68 行是 NameList 的组件。在第 20 行和第 21 行， Greeting 组件分别包含了 NameForm 组件和 NameList 组件：</li>
+</ul>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">NameList</span> <span class="attribute">name_list</span>=<span class="value">{this.state.name_list}</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">NameForm</span> <span class="attribute">onNameSubmit</span>=<span class="value">{this.handleNameSubmit}</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<p>其中，Greeting 组件将 <code>handleNameSubmit()</code> 函数作为一个属性传递给 NameForm 当做回调函数。</p>
+<p><img src="/images/learn-react-native-for-android-02/multiple-comp-callback.png" alt=""></p>
+<p>在上图所示的调试工具中也可以清楚的看到 GreetingWidget 在虚拟 DOM 中的内部结构。</p>
+<ul>
+<li>在 NameForm 的实现中，我们将表单的 <code>onSubmit</code> 事件指定使用该组件实例的 <code>handleSubmit()</code> 函数处理：</li>
+</ul>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">render: function() {</div><div class="line">  return (</div><div class="line">    <span class="tag">&lt;<span class="title">form</span> <span class="attribute">onSubmit</span>=<span class="value">{this.handleSubmit}</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">ref</span>=<span class="value">"name_input"</span> <span class="attribute">placeholder</span>=<span class="value">"Input a name here"</span> <span class="attribute">type</span>=<span class="value">"text"</span> /&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"submit"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="title">form</span>&gt;</span></div><div class="line">  );</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>而 <code>handleSubmit()</code> 函数调用了父节点 GreetingWidget 传进来的回调函数 <code>onNameSubmit()</code> 函数，并传入本节点的输入框控件的值作为 <code>name</code> 参数：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">handleSubmit: function(e) {</div><div class="line">  e.preventDefault();</div><div class="line">  var name = this.refs.name_input.value;</div><div class="line">  if (!name) {</div><div class="line">    return;</div><div class="line">  }</div><div class="line">  this.props.onNameSubmit(name);</div><div class="line">  this.refs.name_input.value = "";</div><div class="line">  return;</div><div class="line">},</div></pre></td></tr></table></figure></p>
+<p>注意在这里我们调用了 <code>preventDefault()</code> 来避免使用浏览器默认的行为提交表单。</p>
+<ul>
+<li>GreetingWidget 的 <code>onNameSubmit()</code> 回调函数指定使用 <code>handleNameSubmit()</code> 函数来处理，该函数接收子节点回传的 <code>name</code> 参数，并通过 <code>setState()</code> 方法追加到当前 <code>name_list</code> 列表中：</li>
+</ul>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">handleNameSubmit: <span class="function"><span class="keyword">function</span><span class="params">(name)</span> </span>{</div><div class="line">  <span class="keyword">var</span> names = <span class="keyword">this</span>.state.name_list;</div><div class="line">  names.push(name);</div><div class="line">  <span class="keyword">this</span>.setState({name_list: names});</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<ul>
+<li>在 GreetingWidget 中，由于要处理用户输入，数据被定义为 State 。在调试工具中，点击根节点 GreetingWidget ，注意右侧数据区中的 name_list 是以 State 定义的：</li>
+</ul>
+<p><img src="/images/learn-react-native-for-android-02/multiple-comp-root.png" alt=""></p>
+<p>而传给 NameList 的数据只用来展示，所以可以定义为 Props 。在调试工具中，点击 NameList 子节点，注意右侧数据区中的 name_list 是以 Prop 定义的：</p>
+<p><img src="/images/learn-react-native-for-android-02/multiple-comp-sub.png" alt=""></p>
+<h4 id="扩展练习-v5">扩展练习</h4>
+<ol>
+<li>试试移除第 34 行 <code>e.preventDefault();</code> 重新提交下数据，看看有什么变化；</li>
+<li>给我们的页面元素添加样式，注意在 JSX 中指定页面元素 css 属性应该使用 <code>className</code> 属性。详见 <a href="http://facebook.github.io/react/docs/tags-and-attributes.html#supported-attributes" target="_blank" rel="external">Supported Attributes</a> 。</li>
+<li>使用单向数据绑定是 React 保持简单的一个重要体现。如果确实需要双向数据绑定，从子节点返回数据给父节点，可以考虑使用 <a href="http://facebook.github.io/react/docs/two-way-binding-helpers.html" target="_blank" rel="external">ReactLink</a> 。阅读官方文档关于 <a href="http://facebook.github.io/react/docs/two-way-binding-helpers.html" target="_blank" rel="external">ReactLink</a> 的介绍，并尝试使用 ReactLink 取代回调的方式重新实现本节的例子。</li>
+</ol>
+<h2 id="补遗">补遗</h2>
+<p>本文从例子入手，一步步介绍了 JSX 、组件、属性、状态、数据展示、表单处理、复合组件等 React 开发中的基础概念，在其中存在的一些坑和值得深究的东西也尽量以扩展练习的形式交给读者主动去学习掌握。</p>
+<p>受限于篇幅关系，本文所介绍的内容主要是为了后续学习 React Native 做准备，而不足以囊括 React 开发基础的所有方面。例如：</p>
+<ol>
+<li>没有深入探讨<a href="http://facebook.github.io/react/docs/component-specs.html" target="_blank" rel="external">组件的生存周期</a>；</li>
+<li>没有介绍 <a href="http://facebook.github.io/react/docs/reusable-components.html#mixins" target="_blank" rel="external">Mixins</a> 和如何用它来编写可复用组件；</li>
+<li>没有引入与 Ajax 结合的网络编程；</li>
+<li>没有介绍 <a href="https://facebook.github.io/flux/docs/overview.html" target="_blank" rel="external">Flux</a>/<a href="http://segmentfault.com/a/1190000002793786?utm_source=tuicool" target="_blank" rel="external">Reflux</a>/<a href="https://github.com/graphql/graphql-js" target="_blank" rel="external">GraphQL</a>/<a href="http://www.oschina.net/p/relay" target="_blank" rel="external">Relay</a> 等数据处理库。</li>
+</ol>
+<p>如果希望继续深入学习 React 开发，在学习完本文之后，您可以继续阅读下面列举的资料：</p>
+<ol>
+<li>阅读 Starter Kit 中自带的所有官方例子的代码；</li>
+<li>阅读 <a href="http://facebook.github.io/react/docs/tutorial.html" target="_blank" rel="external">官方教程</a> ，了解如何使用 React 和 Ajax 进行网络编程。</li>
+<li>阅读上面提及的链接，补充学习本文所遗漏的内容。</li>
+</ol>
+<p>其它推荐的学习材料：</p>
+<ol>
+<li><a href="https://github.com/enaqx/awesome-react" target="_blank" rel="external">Awesome-React 系列</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2015/03/react.html" target="_blank" rel="external">React 入门实例教程 - 阮一峰</a></li>
+<li><a href="http://vdisk.weibo.com/s/A0GI9rYbt9zQ" target="_blank" rel="external">QCon上海2015 - React 实战 - 王沛</a></li>
+<li><a href="http://react-ecosys.weitie.co/" target="_blank" rel="external">QCon上海2015 - 探索 React 生态圈 - 郭达锋</a></li>
+<li><a href="http://blog.zigomir.com/react.js/jquery/2015/01/11/jquery-versus-react-thinking.html" target="_blank" rel="external">jQuery versus React.js thinking - zigomir</a></li>
+</ol>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/work/enterprise-class-git-version-control-1/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/codes/learn-react-native-for-android-01/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Oct 19 2015 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/codes/">codes<span>30</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/React/">React<span>1</span></a></li> <li><a data-pjax href="/tags/Javascript/">Javascript<span>4</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

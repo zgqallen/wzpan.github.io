@@ -1,0 +1,407 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Two Odd Tricks of Dropbox | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="分享Dropbox的两个奇葩用法。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Two Odd Tricks of Dropbox"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> Two Odd Tricks of Dropbox</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>分享Dropbox的两个奇葩用法。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<p>写这篇文章时，心里总想起大妈 <a href="http://weibo.com/zoomquiet" target="_blank" rel="external">ZoomQuiet</a> 早前在微博上的签名</p>
+<blockquote>
+<p>“备份不做，十恶不赦。”</p>
+</blockquote>
+<p>对于一个安全意识健全的人而言，做好备份工作，也是良好职业素养的体现。进度备份、文件冗余备份、RAID备份、云备份、……怎么备份都不过分。<a href="http://db.tt/Crj7JxpT" target="_blank" rel="external">Dropbox</a> 就是一个非常流行的云存储备份文件的工具，它可以很方便的将文件保存到云端，与好友共享，并且在一段时间内提供简单的版本控制功能。</p>
+<p><img src="/images/two-odd-tricks-of-dropbox/dropbox.jpg" alt="Dropbox"></p>
+<p>当然，Dropbox 的用处绝不止这么简单。除了备份和共享文件，越来越多的人正试图利用它开展一些非常有意思的工作，比如建网站啦、GTD啦，等等。</p>
+<p>今天也赶个时髦，介绍我自己的两个比较 <q>奇葩</q> 的用法。如果你也有什么有趣用法，也欢迎发邮件跟我交流。</p>
+<a id="more"></a>
+<h2 id="奇葩用法一：远程查看进度">奇葩用法一：远程查看进度</h2>
+<p>先来看看这幅出自 <a href="http://www.geekoftheday.com/spare-time-for-computer-workers/" target="_blank" rel="external">geekoftheday</a> 的漫画：</p>
+<p><img src="/images/two-odd-tricks-of-dropbox/computer-workers-spare-time.jpg" alt="Spare Time For Computer Workers"></p>
+<p>为什么计算机工作者总给人一种悠闲的感觉？因为他们的悠闲时间大部分来源于等待（血淋淋的事实啊 <code>T_T</code>），对于码农，等待编译完成或者程序运行跑出结果是家常便饭的事情了，有时为了第一时间了解进度，还得一直守在屏幕旁不敢走开，以防 leader 突然间逮住你说：</p>
+<p><img src="/images/two-odd-tricks-of-dropbox/comic1.png" alt="程序猿的忧桑"></p>
+<p>其实可以利用 Dropbox 实时汇报程序编译/运行进度。做法是在你的程序里将进度信息输出到 Dropbox 里，这样即使人走开了，利用手机上的Dropbox客户端也可以随时了解进度。对于不方便导出进度信息的程序，也可以通过截屏工具定时截屏，然后将图片保存到 Dropbox 里，这样活脱脱就是一个远程监控呀！</p>
+<p><img src="/images/two-odd-tricks-of-dropbox/S30704-194022.jpg" alt="用Dropbox手机客户端查看进度"></p>
+<p>如果你的 leader 比你还想快一点知道结果，你可以将编译进度和每一步的结果做成一个网页，放在 Dropbox 目录下的 public 子目录，然后获取它的公开访问链接，你的 leader 就可以和你一样关注进度了！比如 <a href="https://dl.dropboxusercontent.com/u/49734213/billboard/progress0.html" target="_blank" rel="external">这个示例页面</a> ：</p>
+<iframe src="https://dl.dropboxusercontent.com/u/49734213/billboard/progress0.html" width="100%" height="400px">
+</iframe>
+<p>用这个办法，遇到再 push 的 leader 也无压力了哟亲！</p>
+<p><img src="/images/two-odd-tricks-of-dropbox/comic2.png" alt="程序猿的欢乐"></p>
+<h2 id="奇葩用法二：团队-i-o">奇葩用法二：团队 I/O</h2>
+<p>还是提到等待，除了等待程序执行，程序猿还要等待数据。《我是歌手》唱红了一首歌，来自黄琦珊的《等待》——</p>
+<p><blockquote>
+
+<p>等待，</p>
+<p>永久的等待。</p>
+<p>树叶绿了又黄，</p>
+<p>你还没来。</p>
+
+
+</blockquote>
+</p>
+<p>在团队项目中有时会遇到这种情况：你把跑数据的算法实现了，但另一个人数据还没给你，“巧妇难为无米之炊”，没数据你也跑不了程序。碰上比较迫近的 deadline，你可能就得陪着他一块熬夜。等他把数据弄出来了，他潇洒的去睡了，你却要跑程序给结果。</p>
+<p><img src="/images/two-odd-tricks-of-dropbox/comic3.png" alt="程序猿的等待"></p>
+<p>利用 Dropbox，你可以让程序代替你去等待和自动处理数据。方法如下：假设团队用于共享数据的目录名为 <code>data</code> ，首先在你的程序里写一个循环，监测 data 目录，一旦发现有数据文件，就进入处理，然后把处理完的数据移动到其他目录；否则等待一段时间再判断一次。例如，这是我在一个 Matlab 程序中加的一段辅助代码：</p>
+<p><figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> true</div><div class="line"></div><div class="line">    <span class="comment">%% 测试数据目录是否有新文件</span></div><div class="line">    filelist = dir(<span class="string">'data/'</span>);</div><div class="line">    <span class="keyword">if</span> <span class="built_in">length</span>(filelist)&gt;<span class="number">2</span> </div><div class="line">    </div><div class="line">       <span class="comment">%% 读入数据</span></div><div class="line">        filename = filelist(<span class="number">3</span>).name;</div><div class="line">        dataplace= strcat(<span class="string">'data/'</span>,filename);</div><div class="line">        resultplace = sprintf(<span class="string">'result/%s-cluster.cla'</span>,filename);</div><div class="line"></div><div class="line">        <span class="comment">% 处理数据</span></div><div class="line"></div><div class="line">        <span class="comment">% 将数据和结果复制到结果文件夹和存放已处理数据的文件夹</span></div><div class="line">        copyorder=sprintf(<span class="string">'cp %s result/%s-progress.txt'</span>,<span class="built_in">log</span>,filename);</div><div class="line">        system(copyorder);</div><div class="line">        mvorder=sprintf(<span class="string">'mv data/%s processed/%s'</span>,filename,filename);</div><div class="line">        system(mvorder);</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">disp</span>(<span class="string">'Data目录还没有文件！系统将在10秒后再次检测...\n'</span>);</div><div class="line">        pause(<span class="number">10</span>);</div><div class="line">    <span class="keyword">end</span>;</div><div class="line">    </div><div class="line"><span class="keyword">end</span>;</div></pre></td></tr></table></figure></p>
+<p><img src="/images/two-odd-tricks-of-dropbox/comic4.png" alt="程序猿的得瑟"></p>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/codes/ruhoh-toc/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/codes/notifynet/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Jul 4 2013 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/tools/">tools<span>12</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

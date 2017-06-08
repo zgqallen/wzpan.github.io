@@ -1,0 +1,790 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>基础 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="命令行格式
+不同的命令可接受的命令行格式或有不同，一般情况下，一个标准的命令行格式为如下所列：
+1conmmand-name options argement
+从技术上看，shell会依据 IFS(Internet Field Seperator) 将命令行所输入的文字拆解成“字段”（word）。当">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="基础"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 基础</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="命令行格式">命令行格式</h2>
+<p>不同的命令可接受的命令行格式或有不同，一般情况下，一个标准的命令行格式为如下所列：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">conmmand-name options argement</div></pre></td></tr></table></figure></p>
+<p>从技术上看，shell会依据 <code>IFS</code>(Internet Field Seperator) 将命令行所输入的文字拆解成“字段”（word）。当遇到 <code>CR</code> （Carriage Return） 键时，执行语句。</p>
+<p>其中的 IFS 是 shell 预设使用的分隔符，可以由一个或多个如下符号组成：</p>
+<ul>
+<li>空格符（White Space）</li>
+<li>制表符（Tab）</li>
+<li>回车符（Enter）</li>
+</ul>
+<p>系统可接受的命令名称（command-name）可以从如下途径获得：</p>
+<ul>
+<li>明确路径所指定的外部命令</li>
+<li>命令别名（alias）</li>
+<li>自定义的函数（function）</li>
+<li>shell内建命令（built-in）</li>
+<li>$PATH 之下的外部命令</li>
+</ul>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>可以使用 <code>type</code> 命令来区分一个命令是shell内建的命令还是外部命令。</p>
+</div></p>
+<p>每一个命令行均必需包含命令名，这是不可或缺的。</p>
+<h2 id="特殊符号-meta">特殊符号（meta）</h2>
+<p>command-line 的每一个字符分成以下两种：</p>
+<ul>
+<li>literal：也就是普通纯文本（字面值），对 shell 来说没特殊功能；</li>
+<li>meta：具有特定功能的字符保留单元。<code>IFS</code>、<code>CR</code> 就是这类字符的典型代表。</li>
+</ul>
+<p>除了 <code>IFS</code> 与 <code>CR</code>，常用的 meta 有：</p>
+<table>
+<thead>
+<tr>
+<th>meta</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>=</code></td>
+<td>设定变量</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>作变量或运算替换（请不要与 shell prompt 搞混了）</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>重定向 stdout</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>重定向 stdin</td>
+</tr>
+<tr>
+<td><code>|</code></td>
+<td>管道</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td>重定向文件描述符，或将命令置于后台执行。</td>
+</tr>
+<tr>
+<td><code>()</code></td>
+<td>将其内的命令置于嵌套子shell中执行，或用于运算或命令替换。</td>
+</tr>
+<tr>
+<td><code>{}</code></td>
+<td>将其内的命令置于匿名函数中执行，或用在变量替换的界定范围。</td>
+</tr>
+<tr>
+<td><code>[]</code></td>
+<td>做判断，相当于 test 命令。</td>
+</tr>
+<tr>
+<td><code>;</code></td>
+<td>在前一个命令执行结束时，忽略其返回值。继续执行下一个命令。</td>
+</tr>
+<tr>
+<td><code>!</code></td>
+<td>执行 history 列表中的命令。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="关闭-meta">关闭 meta</h3>
+<p>假如我们需要在 command-line 中将这些保留字元的功能关闭的话，就需要使用引号来处理了。</p>
+<p>在 bash 中，常用的 quoting 有如下三种方法：</p>
+<ul>
+<li>hard quote：<code>' '</code>（单引号），凡在 hard quote 中的所有 meta 均被关闭。</li>
+<li>soft quote：<code>&quot; &quot;</code>（双引号），在 soft quote 中部分 meta 都会被关闭，但某些刚保留（如 <code>$</code>）。</li>
+<li>escape：<code>\</code>（反斜线），只有紧接在 escape （逃逸字符）之后的 <strong>单一</strong> meta 才被关闭。</li>
+</ul>
+<h4 id="示例">示例</h4>
+<h5 id="示例1-空格键未被关闭">示例1 空格键未被关闭</h5>
+<p>下面的例子中，空格键未被关闭，作为 IFS 处理，导致了未找到命令的错误：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ A=B C    <span class="comment"># 空格键未被关闭</span></div><div class="line">Bash C: 未找到命令</div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$A</span></div></pre></td></tr></table></figure></p>
+<h5 id="示例2-空格键被引号关闭">示例2 空格键被引号关闭</h5>
+<p>下面的例子演示了用 soft quote 关闭空格键，此时空格键不再作为 IFS，而是普通的空格符。</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ A=<span class="string">"B C"</span>  <span class="comment"># 空格键被引号关闭</span></div><div class="line">$ <span class="built_in">echo</span> A</div><div class="line">B C</div></pre></td></tr></table></figure></p>
+<h5 id="示例3-enter键被引号关闭">示例3 Enter键被引号关闭</h5>
+<p>下面的例子演示了用 hard quote 关闭回车键，此时回车键不再作为 CR，而是普通的换行符。后面会演示 hard quote 和 soft quote 的区别。</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ A=<span class="string">'B    # 回车键也可以被引号关闭</span></div><div class="line">&gt; C</div><div class="line">&gt;'</div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$A</span></div><div class="line">B</div><div class="line">C</div></pre></td></tr></table></figure></p>
+<h5 id="示例4-空格键">示例4 空格键</h5>
+<p>下面的例子演示了用 反斜杆 作为逃逸字符关闭后面紧跟的回车键。此时回车键不再作为 CR，而是普通的换行符。</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ A=B\    <span class="comment"># 回车键被escape关闭</span></div><div class="line">&gt;C</div><div class="line">&gt;</div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$A</span></div><div class="line">BC</div></pre></td></tr></table></figure></p>
+<h3 id="soft-quote-vs-hard-quote">soft quote vs. hard quote</h3>
+<p>soft quote 和 hard quote 的不同主要是对于某些 meta 的关闭与否。以 <code>$</code> 来做说明：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ A=B\ C</div><div class="line">$ <span class="built_in">echo</span> <span class="string">"<span class="variable">$A</span>"</span></div><div class="line">B C</div><div class="line">$ <span class="built_in">echo</span> <span class="string">'$A'</span></div><div class="line"><span class="variable">$A</span></div></pre></td></tr></table></figure></p>
+<h2 id="区分-shell-meta-与-command-meta">区分 shell meta 与 command meta</h2>
+<p>前面我们提到的那些 meta ，都是在 command line 中有特殊用途的。但有时候我们需要让这些 meta 不直接作为整条语句的 meta （shell meta） ，而是作为这条语句内部某个命令的 meta（command meta），这时就需要使用上面的手段来将这些 meta 关闭，让它作为该命令的 meta 而不是整条语句的 meta。</p>
+<p>例如，<code>{}</code> 是将其一系列 command line 置于匿名函数中执行（可简单视为 command block），但是 awk 却需要用 <code>{}</code> 来区分出 awk 的命令区段（BEGIN、MAIN、END）。如果在 shell 中输入：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ awk {print <span class="variable">$0</span>} <span class="number">1</span>.txt</div></pre></td></tr></table></figure></p>
+<p>由于 <code>{}</code> 在 shell 中并没有被关闭，于是 shell 就将 <code>{print $0}</code> 视为<a href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81%E5%9D%97">代码块</a>，但后面又没有<code>;</code>符号作为命令分隔符，因此就出现语法错误结果。</p>
+<p>要解决之，可以用下面三种关闭方法任一种：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ awk <span class="string">'{print $0}'</span> <span class="number">1</span>.txt</div><div class="line">$ awk <span class="string">"{print \$0}"</span> <span class="number">1</span>.txt</div><div class="line">$ awk \{print\ \<span class="variable">$0</span>\} <span class="number">1</span>.txt</div></pre></td></tr></table></figure></p>
+<p>这样，<code>{print $0}</code> 完整的成为了 awk 参数中的 command meta。</p>
+<h2 id="shell-中的各种括号">shell 中的各种括号</h2>
+<h3 id="：一个圆括号">()：一个圆括号</h3>
+<h4 id="子程序">子程序</h4>
+<p>返回整个里边表达的返回值。<strong>里边的变量都是局部的，修改不会带到外边</strong>。括号中多个命令之间用分号隔开，最后一个命令可以没有分号，各命令和括号之间不必有空格。</p>
+<p>例如：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ a=<span class="number">1</span></div><div class="line">$ (a=<span class="number">3</span>; <span class="built_in">echo</span> <span class="variable">$a</span>); <span class="built_in">echo</span> <span class="variable">$a</span></div><div class="line"><span class="number">3</span></div><div class="line"><span class="number">1</span></div></pre></td></tr></table></figure></p>
+<h4 id="命令替换">命令替换</h4>
+<p>即<code>$(cmd)</code>语句，与 `cmd` 等效。shell在执行一条命令时，会先将其中的 `cmd` 或 <code>$(cmd)</code> 中的语句当作命令执行一遍，再将结果加入到原命令中重新执行。注意有些shell不支持，如tcsh。</p>
+<h4 id="初始化数组">初始化数组</h4>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ array=(a b c d)</div><div class="line">$ <span class="keyword">for</span> i <span class="keyword">in</span> <span class="variable">$array</span></div><div class="line">&gt; <span class="keyword">do</span></div><div class="line">&gt;     <span class="built_in">echo</span> <span class="variable">$i</span></div><div class="line">&gt; <span class="keyword">done</span></div><div class="line">a</div><div class="line">b</div><div class="line">c</div><div class="line">d</div></pre></td></tr></table></figure></p>
+<h3 id="：一对圆括号">(())：一对圆括号</h3>
+<h4 id="数学计算">数学计算</h4>
+<p><code>$(())</code> 可以进行整数型的运算。若是逻辑判断，表达式exp为真则为1,假则为0。比如：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="string">"1+2=<span class="variable">$(( 1 + 2 )</span>)"</span></div><div class="line"><span class="number">1</span>+<span class="number">2</span>=<span class="number">3</span></div></pre></td></tr></table></figure></p>
+<p>注意这种用法只适合是整数型的计算，不支持浮点型，输出的结果将自动转成十进制。更复杂的运算可以使用 <a href="/wiki/shell-arithmetic.html#expr">expr</a> 命令。</p>
+<p><code>(())</code> 的用法与 let 一样：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ a=<span class="number">5</span>; ((a++))</div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$a</span></div><div class="line"><span class="number">6</span></div><div class="line">$ <span class="built_in">let</span> a++</div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$a</span></div><div class="line"><span class="number">7</span></div></pre></td></tr></table></figure></p>
+<h4 id="for-循环">for 循环</h4>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> (( condiction1; condiction2; condiction3 ))</div><div class="line"><span class="keyword">do</span></div><div class="line">    .....</div><div class="line">        ...</div><div class="line">    repeat all statements between <span class="keyword">do</span> and </div><div class="line">    <span class="keyword">done</span> until condiction2 is TRUE</div><div class="line">Done</div></pre></td></tr></table></figure></p>
+<h4 id="重定义变量值">重定义变量值</h4>
+<h3 id="：一个方括号">[]：一个方括号</h3>
+<p>和 test 命令等效。</p>
+<h3 id="：一对方括号">[[]]：一对方括号</h3>
+<p><code>[[</code> 是 bash 程序语言的关键字。并不是一个命令，<code>[[ ]]</code> 结构比<code>[ ]</code>结构更加通用。在 <code>[[</code> 和 <code>]]</code> 之间所有的字符都不会发生文件名扩展或者单词分割，但是会发生参数扩展和命令替换。<code>[[ ]]</code>的主要优点有：</p>
+<ol>
+<li>支持字符串的模式匹配，使用 <code>=~</code> 操作符时甚至支持shell的正则表达式。字符串比较时可以把右边的作为一个模式，而不仅仅是一个字符串，比如 <code>[[ hello == hell? ]]</code>，结果为真。<code>[[ ]]</code>中匹配字符串或通配符，不需要引号。</li>
+<li>使用<code>[[ ... ]]</code>条件判断结构，而不是<code>[ ... ]</code>，能够防止脚本中的许多逻辑错误。比如，<code>&amp;&amp;</code>、<code>||</code>、<code>&lt;</code>和<code>&gt;</code>操作符能够正常存在于<code>[[ ]]</code>条件判断结构中，但是如果出现在<code>[ ]</code>结构中的话，会报错。</li>
+<li>bash把双中括号中的表达式看作一个单独的元素，并返回一个退出状态码。</li>
+</ol>
+<h3 id="：一对大括号">{}：一对大括号</h3>
+<h4 id="大括号扩展">大括号扩展</h4>
+<p>示例：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cp <span class="variable">$HOME</span>/{.zshrc,.xprofile} <span class="variable">$HOME</span>/Dropbox/Documents/backup/</div></pre></td></tr></table></figure></p>
+<h4 id="区分变量">区分变量</h4>
+<p>例如：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ var=abcd; <span class="built_in">echo</span> <span class="variable">${var}</span>EFG;</div></pre></td></tr></table></figure></p>
+<p>这样，Bash就不会认为变量是 varEFG 了。</p>
+<h4 id="匿名函数-代码块">匿名函数（代码块）</h4>
+<p>用来区分代码的，但是跟<code>( )</code>有个区别，就是在末尾要加上 <code>;</code>。例如删除当前目录里面所有的 .svn 目录</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find . -name .svn -type d -exec rm -fr {} \;</div></pre></td></tr></table></figure></p>
+<p>注意这里的 <code>\</code> 就是将 <code>;</code> 默认作为 shell meta 关闭，而使之成为 <code>rm -fr {}</code> 的分隔符。</p>
+<p>子函数和代码块的异同：</p>
+<ul>
+<li><code>( )</code>只是对一串命令重新开一个子shell进行执行，也称 nested sub-shell；</li>
+<li><code>{ }</code>对一串命令在当前shell执行，也称为 non-named command group；</li>
+<li><code>( )</code>和<code>{ }</code>都是把一串的命令放在括号里面，并且命令之间用<code>;</code>号隔开；</li>
+<li><code>( )</code>最后一个命令可以不用分号；</li>
+<li><code>{ }</code>最后一个命令要用分号；</li>
+<li><code>{ }</code>的第一个命令和左括号之间必须要有一个空格；</li>
+<li><code>( )</code>里的各命令不必和括号有空格；</li>
+<li><code>( )</code>和<code>{ }</code>中括号里面的某个命令的重定向只影响该命令，但括号外的重定向则影响到括号里的所有命令。</li>
+</ul>
+<p>通常而言，若所作的修改是临时的，且不想影响原有或以后的设定，那我们就用 <code>( )</code>，反之，则用 <code>{ }</code> 。</p>
+<h4 id="截取字符串">截取字符串</h4>
+<p>几种特殊的替换结构：</p>
+<ul>
+<li><a href="#var-string">${var:-string}</a></li>
+<li><a href="#varstring">${var:=string}</a></li>
+<li><a href="#varstring-1">${var:+string}</a></li>
+<li><a href="#varstring-2">${var:?string}</a></li>
+</ul>
+<h5 id="var-string">${var:-string}</h5>
+<p>若变量var为空，则使用<code>${var:-string}</code>中的<code>string</code>作为<code>${var:-string}</code>的值（有点像html图像的alt属性），否则变量var不为空时，则用<code>${var:-string}</code>中的<code>var</code>的值来替换<code>${var:-string}</code>，如：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="variable">$newvar</span>    <span class="comment"># newvar 为空</span></div><div class="line"></div><div class="line">$ <span class="built_in">echo</span> <span class="variable">${newvar:-a}</span>   <span class="comment"># 使用备选的a</span></div><div class="line">a </div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$newvar</span>    <span class="comment"># newvar的值仍然是空</span></div><div class="line"></div><div class="line">$ newvar=b</div><div class="line">$ <span class="built_in">echo</span> <span class="variable">${newvar:-a}</span> <span class="comment"># 变量newvar的值不为空</span></div><div class="line">b </div><div class="line">$</div></pre></td></tr></table></figure></p>
+<h5 id="var-string-v2">${var:=string}</h5>
+<p><code>${var:=string}</code>的替换规则和<code>${var:-string}</code>是一样的，所不同之处是<code>${var:=string}</code>若var为空时，用<code>string</code>替换<code>${var:=string}</code>的同时，把<code>string</code>赋给变量<code>var</code>：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="variable">$newvar</span></div><div class="line"></div><div class="line">$ <span class="built_in">echo</span> <span class="variable">${newvar:=a}</span> </div><div class="line">a </div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$newvar</span> <span class="comment"># 变量newvar被赋值为a，同时${newvar:=a}被替换成a </span></div><div class="line">a </div><div class="line">$ <span class="built_in">echo</span> <span class="variable">${newvar:=b}</span> <span class="comment"># 变量newvar不为空(其值已被赋为a)</span></div><div class="line">a </div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$newvar</span> </div><div class="line">a</div></pre></td></tr></table></figure></p>
+<p><code>${var:=string}</code>很常用的一种用法是，判断某个变量是否赋值，没有的话则给它赋上一个默认值。</p>
+<p>如设置默认的编辑器：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">echo</span> You use editor: <span class="variable">${EDITOR:=/bin/vi}</span></div></pre></td></tr></table></figure></p>
+<h5 id="var-string-v3">${var:+string}</h5>
+<p><code>${var:+string}</code>的替换规则和上面的相反，即只有当<code>var</code>不是空的时候才替换成<code>string</code>，若<code>var</code>为空时则不替换或者说是替换成变量 <code>var</code> 的值，即空值。(因为变量<code>var</code>此时为空，所以这两种说法是等价的)</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="variable">$newvar</span> </div><div class="line">a </div><div class="line">$ <span class="built_in">echo</span> <span class="variable">${newvar:+b}</span> </div><div class="line">b </div><div class="line">$ <span class="built_in">echo</span> <span class="variable">$newvar</span> </div><div class="line">a </div><div class="line">$ newvar= </div><div class="line">$ <span class="built_in">echo</span> <span class="variable">${newvar:+b}</span></div><div class="line"></div><div class="line">$</div></pre></td></tr></table></figure></p>
+<h5 id="var-string-v4">${var:?string}</h5>
+<p>替换规则为：若变量<code>var</code>不为空，则用变量<code>var</code>的值来替换<code>${var:?string}</code>；若变量<code>var</code>为空，则把<code>string</code>输出到标准错误中，并从脚本中退出。我们可利用此特性来检查是否设置了变量的值。</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$ newvar= </div><div class="line">$ <span class="built_in">echo</span> <span class="variable">${newvar:?没有设置newvar的值}</span> </div><div class="line">bash: newvar: 没有设置newvar的值 </div><div class="line">n$ newvar=a </div><div class="line">$ <span class="built_in">echo</span> <span class="variable">${newvar:?没有设置newvar的值}</span> </div><div class="line">a </div><div class="line">$</div></pre></td></tr></table></figure></p>
+<h5 id="补充扩展">补充扩展</h5>
+<p>在上面这五种替换结构中<code>string</code>并不要求是常值，你也可以用另外一个变量的值或是一种命令的输出。</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$ echo ${var:-`date`} </div><div class="line">日 3月 6 02:10:39 CST 2005 </div><div class="line">$ echo ${var:-$(date)} </div><div class="line">日 3月 6 02:11:46 CST 2005 </div><div class="line">$ a=test </div><div class="line">$ echo ${var:-$a} </div><div class="line">test </div><div class="line">$</div></pre></td></tr></table></figure></p>
+<h2 id="参考材料">参考材料</h2>
+<ol>
+<li><a href="http://www.jiajun.org/2011/10/17/brackets_in_shell.html" target="_blank" rel="external">shell十三问</a></li>
+<li><a href="http://www.jiajun.org/2011/10/17/brackets_in_shell.html" target="_blank" rel="external">Bash Shell 里的各种括号</a></li>
+</ol>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+			
+		
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/shell-trap.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/shell-function.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

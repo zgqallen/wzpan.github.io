@@ -1,0 +1,513 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>化繁为简的企业级 Git 管理实战（四）：多 Gitlab 数据同步 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="本文将介绍如何利用 Gitlab API 实现一套简单灵活的数据同步机制，从而实现在多个 Gitlab 站点间同步数据。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="化繁为简的企业级 Git 管理实战（四）：多 Gitlab 数据同步"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 化繁为简的企业级 Git 管理实战（四）：多 Gitlab 数据同步</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>本文将介绍如何利用 Gitlab API 实现一套简单灵活的数据同步机制，从而实现在多个 Gitlab 站点间同步数据。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<h2 id="需求描述">需求描述</h2>
+<p>在继续写数学系列前，我想切回去之前的 Git 系列写点东西。我想写系列文章也可以像操作系统的进程调度一样，一个系列暂时写不动了，先 <q>保存现场</q> 跳去另一个 topic 写点东西，同时也给自己留点 buffer 再酝酿一下这个暂时 <q>中断</q> 的系列。等这个系列酝酿够了，再 <q>恢复现场</q> ，继续还这个系列的技术债。</p>
+<p>对于一个规模较大的企业，存在多个 Gitlab 站点是很常见的事情。</p>
+<p>比如，我们团队在公司发布统一的 Gitlab 之前早已经搭了一个团队用的 Gitlab ，当公司开始推 Git 时，由于我们已经对自己团队的 Gitlab 做了大量的定制，因此并不打算迁移到公司的 Gitlab 。</p>
+<p>自己搭建 Gitlab 的好处是可以随心所欲的进行定制，像加远程钩子之类的东西想加就加。但缺点就是平台的维护成本也落到了自己身上。相比之下，公司 Gitlab 则没有什么维护成本，服务的稳定性由更专业的运维人员保证，也不用考虑扩容的问题，但灵活定制就别想了。如果能够实现 Gitlab 间的数据自动同步，我们可以没有顾忌的使用自己的 Gitlab 平台，一旦出现问题，再无痛迁移到公司的 Gitlab 。这样一方面避免了单点问题，节省了维护成本；另一方面也能尽可能保证灵活可定制。本文想讨论的就是多个 Gitlab 站点间的数据同步问题。</p>
+<a id="more"></a>
+<p>要实现数据同步，Gitlab 官方提供了一套 <a href="https://docs.gitlab.com/omnibus/settings/backups.html" target="_blank" rel="external">备份恢复机制</a> 。但这套机制并不能很好地满足我们的需求：</p>
+<ol>
+<li>需要两台机器的管理员权限。进行备份和恢复的机器都需要能 SSH 进去执行操作。而我们是不可能拥有公司 Gitlab 的管理员权限的；</li>
+<li>会覆盖目标站点的数据。在恢复数据时，目标站点原有的一切数据都会被覆盖。而公司的 Gitlab 有很多个团队的数据，我们的同步不能影响到其他团队的数据；</li>
+<li>Gitlab 版本兼容问题。Gitlab 的备份机制要求原站点和目标站点的 Gitlab 版本兼容，否则将恢复失败。而我们的 Gitlab 版本和公司的 Gitlab 版本并不相同，日后存在一方升级导致无法同步的可能。</li>
+</ol>
+<p>出于以上的考虑，我们自己设计了一套同步工具。与 Gitlab 官方的备份恢复机制相比，它具有以下一些优点：</p>
+<ol>
+<li>无需 ssh 账户权限。所有操作都通过 Gitlab API 和 Git 操作完成，不用 ssh 登录到机器进行操作；</li>
+<li>同步数据类型灵活。可以选择同步组织、仓库代码、wiki、组织成员关系、权限控制信息等类型的数据；</li>
+<li>不覆盖目标站点数据。只对目标站点相同组织内的数据进行同步，不影响其他团队的数据；</li>
+<li>没有 Gitlab 版本兼容问题。同步过程利用了 Gitlab API ，而 Gitlab API 比 Gitlab 稳定，因此版本兼容问题比较少见。即使出现 API 接口的变更，也可以通过升级工具的接口调用来实现兼容。</li>
+</ol>
+<p>下面将逐步说明整套同步的方案。为了方便描述，我把同步原 Gitlab 站点称为 A Gitlab，把同步目标站点称为 B Gitlab 。</p>
+<p>数据的自动同步主要经历如下几步：</p>
+<ol>
+<li>同步所有组织，如果建立了新组织，将自动给 B Gitlab 添加该组织；</li>
+<li>同步所有组织的所有仓库的代码和 wiki 到 B Gitlab 。</li>
+<li>同步所有用户的组织关系。</li>
+<li>同步所有仓库的权限控制信息。</li>
+</ol>
+<h2 id="组织同步">组织同步</h2>
+<p>利用 Gitlab API 列举出 A Gitlab 中的所有 groups，然后在 B Gitlab 中自动新建不存在的组织。</p>
+<p>列举 Gitlab 的所有组织：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">GET</span> /groups</div></pre></td></tr></table></figure></p>
+<p>返回示例：</p>
+<p><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  {</div><div class="line">    "<span class="attribute">id</span>": <span class="value"><span class="number">1</span></span>,</div><div class="line">    "<span class="attribute">name</span>": <span class="value"><span class="string">"Foobar Group"</span></span>,</div><div class="line">    "<span class="attribute">path</span>": <span class="value"><span class="string">"foo-bar"</span></span>,</div><div class="line">    "<span class="attribute">description</span>": <span class="value"><span class="string">"An interesting group"</span></span></div><div class="line">  }</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>根据这个可以获取组织名（name）、组织路径（path）和组织描述（description）。</p>
+<p>同样使用类似接口获取 B Gitlab 的所有组织。如果发现 A Gitlab 的某个组织在 B Gitlab 里不存在，可以在 B Gitlab 新增一个组织：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">POST</span> /groups</div></pre></td></tr></table></figure></p>
+<p>参数：</p>
+<ul>
+<li>name（必须）- 组织名</li>
+<li>path（必须）- 组织路径</li>
+<li>description（可选）- 可选组织描述</li>
+</ul>
+<h2 id="仓库代码同步">仓库代码同步</h2>
+<p>同步所有组织的所有仓库的代码和 wiki 文档到 B Gitlab 。</p>
+<p>获取一个组织的所有仓库信息接口：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">GET</span> /groups/<span class="symbol">:id/projects</span></div></pre></td></tr></table></figure></p>
+<p>参数：</p>
+<ul>
+<li>archived (可选) - 只找出已被归档的项目</li>
+<li>order_by (可选) - 选择基于 <code>id</code>, <code>name</code>, <code>path</code>, <code>created_at</code>, <code>updated_at</code> 或 <code>last_activity_at</code> 字段来排序。默认使用 <code>created_at</code> 。</li>
+<li>sort (可选) - 选择升序还是降序排列。默认为降序。</li>
+<li>search (可选) - 构造一个搜索条件过滤数据。</li>
+<li>ci_enabled_first (可选) - 将结果根据是否带有 <code>ci_enabled</code> 字段来排序。</li>
+</ul>
+<p>返回示例：</p>
+<p><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  {</div><div class="line">    "<span class="attribute">id</span>": <span class="value"><span class="number">4</span></span>,</div><div class="line">    "<span class="attribute">description</span>": <span class="value"><span class="literal">null</span></span>,</div><div class="line">    "<span class="attribute">default_branch</span>": <span class="value"><span class="string">"master"</span></span>,</div><div class="line">    "<span class="attribute">public</span>": <span class="value"><span class="literal">false</span></span>,</div><div class="line">    "<span class="attribute">visibility_level</span>": <span class="value"><span class="number">0</span></span>,</div><div class="line">    "<span class="attribute">ssh_url_to_repo</span>": <span class="value"><span class="string">"git@example.com:diaspora/diaspora-client.git"</span></span>,</div><div class="line">    "<span class="attribute">http_url_to_repo</span>": <span class="value"><span class="string">"http://example.com/diaspora/diaspora-client.git"</span></span>,</div><div class="line">    "<span class="attribute">web_url</span>": <span class="value"><span class="string">"http://example.com/diaspora/diaspora-client"</span></span>,</div><div class="line">    "<span class="attribute">tag_list</span>": <span class="value">[</span></div><div class="line">      <span class="string">"example"</span>,</div><div class="line">      <span class="string">"disapora client"</span></div><div class="line">    ],</div><div class="line">    "<span class="attribute">owner</span>": <span class="value">{</span></div><div class="line">      "<span class="attribute">id</span>": <span class="value"><span class="number">3</span></span>,</div><div class="line">      "<span class="attribute">name</span>": <span class="value"><span class="string">"Diaspora"</span></span>,</div><div class="line">      "<span class="attribute">created_at</span>": <span class="value"><span class="string">"2013-09-30T13: 46: 02Z"</span></span></div><div class="line">    },</div><div class="line">    "<span class="attribute">name</span>": <span class="value"><span class="string">"Diaspora Client"</span></span>,</div><div class="line">    "<span class="attribute">name_with_namespace</span>": <span class="value"><span class="string">"Diaspora / Diaspora Client"</span></span>,</div><div class="line">    "<span class="attribute">path</span>": <span class="value"><span class="string">"diaspora-client"</span></span>,</div><div class="line">    "<span class="attribute">path_with_namespace</span>": <span class="value"><span class="string">"diaspora/diaspora-client"</span></span>,</div><div class="line">    "<span class="attribute">issues_enabled</span>": <span class="value"><span class="literal">true</span></span>,</div><div class="line">    "<span class="attribute">merge_requests_enabled</span>": <span class="value"><span class="literal">true</span></span>,</div><div class="line">    "<span class="attribute">builds_enabled</span>": <span class="value"><span class="literal">true</span></span>,</div><div class="line">    "<span class="attribute">wiki_enabled</span>": <span class="value"><span class="literal">true</span></span>,</div><div class="line">    "<span class="attribute">snippets_enabled</span>": <span class="value"><span class="literal">false</span></span>,</div><div class="line">    "<span class="attribute">created_at</span>": <span class="value"><span class="string">"2013-09-30T13: 46: 02Z"</span></span>,</div><div class="line">    "<span class="attribute">last_activity_at</span>": <span class="value"><span class="string">"2013-09-30T13: 46: 02Z"</span></span>,</div><div class="line">    "<span class="attribute">creator_id</span>": <span class="value"><span class="number">3</span></span>,</div><div class="line">    "<span class="attribute">namespace</span>": <span class="value">{</span></div><div class="line">      "<span class="attribute">created_at</span>": <span class="value"><span class="string">"2013-09-30T13: 46: 02Z"</span></span>,</div><div class="line">      "<span class="attribute">description</span>": <span class="value"><span class="string">""</span></span>,</div><div class="line">      "<span class="attribute">id</span>": <span class="value"><span class="number">3</span></span>,</div><div class="line">      "<span class="attribute">name</span>": <span class="value"><span class="string">"Diaspora"</span></span>,</div><div class="line">      "<span class="attribute">owner_id</span>": <span class="value"><span class="number">1</span></span>,</div><div class="line">      "<span class="attribute">path</span>": <span class="value"><span class="string">"diaspora"</span></span>,</div><div class="line">      "<span class="attribute">updated_at</span>": <span class="value"><span class="string">"2013-09-30T13: 46: 02Z"</span></span></div><div class="line">    },</div><div class="line">    "<span class="attribute">archived</span>": <span class="value"><span class="literal">false</span></span>,</div><div class="line">    "<span class="attribute">avatar_url</span>": <span class="value"><span class="string">"http://example.com/uploads/project/avatar/4/uploads/avatar.png"</span></span></div><div class="line">  }</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>之后利用同个接口结合 <code>search</code> 参数判断 B Gitlab 上的该组织是否存在同名项目。</p>
+<p>如果不存在该项目，可以导入该项目：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">POST</span> /projects</div></pre></td></tr></table></figure></p>
+<p>参数：</p>
+<ul>
+<li>name (必须) - 项目名</li>
+<li>path (可选) - 仓库的路径。默认和项目名相同。</li>
+<li>namespace_id (可选) - 新项目的所属的id。这里设为A Gitlab中拥有该项目的id。</li>
+<li>description (可选) - 项目的描述。这里设为A Gitlab中该项目的描述。</li>
+<li>issues_enabled (可选) - 是否开启 issue 。</li>
+<li>merge_requests_enabled (可选)</li>
+<li>builds_enabled (可选)</li>
+<li>wiki_enabled (可选)</li>
+<li>snippets_enabled (可选)</li>
+<li>public (可选) - 如果为 <code>true</code> ，相当于设置 <code>visibility_level</code> 为 20</li>
+<li>visibility_level (可选) - 项目可见度。这里设为A Gitlab中该项目的可见度。</li>
+<li>import_url (optional) - 导入地址。这里设为A Gitlab中该项目的 http 地址。</li>
+</ul>
+<p>完成后 B Gitlab 即会导入 A Gitlab 中的对应仓库。</p>
+<p>如果该项目已存在，可以利用我开源的一个 <a href="https://github.com/wzpan/git-repo-sync" target="_blank" rel="external">代码同步工具</a> 来实现两个仓库之间所有分支的同步。</p>
+<h2 id="用户组织关系同步">用户组织关系同步</h2>
+<p>根据 A Gitlab ，将 B Gitlab 的已激活用户添加到组织中。并从 B Gitlab 删除 A Gitlab 中已 block 或者已移除的用户。</p>
+<p>这里要注意的是两个站点间的用户的关联问题。我们的 Gitlab 在一开始就要求使用公司邮箱注册，而公司的 Gitlab 同样也是使用邮箱的 LDAP 账户体系，因此可以利用邮箱来关联两个站点间的账户。</p>
+<p>获取 Gitlab 某个组织的所有用户：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">GET</span> /groups/<span class="symbol">:id/members</span></div></pre></td></tr></table></figure></p>
+<p>返回结果示例：</p>
+<p><figure class="highlight json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  {</div><div class="line">    "<span class="attribute">id</span>": <span class="value"><span class="number">1</span></span>,</div><div class="line">    "<span class="attribute">username</span>": <span class="value"><span class="string">"raymond_smith"</span></span>,</div><div class="line">    "<span class="attribute">email</span>": <span class="value"><span class="string">"ray@smith.org"</span></span>,</div><div class="line">    "<span class="attribute">name</span>": <span class="value"><span class="string">"Raymond Smith"</span></span>,</div><div class="line">    "<span class="attribute">state</span>": <span class="value"><span class="string">"active"</span></span>,</div><div class="line">    "<span class="attribute">created_at</span>": <span class="value"><span class="string">"2012-10-22T14:13:35Z"</span></span>,</div><div class="line">    "<span class="attribute">access_level</span>": <span class="value"><span class="number">30</span></span></div><div class="line">  },</div><div class="line">  {</div><div class="line">    "<span class="attribute">id</span>": <span class="value"><span class="number">2</span></span>,</div><div class="line">    "<span class="attribute">username</span>": <span class="value"><span class="string">"john_doe"</span></span>,</div><div class="line">    "<span class="attribute">email</span>": <span class="value"><span class="string">"joh@doe.org"</span></span>,</div><div class="line">    "<span class="attribute">name</span>": <span class="value"><span class="string">"John Doe"</span></span>,</div><div class="line">    "<span class="attribute">state</span>": <span class="value"><span class="string">"active"</span></span>,</div><div class="line">    "<span class="attribute">created_at</span>": <span class="value"><span class="string">"2012-10-22T14:13:35Z"</span></span>,</div><div class="line">    "<span class="attribute">access_level</span>": <span class="value"><span class="number">30</span></span></div><div class="line">  }</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>找出两个 Gitlab 上用户的差异，并执行如下操作：</p>
+<ol>
+<li>如果 B Gitlab 比 A Gitlab 多出了一些成员，将该成员删除；</li>
+<li>如果 A Gitlab 的某个用户 <code>state</code> 字段为 <code>blocked</code> ，则该成员可能已离职或 transfer，将该成员从 B Gitlab 中删除；</li>
+<li>如果 A Gitlab 上某个用户在 B Gitlab 上不存在，则可能是新成员，尝试添加该成员。</li>
+<li>如果某一用户在两个 Gitlab 上的权限等级不一样，则该用户的等级可能经过修改，需要同步该权限等级到 B Gitlab 。</li>
+</ol>
+<p>添加组织成员的 API ：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">POST</span> /groups/<span class="symbol">:id/members</span></div></pre></td></tr></table></figure></p>
+<p>参数：</p>
+<ul>
+<li>id (必须) - 组织的 id ，也可以是路径；</li>
+<li>user_id (必须) - 用户的 ID ，即 UM 账号</li>
+<li>access_level (必须) - 权限等级</li>
+</ul>
+<p>删除组织成员的 API ：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">DELETE</span> /groups/<span class="symbol">:id/members/</span><span class="symbol">:user_id</span></div></pre></td></tr></table></figure></p>
+<p>编辑组织成员的 API ：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">PUT</span> /groups/<span class="symbol">:id/members/</span><span class="symbol">:user_id</span></div></pre></td></tr></table></figure></p>
+<p>另外还需要考虑 B Gitlab 不存在该用户的情况，需做容错处理。</p>
+<h2 id="项目权限控制信息同步">项目权限控制信息同步</h2>
+<p>项目的权限控制信息主要包括项目成员设定及分支保护设定。</p>
+<h3 id="项目成员同步">项目成员同步</h3>
+<p>项目成员的同步与组织成员的同步大同小异。</p>
+<p>获取项目成员的 API ：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">GET</span> /projects/<span class="symbol">:id/members</span></div></pre></td></tr></table></figure></p>
+<p>添加项目成员的 API ：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">POST</span> /projects/<span class="symbol">:id/members</span></div></pre></td></tr></table></figure></p>
+<p>删除项目成员的 API ：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">DELETE</span> /projects/<span class="symbol">:id/members/</span><span class="symbol">:user_id</span></div></pre></td></tr></table></figure></p>
+<p>编辑项目成员的 API ：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">PUT</span> /projects/<span class="symbol">:id/members/</span><span class="symbol">:user_id</span></div></pre></td></tr></table></figure></p>
+<h3 id="分支保护同步">分支保护同步</h3>
+<p>首先获取 A Gitlab 中一个仓库的所有分支：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">GET</span> /projects/<span class="symbol">:id/repository/branches</span></div></pre></td></tr></table></figure></p>
+<p>返回示例：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  {</div><div class="line">    "<span class="attribute">name</span>": <span class="value"><span class="string">"async"</span></span>,</div><div class="line">    "<span class="attribute">commit</span>": <span class="value">{</span></div><div class="line">      "<span class="attribute">id</span>": <span class="value"><span class="string">"a2b702edecdf41f07b42653eb1abe30ce98b9fca"</span></span>,</div><div class="line">      "<span class="attribute">parents</span>": <span class="value">[</span></div><div class="line">        {</div><div class="line">          "<span class="attribute">id</span>": <span class="value"><span class="string">"3f94fc7c85061973edc9906ae170cc269b07ca55"</span></span></div><div class="line">        }</div><div class="line">      ],</div><div class="line">      "<span class="attribute">tree</span>": <span class="value"><span class="string">"c68537c6534a02cc2b176ca1549f4ffa190b58ee"</span></span>,</div><div class="line">      "<span class="attribute">message</span>": <span class="value"><span class="string">"give Caolan credit where it's due (up top)"</span></span>,</div><div class="line">      "<span class="attribute">author</span>": <span class="value">{</span></div><div class="line">        "<span class="attribute">name</span>": <span class="value"><span class="string">"Jeremy Ashkenas"</span></span>,</div><div class="line">        "<span class="attribute">email</span>": <span class="value"><span class="string">"jashkenas@example.com"</span></span></div><div class="line">      },</div><div class="line">      "<span class="attribute">committer</span>": <span class="value">{</span></div><div class="line">        "<span class="attribute">name</span>": <span class="value"><span class="string">"Jeremy Ashkenas"</span></span>,</div><div class="line">        "<span class="attribute">email</span>": <span class="value"><span class="string">"jashkenas@example.com"</span></span></div><div class="line">      },</div><div class="line">      "<span class="attribute">authored_date</span>": <span class="value"><span class="string">"2010-12-08T21:28:50+00:00"</span></span>,</div><div class="line">      "<span class="attribute">committed_date</span>": <span class="value"><span class="string">"2010-12-08T21:28:50+00:00"</span></span></div><div class="line">    },</div><div class="line">    "<span class="attribute">protected</span>": <span class="value"><span class="literal">false</span></span></div><div class="line">  },</div><div class="line">  {</div><div class="line">    "<span class="attribute">name</span>": <span class="value"><span class="string">"gh-pages"</span></span>,</div><div class="line">    "<span class="attribute">commit</span>": <span class="value">{</span></div><div class="line">      "<span class="attribute">id</span>": <span class="value"><span class="string">"101c10a60019fe870d21868835f65c25d64968fc"</span></span>,</div><div class="line">      "<span class="attribute">parents</span>": <span class="value">[</span></div><div class="line">        {</div><div class="line">          "<span class="attribute">id</span>": <span class="value"><span class="string">"9c15d2e26945a665131af5d7b6d30a06ba338aaa"</span></span></div><div class="line">        }</div><div class="line">      ],</div><div class="line">      "<span class="attribute">tree</span>": <span class="value"><span class="string">"fb5cc9d45da3014b17a876ad539976a0fb9b352a"</span></span>,</div><div class="line">      "<span class="attribute">message</span>": <span class="value"><span class="string">"Underscore.js 1.5.2"</span></span>,</div><div class="line">      "<span class="attribute">author</span>": <span class="value">{</span></div><div class="line">        "<span class="attribute">name</span>": <span class="value"><span class="string">"Jeremy Ashkenas"</span></span>,</div><div class="line">        "<span class="attribute">email</span>": <span class="value"><span class="string">"jashkenas@example.com"</span></span></div><div class="line">      },</div><div class="line">      "<span class="attribute">committer</span>": <span class="value">{</span></div><div class="line">        "<span class="attribute">name</span>": <span class="value"><span class="string">"Jeremy Ashkenas"</span></span>,</div><div class="line">        "<span class="attribute">email</span>": <span class="value"><span class="string">"jashkenas@example.com"</span></span></div><div class="line">      },</div><div class="line">      "<span class="attribute">authored_date</span>": <span class="value"><span class="string">"2013-09-07T12: 58: 21+00: 00"</span></span>,</div><div class="line">      "<span class="attribute">committed_date</span>": <span class="value"><span class="string">"2013-09-07T12: 58: 21+00: 00"</span></span></div><div class="line">    },</div><div class="line">    "<span class="attribute">protected</span>": <span class="value"><span class="literal">false</span></span></div><div class="line">  }</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<p>其中 <code>protected</code> 表示该分支是否受到保护。</p>
+<p>根据分支的保护情况修改 B Gitlab 上的分支。</p>
+<p>保护某个分支：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">PUT</span> /projects/<span class="symbol">:id/repository/branches/</span><span class="symbol">:branch/protect</span></div></pre></td></tr></table></figure></p>
+<p>取消某个分支的保护：</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="constant">PUT</span> /projects/<span class="symbol">:id/repository/branches/</span><span class="symbol">:branch/unprotect</span></div></pre></td></tr></table></figure></p>
+<h2 id="总结">总结</h2>
+<p>对于同时搭建了多个 Gitlab 的团队，多个 Gitlab 间的数据同步是值得去实现的事情。它一方面能避免单点问题，降低小团队的维护成本，一方面也能尽量保证小团队的定制灵活性。因此，文本列举了组织同步、仓库代码和wiki同步、组织关系同步、权限控制信息同步等四大方面的同步的方案。我将这四个类型的同步可以写成了三个工具：</p>
+<ul>
+<li><code>group_sync</code> - 处理组织同步</li>
+<li><code>project_sync</code> - 处理项目代码、wiki同步</li>
+<li><code>member_sync</code> - 处理组织关系、权限控制信息的同步</li>
+</ul>
+<p>设定每天自动按顺序执行这几个工具的同步，完成后邮件汇报同步结果。作为实例，这是我们每天都会收到的同步结果邮件（出于保护隐私的考虑，我修改了部分隐私信息）：</p>
+<iframe src="http://onmw7y6f4.bkt.clouddn.com/log.html" width="100%" height="360" frameborder="0"></iframe>
+<p>由于项目变动、成员变动比较频繁，当希望在计划任务之前进行某方面同步，仍然可以单独手动运行以上工具完成所需方面的同步。对于一些同步及时性要求更高的仓库，则可以通过加 post-receive 钩子调用 <a href="https://github.com/wzpan/git-repo-sync" target="_blank" rel="external">代码同步工具</a> 来实现 push 后即时同步。</p>
+<p>要注意的是，这个同步方案并没有保证 A Gitlab 的所有数据都能被完整地同步。在设计同步策略的时候，我跳过了下述类型的同步：</p>
+<ol>
+<li>用户私有仓库。这些仓库只是个人仓库，不会对组织财产造成影响。且如果要同步私有仓库，则要求两个 Gitlab 站点的账户都为管理员，因为只有管理员才能访问所有用户的私有仓库。</li>
+<li>SSH key。用户添加的所有 SSH key 无法同步。</li>
+<li>头像。组织、用户、仓库的头像未做同步。</li>
+<li>issue。由于我们的 Gitlab 并不用来进行 bug 跟踪管理，所以我跳过了这方面的同步。读者也可以利用 Gitlab API 实现 issue 的同步。</li>
+<li>附件。Wiki 中的附件是独立于仓库之外的，需要单独备份。例如使用 <a href="http://rsync.samba.org/" target="_blank" rel="external">rsync</a> 。</li>
+</ol>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/work/enterprise-class-git-version-control-5/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/math/math-linear-algebra-graded/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Apr 12 2017 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/work/">work<span>5</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/Git/">Git<span>5</span></a></li> <li><a data-pjax href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

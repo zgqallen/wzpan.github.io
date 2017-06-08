@@ -1,0 +1,668 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>函数 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="main 函数
+main 函数就是一个典型的函数，它是程序的入口函数。
+示例
+123456int main(int argc, char* argv[]){    int hour = 11;    int minute = 59;    printf(&quot;%d and %d hours\n&quot;, ho">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="函数"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 函数</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="main-函数">main 函数</h2>
+<p>main 函数就是一个典型的函数，它是程序的入口函数。</p>
+<h4 id="示例">示例</h4>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[]){</div><div class="line">    <span class="keyword">int</span> hour = <span class="number">11</span>;</div><div class="line">    <span class="keyword">int</span> minute = <span class="number">59</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d and %d hours\n"</span>, hour, minute / <span class="number">60</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;    </div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>argc 和 argv 分别存放执行这个程序时所带的<strong>命令行参数数量</strong>和<strong>每个参数的字符串字面值</strong>。</p>
+<h2 id="自定义函数">自定义函数</h2>
+<h4 id="示例-v2">示例</h4>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">void</span> newline(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">void</span> threeline(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">    newline();</div><div class="line">    newline();</div><div class="line">    newline();</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Three lines:\n"</span>);</div><div class="line">    threeline();</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Another three lines.\n"</span>);</div><div class="line">    threeline();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="形式参数-和-实际参数">形式参数 和 实际参数</h2>
+<p>我们常把函数定义中圆括号内列表中出现的变量称为形式参数，而把函数调用中与形式参数对应的值称为实际参数。</p>
+<h2 id="函数原型-和-函数定义">函数原型 和 函数定义</h2>
+<p>函数原型是出现在main函数之前的函数声明语句，用于表明该函数的参数和返回值类型。在代码中可以单独写一个函数原型，后面加;号结束，而不写函数体，例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> threeline(<span class="keyword">void</span>);</div></pre></td></tr></table></figure></p>
+<p>这种写法只能叫函数声明而不能叫函数定义，只有带函数体的声明才叫定义。</p>
+<p>函数原型必须与函数声明的定义和用法一致。如果函数的定义、用法与函数原型不一致，将出现错误。</p>
+<p>函数原型与函数声明中参数名不要求相同。事实上，函数原型中的参数名是可选的。但是，合适的参数名能够起到很好的说明作用，因此我们在函数原型中总是指明参数名。</p>
+<p>函数原型也可以写在局部作用域中，例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">    <span class="keyword">void</span> print_time(<span class="keyword">int</span>, <span class="keyword">int</span>);</div><div class="line">    print_time(<span class="number">23</span>, <span class="number">59</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>这样声明的标识符<code>print_time</code>具有局部作用域，只在main函数中是有效的函数名，出了main函数就不存在<code>print_time</code>这个标识符了。</p>
+<p>虽然在一个函数体中可以声明另一个函数，但不能定义另一个函数，C语言不允许嵌套定义函数[5]。</p>
+<h2 id="传值调用">传值调用</h2>
+<p>在C语言中，被调用函数不能直接修改主调函数中变量的值，而只能修改其私有的临时副本的值。必要时，也可以让函数能够修改主调函数中的变量。这种情况下，调用者需要向被调用函数提供待设置值的变量的地址（从技术角度看，地址就是指向变量的指针），而被调用函数则需要将对应的参数声明为指针类型，并通过它间接访问变量。</p>
+<p>如果是数组参数，情况就有所不同了。当把数组名用作参数时，传递给函数的值是数组起始元素的位置或地址——它并不复制数组元素本身。在被调用函数中，可以通过数组下标访问或修改数组元素的值。</p>
+<h3 id="自动变量">自动变量</h3>
+<p>函数中的每个局部变量只在函数被调用时存在，在函数执行完毕退出时消失。这也是其他语言通常把这类变量称为“自动变量”的原因。在 C 语言中，“自动变量”和“局部变量”是等效的。</p>
+<p>由于自动变量只在函数调用执行期间存在，因此，在函数的两次调用之间，自动变量 <strong>不保留</strong> 前次调用时的赋值，且在每次进入函数时都要显式为其赋值。如果自动变量没有赋值，则其中存放的是无效值。例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">void</span> foo(<span class="keyword">void</span>){</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i);</div><div class="line">    i = <span class="number">777</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[]){</div><div class="line">    foo();</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"hello\n"</span>);</div><div class="line">    foo();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>结果：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">0</span></div><div class="line">hello</div><div class="line"><span class="number">32767</span></div></pre></td></tr></table></figure></p>
+<h2 id="外部变量">外部变量</h2>
+<p>另一方面，如果一个外部变量在定义之前就要使用到，或者这个外部变量定义在与所要使用它的源文件不相同的源文件中，那么要在相应的变量说明中强制性地使用关键词 <code>extern</code>。</p>
+<p>除自动变量外，还可以定义于所有函数外部的变量，外部变量的特点是：</p>
+<ol>
+<li>可以在整个文件范围内访问，其他文件可以通过 extern 说明来访问它。</li>
+<li>必须定义在所有函数之外，且只能定义一次。定义后编译程序将为它分配存储单元。</li>
+<li>外部变量在程序执行期间一直存在，而不是在函数调用时产生、在函数执行完毕时消失。</li>
+<li>即使在对外部变量赋值的函数返回后，这些变量仍将保持原来的值不变。</li>
+</ol>
+<p>在每个需要访问外部变量的函数中，必须声明相应的外部变量，此时说明其类型。声明时可以用 <strong>extern语句显式声明</strong> ，也可以 <strong>通过上下文隐式声明</strong> 。例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> MAXLINE 1000 /* maximum input <span class="keyword">line</span> size */</span></div><div class="line"><span class="keyword">int</span> getline(<span class="keyword">void</span>);</div><div class="line"><span class="keyword">void</span> copy(<span class="keyword">void</span>);</div><div class="line"></div><div class="line"><span class="comment">/* print longest input line; specialized version */</span></div><div class="line">main(){</div><div class="line">  <span class="keyword">int</span> len;</div><div class="line">  <span class="keyword">extern</span> <span class="keyword">int</span> max;</div><div class="line">  <span class="keyword">extern</span> <span class="keyword">char</span> longest[];</div><div class="line"></div><div class="line">  max = <span class="number">0</span>;</div><div class="line">  <span class="keyword">while</span> ((len = getline()) &gt; <span class="number">0</span>)</div><div class="line">    <span class="keyword">if</span> (len &gt; max) {</div><div class="line">      max = len;</div><div class="line">      copy();</div><div class="line">    }</div><div class="line">    <span class="keyword">if</span> (max &gt; <span class="number">0</span>) <span class="comment">/* there was a line */</span></div><div class="line">      <span class="built_in">printf</span>(<span class="string">"%s"</span>, longest);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> max; <span class="comment">/* maximum length seen so far */</span></div><div class="line"><span class="keyword">char</span> longest[MAXLINE]; <span class="comment">/* longest line saved here */</span></div><div class="line"><span class="keyword">char</span> line[MAXLINE]; <span class="comment">/* current input line */</span></div><div class="line"></div><div class="line"><span class="comment">/* getline: specialized version */</span></div><div class="line"><span class="keyword">int</span> getline(<span class="keyword">void</span>){</div><div class="line">    <span class="keyword">int</span> c, i;</div><div class="line">    <span class="keyword">extern</span> <span class="keyword">char</span> line[];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; MAXLINE - <span class="number">1</span></div><div class="line">         && (c=getchar)) != EOF && c != <span class="string">'\n'</span>; ++i)</div><div class="line">            line[i] = c;</div><div class="line">    <span class="keyword">if</span> (c == <span class="string">'\n'</span>) {</div><div class="line">        line[i] = c;</div><div class="line">        ++i;</div><div class="line">    }</div><div class="line">    line[i] = <span class="string">'\0'</span>;</div><div class="line">    <span class="keyword">return</span> i;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/* copy: specialized version */</span></div><div class="line"><span class="keyword">void</span> copy(<span class="keyword">void</span>){</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">extern</span> <span class="keyword">char</span> line[], longest[];</div><div class="line">    i = <span class="number">0</span>;</div><div class="line">    <span class="keyword">while</span> ((longest[i] = line[i]) != <span class="string">'\0'</span>)</div><div class="line">    ++i;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>在该例子中，第30～42行定义了main、getline与copy函数使用的几个外部变量，声明了各外部变量的类型，这样编译程序将为它们分配存储单元。这种类型的声明除了在前面加上一个关键字extern外，其他方面与普通变量的声明相同。</p>
+<h3 id="什么时候必须使用-extern">什么时候必须使用 extern</h3>
+<p>在源文件中，如果外部变量的定义在使用它的函数之前，并且与它在同一个文件中，那么在那个函数中就没有必要使用 <code>extern</code> 声明。否则就必须加上 <code>extern</code> 声明。因此，上面例子中的 copy、getline中的几个 <code>extern</code> 声明可以省略。而 main 函数中的 <code>extern</code> 则是必需的。</p>
+<p>如果程序包含在多个源文件中，而某个变量在 file1 文件中定义，在 file2 和 file3 文件中使用，那么在文件 file2 与 file3 中就需要使用 extern 声明来建立该变量与其定义之间的联系。<strong>人们通常把变量和函数的extern声明放在一个单独的文件中（习惯上称之为头文件）</strong>，并在每个源文件的开头使用 <code>#include</code> 语句把所要用的头文件包含进来。后缀名 <code>.h</code> 约定为头文件名的扩展名。例如，标准库中的函数就是在类似于 <code>&lt;stdio.h&gt;</code> 的头文件中声明的。</p>
+<h2 id="静态变量">静态变量</h2>
+<h3 id="外部-static-说明">外部 static 说明</h3>
+<p>如果不想让某个文件定义的外部变量被其他文件使用，可以使用 static 说明。外部static说明最常用于说明变量，用于把这些对象的作用域限定为被编译源文件的剩余部分。它也可用于说明函数。通常情况下，函数名字是全局的，在整个程序的各个部分都可见。然而，如果把一个函数说明成静态的，那么该函数名字就不能用在除该函数说明所在的文件之外的其他文件中。</p>
+<p>可以在通常的说明之前前缀以关键词 static 来指定静态存储。如果把上述两个函数与两个变量放在一个文件中编译,如下:</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">char</span> longest[MAXLINE]; <span class="comment">/* longest line saved here */</span></div><div class="line"><span class="keyword">static</span> <span class="keyword">char</span> line[MAXLINE]; <span class="comment">/* current input line */</span></div></pre></td></tr></table></figure></p>
+<p>那么其他函数不能访问变量 longest 与 line，故这两个名字不会和同一程序中其他文件中的同名名字相冲突。</p>
+<h3 id="内部-static-说明">内部 static 说明</h3>
+<p>static说明也可用于说明内部变量。内部静态变量就像自动变量一样局部于某一特定函数，只能在该函数中使用，但与自动变量不同的是，不管其所在函数是否被调用，它都是一直存在的，而不像自动变量那样，随着所在函数的调用与退出而存在与消失。换而言之，内部静态变量是一种只能在某一特定函数中使用的但一直占据存储空间的变量。例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">void</span> foo(<span class="keyword">void</span>){</div><div class="line">    <span class="keyword">static</span> <span class="keyword">int</span> i;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i);</div><div class="line">    i = <span class="number">777</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[]){</div><div class="line">    foo();</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"hello\n"</span>);</div><div class="line">    foo();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>结果：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="number">0</span></div><div class="line">hello</div><div class="line"><span class="number">777</span></div></pre></td></tr></table></figure></p>
+<h2 id="寄存器变量">寄存器变量</h2>
+<p>register说明用于提醒编译程序所说明的变量在程序中使用频率较高。其思想是，将寄存器变量放在机器的寄存器中，这样可以使程序更小、执行速度更快。但编译程序可以忽略此选项。</p>
+<p>register说明如下所示：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">register</span> <span class="keyword">int</span> x;</div><div class="line"><span class="keyword">register</span> <span class="keyword">char</span> c;</div></pre></td></tr></table></figure></p>
+<p><strong>寄存器说明只适用于自动变量以及函数的形式参数</strong>。对于后一种情况，例子如下：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f(<span class="keyword">register</span> <span class="keyword">unsigned</span> m, <span class="keyword">register</span> <span class="keyword">long</span> n)</div><div class="line">{</div><div class="line">    <span class="keyword">register</span> <span class="keyword">int</span> i;</div><div class="line">    ...</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="内联函数">内联函数</h2>
+<p>C99引入一个新关键字inline，用于定义内联函数（inline function）。这种用法在内核代码中很常见，例如include/linux/rwsem.h中：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">void</span> down_read(<span class="keyword">struct</span> rw_semaphore *sem)</div><div class="line">{</div><div class="line">        might_sleep();</div><div class="line">        rwsemtrace(sem,<span class="string">"Entering down_read"</span>);</div><div class="line">        __down_read(sem);</div><div class="line">        rwsemtrace(sem,<span class="string">"Leaving down_read"</span>);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>inline关键字告诉编译器，这个函数的调用要尽可能快，可以当普通的函数调用实现，也可以用宏展开的办法实现。详见<a href="/wiki/cpp-function.html#%E5%86%85%E8%81%94%E5%87%BD%E6%95%B0">Cpp-函数</a>。</p>
+<h2 id="回调函数">回调函数</h2>
+<p>如果参数是一个<a href="/wiki/c-pointer.html#%E5%87%BD%E6%95%B0%E7%9A%84%E6%8C%87%E9%92%88">函数指针</a>，调用者可以传递一个函数的地址给实现者，让实现者去调用它，这称为回调函数（Callback Function）。</p>
+<p>例如标准库中的qsort(3)，<a href="/wiki/algorithms-sort.html#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F">快速排序</a>是一种比较型排序，为了方便处理不同类型的比较，在调用该函数时，需要调用者提供一个专用于该类型的比较函数。具体看qsort的帮助文档。</p>
+<h3 id="声明">声明</h3>
+<p>回调函数要求其形式参数必须是 <code>void *</code> 类型。例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> func(<span class="keyword">void</span> (*f)(<span class="keyword">void</span> *), <span class="keyword">void</span> *p);</div></pre></td></tr></table></figure></p>
+<p>在实现该函数时，再根据具体参数类型做强制类型转换。</p>
+<h3 id="示例-v3">示例</h3>
+<h4 id="示例一：泛型算法">示例一：泛型算法</h4>
+<p>回调函数的一个典型应用就是实现类似C++的泛型算法（Generics Algorithm）。下面实现的max函数可以在任意一组对象中找出最大值，可以是一组int、一组char或者一组结构体，但是实现者并不知道怎样去比较两个对象的大小，调用者需要提供一个做比较操作的回调函数。</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* generics.h */</span></div><div class="line"><span class="preprocessor">#ifndef GENERICS_H</span></div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> GENERICS_H</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> (*cmp_t)(<span class="keyword">void</span> *, <span class="keyword">void</span> *);</div><div class="line"><span class="keyword">extern</span> <span class="keyword">void</span> *max(<span class="keyword">void</span> *data[], <span class="keyword">int</span> num, cmp_t cmp);</div><div class="line"></div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* generics.c */</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "generics.h"</span></div><div class="line"></div><div class="line"><span class="keyword">void</span> *max(<span class="keyword">void</span> *data[], <span class="keyword">int</span> num, cmp_t cmp)</div><div class="line">{</div><div class="line">     <span class="keyword">int</span> i;</div><div class="line">     <span class="keyword">void</span> *temp = data[<span class="number">0</span>];</div><div class="line">     <span class="keyword">for</span>(i=<span class="number">1</span>; i&lt;num; i++) {</div><div class="line">      <span class="keyword">if</span>(cmp(temp, data[i])&lt;<span class="number">0</span>)</div><div class="line">           temp = data[i];</div><div class="line">     }</div><div class="line">     <span class="keyword">return</span> temp;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* main.c */</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "generics.h"</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> {</div><div class="line">     <span class="keyword">const</span> <span class="keyword">char</span> *name;</div><div class="line">     <span class="keyword">int</span> score;</div><div class="line">} student_t;</div><div class="line"></div><div class="line"><span class="keyword">int</span> cmp_student(<span class="keyword">void</span> *a, <span class="keyword">void</span> *b)</div><div class="line">{</div><div class="line">     <span class="keyword">if</span>(((student_t *)a)-&gt;score &gt; ((student_t *)b)-&gt;score)</div><div class="line">      <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">     <span class="keyword">else</span> <span class="keyword">if</span>(((student_t *)a)-&gt;score == ((student_t *)b)-&gt;score)</div><div class="line">      <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">     <span class="keyword">else</span></div><div class="line">      <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">     student_t <span class="built_in">list</span>[<span class="number">4</span>] = { {<span class="string">"Tom"</span>, <span class="number">68</span>}, {<span class="string">"Jerry"</span>, <span class="number">72</span>},</div><div class="line">               {<span class="string">"Moby"</span>, <span class="number">60</span>}, {<span class="string">"Kirby"</span>, <span class="number">89</span>} };</div><div class="line">     student_t *plist[<span class="number">4</span>] = {&<span class="built_in">list</span>[<span class="number">0</span>], &<span class="built_in">list</span>[<span class="number">1</span>], &<span class="built_in">list</span>[<span class="number">2</span>], &<span class="built_in">list</span>[<span class="number">3</span>]};</div><div class="line">     student_t *pmax = max((<span class="keyword">void</span> **)plist, <span class="number">4</span>, cmp_student);</div><div class="line">     <span class="built_in">printf</span>(<span class="string">"%s gets the highest score %d\n"</span>, pmax-&gt;name, pmax-&gt;score);</div><div class="line"></div><div class="line">     <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="应用二：异步调用">应用二：异步调用</h4>
+<p>异步调用也是回调函数的一种典型用法，调用者首先将回调函数传给实现者，实现者记住这个函数，这称为注册一个回调函数，然后当某个事件发生时实现者再调用先前注册的函数，比如sigaction(2)注册一个信号处理函数，当信号产生时由系统调用该函数进行处理，再比如pthread_create(3)注册一个线程函数，当发生调度时系统切换到新注册的线程函数中运行，在GUI编程中异步回调函数更是有普遍的应用，例如为某个按钮注册一个回调函数，当用户点击按钮时调用它。</p>
+<p>以下是一个代码框架。</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* registry.h */</span></div><div class="line"><span class="preprocessor">#ifndef REGISTRY_H</span></div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> REGISTRY_H</span></div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">void</span> (*registry_t)(<span class="keyword">void</span>);</div><div class="line"><span class="keyword">extern</span> <span class="keyword">void</span> register_func(registry_t);</div><div class="line"></div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div></pre></td></tr></table></figure></p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* registry.c */</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;unistd.h&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "registry.h"</span></div><div class="line"></div><div class="line"><span class="keyword">static</span> registry_t func;</div><div class="line"></div><div class="line"><span class="keyword">void</span> register_func(registry_t f)</div><div class="line">{</div><div class="line">     func = f;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">static</span> <span class="keyword">void</span> on_some_event(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">     ...</div><div class="line">     func();</div><div class="line">     ...</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="可变参数">可变参数</h2>
+<p>printf 函数就是一个带有可变的参数的函数：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> <span class="built_in">printf</span>(<span class="keyword">const</span> <span class="keyword">char</span> *format, ...);</div></pre></td></tr></table></figure></p>
+<p>现在我们实现一个简单的myprintf函数：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdarg.h&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">void</span> myprintf(<span class="keyword">const</span> <span class="keyword">char</span> *format, ...)</div><div class="line">{</div><div class="line">     va_list ap;</div><div class="line">     <span class="keyword">char</span> c;</div><div class="line"></div><div class="line">     va_start(ap, format);</div><div class="line">     <span class="keyword">while</span> (c = *format++) {</div><div class="line">      <span class="keyword">switch</span>(c) {</div><div class="line">      <span class="keyword">case</span> <span class="string">'c'</span>: {</div><div class="line">           <span class="comment">/* char is promoted to int when passed through '...' */</span></div><div class="line">           <span class="keyword">char</span> ch = va_arg(ap, <span class="keyword">int</span>);</div><div class="line">           <span class="built_in">putchar</span>(ch);</div><div class="line">           <span class="keyword">break</span>;</div><div class="line">      }</div><div class="line">      <span class="keyword">case</span> <span class="string">'s'</span>: {</div><div class="line">           <span class="keyword">char</span> *p = va_arg(ap, <span class="keyword">char</span> *);</div><div class="line">           <span class="built_in">fputs</span>(p, stdout);</div><div class="line">           <span class="keyword">break</span>;</div><div class="line">      }</div><div class="line">      <span class="keyword">default</span>:</div><div class="line">           <span class="built_in">putchar</span>(c);</div><div class="line">      }</div><div class="line">     }</div><div class="line">     va_end(ap);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">     myprintf(<span class="string">"c\ts\n"</span>, <span class="string">'1'</span>, <span class="string">"hello"</span>);</div><div class="line">     <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="深入阅读">深入阅读</h2>
+<ol>
+<li><a href="http://learn.akae.cn/media/ch20s02.html" target="_blank" rel="external">定义和声明</a></li>
+<li><a href="http://www.cnblogs.com/cnmaizi/archive/2011/01/19/1939686.html" target="_blank" rel="external">C语言inline详细讲解</a></li>
+</ol>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/c-io.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/c-pre.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc', 2, 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,673 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Fragment | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="参考资料：
+
+《Android 编程权威指南》
+
+
+fragment 是一种控制器对象， activity 可委派它完成一些任务。通常这些任务就是管理用户界面。受管的用户界面可以是一整屏或整屏的一部分。
+管理用户界面的 fragment 又称为 UI fragment 。它也有自己产生布局文件的视图">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Fragment"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> Fragment</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>参考资料：</p>
+<ul>
+<li>《Android 编程权威指南》</li>
+</ul>
+</div></p>
+<p>fragment 是一种控制器对象， activity 可委派它完成一些任务。通常这些任务就是管理用户界面。受管的用户界面可以是一整屏或整屏的一部分。</p>
+<p>管理用户界面的 fragment 又称为 UI fragment 。它也有自己产生布局文件的视图。fragment 视图包含了用户可以交互的可视化 UI 元素。</p>
+<p>fragment 可以托管在 activity 中。如果有多个 fragment 要插入， activity 视图也可提供多个位置。因此，可联合使用 fragment 及 activity 来组装或重新组装用户界面。在整个生命周期过程中，技术上来说 activity 的视图可保持不变。</p>
+<p>用 UI fragment 将应用的 UI 分解成构建块，利用一个个构建块，很容易做到构建分页界面、动画侧边栏界面等更多其他定制界面。</p>
+<h2 id="fragment-与支持库">fragment 与支持库</h2>
+<p>Fragment 是在 API 11 之后被引入的。幸运的是，对于 fragment 来说，保证向后兼容比较容易，仅需使用 Android 支持库中的 fragment 相关类即可。</p>
+<ol>
+<li>API 11 之前的支持：使用位于 libs/android-support-v4.jar 内的支持库。支持库包含了 Fragment 类（android.support.v4.app.Fragment），该类可以使用在任何 API 4 级及更高版本的设备上。支持库中的类不仅可以在无原生类的旧版本设备上使用，而且可以代替原生类在新版本设备上使用。</li>
+<li>API 11 之后的支持：可以直接使用标准库中的原生 fragment 类。</li>
+</ol>
+<h2 id="fragment-的生命周期">fragment 的生命周期</h2>
+<p>下图展示了 fragment 的生命周期，与 activity 的生命周期类似。与 activity 生命周期的一个关键区别在于，fragment 的生命周期方法是由托管在 activity 而不是操作系统调用的。操作系统无从知晓 activity 用来管理视图的 fragment 。fragment 的使用是 activity 自己内部的事情。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>fragment 的生命周期方法由 activity 负责调用。</p>
+</div></p>
+<p><img src="/images/android-fragment/fragment-life-cycle.png" width="360" height="800" title="fragment的生命周期图解"></p>
+<h2 id="基于-fragment-的应用开发流程">基于 Fragment 的应用开发流程</h2>
+<p>基本的开发步骤：</p>
+<ol>
+<li>定义 fragment 的布局；</li>
+<li>创建 fragment 类；</li>
+<li>修改 activity 及其布局，实现对 fragment 的托管。</li>
+</ol>
+<h2 id="1-定义-fragment-的布局">1) 定义 fragment 的布局</h2>
+<p>一个简单的布局文件示例：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    android:orientation="vertical" android:layout_width="match_parent"</div><div class="line">    android:layout_height="match_parent"&gt;</div><div class="line"></div><div class="line">    &lt;EditText android:id="@+id/crime_title"</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="match_parent"</div><div class="line">        android:hint="@string/crime_title_hint"/&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="2-创建-fragment-类">2) 创建 fragment 类</h2>
+<p>示例：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrimeActivity</span> <span class="keyword">extends</span> <span class="title">FragmentActivity</span> </span>{</div><div class="line"></div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span>(Bundle savedInstanceState) {</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_crime);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">public</span> View <span class="title">onCreateView</span>(LayoutInflater inflater, ViewGroup parent,</div><div class="line">                             Bundle savedInstanceState) {</div><div class="line">        View v = inflater.inflate(R.layout.fragment_crime, parent, <span class="keyword">false</span>);</div><div class="line"></div><div class="line">        mTitleField = (EditText)v.findViewById(R.id.crime_title);</div><div class="line">        mTitleField.addTextChangedListener(<span class="keyword">new</span> TextWatcher() {</div><div class="line">            <span class="annotation">@Override</span></div><div class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span>(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> count, <span class="keyword">int</span> after) {</div><div class="line">                </div><div class="line">            }</div><div class="line">   </div><div class="line">            <span class="annotation">@Override</span></div><div class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span>(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> before, <span class="keyword">int</span> count) {</div><div class="line">   </div><div class="line">            }</div><div class="line">   </div><div class="line">            <span class="annotation">@Override</span></div><div class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span>(Editable s) {</div><div class="line">   </div><div class="line">            }</div><div class="line">        });</div><div class="line">        <span class="keyword">return</span> v;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>以上代码有几点值得注意的地方：</p>
+<ol>
+<li><code>Fragment.onCreate(Bundle)</code> 方法及其他 Fragment 生命周期方法必须设计为公共方法（方便被托管 fragment 的任何 activity 调用）；</li>
+<li>类似于 activity, fragment 同样具有保存及获取状态的 bundle 。我们也可以根据需要覆盖 <code>Fragment.onSaveInstanceState(Bundle)</code> 方法；</li>
+<li>在 <code>Fragment.onCreate(...)</code> 方法中，并 <em>没有</em> 生成 fragment 的视图。创建和配置 fragment 视图是通过另一个 fragment 的生命周期方法来完成的：</li>
+</ol>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> View <span class="title">onCreateView</span>(LayoutInflater inflater, ViewGroup parent,</div><div class="line">    Bundle savedInstanceState)</div></pre></td></tr></table></figure></p>
+<p>通过该方法生成 fragment 视图的布局，然后将生成的 View 返回给托管 activity 。LayoutInflater 及 ViewGroup 是用来生成布局的必要参数。Bundle 包含了供该方法在重建视图所使用的数据。在上面代码中，fragment 的视图是直接通过调用 <code>LayoutInflater.inflate(...)</code> 方法并传入布局的资源 ID 生成的。第二个参数是视图的父视图，通常我们需要父视图来正确配置组件。第三个参数告知布局生成器是否将生成的视图添加给父视图。这里，我们传入了 false 参数，因为我们将通过 activity 代码的方式添加视图。</p>
+<h2 id="3-托管-fragment">3) 托管 fragment</h2>
+<p>托管 fragment 有两种方式：</p>
+<ol>
+<li>布局方式托管 fragment；</li>
+<li>代码方式托管 fragment 。</li>
+</ol>
+<h3 id="1-布局方式托管-fragment">1. 布局方式托管 fragment</h3>
+<p>使用布局 fragment ，通常是修改 Activity 的布局，在 fragment 元素节点中指定 fragment 的类。示例：</p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="title">fragment</span> <span class="attribute">xmlns:android</span>=<span class="value">"http://schemas.android.com/apk/res/android"</span></span></div><div class="line">    <span class="attribute">android:id</span>=<span class="value">"@+id/helloMoonFragment"</span></div><div class="line">    <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></div><div class="line">    <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span></div><div class="line">    <span class="attribute">android:name</span>=<span class="value">"com.example.hahack.hellomoon.HelloMoonFragment"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="title">fragment</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>之后只需修改 Activity 类，使其超类为 <code>FragmentActivity</code> 即可：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloMoonActivity</span> <span class="keyword">extends</span> <span class="title">FragmentActivity</span> </span>{</div><div class="line"></div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span>(Bundle savedInstanceState) {</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_hello_moon);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>有得必有失，使用如此简单的方法托管 fragment ，同时也失去了只有显式地使用 FragmentManager 才能获得的灵活性和掌控能力。</p>
+<ul>
+<li>可覆盖 fragment 的生命周期方法，以响应各种事件。但无法控制调用这些方法的时机。</li>
+<li>无法提交移除、替换、分离布局 fragment 的事务。activity 被创建后，即无法做出任何改变。</li>
+<li>无法附加 <a href="#%E6%96%B9%E6%B3%952fragment-argument">argument</a> 给布局 fragment。</li>
+</ul>
+<h3 id="2-代码方式托管-fragment">2. 代码方式托管 fragment</h3>
+<p>以代码的方式托管 fragment ，activity 必须做到：</p>
+<ul>
+<li>定义容器视图：在布局中为 fragment 的视图安排位置；</li>
+<li>在 Activity 中创建负责管理 fragment 的 FragmentManager；</li>
+<li>添加 fragment 到 FragmentManager。</li>
+</ul>
+<h3 id="定义容器视图">定义容器视图</h3>
+<p>在 activity 视图层级结构中为 fragment 视图安排位置。比如使用 FrameLayout 来作为 fragment 的容器视图：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">    &lt;FrameLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    android:id=<span class="string">"@+id/fragmentContainer"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"match_parent"</span>/&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="创建-fragmentmanager">创建 FragmentManager</h3>
+<p>FragmentManager 类负责管理 fragment 并将它们的视图添加到 activity 的视图层级结构中。FragmentManager 类具体管理的是：</p>
+<ul>
+<li>fragment 队列</li>
+<li>fragment 事务的回退栈</li>
+</ul>
+<p>FragmentManager 的关系图如下所示：</p>
+<p><img src="/images/android-fragment/fragmentmanager-relationship.png" width="400" height="600" title="FragmentManager关系图"></p>
+<p>创建 FragmentManager 的方法示例如下：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrimeActivity</span> <span class="keyword">extends</span> <span class="title">FragmentActivity</span> </span>{</div><div class="line"></div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span>(Bundle savedInstanceState) {</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_crime);</div><div class="line"></div><div class="line">        <span class="comment">// 获取 FragmentManager</span></div><div class="line">        FragmentManager fm = getSupportFragmentManager();</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>因为使用了支持库及 FragmentActivity 类，因此这里调用的方法是 <code>getSupportFragmentManager()</code> 。如果不考虑 Honeycomb 以前版本的兼容性问题，可直接继承 Activity 类并调用 <code>getFragmentManager()</code> 方法。</p>
+<h3 id="添加-fragment-到-fragmentmanager">添加 fragment 到 FragmentManager</h3>
+<p>获取到 FragmentManager 后，以如下示例方式获取一个 fragment 交由 FragmentManager 管理。</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrimeActivity</span> <span class="keyword">extends</span> <span class="title">FragmentActivity</span> </span>{</div><div class="line"></div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span>(Bundle savedInstanceState) {</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_crime);</div><div class="line"></div><div class="line">        <span class="comment">// 获取 FragmentManager</span></div><div class="line">        FragmentManager fm = getSupportFragmentManager();</div><div class="line">        <span class="comment">// 获取 fragment</span></div><div class="line">        Fragment fragment = fm.findFragmentById(R.id.fragmentContainer);</div><div class="line">        <span class="comment">// 创建一个新的 fragment 事务，加入一个添加操作，然后提交该事务</span></div><div class="line">        <span class="keyword">if</span> (fragment == <span class="keyword">null</span>) {</div><div class="line">            fragment = <span class="keyword">new</span> CrimeFragment();</div><div class="line">            fm.beginTransaction().add(R.id.fragmentContainer, fragment).commit();</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>fragment 事务被用来添加、移除、附加、分离或替换 fragment 队列中的 fragment 。这是使用 fragment 在运行时组装和重新组装用户界面的核心方式。FragmentManager 管理着 fragment 事务的回退栈。</p>
+<h2 id="从-fragment-返回托管-activity">从 fragment 返回托管 Activity</h2>
+<p>Fragment 的 <code>getActivity()</code> 方法不仅可以返回托管 Activity ，且允许 fragment 处理更多的 activity 相关事务。</p>
+<p>示例：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrimeListFragment</span> <span class="keyword">extends</span> <span class="title">ListFragment</span> </span>{</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ArrayList&lt;Crime&gt; mCrimes;</div><div class="line"></div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span>(Bundle savedInstanceState) {</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        getActivity().setTitle(R.string.crimes_title);</div><div class="line">        mCrimes = CrimeLab.get(getActivity()).getCrimes();</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="从-fragment-启动另一-activity">从 fragment 启动另一 activity</h2>
+<p>从 fragment 中启动 activity 的实现方式，基本等同于从 activity 中启动另一 activity 的实现方式。我们调用 <code>Fragment.startActivity(Intent)</code> 方法，该方法在后台会调用对应的 Activity 方法。</p>
+<p>需要注意的是 fragment 和 activity 之间的信息传递方式。</p>
+<h3 id="方法1：附加-extra-信息">方法1：附加 extra 信息</h3>
+<p>简单的方式是直接通过 <code>Intent.putExtra(...)</code> 附加 extra 信息。但这么做会使得 fragment 的封装性大打折扣。</p>
+<p>示例：</p>
+<p>fragment 中：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onListItemClick</span>(ListView l, View v, <span class="keyword">int</span> position, <span class="keyword">long</span> id) {</div><div class="line">    Crime c = ((CrimeAdapter)getListAdapter()).getItem(position);</div><div class="line"></div><div class="line">    <span class="comment">// Start CrimeActivity</span></div><div class="line">    Intent i = <span class="keyword">new</span> Intent(getActivity(), CrimeActivity.class);</div><div class="line">    i.putExtra(CrimeFragment.EXTRA_CRIME_ID, c.getId());</div><div class="line">    startActivity(i);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>activity 的响应：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="annotation">@Override</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span>(Bundle savedInstanceState) {</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line"></div><div class="line">    UUID crimeId = (UUID)getActivity().getIntent().getSerializableExtra(EXTRA_CRIME_ID);</div><div class="line">    mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h3 id="方法2：fragment-argument">方法2：Fragment argument</h3>
+<p>另一种方式是利用 Fragment argument 。</p>
+<p>每个 fragment 实例都可附带一个 Bundle 对象。该 bundle 包含有 key-value 对，我们可以如同附加 extra 到 Activity 的 intent 中那样使用它们。一个 key-value 对即一个 argument 。</p>
+<h4 id="1-创建-fragment-argument">1. 创建 fragment argument</h4>
+<p>要创建 fragment argument ，首先需创建 Bundle 对象。然后，使用 Bundle 限定类型的 “put” 方法（类似于 Intent 的方法），将 argument 添加到 bundle 中。示例：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Bundle args = <span class="keyword">new</span> Bundle();</div><div class="line">args.putSerializable(EXTRA_MY_OBJECT, myObject);</div><div class="line">args.putInt(EXTRA_MY_INT, myInt);</div><div class="line">args.putCharSequence(EXTRA_MY_STRING, myString);</div></pre></td></tr></table></figure></p>
+<h4 id="2-附加-argument-给-fragment">2. 附加 argument 给 fragment</h4>
+<p>附加 argument bundle 给 fragment ，需调用 <code>Fragment.setArguments(Bundle)</code> 方法。创建和设置 fragment argument 通常是通过添加名为 <code>newInstance()</code> 的静态方法给 Fragment 类完成的。使用该方法，完成 fragment 实例及 bundle 对象的创建，然后将 argument 放入 bundle 中，最后再附加给 fragment 。</p>
+<p>托管 activity 需要 fragment 实例时，需调用 <code>newInstance()</code> 方法，而非调用其构造方法。而且，为满足 fragment 创建 argument 的要求， activity 可传入任何需要的参数给 <code>newInstance()</code> 方法。</p>
+<p>示例：</p>
+<p>在 fragment 中，编写可以接受 UUID 参数的 <code>newInstance(UUID)</code> 方法，通过该方法，完成 arguments bundle 以及 fragment 实例的创建，最后附加 argument 给 fragment 。</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> CrimeFragment <span class="title">newInstance</span>(UUID crimeId) {</div><div class="line">    Bundle args = <span class="keyword">new</span> Bundle();</div><div class="line">    args.putSerializable(EXTRA_CRIME_ID, crimeId);</div><div class="line"></div><div class="line">    CrimeFragment fragment = <span class="keyword">new</span> CrimeFragment();</div><div class="line">    fragment.setArguments(args);</div><div class="line"></div><div class="line">    <span class="keyword">return</span> fragment;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>然后修改托管该 fragment 的 activity 的 <code>createFragment()</code> 方法，调用 fragment 的 <code>newInstance(UUID)</code> 方法，并传入从它的 extra 中获取的 UUID 参数值：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CrimeActivity</span> <span class="keyword">extends</span> <span class="title">SingleFragmentActivity</span> </span>{</div><div class="line"></div><div class="line">    <span class="annotation">@Override</span></div><div class="line">    <span class="keyword">protected</span> Fragment <span class="title">createFragment</span>() {</div><div class="line">        UUID crimeId = (UUID)getIntent().getSerializableExtra(CrimeFragment.EXTRA_CRIME_ID);</div><div class="line">        <span class="keyword">return</span> CrimeFragment.newInstance(crimeId);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>之后修改 fragment 的 <code>onCreate(...)</code> 方法，从 argument 中获取 UUID ：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="annotation">@Override</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span>(Bundle savedInstanceState) {</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line"></div><div class="line">    UUID crimeId = (UUID)getArguments().getSerializable(EXTRA_CRIME_ID);</div><div class="line">    mCrime = CrimeLab.get(getActivity()).getCrime(crimeId);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="fragment-的保留">fragment 的保留</h2>
+<p>有时我们希望保留 fragment 以免当设备运行中发生配置变更（如设备旋转）时被释放，导致一些任务的中断。Fragment 具有和 Activity 相同功能的 <code>onSaveInstanceState(Bundle)</code> 方法。然而这种方案不适合用在音乐等任务，因为这仍然无法避免音乐的中断。</p>
+<p>幸运的是，为应对设备配置的变化，可使用 fragment 的一个特殊方法 <code>setRetainInstance(true)</code> 来保留 fragment ，示例：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="annotation">@Override</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span>(Bundle savedInstanceState) {</div><div class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">    setRetainInstance(<span class="keyword">true</span>);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>fragment 的 retainInstance 属性值默认为 false。这表明其不会被保留。因此，设备旋转时 fragment 会随托管 activity 一起销毁并重建。调用 <code>setRetainInstance(true)</code> 方法可保留 fragment。已保留的 fragment 不会随 activity 一起被销毁。相反，它会被一直保留并在需要时原封 不动的传递给新的 activity。</p>
+<p>fragment 必须同时满足两个条件才能进入保留状态：</p>
+<ul>
+<li>已调用了 fragment 的 <code>setRetainInstance(true)</code> 方法</li>
+<li>因设备配置改变（通常为设备旋转），托管 activity 正在被销毁</li>
+</ul>
+<p>Fragment 处于保留状态的时间非常短暂，即 fragment 脱离旧 activity 到重新附加给立即创建的新 activity 之间的一段时间。</p>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/android-intent.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/android_tables.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc', 2, 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Master Dissertation: Foreground-Constrained Eulerian Video Magnification | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="我的硕士学位论文及 LaTeX 源码。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Master Dissertation: Foreground-Constrained Eulerian Video Magnification"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> Master Dissertation: Foreground-Constrained Eulerian Video Magnification</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>我的硕士学位论文及 LaTeX 源码。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<h2 id="前言">前言</h2>
+<p>10个月前，我写了一篇解读欧拉影像放大技术的文章 <a href="/codes/eulerian-video-magnification/">Eulerian Video Magnification</a>，这篇文章自发布以来，点击率超过了1300次，评论数达到了29篇。如果你在 baidu 上搜索“Eulerian Video Magnification”，我的文章排在第二名（第一名是原论文的链接）。而如果你在 google 或 baidu 上搜索 “欧拉影像放大” ，那么第一名的位置就是我的文章。</p>
+<p>一个促使我写出这篇博文的原因是因为我的毕业课题就和 EVM 算法有关。当时想着既然一直在钻研这个算法，不如干脆写成博文，一来帮助自己思考，二来也能够通过与其他人交流，加深自己对这个算法的理解。我的论文的想法也很简单，EVM 对于存在大幅度移动物体的细微变化的放大效果并不理想，于是我想到通过与拉格朗日视角的框架相结合，先对感兴趣区域进行跟踪（拉格朗日视角），然后对跟踪结果进行局部的欧拉视角的动作放大，最后再进行多分辨率混合。整个算法框架我称之为“前景约束的欧拉影像放大算法”（Foreground-Constrained Eulerian Video Magnification, FCEVM）。<a id="more"></a></p>
+<p><img src="/images/fcevm/fc-evm.png" alt="FCEVM算法框架"></p>
+<p>在做这篇论文的时候，我就做好了把论文在博客上公布并开源 LaTeX 源码的打算。一方面是为了激励自己：既然要在网上发布，那起码文章得拿得出手才行。另一方面也是为了给使用我的论文 LaTeX 模板 <a href="https://github.com/wzpan/scnuthesis" target="_blank" rel="external">SCNUThesis</a> 的学弟学妹们一个真正的模板范例，让他们尽快学会使用 LaTeX 排版论文，免去 Word 的痛苦。</p>
+<p>论文的 LaTeX 源码在最后给出，包含了论文、演示课件的 LaTeX 源码，使用 Docear 绘制的思维导图，以及我一边做研究一边整理出来的文献库，相信也能对正在研究欧拉影像动作放大算法的朋友起到帮助。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>如果我的论文、插图或 SCNUThesis 对你的研究有所帮助的话，请在文章中<a href="#%E5%BC%95%E7%94%A8">引用</a>或者在致谢中说明。</p>
+</div></p>
+<h2 id="摘要">摘要</h2>
+<h3 id="中文摘要">中文摘要</h3>
+<p>影像动作放大技术是一种用于改变影像中感兴趣信号的变化幅度的技术。这类技术可以将生活中原本裸眼无法感知的微弱变化放大到裸眼可以感知的幅度，从而挖掘出有价值的信息。</p>
+<p>根据视角的不同，影像动作放大技术分为拉格朗日视角和欧拉视角两种视角。其中，拉格朗日视角的方法通过跟踪和改变粒子的运动轨迹来放大变化，但容易受到遮挡的影响，且需要在后期对背景进行填充；欧拉视角的方法则通过分析和增强图像的像素点的灰度值随时间的变化来放大变化，但对于已存在大幅度变化的场景，使用该方法会造成明显的“鬼影”现象。</p>
+<p>本文提出了一种结合了拉格朗日视角和欧拉视角的优点的影像动作放大方法，该方法在欧拉影像动作放大技术的基础上，通过使用目标跟踪技术，将放大区域限制在由用户选定的感兴趣区域上。同时，通过使用前景分割技术，将经过放大的动作与感兴趣区域的前景部分进行多分辨率混合。</p>
+<p>实验结果表明，该方法应用在当前存在大幅度变化的场景时可以有效的避免“鬼影”问题。此外，将放大的区域限制在感兴趣的区域，可以减少场景中的其他部分对该区域的干扰，有利于对放大结果的后续分析。</p>
+<p><strong>关键词</strong>：
+<span class="label label-success">欧拉影像放大技术</span>
+<span class="label label-warning">目标跟踪</span>
+<span class="label label-important">Mean-shift</span>
+<span class="label label-info">GrabCut</span>
+<span class="label label-inverse">多分辨率混合</span></p>
+<h3 id="abstract">Abstract</h3>
+<p>Video motion magnification is a kind of techniques for changing the motion amplitude of signal of interest from videos. With such techniques we are able to reveal subtle changes in the world that are originally invisible to naked eyes, so as to exploit valuable information.</p>
+<p>Video motion magnification techniques follow two different perspectives <em>i.e.</em> Lagrangian perspective or Eulerian perspective. On one hand, methods following Lagrangian perspective amplify motions by tracking and modifying the trajectory of particles, but it is easy to introduce artifacts especially at region of occlusion boundaries and may require image-inpainting as post-processing. On the other hand, methods following Eulerian perspective amplify motions by analyzing and enhancing the variation of pixel values that evolve over time. However, if the input video contains large motions, the magnified video will suffer from artifacts that known as ghosting effect.</p>
+<p>This thesis presents a method that takes the advantages of both two perspectives. Based on eulerian video magnification, we perform object tracking to constrain the amplifying area to a region of interest that is selected by the user. At the same time, our method relies on a foreground segmentation for multi-resolution blending the amplified motion with the foreground part of the original region.</p>
+<p>The experimental results show that the approach can obviously eliminate ghosting effect when processing videos with large motions. Besides, by constraining the amplifying area to a region of interest, it can significantly reduce interference from other parts of the scene, which is beneficial to further studies on the amplified results.</p>
+<p><strong>Keywords</strong>:
+<span class="label label-success">eulerian video magnification</span>
+<span class="label label-warning">object tracking</span>
+<span class="label label-important">Mean-shift</span>
+<span class="label label-info">GrabCut</span>
+<span class="label label-inverse">multi-resolution blending</span></p>
+<h2 id="演示视频">演示视频</h2>
+<p><embed src="http://player.youku.com/player.php/sid/XODc1OTgzMjIw/v.swf" allowfullscreen="true" quality="high" width="100%" height="600" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"></p>
+<h2 id="引用">引用</h2>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mastersthesis{weizhou2014master,</div><div class="line">  author = {潘伟洲},</div><div class="line">  title = {前景约束的欧拉影像动作放大技术},</div><div class="line">  school = {华南师范大学},</div><div class="line">  year = {2014},</div><div class="line">  address = {广东省广州市}</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@mastersthesis{weizhou2014master_en,</div><div class="line">  author = {Weizhou Pan},</div><div class="line">  title = {Foreground-Constrained Eulerian Video Magnification},</div><div class="line">  school = {South China Normal University},</div><div class="line">  year = {2014},</div><div class="line">  address = {Guangdong, China}</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="下载">下载</h2>
+<p><i class="fa fa-download"></i><a href="http://pan.baidu.com/s/1hq6E1Be" target="_blank"> Thesis (40.0 MB) </a></p>
+<p><i class="fa fa-download"></i><a href="http://pan.baidu.com/s/1nt2x8md" target="_blank"> Slides(full) (37.3 MB) </a></p>
+<p><i class="fa fa-download"></i><a href="http://pan.baidu.com/s/1qW4ZrdU" target="_blank"> Slides(short) (6.9 MB) </a></p>
+<p><i class="fa fa-github"></i><a href="https://github.com/wzpan/dissertation" target="_blank"> LaTeX Source Code </a></p>
+<p><i class="fa fa-github"></i><a href="https://github.com/wzpan/fc-evm" target="_blank"> Source Code for Demo  </a><span class="label label-important">new</span></p>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/life/an-appeal-from-scnuthesis-author/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/codes/write-a-tiny-shell-based-test-framework/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Jan 20 2015 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/codes/">codes<span>30</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/video/">video<span>6</span></a></li> <li><a data-pjax href="/tags/EVM/">EVM<span>2</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

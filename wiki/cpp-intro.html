@@ -1,0 +1,692 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>快速入门 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="编写简单的C++程序
+示例
+1234int main() {     return 0; }
+说明
+关于main函数：
+
+操作系统通过 main 函数返回的值来确定程序是否成功执行完毕。返回 0 值表明程序程序成功执行完毕。
+每个 C++ 程序必须含有 main 函数，且 main 函数是（唯一）被">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="快速入门"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 快速入门</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="编写简单的c-程序">编写简单的C++程序</h2>
+<h4 id="示例">示例</h4>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> main() </div><div class="line">{ </div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>; </div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="说明">说明</h4>
+<p>关于main函数：</p>
+<ol>
+<li>操作系统通过 main 函数返回的值来确定程序是否成功执行完毕。返回 0 值表明程序程序成功执行完毕。</li>
+<li>每个 C++ 程序必须含有 main 函数，且 main 函数是（唯一）被操作系统显式调用的函数。</li>
+<li>定义 main 函数和定义其他函数一样。定义函数必须指定 4 个元素：返回类型、函数名、圆括号内的形参表（可能为空）和函数体。main 函数的形参个数是有限的。本例中定义的 main 函数形参表为空。</li>
+<li><strong>main 函数的返回值必须是 int 型</strong> 。在大多数系统中，main 函数的返回值是一个状态指示器。返回值 0 往往表示 main 函数成功执行完毕。任何其他非零的返回值都有操作系统定义的含义。通常非零返回值表明有错误出现。每一种操作系统都有自己的方式告诉用户 main 函数返回什么内容。</li>
+</ol>
+<h2 id="编译与执行程序">编译与执行程序</h2>
+<h3 id="gnu：g">GNU：g++</h3>
+<p>调用 C++ 编译器的命令因编译器和操作系统的不同而不同，常用的编译器是 GNU 编译器和微软 Visual Studio 编译器。调用 GNU 编译器的默认命令是 <code>g++</code>：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ g++ prog1.cc -o prog1</div></pre></td></tr></table></figure></p>
+<p>这里的 <code>$</code> 是系统提示符。这个命令产生一个为 prog1 或 prog1.exe 的可执行文件。在 UNIX 系统下，可执行文件没有后缀；而在 Windows 下，后缀为 <code>.exe</code>。<code>-o prog1</code> 是编译器参数以及用来存放可执行文件的文件名。如果省略 <code>-o prog1</code>，那么编译器在 UNIX 系统下产生名为 a.out 而在 Windows 下产生名为 a.exe 的可执行文件。</p>
+<h3 id="微软：cl">微软：cl</h3>
+<p>微软编译器采用命令 <code>cl</code> 来调用：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C:\directory&gt; cl -GX prog1.cpp</div></pre></td></tr></table></figure></p>
+<p>这里的 <code>C:\directory&gt;</code> 是系统提示符，<code>directory</code> 是当前目录名。<code>cl</code> 是调用编译器的命令。<code>-GX</code> 是一个选项，该选项在使用命令行界面编译器程序时是必需的。微软编译器自动产生与源文件同名的可执行文件，这个可执行文件具有 .exe 后缀且与源文件同名。本例中，可执行文件命名为 prog1.exe。</p>
+<p>更多的信息请参考你的编译器用户指南。</p>
+<h2 id="源文件命名规范">源文件命名规范</h2>
+<p>C++ 程序文件的后缀与运行的具体编译器有关。常见的形式包括：</p>
+<ul>
+<li><a href="http://prog1.cc" target="_blank" rel="external">prog1.cc</a></li>
+<li>prog1.cxx</li>
+<li>prog1.cpp</li>
+<li>prog1.cp</li>
+<li>prog1.C</li>
+</ul>
+<h2 id="main函数的返回值">main函数的返回值</h2>
+<p>访问main函数的返回值的方式和系统有关。不论UNIX和Windows系统，执行程序后，必须发出一个适当的echo命令。UNIX系统中，通过键入如下命令获取状态：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> $?</div></pre></td></tr></table></figure></p>
+<p>要在Windows系统下查看状态，键入</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">c:\directory&gt; <span class="built_in">echo</span> %ERRORLEVEL%</div></pre></td></tr></table></figure></p>
+<h2 id="再谈编译">再谈编译</h2>
+<p>编译器的部分工作是寻找程序代码中的错误。编译器不能查出程序的意义是否正确, 但它可以查出程序形式上的错误。下面是编译器能查出的最普遍的一些错误。</p>
+<ul>
+<li>语法错误。程序员犯了 C++ 语言中的语法错误。下面代码段说明常见的语法错误；每个注释描述下一行的错误。</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// error: missing ')' in parameter </span></div><div class="line"><span class="built_in">list</span> <span class="keyword">for</span> main </div><div class="line"><span class="keyword">int</span> main ( { </div><div class="line">    <span class="comment">// error: used colon, not a semicolon </span></div><div class="line">    after endl </div><div class="line">      std::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Read each file."</span> &lt;&lt; std::endl: </div><div class="line">      <span class="comment">// error: missing quotes around </span></div><div class="line">      <span class="built_in">string</span> literal </div><div class="line">      std::<span class="built_in">cout</span> &lt;&lt; Update master. &lt;&lt; std::endl; </div><div class="line">    <span class="comment">// ok: no errors on this line </span></div><div class="line">    std::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Write new master."</span> &lt;&lt;std::endl; </div><div class="line">    <span class="comment">// error: missing ';' on return </span></div><div class="line">    statement </div><div class="line">      <span class="keyword">return</span> <span class="number">0</span> </div><div class="line">      }</div></pre></td></tr></table></figure></p>
+<ul>
+<li>类型错误。C++ 中每个数据项都有其相关联的类型。例如，值 10 是一个整数。用双引号标注起来的单词“hello”是字符串字面值。类型错误的一个实例是传递了字符串字面值给应该得到整型参数的函数。</li>
+<li>声明错误。C++ 程序中使用的每个名字必须在使用之前声明。没有声明名字通常会导致错误信息。最常见的两种声明错误，是从标准库中访问名字时忘记使用“std::”，以及由于疏忽而拼错标识符名:</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt; </span></div><div class="line"><span class="keyword">int</span> main() </div><div class="line">{ </div><div class="line">  <span class="keyword">int</span> v1, v2; </div><div class="line">  std::<span class="built_in">cin</span> &gt;&gt; v &gt;&gt; v2; <span class="comment">// error: uses " v "not" v1" </span></div><div class="line">  <span class="comment">// cout not defined, should be std::cout </span></div><div class="line"> </div><div class="line">  <span class="number">35</span></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; v1 + v2 &lt;&lt; std::endl; </div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>; </div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>错误信息包含行号和编译器对我们所犯错误的简要描述。按错误报告的顺序改正错误是个好习惯，通常一个错误可能会产生一连串的影响，并导致编译器报告比实际多得多的错误。最好在每次修改后或最多改正了一些显而易见的错误后，就重新编译代码。</p>
+<h2 id="初窥输入-输出">初窥输入/输出</h2>
+<h3 id="标准输入与输出对象">标准输入与输出对象</h3>
+<p>标准库定义了4个IO对象：</p>
+<h4 id="istream-类型对象">istream 类型对象</h4>
+<table>
+<thead>
+<tr>
+<th>对象名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cin</td>
+<td>标准输入对象</td>
+</tr>
+</tbody>
+</table>
+<h4 id="ostream-类型对象">ostream 类型对象</h4>
+<table>
+<thead>
+<tr>
+<th>对象名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cout</td>
+<td>标准输出对象</td>
+</tr>
+<tr>
+<td>cerr</td>
+<td>标准错误，通常用来输出警告和错误信息给程序的使用者。</td>
+</tr>
+<tr>
+<td>clog</td>
+<td>用于产生程序执行过程中的一般信息。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="一个使用io库的程序">一个使用IO库的程序</h3>
+<h4 id="示例-v2">示例</h4>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt; </span></div><div class="line"><span class="keyword">int</span> main() </div><div class="line">{ </div><div class="line">  std::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter two numbers:"</span> &lt;&lt; std::endl; </div><div class="line">  <span class="keyword">int</span> v1, v2; </div><div class="line">  std::<span class="built_in">cin</span> &gt;&gt; v1 &gt;&gt; v2; </div><div class="line">  std::<span class="built_in">cout</span> &lt;&lt; <span class="string">"The sum of "</span> &lt;&lt; v1 &lt;&lt; <span class="string">" and "</span> &lt;&lt; v2 </div><div class="line">            &lt;&lt; <span class="string">" is "</span> &lt;&lt; v1 + v2 &lt;&lt; std::endl; </div><div class="line">  <span class="keyword">return</span> <span class="number">0</span>; </div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="说明-v2">说明</h4>
+<p>程序的第一行是一个 <em>预处理指示</em> ：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></div></pre></td></tr></table></figure></p>
+<p>告诉编译器要使用 iostream 库。尖括号里的名字是一个。头文件。程序使用库工具时必须包含相关的头文件。<code>#include</code> 指示必须单独写成一行——头文件名和 <code>#include</code> 必须在同一行。通常，<code>#include</code> 指示应出现在任何函数的外部。而且习惯上，程序的所有 <code>#include</code> 指示都在文件开头部分出现。</p>
+<p>main 函数体中第一条语句执行了一个表达式。C++ 中，一个表达式由一个或几个操作数和通常是一个操作符组成。该语句的表达式使用输出操作符（<code>&lt;&lt;</code> 操作符），在标准输出上输出提示语：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">std::<span class="built_in">cout</span> &lt;&lt; <span class="string">"Enter two numbers:"</span> &lt;&lt; std::endl;</div></pre></td></tr></table></figure></p>
+<p>这个语句用了两次输出操作符。每个输出操作符实例都接受两个操作数：左操作数必须是 ostream 对象；右操作数是要输出的值。操作符将其右操作数写到作为其左操作数的 ostream 对象。</p>
+<p>C++ 中，每个表达式都会产生一个结果，通常是将操作符作用到其操作数所产生的值。当操作符是输出操作符时，结果是左操作数的值。也就是说，输出操作返回的值是输出流本身。</p>
+<p><code>endl</code> 是一个特殊值，称为 <em>操纵符</em> ，将它写入输出流时，具有输出换行的效果，并刷新与设备相关联的缓冲区。通过刷新缓冲区，用户可立即看到写入到流中的输出。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>程序员经常在调试过程中插入输出语句，这些语句都应该刷新输出流。忘记刷新输出流可能会造成输出停留在缓冲区中，如果程序崩溃，将会导致程序错误推断崩溃位置。</p>
+</div></p>
+<h4 id="使用标准库中的名字">使用标准库中的名字</h4>
+<p>细心的读者会注意到这个程序中使用的是 <code>std::cout</code> 和 <code>std::endl</code> ，而不是 <code>cout</code> 和 <code>endl</code> 。前缀 <code>std::</code> 表明 <code>cout</code> 和 <code>endl</code> 是定义在命名空间 <code>std</code> 中的。使用命名空间程序员可以避免与库中定义的名字相同而引起无意冲突。因为标准库定义的名字是定义在命名空间中，所以我们可以按自己的意图使用相同的名字。</p>
+<p>标准库使用命名空间的副作用是，当我们使用标准库中的名字时，必须显式地表达出使用的是命名空间 <code>std</code> 下的名字。<code>std::cout</code> 的写法使用了作用域操作符（scope operator，<code>::</code>操作符），表示使用的是定义在命名空间 <code>std</code> 中的 <code>cout</code>。我们将在 第 3.1 节学习到程序中经常使用的避免这种冗长句法的方法。</p>
+<h4 id="读入流">读入流</h4>
+<p>在输出提示语后，将读入用户输入的数据。先定义两个名为 v1 和 v2 的 变量来保存输入：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> v1, v2;</div></pre></td></tr></table></figure></p>
+<p>将这些变量定义为 int 类型，int 类型是一种代表整数值的内置类型。这些变量 未初始化，表示没有赋给它们初始值。这些变量在首次使用时会读入一个值，因此可以没有初始值。</p>
+<p>下一条语句读取输入：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">std::<span class="built_in">cin</span> &gt;&gt; v1 &gt;&gt; v2;</div></pre></td></tr></table></figure></p>
+<p>输入操作符（<code>&gt;&gt;</code> 操作符）行为与输出操作符相似。它接受一个 istream 对象作为其左操作数，接受一个对象作为其右操作数，它从 istream 操作数读取数据并保存到右操作数中。</p>
+<h2 id="注释">注释</h2>
+<p>C++ 中有单行注释和成对注释两种类型的注释。</p>
+<ul>
+<li>单行注释以双斜线（<code>//</code>）开头，行中处于双斜线右边的内容是注释，被编译器忽略。</li>
+<li>成对注释符号（<code>/* */</code>），是从 C 语言继承过来的。这种注释以<code>/*</code>开头，以<code>*/</code>结尾。编译器把落入注释对<code>/**/</code>之间的内容作为注释。</li>
+</ul>
+<h3 id="成对注释符号不可嵌套">成对注释符号不可嵌套</h3>
+<p>成对注释总是以 <code>/*</code> 开始并以 <code>*/</code> 结束。这意味着，一对注释符号不能出现在另一对注释符号中。</p>
+<p>临时忽略一段代码更好的方法，是用编辑器在要忽略的每一行代码前面插入单行注释。</p>
+<h3 id="尽量使用-c-风格的注释">尽量使用 C++ 风格的注释</h3>
+<p>旧的 C 注释语法在 C++ 里还可以用，C++新发明的行尾注释语法也有其过人之处。例如下面这种情形：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ( a &gt; b ) {</div><div class="line">  <span class="comment">// int temp = a;    // swap a and b</span></div><div class="line">  <span class="comment">// a = b;</span></div><div class="line">  <span class="comment">// b = temp;</span></div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>假设你出于某种原因要注释掉这个代码块。从软件工程的角度看，写这段代码的程序员也做得很好，他最初的代码里也写了一个注释，以解释代码在做什么。用 C++形式的句法来注释掉这个程序块时，嵌在里面的最初的注释不受影响，但如果选择 C 风格的注释就会发生严重的错误：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> ( a &gt; b ) {</div><div class="line">      <span class="comment">/*  int temp = a;  /* swap a and b */</span></div><div class="line">          a = b;</div><div class="line">          b = temp;</div><div class="line">      */</div><div class="line">    }</div></pre></td></tr></table></figure></p>
+<p>请注意嵌在代码块里的注释是怎么无意间使本来想注释掉整个代码块的注释提前结束的。</p>
+<p>C 风格的注释当然还有它存在的价值。例如，它们在 C 和 C++ 编译器都要处理的头文件中是无法替代的。尽管如此， <em>只要有可能，你最好尽量用 C++ 风格的注释</em> 。</p>
+<p>值得指出的是，有些老的专门为 C 写的预处理程序不知道处理 C++ 风格的注释，所以象下面这种情形时，事情就不会象预想的那样：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">define</span> LIGHT_SPEED   3e8    <span class="comment">// m/sec (in a vacuum)</span></span></div></pre></td></tr></table></figure></p>
+<h3 id="doxygen推荐的注释风格">Doxygen推荐的注释风格</h3>
+<p><a href="http://www.stack.nl/~dimitri/doxygen/" target="_blank" rel="external">Doxygen</a> 是一个强大的程序文档生成工具，只要注释符合Doxygen的规范，这些注释就可以用来生成程序的文档。<a href="http://www.stack.nl/~dimitri/doxygen/docblocks.html" target="_blank" rel="external">这里</a> 总结了Doxygen推荐的注释风格。</p>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/cpp-datatype.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc', 2, 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

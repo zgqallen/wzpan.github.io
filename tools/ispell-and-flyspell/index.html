@@ -1,0 +1,526 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>ispell与emacs的拼写检查 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="介绍ispell以及emacs里的拼写检查功能。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="ispell与emacs的拼写检查"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> ispell与emacs的拼写检查</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>介绍ispell以及emacs里的拼写检查功能。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<h2 id="了解ispell">了解Ispell</h2>
+<h3 id="ispell-vs-aspell">Ispell vs Aspell</h3>
+<p>Ispell是Unix下的一个拼写检查工具，支持多种语言（见：<a href="http://lasr.cs.ucla.edu/geoff/ispell-dictionaries.html" target="_blank" rel="external">ispell
+dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外一个比较出名的拼写检查工具是Aspell，两者的区别是Aspell不仅为拼错的单词提供形近的单词列表，还同时提供读音相似的单词的建议，e.g.如果你拼了一个错词“trubble”，Ispell只会建议“rubble”，而Aspell还会建议“trouble”、“dribble”、
+&quot;rubble&quot;之类的词。不过Aspell的这种匹配算法只能用在英语单词上，而且在速度上以及指令的简单程度上不及Ispell。我使用的是Ispell，Aspell的配置可以参考<a href="http://aspell.net/0.61/man-html/Using-Aspell-with-other-Applications.html#Using-Aspell-with-other-Applications" target="_blank" rel="external">这里</a>。</p>
+<a id="more"></a>
+<h3 id="安装和配置ispell">安装和配置Ispell</h3>
+<p>Ubuntu安装Ispell：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> apt-get install ispell iamerican dictionaries-common</div></pre></td></tr></table></figure></p>
+<p>Arch安装Ispell：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> pacman -S ispell aspell-en</div></pre></td></tr></table></figure></p>
+<p>你可以试着在shell里直接使用ispell命令对一份文件进行拼写检查：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ispell <span class="constant">FILE</span></div></pre></td></tr></table></figure></p>
+<p>注意上面的FILE得你自己指定一个文件，建议是一份有英文单词的文件。如果能输出检查结果，说明此时Ispell运作正常。</p>
+<p>如果提示找不到default.hash，那可能是没有把iamerican设为预设辞典的原因，解决方法如下：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">cd</span> /usr/lib/ispell/ sudo <span class="keyword">cp</span> iamerican.hash default.<span class="keyword">sh</span></div></pre></td></tr></table></figure></p>
+<h2 id="emacs中的拼写检查-使用ispell">Emacs中的拼写检查（使用Ispell）</h2>
+<p>有些编辑器可以自动对我们输入的英语单词进行拼写检查，甚至还能给出拼写建议（比如Microsoft
+Word），Emacs当然也可以做到这个功能，甚至更加强大。不过，Emacs本身并不提供这个功能，幸运的是像Ispell和Aspell这样的拼写检查工具都提供了Emacs相应接口，因此，通过在Emacs中调用Ispell的命令，我们可以一边编辑文件一边进行拼写检查。</p>
+<p>Ispell和Aspell现在在Emacs已经内置支持，通常不需要自己安装。如果你发现Emacs里确实没有Ispell的支持，或者你想升级到最新的ispell.el，那就请参见<a href="http://www.kdstevens.com/stevens/ispell-faq.html#install" target="_blank" rel="external">这里</a>。</p>
+<h3 id="ispell-minor-mode：实时拼写检查">ispell-minor-mode：实时拼写检查</h3>
+<p>要让Flyspell随时根据你的输入提示错误拼写，可以打开<strong>ispell-minor-mode</strong><strong>辅模式</strong>。在ispell-minor-mode 模式下，
+当你输完一个单词时，Ispell
+会自动帮您在辞典里查询这个单词，如果找不到这个单词，它就会<em>哔</em>一声来提醒您。</p>
+<p>要启动或关闭这模式，请键入指令：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">M-x ispell-minor-mode &lt;<span class="keyword">Return</span>&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="ispell-buffer：全文拼写检查">ispell-buffer：全文拼写检查</h3>
+<p>在emas中，可以使用<strong>ispell-buffe</strong>r命令，对光标之后的单词逐个进行拼写检查：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">M-x ispell-<span class="keyword">buffer</span> &lt;<span class="keyword">Return</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>如果全文拼写正确，就会提示检查完成。如果发现不认识的单词，此时ispell将会把光标定在该单词的位置，在文本的上方会显示修改建议，如图1：</p>
+<p><img src="/images/ispell-and-flyspell/Evrd5.png" alt="" title="图1 ispell拼写建议"></p>
+<p>此时ispell会等待用户的进一步的指令：</p>
+<table class="table table-striped">
+<tbody>
+<tr>
+<td>键盘指令</td>
+<td>功能</td>
+</tr>
+<tr>
+<td>C-h 或者 ?</td>
+<td>获得进一步帮助</td>
+</tr>
+<tr>
+<td>空格</td>
+<td>忽略这个错误拼写</td>
+</tr>
+<tr>
+<td>a/A</td>
+<td>在全文中都忽略这个单词（只在这个缓冲区有效）</td>
+</tr>
+<tr>
+<td>r/R</td>
+<td>修改这个单词</td>
+</tr>
+<tr>
+<td>i/I</td>
+<td>将这个单词加入个人辞典</td>
+</tr>
+<tr>
+<td>u</td>
+<td>将这个单词以小写的形式加入个人辞典</td>
+</tr>
+<tr>
+<td>q/Q</td>
+<td>退出单词检查</td>
+</tr>
+</tbody>
+</table>
+<p>如果文档中有多处相同的拼写错误，可以使用“R”进入查询替换，输入要替换的单词，当查找到第二个匹配的单词时，按下“!”将自动将接下来所有的单词替换成正确的单词。</p>
+<p><img src="/images/ispell-and-flyspell/iqdSB.png" alt="" title="图2 按R后输入改正后的拼写"></p>
+<p><img src="/images/ispell-and-flyspell/bmhjf.png" alt="" title="图3 按!后回车，全部“xmas”都被改为“Xmas”"></p>
+<p>使用Ispell要注意以下两点：</p>
+<ol>
+<li><strong>Ispell是根据你所指定的辞典里的单词来确定这个词是否拼写正确的</strong>。换句话说，如果某个单词没有在选定的辞典里有定义的话，即使它的拼写是正确的，Ispell也会把它当成错误的拼写。如果光标不在文章开头的第一个位置，要进行全文检查的话就得先使用M-&lt;将光标移动到文章开头。</li>
+<li><strong>同一个单词的不同形式，比如复数、过去式、过去分词等，在进行拼写检查时需要分别进行</strong>。比如，如果你把receive拼成了“recieve”，Ispell会把“recieved”当成另外一个单词，所以这个拼写检查器会把它当作另外一个拼写错误找出来。</li>
+</ol>
+<h3 id="c-r：递归编辑">C-r：递归编辑</h3>
+<p>我们经常会遇到这种情况：当我们在查找修改某段文本的时候，可能会意外发现当前的查找结果周围有个地方需要修改，但因为现在正在进行查找修改，如果不想中断当前的工作，我们就只好等着完成查找修改工作后再找到刚刚那个位置，但却记不起来在那里了。拼写检查也可以看成一类查找（对错误拼写的查找），为了解决这个问题，Emacs给我们提供了一个贴心的编辑方法——递归编辑。</p>
+<p>什么是递归编辑呢？我们可以把递归编辑看成一种中断：当你在进行某个查找任务的时候，还能够暂时中断当前的查找工作，去进行其他的编辑工作，完成后再跑回刚刚的中断的地方，继续未完成的查找。这和“递归”有什么联系呢？这是因为，这种中断可以嵌套！你可以在查找单词A的时候中断A的查找，进入一个递归编辑，在这个位置开始对B进行查找，突然在某个B的查找位置你又看到周围有个单词C要修改，你又可以暂时中断对B的查找，而进入另一个递归编辑。等你修改完C后，你可以回到上一个查找的中断位置，继续对B进行查找。等你查找完B之后，你又可以回到再上一个查找的中断位置，继续对A进行查找。说起来很复杂，其实道理非常简单。我还是“一图以蔽之”吧：</p>
+<p><img src="/images/ispell-and-flyspell/Gmot9.png" alt="" title="图4 递归编辑示意图"></p>
+<p>使用方法：</p>
+<table class="table table-striped">
+<tbody>
+<tr>
+<td>C-r</td>
+<td>进入递归编辑</td>
+</tr>
+<tr>
+<td>C-M-c</td>
+<td>结束递归编辑并继续拼写检查</td>
+</tr>
+<tr>
+<td>C-] (命令：top-level)</td>
+<td>结束递归编辑，并退出拼写检查</td>
+</tr>
+</tbody>
+</table>
+<p>例如，在在修改“xmas”的时候，突然发现要修改“newyear.”</p>
+<p><img src="/images/ispell-and-flyspell/Y088c.png" alt="" title="图5 在修改“xmas”的时候发现要修改“newyear.”"></p>
+<p>C-r进入递归编辑，使用replace-string命令将“newyear.”改成&quot;new year!&quot;</p>
+<p>![](/images/ispell-and-flyspell/N9Ow2.png “图6 在递归编辑下将“newyear.”改成&quot;new year!”&quot;)</p>
+<h3 id="ispell-word：检查单个单词">Ispell-word：检查单个单词</h3>
+<p>有时候我们拼写某个单词脑袋壳突然卡住了：“哎，这个词怎么拼啊？”或者“我好像拼得不对”。这时，我们可以利用Ispell来单独检查光标所在的这个单词，如果想对光标位置上的单词进行检查，请按下 <code>M-$</code> （命令名是ispell-word）组合键，或者从【Spell】拼写菜单里选择执行“Check
+Word”（检查单词）操作，Ispell将对那个单词进行检查，并给出检查结果。</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">M-$ (M-x ispell-word &lt;<span class="keyword">Return</span>&gt;)</div></pre></td></tr></table></figure></p>
+<p><img src="/images/ispell-and-flyspell/SltMB.png" alt="" title="图8 检查单词“apple”"></p>
+<h3 id="ispell-complete-word：单词补全">ispell-complete-word：单词补全</h3>
+<p>有时我们想不起来要怎么拼一个单词，这就到Ispell的单词补全功能大展身手的时候了。敲击ESC-tab（命令名是ispell-complete-word），将获得一个可供选择的列表。</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ESC-tab（M-x ispell-complete-word <return>）</return></div></pre></td></tr></table></figure></p>
+<p><img src="/images/ispell-and-flyspell/gCBFZ.png" alt="" title="图9 让ispell给出“Christm”的补全建议“Christmas”"></p>
+<h3 id="ispell-kill-ispell：终止ispell进程">ispell-kill-ispell：终止Ispell进程</h3>
+<p>只要启用了Ispell，它就将一直在后台运行等待再次启用。如果觉得它使得系统变慢了，可以输入 <code>M-x ispell-kill-ispell &lt;Return&gt;</code> 杀掉这个进程，或是从“Spell”菜单里选择执行“Kill Process（终止进程）”操作。</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">M-x ispell-kill-ispell <return></return></div></pre></td></tr></table></figure></p>
+<h2 id="emacs中的高亮错误拼写">Emacs中的高亮错误拼写</h2>
+<h3 id="什么是flyspell">什么是Flyspell</h3>
+<p>Flyspell是Ispell的增强工具，Ispell只能够在缓冲区里逐个提示错误的拼写，如果想要用下划线的形式标记出所有错误的拼写，可以使用Flyspell。这样的好处是你可以继续编辑你的文本，而不需要进入查找模式。很多高级的编辑器都是采用这样的方式来提醒用户可能存在的错误拼写。</p>
+<h3 id="flyspell-mode：实时高亮提醒错误拼写">flyspell-mode：实时高亮提醒错误拼写</h3>
+<p>要让Flyspell随时根据你的输入提示错误拼写，可以打开<strong>flyspell-mode</strong>模式：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">M-x flyspell-mode <return></return></div></pre></td></tr></table></figure></p>
+<p>例如，打开Flyspell辅模式后，在缓冲区中输入“applle.”之后，Flyspell将对applle高亮显示。</p>
+<p><img src="/images/ispell-and-flyspell/2Awhx.png" alt="" title="图11 Flyspell高亮显示拼写错误"></p>
+<p>flyspell-mode和ispell-minor-mode的区别主要是flyspell的错误拼写提醒方式是用下划线，而ispell-minor-mode则会在消息窗口进行提示，并<em>哔</em>一声进行提醒，有时候会让人厌烦（当然，可以通过设置关闭声音提醒）。因此，flyspell显得比较“安静”，因此更受人喜欢。</p>
+<h3 id="flyspell-buffer：查找错误拼写并高亮">flyspell-buffer：查找错误拼写并高亮</h3>
+<p>如果只需要检查一下缓冲区现有的文本，可以使用<strong>flyspell-buffer</strong>：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">M-x flyspell-buffer <return></return></div></pre></td></tr></table></figure></p>
+<p><img src="/images/ispell-and-flyspell/1n2zn.png" alt="" title="图12 Flyspell检查缓冲区内容"></p>
+<p>flyspell-buffer和ispell-buffer的区别：<strong>ispell-buffer是进入对错误拼写的查找，并逐个提示错误的拼写，而flyspell-buffer会在检查完所有拼写后，一次性将所有找到的错误以下划线的形式标记出来。</strong></p>
+<p>要对Flysepll高亮的文本进行修改，可以将鼠标移到该单词上，点击 **鼠标中键 **，将弹出一个菜单。（什么？没有鼠标中键？听我的，你真的需要去买一个新鼠标了
+:tounge:
+）如果要在当前编辑的缓冲区中接受这个拼写，可以在弹出菜单中选择Accept(session)；如果要在本次Emacs运行期间打开的所有缓冲区中接受这个拼写，可以选择Accept(buffer)；如果要永久记住这个拼写，可以选择Save
+this word。</p>
+<p>还有一种专门为程序员提供的辅模式flyspell-prog-mode，Emacs将只在注释和字符串里高亮错误的拼写。</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">M-x flyspell-prog-mode <return></return></div></pre></td></tr></table></figure></p>
+<h2 id="其他定制">其他定制</h2>
+<h3 id="让emacs自动开启flyspell-mode">让Emacs自动开启flyspell-mode</h3>
+<p>对于很多打字员来说，<strong>flyspell-mode</strong>是一个非常实用的辅模式，如果想要让Emacs启动时自动打开flyspell-mode，可以在.emacs文件里添加这一行：</p>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(setq-default flyspell-mode t) &lt;Return&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="选择ispell预设辞典">选择Ispell预设辞典</h3>
+<p>如果你为Ispell安装了不止一个辞典，你可以设定Emacs，使之在开始载入某一文件时，便自
+动选择所需的辞典（你可以选择好几个）。预设辞典(main dictionary) 即主要辞典，是与
+Ispell一起发行的辞典。您可以选择您所需要的语言。第二个即是你的个人辞典(personal
+dictionary)，你可以设定要 Ispell将您在主要辞典里所找不到的字放到这里。假如您要将
+Ispell里的法文辞典设为预设辞典，并想用你主目录 (home directory)下的
+’.ispell-dico-perso’ 文档作为个人辞典，可以在 ‘.emacs’ 文档里加入下列指令：</p>
+<p><figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="list">(<span class="title">setq</span> sgml-mode-hook</span></div><div class="line"><span class="quoted">'(lambda () <span class="string">"Defauts for SGML mode."</span></span></div><div class="line">(setq ispell-personal-dictionary <span class="string">"~/.ispell-dico-perso"</span>)</div><div class="line">(ispell-change-dictionary <span class="string">"francais"</span>)</div><div class="line">))</div></pre></td></tr></table></figure></p>
+<h3 id="为特定文件设定个别的辞典">为特定文件设定个别的辞典</h3>
+<p>在每一个文档的结尾，只要将下列指令加入作为注释，你都可以指定您现行的文档要使用哪一辞典。
+Ispell 开始拼字检查时即可应用所指定的辞典：</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;!-- Local IspellDict: english --&gt;</div><div class="line"><span class="xml"><span class="comment">&lt;!-- Local IspellPersDict: ~/emacs/.ispell-english --&gt;</span></span></div></pre></td></tr></table></figure></p>
+<h2 id="本文参考资料">本文参考资料</h2>
+<ol>
+<li><a href="http://www.google.com.hk/url?sa=t&amp;rct=j&amp;q=Learning+GNU+Emacs&amp;source=web&amp;cd=1&amp;ved=0CCwQFjAA&amp;url=http%3A%2F%2Fbook.douban.com%2Fsubject%2F1431970%2F&amp;ei=Npr1Ttv4OeaziQeg4KXuAw&amp;usg=AFQjCNGR0JeJmtslTGgFcY3le75a1jIIhA&amp;sig2=CvEr-ea6iU4hRy06oFG2Sg" target="_blank" rel="external">Learning GNU Emacs, 3rd Edition(Debra Cameron, James Elliott, Marc
+Loy)</a></li>
+<li><a href="http://man.chinaunix.net/linux/how/LinuxDoc+Emacs+Ispell-HOWTO-5.html" target="_blank" rel="external">LinuxDoc+Emacs+Ispell-HOWTO中文版(Philippe MARTIN, Sébastien
+Blondeel,
+李安珊)</a></li>
+</ol>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/tools/abbreviation-on-emacs/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/reading/ann2/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Dec 24 2011 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/tools/">tools<span>12</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/Aspell/">Aspell<span>1</span></a></li> <li><a data-pjax href="/tags/emacs/">emacs<span>6</span></a></li> <li><a data-pjax href="/tags/Flyspell/">Flyspell<span>1</span></a></li> <li><a data-pjax href="/tags/Ispell/">Ispell<span>1</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

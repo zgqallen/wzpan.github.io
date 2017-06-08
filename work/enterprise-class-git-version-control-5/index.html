@@ -1,0 +1,466 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>化繁为简的企业级 Git 管理实战（五）：二进制大文件的版本控制 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="二进制大文件的版本控制是 Git 的一个弱项，也是很多团队难免会遇到的一个让人头痛的问题。本文将介绍我们使用 Git 进行二进制文件的版本控制的多种方案，以及相关的踩坑之旅。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="化繁为简的企业级 Git 管理实战（五）：二进制大文件的版本控制"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 化繁为简的企业级 Git 管理实战（五）：二进制大文件的版本控制</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>二进制大文件的版本控制是 Git 的一个弱项，也是很多团队难免会遇到的一个让人头痛的问题。本文将介绍我们使用 Git 进行二进制文件的版本控制的多种方案，以及相关的踩坑之旅。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<p>毫无疑问，Git 非常适合用于代码文件的版本控制。对于纯代码仓库，由于每次实际提交都是增量内容，即使仓库经历了几十次提交，整个仓库的大小往往都不会大幅增加。</p>
+<p>而对于存在二进制文件的仓库，情况就变了：Git 并不能很好地支持二进制文件的增量提交，每次更新一个二进制文件，就相当于把这份文件的完整内容再往仓库里扔。久而久之，这个仓库就会变得非常大，影响代码拉取速度。</p>
+<p>举一个实际的例子，为了加快应用的构建速度，我们团队的框架先会编译成 SDK ，再交由上层构建应用。框架 SDK 也是一个独立的 Git 仓库，里头包含了大量的二进制包：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/framework.png" alt="Framework SDK"></p>
+<p>由于框架也有多个分支，每个分支的迭代速度比较快，SDK 仓库的体积在三个月的时间内就膨胀到了 1G 。<a id="more"></a></p>
+<p><img src="/images/enterprise-class-git-version-control-5/before.png" alt="改造前的framework仓库"></p>
+<p>如此庞大的仓库体积让第一次拉代码的同事叫苦不迭。一次全新的 clone ，即使拉取速度达到了 5.01 MB/s，在 framework 这个模块上就需要花上大约 7 分钟的时间：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/http-clone.png" alt="HTTP拉取仓库"></p>
+<p>当很多人同时拉代码时，还有很大概率因为 HTTP 超时而拉取失败：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/fail.png" alt="HTTP超时"></p>
+<p>为了解决这个问题，我先后尝试了几种方案。</p>
+<h2 id="方案一：改用-ssh">方案一：改用 SSH</h2>
+<p>第一个思路非常 intuitive ：既然 HTTP 的拉取不稳定，那改成 SSH 如何呢？SSH 的长连接总比 HTTP 稳定吧？</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>git remote remove origin  <span class="comment"># 删除原来的http仓库地址</span></div><div class="line"><span class="variable">$ </span>git remote add origin git<span class="variable">@your</span>-site.<span class="symbol">com:</span>your-group/your-repo.git  <span class="comment"># 改成新的ssh仓库地址</span></div></pre></td></tr></table></figure></p>
+<p>这个思路被证实是有效的。通过修改这几个模块的仓库地址为 SSH ，仓库的拉取成功率提升了很多，出现 RPC Failed 的情况也变少了。</p>
+<p>然而，这种方案依然无法解决拉取速度慢的问题，完整的拉取该模块的耗时并不比 HTTP 方式快（甚至可能更慢）：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/ssh-clone.png" alt="SSH拉取仓库"></p>
+<p>另外，这种方式要求每个人都配好 SSH Keys ，否则拉取仓库时也会直接报错。这对于刚接触 Git 的同事而言又增加了一点 cognitive load 。</p>
+<h2 id="方案二：单分支克隆">方案二：单分支克隆</h2>
+<p>第二个思路是在初次拉取的时候不完整克隆整个工程，而是只克隆一个分支，这样也能减少 N 倍的时间。Git 允许带上 <code>--single-branch -b &lt;分支名&gt;</code> 选项，指定只拉取某一分支：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">$ git clone --single-branch -b &lt;分支名&gt;</span> <span class="symbol">http:</span>/<span class="regexp">/your-site.com/your</span>-group/your-repo.git</span></div></pre></td></tr></table></figure></p>
+<p>用这种方法确实减少了一定的时间，但耗时依然可能很长。以我们的框架 SDK 仓库为例，单纯拉一个 master_dev 分支也要 3 分钟左右的时间。</p>
+<p><img src="/images/enterprise-class-git-version-control-5/single-branch-clone.png" alt="单分支克隆"></p>
+<p>没有数量级别的减少，也就意味着不久之后单个分支的拉取时间也会超过现在整个仓库的完整克隆时间。</p>
+<h2 id="方案三：浅克隆">方案三：浅克隆</h2>
+<p>大部分人使用 SDK 时并不需要检出历史版本，对这些人而言，只需要拿到需要的一个快照就可以满足构建需求了。因此方案三就是限定克隆时的深度来加快拉取速度。Git 允许带上 <code>--depth &lt;深度&gt;</code> 来指定拉取深度。例如只拉取分支最新的快照：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="input"><span class="prompt">$ git clone --single-branch -b &lt;分支名&gt;</span> --depth <span class="number">1</span> <span class="symbol">http:</span>/<span class="regexp">/your-site.com/your</span>-group/your-repo.git</span></div></pre></td></tr></table></figure></p>
+<p>由于只拉取最新快照，用这种方式的拉取速度就快了很多。以我们的框架 SDK 仓库为例，拉 master_dev 最新的快照只需要不到 6 秒的时间。</p>
+<p><img src="/images/enterprise-class-git-version-control-5/shallow-clone.png" alt="浅克隆"></p>
+<p>浅克隆虽然能够解决代码拉取的问题，但可想而知这样拉取下来的仓库是不完整的，它缺失了所有历史记录，也不能在这个仓库上提交新的内容。对于框架的开发人员，为了能够提交新内容，依然需要花长时间去克隆完整的仓库。因此浅克隆依然不是一个完美的方案。</p>
+<h2 id="方案四：使用-git-lfs">方案四：使用 Git-LFS</h2>
+<p>虽然 Git 本身并不能很好地支持二进制大文件的版本控制，但幸运的是已经出现了一些扩展能够帮助 Git 胜任这些工作。我所选择的扩展就是由 Github 团队开发的 <a href="https://git-lfs.github.com" target="_blank" rel="external">Git-LFS</a> 。</p>
+<p>Git-LFS 的原理并不复杂：大文件不再支持添加到仓库中，而是存储到另外的 LFS 服务器上。仓库中只保留这些文件的文本链接。当拉取仓库时，Git-LFS 的钩子将自动把这些文本链接恢复成 LFS 中的实际内容。一图胜千言：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/git-lfs.png" alt="Git-LFS原理"></p>
+<h3 id="服务端配置">服务端配置</h3>
+<p>选择 Git-LFS 的一个首要原因是 Gitlab 原生提供了对 Git-LFS 的支持<span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>有趣的是，就在我写这篇文章的时候，<a href="https://git-lfs.coding.me/" target="_blank" rel="external">Coding 也宣布了对 Git LFS 的支持</a>。 </span></span></span> 。要在 Gitlab 中开启 Git-LFS 非常简单：</p>
+<ol>
+<li>编辑 /opt/gitlab/gitlab.rb 文件，找到 <code>Git LFS</code> 项目；</li>
+<li>将 <code>gitlab_rails['lfs_enabled']</code> 项目设置成 <code>true</code>；</li>
+<li>将 <code>gitlab_rails['lfs_storage_path']</code> 项目设置为本地的一个已存在目录。这个目录就是实际的 LFS 存储目录。</li>
+<li>执行 <code>gitlab-ctl reconfigure</code> 重新配置 Gitlab；</li>
+<li>执行 <code>gitlab-ctl restart</code> 重启 Gitlab ，使配置生效。</li>
+</ol>
+<p>至此服务端就配置完成了。</p>
+<h3 id="工具安装">工具安装</h3>
+<p><a href="https://github.com/git-lfs/git-lfs/releases/latest?utm_source=gitlfs_site&amp;utm_medium=downloads_link&amp;utm_campaign=gitlfs" target="_blank" rel="external">下载</a> Git LFS 。解压完后执行：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>git lfs install</div></pre></td></tr></table></figure></p>
+<p>完成工具的安装。这步骤只需要做一次。这个步骤实际做的事情是给 git 加上 lfs 命令，另外还创建了 post-checkout、post-commit、post-merge、pre-push 几个全局钩子。当我们在一个使用 LFS 的仓库执行诸如 <code>checkout</code>、<code>commit</code>、<code>merge</code>、<code>push</code> 的 Git 操作时，将触发这些钩子自动地维护用 LFS 管理的文件。</p>
+<h3 id="仓库改造">仓库改造</h3>
+<p>接下来就可以开始改造仓库，把大文件都改用 LFS 来管理。</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>git lfs track <span class="string">"*.jar"</span></div><div class="line"><span class="variable">$ </span>git lfs track <span class="string">"*.so"</span></div><div class="line"><span class="variable">$ </span>git lfs track <span class="string">"*.aar"</span></div></pre></td></tr></table></figure></p>
+<p>这几步执行完会在仓库中创建一个 .gitattribute 文件：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ cat <span class="string">.gitattributes</span></div><div class="line">*<span class="string">.jar</span> filter=<span class="keyword">lfs</span> diff=<span class="keyword">lfs</span> merge=<span class="keyword">lfs</span> -text</div><div class="line">*<span class="string">.so</span> filter=<span class="keyword">lfs</span> diff=<span class="keyword">lfs</span> merge=<span class="keyword">lfs</span> -text</div><div class="line">*<span class="string">.aar</span> filter=<span class="keyword">lfs</span> diff=<span class="keyword">lfs</span> merge=<span class="keyword">lfs</span> -text</div></pre></td></tr></table></figure></p>
+<p>Git 的钩子就是根据这个文件来确定当前仓库是否有使用 LFS 管理的文件的。所以这个文件一定要确保添加进仓库中：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git <span class="built_in">add</span> .gitattributes</div></pre></td></tr></table></figure></p>
+<p>完成后像往常一样暂存和提交文件即可：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>git add foo.jar</div><div class="line"><span class="variable">$ </span>commit -m <span class="string">"Add jar file"</span></div><div class="line"><span class="variable">$ </span>git push origin master</div></pre></td></tr></table></figure></p>
+<p>要注意的是，这个改造过程只会把当前这次 commit 的指定类型文件改成用 LFS 才存储，而不会影响所有历史记录。对于我们的 SDK 仓库，仓库本身已经非常庞大，直接这么改造是没有任何瘦身效果的。所以最好的做法就是重新创建一个仓库，把各个分支最新的快照同步过来。</p>
+<p><img src="/images/enterprise-class-git-version-control-5/after.png" alt="改造后的SDK仓库"></p>
+<p>由图可以看出，重新创建的这个仓库，把大部分的二进制大文件都改用了 LFS 来存储，整个仓库的大小从 1G 减小到 3M 不到！</p>
+<p>测试对这个新的仓库进行克隆，由于本身仓库很小，一下子就克隆下来了。之后 Git LFS 的全局钩子将自动将当前仓库里的 LFS 链接文件恢复成真正的文件：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/lfs-clone.png" alt="克隆 Git LFS 仓库"></p>
+<p>由于这个仓库的二进制包多达64个，整个克隆过程的时间主要花在下载这些二进制包，总耗时约为 43 秒。虽然没有浅克隆快，但这样的方式拉下来的仓库是完整的仓库，而且对普通开发者而言是完全透明的操作（他们甚至不需要知道 LFS 是什么），因此是更加理想的方案。</p>
+<h3 id="git-lfs-的踩坑之旅">Git-LFS 的踩坑之旅</h3>
+<p>虽然 Git-LFS 很好地解决了大文件的版本控制问题，但实际应用到实际团队中时也不见得能顺风顺水。在我将它推广到团队的项目中时，就遇到了几个水土不服的问题。下面整理一下，方便后来人。</p>
+<h4 id="1-警惕钩子覆盖">1. 警惕钩子覆盖</h4>
+<p>第一个遇到的问题就是钩子的覆盖问题。前面我们提到 Git-LFS 其实是利用全局钩子来关联 Git 与 LFS 的。当你的工程中也加了钩子时，这时候就要格外小心了。</p>
+<p>以我们的工程为例，我给每个子模块都加了个 pre-push 钩子用来做 push 前检查：</p>
+<ol>
+<li>如果子模块接入了 Code Review，检查要 push 的提交是否都经过了 Code Review；</li>
+<li>如果是 React Native 子模块，检查本地的 React Native 打包是否成功；</li>
+<li>检查如果要推送到一个新分支，检查目标分支名是否包含非 ASCII 字符。</li>
+</ol>
+<p>问题来了，这个 pre-push 钩子的优先级会高于全局的那个 Git LFS 钩子，因此使得 Git LFS 的 pre-push 失去作用。而这个钩子非常重要：它的作用是在 push 的时候把用 Git LFS 跟踪管理的文件上传到 LFS 服务器上。如果这些文件没有上传成功，别人拉取仓库就会报如下错误：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Downloading hotfix/plugin/commons-io-2.4.jar (180.80 KB)</div><div class="line">Error downloading object: hotfix/plugin/commons-io-2.4.jar (cc6a41dc3eaacc9e440a6bd0d2890b20d36b4ee408fe2d67122f328bb6e01581)</div><div class="line"></div><div class="line">Errors logged to /Users/xxxx/Desktop/App_Android_master_dev/.git/modules/framework/xxxx/xxxx/lfs/objects/logs/20170417T212952.282306976.log</div><div class="line">Use `git lfs logs last` to view the log.</div><div class="line">error: external filter git-lfs smudge -- %f failed 2</div><div class="line">error: external filter git-lfs smudge -- %f failed</div><div class="line">fatal: hotfix/plugin/commons-io-2.4.jar: smudge filter lfs failed</div></pre></td></tr></table></figure></p>
+<p>解决办法就是将 Git LFS 钩子的内容与自定义钩子相结合。这是我对 Git LFS 的 pre-push 钩子的改写：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/sh</span></div><div class="line"></div><div class="line">basepath=$(<span class="built_in">cd</span> `dirname <span class="variable">$0</span>`; <span class="built_in">pwd</span>)</div><div class="line">command -v git-lfs &gt;/dev/null <span class="number">2</span>&gt;&<span class="number">1</span> || { <span class="built_in">echo</span> &gt;&<span class="number">2</span> <span class="string">"\nThis repository is configured for Git LFS but 'git-lfs' was not found on your path. If you no longer wish to use Git LFS, remove this hook by deleting .git/hooks/pre-push.\n"</span>; <span class="keyword">exit</span> <span class="number">2</span>; }</div><div class="line">git lfs pre-push <span class="string">"<span class="variable">$@</span>"</span> && <span class="variable">$basepath</span>/pre-push-custom</div></pre></td></tr></table></figure></p>
+<p>最后一行的作用就是先执行 git lfs pre-push 确保正确上传 LFS tracking 的文件，然后再执行 hooks 中的 pre-push-custom 钩子进行其他自定义的检查。</p>
+<h4 id="2-zip-包下载的-bug">2. zip 包下载的 bug</h4>
+<p>Gitlab 对 Git-LFS 也存在着不足。当我完成了几个大仓库的改造之后，我发现新的仓库在本地可以顺利编译，但在构建站却死活编译不了，报了类找不到的错误：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/compile-problem.jpeg" alt="编译问题"></p>
+<p>本地构建和构建站构建在代码拉取上面有一个区别：为了加快代码拉取速度，我们在构建站并不使用克隆仓库的方式来拉取代码，而是采用下载 Zip 包的方式。所以我把这个仓库的 Zip 包下载了下来：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/download-zip.png" alt="下载zip包"></p>
+<p>这个类是在其中一个 jar 包里定义的，而解压发现 jar 包明明已经下载下来了：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/problem-file.png" alt="问题jar包"></p>
+<p>尝试使用 JD-Gui 打开这个 jar 包，发现这个包打不开。</p>
+<p><img src="/images/enterprise-class-git-version-control-5/open-failed.png" alt="jar包无法打开"></p>
+<p>那这个文件究竟是什么东西？打印它的内容，真相浮出水面：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/whats-this.png" alt="jar包只是个链接文本"></p>
+<p>这是个链接文件！说明 Gitlab 并没有将它恢复成实际的文件内容！仔细观察这些二进制文件，我发现它们的大小全部都在 130 字节左右，这意味着这些文件全都没有被恢复。</p>
+<p><img src="/images/enterprise-class-git-version-control-5/file-size.png" alt="全部文件都是链接"></p>
+<p>不幸的是，由于下载下来的内容不再是个 Git 仓库，这些链接文件已无法恢复成实际的文件内容。</p>
+<p><img src="/images/enterprise-class-git-version-control-5/cannot-restore.png" alt="文件无法恢复"></p>
+<p>我认为这个是 Gitlab 的问题，于是给 Gitlab 提了一个 <a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/31082" target="_blank" rel="external">bug</a> ，而一个开发人员告诉我类似的问题在去年 3 月份<a href="https://gitlab.com/gitlab-org/gitlab-ce/issues/14261" target="_blank" rel="external">已经有人提过</a>，而目前还未修复 <code>--bb</code> <span class="margin-note-marker"><sup>2</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">2</span>Coding 也有相同的问题，哈哈。 </span></span></span> 。</p>
+<p>找到这个原因后，对症下药就简单了：既然下载 Zip 包的方式没法恢复大文件的内容，那就改成用浅克隆。于是我改写了下构建站的代码拉取脚本，将使用 Git LFS 管理大文件的几个模块由下载 zip 的方式改成浅克隆，终于解决了编译问题！</p>
+<h2 id="总结">总结</h2>
+<p>本文列举了几种二进制大文件导致仓库过大的解决方案。其中，使用 Git-LFS 的方案是一种比较理想的选择。但在实际使用中，一定要小心处理 Git-LFS 可能带来的问题，希望本文的若干踩坑总结也能对读者有所帮助。</p>
+
+		</div>
+
+		<!-- jiathis -->
+		
+<!-- JiaThis Button BEGIN -->
+<script type="text/javascript">
+var jiathis_config = {data_track_clickback:'true'};
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/codes/dingdang-robot-intro/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/work/enterprise-class-git-version-control-4/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+		function donate_on_web(){
+			$('#donate').submit();
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Apr 19 2017 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/work/">work<span>5</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/Git/">Git<span>5</span></a></li> <li><a data-pjax href="/tags/Gitlab/">Gitlab<span>2</span></a></li> <li><a data-pjax href="/tags/LFS/">LFS<span>1</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

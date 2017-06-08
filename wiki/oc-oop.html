@@ -1,0 +1,673 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>面向对象 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="@interface 部分
+使用 @interface 提供类的接口信息。
+示例
+1234567891011121314151617// 声明新类（继承自 NSObject 类）@interface Circle : NSObject{  // 告诉编译器 Circle 对象需要的各种数据成员  S">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="面向对象"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 面向对象</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="interface-部分">@interface 部分</h2>
+<p>使用 <code>@interface</code> 提供类的接口信息。</p>
+<h3 id="示例">示例</h3>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 声明新类（继承自 NSObject 类）</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Circle</span> : <span class="title">NSObject</span></span></div><div class="line">{</div><div class="line">  <span class="comment">// 告诉编译器 Circle 对象需要的各种数据成员</span></div><div class="line">  ShapeColor fillColor;</div><div class="line">  ShapeRect bounds;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// 方法声明</span></div><div class="line">- (<span class="keyword">void</span>) setFillColor: (ShapeColor) fillColor;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>) setBounds: (ShapeRect) bounds;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>) draw;</div><div class="line"></div><div class="line"><span class="comment">// 告诉编译器我们已经完成了类的声明</span></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Circle</span></div></pre></td></tr></table></figure></p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>熟悉中缀符：</p>
+<p>Objective-C 有一种名为中缀符（infix notation）的语法技术，方法的名称及其参数都是合在一起的。例如，你可以这样调用一个带参数的方法：</p>
+<pre><code class="language-oc">[circle setFillColor: kRedColor];
+</code></pre>
+<p>带两个参数的方法调用如下所示：</p>
+<pre><code class="language-oc">[textThing setStringValue: @&quot;hello there&quot;
+        color: kBlueColor];
+</code></pre>
+<p><code>setStringValue</code> 和 <code>color:</code> 实际上是参数的名称（实际上是方法名称的一部分，后面再详细介绍），<code>@&quot;hello there&quot;</code> 和 <code>kBlueColor</code> 是被传递的参数。</p>
+</div></p>
+<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p>注意冒号：</p>
+<p>注意：冒号是方法名称非常重要的组成部分。方法</p>
+<pre><code class="language-oc">- (void) scratchTheCat;
+</code></pre>
+<p>不同于</p>
+<pre><code class="language-oc">- (void) scratchTheCat: (CatType) critter;
+</code></pre>
+<p>规则：如果方法使用参数，则需要冒号；否则不需要冒号。</p>
+</div></p>
+<h2 id="implementation-部分">@implementation 部分</h2>
+<p><code>@implementation</code> 是一个编译器指令，表明你将为某个类提供代码。类名出现在 <code>@implementation</code> 之后。该行的结尾没有分号，因为在 Objective-C 编译器指令后不必使用分号。</p>
+<h3 id="示例-v2">示例</h3>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Circle</span></span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>) setFillColor: (ShapeColor) c</div><div class="line">{</div><div class="line">  fillColor = c;</div><div class="line">} <span class="comment">// setFillColor</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>) setBounds: (ShapeRect) b</div><div class="line">{</div><div class="line">  bounds = b;</div><div class="line">} <span class="comment">// setBounds</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>) draw</div><div class="line">{</div><div class="line">  <span class="built_in">NSLog</span> (<span class="string">@"drawing a circle at (%d %d %d %d) in %@"</span>,</div><div class="line">      bounds<span class="variable">.x</span>, bounds<span class="variable">.y</span>,</div><div class="line">      bounds<span class="variable">.width</span>, bounds<span class="variable">.height</span></div><div class="line">      colorName(fillColor));</div><div class="line">} <span class="comment">// draw</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span>  <span class="comment">// Circle</span></div></pre></td></tr></table></figure></p>
+<h2 id="实例化对象">实例化对象</h2>
+<h3 id="示例-v3">示例</h3>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</div><div class="line">{</div><div class="line">  id shapes[<span class="number">3</span>];</div><div class="line"></div><div class="line">  shapeRect rect0 = { <span class="number">0</span>, <span class="number">0</span>, <span class="number">10</span>, <span class="number">30</span> };</div><div class="line">  shapes[<span class="number">0</span>] = [Circle <span class="keyword">new</span>];</div><div class="line">  [shapes[<span class="number">0</span>] setBounds: rect0];</div><div class="line">  [shapes[<span class="number">0</span>] setFillColor: kRedColor];</div><div class="line"></div><div class="line">  [ShapeRect rect1 = { <span class="number">30</span>, <span class="number">40</span>, <span class="number">50</span>, <span class="number">60</span> };</div><div class="line">  shapes[<span class="number">1</span>] = [Rectangle <span class="keyword">new</span>];</div><div class="line">  [shapes[<span class="number">1</span>] setBounds: rect1];</div><div class="line">  [shapes[<span class="number">1</span>] setFillColor: kGreenColor];</div><div class="line"></div><div class="line">  shapeRect rect2 = { <span class="number">15</span>, <span class="number">19</span>, <span class="number">37</span>, <span class="number">29</span> };</div><div class="line">  shapes[<span class="number">2</span>] = [OblateSphereold <span class="keyword">new</span>];</div><div class="line">  [shapes[<span class="number">2</span>] setBounds: rect2];</div><div class="line">  [shapes[<span class="number">2</span>] setFillColor: kBlueColor];</div><div class="line"></div><div class="line">  drawShapes (shapes, <span class="number">3</span>);</div><div class="line"></div><div class="line">  <span class="keyword">return</span> (<span class="number">0</span>);</div><div class="line">} <span class="comment">// main</span></div></pre></td></tr></table></figure></p>
+<h2 id="继承">继承</h2>
+<h3 id="语法">语法</h3>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Son</span> : <span class="title">Father</span></span></div><div class="line"></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Son</span></div></pre></td></tr></table></figure></p>
+<p><div class="alert alert-error"><i class="fa fa-bug"></i>  <p>注意：Objective-C 不支持多继承。下面的语句是不能被正常识别的：</p>
+<pre><code class="language-plain">@interface Circle: NSObject, PrintableObject
+</code></pre>
+</div></p>
+<h3 id="示例-v4">示例</h3>
+<h4 id="父类">父类</h4>
+<ul>
+<li>声明：</li>
+</ul>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Shape</span> : <span class="title">NSObject</span></span></div><div class="line">{</div><div class="line">  ShapeColor fillColor;</div><div class="line">  ShapeRect  bounds;</div><div class="line">  }</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>) setFillColor: (ShapeColor) fillColor;</div><div class="line">- (<span class="keyword">void</span>) setBounds: (ShapeRect) bounds;</div><div class="line">- (<span class="keyword">void</span>) draw;</div><div class="line"><span class="keyword">@end</span> <span class="comment">// Shape</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>实现：</li>
+</ul>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Shape</span></span></div><div class="line">- (<span class="keyword">void</span>) setFillColor: (ShapeColor) c</div><div class="line">{</div><div class="line">  fillColor = c;</div><div class="line">} <span class="comment">// setFillColor</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>) setBounds: (ShapeRect) b</div><div class="line">{</div><div class="line">  bounds = b;</div><div class="line">} <span class="comment">// setBounds</span></div><div class="line"></div><div class="line">- (<span class="keyword">void</span>) draw</div><div class="line">{</div><div class="line">} <span class="comment">// draw</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Shape</span></div></pre></td></tr></table></figure></p>
+<p>虽然 draw 方法没有实现任何功能，我们仍然需要定义它，以便 Shape 的所有子类都能被实现各自不同的方法。对于方法的定义，使用空正文或者返回一个虚（dummy）值都是可以的。</p>
+<h4 id="子类">子类</h4>
+<p>子类的声明和实现现在变得非常简单：</p>
+<ul>
+<li>声明：</li>
+</ul>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Circle</span> : <span class="title">Shape</span></span></div><div class="line"></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Circle</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Rectangle</span> : <span class="title">Shape</span></span></div><div class="line"></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Rectangle</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>实现：</li>
+</ul>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Circle</span></span></div><div class="line">- (<span class="keyword">void</span>) draw</div><div class="line">{</div><div class="line"><span class="built_in">NSLog</span> (<span class="string">@"drawing a circle at (%d %d %d %d) in %@"</span>,</div><div class="line">      bounds<span class="variable">.x</span>, bounds<span class="variable">.y</span>,</div><div class="line">      bounds<span class="variable">.width</span>, bounds<span class="variable">.height</span>,</div><div class="line">      colorName(fillColor));</div><div class="line">} <span class="comment">// draw</span></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Circle</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Rectangle</span></span></div><div class="line">- (<span class="keyword">void</span>) draw</div><div class="line">{</div><div class="line"><span class="built_in">NSLog</span> (<span class="string">@"drawing a rect at (%d %d %d %d) in %@"</span>,</div><div class="line">      bounds<span class="variable">.x</span>, bounds<span class="variable">.y</span>,</div><div class="line">      bounds<span class="variable">.width</span>, bounds<span class="variable">.height</span>,</div><div class="line">      colorName(fillColor));</div><div class="line">} <span class="comment">// draw</span></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Circle</span></div></pre></td></tr></table></figure></p>
+<h3 id="重载">重载</h3>
+<p>Objective-C 提供某种方式来重载方法，并且仍然调用超类的实现方式。当需要超类实现自身的功能，同时在前面或后面执行某些额外的工作时，这种机制非常有用。为了调用继承方法的实现，需要使用 super 作为方法调用的目标。</p>
+<h4 id="示例-v5">示例</h4>
+<p>例如，如果要改写绘图软件，将所有原本是红色的圆统一绘制成绿色。因为 <code>setFillColor:</code> 是在 Shape 类中定义的。因此，只要在 Circle 类中重载 <code>setFillColor:</code> 方法就可以解决该问题。我们考虑颜色参数，如果它是红色，就把它改成绿色。然后，使用 super 通知超类（shape）将更改的颜色存储到 fillColor 实例变量中。</p>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@impletement <span class="type">Circle</span></div><div class="line">- (void) setFillColor : (<span class="type">ShapeColor</span>) <span class="built_in">c</span></div><div class="line">{</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">c</span> == kRedColor) {</div><div class="line">    <span class="built_in">c</span> = kGreenColor;</div><div class="line">  }</div><div class="line">  [<span class="keyword">super</span> setFillColor: <span class="built_in">c</span>];</div><div class="line">} <span class="comment">// setFillColor</span></div><div class="line"><span class="comment">// Circle 类其他实现部分保持不变</span></div><div class="line">@end <span class="comment">// Cicle</span></div></pre></td></tr></table></figure></p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>Tips: 重载方法时，调用超类方法总是一个不错的选择，这样可以确保能够获得方法实现的所有特性。</p>
+</div></p>
+<h2 id="复合">复合</h2>
+<p>在 Objective-C 中，复合是通过包含作为实例变量的对象指针实现的。</p>
+<p>例如，一辆轿车由一个发动机（Engine）和四个轮子（Tire）组成，下面我们用程序描述它。</p>
+<h3 id="示例-v6">示例</h3>
+<h4 id="tire-类">Tire 类</h4>
+<p>Tire 类只有一个 description 方法：</p>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Tire</span> : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Tire</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Tire</span></span></div><div class="line"></div><div class="line">- (<span class="built_in">NSString</span> *) description</div><div class="line">{</div><div class="line">  <span class="keyword">return</span> (<span class="string">@"I am a tire. I last a while"</span>);</div><div class="line">}</div><div class="line"><span class="keyword">@end</span> <span class="comment">// Tire</span></div></pre></td></tr></table></figure></p>
+<h4 id="engine-类">Engine 类</h4>
+<p>与 Tire 类类似，Engine 类也只有一个 descrption 方法：</p>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Engine</span> : <span class="title">NSObject</span></span></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Engine</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Engine</span></span></div><div class="line"></div><div class="line">- (<span class="built_in">NSString</span> *) description</div><div class="line">{</div><div class="line">  <span class="keyword">return</span> (<span class="string">@"I am an Engine. Vroom!"</span>);</div><div class="line">}</div><div class="line"><span class="keyword">@end</span> <span class="comment">// Engine</span></div></pre></td></tr></table></figure></p>
+<h4 id="car-类">Car 类</h4>
+<ul>
+<li>声明：</li>
+</ul>
+<p>Car 类本身拥有一个 engine 对象和一个由 4 个 tires 对象组成的 C 数组。它通过复合的方式来组装自己。 Car 同时还有一个 print 方法，该方法使用 NSLog 输出轮胎和发动机的描述：</p>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Car</span> : <span class="title">NSObject</span></span></div><div class="line">{</div><div class="line">  Engine *engine;</div><div class="line">  Tire *tires[<span class="number">4</span>];</div><div class="line">}</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>) print;</div><div class="line"></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Car</span></div></pre></td></tr></table></figure></p>
+<p>每一个 Car 对象都会为指向 engine 和 tires 的指针分配内存。但是真正包含在 Car 中的并不是 engine 和 tires 变量，而只是内存中存在的其他对象的引用。为新建的 Car 分配内存时，这些指针将被初始化为 nil （零值），也就是说这辆汽车现在还没有发动机也没有轮胎。你可以将他想象成还在流水线上组装的汽车框架。</p>
+<ul>
+<li>实现：</li>
+</ul>
+<p>下面让我们看看 Car 类的实现。首先是一个初始化实例变量的 init 方法。init 方法创建一个 engine 变量和 4 个 tires 变量，用以装配汽车。使用 new 创建新对象时，实际上系统要完成两个步骤：</p>
+<ol>
+<li>为对象分配内存，即对象获得一个用来存放其实例变量的内存块；</li>
+<li>调用 init 方法，让该对象处于可用状态。</li>
+</ol>
+<p><figure class="highlight @implementation"><figcaption><span>Car</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (id) <span class="keyword">init</span></div><div class="line">{</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> <span class="keyword">init</span>]) {</div><div class="line">    engine = [<span class="type">Engine</span> <span class="keyword">new</span>];</div><div class="line"> </div><div class="line">    tires[<span class="number">0</span>] = [<span class="type">Tire</span> <span class="keyword">new</span>];</div><div class="line">    tires[<span class="number">1</span>] = [<span class="type">Tire</span> <span class="keyword">new</span>];</div><div class="line">    tires[<span class="number">2</span>] = [<span class="type">Tire</span> <span class="keyword">new</span>];</div><div class="line">    tires[<span class="number">3</span>] = [<span class="type">Tire</span> <span class="keyword">new</span>];</div><div class="line">  }</div><div class="line">  <span class="keyword">return</span> (<span class="keyword">self</span>);</div><div class="line">} <span class="comment">// init</span></div></pre></td></tr></table></figure></p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <ul>
+<li>关于 self ：</li>
+</ul>
+<p>记住，每个方法调用都获得了一个名为 self 的隐藏参数，它是一个指向接收消息的对象的指针。方法使用 self 参数查找它们要使用的实例变量。</p>
+<ul>
+<li>关于 if 语句：</li>
+</ul>
+<p>在 init 方法中，下面这行代码看起来有点奇怪：</p>
+<pre><code class="language-oc">if (self = [super init]) {
+</code></pre>
+<p>下面我们来解释这行的意思。若要超类（这里是 NSObject）可以完成所需的一次性初始化，需要调用 [super init] 。init 方法返回的值（id 型数据，即泛型对象指针）描述了被初始化的对象。</p>
+<p>将 <code>[super init]</code> 的结果赋给 self 是 Objective-C 的标准惯例。这么做是为了防止超类在初始化过程中返回的对象不同于原先创建的对象。</p>
+</div></p>
+<p>Car 类的 init 方法创建了 4 个新轮胎并将其赋值给 tires 数组，接着又创建了一台发动机并将其赋值给 engine 实例变量。</p>
+<p>接下来就是 Car 的 print 方法：</p>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) print</div><div class="line">{</div><div class="line">  <span class="built_in">NSLog</span> (<span class="string">@"%@"</span>, engine);</div><div class="line"></div><div class="line">  <span class="built_in">NSLog</span> (<span class="string">@"%@"</span>, tires[<span class="number">0</span>]);</div><div class="line">  <span class="built_in">NSLog</span> (<span class="string">@"%@"</span>, tires[<span class="number">1</span>]);</div><div class="line">  <span class="built_in">NSLog</span> (<span class="string">@"%@"</span>, tires[<span class="number">2</span>]);</div><div class="line">  <span class="built_in">NSLog</span> (<span class="string">@"%@"</span>, tires[<span class="number">3</span>]);</div><div class="line">} <span class="comment">// print</span></div><div class="line"></div><div class="line"><span class="keyword">@end</span> <span class="comment">// Car</span></div></pre></td></tr></table></figure></p>
+<h4 id="main-函数">main 函数</h4>
+<p>最后给出 <code>main()</code> 函数的实现：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">int main (int argc, const char * argv[])</div><div class="line">{</div><div class="line">  Car *car;</div><div class="line"></div><div class="line">  Car = [Car new];</div><div class="line">  [car print];</div><div class="line"></div><div class="line">  return (0);</div><div class="line">} // main</div></pre></td></tr></table></figure></p>
+<h2 id="存取方法">存取方法</h2>
+<p>存取方法（accesosor method）是用来读取或修改对象特定属性的方法。存取方法包含两种，一种是 <strong>getter方法</strong> ，一种是 <strong>setter方法</strong> 。</p>
+<h3 id="命名习惯">命名习惯</h3>
+<p>在 Objective-C 中，setter 方法的命名习惯与其他语言类似：根据它所更改的属性的名称来命名，并加上前缀 <code>set</code> 。几个示例：<code>setEngine:</code>、<code>setStringValue:</code>、<code>setFont:</code>、<code>setTextLineHeight:</code>。</p>
+<p>而 getter 方法的命名习惯和其他语言则有较大区别：仅仅根据其返回的属性的名称来命名。几个示例：<code>engine</code>、<code>stringValue</code>、<code>font</code>、<code>fillColor</code>、<code>textLineHeight</code>。</p>
+<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p>注意：不要将 <code>get</code> 用作 getter 方法的前缀。例如，方法 <code>getStringValue</code> 和 <code>getFont</code> 就破坏了命名惯例。<code>get</code> 这个词在 Cocoa 中有着特殊的含义。如果 <code>get</code> 出现在 Cocoa 的方法名称中，就意味着这个方法会通过你当做参数传入的指针来返回数值。如果你在存取方法的名称中使用 <code>get</code> ，那么有经验的 Cocoa 编程人员就会想到将指针作为参数传入这个方法。当他们发现这不过是一个简单的存取方法时就会感到困惑。最好不要让其他程序员被代码搅得一头雾水。</p>
+</div></p>
+<h3 id="示例-v7">示例</h3>
+<h4 id="声明">声明</h4>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@interface Car : NSObject</div><div class="line">{</div><div class="line">  Engine *engine;</div><div class="line">  Tire *tires[4];</div><div class="line">}</div><div class="line"></div><div class="line">-<span class="ruby"> (<span class="constant">Engine</span> *) engine;</span></div><div class="line">-<span class="ruby"> (void) <span class="symbol">setEngine:</span> (<span class="constant">Engine</span> *) new <span class="constant">Engine</span>;</span></div><div class="line"></div><div class="line">-<span class="ruby"> (<span class="constant">Tire</span> *) <span class="symbol">tireAtIndex:</span> (int) index;</span></div><div class="line">-<span class="ruby"> (void) <span class="symbol">setTire:</span> (<span class="constant">Tire</span> *) tire</span></div><div class="line">         atIndex: (int) index;</div><div class="line"></div><div class="line">-<span class="ruby"> (void) print;</span></div><div class="line"></div><div class="line">@end // Car</div></pre></td></tr></table></figure></p>
+<h4 id="实现">实现</h4>
+<ul>
+<li>发动机的存取方法：</li>
+</ul>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="pp">- <span class="params">(<span class="variable">Engine</span> *)</span> engine</span></div><div class="line">{</div><div class="line">  return <span class="params">(engine)</span>;</div><div class="line">} // engine</div><div class="line"></div><div class="line">- <span class="params">(void)</span> setEngine : <span class="params">(<span class="variable">Engine</span> *)</span> newEngine</div><div class="line">{</div><div class="line">  engine = newEngine;</div><div class="line">} // setEngine</div></pre></td></tr></table></figure></p>
+<ul>
+<li>轮胎的存取方法：</li>
+</ul>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>) setTire: (Tire *) tire</div><div class="line">       atIndex: (<span class="keyword">int</span>) <span class="keyword">index</span></div><div class="line">{</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">index</span> &lt; <span class="number">0</span> || <span class="keyword">index</span> &gt; <span class="number">3</span>) {</div><div class="line">    NSLog(@<span class="string">"bad index (%d) in setTire:atIndex:"</span>, <span class="keyword">index</span>);</div><div class="line">    exit (<span class="number">1</span>);</div><div class="line">    }</div><div class="line"></div><div class="line">    tires[<span class="keyword">index</span>] = tire;</div><div class="line">} <span class="comment">// setTire:atIndex</span></div><div class="line"></div><div class="line">- (Tire *) tireAtIndex : (<span class="keyword">int</span>) <span class="keyword">index</span></div><div class="line">{</div><div class="line">  <span class="keyword">if</span> (<span class="keyword">index</span> &lt; <span class="number">0</span> || <span class="keyword">index</span> &gt; <span class="number">3</span>) {</div><div class="line">    NSLog (@<span class="string">"bad index (%d) in tireAtIndex:"</span>, <span class="keyword">index</span>);</div><div class="line">    exit (<span class="number">1</span>);</div><div class="line">  }</div><div class="line"></div><div class="line">  <span class="keyword">return</span> (tires[<span class="keyword">index</span>]);</div><div class="line">} <span class="comment">// tireAtIndex:</span></div></pre></td></tr></table></figure></p>
+<h4 id="main-函数-v2">main 函数</h4>
+<p><figure class="highlight oc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> main (<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[])</div><div class="line">{</div><div class="line">  Car *car = [Car <span class="keyword">new</span>];</div><div class="line"></div><div class="line">  Engine *engine = [Engine <span class="keyword">new</span>];</div><div class="line">  [car setEngine: engine];</div><div class="line"></div><div class="line">  <span class="keyword">int</span> i;</div><div class="line">  <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) {</div><div class="line">    Tire *tire = [Tire <span class="keyword">new</span>];</div><div class="line"></div><div class="line">    [car setTire: tire</div><div class="line">        atIndex: i];</div><div class="line">  }</div><div class="line"></div><div class="line">  [car print];</div><div class="line"></div><div class="line">  <span class="keyword">return</span> (<span class="number">0</span>);</div><div class="line">} <span class="comment">// main</span></div></pre></td></tr></table></figure></p>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+			
+			
+		
+	
+	    
+			
+			
+			
+	    
+			
+		
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/oc-intro.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/oc-source-organize.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+   
+      <section id="isso-thread"></section>
+   
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2017 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script data-isso="//comment.pinganh5.com/hahack"
+        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>
