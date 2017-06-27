@@ -155,9 +155,9 @@
 <p>说说STT（语音识别）引擎和TTS（文本转文本）引擎的选择。由于被动唤醒会试图识别所有听到的内容，出于隐私保护的目的，应该使用离线的语音识别引擎，因此我选择的是 <a href="https://github.com/cmusphinx/pocketsphinx" target="_blank" rel="external">PocketSphinx</a> 。而对于主动聆听，由于是在唤醒阶段才会进行转换，进入主动聆听前会有蜂鸣提示，用户也会清楚此时叮当正在听他们说话，相对来说隐私泄露的可能性就比较低，因此我选择的是在线的百度 STT 语音识别服务，也省下了扩展语音识别模型的工夫，有利于更好地实现插件可扩展。TTS 引擎方面同样也先支持了百度的语音合成。</p>
 <p>在实际测试中，PocketSphinx 的识别出乎意料的好。由于我的离线指令集只有几个候选唤醒词，PocketSphinx 对这些唤醒词的识别非常灵敏，甚至有时候其他声音也可能被误当成唤醒词而唤醒叮当。但即使被意外唤醒了，不去理会叮当就可以了。</p>
 <p>相比之下，百度的语音识别就比较迟钝了。有时候明明我发音很清晰了，还是会识别成另外的含义。通过在百度的语音识别平台<a href="https://github.com/wzpan/dingdang-robot/wiki/configuration#%E4%BC%98%E5%8C%96%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB%E5%87%86%E7%A1%AE%E5%BA%A6" target="_blank" rel="external">上传自定义的语音识别词库</a> 可以提高识别的准确率。另外，由于我用的是 Restful API，网速比较差的时候响应也比较慢。我在家用的是 10M 带宽的网络，反应速度还算可以接受。我准备后面尝试接入更多的语音识别平台，看看识别速度和准确度方面能否有所提升。</p>
-<p>下面这个视频是我与叮当对话的演示。我把唤醒词设置成了“翠花”：</p>
+<p>下面这个视频是我与叮当对话的演示。我把唤醒词设置成了“小梅”：</p>
 <center>
-<embed src="http://player.youku.com/player.php/sid/XMjc3Nzg5ODM0MA==/v.swf" allowfullscreen="true" quality="high" width="480" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+<embed src="http://player.youku.com/player.php/sid/XMjg0OTQ1OTkxNg==/v.swf" allowfullscreen="true" quality="high" width="480" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
 </center><br>
 <p>一个问题是当回答内容比较长（比如问叮当当天的新闻）时，合成语音的耗时会变得很长，给人的感受是叮当的响应很慢。所以我加了个 <code>read_long_content</code> 的选项。当内容过长时，改成发送到用户的邮箱或者微信。下面这段音频是一个例子：</p>
 <p><i class="fa fa-music"></i><a href="http://onmw7y6f4.bkt.clouddn.com/%E9%95%BF%E5%86%85%E5%AE%B9%E5%8F%91%E5%BE%AE%E4%BF%A1.mp3" target="_blank"> 长内容发微信 (270.37KB) </a></p>
@@ -475,7 +475,7 @@ var jiathis_config = {data_track_clickback:'true'};
   
       with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
 <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
-. Hosted by <a href="https://pages.coding.me" style="font-weight: bold">Coding Pages</a>.
+. 
     <small>
      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
     </small>
