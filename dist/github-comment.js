@@ -20,7 +20,7 @@
 // Get recent comment list from github issues
 // TODO
 'use strict';
-var github_user, github_repo, github_token, no_comment, go_to_comment;
+var github_user, github_repo, no_comment, go_to_comment;
 var spinOpts = {
     lines: 13,
     length: 10,
@@ -47,7 +47,6 @@ var _getComment = function(params, callback) {
     $.ajax({
         url: comments_url + '?page=' + page,
         dataType: 'json',
-		data: github_token ? `access_token=${github_token}` : "",
 		cache: false,
         success: function (page_comments) {
             if (!page_comments || page_comments.length <= 0) {
@@ -77,7 +76,6 @@ var _getCommentsUrl = function(params, callback) {
         url: 'https://api.github.com/repos/' + github_user + '/' + github_repo + '/issues?page=' + page,
         dataType: 'json',
 		cache: false,
-		data: github_token ? `access_token=${github_token}` : "",
 		success: function (issues) {
             if (!issues || issues.length <= 0) {
 				(callback && typeof(callback) === "function") && callback("", "");
@@ -117,7 +115,6 @@ var _getIssueByUrl = function(issue_url, callback) {
         url: issue_url,
         dataType: 'json',
 		cache: false,
-		data: github_token ? `access_token=${github_token}` : "",
         success: function (issues) {
             if (!issues || issues.length <= 0) {
 				(callback && typeof(callback) === "function") && callback();
@@ -270,12 +267,11 @@ var _renderHTML = function(params) {
 
 var _getRecentIssues = function(params, callback) {
 	let count;
-	({github_user, github_repo, github_token, count} = params)
+	({github_user, github_repo, count} = params)
 	$.ajax({
         url: 'https://api.github.com/repos/' + github_user + '/' + github_repo + '/issues\?per_page\=100',
         dataType: 'json',
 		cache: false,
-		data: github_token ? `access_token=${github_token}` : "",
         success: function (issues) {
 			if (issues.length > count) {
 				issues = issues.sort('created_at').reverse().slice(0, 5);
@@ -292,12 +288,11 @@ var _getRecentIssues = function(params, callback) {
 
 var _getRecentComments = function(params, callback) {
 	let count;
-	({github_user, github_repo, github_token, count} = params)
+	({github_user, github_repo, count} = params)
 	$.ajax({
         url: 'https://api.github.com/repos/' + github_user + '/' + github_repo + '/issues/comments\?per_page\=100',
         dataType: 'json',
 		cache: false,
-		data: github_token ? `access_token=${github_token}` : "",
         success: function (comments) {
 			if (comments.length > count) {
 				comments = comments.sort('created_at').reverse().slice(0, 5);
@@ -322,7 +317,7 @@ var CompareDate = function(a, b) {
 
 var getRecentCommentsList = function(params, callback) {
 	let count;	
-	({github_user, github_repo, github_token, count} = params)
+	({github_user, github_repo, count} = params)
 	var recentList = new Array();
 	// Get recent issues and comments and filter out 10 newest comments
     _getRecentIssues(params, (issues)=>{
@@ -337,7 +332,7 @@ var getRecentCommentsList = function(params, callback) {
 
 var getComments = function(params, callback) {
     let page_title, issue_id;
-	({github_user, github_repo, github_token, no_comment, go_to_comment, page_title, issue_id} = params)
+	({github_user, github_repo, no_comment, go_to_comment, page_title, issue_id} = params)
 	var timeagoInstance = timeago();
     var comments_url;
 	var comments = new Array();
