@@ -37,7 +37,7 @@ var spinOpts = {
     className: 'spinner',
     zIndex: 2e9,
     top: 'auto',
-    left: '50%'
+    left: '40%'
 };
 
 var _getComment = function(params, callback) {
