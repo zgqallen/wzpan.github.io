@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/timeline-comment.min.css" media="screen" type="text/css">
   
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -44,6 +45,12 @@
     <script src="/dist/videoGFW.min.js"></script>
 	
 	
+
+
+    <script src="/js/github-comment.js"></script>
+    <script src="/js/markdown.min.js"></script>
+    <script src="/js/timeago.min.js"></script>
+	<script src="/js/spin.min.js"></script>
 
 
 </head>
@@ -291,9 +298,20 @@
 	<div id="sidebar">
 		    
 		
-			   
+			
    <div class="widget">
    
+	    <h4 class="dsq-widget-title">Recent Comments</h4>
+		<div class="recent-comments"></div>
+		<script type="text/javascript">
+		    getRecentCommentsList({
+			   github_user: "wzpan",
+	           github_repo: "wzpan.github.io",
+			   github_token: "0149f166735197952343b9f58d5bdc649567a8e1",
+			   count: "5" ? "5" : 5
+			});
+		</script>
+	
 
 
 
@@ -328,43 +346,43 @@
 				   
 			<li><a href="/tags/Awesome/">Awesome<span>3</span></a></li>
 				   
-			<li><a href="/tags/scrollspy/">scrollspy<span>1</span></a></li>
+			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
 				   
-			<li><a href="/tags/VS/">VS<span>1</span></a></li>
+			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
 				   
-			<li><a href="/tags/npm/">npm<span>1</span></a></li>
+			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
 				   
-			<li><a href="/tags/Graphics/">Graphics<span>1</span></a></li>
+			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
 				   
-			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
-				   
-			<li><a href="/tags/pandoc/">pandoc<span>1</span></a></li>
-				   
-			<li><a href="/tags/highlight/">highlight<span>1</span></a></li>
-				   
-			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
-				   
-			<li><a href="/tags/CI/">CI<span>1</span></a></li>
-				   
-			<li><a href="/tags/Javascript/">Javascript<span>4</span></a></li>
-				   
-			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
-				   
-			<li><a href="/tags/static-analysis/">static analysis<span>1</span></a></li>
-				   
-			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
-				   
-			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
-				   
-			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
-				   
-			<li><a href="/tags/Flyspell/">Flyspell<span>1</span></a></li>
-				   
-			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
+			<li><a href="/tags/Matrix/">Matrix<span>1</span></a></li>
 				   
 			<li><a href="/tags/K350/">K350<span>1</span></a></li>
 				   
-			<li><a href="/tags/Nuclide/">Nuclide<span>1</span></a></li>
+			<li><a href="/tags/SCNUThesis/">SCNUThesis<span>1</span></a></li>
+				   
+			<li><a href="/tags/scrollspy/">scrollspy<span>1</span></a></li>
+				   
+			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
+				   
+			<li><a href="/tags/emacs/">emacs<span>6</span></a></li>
+				   
+			<li><a href="/tags/Extempore/">Extempore<span>1</span></a></li>
+				   
+			<li><a href="/tags/Makefile/">Makefile<span>1</span></a></li>
+				   
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+				   
+			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
+				   
+			<li><a href="/tags/Math/">Math<span>2</span></a></li>
+				   
+			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
+				   
+			<li><a href="/tags/Atom/">Atom<span>1</span></a></li>
+				   
+			<li><a href="/tags/React-Native/">React-Native<span>1</span></a></li>
+				   
+			<li><a href="/tags/Logitech/">Logitech<span>1</span></a></li>
 		
 		<li><a href="/tags">...<span>83</span></a></li>
 		</ul>
@@ -468,9 +486,6 @@
 </script>
 
 
-
-   <script data-isso="//comment.pinganh5.com/hahack"
-        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
 
 
 <script type="text/javascript">

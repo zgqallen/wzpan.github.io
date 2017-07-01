@@ -29,6 +29,7 @@
   <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/timeline-comment.min.css" media="screen" type="text/css">
   
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -44,6 +45,12 @@
     <script src="/dist/videoGFW.min.js"></script>
 	
 	
+
+
+    <script src="/js/github-comment.js"></script>
+    <script src="/js/markdown.min.js"></script>
+    <script src="/js/timeago.min.js"></script>
+	<script src="/js/spin.min.js"></script>
 
 
 </head>
@@ -291,9 +298,20 @@
 	<div id="sidebar">
 		    
 		
-			   
+			
    <div class="widget">
    
+	    <h4 class="dsq-widget-title">Recent Comments</h4>
+		<div class="recent-comments"></div>
+		<script type="text/javascript">
+		    getRecentCommentsList({
+			   github_user: "wzpan",
+	           github_repo: "wzpan.github.io",
+			   github_token: "0149f166735197952343b9f58d5bdc649567a8e1",
+			   count: "5" ? "5" : 5
+			});
+		</script>
+	
 
 
 
@@ -326,45 +344,45 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
+			<li><a href="/tags/org-mode/">org-mode<span>2</span></a></li>
 				   
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/static-analysis/">static analysis<span>1</span></a></li>
+				   
+			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
 				   
 			<li><a href="/tags/Docker/">Docker<span>1</span></a></li>
 				   
-			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
-				   
-			<li><a href="/tags/Git/">Git<span>5</span></a></li>
-				   
-			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
-				   
 			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
 				   
-			<li><a href="/tags/M-P/">M-P<span>1</span></a></li>
-				   
-			<li><a href="/tags/BP/">BP<span>1</span></a></li>
-				   
-			<li><a href="/tags/VS/">VS<span>1</span></a></li>
-				   
-			<li><a href="/tags/CLI/">CLI<span>1</span></a></li>
-				   
-			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
-				   
-			<li><a href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li>
-				   
-			<li><a href="/tags/Extempore/">Extempore<span>1</span></a></li>
-				   
-			<li><a href="/tags/Atom/">Atom<span>1</span></a></li>
-				   
-			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
-				   
-			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
-				   
-			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
+			<li><a href="/tags/TikZ/">TikZ<span>1</span></a></li>
 				   
 			<li><a href="/tags/Javascript/">Javascript<span>4</span></a></li>
 				   
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
+				   
+			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
+				   
+			<li><a href="/tags/Android/">Android<span>1</span></a></li>
+				   
+			<li><a href="/tags/ruby/">ruby<span>1</span></a></li>
+				   
+			<li><a href="/tags/ANN/">ANN<span>2</span></a></li>
+				   
+			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
+				   
+			<li><a href="/tags/Vector/">Vector<span>1</span></a></li>
+				   
+			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
+				   
+			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
+				   
+			<li><a href="/tags/npm/">npm<span>1</span></a></li>
+				   
+			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
+				   
+			<li><a href="/tags/VS/">VS<span>1</span></a></li>
+				   
+			<li><a href="/tags/shell/">shell<span>3</span></a></li>
 		
 		<li><a href="/tags">...<span>83</span></a></li>
 		</ul>
@@ -468,9 +486,6 @@
 </script>
 
 
-
-   <script data-isso="//comment.pinganh5.com/hahack"
-        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
 
 
 <script type="text/javascript">

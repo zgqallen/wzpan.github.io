@@ -65,6 +65,7 @@ return
   <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/timeline-comment.min.css" media="screen" type="text/css">
   
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -80,6 +81,12 @@ return
     <script src="/dist/videoGFW.min.js"></script>
 	
 	
+
+
+    <script src="/js/github-comment.js"></script>
+    <script src="/js/markdown.min.js"></script>
+    <script src="/js/timeago.min.js"></script>
+	<script src="/js/spin.min.js"></script>
 
 
 </head>
@@ -443,22 +450,14 @@ return
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
 			
 		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 	
@@ -495,34 +494,6 @@ return
 		
 	
 	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
 	
 	    
 	
@@ -581,6 +552,42 @@ return
 	    
 	
 	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
@@ -620,14 +627,6 @@ return
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
 			
 			
@@ -638,6 +637,23 @@ return
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
 	
 	    
 	
@@ -651,18 +667,11 @@ return
 	    
 	
 	    
-	
-	    
 			
 			
-		
-	
+			
 	    
 	
-	    
-			
-			
-			
 	    
 	
 	    
@@ -696,8 +705,6 @@ return
 	    
 	
 	    
-	
-	    
 			
 		
 	
@@ -712,10 +719,10 @@ return
 	    
 	
 	    
-			
-		
 	
 	    
+			
+		
 	
 	    
 	
@@ -795,9 +802,25 @@ return
 				
 		<!-- comment -->
 		
-   
-      <section id="isso-thread"></section>
-   
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="github-comment"></div>
+	 <div id="loading-comment"></div>
+	 <script type="text/javascript">
+	   getComments({
+	           github_user: "wzpan",
+	           github_repo: "wzpan.github.io",
+			   github_token: "0149f166735197952343b9f58d5bdc649567a8e1",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   no_issue: "no_issue",
+			   page_title: "速查表",
+			   issue_id: "undefined"
+			   });
+	 </script>
+	
+</section>
 
 
 		
@@ -848,9 +871,6 @@ return
 </script>
 
 
-
-   <script data-isso="//comment.pinganh5.com/hahack"
-        src="//comment.pinganh5.com/hahack/js/embed.min.js"></script>
 
 
 <script type="text/javascript">
