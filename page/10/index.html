@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/dist/timeline-comment.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
   
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -47,7 +47,7 @@
 	
 
 
-    <script src="/dist/github-comment.js"></script>
+    <script src="/dist/comment.js"></script>
     <script src="/dist/markdown.min.js"></script>
     <script src="/dist/timeago.min.js"></script>
 	<script src="/dist/spin.min.js"></script>
@@ -301,15 +301,17 @@ Dominik的例子</a>
 	<div id="sidebar">
 		    
 		
-			   
+			
    <div class="widget">
    
 	    <h4 class="dsq-widget-title">Recent Comments</h4>
-		<div class="recent-comments"></div>
+		<div id="recent-comments"></div>
 		<script type="text/javascript">
 		    getRecentCommentsList({
-			   github_user: "wzpan",
-	           github_repo: "wzpan.github.io",
+			   type: "github",
+			   user: "wzpan",
+	           repo: "wzpan.github.io",
+			   reversed_token: "232b130b29af1ea018cec5eea694fd2be76b4cd1",
 			   count: "5" ? "5" : 5
 			});
 		</script>
@@ -346,45 +348,45 @@ Dominik的例子</a>
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
 				   
-			<li><a href="/tags/VS/">VS<span>1</span></a></li>
+			<li><a href="/tags/xtlang/">xtlang<span>1</span></a></li>
 				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
-				   
-			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
-				   
-			<li><a href="/tags/K350/">K350<span>1</span></a></li>
-				   
-			<li><a href="/tags/Objective-C/">Objective-C<span>1</span></a></li>
-				   
-			<li><a href="/tags/dingdang/">dingdang<span>2</span></a></li>
-				   
-			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
-				   
-			<li><a href="/tags/LaTeX/">LaTeX<span>3</span></a></li>
-				   
-			<li><a href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li>
-				   
-			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
-				   
-			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
-				   
-			<li><a href="/tags/SCNUThesis/">SCNUThesis<span>1</span></a></li>
-				   
-			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>1</span></a></li>
 				   
 			<li><a href="/tags/Flyspell/">Flyspell<span>1</span></a></li>
 				   
-			<li><a href="/tags/Javascript/">Javascript<span>4</span></a></li>
+			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
 				   
-			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
+			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
 				   
-			<li><a href="/tags/Arch/">Arch<span>1</span></a></li>
+			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
 				   
-			<li><a href="/tags/ruby/">ruby<span>1</span></a></li>
+			<li><a href="/tags/shell/">shell<span>3</span></a></li>
+				   
+			<li><a href="/tags/Objective-C/">Objective-C<span>1</span></a></li>
+				   
+			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
+				   
+			<li><a href="/tags/Docker/">Docker<span>1</span></a></li>
+				   
+			<li><a href="/tags/React-Native/">React-Native<span>1</span></a></li>
+				   
+			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
+				   
+			<li><a href="/tags/CI/">CI<span>1</span></a></li>
+				   
+			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
+				   
+			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
+				   
+			<li><a href="/tags/OpenCV/">OpenCV<span>3</span></a></li>
+				   
+			<li><a href="/tags/static-analysis/">static analysis<span>1</span></a></li>
 				   
 			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
+				   
+			<li><a href="/tags/Python/">Python<span>2</span></a></li>
 		
 		<li><a href="/tags">...<span>83</span></a></li>
 		</ul>

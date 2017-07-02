@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
   <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
-  <link rel="stylesheet" href="/dist/timeline-comment.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
   
   <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -53,7 +53,7 @@
 	
 
 
-    <script src="/dist/github-comment.js"></script>
+    <script src="/dist/comment.js"></script>
     <script src="/dist/markdown.min.js"></script>
     <script src="/dist/timeago.min.js"></script>
 	<script src="/dist/spin.min.js"></script>
@@ -158,28 +158,6 @@
 	    
 	
 	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 	
@@ -238,14 +216,6 @@
 	    
 	
 	    
-			
-		
-	
-	    
-	
-	    
-			
-		
 	
 	    
 	
@@ -254,24 +224,6 @@
 	    
 			
 		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 	
@@ -290,6 +242,10 @@
 	    
 	
 	    
+	
+	    
+			
+		
 	
 	    
 			
@@ -322,52 +278,8 @@
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
+			
+		
 	
 	    
 	
@@ -380,6 +292,64 @@
 	    
 			
 		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
@@ -426,31 +396,14 @@
 	    
 	
 	    
-			
-			
-		
 	
 	    
 	
 	    
 	
 	    
-			
-			
-			
-	    
 	
 	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-			
-		
 	
 	    
 	
@@ -470,9 +423,56 @@
 	
 	    
 			
+			
 		
 	
 	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
 	
 	    
 			
@@ -509,17 +509,22 @@
 <section id="comment">
     <h2 class="title">Comments</h2>
 	
-	 <div id="github-comment"></div>
-	 <div id="loading-comment"></div>
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
 	 <script type="text/javascript">
 	   getComments({
-	           github_user: "wzpan",
-	           github_repo: "wzpan.github.io",
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   reversed_token: "232b130b29af1ea018cec5eea694fd2be76b4cd1",
 			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
 			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
 			   no_issue: "no_issue",
-			   page_title: "通配符",
-			   issue_id: "undefined"
+			   issue_title: "通配符",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "#loading-spin"
 			   });
 	 </script>
 	
