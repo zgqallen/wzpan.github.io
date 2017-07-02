@@ -4,13 +4,129 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-07-02T11:34:02.970Z</updated>
+  <updated>2017-07-02T16:52:29.074Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
     <email><![CDATA[cs.wzpan@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[Comment.js：一个纯JS实现的静态站点评论系统]]></title>
+    <link href="http://hahack.com/codes/comment-js/"/>
+    <id>http://hahack.com/codes/comment-js/</id>
+    <published>2017-07-02T12:48:07.000Z</published>
+    <updated>2017-07-02T16:51:49.256Z</updated>
+    <content type="html"><![CDATA[<h2 id="前言">前言</h2>
+<p>我的博客最早是使用 Disqus 来实现评论功能的。Disqus 被墙了之后，改成了多说。今年年初，多说也正式关闭了，于是我被逼着又开始寻找其他的替代评论系统。</p>
+<p>我先是试用了网易云跟贴、畅言等几种类似的社会化评论系统。畅言要求站点必须备案，而我实在没有为了评论去申请备案的动力。网易云跟贴的管理后台上有很多不明觉厉的功能，但好像都没多大用处。最致命的问题是我不小心把我的站点绑定到了另一个网易账户，而不是我常用的微博账户。这样的话，我每次回贴就得退登到微博账户，要管理贴子的时候又得切回管理员账户，非常不方便。然而网易云跟贴并没有提供解绑的功能。于是我给他们提了需求，然而一直到现在都没有回复。再加上有了多说作为前车之鉴，我对国内的免费评论服务已经失去了信心。今天把A换成B，难以保证日后B也关闭了，被逼着又换到C，实在是懒得折腾下去啊。于是，我放弃了换用类似的评论系统的念头。</p>
+<p>之后我找到了 <a href="https://github.com/posativ/isso" target="_blank" rel="external">isso</a> 项目，它是一个 Python 实现的开源评论服务。这个服务需要搭建在自己的服务器上。官方的简介简明扼要：“a Disqus alternative”。出于对 Python 的好感，我把站点的评论功能迁移到了 isso 。然而，我对 isso 也并不是很满意。首先它的功能其实也非常弱，不支持 Markdown 语法，不支持 Gravatar 头像，也没有一个像样的管理后台，搭建和配置的过程也比较费时，远达不到开箱即用的程度。再加上 isso 需要服务器运营，为了一个评论系统而去购买服务器确实太奢侈了。用了几个月后，我又萌生了换掉它的念头。</p>
+<a id="more"></a>
+<h2 id="项目介绍">项目介绍</h2>
+<p>我的想法来源于一些基于 Github issue 的博客。其实 Github 的 issue 本身就是一个非常完善的评论系统，有完善的管理后台，灵活的通知设置，而且 Github 是开放 API 的。只要我能把 Github 的 issue 与博客的页面打通，把 issue 上的内容显示在我的博客上，然后在需要评论的时候点击跳转到 Github 的 issue 页，就实现了一个基本可用的评论系统了。</p>
+<p>comment.js 就是基于这个想法实现的一个评论系统，它的核心代码只有 400 行左右，却能够用来实现评论会话和最新评论列表的两个功能。比起已有的社会化评论系统，它有如下几个优点：</p>
+<ol>
+<li>完善的评论管理系统。基于 issue 的评论，支持 Markdown ，支持 Gravatar。</li>
+<li>开箱即用的邮件通知功能。Github 的邮件通知功能非常完善，不像 isso 那样还得配置邮件通知服务。</li>
+<li>无需搭建后台。直接用现成的 issue 作为后端，不像 isso 那样还需要自己搭个后台，搞定数据库。</li>
+<li>接入简单。获取评论会话和获取最新列表各自对应一个函数。</li>
+<li>代码简单。这意味着你也可以很快上手脚本代码，对这个脚本进行定制。</li>
+<li>除了 Github issue 之外，comment.js 也支持使用 OSChina issue 作为后端，<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，即使 Github 被墙，也能通过修改参数迅速切换到其他备选站点，比起说关闭就关闭的评论服务可靠多了。</li>
+</ol>
+<ul>
+<li>项目主页：<a href="https://github.com/wzpan/comment.js" target="_blank" rel="external">https://github.com/wzpan/comment.js</a></li>
+<li>Demo
+<ul>
+<li><a href="http://wzpan.github.io/comment.js#comment-thread" target="_blank" rel="external">评论会话Demo</a></li>
+<li><a href="http://wzpan.github.io/comment.js#recent-comments" target="_blank" rel="external">最新评论列表Demo</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="接入方法">接入方法</h2>
+<p>comment.js 依赖几个 JS 前端库：</p>
+<ul>
+<li>jQuery - 用于 Ajax 请求以及将评论内容插入到页面中。</li>
+<li>markdown-js - Markdown 支持。</li>
+<li>timeago.js - 时间文本格式化。</li>
+<li>spin - 用于在加载评论数据前先绘制一个 loading 动画（可选）。</li>
+</ul>
+<h3 id="0-添加静态资源文件">0. 添加静态资源文件</h3>
+<p>在页面中添加这些资源：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- stylesheet --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"path_to_comment_css/comment.css"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- javascripts --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"</span>&gt;</span><span class="javascript">/script&gt;</span></div><div class="line"><span class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/markdown.js/0.5.0/markdown.min.js"</span>&gt;</span><span class="javascript">/script&gt;</span></span></div><div class="line"><span class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/timeago.js/3.0.2/timeago.min.js"</span>&gt;</span><span class="javascript"></span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"path_to_comment_js/comment.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="1-注册-oauth-app">1. 注册 OAuth App</h3>
+<p>为了避免 API 被恶意滥用，Github API （以及 OSChina API）设定了一个<a href="https://developer.github.com/v3/#rate-limiting" target="_blank" rel="external">API调用频率限制</a>。为了提高频率限额，建议 [注册一个 Oauth App](Register a OAuth application](<a href="https://github.com/settings/applications/new" target="_blank" rel="external">https://github.com/settings/applications/new</a>)。</p>
+<p>完成注册后，你将得到一个 <code>client id</code> 以及一个 <code>client_secret</code> ，先将这两个值记下来，后面我们会用到。</p>
+<p>（提示：注册 App 的时候你可能会对 <code>Authorization callback URL</code> 这一项目感到困惑，一般填写你的站点地址即可。例如 <a href="http://hahack.com" target="_blank" rel="external">http://hahack.com</a> ）</p>
+<h3 id="2-获取评论会话">2. 获取评论会话</h3>
+<p>第一步，在页面中添加一个 DIV ，用于展示评论会话内容。</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"comment-thread"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>第二步（可选），如果希望在加载完数据前先展示一个loading动画，还可以添加一个用于动画的 DIV ：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"loading-spin"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>最后，调用 <code>getComments()</code> 方法，获取该页面对应的 issue 包含的所有评论，然后展示到我们指定的 DIV 中：</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">   <span class="keyword">var</span> opt = {</div><div class="line">       type: <span class="string">"github"</span>,</div><div class="line">       user: <span class="string">"wzpan"</span>,</div><div class="line">       repo: <span class="string">"comment.js"</span>,</div><div class="line">       no_comment: <span class="string">"No comments yet. Press the button and go to comment now!"</span>,</div><div class="line">       go_to_comment: <span class="string">"Go to comment"</span>,</div><div class="line">       issue_id: <span class="string">"1"</span>,</div><div class="line">       btn_class: <span class="string">"btn"</span>,</div><div class="line">       comments_target: <span class="string">"#comment-thread"</span>,</div><div class="line">       loading_target: <span class="string">"#loading-spin"</span>,</div><div class="line">       client_id: <span class="string">"xxxxxx"</span>,</div><div class="line">       client_secret: <span class="string">"xxxxxx"</span></div><div class="line">   };</div><div class="line">   getComments(opt);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li><code>type</code>: 要作为后端的站点。目前支持 <code>Github</code> 和 <code>OSChina</code> 。</li>
+<li><code>user</code>: 您的 Github 用户名。</li>
+<li><code>repo</code>: 您用作评论后端的仓库名。</li>
+<li><code>no_comment</code>: 当没有评论时，展示的提示消息。</li>
+<li><code>go_to_comment</code>: “去留言” 按钮的按钮文本。</li>
+<li><code>issue_title</code>: 您当前页面对应的 issue 标题。也可以使用 <code>issue_id</code> ，二者只选其一。</li>
+<li><code>issue_id</code>: 您当前页面对应的 issue id。也可以使用 <code>issue_title</code>，二者只选其一。</li>
+<li><code>btn_class</code>: “去留言”按钮的 CSS 样式名。</li>
+<li><code>comments_target</code>: 用于展示评论内容的容器。例如我们上面所写的 <code>comment-thread</code> DIV 。</li>
+<li><code>loading_target</code>（可选）：用于展示 loading 动画的容器。例如我们上面所写的 <code>loading-spin</code> DIV 。</li>
+<li><code>client_id</code>（可选但建议）:您注册的 OAuth App 的 client id。</li>
+<li><code>client_secret</code>（可选但建议）：您注册的 OAuth App 的 client secret。</li>
+</ul>
+<p>效果参见本页面下方的留言区。</p>
+<h3 id="3-获取最新评论列表">3. 获取最新评论列表</h3>
+<p>评论列表用于获取你最近的若干条评论，效果可以参见 <a href="http://hahack.com" target="_blank" rel="external">站点首页</a> 右侧的最新留言区。</p>
+<p>要获取最新评论列表的方法也大同小异。首先写一个 DIV 用于加载获取得到的评论列表数据：</p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"recent-comments"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>之后可以调用 <code>getRecentCommentsList()</code> 方法，获取最近评论列表并展示到指定的 DIV 中。</p>
+<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line">   <span class="keyword">var</span> opt = {</div><div class="line">       type: <span class="string">"github"</span>,</div><div class="line">       user: <span class="string">"wzpan"</span>,</div><div class="line">       repo: <span class="string">"comment.js"</span>,</div><div class="line">       recent_comments_target: <span class="string">"#recent-comments"</span>,</div><div class="line">       count: <span class="number">5</span>,</div><div class="line">       client_id: <span class="string">"xxxxxx"</span>,</div><div class="line">       client_secret: <span class="string">"xxxxxx"</span></div><div class="line">   };</div><div class="line">   getRecentCommentsList(opt);</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<ul>
+<li><code>type</code>: 要作为后端的站点。目前支持 <code>Github</code> 和 <code>OSChina</code> 。</li>
+<li><code>user</code>: 您的 Github 用户名。</li>
+<li><code>repo</code>: 您用作评论后端的仓库名。</li>
+<li><code>recent_comments_target</code>: 用于展示最新评论列表的容器。例如我们上面所写的 <code>recent-comments</code> DIV 。</li>
+<li><code>count</code>: 列表的最大长度。</li>
+<li><code>client_id</code>（可选但建议）:您注册的 OAuth App 的 client id。</li>
+<li><code>client_secret</code>（可选但建议）：您注册的 OAuth App 的 client secret。</li>
+</ul>
+<h2 id="开发心得">开发心得</h2>
+<p>下面照例总结下项目的开发心得。虽然整个项目只有几百行的代码，但这个过程中还是不可避免的遇到一些困难。</p>
+<h3 id="关于选型和项目命名">关于选型和项目命名</h3>
+<p>一开始的想法只是给 Hexo 写一个插件，让其能够实现评论功能。最理想的情况是类似 <a href="https://www.npmjs.com/package/hexo-generator-search" target="_blank" rel="external">hexo-generator-search</a> 那样，npm install 一下，然后 _config.yml 里添加下配置就完事。通过阅读 Hexo 的文档后我发现 <a href="https://hexo.io/docs/helpers.html" target="_blank" rel="external">helper</a> 似乎比较适合用作这个目的：把核心功能写成一个 helper ，然后在模板文件里直接执行这个 helper ，得到的数据还能进一步再模板中调诸如 <a href="https://hexo.io/docs/helpers.html#markdown" target="_blank" rel="external">markdown</a> 等其他现成的 helper， 这样还能实现 Markdown 支持。于是我最初的项目仓库名叫做 hexo-helper-github-comment 。</p>
+<p>等我实现了 <code>getComments()</code> 方法后，我发现我的想法是错误的：helper 只适用于同步执行的操作，不适合网络请求这种异步操作。这带来的问题就是模板文件里已经成功执行了 helper 了，也返回了数据，但此时 renderer 早已经完成了模板的渲染了，而异步返回的评论数据却不再能够被渲染。</p>
+<p>之后我想在 NodeJS 中加入 jQuery，用 jQuery 来操纵 DOM ，而不再依赖 renderer 。但这个方案似乎也不可行。因为在模板文件中，DOM 还没有创建，jQuery 拿不到实际的 DOM 。</p>
+<p>所以最终我改成了纯 JS 的方案，把请求的方式也从 request-promise 改成了 AJAX ，然后在模板文件中直接跑 JS ，让 JS 完成请求，此时的 DOM 是已创建的，可以使用 jQuery 来操纵页面。虽然这样做就不能直接用 Hexo 现成的 markdown helper 了，但由于是纯 JS 实现，这个库也就可以在任何静态站点中使用，变得更加通用了。于是我把仓库名改成了 github-comment 。</p>
+<p>又后来，我准备开源的前一天，在微博上先公开了关于这个项目的信息。有些人也表示了 Github 将来也可能被墙的质疑。于是我花了几分钟时间，也加入了对 OSChina 的支持。这个仓库名似乎也不只是基于 Github 了，于是我又把仓库名改成了 comment.js 。</p>
+<h3 id="关于取舍">关于取舍</h3>
+<p>我最纠结的部分，在于要不要把评论框也写进来。</p>
+<p>直接在页面中写评论，减少了页面的跳数，当然是一大收益。但这样做也有几个问题：</p>
+<ol>
+<li>功能可用性和项目的复杂度的取舍。Github 的编辑框其实包含了非常多的功能，例如支持拖拽的附件添加、表情、预览、快捷键等等，如果不把这些功能加进来，编辑框的功能就显得很鸡肋，远不如在 Github 中评论有趣；如果加进来，整个项目的代码就远不止 400 行这么简单了。</li>
+<li>通用性和专用程度的取舍。为了避免 Github 单点问题，comment.js 还支持 OSChina 作为备选评论系统。加入 Github 的这些编辑功能，是否会影响对其他站点后端的兼容性又是个问题。</li>
+<li>界面美观程度和版权的取舍。现在的评论会话界面几乎照搬了 Github 的样式，因为点击“去留言”按钮实际上直接跳到了 Github ，相当于为 Github 做了引流，给了一个大大的版权说明，也就没有了侵权的担忧。如果界面完全隔离了 Github，也隐藏了 Github 的版权信息，反而有点滥用平台的感觉在<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>。</li>
+</ol>
+<p>有意思的是，当我刚发布 comment.js 的时候，我才发现几个月前已经有人做了一个类似的项目：<a href="https://imsun.github.io/gitment/" target="_blank" rel="external">gitment</a>，真是心有灵犀啊。这个项目与我的项目的最大区别就在于它实现了内置的编辑框，并且目前只支持 Github 。如果你认为评论框必不可少，那么建议使用 gitment；反之如果你觉得点击按钮跳到 Github 页面似乎也还能接受，担心 Github 单点问题，而且觉得保证代码的简单和通用性更重要的话，那么不妨使用 comment.js 。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>目前 OSChina 的 API 在浏览器端会出现 CORS 错误。我已经给 OSChina <a href="https://git.oschina.net/oschina/git-osc/issues/5843" target="_blank" rel="external">提交了工单</a>，待后台添加 CORS 支持后就可以使用 OSChina 作为后端。 <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>话说回来直接照搬界面确实不太好，后面我会对评论会话的UI进行调整，避免侵权。 <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+    <category scheme="http://hahack.com/tags/comment-js/" term="comment.js"/>
+    <category scheme="http://hahack.com/tags/Disqus/" term="Disqus"/>
+    <category scheme="http://hahack.com/categories/codes/" term="codes"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[手把手教你编写叮当机器人插件]]></title>
     <link href="http://hahack.com/codes/how-to-write-dingdang-plugin/"/>
@@ -2823,144 +2939,6 @@ HHKB，
 <p><figure class="highlight"><figcaption><span>tiny_tester.sh</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 清除临时文件</span></div><div class="line"><span class="built_in">echo</span> <span class="string">""</span></div><div class="line"><span class="built_in">echo</span> -n <span class="string">"清除临时文件..."</span></div><div class="line"><span class="keyword">if</span> [ <span class="operator">-d</span> <span class="variable">${TMP_PATH}</span> ]</div><div class="line"><span class="keyword">then</span></div><div class="line">    rm -r <span class="variable">${TMP_PATH}</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="built_in">echo</span> <span class="string">" OK"</span></div><div class="line"></div><div class="line"><span class="comment"># 结束服务器进程</span></div><div class="line"><span class="built_in">echo</span> -n <span class="string">"关闭服务器..."</span></div><div class="line">kill -<span class="number">2</span> <span class="variable">${SERVER_PID}</span> &gt; /dev/null || server_kill_err</div><div class="line"><span class="built_in">echo</span> <span class="string">" OK"</span></div><div class="line"></div><div class="line"><span class="built_in">cd</span> <span class="variable">${CUR_PATH}</span></div><div class="line"></div><div class="line"><span class="built_in">echo</span> <span class="string">""</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"测试完成。再见！"</span></div><div class="line"><span class="built_in">echo</span> <span class="string">""</span></div></pre></td></tr></table></figure></p>
 ]]></content>
     <category scheme="http://hahack.com/tags/shell/" term="shell"/>
-    <category scheme="http://hahack.com/tags/Testing/" term="Testing"/>
-    <category scheme="http://hahack.com/categories/codes/" term="codes"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[介绍 GodEyes-iOS]]></title>
-    <link href="http://hahack.com/codes/godeyes-intro/"/>
-    <id>http://hahack.com/codes/godeyes-intro/</id>
-    <published>2015-01-04T12:09:26.000Z</published>
-    <updated>2017-02-11T04:41:08.103Z</updated>
-    <content type="html"><![CDATA[<p>GodEyes-iOS 是一款针对 iOS App 的源码 crash 隐患扫描工具。特点包括：</p>
-<ol>
-<li>专注于 iOS APP 代码的 Crash 隐患静态扫描。</li>
-<li>扫描规则提取自 APP 的典型 crash 案例代码，并且在持续增加中。</li>
-<li>扫描规则可定制，提供多种格式的扫描报告。</li>
-</ol>
-<p>一个典型的过程是每次完成你的 iOS 项目的迭代后，就使用 GodEyes 扫描一次你的工程的代码。然后打开扫描结果，定位到上面列举的存在隐患的代码，确认一下是否存在隐患，然后对问题代码进行修改。你也可以很轻松地将它作为持续集成的其中一步，通过解析生成的 json 结果文件，得到当前的代码隐患情况，并作为判断持续集成状态的其中一个项目。</p>
-<p>GodEyes-iOS 还有一个兄弟 GodEyes-Android，顾名思义，GodEyes-Android 所针对的是 Android APP 源码的静态扫描。</p>
-<p>下文将重点介绍 GodEyes-iOS。<span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>出于方便，下文一律将 GodEyes-iOS 简称为 GodEyes。 </span></span></span><a id="more"></a></p>
-<h2 id="环境依赖">环境依赖</h2>
-<ul>
-<li>XCode 5 或更高</li>
-</ul>
-<h2 id="下载-godeyes">下载 GodEyes</h2>
-<p>官网下载：<a href="http://godeyes.duapp.com/" target="_blank" rel="external">http://godeyes.duapp.com/</a> 。</p>
-<p>本文将主要介绍 v2.0 版本的使用。</p>
-<h2 id="配置-godeyes">配置 GodEyes</h2>
-<p>打开 conf/config.ini 配置文件，根据你的项目需求，进行如下设置：</p>
-<ol>
-<li><strong>projectPath</strong>：要扫描的工程路径，即拥有 xxx.xcodeproj 文件或 xxx.xcworkspace 的目录</li>
-<li><strong>xctoolCommand</strong>：这一步可能需要你费点心思。GodEyes 依赖一个叫做json编译数据库（json Compilation Database）的文件来获取需要扫描的文件列表，而这个文件可以通过调用 GodEyes 内置的第三方工具 xctool 来生成。然而，xctool 并不是很聪明，你需要告诉 xctool 一些关于你项目的必要信息，才能让 xctool 正确生成编译数据库。以下是一个示例：</li>
-</ol>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xctoolCommand = xctool/bin/xctool -project ${projectPath}/HelloWorld.xcodeproj -scheme HelloWorld -sdk iphonesimulator -reporter json-compilation-database:${projectPath}/compile_commands.json clean build</div></pre></td></tr></table></figure></p>
-<p>其中各参数分别为：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-project</code> 或 <code>-workspace</code></td>
-<td>主工程文件的地址。如果工程文件的后缀名是 xcodeproj ，则通过 -project 指定，后面跟着 xcodeproj 文件的地址；如果工程文件的后缀名是 xcworkspace ，则通过 -workspace 指定，后面跟着 xcworkspace 的地址。</td>
-</tr>
-<tr>
-<td><code>-scheme</code></td>
-<td>要进行扫描的工程方案。你可以在 XCode 中点击 Products-&gt;Scheme-&gt;Manage Schemes… 来查看当前工程的所有 Scheme 。</td>
-</tr>
-<tr>
-<td><code>-sdk</code></td>
-<td>用于生成编译数据库的编译SDK，不管是 iPhone 还是 iPad 应用，模拟器都为 iphonesimulator，真机都为 iphoneos。</td>
-</tr>
-<tr>
-<td><code>-reporter</code></td>
-<td>这句话告诉 xctool 要生成编译报告，如无特殊情况一般不用修改。</td>
-</tr>
-</tbody>
-</table>
-<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>以上参数仅供参考。根据项目的不同，xctoolCommand 需要的指令也不尽相同。如果你在这一步遇到困难，建议你通过 <code>xctool/bin/xctool --help</code> 命令来获取更详细的帮助，或者在网上搜索更多关于如何利用 xctool 生成编译数据库的资料。</p>
-</div></p>
-<ol start="3">
-<li><strong>threadNum</strong>：扫描线程数。GodEyes 支持同时开启多个线程并行工作，以加快扫描速度。</li>
-<li><strong>renderType</strong>：指定要输出的文件格式，目前支持 html 、json、pmd 三种。</li>
-<li><strong>resultNameFormat</strong>: 扫描结果文件的命名格式。详见配置文件。</li>
-<li><strong><a href="http://ObjC.XXX" target="_blank" rel="external">ObjC.XXX</a></strong>：可选的规则。可以通过设定 enable 选项为 true 启用它。部分规则支持配置子扫描项，对于需要排除的扫描项，可以直接删除该项目来规避它。</li>
-<li><strong>projectXcodeProjName</strong>：若工程配置文件 xxx.xcodeproj 名称与所在目录不一致，可以修改这个选项指定实际的工程配置文件。</li>
-<li><strong>excludeList</strong>: 若有排除的文件或者目录，请在这里文件中列出，目录或文件之间用逗号隔开。如果不需要排除任何文件，只需将该行注释掉即可。</li>
-</ol>
-<h2 id="执行-godeyes">执行 GodEyes</h2>
-<p>完成配置后，cd 进入 godeyes 目录，然后直接 <code>sh run.sh</code> 执行脚本即可。</p>
-<p><img src="/images/godeyes-intro/godeyes-record.gif" alt="GodEyes-iOS 执行过程演示"></p>
-<p>如果你看到红色的文字，就说明检测到了可能存在 crash 隐患的代码。扫描完成后，可以通过阅读生成的结果文件获得更详细的扫描结果。一份 HTML 格式的扫描结果如下所示：</p>
-<iframe src="http://godeyes.duapp.com/static/ios-result.html" width="100%" height="360" frameborder="0"></iframe>
-<p>如果之前已经使用 GodEyes 扫描过你的工程，那么再次使用 GodEyes 时会提示你是否要覆盖编译数据库，如下图所示：</p>
-<p><img src="/images/godeyes-intro/replace.png" alt=""></p>
-<p>如果你的工程文件列表已经发生改变（比如增删了代码文件，或改动了文件位置），则需要输入 <code>y</code> 重新生成编译数据库 <span class="margin-note-marker"><sup>2</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">2</span>如果想每次输入都自动重新创建编译数据库，则可以在执行脚本时跟上 <code>-f</code> 参数。 </span></span></span> 。否则可以输入 <code>n</code> ，直接利用之前创建好的编译数据库，以节省时间。</p>
-<p>执行 <a href="http://run.sh" target="_blank" rel="external">run.sh</a> 时，还支持带有如下一些命令行参数：</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>-l</code></td>
-<td>列举所有已启用的规则。</td>
-</tr>
-<tr>
-<td><code>-d</code></td>
-<td>诊断模式，在执行扫描时会打印出更多的错误信息以便于诊断。通常情况下不需要开启这个选项。</td>
-</tr>
-<tr>
-<td><code>-f</code></td>
-<td>每次运行时都默认重新生成编译数据库，而不再弹出询问信息，适合需要跑自动化的用户。</td>
-</tr>
-<tr>
-<td><code>-h</code></td>
-<td>打印帮助信息。</td>
-</tr>
-</tbody>
-</table>
-<h2 id="常见问题">常见问题</h2>
-<p><span class="label label-important">Q</span> 运行过程中出现 “[GodEyes] Error occurs while generating compilation database.” 错误。</p>
-<p><span class="label label-success">A</span> 出现这个错误意味着你的 xctoolCommand 没有配对，导致编译数据库没有正确生成。请详细阅读 xctool 的说明。只有按照 xctool 的说明写好 xctoolCommand 生成编译数据库，才能在下一步调用 GodEyes 进行静态扫描。你可以在 GodEyes 的根目录执行：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xctool/bin/xctool --help</div></pre></td></tr></table></figure></p>
-<p>来打印 xctool 的帮助，也可以访问 xctool 的 <a href="https://github.com/facebook/xctool" target="_blank" rel="external">Github 主页</a>获得更多的帮助。</p>
-<p><span class="label label-important">Q</span> 运行过程中出现 “LLVM ERROR: Could not auto-detect compilation database for file XXX/XXX/XXX”、“No compilation database found in XXX/XXX/XXX or any parent directory。” 等类似错误。</p>
-<p><span class="label label-success">A</span> 如果这些引发错误的源文件并非来自你的主工程，而是来自第三方库，你需要将这些第三方库的路径添加到排除列表中。如果你希望 GodEyes 扫描这些第三方库，可以直接拷贝一份 GodEyes ，然后为这些第三方库编写配置文件，再完成扫描。</p>
-<p><span class="label label-important">Q</span> 运行过程中出现 “[GodEyes] Another GodEyes instance is running!” 错误。</p>
-<p><span class="label label-success">A</span> GodEyes 运行时会在当前目录下创建一个 godeyes.tmp 临时文件，以记录程序的配置信息。为了避免多个 GodEyes 进程同时对同个临时文件进行读写导致意外错误，在任意时刻只允许运行一个 GodEyes 进程。所以，如果你遇到这个错误，请等待上一个 GodEyes 程序运行完成。如果你确定当前没有运行其他 GodEyes 程序，可以手动将 godeyes.tmp 文件删除。</p>
-<p>如果确实需要同时启用多个 GodEyes 扫描多个工程，可以再拷贝一份 GodEyes 目录，删掉新目录下的 godeyes.tmp 文件，然后在不同的目录下执行各自的 GodEyes 程序，由于读取的是不同位置的 godeyes.tmp 临时文件，就不会出现这个问题。</p>
-<p><span class="label label-important">Q</span> 扫描得到的 json 结果文件怎么阅读？</p>
-<p><span class="label label-success">A</span> 首先建议使用 JSON 格式化工具阅读该文件里的内容：<a href="http://www.w3cschool.cc/tool/json/index.html" target="_blank" rel="external">http://www.w3cschool.cc/tool/json/index.html</a> 。</p>
-<p>一个经过格式化的 json 结果如下：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    "status": "ok"</div><div class="line">    "results": [</div><div class="line">        {</div><div class="line">            "rule_name": "ObjC.ReturnTypeInconsistent"</div><div class="line">            </div><div class="line">            "type": "ReturnTypeInconsistentRule",</div><div class="line">            </div><div class="line">            "num": "1",</div><div class="line">            </div><div class="line">            "rule_result": [</div><div class="line">                {</div><div class="line">                    "lines": "75,",</div><div class="line">                    "file": "/Users/wzpan/Documents/workspace/HelloWorld/HelloWorld/MyCircle.m"</div><div class="line">                }</div><div class="line">            ],</div><div class="line">            </div><div class="line">        }</div><div class="line">    ],</div><div class="line">}</div></pre></td></tr></table></figure></p>
-<p>json 是逐条规则列出违反清单的。</p>
-<ul>
-<li>rule_name 是规则名，你可以在 config.ini 或 tpl/RuleName 里找到对应的中文名。</li>
-<li>num 是违反规则的次数。</li>
-<li>rule_result 是违反规则的位置。</li>
-</ul>
-<p>从上面的结果可以看出，该项目违反了 1 次“函数返回值必须与实际返回类型一致隐患”规则，违反位置在 <code>/Users/wzpan/Documents/workspace/HelloWorld/HelloWorld/MyCircle.m</code> 文件中的第 75 行。</p>
-<p><span class="label label-important">Q</span> GodEyes-iOS 有哪些局限性？</p>
-<p><span class="label label-success">A</span> 下面这些情况是 GodEyes-iOS 目前无法正常处理的：</p>
-<ul>
-<li>不能解析宏。这意味着如果你使用了宏来检测版本，则可能会导致 API 兼容性规则误报；</li>
-<li>不能理解用户自定义的类型。这意味着 GodEyes 无法对从 NS 数据结构类继承而来的自定义类型应用相关的 NS 数据结构的规则；</li>
-<li>不支持动态分析。这意味着如果你的代码中存在一些运行时才能获取的状态，则可能导致与 GodEyes 规则冲突时产生误报。</li>
-</ul>
-<p><span class="label label-important">Q</span> GodEyes-iOS 的扫描结果有误报呀。</p>
-<p><span class="label label-success">A</span> 如果出现误报，而且不属于上一个问题列出的几种情况，可以 <a href="mailto:2983512772@qq.com" target="_blank" rel="external">联系开发者</a> ，告诉我们误报的规则名以及涉及的代码，以便进行修复。</p>
-]]></content>
-    <category scheme="http://hahack.com/tags/static-analysis/" term="static analysis"/>
-    <category scheme="http://hahack.com/tags/iOS/" term="iOS"/>
-    <category scheme="http://hahack.com/tags/Objective-C/" term="Objective-C"/>
     <category scheme="http://hahack.com/tags/Testing/" term="Testing"/>
     <category scheme="http://hahack.com/categories/codes/" term="codes"/>
   </entry>

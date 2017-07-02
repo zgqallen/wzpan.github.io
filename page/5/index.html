@@ -126,6 +126,37 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Jan 4 2015 </div>
+			<div class="article-title"><a data-pjax href="/codes/godeyes-intro/" title="介绍 GodEyes-iOS —— iOS 源码 crash 隐患静态扫描工具。">介绍 GodEyes-iOS</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/godeyes-intro/"><img src="/images/godeyes-intro/godeyes.png" alt="介绍 GodEyes-iOS"  class="nofancybox"></a></div>
+    
+    
+      <p>GodEyes-iOS 是一款针对 iOS App 的源码 crash 隐患扫描工具。特点包括：</p>
+<ol>
+<li>专注于 iOS APP 代码的 Crash 隐患静态扫描。</li>
+<li>扫描规则提取自 APP 的典型 crash 案例代码，并且在持续增加中。</li>
+<li>扫描规则可定制，提供多种格式的扫描报告。</li>
+</ol>
+<p>一个典型的过程是每次完成你的 iOS 项目的迭代后，就使用 GodEyes 扫描一次你的工程的代码。然后打开扫描结果，定位到上面列举的存在隐患的代码，确认一下是否存在隐患，然后对问题代码进行修改。你也可以很轻松地将它作为持续集成的其中一步，通过解析生成的 json 结果文件，得到当前的代码隐患情况，并作为判断持续集成状态的其中一个项目。</p>
+<p>GodEyes-iOS 还有一个兄弟 GodEyes-Android，顾名思义，GodEyes-Android 所针对的是 Android APP 源码的静态扫描。</p>
+<p>下文将重点介绍 GodEyes-iOS。<span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>出于方便，下文一律将 GodEyes-iOS 简称为 GodEyes。 </span></span></span>	  
+       
+   </ul>
+   <a data-pjax href="/codes/godeyes-intro/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Jul 13 2014 </div>
 			<div class="article-title"><a data-pjax href="/codes/hexo-theme-wixo/" title="介绍我为 Hexo 编写的第二个主题 Wixo 。">Wixo - a wiki theme for Hexo</a></div>			
 		</h3>
@@ -232,35 +263,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Mar 21 2014 </div>
-			<div class="article-title"><a data-pjax href="/tools/wechat/" >HaHack 的微信订阅号</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/tools/wechat/"><img src="/images/qrcode.jpg" alt="HaHack 的微信订阅号"  class="nofancybox"></a></div>
-    
-    
-      <p>在这个信息过盛的时代，</p>
-<p>博客这种 Web 2.0 初期的产物越发难以吸引大众的关注；</p>
-<p>Google Reader 的死亡正式宣告了 RSS 订阅已经沦为明日黄花；</p>
-<p>很多人（包括我在内）也没有了以前每天刚起床就把阅读器上的 <q>unread</q> 项给刷光的强迫症。</p>
-<p>更恰当地说，我们把这种强迫症转移到了微博、微信这类社交工具上了。</p>
-<p>相比 RSS 这种靠“习惯”来支撑的订阅方式，微信订阅号就显得主动些了。如果不想错过一个站点的新文章，通过订阅它的微信号，就可以保证在网络正常的状况下用手机及时获取它投递过来的文章。</p>
-<p>所以，HaHack 也决定赶赶时髦，放出一个微信订阅号。 	  
-       
-   </ul>
-   <a data-pjax href="/tools/wechat/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -304,7 +306,8 @@
 			   type: "github",
 			   user: "wzpan",
 	           repo: "wzpan.github.io",
-			   reversed_token: "232b130b29af1ea018cec5eea694fd2be76b4cd1",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",xo
 			   count: "5" ? "5" : 5
 			});
 		</script>
@@ -318,7 +321,7 @@
 		<h4>Categories</h4>
 		<ul class="tag_box inline">
 		
-			<li><a href="/categories/codes/">codes<span>30</span></a></li>
+			<li><a href="/categories/codes/">codes<span>31</span></a></li>
 		
 			<li><a href="/categories/life/">life<span>5</span></a></li>
 		
@@ -341,47 +344,47 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Javascript/">Javascript<span>4</span></a></li>
-				   
-			<li><a href="/tags/PGF/">PGF<span>1</span></a></li>
-				   
-			<li><a href="/tags/SCNUThesis/">SCNUThesis<span>1</span></a></li>
-				   
-			<li><a href="/tags/vcc/">vcc<span>1</span></a></li>
-				   
-			<li><a href="/tags/npm/">npm<span>1</span></a></li>
-				   
-			<li><a href="/tags/M-P/">M-P<span>1</span></a></li>
-				   
-			<li><a href="/tags/Makefile/">Makefile<span>1</span></a></li>
-				   
-			<li><a href="/tags/video/">video<span>6</span></a></li>
-				   
-			<li><a href="/tags/Arch/">Arch<span>1</span></a></li>
+			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
 				   
 			<li><a href="/tags/Extempore/">Extempore<span>1</span></a></li>
 				   
-			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
+			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
+				   
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 				   
 			<li><a href="/tags/ruby/">ruby<span>1</span></a></li>
 				   
-			<li><a href="/tags/Math/">Math<span>2</span></a></li>
-				   
-			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
-				   
-			<li><a href="/tags/BP/">BP<span>1</span></a></li>
-				   
-			<li><a href="/tags/OpenCV/">OpenCV<span>3</span></a></li>
-				   
-			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
+			<li><a href="/tags/Graphics/">Graphics<span>1</span></a></li>
 				   
 			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
 				   
-			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
+			<li><a href="/tags/Makefile/">Makefile<span>1</span></a></li>
 				   
-			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
+			<li><a href="/tags/Objective-C/">Objective-C<span>1</span></a></li>
+				   
+			<li><a href="/tags/emacs/">emacs<span>6</span></a></li>
+				   
+			<li><a href="/tags/Javascript/">Javascript<span>4</span></a></li>
+				   
+			<li><a href="/tags/Mindmap/">Mindmap<span>1</span></a></li>
+				   
+			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
+				   
+			<li><a href="/tags/Docker/">Docker<span>1</span></a></li>
+				   
+			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
+				   
+			<li><a href="/tags/Atom/">Atom<span>1</span></a></li>
+				   
+			<li><a href="/tags/vcc/">vcc<span>1</span></a></li>
+				   
+			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
+				   
+			<li><a href="/tags/Arch/">Arch<span>1</span></a></li>
+				   
+			<li><a href="/tags/koding/">koding<span>1</span></a></li>
 		
-		<li><a href="/tags">...<span>83</span></a></li>
+		<li><a href="/tags">...<span>85</span></a></li>
 		</ul>
 	</div>
 

@@ -162,8 +162,6 @@
 
 .timeline-comment-header-text {
     max-width: 78%;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .text-normal {
@@ -336,7 +334,7 @@
 #recent-comments .comment-widget-body {
   position: relative;
   top: -5px;
-  left: -2px;
+  left: -15px;
 }
 
 #recent-comments .comment-widget-user{
