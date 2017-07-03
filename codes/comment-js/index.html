@@ -151,7 +151,7 @@
 <li>无需搭建后台。直接用现成的 issue 作为后端，不像 isso 那样还需要自己搭个后台，搞定数据库。</li>
 <li>接入简单。获取评论会话和获取最新列表各自对应一个函数。</li>
 <li>代码简单。这意味着你也可以很快上手脚本代码，对这个脚本进行定制。</li>
-<li>除了 Github issue 之外，comment.js 也支持使用 OSChina issue 作为后端，<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，即使 Github 被墙，也能通过修改参数迅速切换到其他备选站点，比起说关闭就关闭的评论服务可靠多了。</li>
+<li>除了 Github issue 之外，comment.js 也支持使用 OSChina issue 作为后端<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>，即使 Github 被墙，也能通过修改参数迅速切换到其他备选站点，比起说关闭就关闭的评论服务可靠多了。</li>
 </ol>
 <ul>
 <li>项目主页：<a href="https://github.com/wzpan/comment.js" target="_blank" rel="external">https://github.com/wzpan/comment.js</a></li>
@@ -230,7 +230,7 @@
 <ol>
 <li>功能可用性和项目的复杂度的取舍。Github 的编辑框其实包含了非常多的功能，例如支持拖拽的附件添加、表情、预览、快捷键等等，如果不把这些功能加进来，编辑框的功能就显得很鸡肋，远不如在 Github 中评论有趣；如果加进来，整个项目的代码就远不止 400 行这么简单了。</li>
 <li>通用性和专用程度的取舍。为了避免 Github 单点问题，comment.js 还支持 OSChina 作为备选评论系统。加入 Github 的这些编辑功能，是否会影响对其他站点后端的兼容性又是个问题。</li>
-<li>界面美观程度和版权的取舍。现在的评论会话界面几乎照搬了 Github 的样式，因为点击“去留言”按钮实际上直接跳到了 Github ，相当于为 Github 做了引流，给了一个大大的版权说明，也就没有了侵权的担忧。如果界面完全隔离了 Github，也隐藏了 Github 的版权信息，反而有点滥用平台的感觉在<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>。</li>
+<li>界面美观程度和版权的取舍。现在的评论会话界面几乎照搬了 Github 的样式，因为点击“去留言”按钮实际上直接跳到了 Github ，相当于为 Github 做了引流，给了一个大大的版权说明，也就没有了侵权的担忧。如果界面完全隔离了 Github，也隐藏了 Github 的版权信息，反而有点滥用平台的感觉<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>。</li>
 </ol>
 <p>有意思的是，当我刚发布 comment.js 的时候，我才发现几个月前已经有人做了一个类似的项目：<a href="https://imsun.github.io/gitment/" target="_blank" rel="external">gitment</a>，真是心有灵犀啊。这个项目与我的项目的最大区别就在于它实现了内置的编辑框，并且目前只支持 Github 。如果你认为评论框必不可少，那么建议使用 gitment；反之如果你觉得点击按钮跳到 Github 页面似乎也还能接受，担心 Github 单点问题，而且觉得保证代码的简单和通用性更重要的话，那么不妨使用 comment.js 。</p>
 <hr class="footnotes-sep">
