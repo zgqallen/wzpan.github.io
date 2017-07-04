@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-07-04T06:20:17.157Z</updated>
+  <updated>2017-07-04T17:01:35.840Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/codes/comment-js/"/>
     <id>http://hahack.com/codes/comment-js/</id>
     <published>2017-07-02T12:48:07.000Z</published>
-    <updated>2017-07-03T02:42:31.000Z</updated>
+    <updated>2017-07-04T14:17:00.091Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>我的博客最早是使用 Disqus 来实现评论功能的。Disqus 被墙了之后，改成了多说。今年年初，多说也正式关闭了，于是我被逼着又开始寻找其他的替代评论系统。</p>
 <p>我先是试用了网易云跟贴、畅言等几种类似的社会化评论系统。畅言要求站点必须备案，而我实在没有为了评论去申请备案的动力。网易云跟贴的管理后台上有很多不明觉厉的功能，但好像都没多大用处。最致命的问题是我不小心把我的站点绑定到了另一个网易账户，而不是我常用的微博账户。这样的话，我每次回贴就得退登到微博账户，要管理贴子的时候又得切回管理员账户，非常不方便。然而网易云跟贴并没有提供解绑的功能。于是我给他们提了需求，然而一直到现在都没有回复。再加上有了多说作为前车之鉴，我对国内的免费评论服务已经失去了信心。今天把A换成B，难以保证日后B也关闭了，被逼着又换到C，实在是懒得折腾下去啊。于是，我放弃了换用类似的评论系统的念头。</p>
@@ -132,7 +132,7 @@
     <link href="http://hahack.com/codes/how-to-write-dingdang-plugin/"/>
     <id>http://hahack.com/codes/how-to-write-dingdang-plugin/</id>
     <published>2017-05-28T12:23:40.000Z</published>
-    <updated>2017-07-03T02:41:57.000Z</updated>
+    <updated>2017-06-06T15:15:22.491Z</updated>
     <content type="html"><![CDATA[<p><a href="http://hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">叮当</a> 是一款可以工作在 Raspberry Pi 上的开源中文语音对话机器人/智能音箱项目，目的是让中国的Hacker们也能快速打造类似 Amazon Echo 的个性化的智能音箱。</p>
 <p>由于叮当是完全开源的，编写插件来满足自己的个性化需求就成了使用叮当的最大乐趣。您可以自由地接入自己需要的服务，让叮当更好的为您服务。</p>
 <p>这篇文章将一步步教你如何编写一个天气插件，并最终发布到 dingdang-contrib 中。</p>
@@ -219,7 +219,7 @@
     <link href="http://hahack.com/codes/dingdang-robot-intro/"/>
     <id>http://hahack.com/codes/dingdang-robot-intro/</id>
     <published>2017-05-22T05:43:21.000Z</published>
-    <updated>2017-07-03T02:41:57.000Z</updated>
+    <updated>2017-06-27T11:55:25.388Z</updated>
     <content type="html"><![CDATA[<p>这个项目其实来源于我生活中的一个需求：我每天晚上都会去厨房做一个面包当明天的早餐，当我把用料按顺序准备好放进面包机时，我需要准确预约到明天早上我吃早餐的时间。然而，几乎每次在这个时候我都没有带手机在身边，而是都放在客厅里充电，这时只能跑去客厅看时间。虽然厨房到客厅只有几步之遥，但自己又是懒癌患者，每天都要这么来回奔波就觉得很不方便。要解决这个问题当然有很多种方法，比如直接买个小时钟放在厨房。不过我更希望“连看都不用看”，直接有人告诉我时间。所以，我需要一个像 Amazon Echo 那样的智能音箱。</p>
 <p>然而，不论是 Amazon Echo 、Google Home 还是微软 Cortana 音箱，在国内的使用都是个问题。虽然国内也有类似的智能音箱产品，但我没有用过这些产品，不知道可定制性如何。比如，如果我需要开发个功能让它告诉我某种面包的配方是什么，这些产品就不一定能做到了。考虑再三，我决定自己动手写一个。整个项目用了差不多三个星期的业余零碎时间。</p>
 <p>先放上项目主页：<a href="http://dingdang.hahack.com" target="_blank" rel="external">http://dingdang.hahack.com</a></p>
@@ -390,7 +390,7 @@
     <link href="http://hahack.com/work/enterprise-class-git-version-control-5/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-5/</id>
     <published>2017-04-19T09:22:53.000Z</published>
-    <updated>2017-05-08T06:32:14.000Z</updated>
+    <updated>2017-05-22T11:38:14.104Z</updated>
     <content type="html"><![CDATA[<p>毫无疑问，Git 非常适合用于代码文件的版本控制。对于纯代码仓库，由于每次实际提交都是增量内容，即使仓库经历了几十次提交，整个仓库的大小往往都不会大幅增加。</p>
 <p>而对于存在二进制文件的仓库，情况就变了：Git 并不能很好地支持二进制文件的增量提交，每次更新一个二进制文件，就相当于把这份文件的完整内容再往仓库里扔。久而久之，这个仓库就会变得非常大，影响代码拉取速度。</p>
 <p>举一个实际的例子，为了加快应用的构建速度，我们团队的框架先会编译成 SDK ，再交由上层构建应用。框架 SDK 也是一个独立的 Git 仓库，里头包含了大量的二进制包：</p>
@@ -499,7 +499,7 @@
     <link href="http://hahack.com/work/enterprise-class-git-version-control-4/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-4/</id>
     <published>2017-04-12T07:45:29.000Z</published>
-    <updated>2017-04-17T02:51:54.000Z</updated>
+    <updated>2017-05-22T11:38:14.104Z</updated>
     <content type="html"><![CDATA[<h2 id="需求描述">需求描述</h2>
 <p>在继续写数学系列前，我想切回去之前的 Git 系列写点东西。我想写系列文章也可以像操作系统的进程调度一样，一个系列暂时写不动了，先 <q>保存现场</q> 跳去另一个 topic 写点东西，同时也给自己留点 buffer 再酝酿一下这个暂时 <q>中断</q> 的系列。等这个系列酝酿够了，再 <q>恢复现场</q> ，继续还这个系列的技术债。</p>
 <p>对于一个规模较大的企业，存在多个 Gitlab 站点是很常见的事情。</p>
@@ -654,7 +654,7 @@
     <link href="http://hahack.com/math/math-linear-algebra-graded/"/>
     <id>http://hahack.com/math/math-linear-algebra-graded/</id>
     <published>2017-02-12T13:42:05.000Z</published>
-    <updated>2017-03-30T12:36:48.000Z</updated>
+    <updated>2017-02-18T11:52:12.314Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>在前面两篇文章中，我简要概括了线性代数中两个最基本的数据表达方式：<a href="/math/math-matrix/">矩阵</a> 和 <a href="/math/math-vector/">向量</a>。有了这两个数学工具作为基础，我们可以再进一步，讨论下面一些内容：</p>
 <ol>
@@ -1157,7 +1157,7 @@ b^*
     <link href="http://hahack.com/math/math-vector/"/>
     <id>http://hahack.com/math/math-vector/</id>
     <published>2017-02-06T13:47:43.000Z</published>
-    <updated>2017-02-14T03:22:47.000Z</updated>
+    <updated>2017-02-18T10:40:10.964Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>在 <a href="http://hahack.com/math/math-matrix/" target="_blank" rel="external">上文</a> 中我简单概括了矩阵的基本运算，并给出了两个应用实例。这篇文章我们继续谈谈向量。</p>
 <p>向量是线性代数中的基本概念，也是机器学习的基础数据表示形式。例如计算机阅读文本的过程首先就会将文本分词，然后用向量表示<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。这是因为向量很适合在高维空间中表达和处理。在机器学习中会接触到的诸如投影、降维的概念，都是在向量的基础上做的。</p>
@@ -1359,7 +1359,7 @@ c_2 &amp;= \frac{y}{3} - \frac{x}{6}
     <link href="http://hahack.com/math/math-matrix/"/>
     <id>http://hahack.com/math/math-matrix/</id>
     <published>2017-01-31T14:33:04.000Z</published>
-    <updated>2017-03-30T12:36:48.000Z</updated>
+    <updated>2017-03-25T03:23:31.818Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>机器学习如火如荼，要学习机器学习，数学基础少不了。所以本系列将对机器学习所用到的线性代数、微积分和概率统计的基础知识做一个简单的概括。</p>
 <p>本文将总结线性代数中矩阵的基本知识点。同时理论结合实践，使用 Python 来进行实践。如果需要跟着进行编程实践，请先确保下列环境已安装：</p>
@@ -1606,7 +1606,7 @@ y
     <link href="http://hahack.com/work/enterprise-class-git-version-control-3/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-3/</id>
     <published>2016-04-29T07:45:29.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<p>说到版本控制，就不得不提到分支管理策略。就像学开车必须学学交通规则。分支管理策略是代码版本控制的基础组成部分。为团队定制一套合适的分支管理策略，就好比制定了一套合理的交通规则，可以让团队的代码的更加有序地演进，尽可能降低多分支带来的复杂度，并避免由于分支混乱引发的各种“车祸”。本文将简单讨论下我们在开发过程中尝试的各种分支管理策略，在面对各种复杂场景下呈现的优势与不足，以及我们的妥协和后续期望。</p>
 <h2 id="github-flow">Github-Flow</h2>
 <p>作为 Github 的重度用户，我首先考虑的当然是 <a href="https://guides.github.com/introduction/flow/index.html" target="_blank" rel="external">Github-Flow</a> 。</p>
@@ -1700,7 +1700,7 @@ y
     <link href="http://hahack.com/work/enterprise-class-git-version-control-2/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-2/</id>
     <published>2016-04-20T16:00:00.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<h2 id="需求描述">需求描述</h2>
 <p>在 <a href="/work/enterprise-class-git-version-control-1/">上一篇文章</a> 中，我简单描述了我们一个项目的复杂程度：子模块、嵌套子模块、多分支。除了工程分支切换上的复杂，我们还遇到另一个问题：子模块持续集成。</p>
 <h2 id="主工程持续集成">主工程持续集成</h2>
@@ -1785,7 +1785,7 @@ y
     <link href="http://hahack.com/work/enterprise-class-git-version-control-1/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-1/</id>
     <published>2016-04-12T16:00:00.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<h2 id="需求描述">需求描述</h2>
 <p>我们尝试使用 Git 来维护一个项目的代码。这个项目的结构比较复杂：</p>
 <ul>
@@ -1855,7 +1855,7 @@ y
     <link href="http://hahack.com/codes/learn-react-native-for-android-02/"/>
     <id>http://hahack.com/codes/learn-react-native-for-android-02/</id>
     <published>2015-10-18T17:49:34.000Z</published>
-    <updated>2016-09-18T09:24:50.000Z</updated>
+    <updated>2017-02-11T04:41:08.103Z</updated>
     <content type="html"><![CDATA[<p>React Native 主张用 React 的开发思维来编写 UI 层。因此在学习 React-Native 之前，了解基本的 React 的语法和存在的坑会对今后 React Native 的开发大有裨益。</p>
 <p>本文将从一个简单的例子开始，逐步完善我们的程序。在这个过程中，我们将一步步探讨如何用 React 来开发网页应用，以及需要注意的陷阱。与其他教程不同，本文将采用类似 <a href="http://zedshaw.com/" target="_blank" rel="external">Zed A. Shaw</a> 的 <a href="http://learncodethehardway.org/" target="_blank" rel="external">《Learn Code the Hard Way》</a> 系列的案例驱动的形式，从例子开始着手。我相信，掌握一门新技术最好的方法就是自己动手。因此，我并不打算面面俱到的列举所有关于 React 的内容，而更倾向于担任一个引路人的角色：把读者们带到 React 花园的门前，然后让读者们在 React 花园里来一场自助游。为了让这个旅途更加有收获，我会在每节内容的最后安排几个练习，并在最后分享一些值得深入学习的文章和教程。</p>
 <a id="more"></a>
@@ -2120,7 +2120,7 @@ y
     <link href="http://hahack.com/codes/learn-react-native-for-android-01/"/>
     <id>http://hahack.com/codes/learn-react-native-for-android-01/</id>
     <published>2015-10-16T21:23:08.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.103Z</updated>
     <content type="html"><![CDATA[<p>Facebook 于 2015 年 9 月 15 日发布了 React Native for Android 。React Native 让开发者使用 JavaScript 和 React 编写应用，利用相同的核心代码就可以创建 Web，iOS 和 Android 平台的原生应用。注意这里的 <q>核心</q> 两个词，它指的是那些底层的、与界面无关的逻辑。与 ionic / PhoneGap 这类 Web App 开发框架不同，React Native 主张使用 React 的开发方式来开发 Native 应用，因为在现阶段 Web App 还无法达到 Native App 的体验。所以，React Native 并不强调 <q>write Once, run everywhere</q> ，而是 <q>learn once, write everywhere</q> ：上层使用 JS 和 React 开发不同平台的 UI，下层则可以编写能够复用的核心代码，从而大幅提高开发效率。</p>
 <p>关于 React Native 的好处，唐巧在 《<a href="http://blog.devtang.com/blog/2015/02/01/talk-about-react-native/" target="_blank" rel="external">谈谈 React Native</a>》 里已经有比较深刻的总结，本文不再赘述。本文将作为一个 React Native for Android 学习系列的一个开篇，从零开始学习 React Native 。我尽量不偷懒，保证文章及时更新。</p>
 <a id="more"></a>
@@ -2269,7 +2269,7 @@ y
     <link href="http://hahack.com/codes/local-search-engine-for-hexo/"/>
     <id>http://hahack.com/codes/local-search-engine-for-hexo/</id>
     <published>2015-10-08T08:27:04.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.103Z</updated>
     <content type="html"><![CDATA[<p>早在我最初<a href="/codes/from-ruhoh-to-hexo/">从 Ruhoh 迁移博客到 Hexo</a> 时，我就有动手写一个本地的搜索引擎的想法。比起使用第三方服务的站内搜索，本地搜索引擎有几个好处：</p>
 <ol>
 <li>更可靠。不用担心<del>由于某些显而易见的原因导致</del>第三方服务不可访问。</li>
@@ -2339,7 +2339,7 @@ y
     <link href="http://hahack.com/tools/dockerize-your-hexo/"/>
     <id>http://hahack.com/tools/dockerize-your-hexo/</id>
     <published>2015-06-02T03:29:38.000Z</published>
-    <updated>2016-06-26T08:41:19.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>在<a href="/codes/hexo-3-speed-up/">上篇文章</a>中，我简单提到了在升级 Hexo 3 过程中遇到的一些痛苦。其实还有很多问题没有在上篇文章中提及。比如，我的渲染器使用的是 pandoc ，在 2.x 的时候，<a href="http://wzpan.github.io/hexo-theme-freemind/2014/03/16/tag-plugins/" target="_blank" rel="external">hexo-tag-plugins</a> 里头的文字可以通过调用 <code>renderSync</code> 方法传给 markdown 进行渲染，而到了 3.0 ，这些文字无论怎么做都不能被 pandoc 或者 markdown 渲染。</p>
 <p>早在我决定挥刀动斧定制我的个人博客之前，我早已经做好了发生这种情况的心理准备。我的博客最早是使用 Ruhoh 编写的，从主题到渲染器进行了大量的个人定制，后面出于种种原因我决定<a href="http://192.168.59.103:4000/codes/from-ruhoh-to-hexo/" target="_blank" rel="external">切换到Hexo</a> ，于是我又花了很多力气把原来的博客移植到 Hexo 2.x 上。与其说是移植，不如说是一个基于 Hexo 2.x 的山寨版。现在 Hexo 一旦做了大幅更新，相当于我又得经历和前两次一样的折腾，实在是有心无力呀。考虑再三，我决定放弃使用 Hexo 3 ，而将我的博客所使用的环境 <q>冻结</q> 为 2.8.3 。</p>
@@ -2437,7 +2437,7 @@ HHKB，
     <link href="http://hahack.com/codes/hexo-3-speed-up/"/>
     <id>http://hahack.com/codes/hexo-3-speed-up/</id>
     <published>2015-06-01T14:49:46.000Z</published>
-    <updated>2016-10-30T09:21:13.000Z</updated>
+    <updated>2017-02-11T04:41:08.103Z</updated>
     <content type="html"><![CDATA[<p>Hexo 3 自从放出更新到现在已经有很长一段时间了，相信很多人跟我一样都经历了一个非常曲折的升级过程。</p>
 <p>第一个问题是我所编写的主题和插件全都阵亡了，这个问题在我决定升级 Hexo 之前已经被很多用户轰炸过，于是我花了两个晚上的时间对所有的主题和插件进行了大幅修改和升级。</p>
 <p>另一个让我无比郁闷的问题是：官方虽然宣称 3.0 之后站点渲染速度更快了，但实际测试时我发现结果正好相反——全站 168 篇文章，在 Hexo 2.8.3 环境中渲染只需 3~4 秒时间，而更新到 Hexo 3.0 之后，网站的渲染居然花了一个多钟！</p>
@@ -2460,7 +2460,7 @@ HHKB，
     <link href="http://hahack.com/codes/extempore-intro/"/>
     <id>http://hahack.com/codes/extempore-intro/</id>
     <published>2015-02-16T07:35:58.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<p>Extempore 是一套实时编程语言和运行环境，它提供了一个机体编程 (<a href="http://dl.acm.org/citation.cfm?id=1869526" target="_blank" rel="external">Cyberphysical Programming</a>)<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 环境，以支持对多媒体和实时系统的实时编程（Live Coding）。所谓机体编程，就是允许编程者可以在任意时刻自由地修改程序并即时影响系统的运作，达到“即写即执行”。官方的介绍如下：</p>
 <p><blockquote>
 
@@ -2709,7 +2709,7 @@ HHKB，
     <link href="http://hahack.com/life/an-appeal-from-scnuthesis-author/"/>
     <id>http://hahack.com/life/an-appeal-from-scnuthesis-author/</id>
     <published>2015-01-22T15:42:03.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<h2 id="缘起">缘起</h2>
 <p>工作大半年，开始感觉不如以前可以花很多时间在业余小项目上了。</p>
 <p>读书的时候，虽然白天有很多课业上的压力，但到了晚上总有精力来做一些小东西。那个时候，熬夜的后果最多就是第二天到课室打下瞌睡。工作之后就完全不同了，白天的时候，需要一直聚精会神的工作，以保证每天的产出，到了晚上就感觉好累好累，不想再碰电脑。</p>
@@ -2792,7 +2792,7 @@ HHKB，
     <link href="http://hahack.com/codes/fcevm/"/>
     <id>http://hahack.com/codes/fcevm/</id>
     <published>2015-01-20T12:40:09.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-05-22T11:51:03.402Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>10个月前，我写了一篇解读欧拉影像放大技术的文章 <a href="/codes/eulerian-video-magnification/">Eulerian Video Magnification</a>，这篇文章自发布以来，点击率超过了1300次，评论数达到了29篇。如果你在 baidu 上搜索“Eulerian Video Magnification”，我的文章排在第二名（第一名是原论文的链接）。而如果你在 google 或 baidu 上搜索 “欧拉影像放大” ，那么第一名的位置就是我的文章。</p>
 <p>一个促使我写出这篇博文的原因是因为我的毕业课题就和 EVM 算法有关。当时想着既然一直在钻研这个算法，不如干脆写成博文，一来帮助自己思考，二来也能够通过与其他人交流，加深自己对这个算法的理解。我的论文的想法也很简单，EVM 对于存在大幅度移动物体的细微变化的放大效果并不理想，于是我想到通过与拉格朗日视角的框架相结合，先对感兴趣区域进行跟踪（拉格朗日视角），然后对跟踪结果进行局部的欧拉视角的动作放大，最后再进行多分辨率混合。整个算法框架我称之为“前景约束的欧拉影像放大算法”（Foreground-Constrained Eulerian Video Magnification, FCEVM）。<a id="more"></a></p>
@@ -2845,7 +2845,7 @@ HHKB，
     <link href="http://hahack.com/codes/write-a-tiny-shell-based-test-framework/"/>
     <id>http://hahack.com/codes/write-a-tiny-shell-based-test-framework/</id>
     <published>2015-01-15T07:55:58.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.107Z</updated>
     <content type="html"><![CDATA[<p>参与过服务端的后台开发和测试的同学对服务器压力测试应该都不陌生了。为了对线上服务进行模拟测试，往往需要编写自动化的测试工具。一个常见的原型通常是这样的：</p>
 <ol>
 <li>从指定地址下载待测的服务器程序，完成本地化配置和部署；</li>
