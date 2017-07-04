@@ -319,11 +319,10 @@
 }
 
 #recent-comments .comment-widget-avatar {
-  width: 25%;
   position: relative;
   min-height: 1px;
   padding-left: 15px;
-  padding-right: 15px;
+  padding-right: 30px;
   float: left;
 }
 
@@ -354,7 +353,7 @@
 }
 
 #recent-comments .comment-widget-content p{
-  margin-left: 20px;
+  margin-left: 30px;
 }
 
 #recent-comments .comment-widget-meta {  
