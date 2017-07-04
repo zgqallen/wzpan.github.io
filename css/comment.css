@@ -349,7 +349,7 @@
 }
 
 #recent-comments .comment-widget-content {
-  font-size: 16px;
+  font-size: 14px;
 }
 
 #recent-comments .comment-widget-content p{
@@ -358,7 +358,7 @@
 
 #recent-comments .comment-widget-meta {  
   position: relative;
-  top: -30px;
+  top: -25px;
 }
 
 #recent-comments .comment-widget-title { 
