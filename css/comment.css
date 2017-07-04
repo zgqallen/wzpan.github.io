@@ -209,6 +209,7 @@
 .markdown-body p, .markdown-body blockquote, .markdown-body ul, .markdown-body ol, .markdown-body dl, .markdown-body table, .markdown-body pre {
     margin-top: 0;
     margin-bottom: 16px;
+    padding-right: 20px;
 }
 
 .reorderable-task-lists .markdown-body ol:not(.contains-task-list) li, .reorderable-task-lists .markdown-body ul:not(.contains-task-list) li {

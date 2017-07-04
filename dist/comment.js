@@ -17,8 +17,6 @@
 // 02110-1301 USA
 // 
 
-// Get recent comment list from github issues
-// TODO
 'use strict';
 var type, username, repo, client_id, client_secret, no_comment, go_to_comment, btn_class, comments_target, recent_comments_target, loading_target;
 var github_addr = "https://github.com/";
@@ -158,7 +156,7 @@ var _renderComment = function(comment) {
 	return `
 		<div class="timeline-comment-wrapper js-comment-container">
 		<div class="avatar-parent-child timeline-comment-avatar">
-		<a href="${addr}/${user.login}">
+		<a href="${addr}${user.login}">
 		<img alt="@${user.login}" class="avatar rounded-1" height="44" src="${user.avatar_url}&amp;s=88" width="44">
 		</a>
 		</div>
@@ -169,7 +167,7 @@ var _renderComment = function(comment) {
 		<h3 class="timeline-comment-header-text f5 text-normal">
 
 		<strong>
-		<a href="${addr}/${user.login}" class="author">${user.login}</a>
+		<a href="${addr}${user.login}" class="author">${user.login}</a>
 		
 	</strong>
 
@@ -184,7 +182,7 @@ var _renderComment = function(comment) {
 		<tbody class="d-block">
 		<tr class="d-block">
 		<td class="d-block comment-body markdown-body js-comment-body">
-		<p>${content}</p>
+		${content}
 		</td>
 		</tr>
 		</tbody>
@@ -200,12 +198,12 @@ var _renderRecentComment = function(user, title, content, time, url) {
 	    <div class="comment-item">
 		  <div class="row comment-widget-head">
 		    <div class="xl-col-3 comment-widget-avatar">
-		      <a href="${addr}/${user.login}">
+		      <a href="${addr}${user.login}">
 		        <img alt="@${user.login}" class="avatar rounded-1" height="44" src="${user.avatar_url}&amp;s=88" width="44">
 		      </a>
 		    </div>
 		    <div class="comment-widget-body">
-		      <span><a class="comment-widget-user" href="${addr}/${user.login}" target="_blank">${user.login}</a> </span>
+		      <span><a class="comment-widget-user" href="${addr}${user.login}" target="_blank">${user.login}</a> </span>
 		      <div class="comment-widget-content">${content}</div>
 		    </div>
 		  </div>
@@ -336,7 +334,7 @@ var CompareDate = function(a, b) {
 	return ((new Date(d1)) > (new Date(d2)));
 }
 
-var getRecentCommentsList = function(params, callback) {
+var getRecentCommentsList = function(params) {
 	let count, user;
 	({type, user, repo, client_id, client_secret, count, recent_comments_target} = params)
 	username = user;
@@ -353,7 +351,7 @@ var getRecentCommentsList = function(params, callback) {
 	});
 }
 
-var getComments = function(params, callback) {
+var getComments = function(params) {
     let issue_title, issue_id, user;
 	({type, user, repo, client_id, client_secret, no_comment, go_to_comment, issue_title, issue_id, btn_class, comments_target, loading_target} = params)
 	comments_target = comments_target ? comments_target : '#comment-thread';
@@ -381,7 +379,6 @@ var getComments = function(params, callback) {
 													 comments_url: comments_url,
 													 issue_title: issue_title
 												 }); 
-												 (callback && typeof(callback) === "function") && callback(comments);
 												 return;
 											 });
 							 } else {
@@ -392,7 +389,6 @@ var getComments = function(params, callback) {
 									 comments_url: comments_url,
 									 issue_title: issue_title
 								 });
-								 (callback && typeof(callback) === "function") && callback(comments);
 								 return;
 							 }
 						 });
@@ -412,11 +408,8 @@ var getComments = function(params, callback) {
 								issue_title: issue_title
 							});
 							loading_target && spinner.spin();
-							(callback && typeof(callback) === "function") && callback(comments);
 							return;
 						});
 		})
     }
 }
-
-
