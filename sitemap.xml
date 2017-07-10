@@ -41,7 +41,7 @@
     <lastmod>2017-05-22T11:51:03.402Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/work/enterprise-class-git-version-control-4/</loc>
+    <loc>http://hahack.com/codes/free-pascal-on-ubuntu/</loc>
     <lastmod>2017-05-22T11:38:14.104Z</lastmod>
   </url>
   <url>
@@ -49,15 +49,15 @@
     <lastmod>2017-05-22T11:38:14.104Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/life/54-soul/</loc>
-    <lastmod>2017-05-22T11:38:14.104Z</lastmod>
-  </url>
-  <url>
     <loc>http://hahack.com/codes/cmake/</loc>
     <lastmod>2017-05-22T11:38:14.104Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/codes/free-pascal-on-ubuntu/</loc>
+    <loc>http://hahack.com/work/enterprise-class-git-version-control-4/</loc>
+    <lastmod>2017-05-22T11:38:14.104Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/life/54-soul/</loc>
     <lastmod>2017-05-22T11:38:14.104Z</lastmod>
   </url>
   <url>
@@ -93,11 +93,11 @@
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/shell-basic.html</loc>
+    <loc>http://hahack.com/wiki/shell-variables.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/shell-variables.html</loc>
+    <loc>http://hahack.com/wiki/tools-imagemagick.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
@@ -113,7 +113,7 @@
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/tools-tmux.html</loc>
+    <loc>http://hahack.com/wiki/tools-manpage.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
@@ -121,11 +121,7 @@
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/shell-process.html</loc>
-    <lastmod>2017-02-11T04:41:08.251Z</lastmod>
-  </url>
-  <url>
-    <loc>http://hahack.com/wiki/tools-imagemagick.html</loc>
+    <loc>http://hahack.com/wiki/shell-search.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
@@ -133,7 +129,11 @@
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/shell-search.html</loc>
+    <loc>http://hahack.com/wiki/tools-awesome.html</loc>
+    <lastmod>2017-02-11T04:41:08.251Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/wiki/shell-process.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
@@ -157,10 +157,6 @@
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/tools-awesome.html</loc>
-    <lastmod>2017-02-11T04:41:08.251Z</lastmod>
-  </url>
-  <url>
     <loc>http://hahack.com/wiki/tools-automake.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
@@ -173,7 +169,7 @@
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/tools-subl.html</loc>
+    <loc>http://hahack.com/wiki/tools-makefile.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
@@ -185,11 +181,15 @@
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
+    <loc>http://hahack.com/wiki/shell-basic.html</loc>
+    <lastmod>2017-02-11T04:41:08.251Z</lastmod>
+  </url>
+  <url>
     <loc>http://hahack.com/wiki/shell-control-flow.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/sundries-regexp.html</loc>
+    <loc>http://hahack.com/wiki/tools-tmux.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
@@ -205,7 +205,7 @@
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/tools-manpage.html</loc>
+    <loc>http://hahack.com/wiki/sundries-regexp.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
@@ -213,7 +213,7 @@
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/tools-makefile.html</loc>
+    <loc>http://hahack.com/wiki/tools-subl.html</loc>
     <lastmod>2017-02-11T04:41:08.251Z</lastmod>
   </url>
   <url>
@@ -253,19 +253,19 @@
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/qt-qmake.html</loc>
-    <lastmod>2017-02-11T04:41:08.247Z</lastmod>
-  </url>
-  <url>
     <loc>http://hahack.com/wiki/python3-packaging.html</loc>
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/python3-more.html</loc>
+    <loc>http://hahack.com/wiki/qt-qmake.html</loc>
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
     <loc>http://hahack.com/wiki/python3-oop.html</loc>
+    <lastmod>2017-02-11T04:41:08.247Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/wiki/python3-more.html</loc>
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
@@ -337,15 +337,15 @@
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
+    <loc>http://hahack.com/wiki/oc-source-organize.html</loc>
+    <lastmod>2017-02-11T04:41:08.247Z</lastmod>
+  </url>
+  <url>
     <loc>http://hahack.com/wiki/oc-oop.html</loc>
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
     <loc>http://hahack.com/wiki/oc-memory.html</loc>
-    <lastmod>2017-02-11T04:41:08.247Z</lastmod>
-  </url>
-  <url>
-    <loc>http://hahack.com/wiki/oc-source-organize.html</loc>
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
@@ -357,11 +357,11 @@
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/linux-pacman.html</loc>
+    <loc>http://hahack.com/wiki/linux-trouble-shooting.html</loc>
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/linux-trouble-shooting.html</loc>
+    <loc>http://hahack.com/wiki/linux-pacman.html</loc>
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
@@ -377,7 +377,7 @@
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/elisp-eval.html</loc>
+    <loc>http://hahack.com/wiki/cpp-exception.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -405,11 +405,11 @@
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/go-datatype.html</loc>
+    <loc>http://hahack.com/wiki/go-basic.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/go-control-flow.html</loc>
+    <loc>http://hahack.com/wiki/go-datatype.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -421,15 +421,15 @@
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/go-basic.html</loc>
-    <lastmod>2017-02-11T04:41:08.243Z</lastmod>
-  </url>
-  <url>
-    <loc>http://hahack.com/wiki/cpp-intro.html</loc>
+    <loc>http://hahack.com/wiki/go-control-flow.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
     <loc>http://hahack.com/wiki/cpp-function.html</loc>
+    <lastmod>2017-02-11T04:41:08.243Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/wiki/cpp-intro.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -441,11 +441,11 @@
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/cpp-snippets.html</loc>
+    <loc>http://hahack.com/wiki/cpp-standard-io.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/cpp-standard-io.html</loc>
+    <loc>http://hahack.com/wiki/cpp-snippets.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -453,15 +453,19 @@
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/cpp-template.html</loc>
-    <lastmod>2017-02-11T04:41:08.243Z</lastmod>
-  </url>
-  <url>
     <loc>http://hahack.com/wiki/database-mysql-exams.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
+    <loc>http://hahack.com/wiki/cpp-template.html</loc>
+    <lastmod>2017-02-11T04:41:08.243Z</lastmod>
+  </url>
+  <url>
     <loc>http://hahack.com/wiki/database-mysql.html</loc>
+    <lastmod>2017-02-11T04:41:08.243Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/wiki/elisp-control-flow.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -473,7 +477,7 @@
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/elisp-control-flow.html</loc>
+    <loc>http://hahack.com/wiki/elisp-eval.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -493,11 +497,11 @@
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/git-commit-template.html</loc>
+    <loc>http://hahack.com/wiki/git-branch.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/git-branch.html</loc>
+    <loc>http://hahack.com/wiki/git-commit-template.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -513,19 +517,11 @@
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/cpp-exception.html</loc>
-    <lastmod>2017-02-11T04:41:08.243Z</lastmod>
-  </url>
-  <url>
-    <loc>http://hahack.com/wiki/cpp-container.html</loc>
+    <loc>http://hahack.com/wiki/android_tables.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/c-unit-test.html</loc>
-    <lastmod>2017-02-11T04:41:08.239Z</lastmod>
-  </url>
-  <url>
-    <loc>http://hahack.com/wiki/c-style.html</loc>
+    <loc>http://hahack.com/wiki/algorithms-analysis.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
@@ -533,7 +529,15 @@
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
+    <loc>http://hahack.com/wiki/c-style.html</loc>
+    <lastmod>2017-02-11T04:41:08.239Z</lastmod>
+  </url>
+  <url>
     <loc>http://hahack.com/wiki/c-snippets.html</loc>
+    <lastmod>2017-02-11T04:41:08.239Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/wiki/c-pre.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
@@ -541,7 +545,7 @@
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/c-pre.html</loc>
+    <loc>http://hahack.com/wiki/c-io.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
@@ -554,10 +558,6 @@
   </url>
   <url>
     <loc>http://hahack.com/wiki/c-linker.html</loc>
-    <lastmod>2017-02-11T04:41:08.239Z</lastmod>
-  </url>
-  <url>
-    <loc>http://hahack.com/wiki/c-io.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
@@ -645,7 +645,7 @@
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/algorithms-analysis.html</loc>
+    <loc>http://hahack.com/wiki/c-unit-test.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
@@ -657,7 +657,7 @@
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/android_tables.html</loc>
+    <loc>http://hahack.com/wiki/cpp-container.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
@@ -665,7 +665,7 @@
     <lastmod>2017-02-11T04:41:08.235Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/categories/index.html</loc>
+    <loc>http://hahack.com/tools/wechat/</loc>
     <lastmod>2017-02-11T04:41:08.107Z</lastmod>
   </url>
   <url>
@@ -677,11 +677,15 @@
     <lastmod>2017-02-11T04:41:08.107Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/tools/wechat/</loc>
+    <loc>http://hahack.com/categories/index.html</loc>
     <lastmod>2017-02-11T04:41:08.107Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/codes/hexo-theme-freemind/</loc>
+    <loc>http://hahack.com/codes/local-search-engine-for-hexo/</loc>
+    <lastmod>2017-02-11T04:41:08.103Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/life/video-released/</loc>
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
@@ -689,15 +693,11 @@
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/codes/ruhoh-toc/</loc>
-    <lastmod>2017-02-11T04:41:08.103Z</lastmod>
-  </url>
-  <url>
     <loc>http://hahack.com/life/teaching-pascal/</loc>
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/tools/org-beamer-cn/</loc>
+    <loc>http://hahack.com/codes/ruhoh-toc/</loc>
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
@@ -705,11 +705,11 @@
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/codes/opengl-on-archlinux/</loc>
+    <loc>http://hahack.com/tools/org-beamer-cn/</loc>
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/codes/openframeworks-intro/</loc>
+    <loc>http://hahack.com/codes/opengl-on-archlinux/</loc>
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
@@ -729,7 +729,7 @@
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/codes/local-search-engine-for-hexo/</loc>
+    <loc>http://hahack.com/codes/openframeworks-intro/</loc>
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
@@ -761,7 +761,7 @@
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/life/video-released/</loc>
+    <loc>http://hahack.com/codes/hexo-theme-freemind/</loc>
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
@@ -781,11 +781,15 @@
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/tools/dockerize-your-hexo/</loc>
+    <loc>http://hahack.com/tools/a-fantastic-usage/</loc>
     <lastmod>2017-02-11T04:41:08.099Z</lastmod>
   </url>
   <url>
     <loc>http://hahack.com/codes/from-ruhoh-to-hexo/</loc>
+    <lastmod>2017-02-11T04:41:08.099Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/codes/extempore-intro/</loc>
     <lastmod>2017-02-11T04:41:08.099Z</lastmod>
   </url>
   <url>
@@ -813,7 +817,7 @@
     <lastmod>2017-02-11T04:41:08.099Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/codes/extempore-intro/</loc>
+    <loc>http://hahack.com/tools/dockerize-your-hexo/</loc>
     <lastmod>2017-02-11T04:41:08.099Z</lastmod>
   </url>
   <url>
@@ -821,11 +825,11 @@
     <lastmod>2017-02-11T04:41:08.099Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/reading/ann2/</loc>
+    <loc>http://hahack.com/reading/ann1/</loc>
     <lastmod>2017-02-11T04:41:08.099Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/reading/ann1/</loc>
+    <loc>http://hahack.com/reading/ann2/</loc>
     <lastmod>2017-02-11T04:41:08.099Z</lastmod>
   </url>
   <url>
@@ -838,10 +842,6 @@
   </url>
   <url>
     <loc>http://hahack.com/tools/abbreviation-on-emacs/</loc>
-    <lastmod>2017-02-11T04:41:08.099Z</lastmod>
-  </url>
-  <url>
-    <loc>http://hahack.com/tools/a-fantastic-usage/</loc>
     <lastmod>2017-02-11T04:41:08.099Z</lastmod>
   </url>
 </urlset>
