@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-07-15T16:09:50.131Z</updated>
+  <updated>2017-07-15T16:19:38.771Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/"/>
     <id>http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/</id>
     <published>2017-07-15T11:42:22.000Z</published>
-    <updated>2017-07-15T16:08:41.212Z</updated>
+    <updated>2017-07-15T16:19:16.227Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p><a href="http://github.com/wzpan/dingdang-robot" target="_blank" rel="external">dingdang-robot</a> （以下简称“叮当”），是我在今年5月20号开源的一个中文智能音箱项目。</p>
 <p>起初，我只是抱着一个好玩的心态做这个项目，并不期望这个项目能得到多少关注。然而，随着 QQ 用户群人数的不断壮大，越来越多的朋友安装了叮当，并且真正将它投入在了日常的使用上。很多朋友也提出了各种好玩的建议、想法，甚至为叮当贡献了插件或者捐赠了这个项目，让我觉得这个项目是很有价值的，也让我知道，我能做的还有很多东西。因此，我并不是开源了叮当之后就撒手不管了，而是利用业余时间不断完善叮当，又陆续发布了 8 个小版本，使得叮当在响应速度和功能丰富程度上都有了很大提升：</p>
@@ -108,7 +108,9 @@
 </tbody>
 </table>
 <h2 id="开发心得">开发心得</h2>
-<p>下面说说开发心得。小米的智能家电使用的是 miio 协议。在编写这个插件之前，我先试用了 <a href="https://github.com/homeassistantchina" target="_blank" rel="external">@homeassistantchina</a> 提供的 HomeAssistant 的智米风扇插件 <a href="https://github.com/homeassistantchina/custom_components/blob/master/custom_components/fan/smart_mi_fan.py" target="_blank" rel="external">smart_mi_fan.py</a>，通过阅读这个插件，我发现这个插件依赖了一个封装了 miio 协议的 Python 3 的库 python-miio 。阅读源码，可以发现这个库就是通过 socket 来实现和家电的通讯的。整个发送消息的逻辑写成了一个 <code>send</code> 函数：</p>
+<p>下面说说开发心得。小米的智能家电使用的是 miio 协议。在编写这个插件之前，我先试用了 <a href="https://github.com/homeassistantchina" target="_blank" rel="external">@homeassistantchina</a> 提供的 HomeAssistant 的智米风扇插件 <a href="https://github.com/homeassistantchina/custom_components/blob/master/custom_components/fan/smart_mi_fan.py" target="_blank" rel="external">smart_mi_fan.py</a>，这个插件在 HomeAssistant 里头的体验非常不错：</p>
+<p><img src="/images/use-dingdang-to-control-smart-mi-fan/smart-mi-fan-hass.png" alt="HASS的智米风扇插件"></p>
+<p>通过阅读这个插件，我发现这个插件依赖了一个封装了 miio 协议的 Python 3 的库 python-miio 。阅读源码，可以发现这个库就是通过 socket 来实现和家电的通讯的。整个发送消息的逻辑写成了一个 <code>send</code> 函数：</p>
 <p><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">send</span><span class="params">(self, command, parameters=None)</span></span></div></pre></td></tr></table></figure></p>
 <p>使用这个函数非常简单，只需要传入要发送的指令即可。</p>
 <p>通过阅读 <code>smart_mi_fan.py</code> 的源码，不难发现 miio 的指令主要是两个类型：</p>
