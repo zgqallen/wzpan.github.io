@@ -130,6 +130,34 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Apr 12 2017 </div>
+			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-4/" title="本文将介绍如何利用 Gitlab API 实现一套简单灵活的数据同步机制，从而实现在多个 Gitlab 站点间同步数据。">化繁为简的企业级 Git 管理实战（四）：多 Gitlab 数据同步</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/work/enterprise-class-git-version-control-4/"><img src="/images/enterprise-class-git-version-control-4/sync.jpg" alt="化繁为简的企业级 Git 管理实战（四）：多 Gitlab 数据同步"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="需求描述">需求描述</h2>
+<p>在继续写数学系列前，我想切回去之前的 Git 系列写点东西。我想写系列文章也可以像操作系统的进程调度一样，一个系列暂时写不动了，先 <q>保存现场</q> 跳去另一个 topic 写点东西，同时也给自己留点 buffer 再酝酿一下这个暂时 <q>中断</q> 的系列。等这个系列酝酿够了，再 <q>恢复现场</q> ，继续还这个系列的技术债。</p>
+<p>对于一个规模较大的企业，存在多个 Gitlab 站点是很常见的事情。</p>
+<p>比如，我们团队在公司发布统一的 Gitlab 之前早已经搭了一个团队用的 Gitlab ，当公司开始推 Git 时，由于我们已经对自己团队的 Gitlab 做了大量的定制，因此并不打算迁移到公司的 Gitlab 。</p>
+<p>自己搭建 Gitlab 的好处是可以随心所欲的进行定制，像加远程钩子之类的东西想加就加。但缺点就是平台的维护成本也落到了自己身上。相比之下，公司 Gitlab 则没有什么维护成本，服务的稳定性由更专业的运维人员保证，也不用考虑扩容的问题，但灵活定制就别想了。如果能够实现 Gitlab 间的数据自动同步，我们可以没有顾忌的使用自己的 Gitlab 平台，一旦出现问题，再无痛迁移到公司的 Gitlab 。这样一方面避免了单点问题，节省了维护成本；另一方面也能尽可能保证灵活可定制。本文想讨论的就是多个 Gitlab 站点间的数据同步问题。</p>
+	  
+       
+   </ul>
+   <a data-pjax href="/work/enterprise-class-git-version-control-4/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Feb 12 2017 </div>
 			<div class="article-title"><a data-pjax href="/math/math-linear-algebra-graded/" title="本篇是线性代数子系列的最终篇，结合 Python 实践，概括总结了阶梯形矩阵、线性子空间、最小二乘逼近和特征向量的基础知识点。">机器学习的数学基础：线性代数进阶篇</a></div>			
 		</h3>
@@ -247,34 +275,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Apr 21 2016 </div>
-			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-2/" title="在本篇文章中，我仔细讨论了对子模块进行持续集成的三种方案，并利用自动化手段实现逐层往上提交子模块 commit id 从而触发主工程构建。这些构建结果为我们快速定位工程的编译问题提供了重要的线索。">化繁为简的企业级 Git 管理实战（二）：多分支子模块持续集成</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/work/enterprise-class-git-version-control-2/"><img src="/images/enterprise-class-git-version-control-2/ci.jpg" alt="化繁为简的企业级 Git 管理实战（二）：多分支子模块持续集成"  class="nofancybox"></a></div>
-    
-    
-      <h2 id="需求描述">需求描述</h2>
-<p>在 <a href="/work/enterprise-class-git-version-control-1/">上一篇文章</a> 中，我简单描述了我们一个项目的复杂程度：子模块、嵌套子模块、多分支。除了工程分支切换上的复杂，我们还遇到另一个问题：子模块持续集成。</p>
-<h2 id="主工程持续集成">主工程持续集成</h2>
-<p>先说说主工程如何做持续集成。我们使用 Gitlab 自带的 <a href="https://about.gitlab.com/gitlab-ci/" target="_blank" rel="external">Gitlab-Ci</a> 作为我们的持续集成系统。Android 端的主工程的持续集成脚本如下：</p>
-<p><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">build:</div><div class="line">  tags:</div><div class="line">    -<span class="ruby"> android</span></div><div class="line">  script:</div><div class="line">    -<span class="ruby"> ./fmanager checkout -f <span class="variable">$CI_BUILD_REF_NAME</span></span></div><div class="line">    -<span class="ruby"> ./fmanager update</span></div><div class="line">    -<span class="ruby"> gradle clean</span></div><div class="line">    -<span class="ruby"> gradle aR</span></div></pre></td></tr></table></figure></p>
-<p>其中， <code>CI_BUILD_REF_NAME</code> 指定要编译哪个分支的主工程。当我们推送代码到某个分支时，该分支下的持续集成脚本就会被调用，<code>CI_BUILD_REF_NAME</code> 变量就会是那个分支的名字。在执行构建前，先用 fmanager 完成主工程和所有模块的分支切换 ，之后再用 fmanager 更新整个项目的代码。最后再执行编译指令。 	  
-       
-   </ul>
-   <a data-pjax href="/work/enterprise-class-git-version-control-2/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -333,7 +333,7 @@
 		<h4>Categories</h4>
 		<ul class="tag_box inline">
 		
-			<li><a href="/categories/codes/">codes<span>31</span></a></li>
+			<li><a href="/categories/codes/">codes<span>32</span></a></li>
 		
 			<li><a href="/categories/life/">life<span>5</span></a></li>
 		
@@ -356,45 +356,45 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
-				   
-			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
-				   
-			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
-				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
-				   
-			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
-				   
-			<li><a href="/tags/K350/">K350<span>1</span></a></li>
-				   
-			<li><a href="/tags/video/">video<span>6</span></a></li>
-				   
-			<li><a href="/tags/CI/">CI<span>1</span></a></li>
-				   
-			<li><a href="/tags/Matrix/">Matrix<span>1</span></a></li>
-				   
-			<li><a href="/tags/Disqus/">Disqus<span>1</span></a></li>
-				   
-			<li><a href="/tags/Logitech/">Logitech<span>1</span></a></li>
-				   
-			<li><a href="/tags/Graphics/">Graphics<span>1</span></a></li>
-				   
-			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
-				   
-			<li><a href="/tags/npm/">npm<span>1</span></a></li>
-				   
-			<li><a href="/tags/TikZ/">TikZ<span>1</span></a></li>
+			<li><a href="/tags/emacs/">emacs<span>6</span></a></li>
 				   
 			<li><a href="/tags/koding/">koding<span>1</span></a></li>
 				   
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+				   
 			<li><a href="/tags/CLI/">CLI<span>1</span></a></li>
 				   
-			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 				   
-			<li><a href="/tags/Flyspell/">Flyspell<span>1</span></a></li>
+			<li><a href="/tags/Javascript/">Javascript<span>4</span></a></li>
 				   
-			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
+			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
+				   
+			<li><a href="/tags/OSF/">OSF<span>1</span></a></li>
+				   
+			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
+				   
+			<li><a href="/tags/SCNUThesis/">SCNUThesis<span>1</span></a></li>
+				   
+			<li><a href="/tags/pandoc/">pandoc<span>1</span></a></li>
+				   
+			<li><a href="/tags/highlight/">highlight<span>1</span></a></li>
+				   
+			<li><a href="/tags/xml/">xml<span>1</span></a></li>
+				   
+			<li><a href="/tags/Disqus/">Disqus<span>1</span></a></li>
+				   
+			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
+				   
+			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
+				   
+			<li><a href="/tags/CI/">CI<span>1</span></a></li>
+				   
+			<li><a href="/tags/Vector/">Vector<span>1</span></a></li>
+				   
+			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
+				   
+			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
 		
 		<li><a href="/tags">...<span>85</span></a></li>
 		</ul>

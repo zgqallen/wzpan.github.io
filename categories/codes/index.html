@@ -127,6 +127,43 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Jul 15 2017 </div>
+			<div class="article-title"><a data-pjax href="/codes/use-dingdang-to-control-smart-mi-fan/" title="作为一个完全开源的智能音箱项目，叮当也能够很方便的接入其他智能家电，并声控它们。本文将介绍如何使用叮当声控智米电风扇。">使用叮当声控智米电风扇</a></div>			
+		</h3>
+	
+
+
+		<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/use-dingdang-to-control-smart-mi-fan/"><img src="/images/use-dingdang-to-control-smart-mi-fan/smart-mi-fan.jpg" alt="使用叮当声控智米电风扇"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="前言">前言</h2>
+<p><a href="http://github.com/wzpan/dingdang-robot" target="_blank" rel="external">dingdang-robot</a> （以下简称“叮当”），是我在今年5月20号开源的一个中文智能音箱项目。</p>
+<p>起初，我只是抱着一个好玩的心态做这个项目，并不期望这个项目能得到多少关注。然而，随着 QQ 用户群人数的不断壮大，越来越多的朋友安装了叮当，并且真正将它投入在了日常的使用上。很多朋友也提出了各种好玩的建议、想法，甚至为叮当贡献了插件或者捐赠了这个项目，让我觉得这个项目是很有价值的，也让我知道，我能做的还有很多东西。因此，我并不是开源了叮当之后就撒手不管了，而是利用业余时间不断完善叮当，又陆续发布了 8 个小版本，使得叮当在响应速度和功能丰富程度上都有了很大提升：</p>
+<ul>
+<li>自 v0.1.1 起，邮件通知也增加了 echo 功能，用户可以发送带 <code>[echo]</code> 前缀的邮件给叮当接入的邮箱，从而实现让叮当朗读标题的消息，而不是提醒有新的邮件。利用这个功能，可以很方便地和 ifttt 结合，当满足某个条件时让图灵通知这个事件。例如，我将 ifttt 的 <a href="https://ifttt.com/date_and_time" target="_blank" rel="external">Date &amp; Time</a> 触发器和 <a href="https://ifttt.com/email" target="_blank" rel="external">Email</a> 做了联动，实现定时在每天晚上 11 点发送邮件通知我睡觉；</li>
+<li>自 v0.1.2 起，叮当的响应速度有了很大提升；</li>
+<li>v0.1.3 增加了 snowboy 离线唤醒 STT 引擎，目前有 PocketSphinx 和 snowboy 两套离线唤醒引擎可供选择；</li>
+<li>v0.1.4 增加了 SendQR 插件，可以让叮当将微信的登录二维码发送到邮箱。<a href="https://github.com/hhao" target="_blank" rel="external">@hhao</a> 也给叮当写了个可以获取二维码图片文件的服务器插件。另外，邮箱增加了 <code>[control]</code> 前缀支持，用户可以发送带 <code>[control]</code> 前缀标题的邮件，该标题里的内容会被当成一句指令交给叮当执行，从而实现类似微信的远程控制叮当的功能；</li>
+<li>v0.1.5 开始，可以微信控制音乐播放了；</li>
+<li>v0.1.7 开始，所有插件都可以通过在插件配置里头通过 <code>enable</code> 选项开关；</li>
+<li>叮当的官方+第三方插件数量由 6 个增加到了 13 个。</li>
+</ul>
+<p>除了完善已有的功能，我也正试图让叮当往智能家电控制中心的方向上发展。</p>
+<p>如今很多智能音箱除了用来听歌对话之外，还扮演了家庭中的一个控制中心的角色。不过，由于各家采用的接入协议有所区别，A 家的智能家电并不见得能得到 B 家的智能音箱的支持。而由于叮当是开源的项目，对其进行定制，接入控制家电所需的协议，那么使用它实现声控大部分的智能家电是完全可能的。今天我就分享一下如何用叮当控制智米电风扇。</p>
+	  
+       
+   </ul>
+   <a data-pjax href="/codes/use-dingdang-to-control-smart-mi-fan/#more" class="btn more">Read More</a>
+</div>    
+
+	
+		
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Jul 2 2017 </div>
 			<div class="article-title"><a data-pjax href="/codes/comment-js/" title="介绍我用纯JS实现的一个静态站点评论系统，以及实现过程中的心得体会。">Comment.js：一个纯JS实现的静态站点评论系统</a></div>			
 		</h3>
@@ -233,31 +270,6 @@
 </div>    
 
 	
-		
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Oct 17 2015 </div>
-			<div class="article-title"><a data-pjax href="/codes/learn-react-native-for-android-01/" title="学习 React Native for Android 的开发环境搭建。">学习 React Native for Android：环境搭建</a></div>			
-		</h3>
-	
-
-
-		<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/learn-react-native-for-android-01/"><img src="/images/learn-react-native-for-android-01/react-native.jpg" alt="学习 React Native for Android：环境搭建"  class="nofancybox"></a></div>
-    
-    
-      <p>Facebook 于 2015 年 9 月 15 日发布了 React Native for Android 。React Native 让开发者使用 JavaScript 和 React 编写应用，利用相同的核心代码就可以创建 Web，iOS 和 Android 平台的原生应用。注意这里的 <q>核心</q> 两个词，它指的是那些底层的、与界面无关的逻辑。与 ionic / PhoneGap 这类 Web App 开发框架不同，React Native 主张使用 React 的开发方式来开发 Native 应用，因为在现阶段 Web App 还无法达到 Native App 的体验。所以，React Native 并不强调 <q>write Once, run everywhere</q> ，而是 <q>learn once, write everywhere</q> ：上层使用 JS 和 React 开发不同平台的 UI，下层则可以编写能够复用的核心代码，从而大幅提高开发效率。</p>
-<p>关于 React Native 的好处，唐巧在 《<a href="http://blog.devtang.com/blog/2015/02/01/talk-about-react-native/" target="_blank" rel="external">谈谈 React Native</a>》 里已经有比较深刻的总结，本文不再赘述。本文将作为一个 React Native for Android 学习系列的一个开篇，从零开始学习 React Native 。我尽量不偷懒，保证文章及时更新。</p>
-	  
-       
-   </ul>
-   <a data-pjax href="/codes/learn-react-native-for-android-01/#more" class="btn more">Read More</a>
-</div>    
-
-	
 	</div>
 	<div>
 	<center>
@@ -295,6 +307,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/codes/use-dingdang-to-control-smart-mi-fan/"  title="作为一个完全开源的智能音箱项目，叮当也能够很方便的接入其他智能家电，并声控它们。本文将介绍如何使用叮当声控智米电风扇。" ><i class="fa fa-file-o"></i>使用叮当声控智米电风扇</a>
+      </li>
+    
+      <li>
         <a href="/codes/comment-js/"  title="介绍我用纯JS实现的一个静态站点评论系统，以及实现过程中的心得体会。" ><i class="fa fa-file-o"></i>Comment.js：一个纯JS实现的静态站点评论系统</a>
       </li>
     
@@ -308,10 +324,6 @@
     
       <li>
         <a href="/work/enterprise-class-git-version-control-5/"  title="二进制大文件的版本控制是 Git 的一个弱项，也是很多团队难免会遇到的一个让人头痛的问题。本文将介绍我们使用 Git 进行二进制文件的版本控制的多种方案，以及相关的踩坑之旅。" ><i class="fa fa-file-o"></i>化繁为简的企业级 Git 管理实战（五）：二进制大文件...</a>
-      </li>
-    
-      <li>
-        <a href="/work/enterprise-class-git-version-control-4/"  title="本文将介绍如何利用 Gitlab API 实现一套简单灵活的数据同步机制，从而实现在多个 Gitlab 站点间同步数据。" ><i class="fa fa-file-o"></i>化繁为简的企业级 Git 管理实战（四）：多 Gitl...</a>
       </li>
     
   </ul>
