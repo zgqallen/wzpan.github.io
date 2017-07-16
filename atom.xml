@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-07-16T01:58:55.260Z</updated>
+  <updated>2017-07-16T02:03:13.511Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/"/>
     <id>http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/</id>
     <published>2017-07-15T11:42:22.000Z</published>
-    <updated>2017-07-16T01:58:31.259Z</updated>
+    <updated>2017-07-16T02:02:56.696Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p><a href="http://github.com/wzpan/dingdang-robot" target="_blank" rel="external">dingdang-robot</a> （以下简称“叮当”），是我在今年5月20号开源的一个中文智能音箱项目。</p>
 <p>起初，我只是抱着一个好玩的心态做这个项目，并不期望这个项目能得到多少关注。然而，随着 QQ 用户群人数的不断壮大，越来越多的朋友安装了叮当，并且真正将它投入在了日常的使用上。很多朋友也提出了各种好玩的建议、想法，甚至为叮当贡献了插件或者捐赠了这个项目，让我觉得这个项目是很有价值的，也让我知道，我能做的还有很多东西。因此，我并不是开源了叮当之后就撒手不管了，而是利用业余时间不断完善叮当，又陆续发布了 8 个小版本，使得叮当在响应速度和功能丰富程度上都有了很大提升：</p>
@@ -33,7 +33,7 @@
 <p>如今很多智能音箱除了用来听歌对话之外，还扮演了家庭中的一个控制中心的角色。不过，由于各家采用的接入协议有所区别，A 家的智能家电并不见得能得到 B 家的智能音箱的支持。而由于叮当是开源的项目，对其进行定制，接入控制家电所需的协议，从而实现声控大部分的智能家电是完全可能的。今天我就分享一下如何用叮当控制智米电风扇。</p>
 <a id="more"></a>
 <h2 id="智米风扇声控插件">智米风扇声控插件</h2>
-<p>先上视频。这个视频演示了使用叮当实现对智米风扇的电源开关、摇头开关、自然风开关、风量调节预约关机的声控：</p>
+<p>先上视频。这个视频演示了使用叮当实现对智米风扇的电源开关、摇头开关、自然风开关、风量调节、预约关机的声控：</p>
 <p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>使用手机阅读本文的用户，如果看不到视频，可以点击<a href="http://www.miaopai.com/show/1NZnXdBMryZsDvyshBNdoPHNBHUHTEjW.html" target="_blank" rel="external">这个链接</a>前往观看。</p>
 </div></p>
 <p><embed src="http://player.youku.com/player.php/sid/XMjg5NDAwOTUxMg==/v.swf" allowfullscreen="true" quality="high" width="480" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash"></p>
