@@ -236,7 +236,7 @@
 <h2 id="开发心得">开发心得</h2>
 <p>下面说说开发心得。小米的智能家电使用的是 miio 协议。在编写这个插件之前，我先试用了 <a href="https://github.com/homeassistantchina" target="_blank" rel="external">@homeassistantchina</a> 提供的 HomeAssistant 的智米风扇插件 <a href="https://github.com/homeassistantchina/custom_components/blob/master/custom_components/fan/smart_mi_fan.py" target="_blank" rel="external">smart_mi_fan.py</a>，这个插件在 HomeAssistant 里头的体验非常不错：</p>
 <p><img src="/images/use-dingdang-to-control-smart-mi-fan/smart-mi-fan-hass.png" alt="HASS的智米风扇插件"></p>
-<p>通过阅读这个插件，我发现这个插件依赖了一个封装了 miio 协议的 Python 3 的库 python-miio 。阅读源码，可以发现这个库就是通过 socket 来实现和家电的通讯的。整个发送消息的逻辑写成了一个 <code>send</code> 函数：</p>
+<p>通过阅读这个插件，我发现这个插件依赖了一个封装了 miio 协议的 Python 3 的库 python-miio 。再阅读 python-miio 的源码，可以发现这个库就是通过 socket 来实现和家电的通讯的。整个发送消息的逻辑写成了一个 <code>send</code> 函数：</p>
 <p><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">send</span><span class="params">(self, command, parameters=None)</span></span></div></pre></td></tr></table></figure></p>
 <p>使用这个函数非常简单，只需要传入要发送的指令即可。</p>
 <p>通过阅读 <code>smart_mi_fan.py</code> 的源码，不难发现 miio 的指令主要是两个类型：</p>
