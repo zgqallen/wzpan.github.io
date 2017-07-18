@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-07-18T10:41:55.580Z</updated>
+  <updated>2017-07-18T12:43:39.416Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,37 +16,37 @@
     <link href="http://hahack.com/work/my-2-years-at-pingan/"/>
     <id>http://hahack.com/work/my-2-years-at-pingan/</id>
     <published>2017-07-17T07:00:20.000Z</published>
-    <updated>2017-07-18T10:02:23.000Z</updated>
+    <updated>2017-07-18T12:42:05.514Z</updated>
     <content type="html"><![CDATA[<p>记得我是 2015 年 5 月 20 日离开的百度，次日就来到了平安。当时平安的这个团队叫做移动开发二队。在百度的最后一天，我在朋友圈发了张合照，写了句“再见，我爱你”。很多人不理解我为什么在百度干了一年就走了，而且去的是平安这个并不以技术见长的公司。其实原因很简单：跟对的团队做对的事情。</p>
-<p>“对的事情”指的是平安这边正面临技术转型期，会有大量的技术需求可以放手去做。而过去那边的首要任务是开发完善底层的技术框架，有机会接触比较核心的技术，这对我的技术成长很有好处。</p>
+<p>“对的事情”指的是平安这边正面临技术转型期，会有大量的技术需求可以放手去做。而过去平安那边的首要任务是开发完善底层的技术框架，有机会接触比较核心的技术，这对我的技术成长很有好处。</p>
 <p>“对的团队”指的是因为我对平安这个团队的了解。平安那边的老大锋哥也是原先我们百度 LBS 团队的研发 leader，而 leader 定一也是之前在百度的时候合作非常愉快的一个同事。再加上鑫哥 <a href="http://www.jianshu.com/u/4ef984470da8" target="_blank" rel="external">@ASCE1985</a> 每周一更的技术周报，让我觉得这个团队是非常尊重技术的团队，而我过去应该能有更多发挥的机会。</p>
 <p>于是，在锋哥的几次劝说下，我来到了平安。时间过得很快，一转眼的功夫，我也已经在平安待了两年的时间。从团队初建，到发展壮大，我和这个团队携手共同成长。对平安，对金融壹账通，对这个团队，我有说不尽的感激。如今我即将告别平安，走向一段新的旅程。在启程之前，我想对这两年走过的路做一个回顾。</p>
-<p>我这两年的工作基本是两条线的思路：主线任务保证做得漂亮，然后做主动从日常工作中找问题和需求，做点分支任务。</p>
+<p>我这两年的工作基本是两条线的思路：主线任务保证做得漂亮，然后做主动从日常工作中找问题和需求，做点支线任务。</p>
 <a id="more"></a>
 <h2 id="2015年秋">2015年秋</h2>
 <h3 id="主线：离线缓存">主线：离线缓存</h3>
-<p>我刚去平安的时候就被安排去做应用端的离线缓存。那时候我们的手机应用里有大量的 H5 页面，在线加载非常耗时。而我在这之前其实并没有移动开发的经验，而这么重要的一个框架功能全权交给我去设计和实现，心里还是没底的。所幸平安的入职流程很长，十天半个月都拿不到账号上不到网，所以 leader 也没指望我很快能完成这个项目。于是我刚去的头两个月自己一个人保持了 997 的全勤，拼命恶补移动端的开发知识。当时腾讯的 AlloyKit 提出了一种比较理想的 H5 离线缓存的方案，页面静态资源通过打包 APK 的方式解决了首次加载问题，另外还允许更新这些缓存资源。我们就在这个想法的基础上结合团队的实际需要进行设计和完善，在这段期间，我和定一以及后台的同事马文经常会在细节上展开讨论，从基本的流程、包管理、插件ID分配、自动打包、资源加密等方面都进行了认真的思考和设计。大概两个月后，我们的离线缓存就正式上线了，插件的加载速度和以前相比有了质的提升，得到了团队的认可。我拿着这个第一次参加了公司的 3A 论坛技术峰会，认识了公司里头来自不同团队的大佬。</p>
+<p>我刚去平安的时候就被安排去做应用端的离线缓存。那时候我们的手机应用里有大量的 H5 页面，在线加载非常耗时。而我在这之前其实并没有移动开发的经验，这么重要的一个框架功能全权交给我去设计和实现，心里还是没底的。所幸平安的入职流程很长，十天半个月都拿不到账号上不到网，所以 leader 也没指望我很快能完成这个项目。于是我刚去的头两个月自己一个人保持了 997 的全勤，拼命恶补移动端的开发知识。当时腾讯的 AlloyKit 提出了一种比较理想的 H5 离线缓存的方案，页面静态资源通过打包 APK 的方式解决了首次加载问题，另外还允许更新这些缓存资源。我就在这个想法的基础上结合团队的实际需要进行设计和完善。在这段期间，我和定一以及后台的同事马文经常会在细节上展开讨论，从基本的流程、包管理、插件ID分配、自动打包、资源加密等方面都进行了认真的思考和设计。大概两个月后，我们的离线缓存就正式上线了，插件的加载速度和以前相比有了质的提升，得到了团队的认可。我拿着这个第一次参加了公司的 3A 论坛技术峰会，认识了公司里头来自不同团队的大佬。</p>
 <p><img src="/images/my-2-years-at-pingan/hfcache.png" alt="离线缓存"></p>
 <h3 id="支线">支线</h3>
-<p>在百度的期间我最大的收获在于对潜在的需求有着非常灵敏的嗅觉。当时的平安才刚面临技术转型，一些内部系统难免有不尽完善的地方，这对于来自 BAT 这类有着完善的内部系统的公司的同事而言很难适应。和大多数花时间吐槽环境的同事不同，我觉得这是一个好机会，这代表内部就有很多需求。所以，利用空余时间，我也做了一些“分支任务”，提高团队的效率。</p>
+<p>在百度的期间我最大的收获在于对潜在的需求有着非常灵敏的嗅觉。当时的平安才刚面临技术转型，一些内部系统难免有不尽完善的地方，这对于来自 BAT 这类有着完善的内部系统的公司的同事而言很难适应。和大多数花时间吐槽环境的同事不同，我觉得这是一个好机会，这代表内部就有很多需求。所以，利用空余时间，我也做了一些“支线任务”，提高团队的效率。</p>
 <h4 id="日报助手">日报助手</h4>
-<p>第一个让我们觉得麻烦的是每天的日报，科技要求我们每天写一篇日报，汇报当天的工作，并以此来作为确认考勤的依据。但实际的情况是，我们平常已经有展会来确认沟通每天工作了，日报便沦为了一种形式：填了没人看，但不填又影响考勤。所以我写了一个工具，在月底的时候跑一遍，就能一次性帮我们到日报平台上填写完整个月的日报，这样就节省了很多同事的时间。这个工具在内部一直工作良好，直到我们从科技独立出去，无需填写日报了才停止使用。</p>
+<p>第一个让我们觉得麻烦的是每天的日报，科技要求我们每天写一篇日报，汇报当天的工作，并以此来作为确认考勤的依据。但实际的情况是，我们平常已经通过站会来确认沟通每天的工作了，日报便沦为了一种形式：填了没人看，但不填又影响考勤。所以我写了一个工具，在月底的时候跑一遍，就能一次性帮我们到日报平台上填写完整个月的日报，这样就节省了很多同事的时间。这个工具在内部一直工作良好，直到我们从科技独立出去，无需填写日报了才停止使用。</p>
 <h4 id="wiki">Wiki</h4>
-<p>团队里头也没有像样的 Wiki 平台，所以我用 Gollum 搭了个 Wiki ，为了方便在文档中插图，又搭了一个相册平台，可以在上面上传照片并插到 Wiki 中。这两个平台一直使用到我们把代码由 SVN 切换到 Gitlab 时改用 Gitlab 的 Wiki 才结束服务。</p>
+<p>团队里头也没有像样的 Wiki 平台，所以我用 Gollum 搭了个 Wiki ，为了方便在文档中插图，我又搭了一个相册平台，可以在上面上传照片并插到 Wiki 中。这两个平台一直使用到我们把代码由 SVN 切换到 Gitlab 时改用 Gitlab 的 Wiki 才结束服务。</p>
 <p><img src="/images/my-2-years-at-pingan/wiki.png" alt="wiki"></p>
 <h4 id="任意门日志分析平台">任意门日志分析平台</h4>
-<p>当时我们有一个叫做“任意门”的项目，它的线上问题一直是使用 Excel 这种原始方式来跟进处理的，缺乏一个统一的问题跟进平台。而因为任意门是一个 SDK ，问题可能来自各种宿主应用，这些 Excel 报表的格式也有所不同，很影响问题的处理和定位。于是我又用了一个星期为任意门团队写了一个线上问题处理系统，可以导入 Excel 存到数据库中，然后提供一个报表页面展示问题的描述、堆栈信息、出现次数、处理情况、宿主ID等数据。这个平台给开发维护任意门的同事带来了很大的便利。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/my-2-years-at-pingan/prices.jpg" alt=" 这两年拿过的各种奖杯奖牌"><b>图 1</b>  这两年拿过的各种奖杯奖牌</span></span></span></p>
+<p>当时我们有一个叫做“任意门”的项目，它的线上问题一直是使用 Excel 这种原始方式来跟进处理的，缺乏一个统一的问题跟进平台。而因为任意门是一个 SDK ，问题可能来自各种宿主应用，这些 Excel 报表的格式也有所不同，很影响问题的处理和定位。于是我又用了一个星期为任意门团队写了一个线上问题处理系统，可以导入 Excel 存到数据库中，然后提供一个报表页面，用于展示问题的描述、堆栈信息、出现次数、处理情况、宿主ID等数据。这个平台给开发维护任意门的同事带来了很大的便利。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/my-2-years-at-pingan/prices.jpg" alt=" 这两年拿过的各种奖杯奖牌"><b>图 1</b>  这两年拿过的各种奖杯奖牌</span></span></span></p>
 <p><img src="/images/my-2-years-at-pingan/log-analysis.png" alt="日志分析平台"></p>
 <p>本份工作顺利完成，再加上一些工具和平台加成，我在刚去的第一个季度就拿了团队的杰出贡献奖，奖品是一部 iPhone 6S 。</p>
 <h2 id="2015年冬">2015年冬</h2>
 <h3 id="主线：rn热更新">主线：RN热更新</h3>
-<p>之后我们团队进行了业务的调整，大部分人（包括我）转去做银行一账通的项目，代号 F 项目。这个项目的目标就是低成本的生成中小银行的直销银行 APP ，可想而知这对核心框架的稳定性、可定制性和交付能力带来非常大的挑战。为了节省人力成本以及提高业务交付能力，我们经过评估后，决定采用 React Native 的开发模式，核心功能都尽量封装成 RN 层可调用的模块，另外通过 RN 热更新来提升业务交付能力。RN 热更新的设计和实现就成了我在平安的第二个季度的主线任务。</p>
-<p>当时 Android 版本的 RN 才刚刚发布，RN 热更新还处于尝试阶段，一开始的思路是使用反射修改 <code>PathClassLoader</code> 来修改 bundle 包的路径。自 v0.15.0 开始出现了 <code>ReactInstantManager</code> 新增了 <code>setJSBundleFile</code> ，可以在程序运行时执行 Bundle 包的位置，这就给实现热更新提供了更大的便利。RN 热更新本身技术倒没有什么特别的难度，后面出现的 Microsoft code-push 也给我们提供了有价值的参考。技术实现往往不是最困难的地方，最困难的地方是落地。我们花费了较多时间在热更新平台的增量更新、图片热更新、图片精度选择性下发、包版本管理、跨版本升级支持等问题上。一直做到年前，这个项目正式上线，为应用的运营能力提供了强有力的支持。凭借着 RN 热更新我也拿了一个公司的创新奖。</p>
+<p>之后我们团队进行了业务的调整，大部分人（包括我）转去做银行一账通的项目，代号 F 项目。这个项目的目标就是低成本地生成中小银行的直销银行 APP ，可想而知这对核心框架的稳定性、可定制性和交付能力带来非常大的挑战。为了节省人力成本以及提高业务交付能力，我们经过评估后，决定采用 React Native 的开发模式，核心功能都尽量封装成 RN 层可调用的模块，再通过 RN 热更新来提升业务交付能力。RN 热更新的设计和实现就成了我在平安的第二个季度的主线任务。</p>
+<p>当时 Android 版本的 RN 才刚刚发布，RN 热更新还处于尝试阶段，一开始的思路是使用反射修改 <code>PathClassLoader</code> 来修改 bundle 包的路径。v0.15.0 开始 <code>ReactInstantManager</code> 新增了 <code>setJSBundleFile</code> 方法，可以在程序运行时执行 Bundle 包的位置，这就给实现热更新提供了更大的便利。RN 热更新本身技术倒没有什么特别的难度，后面出现的 Microsoft code-push 也给我们提供了有价值的参考。不过，技术实现往往不是最困难的地方，最困难的地方是落地。我们花费了较多时间在热更新平台的增量更新、图片热更新、图片精度选择性下发、包版本管理、跨版本升级支持等问题上。一直做到年前，这个项目正式上线，为应用的运营能力提供了强有力的支持。凭借着 RN 热更新我也拿了一个公司的创新奖。</p>
 <p><img src="/images/my-2-years-at-pingan/rnupdate.jpg" alt="RN热更新"></p>
 <h3 id="支线-v2">支线</h3>
-<p>在第二个季度我从日常工作中找了一些问题，做了一些分支任务。</p>
+<p>在第二个季度我也照旧从日常工作中找了一些问题，做了一些支线任务。</p>
 <h4 id="百宝箱">百宝箱</h4>
-<p>第一个问题就是团队的文件共享问题。在 F 项目中，开发、测试、运营、产品需要经常共享 UED 、设计稿等文档。这些文件共享都是通过邮件的形式，而公司的邮件有附件大小限制，并且邮件只保留一个月的时间，超过这个时间的会被归档，只能从公司的邮件找回平台中去找。所以经常出现诸如附件找回困难、附件上传失败的问题。所以我在内网搭了一个网盘“百宝箱”，可以很方便的让各个成员在内网文档。这个网盘很快得到成为了团队文档交流的主要方式，直到公司推广了 Jira 才退出了历史。</p>
+<p>第一个问题就是团队的文件共享问题。在 F 项目中，开发、测试、运营、产品需要经常共享 UED 、设计稿等文档。这些文件共享都是通过邮件的形式，而公司的邮件有附件大小限制，并且邮件只保留一个月的时间，超过这个时间的会被归档，只能从公司的邮件找回平台中去找。所以经常出现诸如附件找回困难、附件上传失败的问题。所以我在内网搭了一个网盘“百宝箱”，可以很方便的让各个成员在内网共享文档。这个网盘很快得到成为了团队文档交流的主要方式，直到公司推广了 Jira 才退出了历史。</p>
 <p><img src="/images/my-2-years-at-pingan/treasure-box.png" alt="内部网盘"></p>
 <h4 id="星黎殿">星黎殿</h4>
 <p>第二个问题是我们内网上的平台越来越多，缺乏一个统一的门户站点。所以我和一个实习生写了一个内部门户“星黎殿”，这个门户收录了我们日常使用的各种站点平台，并提供检索功能。这样，只需要将这个门户保存到书签就相当于保存了所有常用的站点的书签了。</p>
@@ -58,8 +58,8 @@
 <p>另外我发现的一个需求是图书馆的管理。我们团队自己搞了个小型图书馆，采用的是人工管理图书借阅的方式。由于缺乏自动化，借出去的书除非定期轮询一下，否则很难知道哪些书已经到期该归还。所以我带着几个实习生写了个基于公司内部聊天工具“天下通”的聊天机器人“金科大白”，可以与它对话查询和借阅书籍，当书籍借阅到期时，将自动邮件通知还书。这个机器人也给后面我开发内部群管家机器人以及叮当机器人带来了灵感。</p>
 <p><img src="/images/my-2-years-at-pingan/manager.png" alt="金科大白"></p>
 <h4 id="二队网站">二队网站</h4>
-<p>年前我还带了两个实习生做了一个我们团队的内部网站，主要用来展示团队在做的东西，以及一些可以对外开放的文档。后来我们从科技独立了出去，原来的团队随即更名，这个项目就胎死腹中了。
-<img src="/images/my-2-years-at-pingan/site.png" alt="二队网站"></p>
+<p>年前我还带了两个实习生做了一个我们团队的内部网站，主要用来展示团队在做的东西，以及一些可以对外开放的文档。后来我们从科技独立了出去，原来的团队随即更名，这个项目就胎死腹中了。</p>
+<p><img src="/images/my-2-years-at-pingan/site.png" alt="二队网站"></p>
 <p>不过在这个过程中，我们却做了一个更有价值的东西。由于网站本身使用 Hexo 来编写，为了方便检索文档，我带着其中一个实习生写了个生成检索源的库 <a href="https://github.com/PaicHyperionDev/hexo-generator-search" target="_blank" rel="external">hexo-generator-search</a> 并开源在 Github 上。这个库后来成了一个非常流行的 Hexo 插件，NPM 月均下载量一度达到 2000 次/月。</p>
 <p>主线 + 支线双开，所以年底我被公司授予“一狼当先”创新员工奖。年底绩效沟通，leader 给我定级 A 档。</p>
 <h3 id="生活">生活</h3>
@@ -80,7 +80,7 @@
 <p>还有一个避不开的问题就是分支管理方案。因为我们的业务模型比较复杂，Git-Flow 和 Github-Flow 都无法满足我们的需求。而没有一个统一的分支方案，就好比没有一个成文的交通规则，老司机也开不了车。于是有很长一段时间，我们都聚在会议室里头激烈地讨论分支管理方案，见我的另一篇博文 《<a href="/work/enterprise-class-git-version-control-3/">化繁为简的企业级 Git 管理实战（三）：分支管理策略</a>》。这个过程虽然很痛苦，但是却很能够锻炼你的思维，以及考虑问题的完整程度。而且，你会感觉到你真正成为了团队里头一个领域的游戏规则的制定者，更加能感受到你对于这个团队的价值。</p>
 <p>到了年中，我们使用 Git 来管理代码已经非常稳定可靠，Git 的迁移可以说非常成功。我们也因此获得了团队的优秀项目奖。</p>
 <h4 id="三合一更新器">三合一更新器</h4>
-<p>在下半年，我终于有时间回归到客户端开发了。我们遇到一个需求是几种更新的弹窗抢占的问题。我们的 APP 已经包含了 Native 热修复、RN 热更新和 H5 离线缓存三个层级的更新能力。但这三种更新各自为政，可能发生弹窗抢占的问题。此外，几种依赖可能存在依赖关系，比如 RN 层的某个接口可能依赖 Native 层相应的改动。这时候如果 RN 先更新成功了，而 Native 端又修复失败，就会导致应用崩溃。所以我承担设计了三合一更新器，将三层的更新交由一个更新器来统一调度，三层更新都允许设置静默、建议、强制三种更新优先级，并在必要时刻允许对优先级进行提升。这个三合一更新器优化了用户的更新体验，也消除了三层更新没有同步完成导致应用崩溃的潜在隐患。</p>
+<p>在下半年，我终于有时间回归到客户端开发了。我们遇到一个问题是几种更新的弹窗抢占问题。我们的 APP 已经包含了 Native 热修复、RN 热更新和 H5 离线缓存三个层级的更新能力。但这三种更新各自为政，可能发生弹窗抢占，此外，几种依赖可能存在依赖关系：比如 RN 层的某个接口可能依赖 Native 层相应的改动，这时候如果 RN 先更新成功了，而 Native 端又修复失败，就会导致应用崩溃。所以我承担设计了三合一更新器，将三层的更新交由一个更新器来统一调度，三层更新都允许设置静默、建议、强制三种更新优先级，并在必要时刻允许对优先级进行提升。这个三合一更新器优化了用户的更新体验，也消除了三层更新没有同步完成导致应用崩溃的潜在隐患。</p>
 <h4 id="code-review-推动">Code Review 推动</h4>
 <p>除了三合一更新之外，下半年我们开始思考如何更好地引入 Code Review 来规范化我们的工作。</p>
 <p>在这之前，我已经通过 pre-commit 客户端钩子和 pre-receive 远程钩子来自动禁止了不规范的代码提交进我们的仓库。但代码风格只是最低层次的要求。有些代码本身的风格并没有问题，但是实现的思路与需求存在偏差，或者实现时对一些特殊情况欠考虑，这些 bad case 都无法通过静态分析的手段禁止提交，只能靠人工审核。所以，一个 Code Review 平台是很有必要的。</p>
@@ -98,7 +98,7 @@
 <ol>
 <li>把 Arcanist 集成进了 fmanager ，把常用的 diff、land 命令也变成了 fmanager 的子命令，降低了工具的学习成本；</li>
 <li>写了个 pre-commit 钩子，根据当前模块是否存在 .arcanist 文件判断是否接入了 Code Review，然后在 commit 前根据 commit message 判断当前 commit 是否已经过 review ，从而禁用未经 review 的代码提交；</li>
-<li>对 Code Review 记录做了跟踪和分析，评选出了有价值的 Review 记录并进行奖励。调用了大家参与 Review 的热情。</li>
+<li>对 Code Review 记录做了跟踪和分析，评选出了有价值的 Review 记录并进行奖励。调动了大家参与 Review 的热情。</li>
 </ol>
 <p>为了方便查询和自己相关的 Code Review 的进展，我还写了个 Alfred 的 Workflow，输入自己的账号即可查询所有相关的 Review 任务：</p>
 <p><img src="/images/my-2-years-at-pingan/workflow.png" alt="Phabricator Workflow"></p>
@@ -108,7 +108,7 @@
 <p>年初我发现团队里的一个痛点：每个月月初我们都需要到内网导出打卡记录，然后从中手动筛选出加班的那些天，再整理成一份报销表格给行政的同事申请加班补贴。手动筛选加班的打卡记录不仅耗时，而且很容易出错，尤其是当天是特殊节假日的时候。每次整理加班记录，可能要花费二十分钟的时间。而这些工作完全可以交给机器自动完成。</p>
 <p>所以我写了一个内部使用的加班统计平台，从内网导出的打卡记录只需要交给平台进行一下分析，马上就可以生成一份符合要求的加班统计表格，并且还考虑了特殊节假日以及漏打卡的情况。原先要花费二十分钟完成的事情，只需要交给这个平台，一分钟左右即可导出需要的表格。</p>
 <p><img src="/images/my-2-years-at-pingan/summary-1.png" alt="加班统计平台"></p>
-<p>为了吸引同事们使用，我还加了加班数据排名以及可视化的功能，可以很直观的看出近期加班的情况。</p>
+<p>为了吸引同事们使用，我又加了加班数据排名以及可视化的功能，可以很直观的看出近期加班的情况。</p>
 <p><img src="/images/my-2-years-at-pingan/summary-4.jpeg" alt="加班统计平台-排名系统"></p>
 <p><img src="/images/my-2-years-at-pingan/summary-3.jpeg" alt="加班统计平台-可视化"></p>
 <p>这个平台也是我首次尝试收费的一个服务，可选择一年授权和长期授权两种激活码，并提供首次免费试用。有 100 多位同事在试用成功后就购买了我的服务。</p>
@@ -120,7 +120,7 @@
 <h4 id="代码同步工具">代码同步工具</h4>
 <p>在我们成功迁移到 Git 管理代码后，公司也开始普及 Git，搭了一个公司的 Gitlab 。在正式发布前，科技的工程管理团队甚至邮件向我咨询了 Git 管理的一些经验心得。</p>
 <p>尽管公司的 Gitlab 有更大的团队来维护和支持，我们并不愿意把我们的代码迁移到公司的服务上。最主要的原因是我们自己的 Gitlab 可以更方便的定制，迁移到公司的 Gitlab 就没有这么高的权限了。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/my-2-years-at-pingan/piano.jpeg" alt=" 年会电子琴弹唱"><b>图 4</b>  年会电子琴弹唱</span></span></span></p>
-<p>虽然自己的 Gitlab 定制起来很爽，但稳定性和单点问题也成了隐患。我们甚至遇到过 Gitlab 所在的服务器发生维护而导致我们无法正常拉取和推送代码一天。为了避免单点问题带来的灾难，我写了一个全自动代码同步工具，能够把我们的 Gitlab 的组织、代码、成员、分支保护等东西都同步到公司的 Gitlab 中，而且无需管理员权限。见 《<a href="/work/enterprise-class-git-version-control-4/">化繁为简的企业级 Git 管理实战（四）：多 Gitlab 数据同步</a>》。这个工具给我们的代码安全提供了一个强有力的保障，也因此获得了该季度的优秀工具奖。</p>
+<p>虽然自己的 Gitlab 定制起来很爽，但稳定性和单点问题也成了隐患。我们甚至遇到过 Gitlab 所在的服务器发生维护而导致我们一整天无法正常拉取和推送代码的情况，简直是一场噩梦。为了避免单点问题带来的灾难，我写了一个全自动代码同步工具，能够在每天凌晨把我们的 Gitlab 的组织、代码、成员、分支保护等东西都同步到公司的 Gitlab 中，而且无需管理员权限。见 《<a href="/work/enterprise-class-git-version-control-4/">化繁为简的企业级 Git 管理实战（四）：多 Gitlab 数据同步</a>》。这个工具给我们的代码安全提供了一个强有力的保障，也因此获得了该季度的优秀工具奖。</p>
 <p>年中和年底的两次绩效沟通，leader 又继续给我评级了 A 档。同时我被评为了公司的年度优秀员工。</p>
 <h3 id="生活-v2">生活</h3>
 <p>有了去年的 Ukulele 弹奏的基础，今年的年会我决定玩点其他的乐器。于是我在九月份买了一台卡西欧入门电子琴，开始学习电子琴弹唱。</p>
@@ -129,7 +129,7 @@
 <h2 id="主线-v2">主线</h2>
 <h3 id="人工智能小组">人工智能小组</h3>
 <p>到了 2017 年，我们的框架变得稳定，不像上一年有诸多需求。于是我们进入了舒适区，过上了朝九晚六的生活。但这种情况对于我而言并不见得是好事，因为需求变少了，人也会跟着变懒，久而久之就没有成长了。既然业余时间变多了，我决定把时间用来学点 AI 的相关的知识。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/my-2-years-at-pingan/udacity.jpeg" alt=" 顺手给课程提了几个建议和bug，收到了 Udacity 寄来的小礼物。"><b>图 5</b>  顺手给课程提了几个建议和bug，收到了 Udacity 寄来的小礼物。</span></span></span></p>
-<p>机器学习对数学的要求比较高，所以我先花了半个月的时间看了可汗学院的《线性代数》课程，写了<a href="http://localhost:4000/categories/#math" target="_blank" rel="external">几篇学习笔记</a>。然后又看完了 Udacity 上的《机器学习入门》，并做完了全部练习。这门课讲的非常生动，我也因此加深了对机器学习如何解决实际问题的理解。</p>
+<p>机器学习对数学的要求比较高，所以我先花了半个月的时间看了可汗学院的《线性代数》课程，写了<a href="http://localhost:4000/categories/#math" target="_blank" rel="external">几篇学习笔记</a>。然后又看完了 Udacity 上的《机器学习入门》，并做完了全部练习。这门课讲的非常生动，极大地帮助我加深了对机器学习如何解决实际问题的理解。</p>
 <p>在锋哥的鼓励下，我带头成立了一个人工智能兴趣小组。我们一共开展了 6 次分享，涵盖了 TensorFlow、贝叶斯分类、线性回归、K-means 聚类、自然语言处理、对话机器人实现等多个 topic 。另外我申请购买了一台高性能的深度学习机，自己搭建了 Jupyter Notebook 和支持 GPU 加速的 TensorFlow 环境，可以供小组成员在 Notebook 上做感兴趣的实验。</p>
 <p><img src="/images/my-2-years-at-pingan/notebook.png" alt="我们的notebook"></p>
 <p>之后我想尝试将分类的技术用在我们内部的 issue tracker 来判断是否重复提 bug 。由于我们的框架同时对接了多款 App ，一旦框架出现了一个 bug，多个 App 上都会报相同的问题。如果能通过机器学习的技术来分辨出是否重复提 bug ，那么就能减少开发在 follow issue 上面花费的时间。判断是否重复提 bug 和判断文本内容相似度类似，可以对文本统计 TFIDF 词频信息，然后利用余弦相似度来判断相似程度。所以，我写了个爬虫，把我们的 Redmine 平台上的数据按照格式爬了下来，总共爬了接近两万条 bug 数据。但过了几天公司开始推 Jira 作为新的 issue tracker，我们的 Redmine 就停止使用了。这个项目就只能搁浅了。</p>
@@ -151,17 +151,17 @@
 <p><img src="/images/my-2-years-at-pingan/trending.jpg" alt="叮当登上Github Trending"></p>
 <p>叮当也给我的职业生涯带来了新的变化。在发布叮当后的第三天，腾讯团队找上了我问我是否考虑他们的工作机会。考虑到在这边已经处于舒适区，我决定去了解一下情况。</p>
 <p><img src="/images/my-2-years-at-pingan/tencent-contact.png" alt="来自腾讯的工作机会"></p>
-<p>经过了三轮技术面试和一轮通道面试，我拿到了 offer 。拿到 offer 的时候，我非常纠结。最大的原因来自对现在团队的舍不得。但考虑到工作方向和个人的职业规划，我终于还是提了离职。</p>
+<p>经过了三轮技术面试和一轮通道面试，我拿到了 offer 。拿到 offer 的时候，我非常纠结。最大的原因来自对现在团队的不舍。但考虑到工作方向和个人的职业规划，我最终还是提了离职。</p>
 <p>在项目交接期间，我又写了一个基于 Github issue 的评论脚本 <a href="https://github.com/wzpan/comment.js" target="_blank" rel="external">comment.js</a> ，用来取代 Disqus、网易云跟贴这类社会化评论系统。有趣的是，在我发布 comment.js 一周后，网易云跟贴宣布停止服务。有种自己在船沉了之前造出了飞机的感觉 <code>:-D</code> 。</p>
 <p><img src="/images/my-2-years-at-pingan/163-yun-gen-tie.png" alt="网易云跟贴停止维护"></p>
 <h2 id="总结">总结</h2>
-<p>白驹过隙，在平安的两年时光已走到了尾声。除了不舍，更多的是对团队的感激。谢谢锋哥的知遇之恩，谢谢定一的细心栽培，谢谢技术大神鑫哥的指点，谢谢团队对我的信任。</p>
-<p>在平安的时间里，我一共获得了一次年度优秀员工奖项，一次年度创新员工奖项，两个工具奖，两个项目奖，四个创新奖，并参与申请了八项专利。如果要我总结点经验：</p>
+<p>白驹过隙，在平安的两年时光已走到了尾声。除了不舍，更多的是对团队的感激。谢谢锋哥的知遇之恩，谢谢定一的细心栽培，谢谢技术大神鑫哥的指点，谢谢所有合作过的同事，谢谢团队对我的信任。</p>
+<p>在平安的时间里，我一共获得了一次年度优秀员工奖项，一次年度创新员工奖项，两个工具奖，两个项目奖，四个创新奖，参与申请了八项专利，三次绩效考核都保持了 A 档。如果要我总结点经验：</p>
 <ol>
 <li>关于KPI：KPI 只是对你的基本期望。不要把自己的工作局限在 KPI 所设立的范围里头。而应该多从工作中发现问题，然后带头去解决问题。当然，你所发现和解决的问题应该对整个团队带来收益，否则只能被定性成“边边角角”的活。另外，拿到差的绩效也不要难过，更重要的是你在工作中学到了什么。</li>
 <li>关于择业：在百度的老大说过一句让我受益匪浅的话：“找工作，一看方向，二看团队，三看公司，四看钱”。方向和团队对你的个人成长有非常重要的影响。我的两次跳槽，都是按照这个标准做出的慎重选择。</li>
-<li>关于团队相处：少吐槽，多做事情。经常吐槽的人会让人觉得你融入不了这个团队。与其花时间吐槽，不如想想能不能做点什么东西改善现状。</li>
-<li>关于技术：把握好深度和广度之间的度。知识面广，学习能力好的人在工作前几年会比较混得开，因为工作上手得快，难度也不会很高，产出也会比别人多。然而随着工作年限的增长，外界对你的知识深度的要求也会越来越高。我去腾讯面试的时候，有不少深一点的技术问题没有答上来。虽然最终我还是拿到了 offer ，但很大原因是开源项目加了分。所以，工作年限越大，更应该注重对自身技术领域的深耕，以免再次择业时面临被动。</li>
+<li>关于沟通：少吐槽，多做事情。经常吐槽会让人觉得你融入不进这个团队。与其花时间吐槽，不如想想能不能做点什么东西改善现状。</li>
+<li>关于技术：把握好深度和广度之间的度。知识面广，学习能力好的人在工作前几年会比较混得开，因为工作上手得快，工作难度也不会很高，产出就会比别人多。然而随着工作年限的增长，外界对你的知识深度的要求也会越来越高。我去腾讯面试的时候，有不少深一点的技术问题没有答上来。虽然最终我还是拿到了 offer ，但我知道很大原因是开源项目加了分。所以，工作年限越大，更应该注重对自身技术领域的深耕，以免再次择业时面临被动。</li>
 </ol>
 <p>雄关漫道真如铁，而今迈步从头越。在即将奔赴新的单位前，我也以此文告诫自己：</p>
 <ol>
@@ -177,7 +177,7 @@
     <link href="http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/"/>
     <id>http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/</id>
     <published>2017-07-15T11:42:22.000Z</published>
-    <updated>2017-07-17T06:46:55.000Z</updated>
+    <updated>2017-07-16T02:04:33.433Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p><a href="http://github.com/wzpan/dingdang-robot" target="_blank" rel="external">dingdang-robot</a> （以下简称“叮当”），是我在今年5月20号开源的一个中文智能音箱项目。</p>
 <p>起初，我只是抱着一个好玩的心态做这个项目，并不期望这个项目能得到多少关注。然而，随着 QQ 用户群人数的不断壮大，越来越多的朋友安装了叮当，并且真正将它投入在了日常的使用上。很多朋友也提出了各种好玩的建议、想法，甚至为叮当贡献了插件或者捐赠了这个项目，让我觉得这个项目是很有价值的，也让我知道，我能做的还有很多东西。因此，我并不是开源了叮当之后就撒手不管了，而是利用业余时间不断完善叮当，又陆续发布了 8 个小版本，使得叮当在响应速度和功能丰富程度上都有了很大提升：</p>
@@ -320,7 +320,7 @@
     <link href="http://hahack.com/codes/comment-js/"/>
     <id>http://hahack.com/codes/comment-js/</id>
     <published>2017-07-02T12:48:07.000Z</published>
-    <updated>2017-07-03T02:42:31.000Z</updated>
+    <updated>2017-07-04T14:17:00.091Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>我的博客最早是使用 Disqus 来实现评论功能的。Disqus 被墙了之后，改成了多说。今年年初，多说也正式关闭了，于是我被逼着又开始寻找其他的替代评论系统。</p>
 <p>我先是试用了网易云跟贴、畅言等几种类似的社会化评论系统。畅言要求站点必须备案，而我实在没有为了评论去申请备案的动力。网易云跟贴的管理后台上有很多不明觉厉的功能，但好像都没多大用处。最致命的问题是我不小心把我的站点绑定到了另一个网易账户，而不是我常用的微博账户。这样的话，我每次回贴就得退登到微博账户，要管理贴子的时候又得切回管理员账户，非常不方便。然而网易云跟贴并没有提供解绑的功能。于是我给他们提了需求，然而一直到现在都没有回复。再加上有了多说作为前车之鉴，我对国内的免费评论服务已经失去了信心。今天把A换成B，难以保证日后B也关闭了，被逼着又换到C，实在是懒得折腾下去啊。于是，我放弃了换用类似的评论系统的念头。</p>
@@ -436,7 +436,7 @@
     <link href="http://hahack.com/codes/how-to-write-dingdang-plugin/"/>
     <id>http://hahack.com/codes/how-to-write-dingdang-plugin/</id>
     <published>2017-05-28T12:23:40.000Z</published>
-    <updated>2017-07-12T03:33:27.000Z</updated>
+    <updated>2017-07-07T15:39:13.682Z</updated>
     <content type="html"><![CDATA[<p><a href="http://hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">叮当</a> 是一款可以工作在 Raspberry Pi 上的开源中文语音对话机器人/智能音箱项目，目的是让中国的Hacker们也能快速打造类似 Amazon Echo 的个性化的智能音箱。</p>
 <p>由于叮当是完全开源的，编写插件来满足自己的个性化需求就成了使用叮当的最大乐趣。您可以自由地接入自己需要的服务，让叮当更好的为您服务。</p>
 <p>这篇文章将一步步教你如何编写一个天气插件，并最终发布到 dingdang-contrib 中。</p>
@@ -529,7 +529,7 @@
     <link href="http://hahack.com/codes/dingdang-robot-intro/"/>
     <id>http://hahack.com/codes/dingdang-robot-intro/</id>
     <published>2017-05-22T05:43:21.000Z</published>
-    <updated>2017-07-17T06:46:55.000Z</updated>
+    <updated>2017-07-16T01:57:02.390Z</updated>
     <content type="html"><![CDATA[<p>这个项目其实来源于我生活中的一个需求：我每天晚上都会去厨房做一个面包当明天的早餐，当我把用料按顺序准备好放进面包机时，我需要准确预约到明天早上我吃早餐的时间。然而，几乎每次在这个时候我都没有带手机在身边，而是都放在客厅里充电，这时只能跑去客厅看时间。虽然厨房到客厅只有几步之遥，但自己又是懒癌患者，每天都要这么来回奔波就觉得很不方便。要解决这个问题当然有很多种方法，比如直接买个小时钟放在厨房。不过我更希望“连看都不用看”，直接有人告诉我时间。所以，我需要一个像 Amazon Echo 那样的智能音箱。</p>
 <p>然而，不论是 Amazon Echo 、Google Home 还是微软 Cortana 音箱，在国内的使用都是个问题。虽然国内也有类似的智能音箱产品，但我没有用过这些产品，不知道可定制性如何。比如，如果我需要开发个功能让它告诉我某种面包的配方是什么，这些产品就不一定能做到了。考虑再三，我决定自己动手写一个。整个项目用了差不多三个星期的业余零碎时间。</p>
 <p>先放上项目主页：<a href="http://dingdang.hahack.com" target="_blank" rel="external">http://dingdang.hahack.com</a></p>
@@ -706,7 +706,7 @@
     <link href="http://hahack.com/work/enterprise-class-git-version-control-5/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-5/</id>
     <published>2017-04-19T09:22:53.000Z</published>
-    <updated>2017-05-08T06:32:14.000Z</updated>
+    <updated>2017-05-22T11:38:14.104Z</updated>
     <content type="html"><![CDATA[<p>毫无疑问，Git 非常适合用于代码文件的版本控制。对于纯代码仓库，由于每次实际提交都是增量内容，即使仓库经历了几十次提交，整个仓库的大小往往都不会大幅增加。</p>
 <p>而对于存在二进制文件的仓库，情况就变了：Git 并不能很好地支持二进制文件的增量提交，每次更新一个二进制文件，就相当于把这份文件的完整内容再往仓库里扔。久而久之，这个仓库就会变得非常大，影响代码拉取速度。</p>
 <p>举一个实际的例子，为了加快应用的构建速度，我们团队的框架先会编译成 SDK ，再交由上层构建应用。框架 SDK 也是一个独立的 Git 仓库，里头包含了大量的二进制包：</p>
@@ -815,7 +815,7 @@
     <link href="http://hahack.com/work/enterprise-class-git-version-control-4/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-4/</id>
     <published>2017-04-12T07:45:29.000Z</published>
-    <updated>2017-04-17T02:51:54.000Z</updated>
+    <updated>2017-05-22T11:38:14.104Z</updated>
     <content type="html"><![CDATA[<h2 id="需求描述">需求描述</h2>
 <p>在继续写数学系列前，我想切回去之前的 Git 系列写点东西。我想写系列文章也可以像操作系统的进程调度一样，一个系列暂时写不动了，先 <q>保存现场</q> 跳去另一个 topic 写点东西，同时也给自己留点 buffer 再酝酿一下这个暂时 <q>中断</q> 的系列。等这个系列酝酿够了，再 <q>恢复现场</q> ，继续还这个系列的技术债。</p>
 <p>对于一个规模较大的企业，存在多个 Gitlab 站点是很常见的事情。</p>
@@ -970,7 +970,7 @@
     <link href="http://hahack.com/math/math-linear-algebra-graded/"/>
     <id>http://hahack.com/math/math-linear-algebra-graded/</id>
     <published>2017-02-12T13:42:05.000Z</published>
-    <updated>2017-03-30T12:36:48.000Z</updated>
+    <updated>2017-02-18T11:52:12.314Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>在前面两篇文章中，我简要概括了线性代数中两个最基本的数据表达方式：<a href="/math/math-matrix/">矩阵</a> 和 <a href="/math/math-vector/">向量</a>。有了这两个数学工具作为基础，我们可以再进一步，讨论下面一些内容：</p>
 <ol>
@@ -1473,7 +1473,7 @@ b^*
     <link href="http://hahack.com/math/math-vector/"/>
     <id>http://hahack.com/math/math-vector/</id>
     <published>2017-02-06T13:47:43.000Z</published>
-    <updated>2017-02-14T03:22:47.000Z</updated>
+    <updated>2017-02-18T10:40:10.964Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>在 <a href="http://hahack.com/math/math-matrix/" target="_blank" rel="external">上文</a> 中我简单概括了矩阵的基本运算，并给出了两个应用实例。这篇文章我们继续谈谈向量。</p>
 <p>向量是线性代数中的基本概念，也是机器学习的基础数据表示形式。例如计算机阅读文本的过程首先就会将文本分词，然后用向量表示<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。这是因为向量很适合在高维空间中表达和处理。在机器学习中会接触到的诸如投影、降维的概念，都是在向量的基础上做的。</p>
@@ -1675,7 +1675,7 @@ c_2 &amp;= \frac{y}{3} - \frac{x}{6}
     <link href="http://hahack.com/math/math-matrix/"/>
     <id>http://hahack.com/math/math-matrix/</id>
     <published>2017-01-31T14:33:04.000Z</published>
-    <updated>2017-03-30T12:36:48.000Z</updated>
+    <updated>2017-03-25T03:23:31.818Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>机器学习如火如荼，要学习机器学习，数学基础少不了。所以本系列将对机器学习所用到的线性代数、微积分和概率统计的基础知识做一个简单的概括。</p>
 <p>本文将总结线性代数中矩阵的基本知识点。同时理论结合实践，使用 Python 来进行实践。如果需要跟着进行编程实践，请先确保下列环境已安装：</p>
@@ -1922,7 +1922,7 @@ y
     <link href="http://hahack.com/work/enterprise-class-git-version-control-3/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-3/</id>
     <published>2016-04-29T07:45:29.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<p>说到版本控制，就不得不提到分支管理策略。就像学开车必须学学交通规则。分支管理策略是代码版本控制的基础组成部分。为团队定制一套合适的分支管理策略，就好比制定了一套合理的交通规则，可以让团队的代码的更加有序地演进，尽可能降低多分支带来的复杂度，并避免由于分支混乱引发的各种“车祸”。本文将简单讨论下我们在开发过程中尝试的各种分支管理策略，在面对各种复杂场景下呈现的优势与不足，以及我们的妥协和后续期望。</p>
 <h2 id="github-flow">Github-Flow</h2>
 <p>作为 Github 的重度用户，我首先考虑的当然是 <a href="https://guides.github.com/introduction/flow/index.html" target="_blank" rel="external">Github-Flow</a> 。</p>
@@ -2016,7 +2016,7 @@ y
     <link href="http://hahack.com/work/enterprise-class-git-version-control-2/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-2/</id>
     <published>2016-04-20T16:00:00.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<h2 id="需求描述">需求描述</h2>
 <p>在 <a href="/work/enterprise-class-git-version-control-1/">上一篇文章</a> 中，我简单描述了我们一个项目的复杂程度：子模块、嵌套子模块、多分支。除了工程分支切换上的复杂，我们还遇到另一个问题：子模块持续集成。</p>
 <h2 id="主工程持续集成">主工程持续集成</h2>
@@ -2101,7 +2101,7 @@ y
     <link href="http://hahack.com/work/enterprise-class-git-version-control-1/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-1/</id>
     <published>2016-04-12T16:00:00.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<h2 id="需求描述">需求描述</h2>
 <p>我们尝试使用 Git 来维护一个项目的代码。这个项目的结构比较复杂：</p>
 <ul>
@@ -2171,7 +2171,7 @@ y
     <link href="http://hahack.com/codes/learn-react-native-for-android-02/"/>
     <id>http://hahack.com/codes/learn-react-native-for-android-02/</id>
     <published>2015-10-18T17:49:34.000Z</published>
-    <updated>2016-09-18T09:24:50.000Z</updated>
+    <updated>2017-02-11T04:41:08.103Z</updated>
     <content type="html"><![CDATA[<p>React Native 主张用 React 的开发思维来编写 UI 层。因此在学习 React-Native 之前，了解基本的 React 的语法和存在的坑会对今后 React Native 的开发大有裨益。</p>
 <p>本文将从一个简单的例子开始，逐步完善我们的程序。在这个过程中，我们将一步步探讨如何用 React 来开发网页应用，以及需要注意的陷阱。与其他教程不同，本文将采用类似 <a href="http://zedshaw.com/" target="_blank" rel="external">Zed A. Shaw</a> 的 <a href="http://learncodethehardway.org/" target="_blank" rel="external">《Learn Code the Hard Way》</a> 系列的案例驱动的形式，从例子开始着手。我相信，掌握一门新技术最好的方法就是自己动手。因此，我并不打算面面俱到的列举所有关于 React 的内容，而更倾向于担任一个引路人的角色：把读者们带到 React 花园的门前，然后让读者们在 React 花园里来一场自助游。为了让这个旅途更加有收获，我会在每节内容的最后安排几个练习，并在最后分享一些值得深入学习的文章和教程。</p>
 <a id="more"></a>
@@ -2436,7 +2436,7 @@ y
     <link href="http://hahack.com/codes/learn-react-native-for-android-01/"/>
     <id>http://hahack.com/codes/learn-react-native-for-android-01/</id>
     <published>2015-10-16T21:23:08.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.103Z</updated>
     <content type="html"><![CDATA[<p>Facebook 于 2015 年 9 月 15 日发布了 React Native for Android 。React Native 让开发者使用 JavaScript 和 React 编写应用，利用相同的核心代码就可以创建 Web，iOS 和 Android 平台的原生应用。注意这里的 <q>核心</q> 两个词，它指的是那些底层的、与界面无关的逻辑。与 ionic / PhoneGap 这类 Web App 开发框架不同，React Native 主张使用 React 的开发方式来开发 Native 应用，因为在现阶段 Web App 还无法达到 Native App 的体验。所以，React Native 并不强调 <q>write Once, run everywhere</q> ，而是 <q>learn once, write everywhere</q> ：上层使用 JS 和 React 开发不同平台的 UI，下层则可以编写能够复用的核心代码，从而大幅提高开发效率。</p>
 <p>关于 React Native 的好处，唐巧在 《<a href="http://blog.devtang.com/blog/2015/02/01/talk-about-react-native/" target="_blank" rel="external">谈谈 React Native</a>》 里已经有比较深刻的总结，本文不再赘述。本文将作为一个 React Native for Android 学习系列的一个开篇，从零开始学习 React Native 。我尽量不偷懒，保证文章及时更新。</p>
 <a id="more"></a>
@@ -2585,7 +2585,7 @@ y
     <link href="http://hahack.com/codes/local-search-engine-for-hexo/"/>
     <id>http://hahack.com/codes/local-search-engine-for-hexo/</id>
     <published>2015-10-08T08:27:04.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.103Z</updated>
     <content type="html"><![CDATA[<p>早在我最初<a href="/codes/from-ruhoh-to-hexo/">从 Ruhoh 迁移博客到 Hexo</a> 时，我就有动手写一个本地的搜索引擎的想法。比起使用第三方服务的站内搜索，本地搜索引擎有几个好处：</p>
 <ol>
 <li>更可靠。不用担心<del>由于某些显而易见的原因导致</del>第三方服务不可访问。</li>
@@ -2655,7 +2655,7 @@ y
     <link href="http://hahack.com/tools/dockerize-your-hexo/"/>
     <id>http://hahack.com/tools/dockerize-your-hexo/</id>
     <published>2015-06-02T03:29:38.000Z</published>
-    <updated>2016-06-26T08:41:19.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>在<a href="/codes/hexo-3-speed-up/">上篇文章</a>中，我简单提到了在升级 Hexo 3 过程中遇到的一些痛苦。其实还有很多问题没有在上篇文章中提及。比如，我的渲染器使用的是 pandoc ，在 2.x 的时候，<a href="http://wzpan.github.io/hexo-theme-freemind/2014/03/16/tag-plugins/" target="_blank" rel="external">hexo-tag-plugins</a> 里头的文字可以通过调用 <code>renderSync</code> 方法传给 markdown 进行渲染，而到了 3.0 ，这些文字无论怎么做都不能被 pandoc 或者 markdown 渲染。</p>
 <p>早在我决定挥刀动斧定制我的个人博客之前，我早已经做好了发生这种情况的心理准备。我的博客最早是使用 Ruhoh 编写的，从主题到渲染器进行了大量的个人定制，后面出于种种原因我决定<a href="http://192.168.59.103:4000/codes/from-ruhoh-to-hexo/" target="_blank" rel="external">切换到Hexo</a> ，于是我又花了很多力气把原来的博客移植到 Hexo 2.x 上。与其说是移植，不如说是一个基于 Hexo 2.x 的山寨版。现在 Hexo 一旦做了大幅更新，相当于我又得经历和前两次一样的折腾，实在是有心无力呀。考虑再三，我决定放弃使用 Hexo 3 ，而将我的博客所使用的环境 <q>冻结</q> 为 2.8.3 。</p>
@@ -2753,7 +2753,7 @@ HHKB，
     <link href="http://hahack.com/codes/hexo-3-speed-up/"/>
     <id>http://hahack.com/codes/hexo-3-speed-up/</id>
     <published>2015-06-01T14:49:46.000Z</published>
-    <updated>2016-10-30T09:21:13.000Z</updated>
+    <updated>2017-02-11T04:41:08.103Z</updated>
     <content type="html"><![CDATA[<p>Hexo 3 自从放出更新到现在已经有很长一段时间了，相信很多人跟我一样都经历了一个非常曲折的升级过程。</p>
 <p>第一个问题是我所编写的主题和插件全都阵亡了，这个问题在我决定升级 Hexo 之前已经被很多用户轰炸过，于是我花了两个晚上的时间对所有的主题和插件进行了大幅修改和升级。</p>
 <p>另一个让我无比郁闷的问题是：官方虽然宣称 3.0 之后站点渲染速度更快了，但实际测试时我发现结果正好相反——全站 168 篇文章，在 Hexo 2.8.3 环境中渲染只需 3~4 秒时间，而更新到 Hexo 3.0 之后，网站的渲染居然花了一个多钟！</p>
@@ -2776,7 +2776,7 @@ HHKB，
     <link href="http://hahack.com/codes/extempore-intro/"/>
     <id>http://hahack.com/codes/extempore-intro/</id>
     <published>2015-02-16T07:35:58.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<p>Extempore 是一套实时编程语言和运行环境，它提供了一个机体编程 (<a href="http://dl.acm.org/citation.cfm?id=1869526" target="_blank" rel="external">Cyberphysical Programming</a>)<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 环境，以支持对多媒体和实时系统的实时编程（Live Coding）。所谓机体编程，就是允许编程者可以在任意时刻自由地修改程序并即时影响系统的运作，达到“即写即执行”。官方的介绍如下：</p>
 <p><blockquote>
 
@@ -3025,7 +3025,7 @@ HHKB，
     <link href="http://hahack.com/life/an-appeal-from-scnuthesis-author/"/>
     <id>http://hahack.com/life/an-appeal-from-scnuthesis-author/</id>
     <published>2015-01-22T15:42:03.000Z</published>
-    <updated>2016-05-31T01:46:32.000Z</updated>
+    <updated>2017-02-11T04:41:08.099Z</updated>
     <content type="html"><![CDATA[<h2 id="缘起">缘起</h2>
 <p>工作大半年，开始感觉不如以前可以花很多时间在业余小项目上了。</p>
 <p>读书的时候，虽然白天有很多课业上的压力，但到了晚上总有精力来做一些小东西。那个时候，熬夜的后果最多就是第二天到课室打下瞌睡。工作之后就完全不同了，白天的时候，需要一直聚精会神的工作，以保证每天的产出，到了晚上就感觉好累好累，不想再碰电脑。</p>
