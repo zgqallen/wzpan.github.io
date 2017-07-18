@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-07-18T13:45:57.123Z</updated>
+  <updated>2017-07-18T13:49:48.795Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/work/my-2-years-at-pingan/"/>
     <id>http://hahack.com/work/my-2-years-at-pingan/</id>
     <published>2017-07-17T07:00:20.000Z</published>
-    <updated>2017-07-18T13:45:31.111Z</updated>
+    <updated>2017-07-18T13:48:48.506Z</updated>
     <content type="html"><![CDATA[<p>我是在 2015 年 5 月 20 日离开的百度，次日就来到了平安。当时平安的这个团队叫做移动开发二队。在百度的最后一天，我在朋友圈发了张合照，写了句“再见，我爱你”。很多人不理解我为什么在百度干了一年就走了，而且去的是平安这个并不以技术见长的公司。其实原因很简单：跟对的团队做对的事情。</p>
 <p>说是“对的事情”是因为平安这边正面临技术转型期，会有大量的技术需求可以放手去做。而过去平安那边的首要任务是开发完善底层的技术框架，有机会接触比较核心的技术，这对我的技术成长很有好处。</p>
 <p>说是“对的团队”是因为我对平安这个团队的了解。平安那边的老大锋哥也是原先我们百度 LBS 团队的研发 leader，而 leader 定一也是之前在百度的时候合作非常愉快的一个同事。再加上鑫哥 <a href="http://www.jianshu.com/u/4ef984470da8" target="_blank" rel="external">@ASCE1885</a> 每周一更的技术周报，让我觉得这个团队是非常尊重技术的团队，而我过去应该能有更多发挥的机会。</p>
@@ -32,7 +32,7 @@
 <h4 id="日报助手">日报助手</h4>
 <p>第一个让我们觉得麻烦的是每天的日报，科技要求我们每天写一篇日报，汇报当天的工作，并以此来作为确认考勤的依据。但实际的情况是，我们平常已经通过站会来确认沟通每天的工作了，日报便沦为了一种形式：填了没人看，但不填又影响考勤。所以我写了一个工具，在月底的时候跑一遍，就能一次性帮我们到日报平台上填写完整个月的日报，这样就节省了很多同事的时间。这个工具在内部一直工作良好，直到我们从科技独立出去，无需填写日报了才停止使用。</p>
 <h4 id="wiki">Wiki</h4>
-<p>团队里头也没有像样的 Wiki 平台，所以我用 Gollum 搭了个 Wiki ，为了方便在文档中插图，我又搭了一个相册平台，可以在上面上传照片并插到 Wiki 中。这两个平台一直使用到我们把代码由 SVN 切换到 Gitlab 时改用 Gitlab 的 Wiki 才结束服务。</p>
+<p>团队里头也没有像样的 Wiki 平台，所以我用 Gollum 搭了个 Wiki 。为了方便在文档中插图，我又搭了一个相册平台，可以在上面上传照片并插到 Wiki 中。这两个平台一直使用到我们把代码由 SVN 切换到 Gitlab 时改用 Gitlab 的 Wiki 才结束服务。</p>
 <p><img src="/images/my-2-years-at-pingan/wiki.png" alt="wiki"></p>
 <h4 id="任意门日志分析平台">任意门日志分析平台</h4>
 <p>当时我们有一个叫做“任意门”的项目，它的线上问题一直是使用 Excel 这种原始方式来跟进处理的，缺乏一个统一的问题跟进平台。而因为任意门是一个 SDK ，问题可能来自各种宿主应用，这些 Excel 报表的格式也有所不同，很影响问题的处理和定位。于是我又用了一个星期为任意门团队写了一个线上问题处理系统，可以导入 Excel 存到数据库中，然后提供一个报表页面，用于展示问题的描述、堆栈信息、出现次数、处理情况、宿主ID等数据。这个平台给开发维护任意门的同事带来了很大的便利。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/my-2-years-at-pingan/prices.jpg" alt=" 这两年拿过的各种奖杯奖牌"><b>图 1</b>  这两年拿过的各种奖杯奖牌</span></span></span></p>
