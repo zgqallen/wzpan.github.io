@@ -127,6 +127,34 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Jul 17 2017 </div>
+			<div class="article-title"><a data-pjax href="/work/my-2-years-at-pingan/" title="谈谈我在平安两年的工作回顾和感受。">我在平安的两年</a></div>			
+		</h3>
+	
+
+
+		<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/work/my-2-years-at-pingan/"><img src="/images/my-2-years-at-pingan/summary.jpg" alt="我在平安的两年"  class="nofancybox"></a></div>
+    
+    
+      <p>记得我是 2015 年 5 月 20 日离开的百度，次日就来到了平安。当时平安的这个团队叫做移动开发二队。在百度的最后一天，我在朋友圈发了张合照，写了句“再见，我爱你”。很多人不理解我为什么在百度干了一年就走了，而且去的是平安这个并不以技术见长的公司。其实原因很简单：跟对的团队做对的事情。</p>
+<p>“对的事情”指的是平安这边正面临技术转型期，会有大量的技术需求可以放手去做。而过去那边的首要任务是开发完善底层的技术框架，有机会接触比较核心的技术，这对我的技术成长很有好处。</p>
+<p>“对的团队”指的是因为我对平安这个团队的了解。平安那边的老大锋哥也是原先我们百度 LBS 团队的研发 leader，而 leader 定一也是之前在百度的时候合作非常愉快的一个同事。再加上鑫哥 <a href="http://www.jianshu.com/u/4ef984470da8" target="_blank" rel="external">@ASCE1985</a> 每周一更的技术周报，让我觉得这个团队是非常尊重技术的团队，而我过去应该能有更多发挥的机会。</p>
+<p>于是，在锋哥的几次劝说下，我来到了平安。时间过得很快，一转眼的功夫，我也已经在平安待了两年的时间。从团队初建，到发展壮大，我和这个团队携手共同成长。对平安，对金融壹账通，对这个团队，我有说不尽的感激。如今我即将告别平安，走向一段新的旅程。在启程之前，我想对这两年走过的路做一个回顾。</p>
+<p>我这两年的工作基本是两条线的思路：主线任务保证做得漂亮，然后做主动从日常工作中找问题和需求，做点分支任务。</p>
+	  
+       
+   </ul>
+   <a data-pjax href="/work/my-2-years-at-pingan/#more" class="btn more">Read More</a>
+</div>    
+
+	
+		
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Apr 19 2017 </div>
 			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-5/" title="二进制大文件的版本控制是 Git 的一个弱项，也是很多团队难免会遇到的一个让人头痛的问题。本文将介绍我们使用 Git 进行二进制文件的版本控制的多种方案，以及相关的踩坑之旅。">化繁为简的企业级 Git 管理实战（五）：二进制大文件的版本控制</a></div>			
 		</h3>
@@ -237,43 +265,23 @@
 </div>    
 
 	
-		
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Apr 13 2016 </div>
-			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-1/" title="介绍面向复杂工程的简单化 Git 分支依赖管理方案。我们对子模块的使用进行了简化，避免了由于漏提交子模块 commit id 或子模块代码导致无法更新或更新错误的情况。">化繁为简的企业级 Git 管理实践（一）：多分支子模块依赖管理</a></div>			
-		</h3>
-	
-
-
-		<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/work/enterprise-class-git-version-control-1/"><img src="/images/enterprise-class-git-version-control-1/git.png" alt="化繁为简的企业级 Git 管理实践（一）：多分支子模块依赖管理"  class="nofancybox"></a></div>
-    
-    
-      <h2 id="需求描述">需求描述</h2>
-<p>我们尝试使用 Git 来维护一个项目的代码。这个项目的结构比较复杂：</p>
-<ul>
-<li>项目包含由多个子模块，每个子模块是一个独立的 Git 仓库，子模块还允许继续嵌套包含子模块。 例如，主工程依赖 common、framework、react_native 等多个子模块，而 react_native 子模块又依赖 node_modules、HFCommon、HFModules 等多个嵌套子模块。</li>
-</ul>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[-] app_android/</div><div class="line"> |-[+] HFUIKit</div><div class="line"> |-[+] channel</div><div class="line"> |-[+] common</div><div class="line"> |-[+] framework</div><div class="line"> |-[+] hybrid</div><div class="line"> |-[+] messagecenter</div><div class="line"> |-[-] react_native</div><div class="line">    |-[+] HFCommon</div><div class="line">    |-[+] HFModules</div><div class="line">    |-[+] node_modules</div></pre></td></tr></table></figure></p>
-<ul>
-<li>主工程和子模块允许存在多个分支，且相互之间有依赖关系。例如，主工程的 jilin 分支同时依赖 common 子模块的 master 分支，以及 framework 子模块的 jilin 分支。</li>
-</ul>
-	  
-       
-   </ul>
-   <a data-pjax href="/work/enterprise-class-git-version-control-1/#more" class="btn more">Read More</a>
-</div>    
-
-	
 	</div>
 	<div>
 	<center>
 	<div class="pagination">
 	 
+      <ul>
+		
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>          
+        
+
+		<li><a data-pjax href="/"><i class="fa fa-home"></i>Home</a></li>
+		
+		
+		   <li class="next"> <a data-pjax href="/categories/work/page/2/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a> </li>          		   
+        
+      </ul>
+	
 </div>
 
 
@@ -294,6 +302,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/work/my-2-years-at-pingan/"  title="谈谈我在平安两年的工作回顾和感受。" ><i class="fa fa-file-o"></i>我在平安的两年</a>
+      </li>
+    
+      <li>
         <a href="/codes/use-dingdang-to-control-smart-mi-fan/"  title="作为一个完全开源的智能音箱项目，叮当也能够很方便的接入其他智能家电，并声控它们。本文将介绍如何使用叮当声控智米电风扇。" ><i class="fa fa-file-o"></i>使用叮当声控智米电风扇</a>
       </li>
     
@@ -307,10 +319,6 @@
     
       <li>
         <a href="/codes/dingdang-robot-intro/"  title="介绍我开发的一个开源的智能音箱项目 dingdang-robot 。" ><i class="fa fa-file-o"></i>叮当：一个开源的中文智能音箱项目</a>
-      </li>
-    
-      <li>
-        <a href="/work/enterprise-class-git-version-control-5/"  title="二进制大文件的版本控制是 Git 的一个弱项，也是很多团队难免会遇到的一个让人头痛的问题。本文将介绍我们使用 Git 进行二进制文件的版本控制的多种方案，以及相关的踩坑之旅。" ><i class="fa fa-file-o"></i>化繁为简的企业级 Git 管理实战（五）：二进制大文件...</a>
       </li>
     
   </ul>

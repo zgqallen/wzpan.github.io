@@ -130,6 +130,31 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Apr 19 2017 </div>
+			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-5/" title="二进制大文件的版本控制是 Git 的一个弱项，也是很多团队难免会遇到的一个让人头痛的问题。本文将介绍我们使用 Git 进行二进制文件的版本控制的多种方案，以及相关的踩坑之旅。">化繁为简的企业级 Git 管理实战（五）：二进制大文件的版本控制</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+    
+    
+      <p>毫无疑问，Git 非常适合用于代码文件的版本控制。对于纯代码仓库，由于每次实际提交都是增量内容，即使仓库经历了几十次提交，整个仓库的大小往往都不会大幅增加。</p>
+<p>而对于存在二进制文件的仓库，情况就变了：Git 并不能很好地支持二进制文件的增量提交，每次更新一个二进制文件，就相当于把这份文件的完整内容再往仓库里扔。久而久之，这个仓库就会变得非常大，影响代码拉取速度。</p>
+<p>举一个实际的例子，为了加快应用的构建速度，我们团队的框架先会编译成 SDK ，再交由上层构建应用。框架 SDK 也是一个独立的 Git 仓库，里头包含了大量的二进制包：</p>
+<p><img src="/images/enterprise-class-git-version-control-5/framework.png" alt="Framework SDK"></p>
+<p>由于框架也有多个分支，每个分支的迭代速度比较快，SDK 仓库的体积在三个月的时间内就膨胀到了 1G 。	  
+       
+   </ul>
+   <a data-pjax href="/work/enterprise-class-git-version-control-5/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Apr 12 2017 </div>
 			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-4/" title="本文将介绍如何利用 Gitlab API 实现一套简单灵活的数据同步机制，从而实现在多个 Gitlab 站点间同步数据。">化繁为简的企业级 Git 管理实战（四）：多 Gitlab 数据同步</a></div>			
 		</h3>
@@ -242,39 +267,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Apr 29 2016 </div>
-			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-3/" title="本文将简单讨论下我们在开发过程中尝试的各种分支管理策略，在面对各种复杂场景下呈现的优势与不足，以及我们的妥协和后续期望。">化繁为简的企业级 Git 管理实战（三）：分支管理策略</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-    
-    
-      <p>说到版本控制，就不得不提到分支管理策略。就像学开车必须学学交通规则。分支管理策略是代码版本控制的基础组成部分。为团队定制一套合适的分支管理策略，就好比制定了一套合理的交通规则，可以让团队的代码的更加有序地演进，尽可能降低多分支带来的复杂度，并避免由于分支混乱引发的各种“车祸”。本文将简单讨论下我们在开发过程中尝试的各种分支管理策略，在面对各种复杂场景下呈现的优势与不足，以及我们的妥协和后续期望。</p>
-<h2 id="github-flow">Github-Flow</h2>
-<p>作为 Github 的重度用户，我首先考虑的当然是 <a href="https://guides.github.com/introduction/flow/index.html" target="_blank" rel="external">Github-Flow</a> 。</p>
-<p><img src="/images/enterprise-class-git-version-control-3/github-flow.png" alt="Github-Flow"></p>
-<p>Github-Flow 是一种非常简单的分支管理方案。它的流程只有如下几步：</p>
-<ol>
-<li>拉出一个新分支；</li>
-<li>在新分支上进行修改，并提交和推送你的改动；</li>
-<li>发起一个 Pull Request ，向代码管理员申请将你提交的分支合并到原来的分支；</li>
-<li>讨论并接受 Code Review。在这个过程中，你依然可以继续推送新的代码到你的开发分支上，并且新的提交在推送后会出现在未完成合并的 Pull Request 页面中；</li>
-<li>合并和发布。Review 通过后，代码管理员将该分支合并到原来的主分支上。</li>
-</ol>
-	  
-       
-   </ul>
-   <a data-pjax href="/work/enterprise-class-git-version-control-3/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -345,7 +337,7 @@
 		
 			<li><a href="/categories/tools/">tools<span>12</span></a></li>
 		
-			<li><a href="/categories/work/">work<span>5</span></a></li>
+			<li><a href="/categories/work/">work<span>6</span></a></li>
 		
 		</ul>
 	</div>
@@ -356,47 +348,47 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
+			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
 				   
-			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
-				   
-			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
-				   
-			<li><a href="/tags/dingdang/">dingdang<span>2</span></a></li>
-				   
-			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
-				   
-			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
-				   
-			<li><a href="/tags/React/">React<span>1</span></a></li>
-				   
-			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
-				   
-			<li><a href="/tags/pandoc/">pandoc<span>1</span></a></li>
-				   
-			<li><a href="/tags/Javascript/">Javascript<span>4</span></a></li>
+			<li><a href="/tags/org-mode/">org-mode<span>2</span></a></li>
 				   
 			<li><a href="/tags/VS/">VS<span>1</span></a></li>
 				   
-			<li><a href="/tags/React-Native/">React-Native<span>1</span></a></li>
+			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
 				   
-			<li><a href="/tags/Python/">Python<span>2</span></a></li>
+			<li><a href="/tags/Git/">Git<span>5</span></a></li>
 				   
-			<li><a href="/tags/Graphics/">Graphics<span>1</span></a></li>
+			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
 				   
-			<li><a href="/tags/xml/">xml<span>1</span></a></li>
+			<li><a href="/tags/comment-js/">comment.js<span>1</span></a></li>
 				   
-			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
+			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
 				   
-			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
+			<li><a href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
 				   
-			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 				   
-			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
+			<li><a href="/tags/Android/">Android<span>1</span></a></li>
 				   
-			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
+			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
+				   
+			<li><a href="/tags/LaTeX/">LaTeX<span>3</span></a></li>
+				   
+			<li><a href="/tags/highlight/">highlight<span>1</span></a></li>
+				   
+			<li><a href="/tags/PGF/">PGF<span>1</span></a></li>
+				   
+			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
+				   
+			<li><a href="/tags/CLI/">CLI<span>1</span></a></li>
+				   
+			<li><a href="/tags/M-P/">M-P<span>1</span></a></li>
+				   
+			<li><a href="/tags/Makefile/">Makefile<span>1</span></a></li>
+				   
+			<li><a href="/tags/OpenCV/">OpenCV<span>3</span></a></li>
 		
-		<li><a href="/tags">...<span>85</span></a></li>
+		<li><a href="/tags">...<span>86</span></a></li>
 		</ul>
 	</div>
 

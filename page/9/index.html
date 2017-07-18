@@ -130,6 +130,36 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Aug 1 2013 </div>
+			<div class="article-title"><a data-pjax href="/codes/videogfw/" title="一个根据ip所在地选择视频源的小插件。">Alternative Video Source According to IP Address</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+    
+    
+      <p>我在撰写<a href="/life/video-released">上篇博文</a>的时候遇到了一个有趣的问题：如何根据ip所在地选择视频源？</p>
+<p>由于你很了解的一个原因，国外流行的视频网站（e.g.YouTube）在国内一般不能访问。为了同时照顾大陆和其他国家地区的视频观看者，<a href="http://weibo.com/fxokgfw" target="_blank" rel="external">@李扬彦</a>博士把我们的视频分别上传到了优酷和YouTube上。于是，作为一名<del>勤奋勇敢的</del>大陆人民<del>（我自豪！）</del>，我当然是优先选择嵌入优酷上的视频。但我随后又萌生了一个念头：如果访问者是个外国朋友，访问优酷不一定能像 YouTube 般顺畅<del>（尤其是前者还有万恶的30秒广告！）</del>。能否根据ip所在地的不同，让ip地址不在中国的朋友使用YouTube上的视频源呢？</p>
+<p>于是我就基于 jQuery 和 AJAX 写了这个插件。思路很简单：</p>
+<ol>
+<li>默认先加载优酷上的视频；</li>
+<li>读取访问者的ip信息，判断其所在的国家（或地区）；</li>
+<li>如果所在地不是<del>地大物博，千秋万代的</del>大陆地区，就自动将视频源切换到YouTube上；</li>
+<li>用户还可以通过下方的选择按钮切换视频源。</li>
+</ol>
+	  
+       
+   </ul>
+   <a data-pjax href="/codes/videogfw/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Jul 16 2013 </div>
 			<div class="article-title"><a data-pjax href="/codes/ruhoh-toc/" title="基于jQuery的方案，为Ruhoh生成目录。">为Ruhoh生成目录（ToC）</a></div>			
 		</h3>
@@ -228,32 +258,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Jun 28 2013 </div>
-			<div class="article-title"><a data-pjax href="/codes/handout-with-script/" title="一个生成带幻灯片的演讲稿的LaTeX样式包。">Handout With Script</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-    
-    
-      <p>我们喜欢使用幻灯片（slides）来辅助演讲。在一些比较重要的学术场合，一份清晰易懂的幻灯片显得非常critical。</p>
-<p>但这篇文章并不是要教你怎么制作一份合格的幻灯片，而是要跟你讲除了做幻灯片之外还应该做的东西。有些人幻灯片制作的非常精彩，但一上场，怯场忘词的马脚就露出来了。这是因为他们把大多数时间花在制作幻灯片上，而忘了把自己制作的幻灯片先消化好。</p>
-<p><strong>除了幻灯片，你还需要准备什么？——练习！</strong></p>
-<p>对于重要的学术场合，做好练习尤为关键。怎么开始自我介绍，碰到个公式怎么解释清楚，怎么起承转合，怎么在演讲过程中跟大家做眼神交流，怎么吸引大家的注意力。这些都是非常 challenging 的东西。单纯准备一份幻灯片显然不足以应付上面所有事情。</p>
-<p><strong>怎么练习？——对照讲稿练习20遍！</strong></p>
-<p>我在 SIAT 实习的时候，一位指导老师告诉我，他们在做学术汇报前，最起码将演讲稿练习20遍。这个给我非常大的触动。我所认识的很多科研人员，他们的科研任务已经非常繁重，但他们还乐于腾出时间来精心准备自己的演讲，在进行学术交流时将自己的成果以最佳的方式展示给其他人。这何尝不是一种分享精神。	  
-       
-   </ul>
-   <a data-pjax href="/codes/handout-with-script/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -324,7 +328,7 @@
 		
 			<li><a href="/categories/tools/">tools<span>12</span></a></li>
 		
-			<li><a href="/categories/work/">work<span>5</span></a></li>
+			<li><a href="/categories/work/">work<span>6</span></a></li>
 		
 		</ul>
 	</div>
@@ -335,47 +339,47 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
-				   
-			<li><a href="/tags/Git/">Git<span>5</span></a></li>
-				   
-			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
-				   
-			<li><a href="/tags/Objective-C/">Objective-C<span>1</span></a></li>
-				   
-			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
-				   
-			<li><a href="/tags/LaTeX/">LaTeX<span>3</span></a></li>
-				   
-			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
-				   
-			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
-				   
-			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
-				   
-			<li><a href="/tags/BP/">BP<span>1</span></a></li>
-				   
-			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
-				   
-			<li><a href="/tags/comment-js/">comment.js<span>1</span></a></li>
+			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
 				   
 			<li><a href="/tags/Awesome/">Awesome<span>3</span></a></li>
 				   
-			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
+			<li><a href="/tags/React-Native/">React-Native<span>1</span></a></li>
+				   
+			<li><a href="/tags/CLI/">CLI<span>1</span></a></li>
+				   
+			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
+				   
+			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
+				   
+			<li><a href="/tags/xtlang/">xtlang<span>1</span></a></li>
+				   
+			<li><a href="/tags/PGF/">PGF<span>1</span></a></li>
+				   
+			<li><a href="/tags/shell/">shell<span>3</span></a></li>
+				   
+			<li><a href="/tags/OSF/">OSF<span>1</span></a></li>
 				   
 			<li><a href="/tags/Javascript/">Javascript<span>4</span></a></li>
 				   
-			<li><a href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li>
+			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
 				   
-			<li><a href="/tags/CI/">CI<span>1</span></a></li>
+			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
 				   
-			<li><a href="/tags/Graphics/">Graphics<span>1</span></a></li>
+			<li><a href="/tags/Android/">Android<span>1</span></a></li>
 				   
-			<li><a href="/tags/pandoc/">pandoc<span>1</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 				   
 			<li><a href="/tags/static-analysis/">static analysis<span>1</span></a></li>
+				   
+			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
+				   
+			<li><a href="/tags/Objective-C/">Objective-C<span>1</span></a></li>
+				   
+			<li><a href="/tags/Matrix/">Matrix<span>1</span></a></li>
+				   
+			<li><a href="/tags/职场感悟/">职场感悟<span>1</span></a></li>
 		
-		<li><a href="/tags">...<span>85</span></a></li>
+		<li><a href="/tags">...<span>86</span></a></li>
 		</ul>
 	</div>
 
