@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://hahack.com/work/my-2-years-at-pingan/</loc>
-    <lastmod>2017-07-18T13:48:48.506Z</lastmod>
+    <lastmod>2017-07-18T15:16:27.937Z</lastmod>
   </url>
   <url>
     <loc>http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/</loc>
@@ -321,11 +321,11 @@
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/python3-basic.html</loc>
+    <loc>http://hahack.com/wiki/python3-bpython.html</loc>
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/python3-bpython.html</loc>
+    <loc>http://hahack.com/wiki/python3-basic.html</loc>
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
@@ -369,10 +369,6 @@
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/javascript-es6.html</loc>
-    <lastmod>2017-02-11T04:41:08.247Z</lastmod>
-  </url>
-  <url>
     <loc>http://hahack.com/wiki/linux-trouble-shooting.html</loc>
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
@@ -385,7 +381,11 @@
     <lastmod>2017-02-11T04:41:08.247Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/go-basic.html</loc>
+    <loc>http://hahack.com/wiki/javascript-es6.html</loc>
+    <lastmod>2017-02-11T04:41:08.247Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/wiki/index.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -409,15 +409,7 @@
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/index.html</loc>
-    <lastmod>2017-02-11T04:41:08.243Z</lastmod>
-  </url>
-  <url>
     <loc>http://hahack.com/wiki/go-methods.html</loc>
-    <lastmod>2017-02-11T04:41:08.243Z</lastmod>
-  </url>
-  <url>
-    <loc>http://hahack.com/wiki/cpp-datatype.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -426,6 +418,14 @@
   </url>
   <url>
     <loc>http://hahack.com/wiki/go-control-flow.html</loc>
+    <lastmod>2017-02-11T04:41:08.243Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/wiki/cpp-datatype.html</loc>
+    <lastmod>2017-02-11T04:41:08.243Z</lastmod>
+  </url>
+  <url>
+    <loc>http://hahack.com/wiki/go-concurrency.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -469,11 +469,11 @@
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/elisp-basic.html</loc>
+    <loc>http://hahack.com/wiki/database-mysql.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/database-mysql.html</loc>
+    <loc>http://hahack.com/wiki/elisp-basic.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
@@ -521,11 +521,11 @@
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/go-concurrency.html</loc>
+    <loc>http://hahack.com/wiki/go-basic.html</loc>
     <lastmod>2017-02-11T04:41:08.243Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/assembly-basic.html</loc>
+    <loc>http://hahack.com/wiki/android_tables.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
@@ -533,11 +533,11 @@
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/c-standard-libs.html</loc>
+    <loc>http://hahack.com/wiki/c-style.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/c-style.html</loc>
+    <loc>http://hahack.com/wiki/c-standard-libs.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
@@ -593,7 +593,7 @@
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/wiki/android_tables.html</loc>
+    <loc>http://hahack.com/wiki/assembly-basic.html</loc>
     <lastmod>2017-02-11T04:41:08.239Z</lastmod>
   </url>
   <url>
@@ -693,11 +693,11 @@
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/codes/ruhoh-toc/</loc>
+    <loc>http://hahack.com/codes/opengl-on-archlinux/</loc>
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
-    <loc>http://hahack.com/codes/opengl-on-archlinux/</loc>
+    <loc>http://hahack.com/codes/ruhoh-toc/</loc>
     <lastmod>2017-02-11T04:41:08.103Z</lastmod>
   </url>
   <url>
