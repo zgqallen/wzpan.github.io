@@ -232,7 +232,7 @@ Emacs 中搭建 VC
 	<!-- display as entry -->
 		<h3 class="title">
 		<div class="date"> Oct 7 2012 </div>
-			<div class="article-title"><a data-pjax href="/tools/a-fantastic-usage/" title="介绍org-mode里的一个有用的快捷键。">C-c &#39; 在 org-mode 中的妙用</a></div>			
+			<div class="article-title"><a data-pjax href="/codes/opengl-on-archlinux/" title="详细介绍在ArchLinux下安装配置OpenGL的过程。">ArchLinux安装配置OpenGL</a></div>			
 		</h3>
 	
 
@@ -241,22 +241,15 @@ Emacs 中搭建 VC
     <ul class="thumbnails">
     
     
-      <p><div class="alert alert-error"><i class="fa fa-bug"></i>  <p>从 org-mode 8.x 开始，这两个功能已经无效。</p>
-</div></p>
-<h2 id="1-用途一：编辑代码">1 用途一：编辑代码</h2>
-<p>在org-mode中可以通过键入 <code>&lt;s</code> 快速输入代码引用段，得到下面的内容：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#+BEGIN_SRC</div><div class="line"></div><div class="line">#+END_SRC</div></pre></td></tr></table></figure></p>
-<p>但当我们在里面编辑的时候，会发现tab无法缩进。一种解决方法是通过键入
-<code>C-q &lt;Tab&gt;</code>
-缩进，但如果整份文档都需要重排，一行一行的敲肯定很费力。这时候可以在代码段中键入
-<code>C-c '</code>
-，此时Emacs会新建一个buffer，原来代码段的内容会自动粘贴到这个buffer里，此时会发现这个buffer的Minor
-Mode刚好是相应语言的Mode，所以可以很自在的完成各种熟悉的代码编辑工作。完成后再次按
-<code>C-c '</code> 返回。</p>
-	  
+      <h2 id="1-前言">1 前言</h2>
+<p>在Linux安装配置OpenGL理论上是一件非常轻松的事情，因为OpenGL本身就是跨平台的东西。但我在看 OpenGL SuperBible 4th Edition 的时候，却总是遇到一些让我郁闷的事情：自带的GLTools类包只能在Windows和Mac OSX下使用，而且还得自己写Makefile。后来到网上找解决方法，才发现 SuperBible 已经早已经出到了 5th Edition，并且加入了对Linux的支持。 <code>--bbb</code></p>
+<p>这给我两大教训：</p>
+<ol>
+<li>当书中的内容有所欠缺的时候，应该及时去看官网，看看有没有发布新的版本，而不是自己在一旁摸索解决方法。</li>
+<li>不要总指望网上能够下载到电子版本，能够下载的大多数是Out of Date的。于是我索性网购了一本纸质版 <span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>其实我喜欢电子版本的原因是可以方便的复制书中的内容，这对我做笔记很有用。另外由于电脑屏幕够大，所以在Awesome下可以直接开Emacs和evince两个窗口，一边看书一边动手，非常顺手。</span></span></span>。	  
        
    </ul>
-   <a data-pjax href="/tools/a-fantastic-usage/#more" class="btn more">Read More</a>
+   <a data-pjax href="/codes/opengl-on-archlinux/#more" class="btn more">Read More</a>
 </div>    
 
 		
@@ -341,45 +334,45 @@ Mode刚好是相应语言的Mode，所以可以很自在的完成各种熟悉的
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
+			<li><a href="/tags/M-P/">M-P<span>1</span></a></li>
 				   
-			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
+			<li><a href="/tags/koding/">koding<span>1</span></a></li>
 				   
-			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
+			<li><a href="/tags/ruby/">ruby<span>1</span></a></li>
 				   
-			<li><a href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
+			<li><a href="/tags/VS/">VS<span>1</span></a></li>
 				   
-			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
+			<li><a href="/tags/Math/">Math<span>2</span></a></li>
 				   
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/Python/">Python<span>2</span></a></li>
 				   
-			<li><a href="/tags/LaTeX/">LaTeX<span>3</span></a></li>
+			<li><a href="/tags/职场感悟/">职场感悟<span>1</span></a></li>
 				   
-			<li><a href="/tags/K350/">K350<span>1</span></a></li>
+			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
 				   
-			<li><a href="/tags/comment-js/">comment.js<span>1</span></a></li>
+			<li><a href="/tags/Atom/">Atom<span>1</span></a></li>
 				   
-			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
+			<li><a href="/tags/xtlang/">xtlang<span>1</span></a></li>
+				   
+			<li><a href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li>
+				   
+			<li><a href="/tags/emacs/">emacs<span>6</span></a></li>
+				   
+			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
+				   
+			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
 				   
 			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
 				   
-			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
+			<li><a href="/tags/SCNUThesis/">SCNUThesis<span>1</span></a></li>
 				   
-			<li><a href="/tags/Mindmap/">Mindmap<span>1</span></a></li>
+			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
 				   
-			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
+			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
 				   
-			<li><a href="/tags/ANN/">ANN<span>2</span></a></li>
+			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
 				   
-			<li><a href="/tags/PGF/">PGF<span>1</span></a></li>
-				   
-			<li><a href="/tags/Arch/">Arch<span>1</span></a></li>
-				   
-			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
-				   
-			<li><a href="/tags/Vector/">Vector<span>1</span></a></li>
-				   
-			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
+			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
 		
 		<li><a href="/tags">...<span>86</span></a></li>
 		</ul>
