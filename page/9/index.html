@@ -131,7 +131,7 @@
 	<!-- display as entry -->
 		<h3 class="title">
 		<div class="date"> Aug 1 2013 </div>
-			<div class="article-title"><a data-pjax href="/codes/videogfw/" title="一个根据ip所在地选择视频源的小插件。">Alternative Video Source According to IP Address</a></div>			
+			<div class="article-title"><a data-pjax href="/life/video-released/" title="为一个项目制作的Demo Video。">Video Released!</a></div>			
 		</h3>
 	
 
@@ -140,19 +140,25 @@
     <ul class="thumbnails">
     
     
-      <p>我在撰写<a href="/life/video-released">上篇博文</a>的时候遇到了一个有趣的问题：如何根据ip所在地选择视频源？</p>
-<p>由于你很了解的一个原因，国外流行的视频网站（e.g.YouTube）在国内一般不能访问。为了同时照顾大陆和其他国家地区的视频观看者，<a href="http://weibo.com/fxokgfw" target="_blank" rel="external">@李扬彦</a>博士把我们的视频分别上传到了优酷和YouTube上。于是，作为一名<del>勤奋勇敢的</del>大陆人民<del>（我自豪！）</del>，我当然是优先选择嵌入优酷上的视频。但我随后又萌生了一个念头：如果访问者是个外国朋友，访问优酷不一定能像 YouTube 般顺畅<del>（尤其是前者还有万恶的30秒广告！）</del>。能否根据ip所在地的不同，让ip地址不在中国的朋友使用YouTube上的视频源呢？</p>
-<p>于是我就基于 jQuery 和 AJAX 写了这个插件。思路很简单：</p>
-<ol>
-<li>默认先加载优酷上的视频；</li>
-<li>读取访问者的ip信息，判断其所在的国家（或地区）；</li>
-<li>如果所在地不是<del>地大物博，千秋万代的</del>大陆地区，就自动将视频源切换到YouTube上；</li>
-<li>用户还可以通过下方的选择按钮切换视频源。</li>
-</ol>
+      <p>还记得我曾经在<a href="/life/evogeo-video">一篇博文</a>里提到我在<a href="http://vcc.siat.ac.cn" target="_blank" rel="external">SIAT</a>为@<a href="http://weibo.com/fxokgfw" target="_blank" rel="external">李扬彦</a>博士的项目做了一个展示视频吗？现在这个视频发布啦！</p>
+<p>另外我们迎来了一个好消息：这个项目的成果已经被今年的<a href="sa2013.siggraph.org/%E2%80%8E">Siggraph Asia大会</a>录用了！你可以在<a href="http://web.siat.ac.cn/~vcc/publications/2013/Planalyze/" target="_blank" rel="external">项目主页</a>上获取关于该项目的更多信息。</p>
+<div id="videogfw">
+<script type="text/javascript">
+   var youkusrc = "http://player.youku.com/embed/XNTkwMTUwODQ0"
+   var youtubesrc = "http://www.youtube.com/embed/ETb8QsvfxB0"
+   chooseVideo(youkusrc);  // the default video source
+   videoGFW(youtubesrc);  // if you want to automatically select the video source
+</script>
+</div>
+<p>选择视频来源：</p>
+<div class="btn-group">
+  <button class="btn" onclick="chooseVideo(youkusrc)"><span class="badge badge-important">1</span> 优酷</button>
+  <button class="btn" onclick="chooseVideo(youtubesrc)"><span class="badge badge-important">2</span> YouTube</button>
+</div>
 	  
        
    </ul>
-   <a data-pjax href="/codes/videogfw/#more" class="btn more">Read More</a>
+   <a data-pjax href="/life/video-released/#more" class="btn more">Read More</a>
 </div>    
 
 		
@@ -339,45 +345,45 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
+			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
+				   
+			<li><a href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li>
+				   
+			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
 				   
 			<li><a href="/tags/static-analysis/">static analysis<span>1</span></a></li>
 				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
+			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
 				   
 			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
 				   
+			<li><a href="/tags/PGF/">PGF<span>1</span></a></li>
+				   
+			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
+				   
 			<li><a href="/tags/Atom/">Atom<span>1</span></a></li>
 				   
-			<li><a href="/tags/shell/">shell<span>3</span></a></li>
-				   
-			<li><a href="/tags/Math/">Math<span>2</span></a></li>
-				   
-			<li><a href="/tags/Android/">Android<span>1</span></a></li>
-				   
-			<li><a href="/tags/Git/">Git<span>5</span></a></li>
-				   
-			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
-				   
-			<li><a href="/tags/CLI/">CLI<span>1</span></a></li>
-				   
-			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
+			<li><a href="/tags/xtlang/">xtlang<span>1</span></a></li>
 				   
 			<li><a href="/tags/ANN/">ANN<span>2</span></a></li>
 				   
-			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
+			<li><a href="/tags/Docker/">Docker<span>1</span></a></li>
 				   
-			<li><a href="/tags/vcc/">vcc<span>1</span></a></li>
+			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
 				   
 			<li><a href="/tags/OpenCV/">OpenCV<span>3</span></a></li>
 				   
-			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
+			<li><a href="/tags/Python/">Python<span>2</span></a></li>
 				   
-			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
+			<li><a href="/tags/Math/">Math<span>2</span></a></li>
 				   
-			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
+			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
 				   
-			<li><a href="/tags/M-P/">M-P<span>1</span></a></li>
+			<li><a href="/tags/koding/">koding<span>1</span></a></li>
+				   
+			<li><a href="/tags/Logitech/">Logitech<span>1</span></a></li>
+				   
+			<li><a href="/tags/Objective-C/">Objective-C<span>1</span></a></li>
 		
 		<li><a href="/tags">...<span>86</span></a></li>
 		</ul>
