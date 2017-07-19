@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-07-19T09:21:09.540Z</updated>
+  <updated>2017-07-19T09:30:06.396Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/work/my-2-years-at-pingan/"/>
     <id>http://hahack.com/work/my-2-years-at-pingan/</id>
     <published>2017-07-17T07:00:20.000Z</published>
-    <updated>2017-07-19T09:20:26.000Z</updated>
+    <updated>2017-07-19T09:29:22.000Z</updated>
     <content type="html"><![CDATA[<p>我是在 2015 年 5 月 20 日离开的百度，次日就来到了平安。当时平安的这个团队叫做移动开发二队。在百度的最后一天，我在朋友圈发了张合照，写了句“再见，我爱你”。很多人不理解我为什么在百度干了一年就走了，而且去的是平安这个并不以技术见长的公司。其实原因很简单：跟对的团队做对的事情。</p>
 <p>说是“对的事情”是因为平安这边正面临技术转型期，会有大量的技术需求可以放手去做。而过去平安那边的首要任务是开发完善底层的技术框架，有机会接触比较核心的技术，这对我的技术成长很有好处。</p>
 <p>说是“对的团队”是因为我对平安这个团队的了解。平安那边的老大锋哥也是原先我们百度 LBS 团队的研发 leader，而 leader 定一也是之前在百度的时候合作非常愉快的一个同事。再加上鑫哥 <a href="http://www.jianshu.com/u/4ef984470da8" target="_blank" rel="external">@ASCE1885</a> 每周一更的技术周报，让我觉得这个团队是非常尊重技术的团队，而我过去应该能有更多发挥的机会。</p>
