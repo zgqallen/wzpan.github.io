@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-07-19T16:18:30.289Z</updated>
+  <updated>2017-07-19T16:20:19.987Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/work/my-2-years-at-pingan/"/>
     <id>http://hahack.com/work/my-2-years-at-pingan/</id>
     <published>2017-07-17T07:00:20.000Z</published>
-    <updated>2017-07-19T16:18:06.027Z</updated>
+    <updated>2017-07-19T16:19:55.925Z</updated>
     <content type="html"><![CDATA[<p>我是在 2015 年 5 月 20 日离开的百度，次日就来到了平安。当时平安的这个团队叫做移动开发二队。在百度的最后一天，我在朋友圈发了张合照，写了句“再见，我爱你”。很多人不理解我为什么在百度干了一年就走了，而且去的是平安这个并不以技术见长的公司。其实原因很简单：跟对的团队做对的事情。</p>
 <p>说是“对的事情”是因为平安这边正面临技术转型期，会有大量的技术需求可以放手去做。而过去平安那边的首要任务是开发完善底层的技术框架，有机会接触比较核心的技术，这对我的技术成长很有好处。</p>
 <p>说是“对的团队”是因为我对平安这个团队的了解。平安那边的老大锋哥也是原先我们百度 LBS 团队的研发 leader，而 leader 定一也是之前在百度的时候合作非常愉快的一个同事。再加上鑫哥 <a href="http://www.jianshu.com/u/4ef984470da8" target="_blank" rel="external">@ASCE1885</a> 每周一更的技术周报，让我觉得这个团队是非常尊重技术的团队，而我过去应该能有更多发挥的机会。</p>
@@ -127,15 +127,15 @@
 <p>有了去年的 Ukulele 弹奏的基础，今年的年会我决定玩点其他的乐器。于是我在九月份买了一台卡西欧入门电子琴，开始学习电子琴弹唱。</p>
 <p>电子琴弹唱和 Ukulele 弹唱完全是不同级别的难度。Ukulele 的弹唱基本就是弹和弦搞定，而电子琴弹唱可以说是吉他指弹 + 演唱的难度了，要在几个月内达到拿得出手的水平非常困难。好在现在的电子琴的教学软件都做的非常人性化，我只需学好指法，然后照着软件给出的演示进行肌肉记忆，整首歌硬记下来也是可能的。年会上，我弹唱了偶像王力宏的经典歌曲《你不知道的事》（<a href="https://kg.qq.com/node/play?s=KKeq5gK_O1XgmKZ5" target="_blank" rel="external"><i class="fa fa-video-camera"></i> 练习视频：你不知道的事</a>），算是把大伙糊弄过去了。</p>
 <h2 id="2017年">2017年</h2>
-<h2 id="主线：人工智能">主线：人工智能</h2>
+<h3 id="主线：人工智能">主线：人工智能</h3>
 <p>到了 2017 年，我们的框架变得稳定，不像上一年有诸多需求。于是我们进入了舒适区，过上了朝九晚六的生活。但这种情况对于我而言并不见得是好事：需求变少了，人也会跟着变懒，久而久之就没有成长了。既然业余时间变多了，我决定把时间用来学点 AI 的相关的知识。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/my-2-years-at-pingan/udacity.jpeg" alt=" 顺手给课程提了几个建议和bug，收到了 Udacity 寄来的小礼物。"><b>图 5</b>  顺手给课程提了几个建议和bug，收到了 Udacity 寄来的小礼物。</span></span></span></p>
 <p>机器学习对数学的要求比较高，所以我先花了半个月的时间看了可汗学院的《线性代数》课程，写了<a href="http://localhost:4000/categories/#math" target="_blank" rel="external">几篇学习笔记</a>。然后又看完了 Udacity 上的《机器学习入门》，并做完了全部练习。这门课讲的非常生动，极大地帮助我加深了对机器学习如何解决实际问题的理解。</p>
 <p>在锋哥的鼓励下，我带头成立了一个人工智能兴趣小组。我们一共开展了 6 次分享，涵盖了 TensorFlow、贝叶斯分类、线性回归、K-means 聚类、自然语言处理、对话机器人实现等多个 topic 。另外我申请购买了一台高性能的深度学习机，自己搭建了 Jupyter Notebook 和支持 GPU 加速的 TensorFlow 环境，可以供小组成员在 Notebook 上做感兴趣的实验。</p>
 <p><img src="/images/my-2-years-at-pingan/notebook.png" alt="我们的notebook"></p>
 <p>之后我想尝试将分类的技术用在我们内部的 issue tracker 来判断是否重复提 bug 。由于我们的框架同时对接了多款 App ，一旦框架出现了一个 bug，多个 App 上都会报相同的问题。如果能通过机器学习的技术来分辨出是否重复提 bug ，那么就能减少开发在 follow issue 上面花费的时间。判断是否重复提 bug 和判断文本内容相似度类似，可以对文本统计 TFIDF 词频信息，然后利用余弦相似度来判断相似程度。所以，我写了个爬虫，把我们的 Redmine 平台上的数据按照格式爬了下来，总共爬了接近两万条 bug 数据。但过了几天公司开始推 Jira 作为新的 issue tracker，我们的 Redmine 就停止使用了。这个项目就只能搁浅了。</p>
 <p>虽然我们并没有真正用机器学习算法做出什么成果，但这个过程中积累的一些机器学习的知识也将为我日后的工作方向带来收益。</p>
-<h2 id="支线-v4">支线</h2>
-<h3 id="图灵">图灵</h3>
+<h3 id="支线-v4">支线</h3>
+<h4 id="图灵">图灵</h4>
 <p>我为团队做的一个比较好玩的项目是微信聊天机器人“图灵”。这是基于 <a href="https://github.com/liuwons/wxbot" target="_blank" rel="external">wxbot</a> 和 <a href="http://www.tuling123.com/" target="_blank" rel="external">图灵机器人 API</a> 做的一个微信群聊天机器人。</p>
 <p>起初它是为了取代<a href="#%E9%87%91%E7%A7%91%E5%A4%A7%E7%99%BD">金科大白</a>而做的一个新的管家项目，因此它可以实现诸如询问内网站点地址、恶劣天气通知、群成员生日提醒、新人入群欢迎、活动报名征集、考勤异常提醒等功能。</p>
 <p><img src="/images/my-2-years-at-pingan/birthday.jpeg" alt="群成员生日提醒"></p>
@@ -145,7 +145,7 @@
 <p><img src="/images/my-2-years-at-pingan/sdk-build.jpeg" alt="使用图灵构建SDK"></p>
 <p>交给机器人构建 SDK 是如此方便，于是 @图灵 构建 SDK 成了我们日常构建框架 SDK 的主要方式。</p>
 <p>李开复说，“5秒以下的工作将会被人工智能替代”。我也在工作中尽量找出 5 秒内可以用微信机器人取代的活，并交由它去完成。于是我给图灵实现了诸如苹果APP审核状态跟踪、项目日报查询、Jenkins 构建站任务跟踪、个人bug通知查询、线上 App 下载地址查询等功能，这些功能为项目的日常管理带来了很大便利。</p>
-<h3 id="开源项目">开源项目</h3>
+<h4 id="开源项目">开源项目</h4>
 <p>由于今年加班时间变少了，我也有了更多时间投入在开源项目中。我的问题开始由“这个团队需要什么”转变为“外面的世界需要什么”。</p>
 <p>在 5 月份的时候我决定自己动手做一个智能音箱，一方面来自于自己生活中的需求，另一方面也是因为找不到一个比较成熟可用的中文的开源智能音箱项目。于是我买来了硬件设备，花了三个星期的时间完成了<a href="http://github.com/wzpan/dingdang-robot" target="_blank" rel="external">叮当</a>的第一个版本。由于树莓派+智能音箱毕竟是小众项目，所以我一开始并不期望这个项目能得到多少关注。然而，随着 QQ 用户群人数的不断壮大，越来越多的朋友安装了叮当，并且真正将它投入在了日常的使用上。发布不到 10 天，star 数量就突破了 100 个，有两天登上了当天 Python 的 Github Trending。截至本文发布，叮当的 QQ 用户群已经达到了 117 人， Github Star 数量为 211 个。</p>
 <p><img src="/images/my-2-years-at-pingan/trending.jpg" alt="叮当登上Github Trending"></p>
