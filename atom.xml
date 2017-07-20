@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-07-19T16:23:40.702Z</updated>
+  <updated>2017-07-20T03:42:41.031Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/work/my-2-years-at-pingan/"/>
     <id>http://hahack.com/work/my-2-years-at-pingan/</id>
     <published>2017-07-17T07:00:20.000Z</published>
-    <updated>2017-07-19T16:23:18.751Z</updated>
+    <updated>2017-07-20T03:42:10.455Z</updated>
     <content type="html"><![CDATA[<p>我是在 2015 年 5 月 20 日离开的百度，次日就来到了平安。当时平安的这个团队叫做移动开发二队。在百度的最后一天，我在朋友圈发了张合照，写了句“再见，我爱你”。很多人不理解我为什么在百度干了一年就走了，而且去的是平安这个并不以技术见长的公司。其实原因很简单：跟对的团队做对的事情。</p>
 <p>说是“对的事情”是因为平安正处于技术转型期，其间会有大量的技术需求可以放手去做。而来平安这个团队的首要任务是开发完善底层的技术框架，有机会接触比较核心的技术，这对我的技术成长很有好处。</p>
 <p>说是“对的团队”是因为我对平安这个团队的了解。平安那边的老大锋哥也是原先我们百度 LBS 团队的研发 leader，而 leader 定一也是之前在百度的时候合作非常愉快的一个同事。再加上鑫哥 <a href="http://www.jianshu.com/u/4ef984470da8" target="_blank" rel="external">@ASCE1885</a> 每周一更的技术周报，让我觉得这个团队是非常尊重技术的团队，而我过去应该能有更多发挥的机会。</p>
@@ -129,7 +129,7 @@
 <h2 id="2017年">2017年</h2>
 <h3 id="主线：人工智能">主线：人工智能</h3>
 <p>到了 2017 年，我们的框架变得稳定，不像上一年有诸多需求。于是我们进入了舒适区，过上了朝九晚六的生活。但这种情况对于我而言并不见得是好事：需求变少了，人也会跟着变懒，久而久之就没有成长了。既然业余时间变多了，我决定把时间用来学点 AI 的相关的知识。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/my-2-years-at-pingan/udacity.jpeg" alt=" 顺手给课程提了几个建议和bug，收到了 Udacity 寄来的小礼物。"><b>图 5</b>  顺手给课程提了几个建议和bug，收到了 Udacity 寄来的小礼物。</span></span></span></p>
-<p>机器学习对数学的要求比较高，所以我先花了半个月的时间看了可汗学院的《线性代数》课程，写了<a href="http://localhost:4000/categories/#math" target="_blank" rel="external">几篇学习笔记</a>。然后又看完了 Udacity 上的《机器学习入门》，并做完了全部练习。这门课讲的非常生动，极大地帮助我加深了对机器学习如何解决实际问题的理解。</p>
+<p>机器学习对数学的要求比较高，所以我先花了半个月的时间看了可汗学院的《线性代数》课程，写了<a href="/categories/#math">几篇学习笔记</a>。然后又看完了 Udacity 上的《机器学习入门》，并做完了全部练习。这门课讲的非常生动，极大地帮助我加深了对机器学习如何解决实际问题的理解。</p>
 <p>在锋哥的鼓励下，我带头成立了一个人工智能兴趣小组。我们一共开展了 6 次分享，涵盖了 TensorFlow、贝叶斯分类、线性回归、K-means 聚类、自然语言处理、对话机器人实现等多个 topic 。另外我申请购买了一台高性能的深度学习机，自己搭建了 Jupyter Notebook 和支持 GPU 加速的 TensorFlow 环境，可以供小组成员在 Notebook 上做感兴趣的实验。</p>
 <p><img src="/images/my-2-years-at-pingan/notebook.png" alt="我们的notebook"></p>
 <p>之后我想尝试将分类的技术用在我们内部的 issue tracker 来判断是否重复提 bug 。由于我们的框架同时对接了多款 App ，一旦框架出现了一个 bug，多个 App 上都会报相同的问题。如果能通过机器学习的技术来分辨出是否重复提 bug ，那么就能减少开发在 follow issue 上面花费的时间。判断是否重复提 bug 和判断文本内容相似度类似，可以对文本统计 TFIDF 词频信息，然后利用余弦相似度来判断相似程度。所以，我写了个爬虫，把我们的 Redmine 平台上的数据按照格式爬了下来，总共爬了接近两万条 bug 数据。但过了几天公司开始推 Jira 作为新的 issue tracker，我们的 Redmine 就停止使用了。这个项目就只能搁浅了。</p>
