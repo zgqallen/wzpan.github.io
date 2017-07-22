@@ -51,8 +51,12 @@
 	
 
 
-    <script src="/dist/comment.js"></script>
-    <script src="/dist/markdown.min.js"></script>
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
     <script src="/dist/timeago.min.js"></script>
 	<script src="/dist/spin.min.js"></script>
 
@@ -358,45 +362,45 @@ Environment)的概念。窗口管理器负责绘制窗口的边框，处理窗�
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
+			<li><a href="/tags/Arch/">Arch<span>1</span></a></li>
 				   
-			<li><a href="/tags/Awesome/">Awesome<span>3</span></a></li>
+			<li><a href="/tags/vcc/">vcc<span>1</span></a></li>
 				   
-			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
 				   
-			<li><a href="/tags/ANN/">ANN<span>2</span></a></li>
+			<li><a href="/tags/OSF/">OSF<span>1</span></a></li>
 				   
-			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
+			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
 				   
-			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
+			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
 				   
-			<li><a href="/tags/BP/">BP<span>1</span></a></li>
+			<li><a href="/tags/Graphics/">Graphics<span>1</span></a></li>
 				   
-			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
-				   
-			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
-				   
-			<li><a href="/tags/koding/">koding<span>1</span></a></li>
-				   
-			<li><a href="/tags/Javascript/">Javascript<span>4</span></a></li>
-				   
-			<li><a href="/tags/emacs/">emacs<span>6</span></a></li>
-				   
-			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
-				   
-			<li><a href="/tags/Objective-C/">Objective-C<span>1</span></a></li>
+			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
 				   
 			<li><a href="/tags/xtlang/">xtlang<span>1</span></a></li>
 				   
+			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
+				   
+			<li><a href="/tags/M-P/">M-P<span>1</span></a></li>
+				   
 			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
 				   
-			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
-				   
-			<li><a href="/tags/Git/">Git<span>5</span></a></li>
+			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
 				   
 			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
 				   
-			<li><a href="/tags/npm/">npm<span>1</span></a></li>
+			<li><a href="/tags/Nuclide/">Nuclide<span>1</span></a></li>
+				   
+			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
+				   
+			<li><a href="/tags/React-Native/">React-Native<span>1</span></a></li>
+				   
+			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
+				   
+			<li><a href="/tags/koding/">koding<span>1</span></a></li>
+				   
+			<li><a href="/tags/Atom/">Atom<span>1</span></a></li>
 		
 		<li><a href="/tags">...<span>86</span></a></li>
 		</ul>
@@ -500,6 +504,25 @@ Environment)的概念。窗口管理器负责绘制窗口的边框，处理窗�
 </script>
 
 
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
 
 
 <script type="text/javascript">

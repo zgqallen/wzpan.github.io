@@ -57,8 +57,12 @@ nvm 是 node.js 的版本管理工具。安装 nvm 需要打开命令行窗口�
 	
 
 
-    <script src="/dist/comment.js"></script>
-    <script src="/dist/markdown.min.js"></script>
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
     <script src="/dist/timeago.min.js"></script>
 	<script src="/dist/spin.min.js"></script>
 
@@ -513,8 +517,10 @@ nvm 是 node.js 的版本管理工具。安装 nvm 需要打开命令行窗口�
 	    
 	
 	    
-			
-		
+	
+	    
+	
+	    
 	
 	    
 			
@@ -526,6 +532,10 @@ nvm 是 node.js 的版本管理工具。安装 nvm 需要打开命令行窗口�
 	
 	    
 			
+		
+	
+	    
+			
 			
 		
 	
@@ -533,12 +543,6 @@ nvm 是 node.js 的版本管理工具。安装 nvm 需要打开命令行窗口�
 			
 			
 			
-	    
-	
-	    
-	
-	    
-	
 	    
 	
 	    
@@ -727,6 +731,25 @@ nvm 是 node.js 的版本管理工具。安装 nvm 需要打开命令行窗口�
 </script>
 
 
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
 
 
 <script type="text/javascript">

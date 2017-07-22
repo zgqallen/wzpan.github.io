@@ -54,8 +54,12 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	
 
 
-    <script src="/dist/comment.js"></script>
-    <script src="/dist/markdown.min.js"></script>
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
     <script src="/dist/timeago.min.js"></script>
 	<script src="/dist/spin.min.js"></script>
 
@@ -490,28 +494,8 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
-	
-	    
 			
 		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
 	
 	    
 	
@@ -560,6 +544,22 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
 			
 		
 	
@@ -624,65 +624,6 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
-			
-			
-		
-	
-	    
-	
-	    
-			
-			
-			
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 			
@@ -692,14 +633,26 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
+			
+			
+			
+	    
 	
 	    
-			
-			
-			
+	
 	    
-			
-		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
@@ -716,8 +669,6 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
-			
-		
 	
 	    
 	
@@ -728,14 +679,10 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
-			
-		
 	
 	    
 	
 	    
-			
-		
 	
 	    
 			
@@ -759,15 +706,72 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
 	
-		<li class="prev"><a data-pjax href="/wiki/c-tables.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a data-pjax href="/wiki/c-style.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
 	
 	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
 	
-		<li class="next"><a data-pjax href="/wiki/c-snippets.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+		<li class="next"><a data-pjax href="/wiki/c-tables.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
 	
 </ul>
 </div>
@@ -864,6 +868,25 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 </script>
 
 
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
 
 
 <script type="text/javascript">

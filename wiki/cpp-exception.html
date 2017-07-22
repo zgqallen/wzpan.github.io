@@ -56,8 +56,12 @@ try 块，错误处理部分使用它来处理异常。try 语句块以 try 关�
 	
 
 
-    <script src="/dist/comment.js"></script>
-    <script src="/dist/markdown.min.js"></script>
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
     <script src="/dist/timeago.min.js"></script>
 	<script src="/dist/spin.min.js"></script>
 
@@ -246,34 +250,6 @@ const char* 类型值。它返回的指针指向一个 C 风格字符串（第 4
 	    
 	
 	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 			
@@ -292,10 +268,8 @@ const char* 类型值。它返回的指针指向一个 C 风格字符串（第 4
 	    
 	
 	    
-	
-	    
-	
-	    
+			
+		
 	
 	    
 	
@@ -336,6 +310,14 @@ const char* 类型值。它返回的指针指向一个 C 风格字符串（第 4
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 			
 		
 	
@@ -346,91 +328,8 @@ const char* 类型值。它返回的指针指向一个 C 风格字符串（第 4
 	    
 	
 	    
-	
-	    
 			
 		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-			
-			
-	    
-	
-	    
-	
-	    
 	
 	    
 	
@@ -475,6 +374,91 @@ const char* 类型值。它返回的指针指向一个 C 风格字符串（第 4
 	    
 	
 	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
@@ -501,8 +485,6 @@ const char* 类型值。它返回的指针指向一个 C 风格字符串（第 4
 	    
 	
 	    
-			
-		
 	
 	    
 	
@@ -515,6 +497,28 @@ const char* 类型值。它返回的指针指向一个 C 风格字符串（第 4
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
 	
 	    
 	
@@ -654,6 +658,25 @@ const char* 类型值。它返回的指针指向一个 C 风格字符串（第 4
 </script>
 
 
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
 
 
 <script type="text/javascript">

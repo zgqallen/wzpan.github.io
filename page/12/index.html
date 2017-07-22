@@ -51,8 +51,12 @@
 	
 
 
-    <script src="/dist/comment.js"></script>
-    <script src="/dist/markdown.min.js"></script>
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
     <script src="/dist/timeago.min.js"></script>
 	<script src="/dist/spin.min.js"></script>
 
@@ -337,45 +341,45 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/CI/">CI<span>1</span></a></li>
+			<li><a href="/tags/Nuclide/">Nuclide<span>1</span></a></li>
 				   
-			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
+			<li><a href="/tags/ANN/">ANN<span>2</span></a></li>
 				   
-			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
-				   
-			<li><a href="/tags/职场感悟/">职场感悟<span>1</span></a></li>
-				   
-			<li><a href="/tags/koding/">koding<span>1</span></a></li>
-				   
-			<li><a href="/tags/vcc/">vcc<span>1</span></a></li>
-				   
-			<li><a href="/tags/React-Native/">React-Native<span>1</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>1</span></a></li>
 				   
 			<li><a href="/tags/K350/">K350<span>1</span></a></li>
 				   
-			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
-				   
-			<li><a href="/tags/dingdang/">dingdang<span>2</span></a></li>
-				   
-			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
-				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
-				   
-			<li><a href="/tags/Disqus/">Disqus<span>1</span></a></li>
-				   
-			<li><a href="/tags/VS/">VS<span>1</span></a></li>
-				   
-			<li><a href="/tags/static-analysis/">static analysis<span>1</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 				   
 			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 				   
-			<li><a href="/tags/Math/">Math<span>2</span></a></li>
+			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
 				   
-			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
+			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
 				   
-			<li><a href="/tags/CLI/">CLI<span>1</span></a></li>
+			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
 				   
-			<li><a href="/tags/React/">React<span>1</span></a></li>
+			<li><a href="/tags/Python/">Python<span>2</span></a></li>
+				   
+			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
+				   
+			<li><a href="/tags/highlight/">highlight<span>1</span></a></li>
+				   
+			<li><a href="/tags/Matrix/">Matrix<span>1</span></a></li>
+				   
+			<li><a href="/tags/ruby/">ruby<span>1</span></a></li>
+				   
+			<li><a href="/tags/Mindmap/">Mindmap<span>1</span></a></li>
+				   
+			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
+				   
+			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
+				   
+			<li><a href="/tags/Android/">Android<span>1</span></a></li>
+				   
+			<li><a href="/tags/M-P/">M-P<span>1</span></a></li>
+				   
+			<li><a href="/tags/Atom/">Atom<span>1</span></a></li>
 		
 		<li><a href="/tags">...<span>86</span></a></li>
 		</ul>
@@ -479,6 +483,25 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
 </script>
 
 
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
 
 
 <script type="text/javascript">

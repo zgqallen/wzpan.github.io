@@ -51,8 +51,12 @@
 	
 
 
-    <script src="/dist/comment.js"></script>
-    <script src="/dist/markdown.min.js"></script>
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
     <script src="/dist/timeago.min.js"></script>
 	<script src="/dist/spin.min.js"></script>
 
@@ -365,45 +369,45 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Vector/">Vector<span>1</span></a></li>
-				   
-			<li><a href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
-				   
-			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
-				   
-			<li><a href="/tags/Android/">Android<span>1</span></a></li>
-				   
-			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
 				   
 			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
 				   
-			<li><a href="/tags/Objective-C/">Objective-C<span>1</span></a></li>
+			<li><a href="/tags/Math/">Math<span>2</span></a></li>
 				   
-			<li><a href="/tags/Mindmap/">Mindmap<span>1</span></a></li>
+			<li><a href="/tags/K350/">K350<span>1</span></a></li>
+				   
+			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
+				   
+			<li><a href="/tags/dingdang/">dingdang<span>2</span></a></li>
+				   
+			<li><a href="/tags/PGF/">PGF<span>1</span></a></li>
+				   
+			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
+				   
+			<li><a href="/tags/npm/">npm<span>1</span></a></li>
+				   
+			<li><a href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
 				   
 			<li><a href="/tags/React/">React<span>1</span></a></li>
 				   
-			<li><a href="/tags/职场感悟/">职场感悟<span>1</span></a></li>
+			<li><a href="/tags/Docker/">Docker<span>1</span></a></li>
 				   
-			<li><a href="/tags/Disqus/">Disqus<span>1</span></a></li>
+			<li><a href="/tags/vcc/">vcc<span>1</span></a></li>
 				   
-			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 				   
-			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
+			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
 				   
-			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
+			<li><a href="/tags/xtlang/">xtlang<span>1</span></a></li>
 				   
-			<li><a href="/tags/Matrix/">Matrix<span>1</span></a></li>
+			<li><a href="/tags/Nuclide/">Nuclide<span>1</span></a></li>
 				   
-			<li><a href="/tags/comment-js/">comment.js<span>1</span></a></li>
+			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
 				   
-			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
+			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
 				   
-			<li><a href="/tags/highlight/">highlight<span>1</span></a></li>
-				   
-			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
-				   
-			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
+			<li><a href="/tags/Python/">Python<span>2</span></a></li>
 		
 		<li><a href="/tags">...<span>86</span></a></li>
 		</ul>
@@ -507,6 +511,25 @@
 </script>
 
 
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
 
 
 <script type="text/javascript">

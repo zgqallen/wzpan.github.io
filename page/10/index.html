@@ -51,8 +51,12 @@
 	
 
 
-    <script src="/dist/comment.js"></script>
-    <script src="/dist/markdown.min.js"></script>
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
     <script src="/dist/timeago.min.js"></script>
 	<script src="/dist/spin.min.js"></script>
 
@@ -334,45 +338,45 @@ Emacs 中搭建 VC
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Git/">Git<span>5</span></a></li>
+			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
 				   
-			<li><a href="/tags/highlight/">highlight<span>1</span></a></li>
+			<li><a href="/tags/VS/">VS<span>1</span></a></li>
 				   
-			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
+			<li><a href="/tags/Makefile/">Makefile<span>1</span></a></li>
 				   
-			<li><a href="/tags/K350/">K350<span>1</span></a></li>
-				   
-			<li><a href="/tags/org-mode/">org-mode<span>2</span></a></li>
-				   
-			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
-				   
-			<li><a href="/tags/Logitech/">Logitech<span>1</span></a></li>
-				   
-			<li><a href="/tags/npm/">npm<span>1</span></a></li>
-				   
-			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
-				   
-			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
-				   
-			<li><a href="/tags/Matrix/">Matrix<span>1</span></a></li>
-				   
-			<li><a href="/tags/React/">React<span>1</span></a></li>
+			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
 				   
 			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
 				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
+			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
 				   
-			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
+			<li><a href="/tags/dingdang/">dingdang<span>2</span></a></li>
 				   
-			<li><a href="/tags/video/">video<span>6</span></a></li>
+			<li><a href="/tags/Atom/">Atom<span>1</span></a></li>
 				   
-			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
+			<li><a href="/tags/org-mode/">org-mode<span>2</span></a></li>
 				   
-			<li><a href="/tags/TikZ/">TikZ<span>1</span></a></li>
+			<li><a href="/tags/React/">React<span>1</span></a></li>
 				   
-			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
+			<li><a href="/tags/jQuery/">jQuery<span>2</span></a></li>
 				   
-			<li><a href="/tags/vcc/">vcc<span>1</span></a></li>
+			<li><a href="/tags/Vector/">Vector<span>1</span></a></li>
+				   
+			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
+				   
+			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
+				   
+			<li><a href="/tags/Javascript/">Javascript<span>4</span></a></li>
+				   
+			<li><a href="/tags/highlight/">highlight<span>1</span></a></li>
+				   
+			<li><a href="/tags/Python/">Python<span>2</span></a></li>
+				   
+			<li><a href="/tags/xml/">xml<span>1</span></a></li>
+				   
+			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
+				   
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 		
 		<li><a href="/tags">...<span>86</span></a></li>
 		</ul>
@@ -476,6 +480,25 @@ Emacs 中搭建 VC
 </script>
 
 
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
 
 
 <script type="text/javascript">

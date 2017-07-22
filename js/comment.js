@@ -157,7 +157,7 @@ var _getIssueByUrl = function _getIssueByUrl(issue_url, callback) {
 var _renderComment = function _renderComment(comment) {
     var timeagoInstance = timeago();
     var user = comment.user;
-    var content = markdown.toHTML(comment.body);
+    var content = marked(comment.body);
     var ago = timeagoInstance.format(comment.created_at);
     var current_user = user.login == username ? "current-user" : "";
     var addr = type == 'github' ? github_addr : oschina_addr;
@@ -180,7 +180,7 @@ var _getRecentCommentList = function _getRecentCommentList(comment_list, i, rend
     }
     var comment = comments[i];
     if (!comment) return;
-    var content = markdown.toHTML(comment.body);
+    var content = marked(comment.body);
     var title = comment.title;
     var user = comment.user;
     var timeagoInstance = timeago();

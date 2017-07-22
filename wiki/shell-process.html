@@ -80,8 +80,12 @@ killall (进程的名字)
 	
 
 
-    <script src="/dist/comment.js"></script>
-    <script src="/dist/markdown.min.js"></script>
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
     <script src="/dist/timeago.min.js"></script>
 	<script src="/dist/spin.min.js"></script>
 
@@ -864,52 +868,6 @@ killall (进程的名字)
 	    
 	
 	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
 	
 	    
 	
@@ -948,20 +906,6 @@ killall (进程的名字)
 	    
 	
 	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 	
@@ -978,6 +922,18 @@ killall (进程的名字)
 	    
 	
 	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
 	
 	    
 	
@@ -992,50 +948,8 @@ killall (进程的名字)
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
+			
+		
 	
 	    
 	
@@ -1080,7 +994,80 @@ killall (进程的名字)
 	    
 	
 	    
-			
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 			
 		
 	
@@ -1103,13 +1090,6 @@ killall (进程的名字)
 	    
 			
 			
-			
-	    
-	
-	    
-	
-	    
-			
 		
 	
 	    
@@ -1117,15 +1097,13 @@ killall (进程的名字)
 	    
 	
 	    
-			
-		
 	
 	    
 	
 	    
 			
-		
-	
+			
+			
 	    
 	
 	    
@@ -1139,6 +1117,12 @@ killall (进程的名字)
 	    
 	
 	    
+			
+		
+	
+	    
+	
+	    
 	
 	    
 	
@@ -1147,6 +1131,26 @@ killall (进程的名字)
 	    
 			
 		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
 	
 	    
 			
@@ -1262,6 +1266,25 @@ killall (进程的名字)
 </script>
 
 
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
 
 
 <script type="text/javascript">
