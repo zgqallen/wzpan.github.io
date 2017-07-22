@@ -149,7 +149,8 @@
 <ul>
 <li><a href="http://wzpan.github.io/hexo-theme-freemind/" target="_blank" rel="external">Demo</a></li>
 <li><a href="http://wzpan.github.io/hexo-theme-freemind/2014/03/16/qna/" target="_blank" rel="external">Q&amp;A</a></li>
-<li><a href="http://wzpan.github.io/hexo-theme-freemind/2014/03/16/tag-plugins/" target="_blank" rel="external">Tag Plugins</a></li>
+<li><a href="http://wzpan.github.io/hexo-theme-freemind/2014/03/16/tag-plugins/" target="_blank" rel="external">标签插件</a></li>
+<li><a href="http://wzpan.github.io/hexo-theme-freemind-blog/2016/01/30/color-themes/" target="_blank" rel="external">颜色主题</a></li>
 </ul>
 <h2 id="特点">特点</h2>
 <p>Freemind 和 HaHack 所用的主题的基本相似，特点在于：</p>
@@ -164,7 +165,10 @@
 <li>alert - 插入一段警报文本信息，并为其指定样式。</li>
 </ul>
 </li>
-<li><strong>本地搜索</strong> <span class="label label-important">新</span> - 自带一个 <a href="/codes/local-search-engine-for-hexo/">本地搜索引擎</a> 。</li>
+<li><strong>本地搜索</strong> - 自带一个 <a href="/codes/local-search-engine-for-hexo/">本地搜索引擎</a> ，基于我的另一个项目 <a href="https://github.com/paichyperiondev/hexo-generator-search" target="_blank" rel="external">hexo-generator-search</a> ；</li>
+<li><strong>颜色主题</strong> - 内置多套颜色主题。总有一套符合你的口味；</li>
+<li><strong>文章置顶</strong> - 将重要文章置于首页顶部；</li>
+<li><strong>内置评论系统</strong> - 内置的评论系统，基于我的另一个项目 <a href="https://github.com/wzpan/comment.js" target="_blank" rel="external">comment.js</a> 。</li>
 </ul>
 <a id="more"></a>
 <h2 id="安装">安装</h2>
@@ -195,10 +199,11 @@
 <p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span> themes/freemind</div><div class="line">$ git pull</div></pre></td></tr></table></figure></p>
 <h2 id="配置">配置</h2>
 <p>Freemind 的配置文件如下：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">slogan: Yet another bootstrap theme.</div><div class="line"></div><div class="line">menu:</div><div class="line">  - title: Archives</div><div class="line">    url: archives</div><div class="line">    intro: All the articles.</div><div class="line">    icon: fa fa-archive</div><div class="line">  - title: Categories</div><div class="line">    url: categories</div><div class="line">    intro: All the categories.</div><div class="line">    icon: fa fa-folder</div><div class="line">  - title: Tags</div><div class="line">    url: tags</div><div class="line">    intro: All the tags.</div><div class="line">    icon: fa fa-tags</div><div class="line">  - title: About</div><div class="line">    url: about</div><div class="line">    intro: About me.</div><div class="line">    icon: fa fa-user</div><div class="line"></div><div class="line">links:</div><div class="line">  - title: My Github</div><div class="line">    url: http://www.github.com/wzpan</div><div class="line">    intro: My Github account.</div><div class="line">    icon: fa fa-github</div><div class="line">  - title: My LinkedIn</div><div class="line">    url: http://www.linkedin.com/pub/weizhou-pan/5b/8a0/161</div><div class="line">    intro: My Linkin account.</div><div class="line">    icon: fa fa-linkedin</div><div class="line"></div><div class="line">widgets:</div><div class="line">- search</div><div class="line">- category</div><div class="line">- tagcloud</div><div class="line">- recent_posts</div><div class="line">- links</div><div class="line"></div><div class="line">rss: atom.xml</div><div class="line">favicon: favicon.png</div><div class="line">fancybox: true</div><div class="line">duoshuo_shortname:</div><div class="line"></div><div class="line"># analytics</div><div class="line">google_analytics:</div><div class="line">  enable: false</div><div class="line">  siteid:</div><div class="line">baidu_tongji:</div><div class="line">  enable: false</div><div class="line">  siteid:</div><div class="line"></div><div class="line"># Search</div><div class="line">swiftype_key:</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div></pre></td><td class="code"><pre><div class="line">slogan: Yet another bootstrap theme.</div><div class="line"></div><div class="line">menu:</div><div class="line">  - title: Archives</div><div class="line">    url: archives</div><div class="line">    intro: All the articles.</div><div class="line">    icon: fa fa-archive</div><div class="line">  - title: Categories</div><div class="line">    url: categories</div><div class="line">    intro: All the categories.</div><div class="line">    icon: fa fa-folder</div><div class="line">  - title: Tags</div><div class="line">    url: tags</div><div class="line">    intro: All the tags.</div><div class="line">    icon: fa fa-tags</div><div class="line">  - title: About</div><div class="line">    url: about</div><div class="line">    intro: About me.</div><div class="line">    icon: fa fa-user</div><div class="line"></div><div class="line">links:</div><div class="line">  - title: My Github</div><div class="line">    url: http://www.github.com/wzpan</div><div class="line">    intro: My Github account.</div><div class="line">    icon: fa fa-github</div><div class="line">  - title: My LinkedIn</div><div class="line">    url: http://www.linkedin.com/pub/weizhou-pan/5b/8a0/161</div><div class="line">    intro: My Linkin account.</div><div class="line">    icon: fa fa-linkedin</div><div class="line"></div><div class="line">widgets:</div><div class="line">- search</div><div class="line">- recent_comments</div><div class="line">- category</div><div class="line">- tagcloud</div><div class="line">- recent_posts</div><div class="line">- links</div><div class="line"></div><div class="line">rss: atom.xml</div><div class="line">favicon: favicon.png</div><div class="line">fancybox: true</div><div class="line">duoshuo_shortname:</div><div class="line"></div><div class="line"># analytics</div><div class="line">google_analytics:</div><div class="line">  enable: false</div><div class="line">  siteid:</div><div class="line">baidu_tongji:</div><div class="line">  enable: false</div><div class="line">  siteid:</div><div class="line"></div><div class="line"># Search</div><div class="line">swiftype_key: </div><div class="line"></div><div class="line"># share button</div><div class="line">bdshare: true</div><div class="line">jiathis: false</div><div class="line"></div><div class="line"># built-in comment system</div><div class="line">comment_js:</div><div class="line">  type: "github"</div><div class="line">  user: "wzpan"</div><div class="line">  repo: "hexo-theme-freemind-blog"</div><div class="line">  client_id: "xxxxxx"</div><div class="line">  client_secret: "xxxxxx"</div><div class="line">  count: 5</div></pre></td></tr></table></figure></p>
 <p>其中：</p>
 <ul>
 <li><strong>slogan</strong> - 修改显示在博客首页的个性签名；</li>
+<li><strong>theme</strong> - 要使用的颜色主题；</li>
 <li><strong>menu</strong> - 导航菜单；</li>
 <li><strong>links</strong> - 修改 links 小挂件的推荐链接；</li>
 <li><strong>widgets</strong> - 在博客边栏显示的挂件列表；</li>
@@ -207,6 +212,19 @@
 <li><strong>duoshuo_shortname</strong> - 多说ID，如果希望使用多说取代 Disqus 做评论系统；</li>
 <li><strong>analytics</strong> - 统计 ID 。支持 Google Analytics 和百度统计；</li>
 <li><strong>swiftype_key</strong> - Swifttype key 。如果希望使用自建的本地搜索引擎，则可以留空或注释掉这句话。</li>
+<li><strong>swiftype_key</strong> - Swifttype 站内搜索的 key 。如果希望使用内置的搜索引擎，则可以保留为空，而不去配置它。</li>
+<li><strong>bdshare</strong> - 百度分享；</li>
+<li><strong>jiathis</strong> - jiathis分享；</li>
+<li><strong>comment_js</strong> - <a href="http://github.com/wzpan/comment.js" target="_blank" rel="external">comment.js</a> 的配置
+<ul>
+<li><code>type</code>: 要作为后端的站点。目前支持 <code>Github</code> 和 <code>OSChina</code> 。</li>
+<li><code>user</code>: 您的 Github 用户名。</li>
+<li><code>repo</code>: 您用作评论后端的仓库名。</li>
+<li><code>client_id</code>(可选但建议)：您注册的 OAuth App 的 client id。</li>
+<li><code>client_secret</code>(可选但建议)：您注册的 OAuth App 的 client secret。</li>
+<li><code>count</code>(可选)：列表的最大长度。</li>
+</ul>
+</li>
 </ul>
 <p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p>如果希望使用 disqus ，则应该在站点的 <strong>根</strong> _config.yml 中设置：</p>
 <pre><code># Disqus
@@ -219,6 +237,8 @@ disqus_shortname:
 <li><strong>description</strong> - 在文章顶部插入一段简短的摘要信息</li>
 <li><strong>feature</strong> - 为文章添加一张 feature 图片，这张图片将展示在主页的文章列表中</li>
 <li><strong>toc</strong> - 生成 table of contents</li>
+<li><strong>top</strong> - 是否要将本文置顶。</li>
+<li><strong>issue_id</strong> - comment.js 的 <code>issue_id</code> ，用于显式地指定 Github 上的哪个 issue 与本文相对应。通常情况下你并不需要手动设置这个，因为 comment.js 会根据文章标题自动寻找匹配的 issue 。当文章没有和你要的 issue 对应的时候你才需要设置它。</li>
 </ul>
 <p>示例：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">title: Tag Plugins</div><div class="line">date: 2014-03-16 10:17:16</div><div class="line">tags: plugins</div><div class="line">categories: Docs</div><div class="line">description: Introduce tag plugins in freemind.</div><div class="line">feature: images/tag-plugins/plugins.jpg</div><div class="line">toc: true</div><div class="line">---</div></pre></td></tr></table></figure></p>
@@ -241,7 +261,7 @@ disqus_shortname:
 <p><span class="label label-important">Q</span> 如何指定某些页面生成 ToC(Table of Contents) ？</p>
 <p><span class="label label-success">A</span> 在文章头部添加 <code>toc: true</code> 。</p>
 <p><span class="label label-important">Q</span> 从哪里可以找到 Freemind 的 Demo 站点的的几篇文档的 Markdown 源码？</p>
-<p><span class="label label-success">A</span> 在项目的 <a href="https://github.com/wzpan/hexo-theme-freemind/tree/source" target="_blank" rel="external">source</a> 分支。</p>
+<p><span class="label label-success">A</span> 在本站点的 <a href="https://github.com/wzpan/hexo-theme-freemind-blog" target="_blank" rel="external">源码仓库</a> 。</p>
 <p><span class="label label-danger">Q</span> 为啥我在插入 bootstrap 插件后总是自动折行？</p>
 <p><span class="label label-success">A</span> 这个问题是你的 Markdown 设置引起的。解决办法是在你的 Hexo 的 _config.yml 文件中禁用 Markdown 的 <code>breaks</code> 选项：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># Markdown</div><div class="line">## https://github.com/chjj/marked</div><div class="line">markdown:</div><div class="line">  gfm: true</div><div class="line">  pedantic: false</div><div class="line">  sanitize: false</div><div class="line">  tables: true</div><div class="line">  breaks: false</div><div class="line">  smartLists: true</div><div class="line">  smartypants: true</div></pre></td></tr></table></figure></p>

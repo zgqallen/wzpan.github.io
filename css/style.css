@@ -814,6 +814,19 @@ td {
   height: 20px;
 }
 
+.timeline-comment pre {
+  margin-right: 30px;  
+}
+
+pre code{
+  border: none!important;
+}
+
+.comment-widget-content pre {
+  margin-left: 30px;
+}
+
+
 /**
  * 
  * For modern browsers
