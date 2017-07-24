@@ -270,7 +270,7 @@
 </ol>
 <p>了解了这个套路后，我只需要照着写一个叮当的插件，即可实现让叮当声控智米风扇的目标。</p>
 <p>不过，在完成这个目标前，我还遇到了一个问题：python-miio 只能在 Python 3 环境中使用，而叮当是使用 Python 2 编写的。于是我对 python-miio 进行了 Python 2 版本的移植，发布为 <a href="https://pypi.python.org/pypi/python2-miio/0.0.3" target="_blank" rel="external">python2-miio</a> 。为了避免两个版本的 <code>miio</code> 命令行工具冲突，我把 python 2 版本的 <code>miio</code> 更名为 <code>miio2</code> 。</p>
-<p>插件的编写过程也很轻松，和写其他的叮当插件一样的套路，所以整个插件我只用了一个晚上的时间就写好了。如果你看过我之前写的一篇编写叮当插件的教程《<a href="/codes/how-to-write-dingdang-plugin/">手把手教你编写叮当机器人插件</a>》，那么阅读风扇声控插件的源码也不会很困难，这里就只放上源码链接：<a href="https://github.com/wzpan/dingdang-smart-mi-fan/blob/master/SmartMiFan.py%E3%80%82" target="_blank" rel="external">https://github.com/wzpan/dingdang-smart-mi-fan/blob/master/SmartMiFan.py。</a></p>
+<p>插件的编写过程也很轻松，和写其他的叮当插件一样的套路，所以整个插件我只用了一个晚上的时间就写好了。如果你看过我之前写的一篇编写叮当插件的教程《<a href="/codes/how-to-write-dingdang-plugin/">手把手教你编写叮当机器人插件</a>》，那么阅读风扇声控插件的源码也不会很困难，这里就只放上源码链接：<a href="https://github.com/wzpan/dingdang-smart-mi-fan/blob/master/SmartMiFan.py" target="_blank" rel="external">https://github.com/wzpan/dingdang-smart-mi-fan/blob/master/SmartMiFan.py</a>。</p>
 <p>最后就是插件的发布问题。考虑到这个插件比较私人——大部分用户并没有智米风扇，因此我并没有把它丢进 dingdang-contrib 中，而是单独创建了一个仓库来托管。对于需要使用这个插件的人，只需要将它放到个人的插件目录 /home/pi/.dingdang/custom 中，即可让该插件生效<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。这样的好处是无需改动 contrib 目录，也不会影响 contrib 目录的更新。</p>
 <hr class="footnotes-sep">
 <section class="footnotes">
