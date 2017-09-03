@@ -344,7 +344,7 @@ var getRecentCommentsList = function getRecentCommentsList(params) {
         recentList = recentList.concat(issues);
         _getRecentComments(params, function (comments) {
             recentList = recentList.concat(comments);
-            if (navigator.userAgent.indexOf("MSIE") != -1 || navigator.userAgent.indexOf("Edge") != -1 || navigator.userAgent.indexOf("Safari") != -1 || document.documentMode == true) {
+            if (navigator.userAgent.indexOf("MSIE") != -1 || navigator.userAgent.indexOf("Edge") != -1 || navigator.userAgent.indexOf("Safari") != -1 || !!document.documentMode == true) {
                 recentList = recentList.sort(CompareDate);
             } else {
                 recentList = recentList.sort(CompareDate).reverse();
