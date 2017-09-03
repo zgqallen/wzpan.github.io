@@ -279,7 +279,7 @@ var _getRecentIssues = function _getRecentIssues(params, callback) {
         data: client_id && client_secret ? "client_id=" + client_id + "&client_secret=" + client_secret : '',
         success: function success(issues) {
             if (issues.length > count) {
-                if (navigator.userAgent.indexOf("MSIE") != -1 || navigator.userAgent.indexOf("Edge") != -1 || navigator.userAgent.indexOf("Safari") != -1 || !document.documentMode == true) {
+                if (navigator.userAgent.indexOf("MSIE") != -1 || navigator.userAgent.indexOf("Edge") != -1 || navigator.userAgent.indexOf("Safari") != -1 || document.documentMode == true) {
                     issues = issues.sort(CompareDate).slice(0, 5);
                 } else {
                     issues = issues.sort(CompareDate).reverse().slice(0, 5);
