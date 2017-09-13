@@ -162,6 +162,18 @@
     border-radius: 3px;
 }
 
+.comment-widget-content blockquote {
+  margin-left: 30px;
+  margin-bottom: 0;
+  padding: 0 0;
+}
+
+.comment-widget-content blockquote p {
+  margin-left: 10px!important;
+  font-size: 1em;
+  color: #555;
+}
+
 .timeline-comment-header-text {
     max-width: 78%;
 }
@@ -350,7 +362,7 @@
 }
 
 #recent-comments .comment-item p {
-  margin: 0 0;
+  
 }
 
 #recent-comments .comment-widget-content {
