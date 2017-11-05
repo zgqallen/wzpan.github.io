@@ -4,13 +4,72 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-09-26T16:09:09.318Z</updated>
+  <updated>2017-11-05T10:50:32.901Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
     <email><![CDATA[cs.wzpan@gmail.com]]></email>
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
+  <entry>
+    <title type="html"><![CDATA[0行代码让叮当监控重要事件]]></title>
+    <link href="http://hahack.com/codes/easiest-way-to-make-dingdang-watch-events/"/>
+    <id>http://hahack.com/codes/easiest-way-to-make-dingdang-watch-events/</id>
+    <published>2017-11-05T10:37:06.000Z</published>
+    <updated>2017-11-05T10:49:53.480Z</updated>
+    <content type="html"><![CDATA[<p>要让叮当能够监控一些关键事件并触发响应操作，除了编写插件之外，还有一个简单省事的方法：利用 <a href="https://ifttt.com/" target="_blank" rel="external">IFTTT</a> 。下面我举几个简单的示例，其他的应用场景你们可以尽情发挥想象力。</p>
+<h2 id="什么是-ifttt">什么是 IFTTT</h2>
+<p><a href="https://ifttt.com/" target="_blank" rel="external">IFTTT</a> 是一个被称为 “网络自动化神器” 的创新型互联网服务，它非常实用而且完全免费。它的全称是 If this then that，意思是“如果这样，那么就那样”。简单地讲，IFTTT 的作用就是，如果「这个」网络服务满足条件，那么就自动触发「那个」网络服务去执行一个动作。而条件和动作都是可以由用户自己去根据自身需求设置的。IFTTT 能将前后这两个不同的网络服务神奇般地连通来实现各种各样的功能，并且为你不间断地工作。</p>
+<p>在阅读下面的文章前，建议先去注册一个 IFTTT 账号，为了方便关联叮当，建议使用叮当的收件邮箱注册。</p>
+<h2 id="示例1：提醒睡觉">示例1：提醒睡觉</h2>
+<p>不想被晚睡拖延症影响你第二天的工作？让叮当在每晚喊你去睡觉吧！</p>
+<p>首先进入 IFTTT 的 <a href="https://ifttt.com/create" target="_blank" rel="external">创建页</a>，点击 [+This] 按钮：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/1.png" alt=""></p>
+<a id="more"></a>
+<p>在里头可以找到一个 Date &amp; Time 插件，这个插件用来在特定时间触发事件。</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/2.png" alt=""></p>
+<p>我们点击它，进入插件的二级选择页面：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/3.png" alt=""></p>
+<p>在这里我们选择 [Every day at] ，</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/4.png" alt=""></p>
+<p>在接下来的界面中设定好触发时间。这就完成了触发事件的设置。</p>
+<p>接下来我们完成响应。怎么让叮当去响应这个事件呢？答案就是利用<a href="http://bbs.hahack.com/t/topic/48/1" target="_blank" rel="external">叮当的邮箱检查机制</a>。了解了 <code>[echo]</code> 和 <code>[control]</code> 两个关键词的用途后，接下来我们就可以利用 IFTTT 发送标题为 <code>[echo] 主人，您得睡觉了</code> 的邮件到叮当的收件邮箱中，让叮当提醒您睡觉。</p>
+<p>点击 [+that] 按钮，</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/6.png" alt=""></p>
+<p>然后从插件列表中选择 Email 插件，选择 Send me an Email ：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/7.png" alt=""></p>
+<p>Subject 就是邮件标题，填写您希望叮当通知你的内容，并带上 <code>[echo]</code> 前缀即可：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/8.png" alt=""></p>
+<p>由于邮件只用作提醒，所以 Body 里头的正文没有什么用途，不用改。完成后点击 [Create action] 按钮即可。</p>
+<p>简单几步，就实现了 0 行代码让叮当通知你睡觉了，是不是很方便？</p>
+<h2 id="示例2：github-star-通知">示例2：Github Star 通知</h2>
+<p>当你的 Github 项目收到别人的 star 时，是不是很有成就感？可以让叮当监控 Github 上的 star 事件，然后通知你，给你打打鸡血。</p>
+<p>首先先确定 star 事件的捕获方法。Github 为 star 等与你相关的事件提供了 RSS 订阅地址。地址就放在 Github 首页的 Activities 页面的底部：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/9.png" alt=""></p>
+<p>点击 [Subscribe to your news feed] 链接，我们可以看到所有首页的事件。通过阅读该 RSS 源，可以发现与用户的 star 有关的事件都带有 <code>starred 账户名/</code> 的关键词。</p>
+<p>针对 RSS 订阅， IFTTT 提供了 RSS 插件：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/10.png" alt=""></p>
+<p>其中的 [New feed item matches] 项目可用于监控特定形式的 RSS 条目，并触发事件。</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/11.png" alt=""></p>
+<p>因此我们可以添加如下的 Applet，详细流程参考上面的例子，不再赘述：</p>
+<p>this 的设置：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/12.png" alt=""></p>
+<p>that 的设置：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/13.png" alt=""></p>
+<h2 id="示例3：天气报警">示例3：天气报警</h2>
+<p>希望叮当在即将下雨的时候主动提醒你外出带伞？可以使用 IFTTT 的 Weather Underground 服务插件：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/14.png" alt=""></p>
+<p>该插件提供了十几种天气事件监控服务：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/15.png" alt=""></p>
+<p>在这里可以选择 [Current condition changes to] 服务，设定当下雨时触发邮件事件：</p>
+<p>this 的设置：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/16.png" alt=""></p>
+<p>that 的设置：</p>
+<p><img src="/images/easiest-way-to-make-dingdang-watch-events/17.png" alt=""></p>
+]]></content>
+    <category scheme="http://hahack.com/tags/dingdang/" term="dingdang"/>
+    <category scheme="http://hahack.com/categories/codes/" term="codes"/>
+  </entry>
   <entry>
     <title type="html"><![CDATA[我在平安的两年]]></title>
     <link href="http://hahack.com/work/my-2-years-at-pingan/"/>
@@ -177,7 +236,7 @@
     <link href="http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/"/>
     <id>http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/</id>
     <published>2017-07-15T11:42:22.000Z</published>
-    <updated>2017-07-24T15:02:10.078Z</updated>
+    <updated>2017-11-05T10:38:36.667Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p><a href="http://github.com/wzpan/dingdang-robot" target="_blank" rel="external">dingdang-robot</a> （以下简称“叮当”），是我在今年5月20号开源的一个中文智能音箱项目。</p>
 <p>起初，我只是抱着一个好玩的心态做这个项目，并不期望这个项目能得到多少关注。然而，随着 QQ 用户群人数的不断壮大，越来越多的朋友安装了叮当，并且真正将它投入在了日常的使用上。很多朋友也提出了各种好玩的建议、想法，甚至为叮当贡献了插件或者捐赠了这个项目，让我觉得这个项目是很有价值的，也让我知道，我能做的还有很多东西。因此，我并不是开源了叮当之后就撒手不管了，而是利用业余时间不断完善叮当，又陆续发布了 8 个小版本，使得叮当在响应速度和功能丰富程度上都有了很大提升：</p>
@@ -313,6 +372,7 @@
 </ol>
 </section>
 ]]></content>
+    <category scheme="http://hahack.com/tags/dingdang/" term="dingdang"/>
     <category scheme="http://hahack.com/categories/codes/" term="codes"/>
   </entry>
   <entry>
@@ -3020,88 +3080,5 @@ HHKB，
     <category scheme="http://hahack.com/tags/Live-Coding/" term="Live Coding"/>
     <category scheme="http://hahack.com/tags/Scheme/" term="Scheme"/>
     <category scheme="http://hahack.com/categories/codes/" term="codes"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[SCNUThesis招募新的维护者]]></title>
-    <link href="http://hahack.com/life/an-appeal-from-scnuthesis-author/"/>
-    <id>http://hahack.com/life/an-appeal-from-scnuthesis-author/</id>
-    <published>2015-01-22T15:42:03.000Z</published>
-    <updated>2017-02-11T04:41:08.099Z</updated>
-    <content type="html"><![CDATA[<h2 id="缘起">缘起</h2>
-<p>工作大半年，开始感觉不如以前可以花很多时间在业余小项目上了。</p>
-<p>读书的时候，虽然白天有很多课业上的压力，但到了晚上总有精力来做一些小东西。那个时候，熬夜的后果最多就是第二天到课室打下瞌睡。工作之后就完全不同了，白天的时候，需要一直聚精会神的工作，以保证每天的产出，到了晚上就感觉好累好累，不想再碰电脑。</p>
-<p>这半年的时间，如果说我有进步的地方，就是学会了如何保养自己的身体。每天回家，我几乎都是先看半小时书，然后做一会儿简单的运动，再洗个澡，泡个脚，喝杯牛奶去睡觉。周末的时间，由于不放心外面的食物，我学会了下厨，于是周末两天我的大部分时间都是在一堆锅碗瓢盆中度过的。<a id="more"></a></p>
-<p><img src="/images/an-appeal-from-scnuthesis-author/food.png" alt="做过的菜"></p>
-<p>如果说退步的地方，那就是参与开源项目的热度了。现在每当我打开 Github ，看到我的贡献图，我就会感到非常惭愧：</p>
-<p><img src="/images/an-appeal-from-scnuthesis-author/0-commit.jpg" alt="工作后几乎 0 commit"></p>
-<p>你可以很明显地看出工作前和工作后我的贡献热度的区别。与此类似，也有热心的读者发现我的博客有半年没有更新了。</p>
-<p>总之，上面的文字无非是在说，工作之后，我深感精力有限，无暇维护我需要长期维护的项目。其中， <a href="https://github.com/scnu/scnuthesis" target="_blank" rel="external">SCNUThesis</a> 就是我认为必须得转让的长期项目。</p>
-<p><a href="https://github.com/scnu/scnuthesis" target="_blank" rel="external">SCNUThesis</a> 是一份非官方的，符合华南师范大学硕士/博士学位论文格式要求的 LaTeX 模板。</p>
-<p>写这份模板的缘由要追述到研一的时候。当时出于好奇，我接触了 LaTeX 这个排版系统，一下子就被其 WYTIWYG 的观念深深吸引了。用它来排版论文是如此的方便，以至于我希望毕业的时候也能用它来排版毕业论文。不出意料，我的学校并没有提供这样的模板。虽然很失望，但<strong>与其等别人帮助，不如给别人帮助</strong>。于是，我花了一个月的时间，阅读了很多高校的 LaTeX 模板，最终吸取了几所高校的模板的优点，编写出了第一个版本的模板。我也开始学会使用 svn 做版本控制，并在 google code 上发布了第一个版本。后面这个项目又从 google code 迁移到了 Github 。</p>
-<p>我的模板的第一个用户是王立斌老师的学生潘嘉昕师兄，他当时正赶着要写毕业论文。当时的 SCNUThesis 可以说还只是个半成品，但他对我的项目非常支持，并且愿意放弃使用 Office 而跑来当我的小白鼠。我们就一直保持着邮件联系，他一边使用模板，一边给我的模板提供了很多宝贵的改进建议。在他的帮助下，我的模板基本成型了，而他也顺利的用 SCNUThesis 完成了论文的排版。在他的论文的致谢中，他特意感谢了 SCNUThesis：</p>
-<p><blockquote>
-
-<p>感谢 XXX 师兄、XXX 师兄、XX、XX、XX、XXX 等同实验室师兄弟，与他们的讨论与交流促进了我的科研工作，也丰富了我的研究生生活。感谢潘伟洲同学提供的 LaTeX 排版模版 SCNUThesis。</p>
-
-
-<footer><strong>潘嘉昕</strong></footer></blockquote>
-</p>
-<p>收到第一个用户的致谢，可想而知当时我的内心多么有成就感。**SCNUThesis 是我的第一份开源作品，而它实实在在地能够帮助到其他人！**在这之后，陆续也其他几位师兄师姐使用我的模板。到了我这一届的时候，因为我的推动，我们整个实验室的人几乎都用它来完成论文的排版，减轻了他们花在格式排版上的负担。而 SCNUThesis 也开始被广东工业大学、首都师范大学等其他高校的学生借鉴，衍生出了更多高校的毕业论文 LaTeX 模板，还被收录在知名 TeX 博客 <a href="http://www.latexstudio.net/south-china-normal-university-masters-doctorate-thesis-latex-template/" target="_blank" rel="external">LaTeXStudio</a> 中。</p>
-<h2 id="呼吁">呼吁</h2>
-<p>前话扯了一堆，现在摆出正题：<strong>我希望在这里招募到 SCNUThesis 新的维护者</strong>。</p>
-<p>早在研三的时候，我就已经预料到了我早晚有一天要交出它，就像一个老父亲将自己的爱女交付给靠谱的女婿。当时我就在 Github 上建了一个 <a href="https://github.com/scnu" target="_blank" rel="external">scnu</a> 组织，目的就是等以后我无力再维护 SCNUThesis 的时候，将它转移给组织，让其他爱好者共同来维护它。</p>
-<p>为了准备好这个交接，我已经将 SCNUThesis 正式转移给了 scnu 组织，将版本号正式定为 1.0 ，并且公布了自己的毕业论文论文源码以供他人参考。现在它需要的，就是一位（或者多位）愿意花时间维护它的人。</p>
-<h3 id="为什么我要寻找新的维护者">为什么我要寻找新的维护者</h3>
-<p>因为：</p>
-<ol>
-<li>我现在的工作中很少用到 LaTeX ，久了难免生疏；</li>
-<li>我已经毕业离校，也不可能再使用它排版论文；</li>
-<li>需要配合每年格式上的改动做些调整；</li>
-<li>需要花时间帮助新手解决各种排版上的问题。</li>
-</ol>
-<h3 id="如何维护-scnuthesis-？">如何维护 SCNUThesis ？</h3>
-<p>维护 SCNUThesis 主要有三种方式：</p>
-<ol>
-<li>成为代码贡献者；</li>
-<li>成为项目维护者；</li>
-<li>成为项目管理者。</li>
-</ol>
-<p>第一种方式很简单，你的责任也比较小。就是 fork 我的项目，然后当模板有问题需要维护的时候，对你的本地项目做好修改，然后向 scnu 发 pull request。当我和其他项目管理者会对你的代码进行 code review ，并考虑并入模板中。</p>
-<p>一个合格的 pull request 应该是：</p>
-<ol>
-<li>不仅发送 pro 的分支，还发送 master 分支的 pull request。两个分支的 cls 和 pdf 文件必须一致；</li>
-<li>有良好的 commit 说明。</li>
-</ol>
-<p>第二种方式则可以具备更多的权利。你可以先（邮件或在这里评论）告诉我你希望成为项目维护者。我将邀请你加入 scnu 组并赋予你维护者权限。你将可以直接修改 SCNUThesis 的代码，也可以审核和处理其他人的 pull request。</p>
-<p>第三种方式则具备最高的权限，除了具备所有维护者的权利之外，你还可以添加其他维护者。增加这个角色是为了以后的传承。我希望这个项目能够一直有人在跟进、维护，并由一届维护者传承给下一届的维护者。项目管理者一般不轻易添加，只有贡献突出的维护者可以跟我申请管理者权限。</p>
-<h3 id="成为维护者需要什么条件？">成为维护者需要什么条件？</h3>
-<p>从上一个问题你可以看出，维护SCNUThesis对于能力上的要求并不高。如果真要有硬性条件，那就是：</p>
-<ol>
-<li>你必须是华南师范大学的在读学生，并且愿意在毕业时使用它。我相信一个产品只有作者也在使用时，这个产品才有活力。</li>
-<li>你必须对 LaTeX 技术具有浓厚的兴趣，愿意稍微深入一点了解 LaTeX 的编写技巧，能够积极响应和解决用户提出的问题。</li>
-<li>你必须具备独立解决问题的能力。遇到困难时，你要能沉住气解决它，而不是把问题抛给我。我很乐意在你遇到困难的时候给予帮助，但我只愿意回答聪明的问题。</li>
-</ol>
-<h3 id="为什么你应该参与-scnuthesis？">为什么你应该参与 SCNUThesis？</h3>
-<p>原因有几个：</p>
-<ol>
-<li>参与开源。SCNUThesis 是我的第一个开源项目，而且它的难度不大。我在这个过程中，学习了 svn、git、Makefile 等方面的知识，并且懂得如何在 Github 上维护项目；</li>
-<li>一份使命。开发这份模板时，我并没有从学校拿到一分钱经费，没有获得任何经济利益。但帮助其他同学顺利完成论文排版，免除他们使用word带来的负担，这是我的一份光荣的使命。我相信这也是你的一份使命；</li>
-<li>证明自己。坦白说， SCNUThesis 并不能证明多少技术的能力。但从对项目的管理情况、对issue的follow程度、遇到问题的应对态度、对排版效果的考究程度等多个方面已经足以让我摸清一个维护者的技术、审美、耐性等方面的情况。如果我遇到一个出色的维护者，我会毫不犹豫的为他推荐就业机会。</li>
-</ol>
-<h2 id="后话">后话</h2>
-<p>Paul Gramham 在《黑客与画家》中谈到了工作与兴趣的问题。他认为黑客可以和音乐家一样，白天可以拥有一分养家糊口的工作，然后在夜间经营一份自己喜欢的工作。对于音乐家而言，喜欢的工作就是演奏。对于黑客而言，喜欢的工作就是参与自己感兴趣的开源项目。</p>
-<p><blockquote>
-
-<p>I think the answer to this problem, in the case of software, is a concept known to nearly all makers: the day job. This phrase began with musicians, who perform at night. More generally, it means that you have one kind of work you do for money, and another for love.</p>
-<p>Nearly all makers have day jobs early in their careers. Painters and writers notoriously do. If you’re lucky you can get a day job that’s closely related to your real work. Musicians often seem to work in record stores. A hacker working on some programming language or operating system might likewise be able to get a day job using it.</p>
-
-
-<footer><strong>Paul Gramham</strong></footer></blockquote>
-</p>
-<p>也许，我现在的情况似乎越来越不像一个黑客。但如他第二段所说，如果运气好的话，黑客可以找到一份接近自己兴趣的白天工作。从这一点看，我或许是幸运的，因为我的白天工作就是我热爱的行业，这使我在其他时间更愿意去做其他我以前没有做过的事情。我希望，我可以在今后的时间更好的把握工作上的项目和开源项目的分配时间，在开源社区略尽自己的绵薄之力。</p>
-]]></content>
-    <category scheme="http://hahack.com/tags/SCNUThesis/" term="SCNUThesis"/>
-    <category scheme="http://hahack.com/tags/LaTeX/" term="LaTeX"/>
-    <category scheme="http://hahack.com/categories/life/" term="life"/>
   </entry>
 </feed>
