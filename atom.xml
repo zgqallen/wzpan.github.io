@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2017-11-05T10:50:32.901Z</updated>
+  <updated>2017-11-05T10:54:59.073Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/codes/easiest-way-to-make-dingdang-watch-events/"/>
     <id>http://hahack.com/codes/easiest-way-to-make-dingdang-watch-events/</id>
     <published>2017-11-05T10:37:06.000Z</published>
-    <updated>2017-11-05T10:49:53.480Z</updated>
+    <updated>2017-11-05T10:52:56.583Z</updated>
     <content type="html"><![CDATA[<p>要让叮当能够监控一些关键事件并触发响应操作，除了编写插件之外，还有一个简单省事的方法：利用 <a href="https://ifttt.com/" target="_blank" rel="external">IFTTT</a> 。下面我举几个简单的示例，其他的应用场景你们可以尽情发挥想象力。</p>
 <h2 id="什么是-ifttt">什么是 IFTTT</h2>
 <p><a href="https://ifttt.com/" target="_blank" rel="external">IFTTT</a> 是一个被称为 “网络自动化神器” 的创新型互联网服务，它非常实用而且完全免费。它的全称是 If this then that，意思是“如果这样，那么就那样”。简单地讲，IFTTT 的作用就是，如果「这个」网络服务满足条件，那么就自动触发「那个」网络服务去执行一个动作。而条件和动作都是可以由用户自己去根据自身需求设置的。IFTTT 能将前后这两个不同的网络服务神奇般地连通来实现各种各样的功能，并且为你不间断地工作。</p>
