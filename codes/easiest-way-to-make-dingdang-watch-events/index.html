@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>0行代码让叮当监控重要事件 | HaHack</title>
+  <title>0行代码实现叮当的场景联动 | HaHack</title>
   <meta name="author" content="Joseph Pan">
   
   <meta name="description" content="要让叮当能够监控一些关键事件并触发响应操作，除了编写插件之外，还有一个简单省事的方法：利用 [IFTTT](https://ifttt.com/) 。本文将举几个简单的示例。">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="0行代码让叮当监控重要事件"/>
+  <meta property="og:title" content="0行代码实现叮当的场景联动"/>
   <meta property="og:site_name" content="HaHack"/>
 
   
@@ -116,7 +116,7 @@
 
 	
 		<div class="page-header">		
-			<h1> 0行代码让叮当监控重要事件</h1>
+			<h1> 0行代码实现叮当的场景联动</h1>
 		</div>    
 	
 
@@ -148,12 +148,11 @@
 		<p>要让叮当能够监控一些关键事件并触发响应操作，除了编写插件之外，还有一个简单省事的方法：利用 <a href="https://ifttt.com/" target="_blank" rel="external">IFTTT</a> 。下面我举几个简单的示例，其他的应用场景你们可以尽情发挥想象力。</p>
 <h2 id="什么是-ifttt">什么是 IFTTT</h2>
 <p><a href="https://ifttt.com/" target="_blank" rel="external">IFTTT</a> 是一个被称为 “网络自动化神器” 的创新型互联网服务，它非常实用而且完全免费。它的全称是 If this then that，意思是“如果这样，那么就那样”。简单地讲，IFTTT 的作用就是，如果「这个」网络服务满足条件，那么就自动触发「那个」网络服务去执行一个动作。而条件和动作都是可以由用户自己去根据自身需求设置的。IFTTT 能将前后这两个不同的网络服务神奇般地连通来实现各种各样的功能，并且为你不间断地工作。</p>
-<p>在阅读下面的文章前，建议先去注册一个 IFTTT 账号，为了方便关联叮当，建议使用叮当的收件邮箱注册。</p>
+<p>在阅读下面的文章前，建议先去注册一个 IFTTT 账号，为了方便关联叮当，建议使用叮当的收件邮箱注册。<a id="more"></a></p>
 <h2 id="示例1：提醒睡觉">示例1：提醒睡觉</h2>
 <p>不想被晚睡拖延症影响你第二天的工作？让叮当在每晚喊你去睡觉吧！</p>
 <p>首先进入 IFTTT 的 <a href="https://ifttt.com/create" target="_blank" rel="external">创建页</a>，点击 [+This] 按钮：</p>
 <p><img src="/images/easiest-way-to-make-dingdang-watch-events/1.png" alt=""></p>
-<a id="more"></a>
 <p>在里头可以找到一个 Date &amp; Time 插件，这个插件用来在特定时间触发事件。</p>
 <p><img src="/images/easiest-way-to-make-dingdang-watch-events/2.png" alt=""></p>
 <p>我们点击它，进入插件的二级选择页面：</p>
@@ -301,6 +300,14 @@ var jiathis_config = {data_track_clickback:'true'};
 
 		<!-- toc -->
 		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
 
 
 
@@ -322,7 +329,7 @@ var jiathis_config = {data_track_clickback:'true'};
 			   go_to_comment: "去留言",
 			   btn_class: "btn btn-primary",
 			   no_issue: "no_issue",
-			   issue_title: "0行代码让叮当监控重要事件",
+			   issue_title: "0行代码实现叮当的场景联动",
 			   issue_id: "undefined",
 			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
 			   loading_target: "undefined"
