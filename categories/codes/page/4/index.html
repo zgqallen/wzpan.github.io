@@ -151,6 +151,39 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Mar 21 2014 </div>
+			<div class="article-title"><a data-pjax href="/codes/eulerian-video-magnification/" title="欧拉影像放大算法（Eulerian Video Magnification）的原理和实现。">Eulerian Video Magnification</a></div>			
+		</h3>
+	
+
+
+		<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/eulerian-video-magnification/"><img src="/images/eulerian-video-magnification/evm.png" alt="Eulerian Video Magnification"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="引言">引言</h2>
+<p>人类的视觉感知存在有限的感知域。对于超出感知域的变化，我们无法感知。然而，这类信号却可能蕴藏着惊人的秘密。</p>
+<p>比如，血液循环使得人体的皮肤发生细微的周期性变化，这个裸眼无法感知的变化却和人的心率非常吻合。2011 年，MIT 的一个亚裔学生 Mingzhe Poh 就利用这个微弱的信号设计了一个“魔镜”<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>  —— 不仅能照出你的模样，还能测出你的心率。</p>
+<p><img src="/images/eulerian-video-magnification/mirror.jpg" alt="Mingzhe Poh 的“魔镜”"></p>
+<p>Mingzhe Poh 的这面神奇的镜子的原理是利用了血液在人体内流动时光线的变化 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> ：心脏跳动时血液会通过血管，通过血管的血液量越大，被血液吸收的光线也越多，人皮肤表面反射的光线就越少。因此，通过对图像的时频分析就可以估算出心率。</p>
+<p><img src="/images/eulerian-video-magnification/1839Kmo.png" alt="Cardiac pulse recovery methodology"></p>
+<p>再比如，乐器之所以会发出声音，是因为它发声的部分在弹奏过程中发生了有规律的形变，而这个形变的振幅对应着乐器发声的响度，快慢对应着乐器的音高。微弱信号所蕴藏的信息量是如此重大，无怪乎禅语有云：</p>
+<blockquote>
+<p>一花一世界，一叶一菩提。</p>
+</blockquote>
+<p>既然如此，能否将影像中的这些肉眼观察不到的变化“放大”到裸眼足以观察的幅度呢？这就是本文将要重点讨论的问题。	  
+       
+   </ul>
+   <a data-pjax href="/codes/eulerian-video-magnification/#more" class="btn more">Read More</a>
+</div>    
+
+	
+		
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Mar 18 2014 </div>
 			<div class="article-title"><a data-pjax href="/codes/hexo-theme-freemind/" title="介绍我为 Hexo 编写的 Freemind 主题。">Freemind - Yet Another Bootstrap Theme for Hexo</a></div>			
 		</h3>
@@ -272,37 +305,6 @@
 </div>    
 
 	
-		
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Jan 1 2014 </div>
-			<div class="article-title"><a data-pjax href="/codes/livereload-for-hexo/" title="介绍在 Hexo 中使用 LiveReload 的方法。">LiveReload For Hexo</a></div>			
-		</h3>
-	
-
-
-		<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/livereload-for-hexo/"><img src="/images/livereload-for-hexo/LiveReload.png" alt="LiveReload For Hexo"  class="nofancybox"></a></div>
-    
-    
-      <p>之前我在 Ruhoh 上使用 <a href="https://github.com/guard/guard-livereload" target="_blank" rel="external">guard-livereload</a> 来实现自动更新预览。这样，一旦我修改了网站中的内容，livereload 会立马检测到并且通知浏览器刷新页面，不需要自己手动按 <code>F5</code> 刷新了。完全符合本人热衷偷懒的口味。</p>
-<p>迁移到 Hexo 后，我也希望能够用上这个功能。经过一番搜索，我发现在 node.js 平台要使用 Livereload 也非常容易。</p>
-<h2 id="方法一：使用-livereload">方法一：使用 LiveReload</h2>
-<h3 id="安装和使用">安装和使用</h3>
-<ol>
-<li>首先是先安装 LiveReload 的 node.js 版本：</li>
-</ol>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g node-livereload</div></pre></td></tr></table></figure></p>
-	  
-       
-   </ul>
-   <a data-pjax href="/codes/livereload-for-hexo/#more" class="btn more">Read More</a>
-</div>    
-
-	
 	</div>
 	<div>
 	<center>
@@ -340,6 +342,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/codes/cocos-based-high-performance-cross-platform-app-developing/"  title="我在GMTC上分享的Cocos跨平台应用开发心得。" ><i class="fa fa-file-o"></i>基于 Cocos 的高性能跨平台开发方案</a>
+      </li>
+    
+      <li>
         <a href="/codes/easiest-way-to-make-dingdang-watch-events/"  title="要让叮当能够监控一些关键事件并触发响应操作，除了编写插件之外，还有一个简单省事的方法：利用 [IFTTT](https://ifttt.com/) 。本文将举几个简单的示例。" ><i class="fa fa-file-o"></i>0行代码实现叮当的场景联动</a>
       </li>
     
@@ -353,10 +359,6 @@
     
       <li>
         <a href="/codes/comment-js/"  title="介绍我用纯JS实现的一个静态站点评论系统，以及实现过程中的心得体会。" ><i class="fa fa-file-o"></i>Comment.js：一个纯JS实现的静态站点评论系统</a>
-      </li>
-    
-      <li>
-        <a href="/codes/how-to-write-dingdang-plugin/"  title="介绍如何给叮当机器人开发插件，实现天气问答功能，并发布到 dingdang-contrib 。" ><i class="fa fa-file-o"></i>手把手教你编写叮当机器人插件</a>
       </li>
     
   </ul>
