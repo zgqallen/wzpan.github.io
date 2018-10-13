@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2018-07-07T04:22:01.635Z</updated>
+  <updated>2018-10-13T15:54:53.061Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/codes/cocos-based-high-performance-cross-platform-app-developing/"/>
     <id>http://hahack.com/codes/cocos-based-high-performance-cross-platform-app-developing/</id>
     <published>2018-07-06T16:00:00.000Z</published>
-    <updated>2018-07-07T03:52:04.000Z</updated>
+    <updated>2018-07-07T03:52:04.096Z</updated>
     <content type="html"><![CDATA[<p>2018 年 6 月 <a href="https://gmtc.geekbang.org/" target="_blank" rel="external">GMTC 全球移动技术大会</a>在北京举办，大会旨在通过聚焦前沿技术与实践经验帮助参会者了解移动开发、前端领域最新的技术趋势与最佳实践。</p>
 <p><img src="/images/cocos-based-high-performance-cross-platform-app-developing/gmtc-2018.png" width="300" height="300" title="GMTC2018"></p>
 <p>我作为讲师嘉宾也参与了这次大会，分享了《基于 Cocos 的高性能跨平台开发方案》。</p>
@@ -200,7 +200,7 @@
     <link href="http://hahack.com/codes/easiest-way-to-make-dingdang-watch-events/"/>
     <id>http://hahack.com/codes/easiest-way-to-make-dingdang-watch-events/</id>
     <published>2017-11-05T10:37:06.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.007Z</updated>
     <content type="html"><![CDATA[<p>要让叮当能够监控一些关键事件并触发响应操作，除了编写插件之外，还有一个简单省事的方法：利用 <a href="https://ifttt.com/" target="_blank" rel="external">IFTTT</a> 。下面我举几个简单的示例，其他的应用场景你们可以尽情发挥想象力。</p>
 <h2 id="什么是-ifttt">什么是 IFTTT</h2>
 <p><a href="https://ifttt.com/" target="_blank" rel="external">IFTTT</a> 是一个被称为 “网络自动化神器” 的创新型互联网服务，它非常实用而且完全免费。它的全称是 If this then that，意思是“如果这样，那么就那样”。简单地讲，IFTTT 的作用就是，如果「这个」网络服务满足条件，那么就自动触发「那个」网络服务去执行一个动作。而条件和动作都是可以由用户自己去根据自身需求设置的。IFTTT 能将前后这两个不同的网络服务神奇般地连通来实现各种各样的功能，并且为你不间断地工作。</p>
@@ -258,7 +258,7 @@
     <link href="http://hahack.com/work/my-2-years-at-pingan/"/>
     <id>http://hahack.com/work/my-2-years-at-pingan/</id>
     <published>2017-07-17T07:00:20.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.015Z</updated>
     <content type="html"><![CDATA[<p>我是在 2015 年 5 月 20 日离开的百度，次日就来到了平安。当时平安的这个团队叫做移动开发二队。在百度的最后一天，我在朋友圈发了张合照，写了句“再见，我爱你”。很多人不理解我为什么在百度干了一年就走了，而且去的是平安这个并不以技术见长的公司。其实原因很简单：跟对的团队做对的事情。</p>
 <p>说是“对的事情”是因为平安正处于技术转型期，其间会有大量的技术需求可以放手去做。而来平安这个团队的首要任务是开发完善底层的技术框架，有机会接触比较核心的技术，这对我的技术成长很有好处。</p>
 <p>说是“对的团队”是因为我对平安这个团队的了解。平安那边的老大锋哥也是原先我们百度 LBS 团队的研发 leader，而 leader 定一也是之前在百度的时候合作非常愉快的一个同事。再加上鑫哥 <a href="http://www.jianshu.com/u/4ef984470da8" target="_blank" rel="external">@ASCE1885</a> 每周一更的技术周报，让我觉得这个团队是非常尊重技术的团队，而我过去应该能有更多发挥的机会。</p>
@@ -419,7 +419,7 @@
     <link href="http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/"/>
     <id>http://hahack.com/codes/use-dingdang-to-control-smart-mi-fan/</id>
     <published>2017-07-15T11:42:22.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.018Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p><a href="http://github.com/wzpan/dingdang-robot" target="_blank" rel="external">dingdang-robot</a> （以下简称“叮当”），是我在今年5月20号开源的一个中文智能音箱项目。</p>
 <p>起初，我只是抱着一个好玩的心态做这个项目，并不期望这个项目能得到多少关注。然而，随着 QQ 用户群人数的不断壮大，越来越多的朋友安装了叮当，并且真正将它投入在了日常的使用上。很多朋友也提出了各种好玩的建议、想法，甚至为叮当贡献了插件或者捐赠了这个项目，让我觉得这个项目是很有价值的，也让我知道，我能做的还有很多东西。因此，我并不是开源了叮当之后就撒手不管了，而是利用业余时间不断完善叮当，又陆续发布了 8 个小版本，使得叮当在响应速度和功能丰富程度上都有了很大提升：</p>
@@ -563,7 +563,7 @@
     <link href="http://hahack.com/codes/comment-js/"/>
     <id>http://hahack.com/codes/comment-js/</id>
     <published>2017-07-02T12:48:07.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.007Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>我的博客最早是使用 Disqus 来实现评论功能的。Disqus 被墙了之后，改成了多说。今年年初，多说也正式关闭了，于是我被逼着又开始寻找其他的替代评论系统。</p>
 <p>我先是试用了网易云跟贴、畅言等几种类似的社会化评论系统。畅言要求站点必须备案，而我实在没有为了评论去申请备案的动力。网易云跟贴的管理后台上有很多不明觉厉的功能，但好像都没多大用处。最致命的问题是我不小心把我的站点绑定到了另一个网易账户，而不是我常用的微博账户。这样的话，我每次回贴就得退登到微博账户，要管理贴子的时候又得切回管理员账户，非常不方便。然而网易云跟贴并没有提供解绑的功能。于是我给他们提了需求，然而一直到现在都没有回复。再加上有了多说作为前车之鉴，我对国内的免费评论服务已经失去了信心。今天把A换成B，难以保证日后B也关闭了，被逼着又换到C，实在是懒得折腾下去啊。于是，我放弃了换用类似的评论系统的念头。</p>
@@ -680,7 +680,7 @@
     <link href="http://hahack.com/codes/how-to-write-dingdang-plugin/"/>
     <id>http://hahack.com/codes/how-to-write-dingdang-plugin/</id>
     <published>2017-05-28T12:23:40.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.012Z</updated>
     <content type="html"><![CDATA[<p><a href="http://hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">叮当</a> 是一款可以工作在 Raspberry Pi 上的开源中文语音对话机器人/智能音箱项目，目的是让中国的Hacker们也能快速打造类似 Amazon Echo 的个性化的智能音箱。</p>
 <p>由于叮当是完全开源的，编写插件来满足自己的个性化需求就成了使用叮当的最大乐趣。您可以自由地接入自己需要的服务，让叮当更好的为您服务。</p>
 <p>这篇文章将一步步教你如何编写一个天气插件，并最终发布到 dingdang-contrib 中。</p>
@@ -773,7 +773,7 @@
     <link href="http://hahack.com/codes/dingdang-robot-intro/"/>
     <id>http://hahack.com/codes/dingdang-robot-intro/</id>
     <published>2017-05-22T05:43:21.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.007Z</updated>
     <content type="html"><![CDATA[<p>这个项目其实来源于我生活中的一个需求：我每天晚上都会去厨房做一个面包当明天的早餐，当我把用料按顺序准备好放进面包机时，我需要准确预约到明天早上我吃早餐的时间。然而，几乎每次在这个时候我都没有带手机在身边，而是都放在客厅里充电，这时只能跑去客厅看时间。虽然厨房到客厅只有几步之遥，但自己又是懒癌患者，每天都要这么来回奔波就觉得很不方便。要解决这个问题当然有很多种方法，比如直接买个小时钟放在厨房。不过我更希望“连看都不用看”，直接有人告诉我时间。所以，我需要一个像 Amazon Echo 那样的智能音箱。</p>
 <p>然而，不论是 Amazon Echo 、Google Home 还是微软 Cortana 音箱，在国内的使用都是个问题。虽然国内也有类似的智能音箱产品，但我没有用过这些产品，不知道可定制性如何。比如，如果我需要开发个功能让它告诉我某种面包的配方是什么，这些产品就不一定能做到了。考虑再三，我决定自己动手写一个。整个项目用了差不多三个星期的业余零碎时间。</p>
 <p>先放上项目主页：<a href="http://dingdang.hahack.com" target="_blank" rel="external">http://dingdang.hahack.com</a></p>
@@ -950,7 +950,7 @@
     <link href="http://hahack.com/work/enterprise-class-git-version-control-5/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-5/</id>
     <published>2017-04-19T09:22:53.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.009Z</updated>
     <content type="html"><![CDATA[<p>毫无疑问，Git 非常适合用于代码文件的版本控制。对于纯代码仓库，由于每次实际提交都是增量内容，即使仓库经历了几十次提交，整个仓库的大小往往都不会大幅增加。</p>
 <p>而对于存在二进制文件的仓库，情况就变了：Git 并不能很好地支持二进制文件的增量提交，每次更新一个二进制文件，就相当于把这份文件的完整内容再往仓库里扔。久而久之，这个仓库就会变得非常大，影响代码拉取速度。</p>
 <p>举一个实际的例子，为了加快应用的构建速度，我们团队的框架先会编译成 SDK ，再交由上层构建应用。框架 SDK 也是一个独立的 Git 仓库，里头包含了大量的二进制包：</p>
@@ -1059,7 +1059,7 @@
     <link href="http://hahack.com/work/enterprise-class-git-version-control-4/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-4/</id>
     <published>2017-04-12T07:45:29.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.009Z</updated>
     <content type="html"><![CDATA[<h2 id="需求描述">需求描述</h2>
 <p>在继续写数学系列前，我想切回去之前的 Git 系列写点东西。我想写系列文章也可以像操作系统的进程调度一样，一个系列暂时写不动了，先 <q>保存现场</q> 跳去另一个 topic 写点东西，同时也给自己留点 buffer 再酝酿一下这个暂时 <q>中断</q> 的系列。等这个系列酝酿够了，再 <q>恢复现场</q> ，继续还这个系列的技术债。</p>
 <p>对于一个规模较大的企业，存在多个 Gitlab 站点是很常见的事情。</p>
@@ -1214,7 +1214,7 @@
     <link href="http://hahack.com/math/math-linear-algebra-graded/"/>
     <id>http://hahack.com/math/math-linear-algebra-graded/</id>
     <published>2017-02-12T13:42:05.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.014Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>在前面两篇文章中，我简要概括了线性代数中两个最基本的数据表达方式：<a href="/math/math-matrix/">矩阵</a> 和 <a href="/math/math-vector/">向量</a>。有了这两个数学工具作为基础，我们可以再进一步，讨论下面一些内容：</p>
 <ol>
@@ -1717,7 +1717,7 @@ b^*
     <link href="http://hahack.com/math/math-vector/"/>
     <id>http://hahack.com/math/math-vector/</id>
     <published>2017-02-06T13:47:43.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.015Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>在 <a href="http://hahack.com/math/math-matrix/" target="_blank" rel="external">上文</a> 中我简单概括了矩阵的基本运算，并给出了两个应用实例。这篇文章我们继续谈谈向量。</p>
 <p>向量是线性代数中的基本概念，也是机器学习的基础数据表示形式。例如计算机阅读文本的过程首先就会将文本分词，然后用向量表示<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。这是因为向量很适合在高维空间中表达和处理。在机器学习中会接触到的诸如投影、降维的概念，都是在向量的基础上做的。</p>
@@ -1919,7 +1919,7 @@ c_2 &amp;= \frac{y}{3} - \frac{x}{6}
     <link href="http://hahack.com/math/math-matrix/"/>
     <id>http://hahack.com/math/math-matrix/</id>
     <published>2017-01-31T14:33:04.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.015Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>机器学习如火如荼，要学习机器学习，数学基础少不了。所以本系列将对机器学习所用到的线性代数、微积分和概率统计的基础知识做一个简单的概括。</p>
 <p>本文将总结线性代数中矩阵的基本知识点。同时理论结合实践，使用 Python 来进行实践。如果需要跟着进行编程实践，请先确保下列环境已安装：</p>
@@ -2166,7 +2166,7 @@ y
     <link href="http://hahack.com/work/enterprise-class-git-version-control-3/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-3/</id>
     <published>2016-04-29T07:45:29.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.009Z</updated>
     <content type="html"><![CDATA[<p>说到版本控制，就不得不提到分支管理策略。就像学开车必须学学交通规则。分支管理策略是代码版本控制的基础组成部分。为团队定制一套合适的分支管理策略，就好比制定了一套合理的交通规则，可以让团队的代码的更加有序地演进，尽可能降低多分支带来的复杂度，并避免由于分支混乱引发的各种“车祸”。本文将简单讨论下我们在开发过程中尝试的各种分支管理策略，在面对各种复杂场景下呈现的优势与不足，以及我们的妥协和后续期望。</p>
 <h2 id="github-flow">Github-Flow</h2>
 <p>作为 Github 的重度用户，我首先考虑的当然是 <a href="https://guides.github.com/introduction/flow/index.html" target="_blank" rel="external">Github-Flow</a> 。</p>
@@ -2260,7 +2260,7 @@ y
     <link href="http://hahack.com/work/enterprise-class-git-version-control-2/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-2/</id>
     <published>2016-04-20T16:00:00.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.008Z</updated>
     <content type="html"><![CDATA[<h2 id="需求描述">需求描述</h2>
 <p>在 <a href="/work/enterprise-class-git-version-control-1/">上一篇文章</a> 中，我简单描述了我们一个项目的复杂程度：子模块、嵌套子模块、多分支。除了工程分支切换上的复杂，我们还遇到另一个问题：子模块持续集成。</p>
 <h2 id="主工程持续集成">主工程持续集成</h2>
@@ -2345,7 +2345,7 @@ y
     <link href="http://hahack.com/work/enterprise-class-git-version-control-1/"/>
     <id>http://hahack.com/work/enterprise-class-git-version-control-1/</id>
     <published>2016-04-12T16:00:00.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.008Z</updated>
     <content type="html"><![CDATA[<h2 id="需求描述">需求描述</h2>
 <p>我们尝试使用 Git 来维护一个项目的代码。这个项目的结构比较复杂：</p>
 <ul>
@@ -2415,7 +2415,7 @@ y
     <link href="http://hahack.com/codes/learn-react-native-for-android-02/"/>
     <id>http://hahack.com/codes/learn-react-native-for-android-02/</id>
     <published>2015-10-18T17:49:34.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.013Z</updated>
     <content type="html"><![CDATA[<p>React Native 主张用 React 的开发思维来编写 UI 层。因此在学习 React-Native 之前，了解基本的 React 的语法和存在的坑会对今后 React Native 的开发大有裨益。</p>
 <p>本文将从一个简单的例子开始，逐步完善我们的程序。在这个过程中，我们将一步步探讨如何用 React 来开发网页应用，以及需要注意的陷阱。与其他教程不同，本文将采用类似 <a href="http://zedshaw.com/" target="_blank" rel="external">Zed A. Shaw</a> 的 <a href="http://learncodethehardway.org/" target="_blank" rel="external">《Learn Code the Hard Way》</a> 系列的案例驱动的形式，从例子开始着手。我相信，掌握一门新技术最好的方法就是自己动手。因此，我并不打算面面俱到的列举所有关于 React 的内容，而更倾向于担任一个引路人的角色：把读者们带到 React 花园的门前，然后让读者们在 React 花园里来一场自助游。为了让这个旅途更加有收获，我会在每节内容的最后安排几个练习，并在最后分享一些值得深入学习的文章和教程。</p>
 <a id="more"></a>
@@ -2680,7 +2680,7 @@ y
     <link href="http://hahack.com/codes/learn-react-native-for-android-01/"/>
     <id>http://hahack.com/codes/learn-react-native-for-android-01/</id>
     <published>2015-10-16T21:23:08.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.013Z</updated>
     <content type="html"><![CDATA[<p>Facebook 于 2015 年 9 月 15 日发布了 React Native for Android 。React Native 让开发者使用 JavaScript 和 React 编写应用，利用相同的核心代码就可以创建 Web，iOS 和 Android 平台的原生应用。注意这里的 <q>核心</q> 两个词，它指的是那些底层的、与界面无关的逻辑。与 ionic / PhoneGap 这类 Web App 开发框架不同，React Native 主张使用 React 的开发方式来开发 Native 应用，因为在现阶段 Web App 还无法达到 Native App 的体验。所以，React Native 并不强调 <q>write Once, run everywhere</q> ，而是 <q>learn once, write everywhere</q> ：上层使用 JS 和 React 开发不同平台的 UI，下层则可以编写能够复用的核心代码，从而大幅提高开发效率。</p>
 <p>关于 React Native 的好处，唐巧在 《<a href="http://blog.devtang.com/blog/2015/02/01/talk-about-react-native/" target="_blank" rel="external">谈谈 React Native</a>》 里已经有比较深刻的总结，本文不再赘述。本文将作为一个 React Native for Android 学习系列的一个开篇，从零开始学习 React Native 。我尽量不偷懒，保证文章及时更新。</p>
 <a id="more"></a>
@@ -2829,7 +2829,7 @@ y
     <link href="http://hahack.com/codes/local-search-engine-for-hexo/"/>
     <id>http://hahack.com/codes/local-search-engine-for-hexo/</id>
     <published>2015-10-08T08:27:04.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.014Z</updated>
     <content type="html"><![CDATA[<p>早在我最初<a href="/codes/from-ruhoh-to-hexo/">从 Ruhoh 迁移博客到 Hexo</a> 时，我就有动手写一个本地的搜索引擎的想法。比起使用第三方服务的站内搜索，本地搜索引擎有几个好处：</p>
 <ol>
 <li>更可靠。不用担心<del>由于某些显而易见的原因导致</del>第三方服务不可访问。</li>
@@ -2899,7 +2899,7 @@ y
     <link href="http://hahack.com/tools/dockerize-your-hexo/"/>
     <id>http://hahack.com/tools/dockerize-your-hexo/</id>
     <published>2015-06-02T03:29:38.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.007Z</updated>
     <content type="html"><![CDATA[<h2 id="前言">前言</h2>
 <p>在<a href="/codes/hexo-3-speed-up/">上篇文章</a>中，我简单提到了在升级 Hexo 3 过程中遇到的一些痛苦。其实还有很多问题没有在上篇文章中提及。比如，我的渲染器使用的是 pandoc ，在 2.x 的时候，<a href="http://wzpan.github.io/hexo-theme-freemind/2014/03/16/tag-plugins/" target="_blank" rel="external">hexo-tag-plugins</a> 里头的文字可以通过调用 <code>renderSync</code> 方法传给 markdown 进行渲染，而到了 3.0 ，这些文字无论怎么做都不能被 pandoc 或者 markdown 渲染。</p>
 <p>早在我决定挥刀动斧定制我的个人博客之前，我早已经做好了发生这种情况的心理准备。我的博客最早是使用 Ruhoh 编写的，从主题到渲染器进行了大量的个人定制，后面出于种种原因我决定<a href="http://192.168.59.103:4000/codes/from-ruhoh-to-hexo/" target="_blank" rel="external">切换到Hexo</a> ，于是我又花了很多力气把原来的博客移植到 Hexo 2.x 上。与其说是移植，不如说是一个基于 Hexo 2.x 的山寨版。现在 Hexo 一旦做了大幅更新，相当于我又得经历和前两次一样的折腾，实在是有心无力呀。考虑再三，我决定放弃使用 Hexo 3 ，而将我的博客所使用的环境 <q>冻结</q> 为 2.8.3 。</p>
@@ -2997,7 +2997,7 @@ HHKB，
     <link href="http://hahack.com/codes/hexo-3-speed-up/"/>
     <id>http://hahack.com/codes/hexo-3-speed-up/</id>
     <published>2015-06-01T14:49:46.000Z</published>
-    <updated>2018-07-06T17:27:30.000Z</updated>
+    <updated>2018-07-06T17:27:30.011Z</updated>
     <content type="html"><![CDATA[<p>Hexo 3 自从放出更新到现在已经有很长一段时间了，相信很多人跟我一样都经历了一个非常曲折的升级过程。</p>
 <p>第一个问题是我所编写的主题和插件全都阵亡了，这个问题在我决定升级 Hexo 之前已经被很多用户轰炸过，于是我花了两个晚上的时间对所有的主题和插件进行了大幅修改和升级。</p>
 <p>另一个让我无比郁闷的问题是：官方虽然宣称 3.0 之后站点渲染速度更快了，但实际测试时我发现结果正好相反——全站 168 篇文章，在 Hexo 2.8.3 环境中渲染只需 3~4 秒时间，而更新到 Hexo 3.0 之后，网站的渲染居然花了一个多钟！</p>
