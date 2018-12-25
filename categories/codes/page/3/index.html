@@ -151,6 +151,32 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Jun 1 2015 </div>
+			<div class="article-title"><a data-pjax href="/codes/hexo-3-speed-up/" title="升级到 Hexo 3 后站点文章渲染过慢的解决办法。">Speed Up the Rendering Process of hexo 3</a></div>			
+		</h3>
+	
+
+
+		<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/hexo-3-speed-up/"><img src="/images/hexo-3-speed-up/rocket.jpg" alt="Speed Up the Rendering Process of hexo 3"  class="nofancybox"></a></div>
+    
+    
+      <p>Hexo 3 自从放出更新到现在已经有很长一段时间了，相信很多人跟我一样都经历了一个非常曲折的升级过程。</p>
+<p>第一个问题是我所编写的主题和插件全都阵亡了，这个问题在我决定升级 Hexo 之前已经被很多用户轰炸过，于是我花了两个晚上的时间对所有的主题和插件进行了大幅修改和升级。</p>
+<p>另一个让我无比郁闷的问题是：官方虽然宣称 3.0 之后站点渲染速度更快了，但实际测试时我发现结果正好相反——全站 168 篇文章，在 Hexo 2.8.3 环境中渲染只需 3~4 秒时间，而更新到 Hexo 3.0 之后，网站的渲染居然花了一个多钟！</p>
+<p>为了找出导致这个问题的 bottleneck ，我通过二分的手段很快定位出了问题文章 《<a href="/codes/opengl-on-archlinux/">ArchLinux安装配置OpenGL</a>》，这篇文章乍一看没啥特别之处，但问题就出在文中这段长长的目录结构图： 	  
+       
+   </ul>
+   <a data-pjax href="/codes/hexo-3-speed-up/#more" class="btn more">Read More</a>
+</div>    
+
+	
+		
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Feb 16 2015 </div>
 			<div class="article-title"><a data-pjax href="/codes/extempore-intro/" title="介绍 Extempore 实时编程语言和环境，并详细探讨了使用 Extempore 演奏音乐的方法和技巧。">Extempore: A Real-time Programming Language for Real-time Systems</a></div>			
 		</h3>
@@ -264,31 +290,6 @@
 </div>    
 
 	
-		
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Jul 13 2014 </div>
-			<div class="article-title"><a data-pjax href="/codes/hexo-theme-wixo/" title="介绍我为 Hexo 编写的第二个主题 Wixo 。">Wixo - a wiki theme for Hexo</a></div>			
-		</h3>
-	
-
-
-		<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/hexo-theme-wixo/"><img src="/images/hexo-theme-wixo/wiki.png" alt="Wixo - a wiki theme for Hexo"  class="nofancybox"></a></div>
-    
-    
-      <p>自从我将博客的主题 <a href="http://hahack.com/codes/hexo-theme-freemind/" target="_blank" rel="external">Freemind</a> 开源了之后，我收到了很多朋友的来信，希望我也能把博客里的 Wiki 部分也开源。</p>
-<p>当初没有将 Wiki 的部分放进博客，主要是考虑到主题的简单性。原来的主题包含了很多我个人的特殊定制，虽然自己用着方便，但对别人就不见得适用了。比如，由于我的博客有 post 和 wiki 两套主要的 layout，为了创建草稿的时候有所区分，原来的 <code>hexo new</code> 就不适用了，于是我都是用自己写的工具来创建草稿。再比如，由于是自己用的东西，也就无所谓代码的模块化，有些 hard-code 的地方要做到灵活可定制又得折腾一顿功夫，而且太多定制项又会增加用户的学习负担。考虑再三，我决定将 Wiki 部分去除，尽可能保证主题整体的简单和模块化。本来我开源了 Freemind 主题后也不打算再写其他主题了，但因为来信询问 Wiki 主题的朋友实在太多，于是也给了我动力编写第二个主题 <a href="http://hahack.com/codes/hexo-theme-wixo/" target="_blank" rel="external">Wixo</a> 。</p>
-	  
-       
-   </ul>
-   <a data-pjax href="/codes/hexo-theme-wixo/#more" class="btn more">Read More</a>
-</div>    
-
-	
 	</div>
 	<div>
 	<center>
@@ -326,6 +327,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/codes/writing-2048-wechat-game-in-cocos-creator/" ><i class="fa fa-file-o"></i>使用Cocos Creator开发微信小游戏《2048》</a>
+      </li>
+    
+      <li>
         <a href="/codes/cocos-based-high-performance-cross-platform-app-developing/"  title="我在GMTC上分享的Cocos跨平台应用开发心得。" ><i class="fa fa-file-o"></i>基于 Cocos 的高性能跨平台开发方案</a>
       </li>
     
@@ -339,10 +344,6 @@
     
       <li>
         <a href="/codes/use-dingdang-to-control-smart-mi-fan/"  title="作为一个完全开源的智能音箱项目，叮当也能够很方便的接入其他智能家电，并声控它们。本文将介绍如何使用叮当声控智米电风扇。" ><i class="fa fa-file-o"></i>使用叮当声控智米电风扇</a>
-      </li>
-    
-      <li>
-        <a href="/codes/comment-js/"  title="介绍我用纯JS实现的一个静态站点评论系统，以及实现过程中的心得体会。" ><i class="fa fa-file-o"></i>Comment.js：一个纯JS实现的静态站点评论系统</a>
       </li>
     
   </ul>

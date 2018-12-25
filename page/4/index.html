@@ -154,6 +154,38 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Apr 13 2016 </div>
+			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-1/" title="介绍面向复杂工程的简单化 Git 分支依赖管理方案。我们对子模块的使用进行了简化，避免了由于漏提交子模块 commit id 或子模块代码导致无法更新或更新错误的情况。">化繁为简的企业级 Git 管理实践（一）：多分支子模块依赖管理</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/work/enterprise-class-git-version-control-1/"><img src="/images/enterprise-class-git-version-control-1/git.png" alt="化繁为简的企业级 Git 管理实践（一）：多分支子模块依赖管理"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="需求描述">需求描述</h2>
+<p>我们尝试使用 Git 来维护一个项目的代码。这个项目的结构比较复杂：</p>
+<ul>
+<li>项目包含由多个子模块，每个子模块是一个独立的 Git 仓库，子模块还允许继续嵌套包含子模块。 例如，主工程依赖 common、framework、react_native 等多个子模块，而 react_native 子模块又依赖 node_modules、HFCommon、HFModules 等多个嵌套子模块。</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">[-] app_android/</div><div class="line"> |-[+] HFUIKit</div><div class="line"> |-[+] channel</div><div class="line"> |-[+] common</div><div class="line"> |-[+] framework</div><div class="line"> |-[+] hybrid</div><div class="line"> |-[+] messagecenter</div><div class="line"> |-[-] react_native</div><div class="line">    |-[+] HFCommon</div><div class="line">    |-[+] HFModules</div><div class="line">    |-[+] node_modules</div></pre></td></tr></table></figure></p>
+<ul>
+<li>主工程和子模块允许存在多个分支，且相互之间有依赖关系。例如，主工程的 jilin 分支同时依赖 common 子模块的 master 分支，以及 framework 子模块的 jilin 分支。</li>
+</ul>
+	  
+       
+   </ul>
+   <a data-pjax href="/work/enterprise-class-git-version-control-1/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Oct 19 2015 </div>
 			<div class="article-title"><a data-pjax href="/codes/learn-react-native-for-android-02/" title="本文将从一个简单的例子开始，逐步深入 React 的编写细节。">学习 React Native for Android：React 基础</a></div>			
 		</h3>
@@ -262,32 +294,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Jun 1 2015 </div>
-			<div class="article-title"><a data-pjax href="/codes/hexo-3-speed-up/" title="升级到 Hexo 3 后站点文章渲染过慢的解决办法。">Speed Up the Rendering Process of hexo 3</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/hexo-3-speed-up/"><img src="/images/hexo-3-speed-up/rocket.jpg" alt="Speed Up the Rendering Process of hexo 3"  class="nofancybox"></a></div>
-    
-    
-      <p>Hexo 3 自从放出更新到现在已经有很长一段时间了，相信很多人跟我一样都经历了一个非常曲折的升级过程。</p>
-<p>第一个问题是我所编写的主题和插件全都阵亡了，这个问题在我决定升级 Hexo 之前已经被很多用户轰炸过，于是我花了两个晚上的时间对所有的主题和插件进行了大幅修改和升级。</p>
-<p>另一个让我无比郁闷的问题是：官方虽然宣称 3.0 之后站点渲染速度更快了，但实际测试时我发现结果正好相反——全站 168 篇文章，在 Hexo 2.8.3 环境中渲染只需 3~4 秒时间，而更新到 Hexo 3.0 之后，网站的渲染居然花了一个多钟！</p>
-<p>为了找出导致这个问题的 bottleneck ，我通过二分的手段很快定位出了问题文章 《<a href="/codes/opengl-on-archlinux/">ArchLinux安装配置OpenGL</a>》，这篇文章乍一看没啥特别之处，但问题就出在文中这段长长的目录结构图： 	  
-       
-   </ul>
-   <a data-pjax href="/codes/hexo-3-speed-up/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -346,7 +352,7 @@
 		<h4>Categories</h4>
 		<ul class="tag_box inline">
 		
-			<li><a href="/categories/codes/">codes<span>34</span></a></li>
+			<li><a href="/categories/codes/">codes<span>35</span></a></li>
 		
 			<li><a href="/categories/life/">life<span>5</span></a></li>
 		
@@ -369,47 +375,47 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/scrollspy/">scrollspy<span>1</span></a></li>
+			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
 				   
-			<li><a href="/tags/ABCmouse/">ABCmouse<span>1</span></a></li>
+			<li><a href="/tags/LaTeX/">LaTeX<span>3</span></a></li>
 				   
-			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
+			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
 				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
+			<li><a href="/tags/Flyspell/">Flyspell<span>1</span></a></li>
 				   
-			<li><a href="/tags/Android/">Android<span>1</span></a></li>
-				   
-			<li><a href="/tags/comment-js/">comment.js<span>1</span></a></li>
-				   
-			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
-				   
-			<li><a href="/tags/BP/">BP<span>1</span></a></li>
-				   
-			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
-				   
-			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
-				   
-			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
-				   
-			<li><a href="/tags/Extempore/">Extempore<span>1</span></a></li>
-				   
-			<li><a href="/tags/org-mode/">org-mode<span>2</span></a></li>
-				   
-			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+			<li><a href="/tags/Javascript/">Javascript<span>5</span></a></li>
 				   
 			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
 				   
-			<li><a href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
-				   
 			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
 				   
-			<li><a href="/tags/React/">React<span>1</span></a></li>
+			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
+				   
+			<li><a href="/tags/ANN/">ANN<span>2</span></a></li>
+				   
+			<li><a href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li>
+				   
+			<li><a href="/tags/Arch/">Arch<span>1</span></a></li>
+				   
+			<li><a href="/tags/BP/">BP<span>1</span></a></li>
+				   
+			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
 				   
 			<li><a href="/tags/vcc/">vcc<span>1</span></a></li>
 				   
-			<li><a href="/tags/LaTeX/">LaTeX<span>3</span></a></li>
+			<li><a href="/tags/npm/">npm<span>1</span></a></li>
+				   
+			<li><a href="/tags/pandoc/">pandoc<span>1</span></a></li>
+				   
+			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
+				   
+			<li><a href="/tags/Mindmap/">Mindmap<span>1</span></a></li>
+				   
+			<li><a href="/tags/dingdang/">dingdang<span>4</span></a></li>
+				   
+			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
 		
-		<li><a href="/tags">...<span>89</span></a></li>
+		<li><a href="/tags">...<span>90</span></a></li>
 		</ul>
 	</div>
 

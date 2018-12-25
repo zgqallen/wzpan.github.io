@@ -151,6 +151,31 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Jul 13 2014 </div>
+			<div class="article-title"><a data-pjax href="/codes/hexo-theme-wixo/" title="介绍我为 Hexo 编写的第二个主题 Wixo 。">Wixo - a wiki theme for Hexo</a></div>			
+		</h3>
+	
+
+
+		<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/hexo-theme-wixo/"><img src="/images/hexo-theme-wixo/wiki.png" alt="Wixo - a wiki theme for Hexo"  class="nofancybox"></a></div>
+    
+    
+      <p>自从我将博客的主题 <a href="http://hahack.com/codes/hexo-theme-freemind/" target="_blank" rel="external">Freemind</a> 开源了之后，我收到了很多朋友的来信，希望我也能把博客里的 Wiki 部分也开源。</p>
+<p>当初没有将 Wiki 的部分放进博客，主要是考虑到主题的简单性。原来的主题包含了很多我个人的特殊定制，虽然自己用着方便，但对别人就不见得适用了。比如，由于我的博客有 post 和 wiki 两套主要的 layout，为了创建草稿的时候有所区分，原来的 <code>hexo new</code> 就不适用了，于是我都是用自己写的工具来创建草稿。再比如，由于是自己用的东西，也就无所谓代码的模块化，有些 hard-code 的地方要做到灵活可定制又得折腾一顿功夫，而且太多定制项又会增加用户的学习负担。考虑再三，我决定将 Wiki 部分去除，尽可能保证主题整体的简单和模块化。本来我开源了 Freemind 主题后也不打算再写其他主题了，但因为来信询问 Wiki 主题的朋友实在太多，于是也给了我动力编写第二个主题 <a href="http://hahack.com/codes/hexo-theme-wixo/" target="_blank" rel="external">Wixo</a> 。</p>
+	  
+       
+   </ul>
+   <a data-pjax href="/codes/hexo-theme-wixo/#more" class="btn more">Read More</a>
+</div>    
+
+	
+		
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Mar 21 2014 </div>
 			<div class="article-title"><a data-pjax href="/codes/eulerian-video-magnification/" title="欧拉影像放大算法（Eulerian Video Magnification）的原理和实现。">Eulerian Video Magnification</a></div>			
 		</h3>
@@ -280,31 +305,6 @@
 </div>    
 
 	
-		
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Feb 10 2014 </div>
-			<div class="article-title"><a data-pjax href="/codes/opencv-and-mvc/" title="介绍如何为 OpenCV 程序搭建 MVC（模型-视图-控制器） 架构。">在 OpenCV 程序中实现 MVC 架构</a></div>			
-		</h3>
-	
-
-
-		<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/opencv-and-mvc/"><img src="/images/opencv-and-mvc/result.png" alt="在 OpenCV 程序中实现 MVC 架构"  class="nofancybox"></a></div>
-    
-    
-      <p>最近在读《<a href="http://www.packtpub.com" target="_blank" rel="external">OpenCV 2 Computer Vision Application Programming Cookbook</a>》，书中的第三章介绍了如何了在进行 OpenCV 开发时常用的几种设计模式，包括策略模式、单例模式，以及如何搭建 MVC（模型-视图-控制器）架构。内容精彩，让人受益良多。</p>
-<p>是否应该在程序中应用设计模式，这一直以来都是一个饱受争议的话题。但这并非本文的讨论重点。笔者的观点是，如果你需要在程序开发中使用面向对象的思想，那就不得不应用设计模式进行设计和重构，以期让自己的程序更加合理。</p>
-<p>应该说，OpenCV 和设计模式并没有什么必然的联系，在 OpenCV 程序中实现 MVC 也没有什么特别的魔法。但在这之前，我已经读完了被称为 <em>Gang of Four</em> 的《<a href="http://c2.com/cgi/wiki?DesignPatternsBook" target="_blank" rel="external">设计模式：可复用面向对象软件的基础</a>》，感觉内容有点偏学术，不太好读。而通过 OpenCV 的实际案例来掌握几种设计模式，比起直接去阅读各种设计模式的定义要容易让人接受得多。 	  
-       
-   </ul>
-   <a data-pjax href="/codes/opencv-and-mvc/#more" class="btn more">Read More</a>
-</div>    
-
-	
 	</div>
 	<div>
 	<center>
@@ -342,6 +342,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/codes/writing-2048-wechat-game-in-cocos-creator/" ><i class="fa fa-file-o"></i>使用Cocos Creator开发微信小游戏《2048》</a>
+      </li>
+    
+      <li>
         <a href="/codes/cocos-based-high-performance-cross-platform-app-developing/"  title="我在GMTC上分享的Cocos跨平台应用开发心得。" ><i class="fa fa-file-o"></i>基于 Cocos 的高性能跨平台开发方案</a>
       </li>
     
@@ -355,10 +359,6 @@
     
       <li>
         <a href="/codes/use-dingdang-to-control-smart-mi-fan/"  title="作为一个完全开源的智能音箱项目，叮当也能够很方便的接入其他智能家电，并声控它们。本文将介绍如何使用叮当声控智米电风扇。" ><i class="fa fa-file-o"></i>使用叮当声控智米电风扇</a>
-      </li>
-    
-      <li>
-        <a href="/codes/comment-js/"  title="介绍我用纯JS实现的一个静态站点评论系统，以及实现过程中的心得体会。" ><i class="fa fa-file-o"></i>Comment.js：一个纯JS实现的静态站点评论系统</a>
       </li>
     
   </ul>
