@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2018-12-25T17:43:49.593Z</updated>
+  <updated>2018-12-25T17:46:13.898Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/codes/writing-2048-wechat-game-in-cocos-creator/"/>
     <id>http://hahack.com/codes/writing-2048-wechat-game-in-cocos-creator/</id>
     <published>2018-12-25T16:39:54.000Z</published>
-    <updated>2018-12-25T17:38:33.561Z</updated>
+    <updated>2018-12-25T17:45:54.636Z</updated>
     <content type="html"><![CDATA[<p>上个月抽了个时间，给腾讯课堂制作了一个免费公开课《使用Cocos Creator开发微信小游戏2048》，分享了使用 Cocos Creator 开发微信小游戏的经验。</p>
 <p>如果你对微信小游戏开发感兴趣，欢迎前往观看。</p>
 <p>（PS: 请忽略散发着寒光的头像……）</p>
@@ -26,7 +26,7 @@
 <a id="more"></a>
 <p>学习这门课之前需要先了解 Cocos Creator 的基本使用，以及具备一定的 JS 语法基础。如果你对这些没有足够的了解，那么看这门公开课会比较吃力。</p>
 <p>如果你是这种情况，或者学完觉得意犹未尽，希望学习更多内容，那么我建议你可以去学习一下我们的另一门付费课程《<a href="https://ke.qq.com/course/326820?tuin=1b8113f4" target="_blank" rel="external">微信小游戏入门与实战</a>》，这门课汇集了我们团队在使用 Cocos Creator 开发微信小游戏上的经验，由我们多名成员在业余时间整理录制而成（我已经数不清为了达到质量要求而修改重录了多少遍 <code>T_T</code> ）。课程将会提供更全面而系统的教学内容。</p>
-<p>有多<q>全面而系统</q>呢？可以感受下我在项目初期为这个课程系列设计的教学大纲 <span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>严谨起见，这里加个免责说明：课程大纲，因为各章讲师在讲解时会根据个人喜好做些调整。 </span></span></span>：</p>
+<p>有多<q>全面而系统</q>呢？可以感受下我在项目初期为这个课程系列设计的教学大纲 <span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>严谨起见，这里加个免责说明：大纲只起到初步划定教学内容的作用，最终呈现的课程内容请以实际视频为准，因为各章讲师在讲解时会根据个人喜好做些调整。 </span></span></span>：</p>
 <p><img src="/images/writing-2048-wechat-game-in-cocos-creator/mindmap.png" alt="微信小游戏入门与实战课程大纲"></p>
 ]]></content>
     <category scheme="http://hahack.com/tags/Cocos-Creator/" term="Cocos Creator"/>
