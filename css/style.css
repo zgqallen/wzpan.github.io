@@ -53,6 +53,10 @@ body {
   font-size: 0.9em;
 }
 
+a {
+    word-break: break-word;
+}
+
 .meta-widget {
   margin: 10px 0;
 }

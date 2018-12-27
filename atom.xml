@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2018-12-27T16:52:06.090Z</updated>
+  <updated>2018-12-27T16:57:53.755Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/work/introducing-beamerstyleslides/"/>
     <id>http://hahack.com/work/introducing-beamerstyleslides/</id>
     <published>2018-12-27T15:46:15.000Z</published>
-    <updated>2018-12-27T16:42:25.235Z</updated>
+    <updated>2018-12-27T16:56:44.525Z</updated>
     <content type="html"><![CDATA[<h2 id="背景：ppt之痛">背景：PPT之痛</h2>
 <p>年末，又到了很多朋友准备答辩晋升 slides 的时候。<q>PPT工程</q> 应该是很多技术人的天敌之一，不少人为了在工作之余折腾出一份既有内容又美观的 slides 弄得焦头烂额。</p>
 <p>其实，大家对 <q>PPT工程</q> 之所以这么惶恐，主要是因为技术人更习惯跟代码打交道，更习惯用技术思维去解决问题。而做材料考察的是信息的提取整合能力、审美品味以及口头表达能力，而这些都不是做技术的必要条件。</p>
@@ -82,7 +82,7 @@
 <li>对照这个 slides.pdf，编辑一个 pptx 母版，使之在排版、配色、列表项风格上尽量接近于这个 benchmark 。完成后保存，并导出一份 pdf 文件，以 colortheme + <code>.pdf</code> 的命名方式放进 preview 目录中，例如 <code>lily.pdf</code> 。</li>
 <li>使用 keynote 导入这个 PPT，调整下个人经历这一节中的层级即可另存为 <code>.key</code> 模板。</li>
 </ol>
-<p><img src="/images/introducing-beamerstyleslides/adjust.png" alt="调整层级"></p>
+<p><img src="/images/introducing-beamerstyleslides/adjust.jpg" alt="调整层级"></p>
 <ol start="5">
 <li><code>cd</code> 进入 preview 目录，执行如下命令生成封面图和预览图：</li>
 </ol>
