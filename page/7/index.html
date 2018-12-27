@@ -155,6 +155,39 @@
 	<!-- display as entry -->
 		<h3 class="title">
 		<div class="date"> Mar 21 2014 </div>
+			<div class="article-title"><a data-pjax href="/codes/eulerian-video-magnification/" title="欧拉影像放大算法（Eulerian Video Magnification）的原理和实现。">Eulerian Video Magnification</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/eulerian-video-magnification/"><img src="/images/eulerian-video-magnification/evm.png" alt="Eulerian Video Magnification"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="引言">引言</h2>
+<p>人类的视觉感知存在有限的感知域。对于超出感知域的变化，我们无法感知。然而，这类信号却可能蕴藏着惊人的秘密。</p>
+<p>比如，血液循环使得人体的皮肤发生细微的周期性变化，这个裸眼无法感知的变化却和人的心率非常吻合。2011 年，MIT 的一个亚裔学生 Mingzhe Poh 就利用这个微弱的信号设计了一个“魔镜”<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>  —— 不仅能照出你的模样，还能测出你的心率。</p>
+<p><img src="/images/eulerian-video-magnification/mirror.jpg" alt="Mingzhe Poh 的“魔镜”"></p>
+<p>Mingzhe Poh 的这面神奇的镜子的原理是利用了血液在人体内流动时光线的变化 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> ：心脏跳动时血液会通过血管，通过血管的血液量越大，被血液吸收的光线也越多，人皮肤表面反射的光线就越少。因此，通过对图像的时频分析就可以估算出心率。</p>
+<p><img src="/images/eulerian-video-magnification/1839Kmo.png" alt="Cardiac pulse recovery methodology"></p>
+<p>再比如，乐器之所以会发出声音，是因为它发声的部分在弹奏过程中发生了有规律的形变，而这个形变的振幅对应着乐器发声的响度，快慢对应着乐器的音高。微弱信号所蕴藏的信息量是如此重大，无怪乎禅语有云：</p>
+<blockquote>
+<p>一花一世界，一叶一菩提。</p>
+</blockquote>
+<p>既然如此，能否将影像中的这些肉眼观察不到的变化“放大”到裸眼足以观察的幅度呢？这就是本文将要重点讨论的问题。	  
+       
+   </ul>
+   <a data-pjax href="/codes/eulerian-video-magnification/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+		<div class="date"> Mar 21 2014 </div>
 			<div class="article-title"><a data-pjax href="/tools/wechat/" >HaHack 的微信订阅号</a></div>			
 		</h3>
 	
@@ -279,31 +312,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Feb 10 2014 </div>
-			<div class="article-title"><a data-pjax href="/codes/opencv-and-mvc/" title="介绍如何为 OpenCV 程序搭建 MVC（模型-视图-控制器） 架构。">在 OpenCV 程序中实现 MVC 架构</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/opencv-and-mvc/"><img src="/images/opencv-and-mvc/result.png" alt="在 OpenCV 程序中实现 MVC 架构"  class="nofancybox"></a></div>
-    
-    
-      <p>最近在读《<a href="http://www.packtpub.com" target="_blank" rel="external">OpenCV 2 Computer Vision Application Programming Cookbook</a>》，书中的第三章介绍了如何了在进行 OpenCV 开发时常用的几种设计模式，包括策略模式、单例模式，以及如何搭建 MVC（模型-视图-控制器）架构。内容精彩，让人受益良多。</p>
-<p>是否应该在程序中应用设计模式，这一直以来都是一个饱受争议的话题。但这并非本文的讨论重点。笔者的观点是，如果你需要在程序开发中使用面向对象的思想，那就不得不应用设计模式进行设计和重构，以期让自己的程序更加合理。</p>
-<p>应该说，OpenCV 和设计模式并没有什么必然的联系，在 OpenCV 程序中实现 MVC 也没有什么特别的魔法。但在这之前，我已经读完了被称为 <em>Gang of Four</em> 的《<a href="http://c2.com/cgi/wiki?DesignPatternsBook" target="_blank" rel="external">设计模式：可复用面向对象软件的基础</a>》，感觉内容有点偏学术，不太好读。而通过 OpenCV 的实际案例来掌握几种设计模式，比起直接去阅读各种设计模式的定义要容易让人接受得多。 	  
-       
-   </ul>
-   <a data-pjax href="/codes/opencv-and-mvc/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -374,7 +382,7 @@
 		
 			<li><a href="/categories/tools/">tools<span>12</span></a></li>
 		
-			<li><a href="/categories/work/">work<span>6</span></a></li>
+			<li><a href="/categories/work/">work<span>7</span></a></li>
 		
 		</ul>
 	</div>
@@ -385,47 +393,47 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/职场感悟/">职场感悟<span>1</span></a></li>
-				   
-			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
-				   
-			<li><a href="/tags/Math/">Math<span>2</span></a></li>
-				   
-			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
-				   
-			<li><a href="/tags/npm/">npm<span>1</span></a></li>
-				   
-			<li><a href="/tags/ruby/">ruby<span>1</span></a></li>
-				   
-			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
-				   
 			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
 				   
-			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
+			<li><a href="/tags/TikZ/">TikZ<span>1</span></a></li>
 				   
-			<li><a href="/tags/xml/">xml<span>1</span></a></li>
+			<li><a href="/tags/static-analysis/">static analysis<span>1</span></a></li>
 				   
-			<li><a href="/tags/跨平台/">跨平台<span>1</span></a></li>
+			<li><a href="/tags/Cocos-Creator/">Cocos Creator<span>1</span></a></li>
 				   
-			<li><a href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
+			<li><a href="/tags/shell/">shell<span>3</span></a></li>
 				   
-			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 				   
-			<li><a href="/tags/xtlang/">xtlang<span>1</span></a></li>
+			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
 				   
-			<li><a href="/tags/Disqus/">Disqus<span>1</span></a></li>
+			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
 				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
+			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
 				   
-			<li><a href="/tags/Flyspell/">Flyspell<span>1</span></a></li>
+			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
+				   
+			<li><a href="/tags/Graphics/">Graphics<span>1</span></a></li>
+				   
+			<li><a href="/tags/ABCmouse/">ABCmouse<span>1</span></a></li>
+				   
+			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
+				   
+			<li><a href="/tags/Javascript/">Javascript<span>5</span></a></li>
 				   
 			<li><a href="/tags/BP/">BP<span>1</span></a></li>
 				   
-			<li><a href="/tags/Matrix/">Matrix<span>1</span></a></li>
+			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
 				   
-			<li><a href="/tags/koding/">koding<span>1</span></a></li>
+			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
+				   
+			<li><a href="/tags/CI/">CI<span>1</span></a></li>
+				   
+			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
+				   
+			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
 		
-		<li><a href="/tags">...<span>90</span></a></li>
+		<li><a href="/tags">...<span>93</span></a></li>
 		</ul>
 	</div>
 

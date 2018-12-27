@@ -154,6 +154,43 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Jul 15 2017 </div>
+			<div class="article-title"><a data-pjax href="/codes/use-dingdang-to-control-smart-mi-fan/" title="作为一个完全开源的智能音箱项目，叮当也能够很方便的接入其他智能家电，并声控它们。本文将介绍如何使用叮当声控智米电风扇。">使用叮当声控智米电风扇</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/use-dingdang-to-control-smart-mi-fan/"><img src="/images/use-dingdang-to-control-smart-mi-fan/smart-mi-fan.jpg" alt="使用叮当声控智米电风扇"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="前言">前言</h2>
+<p><a href="http://github.com/wzpan/dingdang-robot" target="_blank" rel="external">dingdang-robot</a> （以下简称“叮当”），是我在今年5月20号开源的一个中文智能音箱项目。</p>
+<p>起初，我只是抱着一个好玩的心态做这个项目，并不期望这个项目能得到多少关注。然而，随着 QQ 用户群人数的不断壮大，越来越多的朋友安装了叮当，并且真正将它投入在了日常的使用上。很多朋友也提出了各种好玩的建议、想法，甚至为叮当贡献了插件或者捐赠了这个项目，让我觉得这个项目是很有价值的，也让我知道，我能做的还有很多东西。因此，我并不是开源了叮当之后就撒手不管了，而是利用业余时间不断完善叮当，又陆续发布了 8 个小版本，使得叮当在响应速度和功能丰富程度上都有了很大提升：</p>
+<ul>
+<li>自 v0.1.1 起，邮件通知也增加了 echo 功能，用户可以发送带 <code>[echo]</code> 前缀的邮件给叮当接入的邮箱，从而实现让叮当朗读标题的消息，而不是提醒有新的邮件。利用这个功能，可以很方便地和 ifttt 结合，当满足某个条件时让图灵通知这个事件。例如，我将 ifttt 的 <a href="https://ifttt.com/date_and_time" target="_blank" rel="external">Date &amp; Time</a> 触发器和 <a href="https://ifttt.com/email" target="_blank" rel="external">Email</a> 做了联动，实现定时在每天晚上 11 点发送邮件通知我睡觉；</li>
+<li>自 v0.1.2 起，叮当的响应速度有了很大提升；</li>
+<li>v0.1.3 增加了 snowboy 离线唤醒 STT 引擎，目前有 PocketSphinx 和 snowboy 两套离线唤醒引擎可供选择；</li>
+<li>v0.1.4 增加了 SendQR 插件，可以让叮当将微信的登录二维码发送到邮箱。<a href="https://github.com/hhao" target="_blank" rel="external">@hhao</a> 也给叮当写了个可以获取二维码图片文件的服务器插件。另外，邮箱增加了 <code>[control]</code> 前缀支持，用户可以发送带 <code>[control]</code> 前缀标题的邮件，该标题里的内容会被当成一句指令交给叮当执行，从而实现类似微信的远程控制叮当的功能；</li>
+<li>v0.1.5 开始，可以微信控制音乐播放了；</li>
+<li>v0.1.7 开始，所有插件都可以通过在插件配置里头通过 <code>enable</code> 选项开关；</li>
+<li>叮当的官方+第三方插件数量由 6 个增加到了 13 个。</li>
+</ul>
+<p>除了完善已有的功能，我也正试图让叮当往智能家电控制中心的方向上发展。</p>
+<p>如今很多智能音箱除了用来听歌对话之外，还扮演了家庭中的一个控制中心的角色。不过，由于各家采用的接入协议有所区别，A 家的智能家电并不见得能得到 B 家的智能音箱的支持。而由于叮当是开源的项目，对其进行定制，接入控制家电所需的协议，从而实现声控大部分的智能家电是完全可能的。今天我就分享一下如何用叮当控制智米电风扇。</p>
+	  
+       
+   </ul>
+   <a data-pjax href="/codes/use-dingdang-to-control-smart-mi-fan/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Jul 2 2017 </div>
 			<div class="article-title"><a data-pjax href="/codes/comment-js/" title="介绍我用纯JS实现的一个静态站点评论系统，以及实现过程中的心得体会。">Comment.js：一个纯JS实现的静态站点评论系统</a></div>			
 		</h3>
@@ -260,34 +297,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Apr 12 2017 </div>
-			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-4/" title="本文将介绍如何利用 Gitlab API 实现一套简单灵活的数据同步机制，从而实现在多个 Gitlab 站点间同步数据。">化繁为简的企业级 Git 管理实战（四）：多 Gitlab 数据同步</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/work/enterprise-class-git-version-control-4/"><img src="/images/enterprise-class-git-version-control-4/sync.jpg" alt="化繁为简的企业级 Git 管理实战（四）：多 Gitlab 数据同步"  class="nofancybox"></a></div>
-    
-    
-      <h2 id="需求描述">需求描述</h2>
-<p>在继续写数学系列前，我想切回去之前的 Git 系列写点东西。我想写系列文章也可以像操作系统的进程调度一样，一个系列暂时写不动了，先 <q>保存现场</q> 跳去另一个 topic 写点东西，同时也给自己留点 buffer 再酝酿一下这个暂时 <q>中断</q> 的系列。等这个系列酝酿够了，再 <q>恢复现场</q> ，继续还这个系列的技术债。</p>
-<p>对于一个规模较大的企业，存在多个 Gitlab 站点是很常见的事情。</p>
-<p>比如，我们团队在公司发布统一的 Gitlab 之前早已经搭了一个团队用的 Gitlab ，当公司开始推 Git 时，由于我们已经对自己团队的 Gitlab 做了大量的定制，因此并不打算迁移到公司的 Gitlab 。</p>
-<p>自己搭建 Gitlab 的好处是可以随心所欲的进行定制，像加远程钩子之类的东西想加就加。但缺点就是平台的维护成本也落到了自己身上。相比之下，公司 Gitlab 则没有什么维护成本，服务的稳定性由更专业的运维人员保证，也不用考虑扩容的问题，但灵活定制就别想了。如果能够实现 Gitlab 间的数据自动同步，我们可以没有顾忌的使用自己的 Gitlab 平台，一旦出现问题，再无痛迁移到公司的 Gitlab 。这样一方面避免了单点问题，节省了维护成本；另一方面也能尽可能保证灵活可定制。本文想讨论的就是多个 Gitlab 站点间的数据同步问题。</p>
-	  
-       
-   </ul>
-   <a data-pjax href="/work/enterprise-class-git-version-control-4/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -358,7 +367,7 @@
 		
 			<li><a href="/categories/tools/">tools<span>12</span></a></li>
 		
-			<li><a href="/categories/work/">work<span>6</span></a></li>
+			<li><a href="/categories/work/">work<span>7</span></a></li>
 		
 		</ul>
 	</div>
@@ -369,47 +378,47 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
+			<li><a href="/tags/scrollspy/">scrollspy<span>1</span></a></li>
 				   
-			<li><a href="/tags/职场感悟/">职场感悟<span>1</span></a></li>
-				   
-			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
-				   
-			<li><a href="/tags/ABCmouse/">ABCmouse<span>1</span></a></li>
-				   
-			<li><a href="/tags/React-Native/">React-Native<span>1</span></a></li>
-				   
-			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
-				   
-			<li><a href="/tags/Docker/">Docker<span>1</span></a></li>
-				   
-			<li><a href="/tags/Logitech/">Logitech<span>1</span></a></li>
-				   
-			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
-				   
-			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
-				   
-			<li><a href="/tags/npm/">npm<span>1</span></a></li>
+			<li><a href="/tags/ruby/">ruby<span>1</span></a></li>
 				   
 			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
 				   
-			<li><a href="/tags/跨平台/">跨平台<span>1</span></a></li>
+			<li><a href="/tags/React/">React<span>1</span></a></li>
 				   
-			<li><a href="/tags/Git/">Git<span>5</span></a></li>
+			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
 				   
-			<li><a href="/tags/Flyspell/">Flyspell<span>1</span></a></li>
+			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
 				   
-			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
+			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
 				   
-			<li><a href="/tags/shell/">shell<span>3</span></a></li>
+			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
 				   
-			<li><a href="/tags/xtlang/">xtlang<span>1</span></a></li>
+			<li><a href="/tags/SCNUThesis/">SCNUThesis<span>1</span></a></li>
 				   
-			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
+			<li><a href="/tags/video/">video<span>6</span></a></li>
 				   
-			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
+			<li><a href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li>
+				   
+			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
+				   
+			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
+				   
+			<li><a href="/tags/ANN/">ANN<span>2</span></a></li>
+				   
+			<li><a href="/tags/CI/">CI<span>1</span></a></li>
+				   
+			<li><a href="/tags/PowerPoint/">PowerPoint<span>1</span></a></li>
+				   
+			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
+				   
+			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
+				   
+			<li><a href="/tags/highlight/">highlight<span>1</span></a></li>
+				   
+			<li><a href="/tags/OSF/">OSF<span>1</span></a></li>
 		
-		<li><a href="/tags">...<span>90</span></a></li>
+		<li><a href="/tags">...<span>93</span></a></li>
 		</ul>
 	</div>
 

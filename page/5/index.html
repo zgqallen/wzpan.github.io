@@ -154,6 +154,33 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Jun 2 2015 </div>
+			<div class="article-title"><a data-pjax href="/tools/dockerize-your-hexo/" title="使用 Docker 打包 Hexo 写作环境。">Dockerize Your Hexo</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/tools/dockerize-your-hexo/"><img src="/images/dockerize-your-hexo/docker.png" alt="Dockerize Your Hexo"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="前言">前言</h2>
+<p>在<a href="/codes/hexo-3-speed-up/">上篇文章</a>中，我简单提到了在升级 Hexo 3 过程中遇到的一些痛苦。其实还有很多问题没有在上篇文章中提及。比如，我的渲染器使用的是 pandoc ，在 2.x 的时候，<a href="http://wzpan.github.io/hexo-theme-freemind/2014/03/16/tag-plugins/" target="_blank" rel="external">hexo-tag-plugins</a> 里头的文字可以通过调用 <code>renderSync</code> 方法传给 markdown 进行渲染，而到了 3.0 ，这些文字无论怎么做都不能被 pandoc 或者 markdown 渲染。</p>
+<p>早在我决定挥刀动斧定制我的个人博客之前，我早已经做好了发生这种情况的心理准备。我的博客最早是使用 Ruhoh 编写的，从主题到渲染器进行了大量的个人定制，后面出于种种原因我决定<a href="http://192.168.59.103:4000/codes/from-ruhoh-to-hexo/" target="_blank" rel="external">切换到Hexo</a> ，于是我又花了很多力气把原来的博客移植到 Hexo 2.x 上。与其说是移植，不如说是一个基于 Hexo 2.x 的山寨版。现在 Hexo 一旦做了大幅更新，相当于我又得经历和前两次一样的折腾，实在是有心无力呀。考虑再三，我决定放弃使用 Hexo 3 ，而将我的博客所使用的环境 <q>冻结</q> 为 2.8.3 。</p>
+<p>但这样又带来了问题：为了方便使用我的主题和插件的朋友们，我已经对这几个项目进行了升级以支持最新的 Hexo 3 。如果我只在我的机器上安装 Hexo 2.8.3 ，那我接下来维护这几个项目就变得非常不方便。</p>
+<p>出于以上的原因，我决定使用 Docker 将 Hexo 2 和 Hexo 3 两套写作环境各自打包成镜像。这样，当我需要编写自己的博客时，就使用 Hexo 2 的镜像；当我需要维护几个 Hexo 主题和插件时，就使用 Hexo 3 的镜像。我也顺便将整个过程记录下来，形成此文，以供其他朋友参考借鉴。	  
+       
+   </ul>
+   <a data-pjax href="/tools/dockerize-your-hexo/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Jun 1 2015 </div>
 			<div class="article-title"><a data-pjax href="/codes/hexo-3-speed-up/" title="升级到 Hexo 3 后站点文章渲染过慢的解决办法。">Speed Up the Rendering Process of hexo 3</a></div>			
 		</h3>
@@ -258,36 +285,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Jan 15 2015 </div>
-			<div class="article-title"><a data-pjax href="/codes/write-a-tiny-shell-based-test-framework/" title="介绍如何基于Shell编写一个简单的测试框架。">Write a Tiny Shell-based Test Framework</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/write-a-tiny-shell-based-test-framework/"><img src="/images/write-a-tiny-shell-based-test-framework/software-testing.jpg" alt="Write a Tiny Shell-based Test Framework"  class="nofancybox"></a></div>
-    
-    
-      <p>参与过服务端的后台开发和测试的同学对服务器压力测试应该都不陌生了。为了对线上服务进行模拟测试，往往需要编写自动化的测试工具。一个常见的原型通常是这样的：</p>
-<ol>
-<li>从指定地址下载待测的服务器程序，完成本地化配置和部署；</li>
-<li>使用事先构造好的压力词表生成一系列的请求，并以指定的速率（QPS）向服务器发送这些请求；</li>
-<li>解析服务器的日志，统计压力测试结果。</li>
-</ol>
-<p>当然，实际上的测试环境可能更加复杂。比如，有些服务还要防止同一个 ip 地址在短时间内发出大量请求，相应的就要通过伪造 ip 等手段覆盖这种 case 。但“万变不离其宗”，基本的流程不会有太大的改动。</p>
-<p>无需借助其他语言，以上的工作其实只需用 Linux 自带的 Shell 就可以实现了。这给大多数 Linux 服务器开发测试人员所带来的好处就是完全轻量级，省去了配置开发环境的环节。本文就围绕如何基于 Shell 编写一个简单的测试框架，完成上面的所有工作。	  
-       
-   </ul>
-   <a data-pjax href="/codes/write-a-tiny-shell-based-test-framework/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -358,7 +355,7 @@
 		
 			<li><a href="/categories/tools/">tools<span>12</span></a></li>
 		
-			<li><a href="/categories/work/">work<span>6</span></a></li>
+			<li><a href="/categories/work/">work<span>7</span></a></li>
 		
 		</ul>
 	</div>
@@ -369,47 +366,47 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
+			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
+				   
+			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
+				   
+			<li><a href="/tags/Javascript/">Javascript<span>5</span></a></li>
+				   
 			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
 				   
-			<li><a href="/tags/Docker/">Docker<span>1</span></a></li>
+			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
 				   
-			<li><a href="/tags/Nuclide/">Nuclide<span>1</span></a></li>
+			<li><a href="/tags/xml/">xml<span>1</span></a></li>
 				   
-			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
-				   
-			<li><a href="/tags/Disqus/">Disqus<span>1</span></a></li>
-				   
-			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
-				   
-			<li><a href="/tags/SCNUThesis/">SCNUThesis<span>1</span></a></li>
-				   
-			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
-				   
-			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
-				   
-			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
-				   
-			<li><a href="/tags/org-mode/">org-mode<span>2</span></a></li>
-				   
-			<li><a href="/tags/OpenCV/">OpenCV<span>3</span></a></li>
-				   
-			<li><a href="/tags/Vector/">Vector<span>1</span></a></li>
-				   
-			<li><a href="/tags/Logitech/">Logitech<span>1</span></a></li>
-				   
-			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
 				   
 			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
 				   
-			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
+			<li><a href="/tags/org-mode/">org-mode<span>2</span></a></li>
 				   
-			<li><a href="/tags/video/">video<span>6</span></a></li>
+			<li><a href="/tags/koding/">koding<span>1</span></a></li>
+				   
+			<li><a href="/tags/CI/">CI<span>1</span></a></li>
+				   
+			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
+				   
+			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
+				   
+			<li><a href="/tags/Math/">Math<span>2</span></a></li>
+				   
+			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
+				   
+			<li><a href="/tags/Cocos/">Cocos<span>1</span></a></li>
+				   
+			<li><a href="/tags/Git/">Git<span>5</span></a></li>
+				   
+			<li><a href="/tags/beamer/">beamer<span>1</span></a></li>
 				   
 			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
 				   
-			<li><a href="/tags/Math/">Math<span>2</span></a></li>
+			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
 		
-		<li><a href="/tags">...<span>90</span></a></li>
+		<li><a href="/tags">...<span>93</span></a></li>
 		</ul>
 	</div>
 

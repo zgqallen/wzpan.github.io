@@ -154,6 +154,36 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Jan 15 2015 </div>
+			<div class="article-title"><a data-pjax href="/codes/write-a-tiny-shell-based-test-framework/" title="介绍如何基于Shell编写一个简单的测试框架。">Write a Tiny Shell-based Test Framework</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/write-a-tiny-shell-based-test-framework/"><img src="/images/write-a-tiny-shell-based-test-framework/software-testing.jpg" alt="Write a Tiny Shell-based Test Framework"  class="nofancybox"></a></div>
+    
+    
+      <p>参与过服务端的后台开发和测试的同学对服务器压力测试应该都不陌生了。为了对线上服务进行模拟测试，往往需要编写自动化的测试工具。一个常见的原型通常是这样的：</p>
+<ol>
+<li>从指定地址下载待测的服务器程序，完成本地化配置和部署；</li>
+<li>使用事先构造好的压力词表生成一系列的请求，并以指定的速率（QPS）向服务器发送这些请求；</li>
+<li>解析服务器的日志，统计压力测试结果。</li>
+</ol>
+<p>当然，实际上的测试环境可能更加复杂。比如，有些服务还要防止同一个 ip 地址在短时间内发出大量请求，相应的就要通过伪造 ip 等手段覆盖这种 case 。但“万变不离其宗”，基本的流程不会有太大的改动。</p>
+<p>无需借助其他语言，以上的工作其实只需用 Linux 自带的 Shell 就可以实现了。这给大多数 Linux 服务器开发测试人员所带来的好处就是完全轻量级，省去了配置开发环境的环节。本文就围绕如何基于 Shell 编写一个简单的测试框架，完成上面的所有工作。	  
+       
+   </ul>
+   <a data-pjax href="/codes/write-a-tiny-shell-based-test-framework/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Jan 4 2015 </div>
 			<div class="article-title"><a data-pjax href="/codes/godeyes-intro/" title="介绍 GodEyes-iOS —— iOS 源码 crash 隐患静态扫描工具。">介绍 GodEyes-iOS</a></div>			
 		</h3>
@@ -258,39 +288,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Mar 21 2014 </div>
-			<div class="article-title"><a data-pjax href="/codes/eulerian-video-magnification/" title="欧拉影像放大算法（Eulerian Video Magnification）的原理和实现。">Eulerian Video Magnification</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/eulerian-video-magnification/"><img src="/images/eulerian-video-magnification/evm.png" alt="Eulerian Video Magnification"  class="nofancybox"></a></div>
-    
-    
-      <h2 id="引言">引言</h2>
-<p>人类的视觉感知存在有限的感知域。对于超出感知域的变化，我们无法感知。然而，这类信号却可能蕴藏着惊人的秘密。</p>
-<p>比如，血液循环使得人体的皮肤发生细微的周期性变化，这个裸眼无法感知的变化却和人的心率非常吻合。2011 年，MIT 的一个亚裔学生 Mingzhe Poh 就利用这个微弱的信号设计了一个“魔镜”<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>  —— 不仅能照出你的模样，还能测出你的心率。</p>
-<p><img src="/images/eulerian-video-magnification/mirror.jpg" alt="Mingzhe Poh 的“魔镜”"></p>
-<p>Mingzhe Poh 的这面神奇的镜子的原理是利用了血液在人体内流动时光线的变化 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup> ：心脏跳动时血液会通过血管，通过血管的血液量越大，被血液吸收的光线也越多，人皮肤表面反射的光线就越少。因此，通过对图像的时频分析就可以估算出心率。</p>
-<p><img src="/images/eulerian-video-magnification/1839Kmo.png" alt="Cardiac pulse recovery methodology"></p>
-<p>再比如，乐器之所以会发出声音，是因为它发声的部分在弹奏过程中发生了有规律的形变，而这个形变的振幅对应着乐器发声的响度，快慢对应着乐器的音高。微弱信号所蕴藏的信息量是如此重大，无怪乎禅语有云：</p>
-<blockquote>
-<p>一花一世界，一叶一菩提。</p>
-</blockquote>
-<p>既然如此，能否将影像中的这些肉眼观察不到的变化“放大”到裸眼足以观察的幅度呢？这就是本文将要重点讨论的问题。	  
-       
-   </ul>
-   <a data-pjax href="/codes/eulerian-video-magnification/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -361,7 +358,7 @@
 		
 			<li><a href="/categories/tools/">tools<span>12</span></a></li>
 		
-			<li><a href="/categories/work/">work<span>6</span></a></li>
+			<li><a href="/categories/work/">work<span>7</span></a></li>
 		
 		</ul>
 	</div>
@@ -372,47 +369,47 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
-				   
-			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
-				   
-			<li><a href="/tags/M-P/">M-P<span>1</span></a></li>
-				   
 			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
+				   
+			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
+				   
+			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
 				   
 			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
 				   
-			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
+			<li><a href="/tags/Makefile/">Makefile<span>1</span></a></li>
 				   
-			<li><a href="/tags/npm/">npm<span>1</span></a></li>
+			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
 				   
-			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
+			<li><a href="/tags/ABCmouse/">ABCmouse<span>1</span></a></li>
 				   
-			<li><a href="/tags/pandoc/">pandoc<span>1</span></a></li>
-				   
-			<li><a href="/tags/static-analysis/">static analysis<span>1</span></a></li>
-				   
-			<li><a href="/tags/职场感悟/">职场感悟<span>1</span></a></li>
-				   
-			<li><a href="/tags/Logitech/">Logitech<span>1</span></a></li>
-				   
-			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
-				   
-			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
-				   
-			<li><a href="/tags/scrollspy/">scrollspy<span>1</span></a></li>
-				   
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
 				   
 			<li><a href="/tags/React/">React<span>1</span></a></li>
 				   
+			<li><a href="/tags/highlight/">highlight<span>1</span></a></li>
+				   
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+				   
+			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
+				   
+			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
+				   
+			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
+				   
+			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
+				   
+			<li><a href="/tags/Mindmap/">Mindmap<span>1</span></a></li>
+				   
+			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
+				   
 			<li><a href="/tags/CLI/">CLI<span>1</span></a></li>
 				   
-			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
+			<li><a href="/tags/jQuery/">jQuery<span>2</span></a></li>
 				   
-			<li><a href="/tags/Objective-C/">Objective-C<span>1</span></a></li>
+			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
 		
-		<li><a href="/tags">...<span>90</span></a></li>
+		<li><a href="/tags">...<span>93</span></a></li>
 		</ul>
 	</div>
 

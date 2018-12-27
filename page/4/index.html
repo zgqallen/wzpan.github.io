@@ -154,6 +154,34 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Apr 21 2016 </div>
+			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-2/" title="在本篇文章中，我仔细讨论了对子模块进行持续集成的三种方案，并利用自动化手段实现逐层往上提交子模块 commit id 从而触发主工程构建。这些构建结果为我们快速定位工程的编译问题提供了重要的线索。">化繁为简的企业级 Git 管理实战（二）：多分支子模块持续集成</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/work/enterprise-class-git-version-control-2/"><img src="/images/enterprise-class-git-version-control-2/ci.jpg" alt="化繁为简的企业级 Git 管理实战（二）：多分支子模块持续集成"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="需求描述">需求描述</h2>
+<p>在 <a href="/work/enterprise-class-git-version-control-1/">上一篇文章</a> 中，我简单描述了我们一个项目的复杂程度：子模块、嵌套子模块、多分支。除了工程分支切换上的复杂，我们还遇到另一个问题：子模块持续集成。</p>
+<h2 id="主工程持续集成">主工程持续集成</h2>
+<p>先说说主工程如何做持续集成。我们使用 Gitlab 自带的 <a href="https://about.gitlab.com/gitlab-ci/" target="_blank" rel="external">Gitlab-Ci</a> 作为我们的持续集成系统。Android 端的主工程的持续集成脚本如下：</p>
+<p><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">build:</div><div class="line">  tags:</div><div class="line">    -<span class="ruby"> android</span></div><div class="line">  script:</div><div class="line">    -<span class="ruby"> ./fmanager checkout -f <span class="variable">$CI_BUILD_REF_NAME</span></span></div><div class="line">    -<span class="ruby"> ./fmanager update</span></div><div class="line">    -<span class="ruby"> gradle clean</span></div><div class="line">    -<span class="ruby"> gradle aR</span></div></pre></td></tr></table></figure></p>
+<p>其中， <code>CI_BUILD_REF_NAME</code> 指定要编译哪个分支的主工程。当我们推送代码到某个分支时，该分支下的持续集成脚本就会被调用，<code>CI_BUILD_REF_NAME</code> 变量就会是那个分支的名字。在执行构建前，先用 fmanager 完成主工程和所有模块的分支切换 ，之后再用 fmanager 更新整个项目的代码。最后再执行编译指令。 	  
+       
+   </ul>
+   <a data-pjax href="/work/enterprise-class-git-version-control-2/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Apr 13 2016 </div>
 			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-1/" title="介绍面向复杂工程的简单化 Git 分支依赖管理方案。我们对子模块的使用进行了简化，避免了由于漏提交子模块 commit id 或子模块代码导致无法更新或更新错误的情况。">化繁为简的企业级 Git 管理实践（一）：多分支子模块依赖管理</a></div>			
 		</h3>
@@ -267,33 +295,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Jun 2 2015 </div>
-			<div class="article-title"><a data-pjax href="/tools/dockerize-your-hexo/" title="使用 Docker 打包 Hexo 写作环境。">Dockerize Your Hexo</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/tools/dockerize-your-hexo/"><img src="/images/dockerize-your-hexo/docker.png" alt="Dockerize Your Hexo"  class="nofancybox"></a></div>
-    
-    
-      <h2 id="前言">前言</h2>
-<p>在<a href="/codes/hexo-3-speed-up/">上篇文章</a>中，我简单提到了在升级 Hexo 3 过程中遇到的一些痛苦。其实还有很多问题没有在上篇文章中提及。比如，我的渲染器使用的是 pandoc ，在 2.x 的时候，<a href="http://wzpan.github.io/hexo-theme-freemind/2014/03/16/tag-plugins/" target="_blank" rel="external">hexo-tag-plugins</a> 里头的文字可以通过调用 <code>renderSync</code> 方法传给 markdown 进行渲染，而到了 3.0 ，这些文字无论怎么做都不能被 pandoc 或者 markdown 渲染。</p>
-<p>早在我决定挥刀动斧定制我的个人博客之前，我早已经做好了发生这种情况的心理准备。我的博客最早是使用 Ruhoh 编写的，从主题到渲染器进行了大量的个人定制，后面出于种种原因我决定<a href="http://192.168.59.103:4000/codes/from-ruhoh-to-hexo/" target="_blank" rel="external">切换到Hexo</a> ，于是我又花了很多力气把原来的博客移植到 Hexo 2.x 上。与其说是移植，不如说是一个基于 Hexo 2.x 的山寨版。现在 Hexo 一旦做了大幅更新，相当于我又得经历和前两次一样的折腾，实在是有心无力呀。考虑再三，我决定放弃使用 Hexo 3 ，而将我的博客所使用的环境 <q>冻结</q> 为 2.8.3 。</p>
-<p>但这样又带来了问题：为了方便使用我的主题和插件的朋友们，我已经对这几个项目进行了升级以支持最新的 Hexo 3 。如果我只在我的机器上安装 Hexo 2.8.3 ，那我接下来维护这几个项目就变得非常不方便。</p>
-<p>出于以上的原因，我决定使用 Docker 将 Hexo 2 和 Hexo 3 两套写作环境各自打包成镜像。这样，当我需要编写自己的博客时，就使用 Hexo 2 的镜像；当我需要维护几个 Hexo 主题和插件时，就使用 Hexo 3 的镜像。我也顺便将整个过程记录下来，形成此文，以供其他朋友参考借鉴。	  
-       
-   </ul>
-   <a data-pjax href="/tools/dockerize-your-hexo/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -364,7 +365,7 @@
 		
 			<li><a href="/categories/tools/">tools<span>12</span></a></li>
 		
-			<li><a href="/categories/work/">work<span>6</span></a></li>
+			<li><a href="/categories/work/">work<span>7</span></a></li>
 		
 		</ul>
 	</div>
@@ -377,45 +378,45 @@
 				   
 			<li><a href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li>
 				   
-			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
+			<li><a href="/tags/ANN/">ANN<span>2</span></a></li>
 				   
-			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
+			<li><a href="/tags/K350/">K350<span>1</span></a></li>
 				   
-			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
-				   
-			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
-				   
-			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
-				   
-			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
-				   
-			<li><a href="/tags/Mindmap/">Mindmap<span>1</span></a></li>
-				   
-			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
-				   
-			<li><a href="/tags/video/">video<span>6</span></a></li>
-				   
-			<li><a href="/tags/koding/">koding<span>1</span></a></li>
-				   
-			<li><a href="/tags/CI/">CI<span>1</span></a></li>
+			<li><a href="/tags/Bootstrap/">Bootstrap<span>3</span></a></li>
 				   
 			<li><a href="/tags/Git/">Git<span>5</span></a></li>
 				   
-			<li><a href="/tags/React-Native/">React-Native<span>1</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
+				   
+			<li><a href="/tags/Matrix/">Matrix<span>1</span></a></li>
 				   
 			<li><a href="/tags/Awesome/">Awesome<span>3</span></a></li>
 				   
-			<li><a href="/tags/Makefile/">Makefile<span>1</span></a></li>
+			<li><a href="/tags/Nuclide/">Nuclide<span>1</span></a></li>
 				   
-			<li><a href="/tags/jQuery/">jQuery<span>2</span></a></li>
+			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
 				   
-			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
+			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
 				   
-			<li><a href="/tags/Android/">Android<span>1</span></a></li>
+			<li><a href="/tags/Python/">Python<span>2</span></a></li>
 				   
-			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
+			<li><a href="/tags/npm/">npm<span>1</span></a></li>
+				   
+			<li><a href="/tags/OSF/">OSF<span>1</span></a></li>
+				   
+			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
+				   
+			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
+				   
+			<li><a href="/tags/Math/">Math<span>2</span></a></li>
+				   
+			<li><a href="/tags/beamer/">beamer<span>1</span></a></li>
+				   
+			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
+				   
+			<li><a href="/tags/emacs/">emacs<span>6</span></a></li>
 		
-		<li><a href="/tags">...<span>90</span></a></li>
+		<li><a href="/tags">...<span>93</span></a></li>
 		</ul>
 	</div>
 

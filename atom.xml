@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2018-12-25T17:47:22.895Z</updated>
+  <updated>2018-12-27T16:09:06.447Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -12,11 +12,111 @@
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
+    <title type="html"><![CDATA[使用 BeamerStyleSlides 制作你的技术答辩PPT]]></title>
+    <link href="http://hahack.com/work/introducing-beamerstyleslides/"/>
+    <id>http://hahack.com/work/introducing-beamerstyleslides/</id>
+    <published>2018-12-27T15:46:15.000Z</published>
+    <updated>2018-12-27T16:08:24.246Z</updated>
+    <content type="html"><![CDATA[<h2 id="背景：ppt之痛">背景：PPT之痛</h2>
+<p>年末，又到了很多朋友准备答辩晋升 slides 的时候。<q>PPT工程</q> 应该是很多技术人的天敌之一，不少人为了在工作之余折腾出一份既有内容又美观的 slides 弄得焦头烂额。</p>
+<p>其实，大家对 <q>PPT工程</q> 之所以这么惶恐，主要是因为技术人更习惯跟代码打交道，更习惯用技术思维去解决问题。而做材料考察的是信息的提取整合能力、审美品味以及口头表达能力，而这些都不是做技术的必要条件。</p>
+<p>然而，也不必对使用 slides 答辩过于深恶痛绝，它只是一个用来说你的故事的工具：我们不应该被工具所束缚，而应该把它用好，将它变成你的优势。我私下里也看过不少同事的答辩材料，发现了一个很有趣的现象：往往内容非常好的材料，美观度也很高，看起来赏心悦目。而内容一般的材料，排版、美观度也比较糟糕，缺乏美感。工程师的素养，在做slides花的心思上面也能够体现出来。</p>
+<a id="more"></a>
+<h2 id="为什么要做-beamerstyleslides">为什么要做 BeamerStyleSlides</h2>
+<p>其实，做一个大方美观的 slides 并不简单，我在准备今年年中的答辩的时候，花费最多的时间居然是工具和模板主题的选择上。</p>
+<p>做 slides 有非常多种选择，PowerPoint、Keynote、LaTeX+Beamer、reveal.js、Emacs org-mode、Jupyter Notebook……抛开过于花哨的 H5 系和不顺手的 Keynote，我的选择就在 PowerPoint 和 LaTeX Beamer 上。</p>
+<p>LaTeX + Beamer 一开始是我的首选，因为 Beamer 的主题大方简洁，非常适合用作学术汇报和晋升述职。这是 beamer 的官方主题：<a href="http://www.hartwork.org/beamer-theme-matrix/" target="_blank" rel="external">http://www.hartwork.org/beamer-theme-matrix/</a> 可以看到这些主题全都非常精美大方。</p>
+<p><img src="/images/introducing-beamerstyleslides/beamer.png" alt=""></p>
+<p>我也用 Beamer 做过非常多的 slides ，对它的排版效果可以说是爱不释手：<a href="https://github.com/wzpan/wzpan.github.io/wiki/slides" target="_blank" rel="external">https://github.com/wzpan/wzpan.github.io/wiki/slides</a></p>
+<p>正当我兴高采烈地写了很多页之后，我发现我忘了一个很严重的问题：Beamer 不支持直接插入视频。要播放视频，你需要先将视频转成帧图像，然后使用 animation 包来实现播放，而且只支持 Adobe Reader。体验非常糟糕。</p>
+<p><img src="/images/introducing-beamerstyleslides/challenge.png" alt=""></p>
+<p>于是我放弃了 LaTeX ，转回使用 PowerPoint 。但是我又花了非常多时间在寻找一个好看简洁的模板。我发现一个看上眼的都没有。</p>
+<p>网上找了一些模板，都太过华丽，不符合工程师的气质：</p>
+<p><img src="/images/introducing-beamerstyleslides/fashion1.jpg" alt=""></p>
+<p><img src="/images/introducing-beamerstyleslides/fashion2.jpg" alt=""></p>
+<p>最终我决定复刻一个 Beamer 的主题作为模板，有了一份称手的模板，写 slides 真的是效率大增，最终的效果个人是挺满意的。这里挑其中几页做个示例：</p>
+<p><img src="/images/introducing-beamerstyleslides/josephpan.png" alt=""></p>
+<p>为了让像我一样审美较差的码农也能用 powerpoint/keynote 做出媲美 LaTeX Beamer 的 slides，成为一名合格的PPT工程师，轻松应对答辩晋升、技术分享和学术交流的任务，我从答辩结束后就开始了一个名为 BeamerStyleSlides 项目：对 Beamer 的更多官方主题进行复刻，并且在 Github 上开源：<a href="https://github.com/wzpan/BeamerStyleSlides" target="_blank" rel="external">https://github.com/wzpan/BeamerStyleSlides</a> 。这就是 BeamerStyleSlides 的由来。</p>
+<p>另外，选择在 Github 上开源还有一个目的：就是让更多的人参与进来，贡献他们的模板。有很多人私下里收藏了一些非常美观实用的模板，与其独享，不如共享。</p>
+<h2 id="beamerstyleslides-介绍">BeamerStyleSlides 介绍</h2>
+<p><img src="https://raw.githubusercontent.com/wzpan/BeamerStyleSlides/master/preview/tile.png" alt="BeamerStyleSlides"></p>
+<p>BeamerStyleSlides 是 LaTeX Beamer 风格的幻灯片模板集。包含了PowerPoint和Keynote两套格式。尤其适用于晋升述职、技术分享和学术汇报。</p>
+<p>官方主页：<a href="http://www.hahack.com/BeamerStyleSlides/" target="_blank" rel="external">http://www.hahack.com/BeamerStyleSlides/</a>
+Github地址：<a href="https://github.com/wzpan/BeamerStyleSlides" target="_blank" rel="external">https://github.com/wzpan/BeamerStyleSlides</a></p>
+<h2 id="克隆方法">克隆方法</h2>
+<ol>
+<li>安装 git-lfs。为了节省仓库大小，项目使用 git-lfs 来对 <code>*.key</code> 和 <code>*.pptx</code> 文件进行版本控制。所以，在克隆前，要求先 <a href="https://git-lfs.github.com/" target="_blank" rel="external">安装好 git-lfs</a> 。</li>
+<li>安装完成后再执行 git clone 操作：</li>
+</ol>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/wzpan/BeamerStyleSlides.git</div></pre></td></tr></table></figure></p>
+<h2 id="使用技巧">使用技巧</h2>
+<ol>
+<li>首先可以在 <a href="https://hartwork.org/beamer-theme-matrix/" target="_blank" rel="external">beamer-theme-matrix</a> 中找找看有没有心仪的样式；</li>
+<li>在上面的主题列表中看看对应的主题是否已经完成了复刻。</li>
+<li>如果有，可以点击查看预览图，看看效果是否满意。</li>
+<li>一些底部带有包含作者信息（author）、标题（title）字段的主题，可以通过编辑母板修改对应字段的值。</li>
+</ol>
+<h2 id="设计思路">设计思路</h2>
+<p>所有主题的风格尽力与 Beamer 所提供的风格保持一致。可以在 <a href="https://hartwork.org/beamer-theme-matrix/" target="_blank" rel="external">beamer-theme-matrix</a> 中查看对应的主题样式。</p>
+<p>不过，我做了一些取舍：</p>
+<ol>
+<li>去掉了深色背景主题。个人认为深色背景主题在处理白底的图片时很不美观，所以我没有制作深色背景的 slides 的动力。当然，我愿意接受深色背景主题的pull request。</li>
+<li>PowerPoint 和 Keynote 并没有提供类似 Beamer 那样酷炫的导航栏功能，所以带导航栏的主题都不会进行复刻。</li>
+</ol>
+<p>要注意的是模板并没有做到 100% 遵循原始的效果，毕竟 PowerPoint、Keynote 和 Beamer 各自的支持的能力有差异。</p>
+<p>我更希望做到的是在保留 Beamer 原有的风格的基础上因地制宜地做些调整。</p>
+<h2 id="我需要帮忙">我需要帮忙！</h2>
+<p>BeamerStylesSlides 的目标是复刻 Beamer 上的 252 套主题，而因为个人精力有限，目前大概以每周两套主题的龟速，暂时先完成了 51 套主题的复刻。如果你对这个项目感兴趣，欢迎 fork 这个项目并参与复刻。</p>
+<p>参与方式：</p>
+<ol>
+<li>安装配置好 LaTeX + Beamer 环境，并安装好用于生成封面图的 imageMagicK。例如 Mac 下可以这么安装：</li>
+</ol>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install imagemagick</div></pre></td></tr></table></figure></p>
+<ol start="2">
+<li><a href="https://github.com/wzpan/BeamerStyleSlides/tree/master/benchmark" target="_blank" rel="external">benchmark</a> 目录中包含了一份 LaTeX + Beamer 制作的 slides ，作为整套模板制作的参照。将里头的 <code>theme</code> 和 <code>colortheme</code> 分别修改为你要参与复刻的主题 collection 名和 colortheme 名：</li>
+</ol>
+<p><figure class="highlight tex"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="command">\usetheme</span><span class="special">{</span>Antibes<span class="special">}</span></div><div class="line"><span class="command">\usecolortheme</span><span class="special">{</span>lily<span class="special">}</span></div></pre></td></tr></table></figure></p>
+<p>然后使用 <code>xelatex slides.tex</code> 编译得到 slides.pdf 文件。</p>
+<ol start="3">
+<li>对照这个 slides.pdf，编辑一个 pptx 母版，使之在排版、配色、列表项风格上尽量接近于这个 benchmark 。完成后保存，并导出一份 pdf 文件，以 colortheme + <code>.pdf</code> 的命名方式放进 preview 目录中，例如 <code>lily.pdf</code> 。</li>
+<li>使用 keynote 导入这个 PPT，调整下个人经历这一节中的层级即可另存为 <code>.key</code> 模板。</li>
+</ol>
+<p><img src="/images/introducing-beamerstyleslides/adjust.png" alt="调整层级"></p>
+<ol start="5">
+<li><code>cd</code> 进入 preview 目录，执行如下命令生成封面图和预览图：</li>
+</ol>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh montage.sh theme名 colortheme名</div></pre></td></tr></table></figure></p>
+<p>例如：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sh montage.sh Antibes lily</div></pre></td></tr></table></figure></p>
+<ol start="6">
+<li>编辑 <a href="http://README.md" target="_blank" rel="external">README.md</a> ，加入你复刻的主题，提交并给我发 pull request 。</li>
+</ol>
+<h2 id="如何贡献其他主题">如何贡献其他主题</h2>
+<ul>
+<li>欢迎 fork 这个项目，并通过 pull request 的形式贡献你的主题！
+<ol>
+<li>第三方模板请分别保存到 Keynote / PowerPoint 目录里的 Contrib 目录中；</li>
+<li>比较省事的制作方式是先制作一个 PowerPoint 的模板，然后在 Keynote 里导入 PowerPoint 模板再另存为 Keynote 模板；</li>
+<li>完成后别忘了在 <a href="https://github.com/wzpan/BeamerStyleSlides#%E7%AC%AC%E4%B8%89%E6%96%B9%E4%B8%BB%E9%A2%98" target="_blank" rel="external">第三方主题</a> 里添加你的大作。</li>
+<li>主题的存放必须遵循按照现有的目录形式：</li>
+</ol>
+</li>
+</ul>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">[-] ~/Documents/projects/BeamerStyleSlides/</div><div class="line"> |-[-] Keynote</div><div class="line"> |  |-[-] Contrib</div><div class="line"> |  |  |-  mycustom.key  <span class="comment"># 你的主题名</span></div><div class="line"> |  |  ‘-  <span class="keyword">...</span></div><div class="line"> |  ‘-  <span class="keyword">...</span></div><div class="line"> |-[-] PowerPoint</div><div class="line"> |  |-[-] Contrib</div><div class="line"> |  |  |-  mycustom.pptx <span class="comment"># 你的主题名</span></div><div class="line"> |  |  ‘-  <span class="keyword">...</span></div><div class="line"> |  ‘-  <span class="keyword">...</span></div><div class="line"> |-[-] preview</div><div class="line"> |  |-  <span class="keyword">...</span></div><div class="line"> |  |-  Contrib-mycustom-cover.jpg  <span class="comment"># 你的主题封面图</span></div><div class="line"> |  |-  Contrib-mycustom.jpg        <span class="comment"># 你的主题预览图</span></div><div class="line"> |  ‘-  <span class="keyword">...</span></div><div class="line"> ‘-  README.md  <span class="comment"># 完成后编辑这个README，在第三方主题中插入你的主题说明。</span></div></pre></td></tr></table></figure></p>
+<p>最后，祝愿参与本次通道答辩的同学都能取得最终的胜利！</p>
+]]></content>
+    <category scheme="http://hahack.com/tags/beamer/" term="beamer"/>
+    <category scheme="http://hahack.com/tags/LaTeX/" term="LaTeX"/>
+    <category scheme="http://hahack.com/tags/PowerPoint/" term="PowerPoint"/>
+    <category scheme="http://hahack.com/tags/Keynote/" term="Keynote"/>
+    <category scheme="http://hahack.com/categories/work/" term="work"/>
+  </entry>
+  <entry>
     <title type="html"><![CDATA[公开课：使用Cocos Creator开发微信小游戏《2048》]]></title>
     <link href="http://hahack.com/codes/writing-2048-wechat-game-in-cocos-creator/"/>
     <id>http://hahack.com/codes/writing-2048-wechat-game-in-cocos-creator/</id>
     <published>2018-12-25T16:39:54.000Z</published>
-    <updated>2018-12-25T17:47:05.129Z</updated>
+    <updated>2018-12-27T15:43:02.497Z</updated>
     <content type="html"><![CDATA[<p>上个月抽了个时间，给腾讯课堂制作了一个免费公开课《使用Cocos Creator开发微信小游戏2048》，分享了使用 Cocos Creator 开发微信小游戏的经验。</p>
 <p>如果你对微信小游戏开发感兴趣，欢迎前往观看。</p>
 <p>（PS: 请忽略散发着寒光的头像……）</p>
@@ -2915,103 +3015,5 @@ y
     <category scheme="http://hahack.com/tags/jQuery/" term="jQuery"/>
     <category scheme="http://hahack.com/tags/Hexo/" term="Hexo"/>
     <category scheme="http://hahack.com/categories/codes/" term="codes"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[Dockerize Your Hexo]]></title>
-    <link href="http://hahack.com/tools/dockerize-your-hexo/"/>
-    <id>http://hahack.com/tools/dockerize-your-hexo/</id>
-    <published>2015-06-02T03:29:38.000Z</published>
-    <updated>2018-07-06T17:27:30.007Z</updated>
-    <content type="html"><![CDATA[<h2 id="前言">前言</h2>
-<p>在<a href="/codes/hexo-3-speed-up/">上篇文章</a>中，我简单提到了在升级 Hexo 3 过程中遇到的一些痛苦。其实还有很多问题没有在上篇文章中提及。比如，我的渲染器使用的是 pandoc ，在 2.x 的时候，<a href="http://wzpan.github.io/hexo-theme-freemind/2014/03/16/tag-plugins/" target="_blank" rel="external">hexo-tag-plugins</a> 里头的文字可以通过调用 <code>renderSync</code> 方法传给 markdown 进行渲染，而到了 3.0 ，这些文字无论怎么做都不能被 pandoc 或者 markdown 渲染。</p>
-<p>早在我决定挥刀动斧定制我的个人博客之前，我早已经做好了发生这种情况的心理准备。我的博客最早是使用 Ruhoh 编写的，从主题到渲染器进行了大量的个人定制，后面出于种种原因我决定<a href="http://192.168.59.103:4000/codes/from-ruhoh-to-hexo/" target="_blank" rel="external">切换到Hexo</a> ，于是我又花了很多力气把原来的博客移植到 Hexo 2.x 上。与其说是移植，不如说是一个基于 Hexo 2.x 的山寨版。现在 Hexo 一旦做了大幅更新，相当于我又得经历和前两次一样的折腾，实在是有心无力呀。考虑再三，我决定放弃使用 Hexo 3 ，而将我的博客所使用的环境 <q>冻结</q> 为 2.8.3 。</p>
-<p>但这样又带来了问题：为了方便使用我的主题和插件的朋友们，我已经对这几个项目进行了升级以支持最新的 Hexo 3 。如果我只在我的机器上安装 Hexo 2.8.3 ，那我接下来维护这几个项目就变得非常不方便。</p>
-<p>出于以上的原因，我决定使用 Docker 将 Hexo 2 和 Hexo 3 两套写作环境各自打包成镜像。这样，当我需要编写自己的博客时，就使用 Hexo 2 的镜像；当我需要维护几个 Hexo 主题和插件时，就使用 Hexo 3 的镜像。我也顺便将整个过程记录下来，形成此文，以供其他朋友参考借鉴。<a id="more"></a></p>
-<h2 id="安装-docker">安装 Docker</h2>
-<p>这里介绍 Mac 用户的安装方法。对于 Mac 用户，要安装 Docker 有两种选择：</p>
-<ol>
-<li>安装命令行版本的 <a href="https://github.com/boot2docker/" target="_blank" rel="external">Boot2Docker</a> 。这种方式比较适合熟悉命令行操作的用户。</li>
-<li>安装图形化版本的 <a href="https://kitematic.com/" target="_blank" rel="external">Kitematic</a> 。Kitematic 提供了一个图形化的界面，比较适合不想折腾太多命令，只想尽快上手的用户。</li>
-</ol>
-<p>我选择的是 Boot2Docker ，安装方法如下：</p>
-<ol>
-<li>访问 <a href="https://github.com/boot2docker/osx-installer/releases/latest" target="_blank" rel="external">boot2docker/osx-installer</a> 的发布页面；</li>
-<li>在 “Downloads” 区域，点击 <code>Boot2Docker-x.x.x.pkg</code> 下载最新版本的 Boot2Docker ；</li>
-<li>双击该安装包安装 Boot2Docker 。</li>
-</ol>
-<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>如果由于网速问题无法下载，DaoCloud 提供了镜像包，可以移步到 <a href="http://get.daocloud.io/#install-boot2docker" target="_blank" rel="external">这里</a> 下载。</p>
-</div></p>
-<p>安装完成后，在 Launchpad 中可以看到两个新图标：</p>
-<p><img src="/images/dockerize-your-hexo/new-icons.png" width="400" height="400" title="Boot2Docker安装结果"></p>
-<p>与 Linux 上的 Docker 不同，在 Mac 系统中，Boot2Docker 的 Docker Daemon 是在 VirtualBox 虚拟机上跑的。因此在 Boot2Docker 里的 localhost 地址并不是本机的地址，而是虚拟机的地址。后面在介绍访问 Hexo 的 server 时会讲到如何获取虚拟机的地址。</p>
-<h2 id="制作和发布镜像">制作和发布镜像</h2>
-<p>本节主要讲述如何自己创建打包、构建和发布 Hexo 的 Docker 镜像。如果你只对如何使用打包好镜像感兴趣，可以跳到<a href="#%E4%BD%BF%E7%94%A8%E9%95%9C%E5%83%8F">下一节</a>。</p>
-<p>创建一个 Docker 镜像主要有两种方法：</p>
-<ol>
-<li>第一种方法是直接交互式运行一个现有的镜像，在里头完成所有必要的配置，然后使用 <code>docker commit</code> 命令建成一个新的镜像；</li>
-<li>另一种方法是编写 Dockerfile ，然后执行 <code>docker build</code> 命令打包创建出一个新镜像。</li>
-</ol>
-<h3 id="编写-dockerfile">编写 Dockerfile</h3>
-<p>Dockerfile 的编写比较简单，可以参考 <a href="https://docs.docker.com/userguide/dockerimages/" target="_blank" rel="external">Working with Docker Images</a> 和 <a href="https://docs.docker.com/userguide/level1" target="_blank" rel="external">Dockerfile tutorial</a>。Docker 比较有趣的一点是可以像搭积木一样，在 DockerHub 上现有的镜像的基础上做扩展，我所使用的基础镜像是 ubuntu:14.04 ，也可以使用 User Contributed 的 node.js 镜像 <span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>例如 <a href="https://registry.hub.docker.com/u/nano/node.js/" target="_blank" rel="external">nano/nodejs</a> 。 </span></span></span> 做扩展，省下安装配置 node.js 的麻烦。</p>
-<h4 id="hexo-2-的-dockerfile">Hexo 2 的 Dockerfile</h4>
-<p>Hexo 2 主要用于我个人使用，为了方便自己，我把平常写博所用的依赖工具诸如 pandoc 和 yui-compressor 都打包了进来：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"># Docker file for Hexo 2</div><div class="line">FROM ubuntu:14.04</div><div class="line">MAINTAINER Joseph Pan <cs.wzpan@gmail.com></cs.wzpan@gmail.com></div><div class="line"># use aliyun's mirror for faster download speed</div><div class="line">RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list</div><div class="line"># add pandoc repository</div><div class="line">RUN sed -i 's/deb mirror.lupaworld.com/ubuntu vivid main universe/g' /etc/apt/sources.list</div><div class="line"># install all dependencies</div><div class="line">RUN apt-get update && \</div><div class="line">  apt-get install -y nodejs curl git-core pandoc yui-compressor && \</div><div class="line">  update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10 && \</div><div class="line">  curl -L https://npmjs.org/install.sh | sh && \</div><div class="line">  apt-get clean && \</div><div class="line">  rm -rf /var/lib/apt/lists/*</div><div class="line"></div><div class="line">ENV HEXO_VERSION 2.8.3</div><div class="line"></div><div class="line"># install hexo</div><div class="line">RUN npm install -g hexo@${HEXO_VERSION}</div><div class="line"></div><div class="line">RUN mkdir /root/blog</div><div class="line">VOLUME /root/blog</div><div class="line">WORKDIR /root/blog</div><div class="line"></div><div class="line">EXPOSE 4000</div></pre></td></tr></table></figure></p>
-<p>对于有 shell 基础的朋友，以上的代码应该基本都可以自说明。这里主要讲一下 <code>VOLUME</code> 的作用，顾名思义，<code>VOLUME</code> 用于表明它后面跟着的那个目录将是一个挂载点。当我运行该镜像时，可以通过 <code>-v</code> 参数将本地的博客目录挂载到虚拟机里，从而实现在本地编辑而在虚拟机上渲染。</p>
-<h4 id="hexo-3-的-dockerfile">Hexo 3 的 Dockerfile</h4>
-<p>由于只是用来维护几个主题和插件项目，Hexo 3 的 Dockerfile 就要简单很多。因为我仍然可能需要维护 <a href="http://github.com/wzpan/hexo-renderer-pandoc" target="_blank" rel="external">hexo-renderer-pandoc</a> 项目，我也将 pandoc 打包了进来：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># Docker file for Hexo 3</div><div class="line">FROM ubuntu:14.04</div><div class="line">MAINTAINER Joseph Pan <cs.wzpan@gmail.com></cs.wzpan@gmail.com></div><div class="line"># use aliyun's mirror for faster download speed</div><div class="line">RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list</div><div class="line"># add pandoc repository</div><div class="line">RUN sed -i 's/deb mirror.lupaworld.com/ubuntu vivid main universe/g' /etc/apt/sources.list</div><div class="line"># install all dependencies</div><div class="line">RUN apt-get update && \</div><div class="line">  apt-get install -y nodejs curl git-core pandoc && \</div><div class="line">  update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10 && \</div><div class="line">  curl -L https://npmjs.org/install.sh | sh && \</div><div class="line">  apt-get clean && \</div><div class="line">  rm -rf /var/lib/apt/lists/*</div><div class="line"></div><div class="line"># install hexo</div><div class="line">RUN npm install -g hexo-cli</div><div class="line"></div><div class="line">RUN mkdir /root/blog</div><div class="line">VOLUME /root/blog</div><div class="line">WORKDIR /root/blog</div><div class="line"></div><div class="line">EXPOSE 4000</div></pre></td></tr></table></figure></p>
-<h3 id="构建镜像">构建镜像</h3>
-<p>完成了 Dockerfile 的编写后，可以准备构建镜像了。但由于显而易见的网络原因，国内获取镜像的过程可能很慢。建议切换到 DaoCloud 的镜像<span class="margin-note-marker"><sup>2</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">2</span>DaoCloud 真是业界良心啊！</span></span></span>：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ boot2docker ssh</div><div class="line">$ <span class="built_in">sudo</span> su</div><div class="line">$ <span class="built_in">echo</span> <span class="string">"EXTRA_ARGS=\"--registry-mirror=http://3f0704d3.m.daocloud.io\""</span> &gt;&gt; /var/lib/boot2docker/profile && <span class="keyword">exit</span></div><div class="line">$ <span class="keyword">exit</span></div><div class="line">$ boot2docker restart</div></pre></td></tr></table></figure></p>
-<p>注意以上方法只适用于 Mac OS 用户，其他系统的用户请自行查阅 <a href="https://dashboard.daocloud.io/mirror" target="_blank" rel="external">Docker加速器</a> 。</p>
-<p>完成后开始构建 Docker 镜像，依旧是在 boot2docker 中敲入如下命令：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">→ docker build -t wzpan/hexo:v2 <span class="operator">-f</span> ~/hexo/v2</div><div class="line">→ docker build -t wzpan/hexo:v3 <span class="operator">-f</span> ~/hexo/v3</div></pre></td></tr></table></figure></p>
-<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p>为了便于区分，本文一律使用 <code>$</code> 来表示在 bash 上执行的命令，使用 <code>→</code> 来表示在 boot2docker 上执行的命令。</p>
-</div></p>
-<p>比较有趣的是 Docker 会对 Dockerfile 里的每一行命令都单独创建一个临时的镜像，以缓存每一步的结果。这样，即使构建过程中由于脚本错误或网络问题各种意外原因导致构建失败，当下一次发起创建时也会自动从上一次构建活动的最后一步成功步骤开始继续下一步的操作。</p>
-<h3 id="发布镜像">发布镜像</h3>
-<p>发布镜像到 DockerHub 就像推送代码到 Github 那样简单：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">→ docker push wzpan/hexo:v2</div><div class="line">→ docker push wzpan/hexo:v3</div></pre></td></tr></table></figure></p>
-<p>如果由于意外原因中断了发布过程，下一次尝试 push 操作可能会提示 <code>push my-repo/my-app is already in progress</code> 错误而无法继续。解决办法是重启一下 boot2docker ：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ boot2docker restart</div></pre></td></tr></table></figure></p>
-<h2 id="使用镜像">使用镜像</h2>
-<p>完成了镜像的打包发布后，镜像的使用就显得非常简单有趣了。比如，如果要使用 Hexo 2 来渲染我自己的博客，我只需要在 boot2docker 中执行以下命令：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">→ docker run --rm -p <span class="number">4000</span>:<span class="number">4000</span> -v ~/Documents/hexo-blog:/root/blog wzpan/hexo:v2</div></pre></td></tr></table></figure></p>
-<p>其中，<code>--rm</code> 命令用于告诉 docker 当我结束当前的 container 时自动将该 container 删除，<code>-p</code> 命令用于告诉 docker 将虚拟机的 4000 端口映射到本机的 4000 端口。</p>
-<p>之后就可以像往常一样使用 Hexo 的命令：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 开启预览服务器</span></div><div class="line">→ hexo server -i <span class="number">0.0</span>.<span class="number">0.0</span></div><div class="line"><span class="comment"># 生成博客</span></div><div class="line">→ hexo generate</div><div class="line"><span class="comment"># 发布博客</span></div><div class="line">→ hexo deploy</div></pre></td></tr></table></figure></p>
-<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p>上面的 <code>-i 0.0.0.0</code> 不可省略，否则浏览器可能无法正常预览。</p>
-</div></p>
-<p>如果我需要在 Hexo 3 上维护几个项目，那么只需使用另一条命令：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">→ docker run --rm -p <span class="number">5000</span>:<span class="number">4000</span> -v ~/Documents/test-blog:/root/blog wzpan/hexo:v3</div></pre></td></tr></table></figure></p>
-<p>有意思的是，此时 <code>-p</code> 命令告诉 docker 将虚拟机的 4000 端口映射到本机的 5000 端口。也就是说，通过映射到本地上的不同端口，我可以同时在虚拟机中的不同 container 里运行两个虚拟机端口号均为 4000 的服务！</p>
-<p>Hexo 的服务器启动后，我们就可以在本地的浏览器预览页面了。但前面提过，在 Boot2Docker 里的 localhost 地址并不是本机的地址，而是虚拟机的地址。因此我们还需要获取一下虚拟机的地址：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ boot2docker ip</div></pre></td></tr></table></figure></p>
-<p>将得到一个 ip 地址，那么就可以通过访问 <code>http://虚拟机地址:映射端口号</code> 来预览站点了。</p>
-<p>对于一台新机器，要搭建一个 Hexo 博客写作环境也变得前所未有的简单。我只需安装好 docker ，clone 下我的博客仓库，然后使用如下一条命令下载安装所需版本的镜像：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">→ docker pull wzpan/hexo:v2</div></pre></td></tr></table></figure></p>
-<p>博客的写作环境就妥妥儿的搭好了！</p>
-<p>忍不住唱起歌来——</p>
-<p><blockquote>
-
-<p>让我们 Docker 作伴，
-活的潇潇洒洒。
-Emacs 奔腾，
-共享 Github 代码。
-HHKB，
-敲出 Hacker 喜悦。
-轰轰烈烈，
-把握 Coding 年华。
-……</p>
-
-
-<footer><strong>《Duang》</strong></footer></blockquote>
-</p>
-<h2 id="后话">后话</h2>
-<p>使用 Docker 来打包我的 Hexo 环境，不仅使我可以很方便的在不同版本的 Hexo 之间来回切换，也省去了我每换一台机就要重新配置写作环境的痛苦。目前已知的不足是服务器的更新明显比本地环境慢 <span class="margin-note-marker"><sup>3</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">3</span>这个问题在 Linux 环境中并不存在，猜测是 Mac 的 boot2docker 的虚拟化机制的问题。 </span></span></span> ，有时博客已经写了好长一大段话，浏览器怎么刷新都没有显示最新的内容。这时就只能重启下 Hexo 了。但总体而言，使用 Docker 的方式还是非常清爽的，今后我也会积极采用这种方式。人生苦短，我用 Docker 。</p>
-]]></content>
-    <category scheme="http://hahack.com/tags/Hexo/" term="Hexo"/>
-    <category scheme="http://hahack.com/tags/Docker/" term="Docker"/>
-    <category scheme="http://hahack.com/categories/tools/" term="tools"/>
   </entry>
 </feed>

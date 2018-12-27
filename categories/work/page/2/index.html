@@ -151,6 +151,34 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Apr 21 2016 </div>
+			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-2/" title="在本篇文章中，我仔细讨论了对子模块进行持续集成的三种方案，并利用自动化手段实现逐层往上提交子模块 commit id 从而触发主工程构建。这些构建结果为我们快速定位工程的编译问题提供了重要的线索。">化繁为简的企业级 Git 管理实战（二）：多分支子模块持续集成</a></div>			
+		</h3>
+	
+
+
+		<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/work/enterprise-class-git-version-control-2/"><img src="/images/enterprise-class-git-version-control-2/ci.jpg" alt="化繁为简的企业级 Git 管理实战（二）：多分支子模块持续集成"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="需求描述">需求描述</h2>
+<p>在 <a href="/work/enterprise-class-git-version-control-1/">上一篇文章</a> 中，我简单描述了我们一个项目的复杂程度：子模块、嵌套子模块、多分支。除了工程分支切换上的复杂，我们还遇到另一个问题：子模块持续集成。</p>
+<h2 id="主工程持续集成">主工程持续集成</h2>
+<p>先说说主工程如何做持续集成。我们使用 Gitlab 自带的 <a href="https://about.gitlab.com/gitlab-ci/" target="_blank" rel="external">Gitlab-Ci</a> 作为我们的持续集成系统。Android 端的主工程的持续集成脚本如下：</p>
+<p><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">build:</div><div class="line">  tags:</div><div class="line">    -<span class="ruby"> android</span></div><div class="line">  script:</div><div class="line">    -<span class="ruby"> ./fmanager checkout -f <span class="variable">$CI_BUILD_REF_NAME</span></span></div><div class="line">    -<span class="ruby"> ./fmanager update</span></div><div class="line">    -<span class="ruby"> gradle clean</span></div><div class="line">    -<span class="ruby"> gradle aR</span></div></pre></td></tr></table></figure></p>
+<p>其中， <code>CI_BUILD_REF_NAME</code> 指定要编译哪个分支的主工程。当我们推送代码到某个分支时，该分支下的持续集成脚本就会被调用，<code>CI_BUILD_REF_NAME</code> 变量就会是那个分支的名字。在执行构建前，先用 fmanager 完成主工程和所有模块的分支切换 ，之后再用 fmanager 更新整个项目的代码。最后再执行编译指令。 	  
+       
+   </ul>
+   <a data-pjax href="/work/enterprise-class-git-version-control-2/#more" class="btn more">Read More</a>
+</div>    
+
+	
+		
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Apr 13 2016 </div>
 			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-1/" title="介绍面向复杂工程的简单化 Git 分支依赖管理方案。我们对子模块的使用进行了简化，避免了由于漏提交子模块 commit id 或子模块代码导致无法更新或更新错误的情况。">化繁为简的企业级 Git 管理实践（一）：多分支子模块依赖管理</a></div>			
 		</h3>
@@ -216,6 +244,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/work/introducing-beamerstyleslides/"  title="介绍一套开源的Beamer风格幻灯片模板集 BeamerStyleSlides 。" ><i class="fa fa-file-o"></i>使用 BeamerStyleSlides 制作你的技术...</a>
+      </li>
+    
+      <li>
         <a href="/codes/writing-2048-wechat-game-in-cocos-creator/" ><i class="fa fa-file-o"></i>公开课：使用Cocos Creator开发微信小游戏《...</a>
       </li>
     
@@ -229,10 +261,6 @@
     
       <li>
         <a href="/work/my-2-years-at-pingan/"  title="谈谈我在平安两年的工作回顾和感受。" ><i class="fa fa-file-o"></i>我在平安的两年</a>
-      </li>
-    
-      <li>
-        <a href="/codes/use-dingdang-to-control-smart-mi-fan/"  title="作为一个完全开源的智能音箱项目，叮当也能够很方便的接入其他智能家电，并声控它们。本文将介绍如何使用叮当声控智米电风扇。" ><i class="fa fa-file-o"></i>使用叮当声控智米电风扇</a>
       </li>
     
   </ul>
