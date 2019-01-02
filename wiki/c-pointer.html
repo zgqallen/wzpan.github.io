@@ -1,0 +1,824 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>指针 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="在C语言中，指针的的使用的非常广泛，原因之一是，指针常常是表达某个计算的唯一途径，另一个原因是，同其他方法比较起来，使用指针通常可以生成更高效、更紧凑的代码。
+相关语法
+
+
+
+语句
+含义
+
+
+
+
+type *ptr
+声明一个名为 ptr 的 type 类型指针；
+
+
+*ptr
+ptr指针所指向的位置">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="指针"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 指针</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<p>在C语言中，指针的的使用的非常广泛，原因之一是，指针常常是表达某个计算的唯一途径，另一个原因是，同其他方法比较起来，使用指针通常可以生成更高效、更紧凑的代码。</p>
+<h2 id="相关语法">相关语法</h2>
+<table>
+<thead>
+<tr>
+<th>语句</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>type *ptr</code></td>
+<td>声明一个名为 ptr 的 type 类型指针；</td>
+</tr>
+<tr>
+<td><code>*ptr</code></td>
+<td>ptr指针所指向的位置的值；</td>
+</tr>
+<tr>
+<td><code>*(ptr + i)</code></td>
+<td>ptr 指针所指向的地址加 i 后所保存的值；</td>
+</tr>
+<tr>
+<td><code>&amp;thing</code></td>
+<td>thing的地址</td>
+</tr>
+<tr>
+<td><code>type *ptr = &amp;thing</code></td>
+<td>声明一个类型为 type 的指针，并将 thing 的地址赋给它</td>
+</tr>
+<tr>
+<td><code>ptr++</code></td>
+<td>ptr 指针所指向的地址加一</td>
+</tr>
+</tbody>
+</table>
+<h2 id="指针与地址">指针与地址</h2>
+<h3 id="none">&amp;</h3>
+<p>一元运算符 <code>&amp;</code> 可用于取一个对象的地址，因此，下列语句：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p = &c;</div></pre></td></tr></table></figure></p>
+<p>将把 c 的地址赋给变量 p，我们称 p 为“指向”c的指针。地址运算符 <code>&amp;</code> 只能应用于内存中的对象，即变量与数组元素。它不能作用于表达式、常量或<a href="/wiki/c-function.html#%E5%AF%84%E5%AD%98%E5%99%A8%E5%8F%98%E9%87%8F">register</a>类型的变量。</p>
+<h3 id="none-v2">*</h3>
+<p>一元运算符 <code>*</code> 是间接寻址或间接引用运算符 。当它作用于指针时，将访问指针所指向的对象。我们在这里假定 x 与 y 是整数，而 <strong>ip 是指向 int 类型的指针</strong> ，下面的代码段说明了如何在程序中声明指针以及如何使用运算符 <code>&amp;</code> 和 <code>*</code>：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> x = <span class="number">1</span>, y = <span class="number">2</span>, z[<span class="number">10</span>];</div><div class="line"><span class="keyword">int</span> *ip;   <span class="comment">/* ip is a pointer to int */</span></div><div class="line">ip = &x;   <span class="comment">/* ip now points to x */</span></div><div class="line">y = *ip;   <span class="comment">/* y is now 1 */</span></div><div class="line">*ip = <span class="number">0</span>;   <span class="comment">/* x is now 0 */</span></div><div class="line">ip = &z[<span class="number">0</span>];  <span class="comment">/* ip now points to z[0] */</span></div></pre></td></tr></table></figure></p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>不管指针指向什么类型的数据，指针本身占4个字节的空间。</p>
+</div></p>
+<h3 id="指针的声明">指针的声明</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *ip;</div></pre></td></tr></table></figure></p>
+<p>这样声明是为了便于记忆。该声明语句表明表达式 *ip 的结果是 int 类型。这种声明变量的语法与声明该变量所在表达式的语法类似。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>我们应该注意，指针只能指向某种特定类型的对象，也就是说，每个指针都必须指向某种特定的数据类型。（一个例外情况是：指向void类型的指针可以存放指向任何类型的指针，但它不能间接引用其自身）</p>
+</div></p>
+<p>如果指针ip指向整型变量，那么在 x 可以出现的任何上下文中都可以使用*ip，因此，语句</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*ip = *ip + <span class="number">10</span>;</div></pre></td></tr></table></figure></p>
+<p>将把 *ip 的值增加10。</p>
+<h3 id="优先级">优先级</h3>
+<p>一元运算符 <code>*</code> 和 <code>&amp;</code> 的优先级比算数运算符的优先级高，因此，赋值语句</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">y = *ip + <span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p>将把 *ip 指向的对象的值取出并加1，然后再将结果赋值给y，而下列赋值语句：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*ip += <span class="number">1</span></div></pre></td></tr></table></figure></p>
+<p>则将 ip 指向的对象的值加1，它等同于</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">++*ip</div></pre></td></tr></table></figure></p>
+<p>或</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(*ip)++</div></pre></td></tr></table></figure></p>
+<p>语句的执行结果。语句<code>(**ip)++</code>中的圆括号是必需的，否则，该表达式将对ip进行加1运算，而不是对ip指向的对象进行加1运算，这是因为，类似于*和++这样的一元运算符遵循从右至左的结合顺序。</p>
+<h3 id="指针也是变量">指针也是变量</h3>
+<p>最后说明一点，由于指针也是变量，所以在程序中可以直接使用，而不必通过间接引用的方法使用。例如，如果 iq 是另一个指向整型的指针，那么语句：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">iq = ip</div></pre></td></tr></table></figure></p>
+<p>将把 ip 中的值拷贝到 iq 中，这样，指针 iq 也将指向 ip 指向的对象。</p>
+<h2 id="指针与函数参数">指针与函数参数</h2>
+<p>由于 C 语言是以传值的方式将参数值传递给被调用函数。因此，被调用函数不能直接修改主调函数中变量的值。可以使主调程序将指向所要交换的变量的指针传递给被调用函数。由于一元运算符 <code>&amp;</code> 用来取变量的地址，这样 <code>&amp;a</code> 就是一个指向变量 a 的指针。</p>
+<h4 id="示例">示例</h4>
+<p>swap函数的所有参数都声明为指针，并且通过这些指针来间接访问它们指向的操作数。</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> swap(<span class="keyword">int</span> *px, <span class="keyword">int</span> *py) <span class="comment">/* interchange *px and *py */</span></div><div class="line">{</div><div class="line">    <span class="keyword">int</span> temp;</div><div class="line">    temp = *px;</div><div class="line">    *px = *py;</div><div class="line">    *py = temp;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">void</span> main()</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> a=<span class="number">2</span>, b=<span class="number">3</span>;</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"交换前：a=%d,b=%d\n"</span>,a,b);</div><div class="line">    swap(&a,&b);</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"交换后：a=%d,b=%d\n"</span>,a,b);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>指针参数使得被调用函数能够访问和修改主调函数中对象的值。</p>
+<h2 id="指针与数组">指针与数组</h2>
+<h3 id="指针保存数组元素的地址">指针保存数组元素的地址</h3>
+<p>指针可以保存数组元素的地址，例如：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">int a[10];</div><div class="line">int *pa = &a[0];</div><div class="line">pa++;</div></pre></td></tr></table></figure></p>
+<p>在取数组元素时用数组名和用指针的语法一样，但如果把数组名做左值使用，和指针就有区别了。例如pa++是合法的，但a++就不合法，pa = a + 1是合法的，但a = pa + 1就不合法。</p>
+<p>数组名做右值时转换成指向首元素的指针，但做左值仍然表示整个数组的存储空间，而不是首元素的存储空间，数组名做左值还有一点特殊之处：不支持++、赋值这些运算符，但支持取地址运算符&amp;，所以&amp;a是合法的。</p>
+<h3 id="指针代替数组作为参数">指针代替数组作为参数</h3>
+<p><strong>函数原型中的<code>[ ]</code>表示指针而不表示数组</strong>，例如：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">void func(int a[])</div><div class="line">{</div><div class="line">    ...</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>等价于：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> func(<span class="keyword">int</span> *a)</div><div class="line">{</div><div class="line">    ...</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>参数写成指针形式还是数组形式对编译器来说没区别，都表示这个参数是指针，之所以规定两种形式是为了给读代码的人提供有用的信息，如果这个参数指向一个元素，通常写成指针的形式，如果这个参数指向一串元素中的首元素，则经常写成数组的形式。</p>
+<h3 id="指针与字符串数组">指针与字符串数组</h3>
+<p>字符串字面值类似于数组名，做右值使用时自动转换成指向首元素的指针，这种指针应该是const char *型。我们知道printf函数原型的第一个参数是const char *型，可以把char *或const char *指针传给它，所以下面这些调用都是合法的：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> *p = <span class="string">"abcd"</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> str1[<span class="number">5</span>] = <span class="string">"abcd"</span>;</div><div class="line"><span class="keyword">char</span> str2[<span class="number">5</span>] = <span class="string">"abcd"</span>;</div><div class="line"><span class="built_in">printf</span>(p);</div><div class="line"><span class="built_in">printf</span>(str1);</div><div class="line"><span class="built_in">printf</span>(str2);</div><div class="line"><span class="built_in">printf</span>(<span class="string">"abcd"</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="指针类型的数组">指针类型的数组</h3>
+<p>数组中的每个元素可以是基本类型，也可以复合类型，因此也可以是指针类型。例如定义一个数组a由10个元素组成，每个元素都是int *指针：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> *a[<span class="number">10</span>];</div></pre></td></tr></table></figure></p>
+<p>这称为指针数组。它可以拆成两句：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> *t;</div><div class="line">t a[<span class="number">10</span>];</div></pre></td></tr></table></figure></p>
+<p>我们知道main函数的标准原型应该是<code>int main(int argc, char *argv[]);</code>。argc是命令行参数的个数。而argv是一个指向指针的指针，为什么不是指针数组呢？因为前面讲过，函数原型中的<code>[ ]</code>表示指针而不表示数组，等价于<code>char **argv</code>。那为什么要写成<code>char *argv[]</code>而不写成<code>char **argv</code>呢？这样写给读代码的人提供了有用信息，argv不是指向单个指针，而是指向一个指针数组的首元素。数组中每个元素都是char *指针，指向一个命令行参数字符串。</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">for</span>(i = <span class="number">0</span>; i &lt; argc; i++)</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"argv[%d]=%s\n"</span>, i, argv[i]);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>注意程序名也算一个命令行参数，所以执行<code>./a.out a b c</code>这个命令时，argc是4，argv如下图所示：</p>
+<p><img src="/images/c-pointer/pointer.argv.png" alt="argv指针数组"></p>
+<p>由于argv[4]是NULL，我们也可以这样循环遍历argv：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(i=<span class="number">0</span>; argv[i] != NULL; i++)</div></pre></td></tr></table></figure></p>
+<p>NULL标识着argv的结尾，这个循环碰到NULL就结束，因而不会访问越界，这种用法很形象地称为 Sentinel（哨兵） ，NULL就像一个哨兵守卫着数组的边界。</p>
+<p>在这个例子中我们还看到，如果给程序建立符号链接，然后通过符号链接运行这个程序，就可以得到不同的argv[0]。通常，程序会根据不同的命令行参数做不同的事情，例如<code>ls -l</code>和<code>ls -R</code>打印不同的文件列表，而有些程序会根据不同的argv[0]做不同的事情，例如专门针对嵌入式系统的开源项目Busybox，将各种Linux命令裁剪后集于一身，编译成一个可执行文件busybox，安装时将busybox程序拷到嵌入式系统的/bin目录下，同时在/bin、/sbin、/usr/bin、/usr/sbin等目录下创建很多指向/bin/busybox的符号链接，命名为cp、ls、mv、ifconfig等等，不管执行哪个命令其实最终都是在执行/bin/busybox，它会根据argv[0]来区分不同的命令。</p>
+<h3 id="指向数组的指针与多维数组">指向数组的指针与多维数组</h3>
+<h4 id="定义">定义</h4>
+<p>以下定义一个指向数组的指针，该数组有10个int元素：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> (*a)[<span class="number">10</span>];  <span class="comment">/* a points to an array of 10 ints */</span></div></pre></td></tr></table></figure></p>
+<p>用 typedef 类型定义可使指向多维数组元素的指针更容易读、写和理解。上面的句子可以拆成两句：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> int_array[<span class="number">10</span>];</div><div class="line">int_array *a;</div></pre></td></tr></table></figure></p>
+<p>t代表由10个int组成的数组类型，a则是指向这种类型的指针。</p>
+<h4 id="示例-v2">示例</h4>
+<h5 id="示例1">示例1</h5>
+<p>下面代码分别演示了上述的两种定义方法。</p>
+<ul>
+<li>直接定义一个指向多维数组的指针：</li>
+</ul>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;iostream&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> main()</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> ia[<span class="number">3</span>][<span class="number">4</span>] = {<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>};</div><div class="line">    <span class="keyword">typedef</span> <span class="keyword">int</span> int_array[<span class="number">4</span>];</div><div class="line">    <span class="keyword">int</span> (*p)[<span class="number">4</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (p = ia; p != ia + <span class="number">3</span>; ++p) {</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> *q = *p; q != *p + <span class="number">4</span>; ++q)</div><div class="line">            <span class="built_in">cout</span> &lt;&lt; *q &lt;&lt; endl;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<ul>
+<li>用 typedef 简化指向多维数组的指针：</li>
+</ul>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> main()</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> ia[<span class="number">3</span>][<span class="number">4</span>] = {<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">11</span>};</div><div class="line">    <span class="keyword">typedef</span> <span class="keyword">int</span> int_array[<span class="number">4</span>];</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (int_array *p = ia; p != ia + <span class="number">3</span>; ++p) {</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> *q = *p; q != *p + <span class="number">4</span>; ++q)</div><div class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, *q);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h5 id="示例2">示例2</h5>
+<p>下列代码演示了使用 <code>pa</code> 或 <code>ppa</code> 访问数组 a 中的 <code>r</code> 元素。注意理解 pa 和 ppa 所保存的内容的不同：</p>
+<ol>
+<li>pa 指向长度为 3x2 的指针的地址，该指针保存 a 的第二个元素的地址</li>
+<li>ppa 指向长度为 2 的数组的指针，该指针保存 a[1] 的首元素的地址</li>
+</ol>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">    <span class="keyword">char</span> a[<span class="number">4</span>][<span class="number">3</span>][<span class="number">2</span>] = { { {<span class="string">'a'</span>, <span class="string">'b'</span>}, {<span class="string">'c'</span>, <span class="string">'d'</span>}, {<span class="string">'e'</span>, <span class="string">'f'</span>} },</div><div class="line">       				{ {<span class="string">'g'</span>, <span class="string">'h'</span>}, {<span class="string">'i'</span>, <span class="string">'j'</span>}, {<span class="string">'k'</span>, <span class="string">'l'</span>} },</div><div class="line">       				{ {<span class="string">'m'</span>, <span class="string">'n'</span>}, {<span class="string">'o'</span>, <span class="string">'p'</span>}, {<span class="string">'q'</span>, <span class="string">'r'</span>} },</div><div class="line">       				{ {<span class="string">'s'</span>, <span class="string">'t'</span>}, {<span class="string">'u'</span>, <span class="string">'v'</span>}, {<span class="string">'w'</span>, <span class="string">'x'</span>} } };</div><div class="line"></div><div class="line">    <span class="keyword">char</span> (*pa)[<span class="number">2</span>] = &a[<span class="number">1</span>][<span class="number">0</span>];</div><div class="line">    <span class="keyword">char</span> (*ppa)[<span class="number">3</span>][<span class="number">2</span>] = &a[<span class="number">1</span>]; </div><div class="line"></div><div class="line">    <span class="built_in">putchar</span>(pa[<span class="number">5</span>][<span class="number">1</span>]);</div><div class="line">    <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</div><div class="line">    </div><div class="line">    <span class="built_in">putchar</span>(ppa[<span class="number">1</span>][<span class="number">2</span>][<span class="number">1</span>]);</div><div class="line">    <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="指针与const限定符">指针与const限定符</h2>
+<p>const限定符和指针结合起来常见的情况有以下几种。</p>
+<h3 id="指向const-int型的指针">指向const int型的指针</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> *a;</div><div class="line"><span class="keyword">int</span> <span class="keyword">const</span> *a;</div></pre></td></tr></table></figure></p>
+<p>这两种写法是一样的，a是一个指向const int型的指针，a所指向的内存单元不可改写，所以(*a)++是不允许的，但a可以改写，所以a++是允许的。</p>
+<h3 id="指向-int-型的-const-指针">指向 int 型的 const 指针</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> * <span class="keyword">const</span> a;</div></pre></td></tr></table></figure></p>
+<p>a是一个指向int型的const指针，*a是可以改写的，但a不允许改写。</p>
+<h3 id="指向-const-int-型的-const-指针">指向 const int 型的 const 指针</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> <span class="keyword">const</span> * <span class="keyword">const</span> a;</div></pre></td></tr></table></figure></p>
+<p>a是一个指向const int型的const指针，因此*a和a都不允许改写。</p>
+<h3 id="类型转换">类型转换</h3>
+<p>指向非const变量的指针或者非const变量的地址可以传给指向const变量的指针，编译器可以做隐式类型转换，例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> c = <span class="string">'a'</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> *pc = &c;</div></pre></td></tr></table></figure></p>
+<p>但是，指向const变量的指针或者const变量的地址不可以传给指向非const变量的指针，以免透过后者意外改写了前者所指向的内存单元，例如对下面的代码编译器会报警告：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> c = <span class="string">'a'</span>;</div><div class="line"><span class="keyword">char</span> *pc = &c;</div></pre></td></tr></table></figure></p>
+<h2 id="指针与结构体">指针与结构体</h2>
+<p>首先定义一个结构体类型，然后定义这种类型的变量和指针：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> unit {</div><div class="line">    <span class="keyword">char</span> c;</div><div class="line">    <span class="keyword">int</span> num;</div><div class="line">};</div><div class="line"><span class="keyword">struct</span> unit u;</div><div class="line"><span class="keyword">struct</span> unit *p = &u;</div></pre></td></tr></table></figure></p>
+<p>要通过指针p访问结构体成员可以写成<code>(*p).c和(*p).num</code>，为了书写方便，C语言提供了<code>-&gt;</code>运算符，也可以写成<code>p-&gt;c</code>和<code>p-&gt;num</code>。</p>
+<h2 id="指针的指针">指针的指针</h2>
+<p>指针可以指向基本类型，也可以指向复合类型，因此也可以指向另外一个指针变量，称为指向指针的指针。</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> i;</div><div class="line"><span class="keyword">int</span> *pi = &i;</div><div class="line"><span class="keyword">int</span> **ppi = &pi;</div></pre></td></tr></table></figure></p>
+<p>这样定义之后，表达式<code>*ppi</code>取pi的值，表达式<code>**ppi</code>取i的值。</p>
+<p>很自然地，也可以定义指向“指向指针的指针”的指针，但是很少用到：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> ***p;</div></pre></td></tr></table></figure></p>
+<h2 id="函数的指针">函数的指针</h2>
+<p>在C语言中，函数也是一种类型，可以定义指向函数的指针。函数指针存放的就是函数的入口地址（位于<a href="/wiki/c-memory.html#%E8%BF%9B%E7%A8%8B%E5%9C%B0%E5%9D%80%E7%A9%BA%E9%97%B4">.text段</a>）。</p>
+<h3 id="声明和初始化">声明和初始化</h3>
+<p>函数指针的声明格式如下：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> (*pointer_name)(<span class="keyword">int</span> a, <span class="keyword">int</span> b) = func_name;</div></pre></td></tr></table></figure></p>
+<p>其中 func_name 是该指针指向的函数的名字。</p>
+<p>如果要声明一个返回指针类型变量的函数指针，则可以这么写：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">char</span> *(*pointer_name)(<span class="keyword">int</span> awesome_levels) = func_name;</div></pre></td></tr></table></figure></p>
+<h3 id="示例-v3">示例</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> sort(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</div><div class="line">{</div><div class="line">    <span class="keyword">return</span> a &gt; b ? a : b;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> (*max)(<span class="keyword">int</span> a, <span class="keyword">int</span> b) = sort;      <span class="comment">/* 声明一个函数指向 sort */</span></div><div class="line">    <span class="built_in">printf</span>(<span class="string">"TEST: %d is same as %d.\n"</span>, max(<span class="number">2</span>, <span class="number">3</span>), sort(<span class="number">2</span>, <span class="number">3</span>));</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>函数指针的常见用途是<a href="/wiki/c-function.html#%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0">回调函数</a>。</p>
+<h2 id="函数返回指针">函数返回指针</h2>
+<p>要声明一个返回指针的函数，只需在函数名前加上 <code>*</code>，例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> *max(<span class="keyword">void</span> *data[], <span class="keyword">int</span> num, cmp_t cmp);</div></pre></td></tr></table></figure></p>
+<p>实现：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> *max(<span class="keyword">void</span> *data[], <span class="keyword">int</span> num, cmp_t cmp)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">void</span> *temp = data[<span class="number">0</span>];</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; num; i++){</div><div class="line">        <span class="keyword">if</span>(cmp(temp, data[i]) &lt; <span class="number">0</span>)</div><div class="line">            temp = data[i];</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span> temp;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="深入阅读">深入阅读</h2>
+<ol>
+<li><a href="http://c.learncodethehardway.org/book/ex19.html" target="_blank" rel="external">利用struct和函数指针实现面向对象</a></li>
+</ol>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/c-function.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/c-io.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "指针",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

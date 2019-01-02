@@ -1,0 +1,781 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>autotools | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="简介
+GNU autotools是一系列编程工具，可以辅助产生 Makefile，方便编译整个工程项目。它是自由软件基金会发起的GNU计划的其中一项，作为GNU建构系统的一部分。autotools 所产生的 Makefile 符合GNU编程标准。
+工具
+autotools包含以下工具：
+
+acloc">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="autotools"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> autotools</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="简介">简介</h2>
+<p><a href="http://www.gnu.org/software/automake/manual/automake.html" target="_blank" rel="external">GNU autotools</a>是一系列编程工具，可以辅助产生 <a href="/wiki/tools-makefile.html">Makefile</a>，方便编译整个工程项目。它是自由软件基金会发起的GNU计划的其中一项，作为GNU建构系统的一部分。autotools 所产生的 Makefile 符合GNU编程标准。</p>
+<h2 id="工具">工具</h2>
+<p>autotools包含以下工具：</p>
+<ul>
+<li>aclocal</li>
+<li>autoscan</li>
+<li>autoheader</li>
+<li>autoconf：用以生成 configure，需依赖 m4；</li>
+<li>automake：<a href="http://xn--Makefile-yj1mmho401b.xn--amMakefile-2m4py86a6o4czek640dd12b.in" target="_blank" rel="external">用以从Makefile.am文件自动生成Makefile.in</a>，需依赖perl。</li>
+</ul>
+<h2 id="流程图">流程图</h2>
+<p>使用autotools的一个简单的流程图如下（点击可以跳转到该步骤）。</p>
+<p><img src="/images/gnu-automake/flow.png" usemap="#G">
+<map id="G" name="G">
+<area shape="rect" id="node1" href="#编写-helloworld-程序" title="源代码" alt="" coords="30,5,108,53">
+<area shape="rect" id="node2" href="#生成-configure.scan" title="configure.scan" alt="" coords="5,123,133,171">
+<area shape="rect" id="edge1-label" href="#生成-configure.scan" title="生成configure.scan文件，作为configure.ac的模板" alt="" coords="69,78,171,98">
+<area shape="rect" id="node3" href="#修改-configure.ac" title="configure.ac" alt="" coords="13,240,124,288">
+<area shape="rect" id="edge2-label" href="#修改-configure.ac" title="重命名+修改" alt="" coords="69,195,176,215">
+<area shape="rect" id="node6" href="#生成-configure" title="aclocal.m4" alt="" coords="74,357,176,405">
+<area shape="poly" id="edge5" href="#aclocal" title="执行aclocal" alt="" coords="83,287,111,344,106,346,78,290">
+<area shape="rect" id="edge5-label" href="#aclocal" title="收集configure.ac中用到的各种非Autoconf的宏，包括自定义宏" alt="" coords="103,313,192,333">
+<area shape="rect" id="node4" href="#实战-makefile.am" title="Makefile.am" alt="" coords="201,357,316,405">
+<area shape="poly" id="edge7" href="#运行-automake" title="执行autoheader和automake" alt="" coords="260,406,258,461,252,461,255,406">
+<area shape="rect" id="edge7-label" href="#运行-automake" title="将每个Makefile.am转化成Makefile.in" alt="" coords="256,430,449,450">
+<area shape="rect" id="edge4-label" href="#autoconf" title="利用M4解析configure.ac，生成shell脚本configure" alt="" coords="125,430,227,450">
+</map></p>
+<h2 id="从-helloworld-入手">从 helloworld 入手</h2>
+<p>从最简单的例子程序helloworld开始。</p>
+<h3 id="建目录">建目录</h3>
+<p>在你的工作目录下建一个<code>helloworld</code>目录，我们用它来存放helloworld程序及相关文件，如在<code>/home/my/build</code>下：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mkdir helloworld</div><div class="line">$ <span class="built_in">cd</span> helloworld</div></pre></td></tr></table></figure></p>
+<h3 id="编写-helloworld-程序">编写 helloworld 程序</h3>
+<p>编写一个 helloworld 程序：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv){</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"Hello World!\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h3 id="生成-configure-scan">生成 configure.scan</h3>
+<p>我们使用 <code>autoscan</code> 命令来帮助我们根据目录下的源代码生成一个configure.scan文件，它可以作为进一步生成 configure 的 <a href="http://configure.ac" target="_blank" rel="external">configure.ac</a> 的模板。</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ autoscan</div><div class="line">$ ls</div><div class="line">autoscan.log  configure.scan  helloworld.c</div></pre></td></tr></table></figure></p>
+<p>执行后在hellowrold目录下会生成一个文件：configure.scan，我们可以拿它作为configure.in的蓝本。</p>
+<h3 id="修改-configure-ac">修改 <a href="http://configure.ac" target="_blank" rel="external">configure.ac</a></h3>
+<p>当我们利用<code>autoscan</code>工具生成confiugre.scan文件时，我们需要将confiugre.scan重命名为confiugre.ac文件。confiugre.ac调用一系列<code>autoconf</code>宏来测试程序需要的或用到的特性是否存在，以及这些特性的功能。</p>
+<p>下面我们就来目睹一下confiugre.scan的庐山真面目：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">$ cat configure.scan</div><div class="line"></div><div class="line"><span class="comment">#                                               -*- Autoconf -*-</span></div><div class="line"><span class="comment"># Process this file with autoconf to produce a configure script.</span></div><div class="line"></div><div class="line">AC_PREREQ([<span class="number">2.69</span>])</div><div class="line">AC_INIT([FULL-PACKAGE-NAME], [VERSION], [BUG-REPORT-ADDRESS])</div><div class="line">AC_CONFIG_SRCDIR([helloworld.c])</div><div class="line">AC_CONFIG_HEADERS([config.h])</div><div class="line"></div><div class="line"><span class="comment"># Checks for programs.</span></div><div class="line">AC_PROG_CC</div><div class="line"></div><div class="line"><span class="comment"># Checks for libraries.</span></div><div class="line"></div><div class="line"><span class="comment"># Checks for header files.</span></div><div class="line"></div><div class="line"><span class="comment"># Checks for typedefs, structures, and compiler characteristics.</span></div><div class="line"></div><div class="line"><span class="comment"># Checks for library functions.</span></div><div class="line"></div><div class="line">AC_OUTPUT</div></pre></td></tr></table></figure></p>
+<p>每个configure.scan文件都是以<code>AC_INIT</code>开头，以<code>AC_OUTPUT</code>结束。我们不难从文件中看出<code>confiugre.in</code>文件的一般布局：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">AC_INIT</div><div class="line"> 测试程序</div><div class="line"> 测试函数库</div><div class="line"> 测试头文件</div><div class="line"> 测试类型定义</div><div class="line"> 测试结构</div><div class="line"> 测试编译器特性</div><div class="line"> 测试库函数</div><div class="line"> 测试系统调用</div><div class="line">AC_OUTPUT</div></pre></td></tr></table></figure></p>
+<p>上面的调用次序只是建议性质的，但我们还是强烈建议不要随意改变对宏调用的次序。</p>
+<p>现在就开始修改该文件：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ mv configure.scan configure.ac</div><div class="line">$ vim configure.in</div></pre></td></tr></table></figure></p>
+<p>修改后的结果如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">#                                               -*- Autoconf -*-</div><div class="line"># Process this file with autoconf to produce a configure script.</div><div class="line"></div><div class="line">AC_PREREQ([2.69])</div><div class="line">AC_INIT(helloworld, 1.0, wzpan@hahack.com)</div><div class="line">AC_CONFIG_SRCDIR([helloworld.c])</div><div class="line">AC_CONFIG_HEADERS([config.h])</div><div class="line">AM_INIT_AUTOMAKE(test,1.0)</div><div class="line"></div><div class="line"># Checks for programs.</div><div class="line">AC_PROG_CC</div><div class="line"></div><div class="line"># Checks for libraries.</div><div class="line"></div><div class="line"># Checks for header files.</div><div class="line"></div><div class="line"># Checks for typedefs, structures, and compiler characteristics.</div><div class="line"></div><div class="line"># Checks for library functions.</div><div class="line"></div><div class="line">AC_OUTPUT(Makefile)</div></pre></td></tr></table></figure></p>
+<h3 id="生成-configure">生成 configure</h3>
+<p>然后执行命令<code>aclocal</code>和<code>autoconf</code>，分别会产生aclocal.m4及configure两个文件：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ aclocal</div><div class="line">$ autoconf</div><div class="line">$ ls</div><div class="line">aclocal.m4  autom4te.cache  autoscan.log  configure  configure.in  helloworld.c</div></pre></td></tr></table></figure></p>
+<h3 id="实战-makefile-am">实战 <a href="http://Makefile.am" target="_blank" rel="external">Makefile.am</a></h3>
+<p>Makefile.am是一种比Makefile更高层次的规则。只需指定要生成什么目标，它由什么源文件生成，要安装到什么目录等构成。</p>
+<p>表一列出了可执行文件、静态库、头文件和数据文件，四种书写Makefile.am文件的一般格式。</p>
+<table>
+<thead>
+<tr>
+<th>文件类型</th>
+<th>书写格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可执行文件</td>
+<td><code>bin_PROGRAMS = foo</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>foo-SOURCES = xxxx.c</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>foo-LDADD=</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>foo_LDFLAGS=</code></td>
+</tr>
+<tr>
+<td>静态库</td>
+<td><code>lib_LIBRARIES = libfoo.a</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>foo_a_SOURCES=</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>foo_a_LDADD=</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>foo_a_LIBADD=</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>foo_a_LDFLAGS=</code></td>
+</tr>
+<tr>
+<td>头文件</td>
+<td><code>include_HEADERS = foo.h</code></td>
+</tr>
+<tr>
+<td>数据文件</td>
+<td><code>data_DATA = data1 data2</code></td>
+</tr>
+</tbody>
+</table>
+<p>新建Makefile.am文件，命令：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vi Makefile.am</div></pre></td></tr></table></figure></p>
+<p>内容如下:</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">AUTOMAKE_OPTIONS=foreign</div><div class="line">bin_PROGRAMS=helloworld</div><div class="line">helloworld_SOURCES=helloworld.c</div></pre></td></tr></table></figure></p>
+<p><a href="http://xn--automakeMakefile-1i3z99a56xs13ggbvab25e.xn--amMakefile-e42q629l7qowk9bsd2b.in" target="_blank" rel="external">automake会根据你写的Makefile.am来自动生成Makefile.in</a>。</p>
+<p>Makefile.am中定义的宏和目标,会指导automake生成指定的代码。例如，宏<code>bin_PROGRAMS</code>将导致编译和连接的目标被生成。</p>
+<h3 id="运行-autoheader-和-automake">运行 autoheader 和 automake</h3>
+<p>先执行 <code>autoheader</code>，<a href="http://xn--configure-9v8rm6j.ac" target="_blank" rel="external">扫描configure.ac</a>(<a href="http://configure.in" target="_blank" rel="external">configure.in</a>)、acconfig.h（如果存在），生成config.h.in宏定义文件，里面主要是根据configure.ac中某些特定宏(如<code>AC_DEFINE</code>)生成的#define和#undefine宏，configure在将根据实际的探测结果决定这些宏是否定义。</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ autoheader</div></pre></td></tr></table></figure></p>
+<p>之后执行 <code>automake</code>，<a href="http://xn--Makefile-sc0mp85ibk0b.xn--amMakefile-y33qy15l8h1i.in" target="_blank" rel="external">将每个Makefile.am转化成Makefile.in</a>，同时生成满足GNU编码规范的一系列文件</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ automake --add-missing</div><div class="line">configure.in: installing `./install-sh<span class="string">'</span></div><div class="line">configure.in: installing `./mkinstalldirs'</div><div class="line">configure.in: installing `./missing<span class="string">'</span></div><div class="line">Makefile.am: installing `./depcomp'</div></pre></td></tr></table></figure></p>
+<h3 id="使用makefile编译代码">使用Makefile编译代码</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">$ make</div><div class="line"><span class="keyword">if</span> gcc -DPACKAGE_NAME=<span class="string">""</span> -DPACKAGE_TARNAME=<span class="string">""</span> -DPACKAGE_VERSION=<span class="string">""</span> -</div><div class="line"></div><div class="line">DPACKAGE_STRING=<span class="string">""</span> -DPACKAGE_BUGREPORT=<span class="string">""</span> -DPACKAGE=<span class="string">"helloworld"</span> -DVERSION=<span class="string">"1.0"</span> </div><div class="line"></div><div class="line">-I. -I. -g -O2 -MT helloworld.o -MD -MP -MF <span class="string">".deps/helloworld.Tpo"</span> \</div><div class="line">-c -o helloworld.o `test <span class="operator">-f</span> <span class="string">'helloworld.c'</span> || <span class="built_in">echo</span> <span class="string">'./'</span>`helloworld.c; \</div><div class="line"><span class="keyword">then</span> mv <span class="operator">-f</span> <span class="string">".deps/helloworld.Tpo"</span> <span class="string">".deps/helloworld.Po"</span>; \</div><div class="line"><span class="keyword">else</span> rm <span class="operator">-f</span> <span class="string">".deps/helloworld.Tpo"</span>; <span class="keyword">exit</span> <span class="number">1</span>; \</div><div class="line"><span class="keyword">fi</span></div><div class="line">gcc -g -O2 -o helloworld helloworld.o</div></pre></td></tr></table></figure></p>
+<h3 id="运行hello-world">运行hello world</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ./helloworld</div><div class="line">Hello World!</div></pre></td></tr></table></figure></p>
+<h2 id="相关命令解析">相关命令解析</h2>
+<h3 id="autoscan">autoscan</h3>
+<p>autoscan是用来扫描源代码目录生成configure.scan文件的。autoscan可以用目录名做为参数，但如果你不使用参数的话，那么autoscan将认为使用的是当前目录。autoscan将扫描你所指定目录中的源文件，并创建configure.scan文件。</p>
+<h3 id="configure-scan">configure.scan</h3>
+<p>configure.scan包含了系统配置的基本选项，里面都是一些宏定义。<a href="http://xn--configure-fp6nf5dg42ao1wnub766bqrlil4m301b.ac" target="_blank" rel="external">我们需要将它改名为configure.ac</a>。</p>
+<h3 id="aclocal">aclocal</h3>
+<p>aclocal是一个 perl 脚本程序。aclocal根据configure.in文件的内容，自动生成aclocal.m4文件。aclocal的定义是：“aclocal - create aclocal.m4 by scanning <a href="http://configure.ac" target="_blank" rel="external">configure.ac</a>”。</p>
+<h3 id="autoconf">autoconf</h3>
+<p>autoconf是用来产生configure文件的。configure是一个脚本，它能设置源程序来适应各种不同的操作系统平台，并且根据不同的系统来产生合适的Makefile，从而可以使你的源代码能在不同的操作系统平台上被编译出来。</p>
+<p>configure.ac文件的内容是一些宏，这些宏经过 autoconf 处理后会变成检查系统特性、环境变量、软件必须的参数的shell脚本。configure.ac文件中的宏的顺序并没有规定，但是你<strong>必须在所有宏的最前面和最后面分别加上<code>AC_INIT</code>宏和<code>AC_OUTPUT</code>宏</strong>。</p>
+<h4 id="ac-init-file">AC_INIT(FILE)</h4>
+<p>这个宏用来检查源代码所在的路径。</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">AM_INIT_AUTOMAKE(PACKAGE, VERSION)</div></pre></td></tr></table></figure></p>
+<p>这个宏是必须的，它描述了我们将要生成的软件包的名字及其版本号：PACKAGE是软件包的名字，VERSION是版本号。当你使用<code>make dist</code>命令时，它会给你生成一个类似helloworld-1.0.tar.gz的软件发行包，其中就有对应的软件包的名字和版本号。</p>
+<h4 id="ac-prog-cc">AC_PROG_CC</h4>
+<p>这个宏将检查系统所用的C编译器。</p>
+<h4 id="ac-output-file">AC_OUTPUT(FILE)</h4>
+<p>这个宏是我们要输出的Makefile的名字。</p>
+<p>我们在使用automake时，实际上还需要用到其他的一些宏，但我们可以用<code>aclocal</code>来帮我们自动产生。执行<code>aclocal</code>后我们会得到aclocal.m4文件。</p>
+<p>产生了configure.in和aclocal.m4 两个宏文件后，我们就可以使用<code>autoconf</code>来产生configure文件了。</p>
+<h3 id="makefile-am"><a href="http://Makefile.am" target="_blank" rel="external">Makefile.am</a></h3>
+<p>Makefile.am是用来生成Makefile.in的，需要你手工书写。Makefile.am中定义了一些内容：</p>
+<h4 id="automake-options">AUTOMAKE_OPTIONS</h4>
+<p>这个是<code>automake</code>的选项。在执行<code>automake</code>时，它会检查目录下是否存在标准GNU软件包中应具备的各种文件，例如AUTHORS、ChangeLog、NEWS等文件。我们将其设置成<code>foreign</code>时，automake会改用一般软件包的标准来检查。</p>
+<h4 id="bin-programs">bin_PROGRAMS</h4>
+<p>这个是指定我们所要产生的可执行文件的文件名。如果你要产生多个可执行文件，那么在各个名字间用空格隔开。</p>
+<h4 id="helloworld-sources">helloworld_SOURCES</h4>
+<p>这个是指定产生“helloworld”时所需要的源代码。如果它用到了多个源文件，那么请使用空格符号将它们隔开。比如需要helloworld.h，helloworld.c那么请写成helloworld_SOURCES= helloworld.h helloworld.c。</p>
+<p>如果你在<code>bin_PROGRAMS</code>定义了多个可执行文件，则对应每个可执行文件都要定义相对的<code>filename_SOURCES</code>。</p>
+<h3 id="automake">automake</h3>
+<p>我们使用<code>automake --add-missing</code>来产生<code>Makefile.in</code>。</p>
+<p>选项<code>--add-missing</code>的定义是“add missing standard files to package”，它会让automake加入一个标准的软件包所必须的一些文件。</p>
+<p>我们用<code>automake</code>产生出来的Makefile.in文件是符合GNU Makefile惯例的，接下来我们只要执行<code>configure</code>这个 shell 脚本就可以产生合适的 Makefile 文件了。</p>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/tools-makefile.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/tools-manpage.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc', 2, 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "autotools",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

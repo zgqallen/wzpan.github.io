@@ -1,0 +1,1356 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>输入输出 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="echo
+
+功能： 用于输出一行内容。
+
+用法
+12$ echo [SHORT-OPTION]... [STRING]...$ echo LONG-OPTION
+选项说明
+
+
+
+选项
+说明
+
+
+
+
+-n
+不输出末尾的空行（如果有的话）
+
+
+-e
+允许使用反斜杆转义
+
+
+-E
+禁止使用反斜杠转义（默认">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="输入输出"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 输入输出</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="echo">echo</h2>
+<div class="alert alert-info">
+<strong>功能</strong>： 用于输出一行内容。
+</div>
+<h3 id="用法">用法</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ echo [SHORT-OPTION]<span class="keyword">...</span> [STRING]<span class="keyword">...</span></div><div class="line">$ echo LONG-OPTION</div></pre></td></tr></table></figure></p>
+<h3 id="选项说明">选项说明</h3>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-n</code></td>
+<td>不输出末尾的空行（如果有的话）</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>允许使用反斜杆转义</td>
+</tr>
+<tr>
+<td><code>-E</code></td>
+<td>禁止使用反斜杠转义（默认）</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>打印帮助</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td>打印版本信息</td>
+</tr>
+</tbody>
+</table>
+<h3 id="转义符">转义符</h3>
+<p>如果带 <code>-e</code> 选项，则可以识别转义符。常见的转义符有：</p>
+<table>
+<thead>
+<tr>
+<th>转义符</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\\</code></td>
+<td>反斜杆</td>
+</tr>
+<tr>
+<td><code>\a</code></td>
+<td>蜂鸣</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>退格</td>
+</tr>
+<tr>
+<td><code>\c</code></td>
+<td>不输出末尾的空行</td>
+</tr>
+<tr>
+<td><code>\e</code></td>
+<td>&lt;ESC&gt; 键</td>
+</tr>
+<tr>
+<td><code>\f</code></td>
+<td>form feed</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>新行</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>carriage return</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td><code>\v</code></td>
+<td>竖直制表符</td>
+</tr>
+<tr>
+<td><code>\0NNN</code></td>
+<td>用8进制表示（1 到 3 位数字）</td>
+</tr>
+<tr>
+<td><code>\xHH</code></td>
+<td>用十六进制表示 （1 到 2 位数字）</td>
+</tr>
+</tbody>
+</table>
+<h3 id="示例">示例</h3>
+<ul>
+<li>示例1</li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ echo -e <span class="string">"An apple a day keeps away \a\t\tdoctor\n"</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>示例2</li>
+</ul>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/sh</span></div><div class="line"><span class="comment">#</span></div><div class="line"><span class="comment"># Script that demos, command line args</span></div><div class="line"><span class="comment">#</span></div><div class="line">clear</div><div class="line"><span class="built_in">echo</span> <span class="string">"hello <span class="variable">$user</span>"</span></div><div class="line"><span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"today is \c "</span>; date <span class="comment"># date 命令用于打印日期</span></div><div class="line"><span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"number of user login : \c"</span> ; who | wc <span class="operator">-l</span></div><div class="line"><span class="built_in">echo</span> <span class="string">"calendar"</span></div><div class="line">cal <span class="comment"># cal 命令用于打印日历</span></div><div class="line"><span class="keyword">exit</span> <span class="number">0</span></div></pre></td></tr></table></figure></p>
+<h3 id="打印彩色信息">打印彩色信息</h3>
+<p>要达到这个目的需要使用称为 <q>转义序列码</q> （escape sequence code） 的特殊代码。</p>
+<p>下面的命令会把命令行端口中打印一串蓝色的字符：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"\033[34m Hello Colorful World"</span></div></pre></td></tr></table></figure></p>
+<p>上面这条命令使用ANSI转义序列（<code>\033[34m</code>）。这条命令的执行顺序如下：</p>
+<ol>
+<li>先处理 <code>\033</code> 转义符，用于促发紧跟着的动作；</li>
+<li>处理 <code>[34m</code> 转义码，设置前景色为蓝色；</li>
+<li>最后，终端将除了转义序列码之外的普通信息用蓝色打印出来。</li>
+</ol>
+<p>在使用 <code>echo</code> 的同时使用转义序列码的格式为：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"\033[escape-code your-message"</span></div></pre></td></tr></table></figure></p>
+<p>在上面的示例格式中，</p>
+<ol>
+<li><code>\033</code> 是一个转义符，用以告诉命令行端口先进入转义模式；</li>
+<li>读入后面紧跟着的 <code>[</code> 字符并进入CSI（Command Sequence Introduction）模式；</li>
+<li>在 CSI 模式端口读入一系列 ASCII 编码的十进制数字 （作为参数） ，字符间可用分号（;）隔开；</li>
+<li>读入动作字母/字符。</li>
+</ol>
+<h4 id="一些重要的动作字母-字符包括：">一些重要的动作字母/字符包括：</h4>
+<table>
+<thead>
+<tr>
+<th>字母/字符</th>
+<th>在CSI中的作用</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>h</td>
+<td>设置ANSI模式</td>
+<td><code>echo -e &quot;\033[h&quot;</code></td>
+</tr>
+<tr>
+<td>l</td>
+<td>清除ANSI模式</td>
+<td><code>echo -e &quot;\033[l&quot;</code></td>
+</tr>
+<tr>
+<td>m</td>
+<td>用于设置字符的颜色，以及粗体、闪烁等字体效果</td>
+<td><code>echo -e &quot;\033[35m Hello World&quot;</code></td>
+</tr>
+<tr>
+<td>q</td>
+<td>键盘 <code>Num Lock</code>、<code>Caps Lock</code>、<code>Scroll Lock</code> 的LED灯的开关</td>
+<td><code>echo -e &quot;\033[2q&quot;</code></td>
+</tr>
+<tr>
+<td>s</td>
+<td>保存当前光标的 x、y 坐标（行、列位置）和属性</td>
+<td><code>echo -e &quot;\033[7s&quot;</code></td>
+</tr>
+<tr>
+<td>u</td>
+<td>恢复光标位置和属性</td>
+<td><code>echo -e &quot;\033[8u&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="m动作字符的参数列表">m动作字符的参数列表</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>用途</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>设回默认方案</td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td>设置粗体</td>
+<td><code>$ echo -e &quot;I am \033[1m BOLD \033[0m Person&quot;</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>设置灰度</td>
+<td><code>$ echo -e &quot;\033[1m BOLD \033[2m DIM \033[0m&quot;</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>闪烁效果</td>
+<td><code>$ echo -e &quot;\033[5m Flash! \033[0m&quot;</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>屏幕反色</td>
+<td><code>$ echo -e &quot;\033[7m Linux OS! Best OS!! \033[0m&quot;</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>将特殊的控制字符用图形化的字符表示</td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td>去除闪烁效果</td>
+<td></td>
+</tr>
+<tr>
+<td>27</td>
+<td>去除反色效果</td>
+<td></td>
+</tr>
+<tr>
+<td>30-37</td>
+<td>设置前景色（例如 31-红色；32-绿色）</td>
+<td><code>$ echo -e &quot;\033[31m I am in Red&quot;</code></td>
+</tr>
+<tr>
+<td>47-47</td>
+<td>设置背景色</td>
+<td><code>$ echo -e &quot;\033[44m Wow!!!&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="q动作字符的参数列表">q动作字符的参数列表</h4>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>关闭所有键盘上的LED灯</td>
+</tr>
+<tr>
+<td>1</td>
+<td><code>Scroll Lock</code>的LED灯打开，其他等LED灯关闭</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>Num Lock</code>的LED灯打开，其他LED灯关闭</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>Caps Lock</code>的LED灯打开，其他LED灯关闭</td>
+</tr>
+</tbody>
+</table>
+<h2 id="cat">cat</h2>
+<div class="alert alert-info">
+<strong>功能</strong>： 连接多个文件内容并使用标准输出打印；还可以用它来创建文件。
+</div>
+<h3 id="用法-v2">用法</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat [OPTION]...[FILE]...</div></pre></td></tr></table></figure></p>
+<h3 id="选项说明-v2">选项说明</h3>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-A</code>  <code>--show-all</code></td>
+<td>和<code>-vET</code>等效</td>
+</tr>
+<tr>
+<td><code>-b</code>  <code>--number-nonblank</code></td>
+<td>打印非空行的行号，覆盖<code>-n</code>选项</td>
+</tr>
+<tr>
+<td><code>-n</code>  <code>--number</code></td>
+<td>打印行号</td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>与<code>-vE</code>等效</td>
+</tr>
+<tr>
+<td><code>-E</code>  <code>--show-ends</code></td>
+<td>在每一行的行末加上<code>$</code></td>
+</tr>
+<tr>
+<td><code>-s</code>  <code>--squeeze-blank</code></td>
+<td>压缩重复的空行</td>
+</tr>
+<tr>
+<td><code>-t</code></td>
+<td>与<code>-vT</code>等效</td>
+</tr>
+<tr>
+<td><code>-T</code>  <code>--show-tabs</code></td>
+<td>将<code>TAB</code>制表符打印成<code>^I</code></td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td>(略)</td>
+</tr>
+<tr>
+<td><code>-v</code>  <code>--show-nonprinting</code></td>
+<td>使用<code>^</code>和<code>M-</code>标记不可打印字符（除了<code>LFD</code>和<code>TAB</code>之外）</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>打印帮助信息并退出</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td>打印版本信息并退出</td>
+</tr>
+</tbody>
+</table>
+<h3 id="利用-cat-打印或写入文件">利用 cat 打印或写入文件</h3>
+<p>当没有指定 <code>FILE</code> ，或当 <code>FILE</code> 为 <code>-</code> 时，从标准输入里读入。因此<code>cat</code>除了用来打印文件中的内容之外，还常常用来从标准输入中获取内容并重定向输出到文件中。例如：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$ cat &gt; sample.txt</div><div class="line">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed <span class="keyword">do</span> eiusmod</div><div class="line">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</div><div class="line">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo</div><div class="line">consequat. Duis aute irure dolor <span class="keyword">in</span> reprehenderit <span class="keyword">in</span> voluptate velit esse</div><div class="line">cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non</div><div class="line">proident, sunt <span class="keyword">in</span> culpa qui officia deserunt mollit anim id est laborum.</div><div class="line"><span class="comment"># Press Ctrl+D to exit the input</span></div><div class="line">$ cat <span class="operator">-e</span> sample.txt</div><div class="line">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed <span class="keyword">do</span> eiusmod$</div><div class="line">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,$</div><div class="line">quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo$</div><div class="line">consequat. Duis aute irure dolor <span class="keyword">in</span> reprehenderit <span class="keyword">in</span> voluptate velit esse$</div><div class="line">cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non$</div><div class="line">proident, sunt <span class="keyword">in</span> culpa qui officia deserunt mollit anim id est laborum.$</div></pre></td></tr></table></figure></p>
+<div class="alert alert-success">
+<strong>tips</strong>： 还有一个和`cat`命令相反的`tac`命令，从最后一行开始打印文件内容。可以通过`$ man tac`了解更多信息。
+</div>
+<h2 id="more">more</h2>
+<div class="alert alert-info">
+<strong>功能</strong>： 用于分页打印文件内容的过滤器。
+</div>
+<h3 id="用法-v3">用法</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ more [options] file [...]</div></pre></td></tr></table></figure></p>
+<h3 id="选项说明-v3">选项说明</h3>
+<p>下面只罗列最常用的几个选项：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-number</code></td>
+<td>指定屏幕的大小为 <em>number</em> 行</td>
+</tr>
+<tr>
+<td><code>+number</code></td>
+<td>从第 <em>number</em> 行开始打印</td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>提示帮助信息</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>避免在分页符<code>^L</code>处自动分页。</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>让more统计逻辑行，而非屏幕上的物理行（例如过长的一行）。</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>清除整页（屏幕）内容再输出文本。</td>
+</tr>
+<tr>
+<td><code>-s</code>  <code>--squeeze-blank</code></td>
+<td>压缩重复的空行</td>
+</tr>
+</tbody>
+</table>
+<h3 id="命令">命令</h3>
+<p>常用的命令有：</p>
+<table>
+<thead>
+<tr>
+<th>按键</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>h</code> 或 <code>?</code></td>
+<td>帮助</td>
+</tr>
+<tr>
+<td><code>SPACE</code></td>
+<td>打印之后的k行内容。k默认为屏幕大小。</td>
+</tr>
+<tr>
+<td><code>z</code></td>
+<td>打印之后的k行内容。k默认为屏幕大小。如果带上参数，则默认的k值将被新的值取代。</td>
+</tr>
+<tr>
+<td><code>RETURN</code></td>
+<td>打印之后的k行内容。k默认为1。如果带上参数，则默认的k值将被新的值取代。</td>
+</tr>
+<tr>
+<td><code>q</code> 或 <code>Q</code></td>
+<td>退出</td>
+</tr>
+<tr>
+<td><code>s</code></td>
+<td>前进k行，k默认为1。</td>
+</tr>
+<tr>
+<td><code>f</code></td>
+<td>前进k个屏幕的行数，k默认为1。</td>
+</tr>
+<tr>
+<td><code>b</code> 或 <code>^B</code></td>
+<td>后退k行，k默认为1。<strong>注意这个命令只能用于文件，而不能用于管道。</strong></td>
+</tr>
+<tr>
+<td><code>'</code></td>
+<td>跳转到上一个搜索结果的位置。</td>
+</tr>
+<tr>
+<td><code>=</code></td>
+<td>打印当前行号。</td>
+</tr>
+<tr>
+<td><code>/pattern</code></td>
+<td>查找第k个匹配正则式的位置。k默认为1。</td>
+</tr>
+<tr>
+<td><code>n</code></td>
+<td>查找第k个匹配上一个正则式的位置。k默认为1。</td>
+</tr>
+<tr>
+<td><code>!command</code> 或 <code>:!Command</code></td>
+<td>在子shell里执行命令。</td>
+</tr>
+<tr>
+<td><code>v</code></td>
+<td>在当前行启动一个编辑器。</td>
+</tr>
+<tr>
+<td><code>^L</code></td>
+<td>重绘屏幕。</td>
+</tr>
+<tr>
+<td><code>:n</code></td>
+<td>跳转到之后的第k个文件（如果打开了多个文件的话，否则还是打开这个文件）。</td>
+</tr>
+<tr>
+<td><code>:p</code></td>
+<td>跳转到之前的第k个文件（如果打开了多个文件的话，否则还是打开这个文件）。</td>
+</tr>
+<tr>
+<td><code>:f</code></td>
+<td>显示当前文件名以及行数。</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>重复上一个命令。</td>
+</tr>
+</tbody>
+</table>
+<p>按<code>h</code>可以获取更多命令。</p>
+<h2 id="less">less</h2>
+<div class="alert alert-info">
+<strong>功能</strong>： 和 more 功能相近的一个快速小巧的文件查看程序，但更强大。允许前进、回退查看文件内容。
+</div>
+<h3 id="命令-v2">命令</h3>
+<p>less 的命令和 vi 非常相似。详见 <code>$ man less</code> 或在 less 里键入 <code>h</code> 查看帮助。</p>
+<h2 id="head">head</h2>
+<div class="alert alert-info">
+<strong>功能</strong>： 用于输出文件的起始部分。
+</div>
+<h3 id="用法-v4">用法</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ head [OPTION]... [FILE]...</div></pre></td></tr></table></figure></p>
+<h3 id="选项说明-v4">选项说明</h3>
+<p>打印每个由<code>FILE</code>指定的开头的10行到标准输出。如果文件不止一个，则在每个文件开头同时输出带有文件名的头部信息。如果没有指定<code>FILE</code>，或者<code>FILE</code>为<code>-</code>，则从标准输入中读入。</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-c</code>, <code>--bytes=[-]k</code></td>
+<td>打印每个文件开头的k个字节。或使用<code>-c -k</code>字符，打印从倒数k个字节。</td>
+</tr>
+<tr>
+<td><code>-n</code>, <code>--lines=[-]k</code></td>
+<td>打印每个文件开头k行，而不是默认的10行。或使用<code>-n -k</code>字符，打印从倒数k行。</td>
+</tr>
+<tr>
+<td><code>-q</code>, <code>--quite</code>, <code>--silent</code></td>
+<td>从不打印带有文件名的头部。</td>
+</tr>
+<tr>
+<td><code>-v</code>, <code>--verbose</code></td>
+<td>总是打印带有文件名的头部。</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>打印帮助信息并退出</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td>打印版本信息并退出</td>
+</tr>
+</tbody>
+</table>
+<p><code>k</code>可以带有一个复合器作为前缀。例如：<code>b 512, kB 1000, K 1024, MB 1000*1000, M 1024*1024, GB 1000*1000*1000, G 1024*1024*1024</code>。T, P, E, Z, Y 以此类推。</p>
+<h2 id="tail">tail</h2>
+<div class="alert alert-info">
+<strong>功能</strong>： 用于输出文件的末尾部分。
+</div>
+<h3 id="用法-v5">用法</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tail [OPTION]... [FILE]...</div></pre></td></tr></table></figure></p>
+<h3 id="选项说明-v5">选项说明</h3>
+<p>打印每个由<code>FILE</code>指定的结尾的10行到标准输出。如果文件不止一个，则在每个文件开头同时输出带有文件名的头部信息。如果没有指定<code>FILE</code>，或者<code>FILE</code>为<code>-</code>，则从标准输入中读入。</p>
+<p>常用选项有：</p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-c</code>, <code>--bytes=k</code></td>
+<td>打印每个文件末尾的k个字节。或使用<code>-c +k</code>打印每个文件从第K个字节开始到结尾的数据。</td>
+</tr>
+<tr>
+<td><code>-n</code>, <code>--lines=k</code></td>
+<td>打印每个文件末尾的k行，而不是默认的10行。或使用<code>-n +k</code>打印每个文件从第K行开始到结尾的数据。</td>
+</tr>
+<tr>
+<td><code>-q</code>, <code>--quite</code>, <code>--silent</code></td>
+<td>从不打印带有文件名的头部。</td>
+</tr>
+<tr>
+<td><code>-v</code>, <code>--verbose</code></td>
+<td>总是打印带有文件名的头部。</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>打印帮助信息并退出</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td>打印版本信息并退出</td>
+</tr>
+</tbody>
+</table>
+<p>同样，<code>k</code>可以带有一个复合器作为前缀。例如：<code>b 512, kB 1000, K 1024, MB 1000*1000, M 1024*1024, GB 1000*1000*1000, G 1024*1024*1024</code>。T, P, E, Z, Y 以此类推。</p>
+<p>其他选项详见<code>$ man tail</code>。</p>
+<h2 id="tee">tee</h2>
+<div class="alert alert-info">
+<strong>功能</strong>： 读取标准输入的数据，并将其内容输出成文件。
+</div>
+<h3 id="用法-v6">用法</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tee [OPTION]... [FILE]...</div></pre></td></tr></table></figure></p>
+<p>如果 <code>FILE</code> 字段为 <code>-</code>，输入的文本将会拷贝到标准输出。</p>
+<h3 id="选项说明-v6">选项说明</h3>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-a</code>  <code>--apend</code></td>
+<td>追加到现有文件，而不是覆盖。</td>
+</tr>
+<tr>
+<td><code>-i</code>  <code>--ignore-interrputs</code></td>
+<td>忽略中断信号</td>
+</tr>
+<tr>
+<td><code>--help</code></td>
+<td>打印帮助信息并退出</td>
+</tr>
+<tr>
+<td><code>--version</code></td>
+<td>打印版本信息并退出</td>
+</tr>
+</tbody>
+</table>
+<h3 id="示例-v2">示例</h3>
+<p>列出文本文件slayers.story的内容，同时复制3份副本，文件名称分别为ss-copy1、ss-copy2、ss-copy3：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cat slayers.story |tee ss-copy1 ss-copy2 ss-copy3</div></pre></td></tr></table></figure></p>
+<h2 id="read">read</h2>
+<div class="alert alert-info">
+<strong>功能</strong>： 从标准输入获取数据并保存到变量。
+</div>
+<h3 id="用法-v7">用法</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">read</span> variable1, variable2,...variableN</div></pre></td></tr></table></figure></p>
+<h3 id="示例-v3">示例</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/bash</span></div><div class="line"></div><div class="line"><span class="built_in">echo</span> <span class="string">"Your first name please:"</span></div><div class="line"><span class="built_in">read</span> fname</div><div class="line"><span class="built_in">echo</span> <span class="string">"Hello <span class="variable">$fname</span>, Lets be friend!"</span></div></pre></td></tr></table></figure></p>
+<h2 id="重定向">重定向</h2>
+<h3 id="重定向符">重定向符</h3>
+<p>Shell 中有三个主要的重定向符号：</p>
+<ol>
+<li>‘<code>&gt;</code>’ 重定向符</li>
+</ol>
+<h4 id="用法-v8">用法</h4>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ Linux-command > filename</div></pre></td></tr></table></figure></p>
+<p>输出命令 <code>Linux-command</code> 的结果到文件。如果文件已经存在，则该文件原来的内容将被覆盖。</p>
+<ol start="2">
+<li>‘<code>&gt;&gt;</code>’ 重定向符</li>
+</ol>
+<h4 id="用法-v9">用法</h4>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ Linux-command >> filename</div></pre></td></tr></table></figure></p>
+<p>将追加命令 <code>Linux-command</code> 的结果到文件的末尾。如果文件已经存在，则该文件将被打开，新的信息将被写入该文件的末尾。而如果该文件并没有存在，则新文件将被创建。</p>
+<ol start="3">
+<li>‘<code>&lt;</code>’ 重定向符</li>
+</ol>
+<h4 id="用法-v10">用法</h4>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ Linux-<span class="command"><span class="keyword">command</span> &lt; <span class="title">filename</span></span></div></pre></td></tr></table></figure></p>
+<p>从文件读入内容，而不是从键盘输入数据。</p>
+<h4 id="其他用法">其他用法</h4>
+<h4 id="例1-创建文本文件">例1. 创建文本文件</h4>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$cat</span> &gt; sname</div><div class="line">vivek</div><div class="line">ashish</div><div class="line">zebra</div><div class="line">babu</div><div class="line">Press CTRL + D to save.</div></pre></td></tr></table></figure></p>
+<h4 id="例2-从文件读入内容进行排序再写入文件">例2.  从文件读入内容进行排序再写入文件</h4>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ sort &lt; sname &gt; sorted_names</div><div class="line">$ cat sorted_names</div><div class="line">ashish</div><div class="line">babu</div><div class="line">vivek</div><div class="line">zebra</div></pre></td></tr></table></figure></p>
+<h4 id="例3-读入文件-将小写字母转换为大写再保存进文件">例3. 读入文件，将小写字母转换为大写再保存进文件</h4>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ tr <span class="string">"[a-z]"</span> <span class="string">"[A-Z]"</span> &lt; sname &gt; cap_names</div><div class="line">$ cat cap_names</div><div class="line">VIVEK</div><div class="line">ASHISH</div><div class="line">ZEBRA</div><div class="line">BABU</div></pre></td></tr></table></figure></p>
+<h3 id="深入了解重定向">深入了解重定向</h3>
+<p>在Linux（以及C程序语言）中，你的键盘、屏幕等都会被当做文件来看待。这些文件的名字如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th>标准文件</th>
+<th>文件描述符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stdin</td>
+<td>0</td>
+<td>标准输入</td>
+</tr>
+<tr>
+<td>stdout</td>
+<td>1</td>
+<td>标准输出</td>
+</tr>
+<tr>
+<td>stderr</td>
+<td>2</td>
+<td>标准错误</td>
+</tr>
+</tbody>
+</table>
+<p>你可以直接将一个文件描述符重定向到文件：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">文件描述符>文件名</div></pre></td></tr></table></figure></p>
+<p>例如，可以重定向因为试图删除当前目录中不存在的文件而得到的错误信息到文件输出：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rm bad_file_name111 <span class="number">2</span>&gt;er</div></pre></td></tr></table></figure></p>
+<div class="alert alert-error">
+<strong>注意</strong>： 别忘记加上 `2`。因为 `2` 是stderr文件的文件描述符。
+</div>
+<p>标准文件之间也可以重定向，格式为：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">from>&destination</div></pre></td></tr></table></figure></p>
+<p>示例如下：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">$ cat &gt; demoscr</div><div class="line"><span class="keyword">if</span> [ <span class="variable">$#</span> <span class="operator">-ne</span> <span class="number">2</span> ]</div><div class="line"><span class="keyword">then</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"Error : Number are not supplied"</span> <span class="number">1</span>&gt;&<span class="number">2</span> <span class="comment"># 将错误信息重定向到stderr</span></div><div class="line">   <span class="built_in">echo</span> <span class="string">"Usage : <span class="variable">$0</span> number1 number2"</span> <span class="number">1</span>&gt;&<span class="number">2</span>      <span class="comment"># 将错误信息重定向到stderr</span></div><div class="line">   <span class="keyword">exit</span> <span class="number">1</span></div><div class="line"><span class="keyword">fi</span></div><div class="line">ans=`expr <span class="variable">$1</span> + <span class="variable">$2</span>`</div><div class="line"><span class="built_in">echo</span> <span class="string">"Sum is <span class="variable">$ans</span>"</span></div></pre></td></tr></table></figure></p>
+<h2 id="管道">管道</h2>
+<div class="alert alert-info">
+<strong>功能</strong>： 管道（Pipe）是一个将一个程序的输出连接到另一个程序作为输入，而无需借助任何临时文件的方法
+</div>
+<h3 id="示意图">示意图</h3>
+<pre><code>                                          +-------------------+
+                +----------+      |       |                   |
+                |          |      |       | 获得第一个命令的    |
+                | 第一个命令| ---&gt; | ---&gt;  | 输出作为这个命令的  |
+                |  的输入   |      |       | 输入              |
+                +----------+      |       |                   |
+                                          +-------------------+
+</code></pre>
+<h3 id="用法-v11">用法</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">command1 | command2</div></pre></td></tr></table></figure></p>
+<h3 id="示例-v4">示例</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$ ls | more</div><div class="line">$ who | sort</div><div class="line">$ who | sort &gt; user_list</div><div class="line">$ who | wc <span class="operator">-l</span></div><div class="line">$ ls <span class="operator">-l</span> | wc <span class="operator">-l</span></div><div class="line">$ ps -A | grep <span class="string">"emacs"</span></div></pre></td></tr></table></figure></p>
+<h3 id="过滤器">过滤器</h3>
+<p>利用管道可以创建过滤器，例如从一个文件中截取从第20行到第30行的数据：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tail +<span class="number">20</span> &lt; hotel.txt | head -n30 &gt;hlist</div></pre></td></tr></table></figure></p>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+			
+		
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/shell-trap.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/shell-function.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc', 2, 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "输入输出",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,984 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>排序 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="冒泡排序
+算法思想
+
+比较相邻的元素。如果第一个比第二个大，就交换他们两个。
+对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。
+针对所有的元素重复以上的步骤，除了最后一个。
+持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。
+
+C">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="排序"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 排序</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="冒泡排序">冒泡排序</h2>
+<h3 id="算法思想">算法思想</h3>
+<ol>
+<li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
+<li>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</li>
+<li>针对所有的元素重复以上的步骤，除了最后一个。</li>
+<li>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</li>
+</ol>
+<h3 id="c语言实现">C语言实现</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * bubble_sort		-	ascendly bubble sort the array</div><div class="line"> *</div><div class="line"> * @param array 		the array to be sorted</div><div class="line"> * @param length 		the length of the array</div><div class="line"> */</div><div class="line"><span class="keyword">extern</span> <span class="keyword">void</span> bubble_sort(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> length)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> i, j;</div><div class="line">    <span class="keyword">for</span> (i = length; i &gt; <span class="number">0</span>; i--){</div><div class="line">        <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; i-<span class="number">1</span>; j++){</div><div class="line">            <span class="keyword">if</span> (<span class="built_in">array</span>[j] &gt; <span class="built_in">array</span>[j+<span class="number">1</span>])</div><div class="line">                swap(&<span class="built_in">array</span>[j], &<span class="built_in">array</span>[j+<span class="number">1</span>]);</div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h3 id="特性">特性</h3>
+<ul>
+<li>时间复杂度：\(O(n^2)\)</li>
+<li>原地：是</li>
+<li>稳定：是</li>
+</ul>
+<h2 id="选择排序">选择排序</h2>
+<h3 id="基本思想">基本思想</h3>
+<p>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<h3 id="c语言实现-v2">C语言实现</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * selection_sort	-	ascendly selection sort the array</div><div class="line"> *</div><div class="line"> * @param array			the array to be sorted </div><div class="line"> * @param length 		the length of the array</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">extern</span> <span class="keyword">void</span> selection_sort(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> length)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> i, j, min;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; length; i++) {</div><div class="line">        min = i;</div><div class="line">        <span class="keyword">for</span> (j = i; j &lt; length; j++) {</div><div class="line">            <span class="comment">/* search for the minimum value */</span></div><div class="line">            <span class="keyword">if</span> (<span class="built_in">array</span>[min] &gt; <span class="built_in">array</span>[j]) {</div><div class="line">                min = j;</div><div class="line">            }            </div><div class="line">        }</div><div class="line">        <span class="keyword">if</span> (min != i) {</div><div class="line">            <span class="comment">/* swap array[j] and min */</span></div><div class="line">            swap(&<span class="built_in">array</span>[i], &<span class="built_in">array</span>[min]);</div><div class="line">        }</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h3 id="性质">性质</h3>
+<p>选择排序的主要优点与数据移动有关。如果某个元素位于正确的最终位置上，则它不会被移动。选择排序每次交换一对元素，它们当中至少有一个将被移到其最终位置上，因此对n个元素的表进行排序总共进行至多n-1次交换。在所有的完全依靠交换去移动元素的排序方法中，选择排序属于非常好的一种。</p>
+<ul>
+<li>时间复杂度：\(O(n^2)\)</li>
+<li>原地：是</li>
+<li>稳定：否</li>
+</ul>
+<h2 id="插入排序">插入排序</h2>
+<h3 id="基本思想-v2">基本思想</h3>
+<p>插入排序（Insertion Sort）算法类似于玩扑克时抓牌的过程，玩家每拿到一张牌都要插入到手中已有的牌里，使之从小到大排好序。</p>
+<p><img src="/images/algorithms-sort/sortcards.png" alt="扑克牌的插入排序"></p>
+<p>开始时，我们的左手为空，并且桌子上的牌面向下。然后，我们每次从桌子上拿走一张牌并将它插入左手中正确的位置。为了找到一张牌的正确位置，我们从右到左将它与已在手中的每张牌进行比较。拿在左手上的牌总是排序好的，原来这些牌是桌子上牌堆中顶部的牌。</p>
+<p>插入排序算法与这个过程类似，但和插入扑克牌有一点不同：不可能在两个相邻的存储单元之间再插入一个单元，因此要将插入点之后的数据依次往后移动一个单元。排序算法如下：</p>
+<ol>
+<li>从第一个元素开始，该元素可以认为已经被排序；</li>
+<li>取出下一个元素，在已经排序的元素序列中从后向前扫描；</li>
+<li>如果该元素（已排序）大于新元素，将该元素移到下一位置；</li>
+<li>重复步骤3，直到找到已排序的元素小于或者等于新元素的位置；</li>
+<li>将新元素插入到该位置后；</li>
+<li>重复步骤2~5。</li>
+</ol>
+<h3 id="过程演示">过程演示</h3>
+<p><img src="/images/algorithms-sort/insertion-sort.png" alt="title"></p>
+<h3 id="c语言实现-v3">C语言实现</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * insertion_sort	-	ascendly insertion sort the array</div><div class="line"> * @param array			the array to be sorted</div><div class="line"> * @param length		the length of the array</div><div class="line"> *</div><div class="line"> * Sorting the array ascendly by using the insertion sort algorithms.</div><div class="line"> *</div><div class="line"> */</div><div class="line">extern void insertion_sort(int array[], int length)</div><div class="line">{</div><div class="line">    int i, j, key;</div><div class="line">    for (i = 1; i < length; j++){</div><div class="line">        key = array[i];</div><div class="line">        for (j = i - 1; j >= 0 && array[j] > key; j--){</div><div class="line">        	array[j+1] = array[j];</div><div class="line">        }</div><div class="line">        array[j+1] = key;</div><div class="line">    }</div><div class="line">    return;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>另外一个<a href="https://gist.github.com/wzpan/6481134" target="_blank" rel="external">用递归实现的插入排序</a>。</p>
+<h3 id="性质-v2">性质</h3>
+<ul>
+<li>算法复杂度：\(O(n^2)\) 。当 n 比较小时（e.g. \(n \le 30\)），使用插入排序比较适合；当 n 比较大时，插入排序就显得很慢了。</li>
+<li>原址<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>：是</li>
+<li>稳定<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：是</li>
+</ul>
+<h3 id="改进版本">改进版本</h3>
+<ul>
+<li><a href="#%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F">希尔排序</a>：带步长的采样数据，从而将元素分成若干组进行插入排序。然后再改用更小的步长。</li>
+<li><a href="http://en.wikipedia.org/wiki/Tree_sort" target="_blank" rel="external">二叉查找树排序</a>：利用二叉查找树，快速确定元素的插入位置，从而改进插入排序的效率。</li>
+<li><a href="http://en.wikipedia.org/wiki/Library_sort" target="_blank" rel="external">图书馆排序</a>：排列图书时，如果在每本书之间留一定的空隙，那么在进行插入时就有可能会少移动一些书。说白了就是在插入排序的基础上，给书与书之间留一定的空隙，这个空隙越大，需要移动的书就越少，这是它的思路——用空间换时间。</li>
+<li><a href="http://en.wikipedia.org/wiki/Patience_sorting" target="_blank" rel="external">耐心排序</a>：先将元素入桶，最后用插入排序。</li>
+</ul>
+<h2 id="希尔排序">希尔排序</h2>
+<h3 id="基本思想-v3">基本思想</h3>
+<p>希尔排序（Shell Sort）算法是 D.L. Shell 于1959年发明的，它是插入排序的一种高速而稳定的改进版本。</p>
+<p>希尔排序通过将比较的全部元素分为若干组来提升插入排序的性能。这样可以让一个元素可以一次性地朝最终位置前进一大步。然后算法再取越来越小的步长进行排序，算法的最后一步就是普通的插入排序，但是到了这步，需排序的数据几乎是已排好的了。</p>
+<p>一个更好理解的希尔排序实现：将数组列在一个表中并对列排序（用插入排序）。重复这过程，不过每次用更长的列来进行。最后整个表就只有一列了。将数组转换至表是为了更好地理解这算法，算法本身仅仅对原数组进行排序。</p>
+<h3 id="过程演示-v2">过程演示</h3>
+<p>例如，假设有这样一组数[ 13 14 94 33 82 25 59 94 65 23 45 27 73 25 39 10 ]，如果我们以步长为5开始进行排序，我们可以通过将这列表放在有5列的表中来更好地描述算法，这样他们就应该看起来是这样：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">13 14 94 33 82</div><div class="line">25 59 94 65 23</div><div class="line">45 27 73 25 39</div><div class="line">10</div></pre></td></tr></table></figure></p>
+<p>然后我们对每列进行排序：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">10 14 73 25 23</div><div class="line">13 27 94 33 39</div><div class="line">25 59 94 65 82</div><div class="line">45</div></pre></td></tr></table></figure></p>
+<p>将上述四行数字，依序接在一起时我们得到：[ 10 14 73 25 23 13 27 94 33 39 25 59 94 65 82 45 ].这时10已经移至正确位置了，然后再以3为步长进行排序：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">10 14 73</div><div class="line">25 23 13</div><div class="line">27 94 33</div><div class="line">39 25 59</div><div class="line">94 65 82</div><div class="line">45</div></pre></td></tr></table></figure></p>
+<p>排序之后变为：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">10 14 13</div><div class="line">25 23 33</div><div class="line">27 25 59</div><div class="line">39 65 73</div><div class="line">45 94 82</div><div class="line">94</div></pre></td></tr></table></figure></p>
+<h3 id="c语言实现-v4">C语言实现</h3>
+<p>下面的函数是对整型数组进行排序的Shell排序算法。步长使用了 \(\frac{n}{2}\) 并且对步长取半直到步长达到 1。</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * shell_sort	-	ascendly shell sort the array</div><div class="line"> * @param array		the array to be sorted</div><div class="line"> * @param length	the length of the array</div><div class="line"> *</div><div class="line"> *</div><div class="line"> * Sorting the array ascendly by using the shell sort algorithms. </div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">void</span> shell_sort(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> length)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> gap, i, j, key;</div><div class="line">    <span class="keyword">for</span> (gap = length/<span class="number">2</span>; gap &gt; <span class="number">0</span>; gap /= <span class="number">2</span>)</div><div class="line">        <span class="keyword">for</span> (i = gap; i &lt; length; i++)</div><div class="line">            <span class="keyword">for</span> (j=i-gap; j&gt;=<span class="number">0</span> && <span class="built_in">array</span>[j]&gt;<span class="built_in">array</span>[j+gap]; j-=gap) {</div><div class="line">                <span class="comment">// swap the two elements</span></div><div class="line">                key = <span class="built_in">array</span>[j];</div><div class="line">                <span class="built_in">array</span>[j] = <span class="built_in">array</span>[j+gap];</div><div class="line">                <span class="built_in">array</span>[j+gap] = key;</div><div class="line">            }</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h3 id="性质-v3">性质</h3>
+<h4 id="步长的选择">步长的选择</h4>
+<ol>
+<li><strong>步长的选择是希尔排序的重要部分</strong>。只要最终步长为1（此时为插入排序）任何步长串行都可以工作。</li>
+<li>Donald Shell 最初建议步长选择为 \(\frac{n}{2}\) 并且对步长取半直到步长达到 1。虽然这样取可以比 \(O(n^2)\) 类的算法（插入排序）更好，但这样仍然有减少平均时间和最差时间的余地。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>步长串行</th>
+<th>最坏情况下复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(n/2^i\)</td>
+<td>\(O(n^2)\)</td>
+</tr>
+<tr>
+<td>\(2^k{}-1\)</td>
+<td>\(O(n^{3/2})\)</td>
+</tr>
+<tr>
+<td>\(2^{i}3^{j}\)</td>
+<td>\(O(nlog^{2}n)\)</td>
+</tr>
+</tbody>
+</table>
+<ol start="3">
+<li>已知的最好步长串行是由Sedgewick提出的 (1, 5, 19, 41, 109,…)，该串行的项来自 \(9 * 4^i - 9 * 2^i + 1 和 4^i - 3 * 2^i + 1\)。用这样步长串行的希尔排序比插入排序和堆排序都要快，甚至在小数组中比快速排序还快，但是在涉及大量数据时希尔排序还是比快速排序慢。</li>
+<li>另一个在大数组中表现优异的步长串行是(斐波那契数列除去0和1将剩余的数以黄金分区比的两倍的幂进行运算得到的数列：(1, 9, 34, 182, 836, 4025, 19001, 90358, 428481, 2034035, 9651787, 45806244, 217378076, 1031612713, …)。</li>
+</ol>
+<h4 id="综合评价">综合评价</h4>
+<ol>
+<li>时间复杂度： \(O(n\lg{n})\)</li>
+<li>原址：是</li>
+<li>稳定：否</li>
+</ol>
+<h2 id="归并排序">归并排序</h2>
+<h3 id="算法思想-v2">算法思想</h3>
+<p>归并排序（Merge Sort）算法完全遵循<a href="/wiki/algorithms-divide-and-conquer.html">分治模式</a>，直观上其操作如下：</p>
+<ol>
+<li><strong>分解</strong>：把长度为n的输入序列分成两个长度为n/2的子序列。</li>
+<li><strong>解决</strong>：对这两个子序列分别采用归并排序。</li>
+<li><strong>合并</strong>：将两个排序好的子序列合并成一个最终的排序序列。</li>
+</ol>
+<p>在描述归并排序的步骤时又调用了归并排序本身，可见这是一个递归的过程。</p>
+<p>归并排序算法的一个核心操作是<q>合并</q>步骤中两个已排序序列的合并。回到我们玩扑克牌的例子，假设桌上有两堆牌，每堆都已排序，最小的牌在顶上。我们希望把这两堆牌合并成单一的排好序的输出堆。我们的基本步骤包括在两堆牌的顶上的两张牌中选取较小的一张并将该牌放置到输出堆。重复这个步骤，直到一个输入堆为空，这时，我们只是拿起剩余的输出堆并牌面朝下的将该堆放置到输出堆。</p>
+<p>这个合并算法需要 \(\Theta(n)\) 的时间。</p>
+<h3 id="过程演示-v3">过程演示</h3>
+<h4 id="总体框架">总体框架</h4>
+<p><img src="/images/algorithms-sort/merge-sort.png" alt="title"></p>
+<h4 id="合并过程">合并过程</h4>
+<p><img src="/images/algorithms-sort/merge1.png" alt="title">
+<img src="/images/algorithms-sort/merge2.png" alt="title"></p>
+<h3 id="c语言实现-v5">C语言实现</h3>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * merge	-	merge array</div><div class="line"> * @param array	the array to be merge</div><div class="line"> * @param start	the start of the array</div><div class="line"> * @param mid	the end of the left array</div><div class="line"> * @param end	the end of the whole array</div><div class="line"> *</div><div class="line"> * A key subroutine of merge sort.</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">static</span> <span class="keyword">void</span> merge(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> start, <span class="keyword">int</span> mid, <span class="keyword">int</span> end)</div><div class="line">{</div><div class="line">    <span class="comment">// Logically divide the array into two and treat them respectively</span></div><div class="line">    <span class="keyword">int</span> n1 = mid - start + <span class="number">1</span>;</div><div class="line">    <span class="keyword">int</span> n2 = end - mid;</div><div class="line">    <span class="keyword">int</span> left[n1], right[n2];</div><div class="line">    <span class="keyword">int</span> i, j, k;</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n1; i++)  <span class="comment">// left holds array[start...mid]</span></div><div class="line">        left[i] = <span class="built_in">array</span>[start + i];</div><div class="line">    <span class="keyword">for</span> (j = <span class="number">0</span>; j &lt; n2; j++)  <span class="comment">// right holds array[mid+1..end]</span></div><div class="line">        right[j] = <span class="built_in">array</span>[mid + <span class="number">1</span> + j];</div><div class="line">    </div><div class="line">    i = j = <span class="number">0</span>;</div><div class="line">    k = start;</div><div class="line">    <span class="keyword">while</span> (i &lt; n1 && j &lt; n2){</div><div class="line">    <span class="keyword">if</span> (left[i] &lt; right[j])</div><div class="line">        <span class="built_in">array</span>[k++] = left[i++];</div><div class="line">    <span class="keyword">else</span></div><div class="line">        <span class="built_in">array</span>[k++] = right[j++];</div><div class="line">    }</div><div class="line">    <span class="comment">// append the rest to the array</span></div><div class="line">    <span class="keyword">while</span> (i &lt; n1)  <span class="comment">// left[] is not exhausted</span></div><div class="line">        <span class="built_in">array</span>[k++] = left[i++];</div><div class="line">    <span class="keyword">while</span> (j &lt; n2)</div><div class="line">        <span class="built_in">array</span>[k++] = right[j++];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span>;</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * msort	-	ascendly merge sort the array</div><div class="line"> * @param array	the array to be sorted</div><div class="line"> * @param start	the start of the array</div><div class="line"> * @param end	the end of the array</div><div class="line"> *</div><div class="line"> * Sorting the array ascendly by using the merge sort algorithms.</div><div class="line"> * The core of merge sort.</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">static</span> <span class="keyword">void</span> msort(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> start, <span class="keyword">int</span> end)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> mid;</div><div class="line">    <span class="keyword">if</span> (start &lt; end){</div><div class="line">        mid = (start + end) / <span class="number">2</span>;</div><div class="line">        msort(<span class="built_in">array</span>, start, mid);</div><div class="line">        msort(<span class="built_in">array</span>, mid + <span class="number">1</span>, end);</div><div class="line">        merge(<span class="built_in">array</span>, start, mid, end);</div><div class="line">    }</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * merge_sort	-	ascendly merge sort the array</div><div class="line"> * @param array		the array to be sorted</div><div class="line"> * @param length	the length of the array</div><div class="line"> *</div><div class="line"> * The interface of merge sort.</div><div class="line"> * @returns 0 after sorting.</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">extern</span> <span class="keyword">void</span> merge_sort(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> length)</div><div class="line">{</div><div class="line">    msort(<span class="built_in">array</span>, <span class="number">0</span>, length-<span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h3 id="性质-v4">性质</h3>
+<p><img src="/images/algorithms-sort/sortsearch.calcrecurrence.png" alt="递归树"></p>
+<ul>
+<li>算法复杂度：\(O(n\lg{n})\)</li>
+<li>原址：否</li>
+<li>稳定：是</li>
+</ul>
+<h2 id="堆排序">堆排序</h2>
+<p>堆排序（Heapsort）是指利用堆这种数据结构所设计的一种排序算法。堆积是一个近似完全二叉树的结构，并同时满足堆积的性质：即子结点的键值或索引总是小于（或者大于）它的父节点。</p>
+<h3 id="算法思想-v3">算法思想</h3>
+<h4 id="堆">堆</h4>
+<p>这里的堆(二叉堆)，指得不是堆栈的那个堆，而是一种数据结构。</p>
+<p>堆是一个数组，它可以被看成一个近似的完全二叉树。完全二叉树的一个<q>优秀</q>的性质是，除了最底层之外，每一层都是满的，而且是从左向右填充。因此，树上的每一个结点可以对应数组中的一个元素。这使得堆可以利用数组来表示。每一个结点对应数组中的一个元素。</p>
+<p><img src="/images/algorithms-sort/heap.png" alt="以二叉树和数组形式展现的一个最大堆"></p>
+<p>二叉堆一般分为两种：最大堆和最小堆。</p>
+<h5 id="最大堆">最大堆</h5>
+<p>堆中每个父节点的元素值都大于等于其孩子结点（如果存在）,这样的堆就是一个最大堆。因此,最大堆中的最大元素值出现在根结点(堆顶)。堆排序算法使用的是最大堆。</p>
+<h5 id="最小堆">最小堆</h5>
+<p>最小堆的组织方式正好相反：最小堆性质是指每个父节点的元素值都小于或等于其孩子结点（如果存在）。因此，最小堆中的最小元素存放在根节点中。最小堆通常用于构造优先队列。</p>
+<h4 id="堆节点的访问">堆节点的访问</h4>
+<p>通常堆是通过一维数组来实现的。在起始数组为 0 的情形中：</p>
+<ul>
+<li>父节点i的左子节点在位置 (2*i+1);</li>
+<li>父节点i的右子节点在位置 (2*i+2);</li>
+<li>子节点i的父节点在位置 floor((i-1)/2);</li>
+</ul>
+<h3 id="堆排序-v2">堆排序</h3>
+<p>堆排序是一种利用堆这种数据结构，进行原地排序的排序算法，其时间复杂度是\(O(n\lg{n})\)，而且只和数据规模有关。</p>
+<p>堆排序算法是一种很漂亮的算法，这里需要用到三个函数：MaxHeapify、BuildMaxHeap 和 HeapSort。</p>
+<ul>
+<li>最大堆调整（MaxHeapify）：将堆的末端子节点作调整，使得子节点永远小于父节点。其时间复杂度为 \(O(\lg{n})\) 。</li>
+<li>创建最大堆（BuildMaxHeap）：将堆所有数据重新排序。具有线性时间复杂度。</li>
+<li>堆排序（HeapSort）：移除位在第一个数据的根节点，并做最大堆调整的递归运算。其时间复杂度为 \(O(n\lg{n})\)。</li>
+</ul>
+<h3 id="过程演示-v4">过程演示</h3>
+<h4 id="maxheapify">MaxHeapify</h4>
+<p>下图演示了 MaxHeapify 的执行过程。在程序的每一步中，从 A[i]、A[LEFT(i)] 和 A[RIGHT(i)] 中挑选出最大的，并将其下标存储在变量 largest 中。如果 A[i] 是最大的，那么以 i 为根结点的子树已经是最大堆，程序结束。否则，最大元素是 i 的某个孩子结点，则交换 A[i] 和 A[largest] 的值。从而使 i 及其孩子都满足最大堆的性质。在交换后，下标为 largest 的结点的值是原来的 A[i]，于是以该结点为根的子树又有可能会违反最大堆的性质。因此，需要对该子树递归调用 MaxHeapify 。</p>
+<p><img src="/images/algorithms-sort/max-heapify.png" alt="当 A.heap-size = 10 时，MaxHeapify(A, 2)的执行过程"></p>
+<p>其中：(a)初始状态，在结点 i=2 处，A[2]违背了 最大堆性质，因为它的值不大于它的孩子。在(b)中，通过交换A[2]和A[4]的值，结点2恢复了最大堆的性质，但又导致结点4违反了最大堆的性质。递归调用 MaxHeapify(A, 4)，此时 i = 4。在©中，通过交换 A[4] 和 A[9] 的值，结点4的最大堆性质得到了恢复。在此递归调用 MaxHeapify(A, 9)，此时不再有新的数据交换。</p>
+<h4 id="buildmaxheap">BuildMaxHeap</h4>
+<p>BuildMaxHeap中自下而上的调用MaxHeapify来改造数组，建立最大堆。因为MaxHeapify能够保证下标i的结点之后结点都满足最大堆的性质，所以自下而上的调用MaxHeapify能够在改造过程中保持这一性质。</p>
+<p>如果最大堆的数量元素是n，那么BuildMaxHeap从PARENT(n)开始，往上依次调用MaxHeapify。</p>
+<p>这基于一个定理：如果最大堆有n个元素，那么从PARENT(n)+1，PARENT(n)+2…n都是叶子结点（叶子结点指没有儿子结点的结点）。</p>
+<p><img src="/images/algorithms-sort/buildmaxheap.png" alt="BuildMaxHeap"></p>
+<h4 id="heapsort">HeapSort</h4>
+<p>HeapSort是堆排序的接口算法，接受数组和元素个数两个参数。</p>
+<p>HeapSort先调用BuildMaxHeap将数组改造为最大堆，然后将堆顶和堆底元素交换，之后将底部上升，最后重新调用MaxHeapify保持最大堆性质。</p>
+<p>由于堆顶元素必然是堆中最大的元素，所以一次操作之后，堆中存在的最大元素被分离出堆。</p>
+<p>重复n-1次之后，数组排列完毕。过程演示如下：</p>
+<p><img src="/images/algorithms-sort/heap-sort.png" alt="HeapSort"></p>
+<h3 id="性质-v5">性质</h3>
+<ul>
+<li>时间复杂度：\(\Theta(n\lg{n})\)</li>
+<li>原地：是</li>
+<li>稳定：否</li>
+</ul>
+<h2 id="快速排序">快速排序</h2>
+<p>快速排序是由东尼·霍尔所发展的一种排序算法。在平均状况下，排序 n 个项目要 \(Ο(n\log n)\) 次比较。在最坏状况下则需要 \(Ο(n^2)\) 次比较，但这种状况并不常见。事实上，快速排序通常明显比其他\(Ο(n\log n)\) 算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。</p>
+<h3 id="算法思想-v4">算法思想</h3>
+<p>快速排序使用<a href="/wiki/algorithms-divide-and-conquer.html">分治法</a>策略来把一个串行（list）分为两个子串行（sub-lists）。</p>
+<ol>
+<li>分解：从数列中挑出一个元素，称为 “主元”（pivot），并以此将数列分成两个子数列（partition）：所有元素比主元值小的摆放在主元前面，所有元素比主元值大的摆在主元的后面（相同的数可以到任一边），该主元处于数列的中间位置。</li>
+<li>排序：递归地把小于主元值元素的子数列和大于主元值元素的子数列排序。</li>
+<li>合并：合并子数列。</li>
+</ol>
+<p>可见，归并排序做的是是递归地“合并”，而快速排序做的是递归地“分区”。</p>
+<h3 id="过程演示-v5">过程演示</h3>
+<p><img src="/images/algorithms-sort/partition.png" alt="partition过程示意图"></p>
+<p>下图是 partition 过程的一个示例。\(A[r]\) 是主元，用浅灰色标记的元素是小于或等于主元的子数列，而深灰色标记的元素是比主元大的子数列。未用颜色标记的元素是尚未被分区的元素。</p>
+<p><img src="/images/algorithms-sort/partition-sample.png" alt="partition过程演示"></p>
+<h3 id="c语言实现-v6">C语言实现</h3>
+<h4 id="不依赖标准库的实现">不依赖标准库的实现</h4>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * sway	-	swap two integers</div><div class="line"> *</div><div class="line"> * @param a	the first integer</div><div class="line"> * @param b	the second integer</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">static</span> <span class="keyword">void</span> swap(<span class="keyword">int</span> *a, <span class="keyword">int</span> *b)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> temp = *a;</div><div class="line">    *a = *b;</div><div class="line">    *b = temp;</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * partition	-	divide the array into two parts by using a pivot</div><div class="line"> * @param array	the array to be divided</div><div class="line"> * @param start	the start of the array</div><div class="line"> * @param end	the end of the array</div><div class="line"> *</div><div class="line"> *</div><div class="line"> * A key subroutine of quick sort.</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">static</span> <span class="keyword">int</span> partition(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> start, <span class="keyword">int</span> end)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> pivot = <span class="built_in">array</span>[end];</div><div class="line">    <span class="keyword">int</span> mid = start;</div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">for</span> (i = start; i &lt; end; i++) {</div><div class="line">        <span class="keyword">if</span>(<span class="built_in">array</span>[i] &lt;= pivot){</div><div class="line">            swap(&<span class="built_in">array</span>[i], &<span class="built_in">array</span>[mid]);</div><div class="line">            mid++;</div><div class="line">        }</div><div class="line">    }</div><div class="line">    swap(&<span class="built_in">array</span>[end], &<span class="built_in">array</span>[mid]);</div><div class="line">    <span class="keyword">return</span> mid;</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * msort	-	ascendly quick sort the array</div><div class="line"> * @param array	the array to be sorted</div><div class="line"> * @param start	the start of the array</div><div class="line"> * @param end	the end of the array</div><div class="line"> *</div><div class="line"> * Sorting the array ascendly by using the quick sort algorithms.</div><div class="line"> * The core of quick sort.</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">static</span> <span class="keyword">int</span> q_sort(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> start, <span class="keyword">int</span> end)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> mid;</div><div class="line">    <span class="keyword">if</span> (end &gt; start) {</div><div class="line">        mid = partition(<span class="built_in">array</span>, start, end);</div><div class="line">        q_sort(<span class="built_in">array</span>, start, mid-<span class="number">1</span>);</div><div class="line">        q_sort(<span class="built_in">array</span>, mid+<span class="number">1</span>, end);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * quick_sort - ascendly quick sort the array</div><div class="line"> * @param array		the array to be sorted</div><div class="line"> * @param length	the length of the array</div><div class="line"> *</div><div class="line"> * The interface of quick sort.</div><div class="line"> *</div><div class="line"> */</div><div class="line"><span class="keyword">extern</span> <span class="keyword">void</span> quick_sort(<span class="keyword">int</span> <span class="built_in">array</span>[], <span class="keyword">int</span> length)</div><div class="line">{</div><div class="line">    q_sort(<span class="built_in">array</span>, <span class="number">0</span>, length-<span class="number">1</span>);</div><div class="line">    <span class="keyword">return</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="直接调用标准库函数">直接调用标准库函数</h4>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdio.h&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> &lt;stdlib.h&gt;</span></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "dbg.h"</span></div><div class="line"></div><div class="line"><span class="keyword">int</span> <span class="built_in">array</span>[<span class="number">8</span>] = {<span class="number">2</span>, <span class="number">8</span>, <span class="number">7</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">4</span>};</div><div class="line"></div><div class="line"><span class="keyword">int</span> cmp_int ( <span class="keyword">const</span> <span class="keyword">void</span> *a , <span class="keyword">const</span> <span class="keyword">void</span> *b )</div><div class="line">{</div><div class="line">    <span class="keyword">return</span> *(<span class="keyword">int</span> *)a - *(<span class="keyword">int</span> *)b;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> main(<span class="keyword">void</span>)</div><div class="line">{</div><div class="line">    qsort(&<span class="built_in">array</span>[<span class="number">0</span>], <span class="number">8</span>, <span class="keyword">sizeof</span>(<span class="keyword">int</span>), cmp_int);</div><div class="line">    </div><div class="line">    <span class="keyword">int</span> i;</div><div class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++){</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%d "</span>, <span class="built_in">array</span>[i]);</div><div class="line">    }</div><div class="line">    <span class="built_in">printf</span>(<span class="string">"\n"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h3 id="性质-v6">性质</h3>
+<ul>
+<li>算法复杂度：
+<ul>
+<li>最坏情况下（当数据是已排序的时候），快速排序的时间复杂度是 \(\Theta(n^{2})\) ；</li>
+<li>大多数情况下，快速排序的时间复杂度是：\(\Theta(n\lg{n})\)。</li>
+</ul>
+</li>
+<li>原址：是</li>
+<li>稳定：否</li>
+</ul>
+<h3 id="改进：快速排序的随机化版本">改进：快速排序的随机化版本</h3>
+<p>在排序前先将数列随机化，或者采用随机选择主元的方式可以将快速排序的时间复杂度始终限制在 \(\Theta(n\lg{n})\)。在实践中，快速排序往往能够比归并排序快三倍。</p>
+<h2 id="线性时间排序">线性时间排序</h2>
+<h3 id="排序算法的下界">排序算法的下界</h3>
+<p>比较排序可以被抽象为一棵决策树。决策树是一棵完全二叉树，它可以表示在给定输入规模情况下，某一特定排序算法对所有元素的比较操作。</p>
+<p><img src="/images/algorithms-sort/decision-tree.png" alt="作用于3个元素时的插入排序决策树"></p>
+<p>在决策树种，从根结点到任意一个可达叶结点之间最长简单路径的长度，表示的是对应的排序算法中最坏情况下的比较次数。因此，<strong>一个比较排序算法中的最坏情况比较次数就等于其决策树的高度</strong>。同时，当决策树中每种排列都是以可达的叶结点的形式出现时，该决策树高度的下界也就是比较排序算法运行时间的下界。</p>
+<p>因此，在最坏情况下，任何比较排序算法都需要做 \(\Omega(n\lg{n})\) 次比较。下面介绍两个非比较型整数排序算法，在适当的假设条件下可以达到线性的复杂度。</p>
+<h3 id="计数排序">计数排序</h3>
+<p>计数排序假设 \(n\) 个输入元素中的每一个都是在 0 到 \(k\) 区间内的一个整数，其中 \(k\) 为某个整数，当 \(k = O(n)\) 时，排序的运行时间为 \(\Theta(n)\) 。</p>
+<h4 id="算法思想-v5">算法思想</h4>
+<p>对每一个输入元素 x，确定小于 x 的元素个数。利用这一信息，就可以直接把 x 放到它在输出数组中的位置上了。</p>
+<h4 id="过程演示-v6">过程演示</h4>
+<p>下图是计数排序在输入数组A[1…8]上的处理过程，其中\(A\)中的每一个元素都是不大于 \(k = 5\) 的非负整数。(a) 第5行执行后数组A和辅助数组C的情况。(b)第8行执行后，数组C的情况。©~(e)分别显示了第10~12行的循环体迭代了一次、两次和三次之后，输出数组B和辅助数组C的情况。(f)最终排好序的输出数组B。</p>
+<p><img src="/images/algorithms-sort/counting-sort.png" alt="计数排序在输入数组上的处理过程"></p>
+<h4 id="性质-v7">性质</h4>
+<ul>
+<li>算法复杂度： \(\Theta(k+n)\) 。在实际工作中，当 \(k = O(n)\) 时，我们一般会采用计数排序，这时的运行时间为 \(\Theta(n)\)。</li>
+<li>原址：否</li>
+<li>稳定：是</li>
+</ul>
+<h3 id="基数排序">基数排序</h3>
+<p>基数排序的发明可以追溯到1887年赫尔曼·何乐礼（Herman Hollerith）在打孔卡片制表机（Tabulation Machine）上的贡献。</p>
+<h4 id="基本思想-v4">基本思想</h4>
+<p>将整数按位数切割成不同的数字，然后按每个位数分别比较。由于整数也可以表达字符串（比如名字或日期）和特定格式的浮点数，所以基数排序也不是只能使用于整数。</p>
+<p>基数排序的方式可以采用LSD（Least significant digital）或MSD（Most significant digital），LSD的排序方式由最低位开始，而MSD则相反，由键值的最高位开始。现在的基数排序通常使用更加高效的LSD的方案。</p>
+<h4 id="过程演示-v7">过程演示</h4>
+<p><img src="/images/algorithms-sort/radix-sort.png" alt="基数排序"></p>
+<h4 id="性质-v8">性质</h4>
+<ul>
+<li>算法复杂度： \(\Theta(d(k+n))\)</li>
+<li>原址：否</li>
+<li>稳定：是</li>
+</ul>
+<h2 id="各种算法的运行时间">各种算法的运行时间</h2>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th>最坏情况运行时间</th>
+<th>平均情况/期望运行时间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>冒泡排序</td>
+<td>\(\Theta(n^2)\)</td>
+<td>\(\Theta(n^2)\)</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>\(\Theta(n^2)\)</td>
+<td>\(\Theta(n^2)\)</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td>\(\Theta(n^2)\)</td>
+<td>\(\Theta(n^2)\)</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>\(\Theta(n\lg{n})\)</td>
+<td>\(\Theta(n\lg{n})\)</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>\(O(n\lg{n})\)</td>
+<td>–</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>\(\Theta(n^2)\)</td>
+<td>\(\Theta(n\lg{n})\)（期望）</td>
+</tr>
+<tr>
+<td>计数排序</td>
+<td>\(\Theta(k+n)\)</td>
+<td>\(\Theta(k+n)\)</td>
+</tr>
+<tr>
+<td>基数排序</td>
+<td>\(\Theta((d(n+k))\)</td>
+<td>\(\Theta((d(n+k))\)</td>
+</tr>
+<tr>
+<td>桶排序</td>
+<td>\(\Theta(n^2)\)</td>
+<td>\(\Theta(n)\) （平均情况）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="其他参考材料">其他参考材料</h2>
+<ol>
+<li>最酷的排序算法演示（冒泡排序 vs. 快速排序）</li>
+</ol>
+<p><embed src="http://www.tudou.com/v/htKY1-Rj9ZE/&resourceId=0_05_05_99&bid=05/v.swf" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" wmode="opaque" width="100%" height="400"></p>
+<ol start="2">
+<li>MIT算法导论：课程简介及算法分析</li>
+</ol>
+<p><embed src="http://swf.ws.126.net/openplayer/v01/-0-2_M6UTT5U0I_M6V2T1JGF-vimg1_ws_126_net//image/snapshot_movie/2011/5/S/8/M72MFOHS8-.swf" type="application/x-shockwave-flash" width="100%" height="360" allowfullscreen="true" wmode="transparent" allowscriptaccess="always"></p>
+<ol start="3">
+<li>MIT算法导论：快排及随机化算法</li>
+</ol>
+<p><object width="100%" height="360"><param name="movie" value="http://swf.ws.126.net/openplayer/v01/-0-2_M6UTT5U0I_M6V2T7IS4-vimg1_ws_126_net//image/snapshot_movie/2011/6/M/6/M75LF3LM6-.swf"><param name="allowScriptAccess" value="always"><param name="wmode" value="transparent"><embed src="http://swf.ws.126.net/openplayer/v01/-0-2_M6UTT5U0I_M6V2T7IS4-vimg1_ws_126_net//image/snapshot_movie/2011/6/M/6/M75LF3LM6-.swf" type="application/x-shockwave-flash" width="640" height="360" allowfullscreen="true" wmode="transparent" allowscriptaccess="always"></object></p>
+<ol start="4">
+<li>MIT算法导论：线性时间排序</li>
+</ol>
+<p><object width="100%" height="360"><param name="movie" value="http://swf.ws.126.net/openplayer/v01/-0-2_M6UTT5U0I_M6V2TBK7V-vimg1_ws_126_net//image/snapshot_movie/2011/6/P/C/M75LF3NPC-.swf"><param name="allowScriptAccess" value="always"><param name="wmode" value="transparent"><embed src="http://swf.ws.126.net/openplayer/v01/-0-2_M6UTT5U0I_M6V2TBK7V-vimg1_ws_126_net//image/snapshot_movie/2011/6/P/C/M75LF3NPC-.swf" type="application/x-shockwave-flash" width="640" height="360" allowfullscreen="true" wmode="transparent" allowscriptaccess="always"></object></p>
+<ol start="5">
+<li><a href="http://www.cnblogs.com/kkun/archive/2011/11/23/2260312.html" target="_blank" rel="external">经典排序算法集绵</a></li>
+</ol>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>原址（或称原地，in place）是指该算法在任何时候，最多只有其中的常数个数字存储在数组外面。 <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>稳定度：一个排序算法是稳定的，就是当有两个有相等关键的纪录R和S，且在原本的列表中R出现在S之前，在排序过的列表中R也将会是在S之前。不稳定排序算法可能会在相等的键值中改变纪录的相对次序，但是稳定排序算法从来不会如此。不稳定排序算法可以被特别地实现为稳定。 <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/algorithms-search.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "排序",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    }); 
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,805 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>常量 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="常量的分类
+
+
+
+类型
+说明
+
+
+
+
+int 类型常量
+诸如 1234 一类的整数常量是 int 常量。
+
+
+long 类型常量
+以字母l或L结尾的整型常量。
+
+
+无符号常量
+以字母u或U结尾的整型常量。
+
+
+浮点数常量
+包含一个小数点（如123.4）或一个指数（如1e-2），也可以两者都有。没有后">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="常量"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 常量</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="常量的分类">常量的分类</h2>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int 类型常量</td>
+<td>诸如 1234 一类的整数常量是 int 常量。</td>
+</tr>
+<tr>
+<td>long 类型常量</td>
+<td>以字母l或L结尾的整型常量。</td>
+</tr>
+<tr>
+<td>无符号常量</td>
+<td>以字母u或U结尾的整型常量。</td>
+</tr>
+<tr>
+<td>浮点数常量</td>
+<td>包含一个小数点（如123.4）或一个指数（如1e-2），也可以两者都有。没有后缀的浮点数常量为double类型。后缀f或F表示float类型，而后缀l或L则表示long double类型；</td>
+</tr>
+<tr>
+<td><a href="#%E5%AD%97%E7%AC%A6%E5%B8%B8%E9%87%8F">字符常量</a></td>
+<td>一个字符常量是一个整数，书写时将一个字符括在单引号中，如<code>x</code>。</td>
+</tr>
+<tr>
+<td><a href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%B8%B8%E9%87%8F">字符串常量</a></td>
+<td>用双引号括起来的０个或多个字符组成的字符序列。</td>
+</tr>
+<tr>
+<td><a href="#%E6%9E%9A%E4%B8%BE%E5%B8%B8%E9%87%8F">枚举常量</a></td>
+<td>一个常量整型值的列表</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字符常量">字符常量</h2>
+<p>一个字符常量是一个整数，书写时将一个字符括在单引号中，如，‘x’。字符在机器字符集中的数值就是字符常量的值。字符常量一般用来与其他字符进行比较，但也可以像其他整数一样参与数值运算。</p>
+<p>某些字符可以通过转义字符序列（例如，换行符\n）表示为字符和字符串常量。转义字符序列看起来像两个字符，但只表示一个字符。另外，我们可以用<code>\ooo</code>表示 <strong>任意的字节大小的位模式</strong> 。其中，ooo代表1~3个八进制数字（0…7）。这种位模式还可以用<code>\xhhh</code>表示，其中，hh是一个或多个十六进制数字（0…9,a…f,A…F）。因此，我们可以按照下列形式书写语句：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">define</span> VTAB '\013'  /* ASCII vertical tab */</span></div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> BELL '\007'  /* ASCII bell character */</span></div></pre></td></tr></table></figure></p>
+<p>上述语句也可以用十六进制的形式书写为：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="preprocessor">#<span class="keyword">define</span> VTAB '\xb'  /* ASCII vertical tab */</span></div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> BELL '\x7'  /* ASCII bell character */</span></div></pre></td></tr></table></figure></p>
+<p>ANSI C语言的全部转义字符序列如下所示：</p>
+<table>
+<thead>
+<tr>
+<th>转义字符</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\a</code></td>
+<td>响铃符</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>回退符</td>
+</tr>
+<tr>
+<td><code>\f</code></td>
+<td>换页符</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>换行符</td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>回车符</td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>横向制表符</td>
+</tr>
+<tr>
+<td><code>\v</code></td>
+<td>纵向制表符</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>反斜杠</td>
+</tr>
+<tr>
+<td><code>\?</code></td>
+<td>问号</td>
+</tr>
+<tr>
+<td><code>\'</code></td>
+<td>单引号</td>
+</tr>
+<tr>
+<td><code>\&quot;</code></td>
+<td>双引号</td>
+</tr>
+<tr>
+<td><code>\ooo</code></td>
+<td>八进制数</td>
+</tr>
+<tr>
+<td><code>\xhh</code></td>
+<td>十六进制数</td>
+</tr>
+</tbody>
+</table>
+<p>字符常量<code>\0</code>表示值为0的字符，也就是空字符（null）。</p>
+<h2 id="字符串常量">字符串常量</h2>
+<ul>
+<li>也叫字符串字面值，是用双引号括起来的０个或多个字符组成的字符序列。</li>
+<li>编译时可以将多个字符串常量连接起来，例如，下列形式：</li>
+</ul>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"hello,"</span> <span class="string">" world"</span></div></pre></td></tr></table></figure></p>
+<p>等价于</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">"hello, world"</span></div></pre></td></tr></table></figure></p>
+<p>字符串常量的连接为将较长的字符串分散在若干个源文件行中提供了支持。</p>
+<ul>
+<li>从技术角度看，字符串常量就是字符数组。字符串的内部表示使用一个空字符<code>\0</code>作为串的结尾，因此， <strong>存储字符串的物理存储单元数比括在双引号中的字符数多一个</strong> 。这种表示方法也说明，C语言对字符串的长度没有限制，但程序必须扫描完整个字符串后才能确定字符串的长度。标准库函数　<code>strlen(s)</code> 可以返回字符串参数ｓ的长度，但长度不包括末尾的<code>\0</code>。</li>
+</ul>
+<p>下面是我们设计的strlen函数的一个版本：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* strlen: return length of s */</span></div><div class="line"><span class="keyword">int</span> <span class="built_in">strlen</span>(<span class="keyword">char</span> s[])</div><div class="line">{</div><div class="line">  <span class="keyword">int</span> i;</div><div class="line"></div><div class="line">  <span class="keyword">while</span> (s[i] != <span class="string">'\0'</span>)</div><div class="line">      ++i;</div><div class="line">  <span class="keyword">return</span> i;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>标准头文件<code>string.h</code>中声明了<code>strlen</code>和其他字符串函数。</p>
+<p>我们应该搞清楚字符常量与仅包含一个字符的字符串之间的区别：<code>'x'</code>与<code>&quot;x&quot;</code>是不同的。前者是一个整数，其值是字母x在机器字符集中对应的数值（内部表示值）；后者是一个包含一个字符（即字母x）以及一个结束符<code>\0</code>的字符数组。</p>
+<h2 id="枚举常量">枚举常量</h2>
+<p>枚举是一个常量整型值的列表，例如：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> boolean {NO, YES};</div></pre></td></tr></table></figure></p>
+<p>在没有显式说明的情况下，enum类型中第一个枚举名的值为0，第二个为1，依此类推。如果只指定了部分枚举名的值，那么未指定的枚举名的值将依着最后一个指定值向后递增，参看下面两个例子中的第二个例子：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">enum</span> escapes { BELL = <span class="string">'\a'</span>, BACKSPACE = <span class="string">'\b'</span>, TAB = <span class="string">'\t'</span>,</div><div class="line">NEWLINE = <span class="string">'\n'</span>, VTAB = <span class="string">'\v'</span>, RETURN = <span class="string">'\r'</span> };</div><div class="line"><span class="keyword">enum</span> months { JAN = <span class="number">1</span>, FEB, MAR, APR, MAY, JUN,</div><div class="line">JUL, AUG, SEP, OCT, NOV, DEC };</div><div class="line"><span class="comment">/* FEB的值为2, MAR的值为3, 依此类推 */</span></div></pre></td></tr></table></figure></p>
+<p><strong>不同枚举中的名字必须互不相同。同一枚举中不同的名字可以具有相同的值。</strong></p>
+<h3 id="enum-vs-define">enum vs. #define</h3>
+<p>枚举为建立常量值与名字之间的关联提供了一种便利的方式。相对于<code>#define</code>语句来说，它的优势在于<strong>常量值可以自动生成</strong>。尽管可以声明enum类型的变量，但编译器不检查这种类型的变量中存储的值是否为该枚举的有效值。不过，枚举变量提供这种检查，因此枚举比<code>#define</code>更具优势。此外，调试程序可以以符号形式打印出枚举变量的值。</p>
+<h2 id="const-常量">const 常量</h2>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>强烈建议在任何可能的情况下使用 const 。</p>
+</div></p>
+<p>任何变量的声明都可以用const限定符限定。该限定符指定的变量的值不能被修改。对数组而言，const限定符指定数组所有元素的值都不能被修改：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> <span class="keyword">double</span> e = <span class="number">2.71828182845905</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">char</span> msg[] = <span class="string">"warning: "</span>;</div></pre></td></tr></table></figure></p>
+<p>const限定符也可配合数组参数使用，它表明函数不能修改数组元素的值：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> <span class="built_in">strlen</span>(<span class="keyword">const</span> <span class="keyword">char</span>[]);</div></pre></td></tr></table></figure></p>
+<p>如果试图修改const限定符限定的值，其结果取决于具体实现。</p>
+<h3 id="const-vs-define">const vs. #define</h3>
+<p>C++ 语言可以用 const 来定义常量，也可以用 #define 来定义常量。但是前者比后者有更多的优点:</p>
+<ol>
+<li>const 常量有数据类型，而宏常量没有数据类型。编译器可以对前者进行类型安全检查。而对后者只进行字符替换，没有类型安全检查，并且在字符替换可能会产生意料不到的错误(边际效应)。</li>
+<li>有些集成化的调试工具可以对 const 常量进行调试，但是不能对宏常量进行调试。</li>
+</ol>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/c-compound-type.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/c-control-flow.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "常量",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

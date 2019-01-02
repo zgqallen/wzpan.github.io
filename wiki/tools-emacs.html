@@ -1,0 +1,1049 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Emacs | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="ctags
+
+
+
+快捷键
+说明
+
+
+
+
+M-. &amp;lt;RET&amp;gt;
+跳转到光标所指的标签
+
+
+M-. &amp;lt;tag&amp;gt; &amp;lt;RET&amp;gt;
+查找一个特定的标签
+
+
+C-u M-.
+查找最近一个标签的下一个定义
+
+
+M-*
+跳回上次使用 M-. 的地方
+
+
+
+ido-mode
+
+
+
+快捷">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Emacs"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> Emacs</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="ctags">ctags</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>M-. &lt;RET&gt;</code></td>
+<td>跳转到光标所指的标签</td>
+</tr>
+<tr>
+<td><code>M-. &lt;tag&gt; &lt;RET&gt;</code></td>
+<td>查找一个特定的标签</td>
+</tr>
+<tr>
+<td><code>C-u M-.</code></td>
+<td>查找最近一个标签的下一个定义</td>
+</tr>
+<tr>
+<td><code>M-*</code></td>
+<td>跳回上次使用 <code>M-.</code> 的地方</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ido-mode">ido-mode</h2>
+<table>
+<thead>
+<tr>
+<th>快捷键</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C-s</code></td>
+<td>next</td>
+</tr>
+<tr>
+<td><code>C-r</code></td>
+<td>previous</td>
+</tr>
+<tr>
+<td><code>C-f</code></td>
+<td>直接退出到打开文件的环境</td>
+</tr>
+</tbody>
+</table>
+<p>这些是最基本的用法，在使用中，如果记不清楚如何用keys的地方，就用老方法查：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">M-x describe-function RET ido-find-file RET</div><div class="line">C-h f ido-find-file RET</div></pre></td></tr></table></figure></p>
+<h2 id="prelude">Prelude</h2>
+<p>Prelude里定义的一些快捷键：</p>
+<h3 id="全局">全局</h3>
+<table>
+<thead>
+<tr>
+<th>按键绑定</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C-M-h</code></td>
+<td>删除前一个单词(<code>backward-kill-word</code>)。（和 Bash/Zsh 一致的风格）</td>
+</tr>
+<tr>
+<td><code>C-x \</code>  | <code>align-regexp</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>C-+</code></td>
+<td>增大字号(<code>text-scale-increase</code>)</td>
+</tr>
+<tr>
+<td><code>C--</code></td>
+<td>减小字号(<code>text-scale-decrease</code>)</td>
+</tr>
+<tr>
+<td><code>C-x O</code></td>
+<td>回到上一个窗口 (与 <code>other-window</code> (<code>C-x o</code>) 相反的顺序)</td>
+</tr>
+<tr>
+<td><code>C-^</code></td>
+<td>合并两行为一行 (<code>prelude-top-join-line</code>)</td>
+</tr>
+<tr>
+<td><code>C-x p</code></td>
+<td>启动 <code>proced</code> (在Emacs下管理进程。只能工作在Linux下)</td>
+</tr>
+<tr>
+<td><code>C-x m</code></td>
+<td>启动 <code>eshell</code></td>
+</tr>
+<tr>
+<td><code>C-x M-m</code></td>
+<td>启动默认的 shell</td>
+</tr>
+<tr>
+<td><code>C-x C-m</code></td>
+<td>和 <code>M-x</code> 相同</td>
+</tr>
+<tr>
+<td><code>C-h A</code></td>
+<td>执行 <code>apropos</code> (在所有Emacs符号中搜索)</td>
+</tr>
+<tr>
+<td><code>M-/</code></td>
+<td>执行 <code>hippie-expand</code> (<code>dabbrev-expand</code> 的替代品)</td>
+</tr>
+<tr>
+<td><code>C-x C-b</code></td>
+<td>打开 <code>ibuffer</code> (<code>buffer-list</code> 的替代品)</td>
+</tr>
+<tr>
+<td><code>F12</code></td>
+<td>开/关Emacs菜单</td>
+</tr>
+<tr>
+<td><code>C-x g</code></td>
+<td>打开 Magit 的状态缓冲</td>
+</tr>
+<tr>
+<td><code>C-=</code></td>
+<td>执行 <code>expand-region</code> (递增选择文本)</td>
+</tr>
+<tr>
+<td><code>C-a</code></td>
+<td>执行 <code>prelude-move-beginning-of-line</code>。关于这个命令的详细信息请查阅 <a href="http://emacsredux.com/blog/2013/05/22/smarter-navigation-to-the-beginning-of-a-line/" target="_blank" rel="external">这里</a></td>
+</tr>
+</tbody>
+</table>
+<h3 id="prelude-mode">Prelude Mode</h3>
+<table>
+<thead>
+<tr>
+<th>按键绑定</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C-c o</code></td>
+<td>用一个外部程序打开当前访问的文件</td>
+</tr>
+<tr>
+<td><code>C-c g</code></td>
+<td>进入Google搜索 (默认搜索当前光标所在的文本)</td>
+</tr>
+<tr>
+<td><code>C-S-RET</code> 或 <code>M-o</code></td>
+<td>在当前行下方插入一个空行并适当的缩进</td>
+</tr>
+<tr>
+<td><code>S-RET</code> 或 <code>M-O</code></td>
+<td>插入一个空行并适当的缩进 (和大多数 IDE 一致)</td>
+</tr>
+<tr>
+<td><code>C-S-up</code></td>
+<td>将当前行上移（和上一行交换）</td>
+</tr>
+<tr>
+<td><code>C-S-down</code></td>
+<td>将当前行下移（和下一行交换）</td>
+</tr>
+<tr>
+<td><code>C-c n</code></td>
+<td>修正缓冲区里的缩进，并去除多余空格</td>
+</tr>
+<tr>
+<td><code>C-c f</code></td>
+<td>打开最近访问文件列表</td>
+</tr>
+<tr>
+<td><code>C-M-\</code></td>
+<td>缩进选区（如果有选择文本）或整个缓冲区</td>
+</tr>
+<tr>
+<td><code>C-c u</code></td>
+<td>在默认浏览器中打开URL</td>
+</tr>
+<tr>
+<td><code>C-c e</code></td>
+<td>执行一段 Emacs Lisp 代码并用结果代替它</td>
+</tr>
+<tr>
+<td><code>C-c s</code></td>
+<td>交换两个活动窗口</td>
+</tr>
+<tr>
+<td><code>C-c d</code></td>
+<td>重制当前行（或选区）</td>
+</tr>
+<tr>
+<td><code>C-c r</code></td>
+<td>重命名当前访问的文件或缓冲</td>
+</tr>
+<tr>
+<td><code>C-c t</code></td>
+<td>打开一个终端模拟器 (<code>ansi-term</code>).</td>
+</tr>
+<tr>
+<td><code>C-c k</code></td>
+<td>关闭除了当前缓冲区外所有打开的缓冲区</td>
+</tr>
+<tr>
+<td><code>C-c h</code></td>
+<td>打开 Helm (一个实用的buffer和工程文件导航工具)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="projectile">Projectile</h3>
+<p>下面是一系列由 <a href="https://github.com/bbatsov/projectile" target="_blank" rel="external">Projectile</a> 提供的功能：</p>
+<table>
+<thead>
+<tr>
+<th>按键绑定</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C-c p f</code></td>
+<td>列举工程里的所有文件。如果带上一个前缀参数，则会首先清空缓存。</td>
+</tr>
+<tr>
+<td><code>C-c p d</code></td>
+<td>列举工程里的所有目录。如果带上一个前缀参数，则会首先清空缓存。</td>
+</tr>
+<tr>
+<td><code>C-c p T</code></td>
+<td>列举工程里所有测试文档（specs, features, etc）</td>
+</tr>
+<tr>
+<td><code>C-c p g</code></td>
+<td>在工程里运行 grep</td>
+</tr>
+<tr>
+<td><code>C-c p o</code></td>
+<td>在当前打开的所有工程缓冲里执行 <code>multi-occur</code></td>
+</tr>
+<tr>
+<td><code>C-c p r</code></td>
+<td>对工程里的所有文件执行交互式查找-替换</td>
+</tr>
+<tr>
+<td><code>C-c p i</code></td>
+<td>使当前项目的缓冲无效（如果存在的话）.</td>
+</tr>
+<tr>
+<td><code>C-c p R</code></td>
+<td>重新生成项目的 <code>TAGS</code> 文件</td>
+</tr>
+<tr>
+<td><code>C-c p k</code></td>
+<td>关闭所有工程的缓冲</td>
+</tr>
+<tr>
+<td><code>C-c p D</code></td>
+<td>在 <code>dired</code> 打开当前工程的根目录</td>
+</tr>
+<tr>
+<td><code>C-c p e</code></td>
+<td>列举工程里最近访问的文件</td>
+</tr>
+<tr>
+<td><code>C-c p a</code></td>
+<td>在工程里执行 <code>ack</code> 命令，需要 <code>ack-and-a-half</code></td>
+</tr>
+<tr>
+<td><code>C-c p c</code></td>
+<td>根据你的工程类型执行一个标准的编译命令</td>
+</tr>
+<tr>
+<td><code>C-c p p</code></td>
+<td>根据你的工程类型执行一个标准的测试命令</td>
+</tr>
+<tr>
+<td><code>C-c p z</code></td>
+<td>增加当前访问的内容到缓存</td>
+</tr>
+<tr>
+<td><code>C-c p s</code></td>
+<td>列举所有已知的工程项目，以方便快速切换</td>
+</tr>
+</tbody>
+</table>
+<p><span class="label label-important">Important</span> 如果忘记了 Projectile 的快捷键，只需要按下这个组合键：</p>
+<p><code>C-c p C-h</code></p>
+<h3 id="组合键">组合键</h3>
+<table>
+<thead>
+<tr>
+<th>按键绑定</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>jj</code></td>
+<td>跳转到单词的开头(<code>ace-jump-word-mode</code>)</td>
+</tr>
+<tr>
+<td><code>jk</code></td>
+<td>跳转到某一字符(<code>ace-jump-char-mode</code>)</td>
+</tr>
+<tr>
+<td><code>jl</code></td>
+<td>跳转到一行的开头(<code>ace-jump-line-mode</code>)</td>
+</tr>
+<tr>
+<td><code>JJ</code></td>
+<td>回退到上一个缓冲(<code>prelude-switch-to-previous-buffer</code>)</td>
+</tr>
+<tr>
+<td><code>uu</code></td>
+<td>用树的方式查看编辑历史(<code>undo-tree-visualize</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="查找替换">查找替换</h2>
+<h3 id="常用快捷键">常用快捷键</h3>
+<table>
+<thead>
+<tr>
+<th>按键绑定</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C-s</code></td>
+<td>增量式查找</td>
+</tr>
+<tr>
+<td><code>C-r</code></td>
+<td>向后增量式查找</td>
+</tr>
+<tr>
+<td><code>M-%</code></td>
+<td>查找替换</td>
+</tr>
+<tr>
+<td><code>C-M-%</code></td>
+<td>支持<a href="/wiki/sundries-regexp.html">正则表达式</a>的查找替换</td>
+</tr>
+</tbody>
+</table>
+<p>Emacs的正则表达式符合BASIC正则表达式规范。使用正则表达式进行查找替换时有一个很有用的技巧：如果需要保留原来与pattern匹配的字符，可以使用<code>\&amp;</code>代替，例如：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">C-M-%</div><div class="line">^bc$</div><div class="line">-&-</div></pre></td></tr></table></figure></p>
+<p>将会把内容为“bc”的行替换成“-bc-”。</p>
+<h2 id="宏">宏</h2>
+<h3 id="常用快捷键-v2">常用快捷键</h3>
+<table>
+<thead>
+<tr>
+<th>按键绑定</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>C-x (</code></td>
+<td>开始录制宏</td>
+</tr>
+<tr>
+<td><code>C-x )</code></td>
+<td>结束录制宏</td>
+</tr>
+<tr>
+<td><code>C-x e</code></td>
+<td>执行宏，如果已经选中一个选区，则只在选区中执行宏</td>
+</tr>
+</tbody>
+</table>
+<h3 id="两个有用的命令">两个有用的命令</h3>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>M-x name-last-kbd-macro</code></td>
+<td>命名上次定义的宏，之后可以直接<code>M-x 宏名</code>执行它</td>
+</tr>
+<tr>
+<td><code>M-x insert-kbd-macro</code></td>
+<td>插入一个已命名的宏，通常是在你的initialization文件里插入该宏，这样下次打开emacs后仍可用</td>
+</tr>
+</tbody>
+</table>
+<h2 id="有用的链接">有用的链接</h2>
+<ol>
+<li><a href="http://www.emacswiki.org/emacs/EmacsNiftyTricks" target="_blank" rel="external">Emacs Ninty Tricks</a></li>
+<li><a href="http://www.nongnu.org/emacs-tiny-tools/keybindings/" target="_blank" rel="external">Emacs Keybindings</a></li>
+<li><a href="http://doc.norang.ca/org-mode.html" target="_blank" rel="external">Org Mode - Organize Your Life In Plain Text!</a></li>
+</ol>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/tools-manpage.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/tools-subl.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "Emacs",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,792 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Shell Snippets | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="参考文献
+
+酷壳网 CoolShell
+Ubuntu Wiki
+
+效率
+重新获得上一个命令最后一个字符串
+!$ 是一个特殊的环境变量，它代表了上一个命令的最后一个字符串。如：你可能会这样：
+123$ mkdir mydir$ mv mydir yourdir$ cd yourdir
+可以改成：
+12">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Shell Snippets"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> Shell Snippets</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<h2 id="参考文献">参考文献</h2>
+<ul>
+<li><a href="http://coolshell.cn/articles/8619.html" target="_blank" rel="external">酷壳网 CoolShell</a></li>
+<li><a href="http://wiki.ubuntu.org.cn" target="_blank" rel="external">Ubuntu Wiki</a></li>
+</ul>
+<h2 id="效率">效率</h2>
+<h3 id="重新获得上一个命令最后一个字符串">重新获得上一个命令最后一个字符串</h3>
+<p><code>!$</code> 是一个特殊的环境变量，它代表了上一个命令的最后一个字符串。如：你可能会这样：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mkdir mydir</div><div class="line"><span class="variable">$ </span>mv mydir yourdir</div><div class="line"><span class="variable">$ </span>cd yourdir</div></pre></td></tr></table></figure></p>
+<p>可以改成：</p>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>mkdir mydir</div><div class="line"><span class="variable">$ </span>mv !<span class="variable">$ </span>yourdir</div><div class="line"><span class="variable">$ </span>cd !$</div></pre></td></tr></table></figure></p>
+<h3 id="以root的身份执行上一条命令">以root的身份执行上一条命令</h3>
+<p><code>sudo !!</code> 以root的身份执行上一条命令。</p>
+<p>场景举例：比如 <code>Ubuntu</code> 里用 <code>apt-get</code> 安装软件包的时候是需要root身份的，我们经常会忘记在 <code>apt-get</code> 前加 <code>sudo</code> 。每次不得不加上 <code>sudo</code> 再重新键入这行命令，这时可以很方便的用 <code>sudo !!</code> 完事。</p>
+<h3 id="重复最近的一条命令">重复最近的一条命令</h3>
+<p>在shell下，有时候你会输入很长的命令，你可以使用 <code>!xxx</code> 来重复最近的一次命令，比如，你以前输入过， <code>vi /where/the/file/is</code> , 下次你可以使用 <code>!vi</code> 重新获得最近一次的vi命令。</p>
+<h3 id="回到上一次的目录">回到上一次的目录</h3>
+<p><code>cd -</code> 回到上一次的目录 。</p>
+<p>场景举例：当前目录为/home/a，用cd …/b切换到/home/b。这时可以通过反复执行cd -命令在/home/a和/home/b之间来回方便的切换。</p>
+<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p><strong>陈皓注</strong>：<code>cd ~</code> 是回到自己的Home目录，<code>cd ~user</code>，是进入某个用户的Home目录</p>
+</div></p>
+<h3 id="获得上次命令行的参数">获得上次命令行的参数</h3>
+<p>热键 <code>&lt;Alt&gt; .</code> 或 <code>ESC .</code> 可以重新获得上次命令行的参数。</p>
+<h3 id="替换前一条命令里的部分字符串">替换前一条命令里的部分字符串</h3>
+<p>场景： <code>echo 'wanderful'</code>，其实是想输出 <code>echo 'wonderful'</code> 。只需要 <code>^a^o</code> 就行了，对很长的命令的错误拼写有很大的帮助。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p><strong>陈皓注</strong>： 也可以使用 <code>!!:gs/old/new</code></p>
+</div></p>
+<h2 id="便捷">便捷</h2>
+<h3 id="显示ascii码表">显示ascii码表</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ man <span class="keyword">ascii</span></div></pre></td></tr></table></figure></p>
+<p>场景：忘记ascii码表的时候还需要google么?尤其在天朝网络如此“顺畅”的情况下，就更麻烦在GWF多应用一次规则了，直接用本地的man ascii吧。</p>
+<h3 id="时间戳转时间">时间戳转时间</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>date -d<span class="variable">@1234567890</span></div></pre></td></tr></table></figure></p>
+<h3 id="下载整个网站">下载整个网站</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ wget --<span class="built_in">random</span>-wait -r -p -e robots=off -U mozilla http:<span class="comment">//www.example.com</span></div></pre></td></tr></table></figure></p>
+<p>下载整个www.example.com网站。（注：别太过分，大部分网站都有防爬功能了 <code>:)</code> ）</p>
+<h3 id="查看外网的ip">查看外网的IP</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ curl ifconfig.<span class="keyword">me</span></div></pre></td></tr></table></figure></p>
+<h3 id="改一下图片的大小尺寸">改一下图片的大小尺寸</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">convert <span class="tag">input</span><span class="class">.png</span> -gravity NorthWest -<span class="attribute">background</span> <span class="value">transparent</span> -extent 720×200  <span class="tag">output</span><span class="class">.png</span></div></pre></td></tr></table></figure></p>
+<h3 id="合并多个pdf文件到一个pdf文件">合并多个pdf文件到一个pdf文件</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ gs <span class="operator">-d</span>NOPAUSE <span class="operator">-s</span>DEVICE=pdfwrite <span class="operator">-s</span>OUTPUTFILE=output.pdf <span class="operator">-d</span>BATCH input1.pdf input2.pdf</div></pre></td></tr></table></figure></p>
+<h3 id="在某个时间运行某个命令">在某个时间运行某个命令</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ echo "ls -l" | at midnight</div></pre></td></tr></table></figure></p>
+<h3 id="命令行的方式更新-twitter">命令行的方式更新 twitter</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -u user:pass <span class="operator">-d</span> status=<span class="string">"Tweeting from the shell"</span> http://twitter.com/statuses/update.xml</div></pre></td></tr></table></figure></p>
+<h3 id="检查你的gmail未读邮件">检查你的gmail未读邮件</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">curl -u username -silent <span class="string">"https://mail.google.com/mail/feed/atom"</span> | perl -ne '<span class="built_in">print</span> <span class="string">"\t"</span> <span class="keyword">if</span> /&lt;name&gt;/; <span class="built_in">print</span> <span class="string">"$2\n"</span> <span class="keyword">if</span> /&lt;(title|name)&gt;(.*)&lt;\/\<span class="number">1</span>&gt;/;'</div></pre></td></tr></table></figure></p>
+<h3 id="一句话实现一个http服务">一句话实现一个HTTP服务</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="keyword">python</span> -<span class="keyword">m</span> SimpleHTTPServer</div></pre></td></tr></table></figure></p>
+<p>一句话实现一个HTTP服务，把当前目录设为HTTP服务目录，可以通过http://localhost:8000访问 这也许是这个星球上最简单的HTTP服务器的实现了。</p>
+<h3 id="输出你最常用的十条命令">输出你最常用的十条命令</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ history | awk '{<span class="type">CMD</span>[$<span class="number">2</span>]++;<span class="built_in">count</span>++;} <span class="type">END</span> { <span class="keyword">for</span> (a <span class="keyword">in</span> <span class="type">CMD</span> )<span class="built_in">print</span> <span class="type">CMD</span>[a] <span class="string">" "</span> <span class="type">CMD</span>[a]/<span class="built_in">count</span>*<span class="number">100</span> <span class="string">"% "</span> a }' | grep -v <span class="string">"./"</span> | column -c3 -s <span class="string">" "</span> -t | <span class="built_in">sort</span> -nr | nl | head -n10</div></pre></td></tr></table></figure></p>
+<p>这行脚本能输出你最常用的十条命令，由此甚至可以洞察你是一个什么类型的程序员。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p><strong>陈皓</strong>： 有点复杂了，<code>history|awk '{print $2}'|awk 'BEGIN {FS=&quot;|&quot;} {print $1}'|sort|uniq -c|sort -rn|head -10</code></p>
+</div></p>
+<h2 id="文件管理">文件管理</h2>
+<h3 id="列出当前目录里最大的10个文件">列出当前目录里最大的10个文件</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ du <span class="operator">-s</span> * | sort -n | tail</div></pre></td></tr></table></figure></p>
+<h3 id="复制文件或者目录">复制文件或者目录</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cp -av 原文件或原目录 新文件或新目录</div></pre></td></tr></table></figure></p>
+<h3 id="不显示以-开头的行">不显示以＃开头的行</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$  cat /etc/vsftpd.conf |grep -v ^<span class="comment">#</span></div></pre></td></tr></table></figure></p>
+<h3 id="带行号显示文件的内容">带行号显示文件的内容</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ nl 文件名</div><div class="line">$ cat -n 文件名</div></pre></td></tr></table></figure></p>
+<h3 id="查看文件类型">查看文件类型</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ file filename</div></pre></td></tr></table></figure></p>
+<h3 id="获得文件的后缀名">获得文件的后缀名</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> xxx.xxx.rmvb |sed <span class="string">'s/.*\(\..*$\)/\1/'</span></div></pre></td></tr></table></figure></p>
+<h3 id="去除文件的后缀名">去除文件的后缀名</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">echo</span> xxx.xxx.rmvb |sed <span class="string">'s/\(.*\)\..*$/\1/'</span></div></pre></td></tr></table></figure></p>
+<h3 id="显示xxx文件倒数6行的内容">显示xxx文件倒数6行的内容</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tail -<span class="number">6</span> xxx</div></pre></td></tr></table></figure></p>
+<h3 id="查看文件中指定行范围的内容">查看文件中指定行范围的内容</h3>
+<p>如第五行（含）到第10行（含）：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sed -n <span class="string">'5,10p'</span> /var/log/apache2/access.log</div></pre></td></tr></table></figure></p>
+<h3 id="查看当前目录的子目录">查看当前目录的子目录</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ls <span class="operator">-d</span> */ 或 <span class="built_in">echo</span> */</div></pre></td></tr></table></figure></p>
+<h3 id="显示当前目录指定时间范围的文件">显示当前目录指定时间范围的文件</h3>
+<p>如2小时到8小时之内：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find . -mmin +<span class="number">120</span> -mmin -<span class="number">480</span> -exec more {} \;</div></pre></td></tr></table></figure></p>
+<h3 id="去除文件中的行号">去除文件中的行号</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ cut -c <span class="number">5</span>- a.py</div></pre></td></tr></table></figure></p>
+<h3 id="显示包含或者不包含字符串的文件名">显示包含或者不包含字符串的文件名</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$ grep <span class="operator">-l</span> -r 字符串 路径　<span class="comment">#显示内容包含字符串的文件名</span></div><div class="line">$ grep -L -r 字符串 路径　<span class="comment">#显示内容不包含字符串的文件名</span></div><div class="line">$ find . -path <span class="string">'./cache'</span> -prune -o -name <span class="string">"*.php"</span> -exec grep <span class="operator">-l</span> <span class="string">"date_cache[<span class="variable">$format</span>]['lang']"</span> {} \; <span class="comment">#显示当前目录下不包含cache目录的所有含有“date_cache[$format]['lang']”字符串的php文件。</span></div><div class="line">$ find . -type f -name \*.php -exec grep <span class="operator">-l</span> <span class="string">"info"</span> {} \;</div></pre></td></tr></table></figure></p>
+<h3 id="把所有文件的後辍由rm改为rmvb">把所有文件的後辍由rm改为rmvb</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rename .rm .rmvb *.rm</div></pre></td></tr></table></figure></p>
+<h3 id="把所有文件名中的大写改为小写">把所有文件名中的大写改为小写</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rename <span class="string">'tr/A-Z/a-z/'</span> *</div></pre></td></tr></table></figure></p>
+<h3 id="去掉文件中的-m">去掉文件中的^M</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#注意不要使用同样的文件名，会清空掉原文件</span></div><div class="line">$ cat filename | tr <span class="operator">-d</span> <span class="string">"^M"</span> &gt; newfile;</div><div class="line">    或者</div><div class="line">$ sed <span class="operator">-e</span> <span class="string">"s/^M//g"</span> filename &gt; newfile;</div><div class="line">    或者</div><div class="line">    ex <span class="string">"+:%s/[Ctrl+V][Enter]//g"</span> <span class="string">"+:wq"</span>  filename <span class="comment">#直接修改文件</span></div></pre></td></tr></table></figure></p>
+<h3 id="批量修改文件和目录的权限">批量修改文件和目录的权限</h3>
+<p>批量修改src目录下所有文件的权限为644：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find src -type f -exec chmod <span class="number">644</span> {} \;</div></pre></td></tr></table></figure></p>
+<p>批量修改src目录下的所有子目录的权限为755：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find src -type d -exec chmod <span class="number">755</span> {} \;</div></pre></td></tr></table></figure></p>
+<h3 id="删除特殊文件名的文件">删除特殊文件名的文件</h3>
+<p>如文件名：–help.txt ：</p>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ rm -- --help.txt 或者 rm ./--help.txt</div></pre></td></tr></table></figure></p>
+<h3 id="删除当前目录里面所有的-svn目录">删除当前目录里面所有的.svn目录</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find . -name .svn -type d -exec rm -fr {} \;</div></pre></td></tr></table></figure></p>
+<h3 id="查找删除不以java和xml结尾-并7天没有使用的文件">查找删除不以java和xml结尾，并7天没有使用的文件</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ find . ! -name *.java ! -name ‘*.xml’ -atime +<span class="number">7</span> -exec rm {} \;</div></pre></td></tr></table></figure></p>
+<h3 id="查找目录下所有有包含abcd文字的文本文件-并替换为xyz">查找目录下所有有包含abcd文字的文本文件，并替换为xyz</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ grep -rIl <span class="string">"abcd"</span> ./<span class="comment">## --color=never | xargs sed -i "s/abcd/xyz/g" #注意grep的一个参数是大写的i，一个参数是小写的L</span></div></pre></td></tr></table></figure></p>
+<h2 id="服务和进程">服务和进程</h2>
+<h3 id="列出头十个最耗内存的进程">列出头十个最耗内存的进程</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux | sort -nk +4 | tail</div></pre></td></tr></table></figure></p>
+<h3 id="列出本机进程监听的端口号">列出本机进程监听的端口号</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">netstat</span> -tlnp</div></pre></td></tr></table></figure></p>
+<h3 id="实时查看本机网络服务的活动状态">实时查看本机网络服务的活动状态</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">lsof</span> -i</div></pre></td></tr></table></figure></p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p><strong>陈皓注</strong>： <code>netstat -anop</code> 可以显示侦听在这个端口号的进程
+<strong>伟洲注</strong>： <code>lsof -i:&lt;端口号&gt;</code> 可以查看某个端口号被什么程序占用</p>
+</div></p>
+<h3 id="实时监控并过滤log是否出现了某条记录">实时监控并过滤log是否出现了某条记录</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ tail -<span class="keyword">f</span> /path/<span class="keyword">to</span>/<span class="keyword">file</span>.<span class="built_in">log</span> | sed <span class="string">'/^Finished: SUCCESS$/ q'</span></div></pre></td></tr></table></figure></p>
+<p>当file.log里出现Finished: SUCCESS时候就退出tail，这个命令用于实时监控并过滤log是否出现了某条记录。</p>
+<h3 id="在远程机器上运行一段脚本">在远程机器上运行一段脚本</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">$ </span>ssh user<span class="variable">@server</span> bash &lt; <span class="regexp">/path/to</span><span class="regexp">/local/script</span>.sh</div></pre></td></tr></table></figure></p>
+<p>在远程机器上运行一段脚本。这条命令最大的好处就是不用把脚本拷到远程机器上。</p>
+<h3 id="比较一个远程文件和一个本地文件">比较一个远程文件和一个本地文件</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ssh user@host <span class="keyword">cat</span> /path/<span class="keyword">to</span>/remotefile | diff /path/<span class="keyword">to</span>/localfile -</div></pre></td></tr></table></figure></p>
+<h3 id="后台运行一段不终止的程序-并可以随时查看它的状态">后台运行一段不终止的程序，并可以随时查看它的状态</h3>
+<p><figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ screen <span class="operator">-d</span> -m -S some_name ping my_router</div></pre></td></tr></table></figure></p>
+<p>后台运行一段不终止的程序，并可以随时查看它的状态。<code>-d -m</code> 参数启动“分离”模式，<code>-S</code> 指定了一个session的标识。可以通过<code>-R</code>命令来重新“挂载”一个标识的session。更多细节请参考screen用法 <code>man screen</code>。</p>
+<h2 id="监控">监控</h2>
+<h3 id="查看主机网卡流量">查看主机网卡流量</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/bash</span></div><div class="line"><span class="shebang">#!/bin/bash</span></div><div class="line"><span class="comment">#network</span></div><div class="line"><span class="comment">#Mike.Xu</span></div><div class="line"><span class="keyword">while</span> : ; <span class="keyword">do</span></div><div class="line">      time=<span class="string">'date +%m"-"%d" "%k":"%M'</span></div><div class="line">      day=<span class="string">'date +%m"-"%d'</span></div><div class="line">      rx_before=<span class="string">'ifconfig eth0|sed -n "8"p|awk '</span>{print <span class="variable">$2</span>}<span class="string">'|cut -c7-'</span></div><div class="line">      tx_before=<span class="string">'ifconfig eth0|sed -n "8"p|awk '</span>{print <span class="variable">$6</span>}<span class="string">'|cut -c7-'</span></div><div class="line">      sleep <span class="number">2</span></div><div class="line">      rx_after=<span class="string">'ifconfig eth0|sed -n "8"p|awk '</span>{print <span class="variable">$2</span>}<span class="string">'|cut -c7-'</span></div><div class="line">      tx_after=<span class="string">'ifconfig eth0|sed -n "8"p|awk '</span>{print <span class="variable">$6</span>}<span class="string">'|cut -c7-'</span></div><div class="line">      rx_result=$[(rx_after-rx_before)/<span class="number">256</span>]</div><div class="line">      tx_result=$[(tx_after-tx_before)/<span class="number">256</span>]</div><div class="line">      <span class="built_in">echo</span> <span class="string">"<span class="variable">$time</span> Now_In_Speed: "</span><span class="variable">$rx_result</span><span class="string">"kbps Now_OUt_Speed: "</span><span class="variable">$tx_result</span><span class="string">"kbps"</span></div><div class="line">      sleep <span class="number">2</span></div><div class="line"><span class="keyword">done</span></div><div class="line"><span class="keyword">done</span></div></pre></td></tr></table></figure></p>
+<h3 id="系统状况监控">系统状况监控</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/sh</span></div><div class="line"><span class="comment">#systemstat.sh</span></div><div class="line"><span class="comment">#Mike.Xu</span></div><div class="line">IP=<span class="number">192.168</span>.<span class="number">1.227</span></div><div class="line">top -n <span class="number">2</span>| grep <span class="string">"Cpu"</span> &gt;&gt;./temp/cpu.txt</div><div class="line">free -m | grep <span class="string">"Mem"</span> &gt;&gt; ./temp/mem.txt</div><div class="line">df -k | grep <span class="string">"sda1"</span> &gt;&gt; ./temp/drive_sda1.txt</div><div class="line"><span class="comment">#df -k | grep sda2 &gt;&gt; ./temp/drive_sda2.txt</span></div><div class="line">df -k | grep <span class="string">"/mnt/storage_0"</span> &gt;&gt; ./temp/mnt_storage_0.txt</div><div class="line">df -k | grep <span class="string">"/mnt/storage_pic"</span> &gt;&gt; ./temp/mnt_storage_pic.txt</div><div class="line">time=`date +%m<span class="string">"."</span>%d<span class="string">" "</span>%k<span class="string">":"</span>%M`</div><div class="line">connect=`netstat -na | grep <span class="string">"219.238.148.30:80"</span> | wc <span class="operator">-l</span>`</div><div class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$time</span>  <span class="variable">$connect</span>"</span> &gt;&gt; ./temp/connect_count.txt</div></pre></td></tr></table></figure></p>
+<h3 id="监控主机的磁盘空间-当使用空间超过90-就通过发mail来发警告">监控主机的磁盘空间，当使用空间超过90％就通过发mail来发警告</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/bash</span></div><div class="line"><span class="comment">#monitor available disk space</span></div><div class="line">SPACE=<span class="string">'df | sed -n '</span>/ \ / $ / p<span class="string">' | gawk '</span>{print <span class="variable">$5</span>}<span class="string">' | sed  '</span>s/%//<span class="string">'</span></div><div class="line">if [ $SPACE -ge 90 ]</div><div class="line">then</div><div class="line">fty89@163.com</div><div class="line">fi</div></pre></td></tr></table></figure></p>
+<h3 id="监控cpu和内存的使用情况">监控CPU和内存的使用情况</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/bash</span></div><div class="line"><span class="comment">#script  to capture system statistics</span></div><div class="line">OUTFILE=/home/xu/capstats.csv</div><div class="line">DATE=<span class="string">'date +%m/%d/%Y'</span></div><div class="line">TIME=<span class="string">'date +%k:%m:%s'</span></div><div class="line">TIMEOUT=<span class="string">'uptime'</span></div><div class="line">VMOUT=<span class="string">'vmstat 1 2'</span></div><div class="line"> USERS=<span class="string">'echo $TIMEOUT | gawk '</span>{print <span class="variable">$4</span>}<span class="string">' '</span></div><div class="line">LOAD=<span class="string">'echo $TIMEOUT | gawk '</span>{print <span class="variable">$9</span>}<span class="string">' | sed "s/,//'</span> <span class="string">'</span></div><div class="line">FREE='<span class="built_in">echo</span> <span class="variable">$VMOUT</span> | sed -n <span class="string">'/[0-9]/p'</span> | sed -n <span class="string">'2p'</span> | gawk <span class="string">'{print $4} '</span> <span class="string">'</span></div><div class="line">IDLE='<span class="built_in">echo</span>  <span class="variable">$VMOUT</span> | sed -n <span class="string">'/[0-9]/p'</span> | sed -n <span class="string">'2p'</span> |gawk <span class="string">'{print $15}'</span> <span class="string">'</span></div><div class="line">echo "$DATE,$TIME,$USERS,$LOAD,$FREE,$IDLE" &gt;&gt; $OUTFILE</div></pre></td></tr></table></figure></p>
+<h3 id="全方位监控主机">全方位监控主机</h3>
+<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="shebang">#!/bin/bash</span></div><div class="line"><span class="comment"># check_xu.sh</span></div><div class="line"><span class="comment"># 0 * * * * /home/check_xu.sh</span></div><div class="line"> </div><div class="line">DAT=<span class="string">"`date +%Y%m%d`"</span></div><div class="line">HOUR=<span class="string">"`date +%H`"</span></div><div class="line">DIR=<span class="string">"/home/oslog/host_<span class="variable">${DAT}</span>/<span class="variable">${HOUR}</span>"</span></div><div class="line">DELAY=<span class="number">60</span></div><div class="line">COUNT=<span class="number">60</span></div><div class="line"><span class="comment"># whether the responsible directory exist</span></div><div class="line"><span class="keyword">if</span> ! test <span class="operator">-d</span> <span class="variable">${DIR}</span></div><div class="line"><span class="keyword">then</span></div><div class="line">        /bin/mkdir -p <span class="variable">${DIR}</span></div><div class="line"><span class="keyword">fi</span></div><div class="line"><span class="comment"># general check</span></div><div class="line"><span class="keyword">export</span> TERM=linux</div><div class="line">/usr/bin/top -b <span class="operator">-d</span> <span class="variable">${DELAY}</span> -n <span class="variable">${COUNT}</span> &gt; <span class="variable">${DIR}</span>/top_<span class="variable">${DAT}</span>.log <span class="number">2</span>&gt;&<span class="number">1</span> &</div><div class="line"><span class="comment"># cpu check</span></div><div class="line">/usr/bin/sar -u <span class="variable">${DELAY}</span> <span class="variable">${COUNT}</span> &gt; <span class="variable">${DIR}</span>/cpu_<span class="variable">${DAT}</span>.log <span class="number">2</span>&gt;&<span class="number">1</span> &</div><div class="line"><span class="comment">#/usr/bin/mpstat -P 0 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_0_${DAT}.log 2&gt;&1 &</span></div><div class="line"><span class="comment">#/usr/bin/mpstat -P 1 ${DELAY} ${COUNT} &gt; ${DIR}/cpu_1_${DAT}.log 2&gt;&1 &</span></div><div class="line"><span class="comment"># memory check</span></div><div class="line">/usr/bin/vmstat <span class="variable">${DELAY}</span> <span class="variable">${COUNT}</span> &gt; <span class="variable">${DIR}</span>/vmstat_<span class="variable">${DAT}</span>.log <span class="number">2</span>&gt;&<span class="number">1</span> &</div><div class="line"><span class="comment"># I/O check</span></div><div class="line">/usr/bin/iostat <span class="variable">${DELAY}</span> <span class="variable">${COUNT}</span> &gt; <span class="variable">${DIR}</span>/iostat_<span class="variable">${DAT}</span>.log <span class="number">2</span>&gt;&<span class="number">1</span> &</div><div class="line"><span class="comment"># network check</span></div><div class="line">/usr/bin/sar -n DEV <span class="variable">${DELAY}</span> <span class="variable">${COUNT}</span> &gt; <span class="variable">${DIR}</span>/net_<span class="variable">${DAT}</span>.log <span class="number">2</span>&gt;&<span class="number">1</span> &</div><div class="line"><span class="comment">#/usr/bin/sar -n EDEV ${DELAY} ${COUNT} &gt; ${DIR}/net_edev_${DAT}.log 2&gt;&1 &</span></div></pre></td></tr></table></figure></p>
+<p>放在crontab里每小时自动执行：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">0 * * * * /home/check_xu.sh</div></pre></td></tr></table></figure></p>
+<p>这样会在/home/oslog/host_yyyymmdd/hh目录下生成各小时cpu、内存、网络，IO的统计数据。</p>
+<p>如果某个时间段产生问题了，就可以去看对应的日志信息，看看当时的主机性能如何。</p>
+<h2 id="其他资源">其他资源</h2>
+<ul>
+<li><a href="http://blog.jobbole.com/48173/" target="_blank" rel="external">37条常用Linux Shell命令组合</a></li>
+</ul>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+			
+			
+		
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/shell-zsh.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/shell-other-resources.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "Shell Snippets",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

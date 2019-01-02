@@ -1,0 +1,634 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>家教十日谈 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="我家教辅导Pascal语言的心得体会。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="家教十日谈"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 家教十日谈</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>我家教辅导Pascal语言的心得体会。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<p>寒假偶然接到单院长的电话，问我是否愿意接一个家教，教一个高中生Pascal语言，时间为腊月廿一到廿四，中间休息几天，正月初六继续上到正月十一，共十天。说实话我自从大一用Delphi写了一个看图软件，之后就再没怎么碰过Pascal语言。而且我还真没有接过家教的工作，只在高中的时候和其他几个学生一起开过一个义务辅导班，辅导过几个初三的学生，不过这就是更久远前的事情了。</p>
+<p>不过，越是有挑战性的东西我往往越想征服它。重新掌握Pascal语言对我而言倒是很简单的一件事，这种结构化语言还是比较好学的。难就难在要怎么教好这个学生。在和这个学生以及她的家长聊了不到半个小时后，我大概摸了一下学生的底子，大概已有个基础，教起来应该不吃力。再加上我还没试过这样的工作，所以我就一口答应了下来。</p>
+<a id="more"></a>
+<h2 id="前期准备">前期准备</h2>
+<p>接下了这个家教后，由于当时还要准备考试，所以我并没有立即开始准备，而是先自己下了一些关于Pascal的资料，了解了Free
+Pascal的特性和发展历史，并且配置了Free Pascal的环境，仔细比对了Free
+Pascal的几个IDE，最终选定GUIDE作为推荐给学生的集成开发环境。在考试周期间我还看了《<a href="http://book.douban.com/subject/1431970/" target="_blank" rel="external">Learning
+GNU Emacs Third
+Edition</a>》这本书中的大部分内容，更全面的掌握了Emacs的用法，然后我了解了Emacs中的pascal-mode，决定将它作为我上课时候使用的IDE。之所以不选择GUIDE，是因为GUIDE的功能太多，我还是希望用最纯粹的编辑器来完成编辑和编译，Emacs就最适合不过。考完试后，我买了一本Free
+Pascal的教材《<a href="http://book.douban.com/subject/3117001/" target="_blank" rel="external">Free
+Pascal语言与基础算法</a>》，将它作为主要教材，开始备课。这时候离家教第一日只有两天时间了，而我还没有学完所有的语法。没办法，只好边学边做了。</p>
+<p>我将课程分成8讲，准备用十天的讲完：</p>
+<ol>
+<li>Pascal 基础知识</li>
+<li>顺序结构和选择结构</li>
+<li>循环结构</li>
+<li>数组类型</li>
+<li>函数与过程</li>
+<li>集合与记录类型</li>
+<li>指针与链表</li>
+<li>复习、提高、展望</li>
+</ol>
+<p>接下来要解决的问题就是上课的方式。具体得解决下面几个问题：</p>
+<p><strong>首先，是否需要课件辅助？</strong> 为了更好地掌握上课的流程，而且让学生用更方便地回顾我讲过的内容，我决定还是使用课件。</p>
+<p><strong>其次，课件是自己做，还是用现成的？</strong> 网上关于Pascal的课件也多如牛毛，但是我看了一些现成的课件，都觉得做的太粗糙。于是，我决定自己做。</p>
+<p><strong>再者，课件用什么工具来做？</strong> 很多人自然会想用PowerPoint，但我实在不满PPT的质量，而且它无法实现语法高亮，因此我决定使用LaTeX+Beamer来制作课件。</p>
+<p><strong>最后，每节课都有这么多内容，而课又是每天都要上的，这么短的时间来得及用Beamer完成课件吗？</strong> 这就要考验我的速度了。我以往用LaTeX+Beamer准备课件从来没有少于一天，何况我还没有来得及看完所有知识点。所以，要在这十天内每天都来得及完成这三个工作：1)看完第二天要讲的教材内容，做完所有例题；2)确定讲课内容；3)敲出一个新的课件，这对我而言是一个极大的挑战。不过既然选择了这种方式，就只好硬着头皮上了。而且，我对于 Beamer 的长期效率还是很有信心的，我相信随着课件的增多，我耗费在 LaTeX 的排版上的时间将逐步降低，效率也将逐步加快，甚至比制作PPT要更省成本。就如这个图，对 Word 和 LaTeX 效率的比较：</p>
+<p><img src="/images/teaching-pascal/1.png" alt="Word和LaTeX效率的比较"></p>
+<h2 id="第一日：过犹不及">第一日：过犹不及</h2>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>时间：2012年1月15日；</li>
+<li>主讲内容：第一讲 Pascal的基础知识</li>
+</ul>
+</div></p>
+<p><strong>万事开头难</strong>。在第一日主要是讲第一讲的内容，这一讲的内容很简单，但也很困难。<strong>我认为这一讲最重要的任务就是要让学生去认识什么是软件开发，甚至让她在第一节课就认识到软件开发的魅力所在</strong>。因此，我的想法是花尽可能少的时间讲具体的Pascal语法，而是用更多的篇幅去介绍这些软件开发的东西，于是我画了这节课的mindmap：</p>
+<p><img src="/images/teaching-pascal/2.png" alt="第一日的 Mindmap"></p>
+<p>我便开始用LaTeX+Beamer准备我第一讲的课件。果然，这个课件花费了我两天的时间。原因是因为第一个课件往往需要进行很多格式上的设置，比如，<strong>为了方便以后的重用，我创建了一个setup文件夹，用以保存格式上的设置，每一讲则单独创建一个文件夹，用以放置主要的课件内容</strong>。之后，我还需要设置Beamer的样式。例如，我选择了带导航条的Singapore主题，使用使得每一行缩进2格，使用listings宏包来显示代码框，并且配置lstset使之支持代码高亮……下面这张图展示了我在Beamer下实现的代码高亮效果：</p>
+<p><img src="/images/teaching-pascal/3.png" alt="Beamer的代码高亮效果"></p>
+<p>这些定制都占用了我相当长的时间，幸运的是这些工作只需要做一次。</p>
+<p>终于来了家教第一日，由于课件准备的很充分，所以我只需要按部就班的讲这些内容即可。首先自我介绍了一下，然后大概交流了一下我的上课方式，我跟她说：“<strong>如果你听不懂，那不是你的问题，而是我讲的不好</strong>”。算是对我的一种鞭策。其实对我而言，我最大的目的是希望能够通过这门课激发她对于编程的兴趣，因为兴趣就是最好的导师。于是，接下来，我跟她分享了一些对于编程语言学习有帮助的工具，比如论坛、博客、Evernote等，还顺便提了一下“程序员九诫”。然后，我开始讲解结构化开发的基础，详细剖析了几个结构化开发的例子。比如下面这张出自生活大爆炸的插图，就用到了结构化开发的思想。</p>
+<p><img src="/images/teaching-pascal/4.jpg" alt="《生活大爆炸》Sheldon 的交友流程图"></p>
+<p>我自认为我的软件工程方法学学的还不错，所以借这个东西和她聊了很多结构化开发的东西，甚至还提了一下面向对象、极限编程、面向方面编程等开发方法。最后才开始讲Free
+Pascal，包括Free
+Pascal的历史、特点、安装和配置、IDE的选择和简单程序设计。我还特别跟她推荐了GUIDE。</p>
+<p>然而，学生对我所讲的东西似乎不是很感兴趣，包括我所介绍的那些工具，看出来都没有想去学习的欲望。这节课我也带着试水的目的，看看学生的基础知识已经掌握到什么水平，果然，她对于这些基础已经很熟悉，所以等我讲完所有内容时，我明显感觉到她认为我讲的内容太简单了。所以第一节课不能说讲的很成功。</p>
+<p>看来，想在简单中包含着不简单的东西不是易事，何况我有点过犹不及了。我需要继续努力。</p>
+<h2 id="第二日：learn-to-control-time">第二日：Learn to control time</h2>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>时间：2012年1月16日</li>
+<li>主讲内容：第二讲 顺序结构</li>
+</ul>
+</div></p>
+<p>第二讲，内容依旧是Pascal最简单的一些知识点，包括顺序结构、赋值、算术表达式、输入/输出、常量和变量和标准数据类型。如果按照教材的内容来讲解，学生肯定还会嫌太简单，因此，我决定改变教学策略：<strong>从问题入手</strong>。比如，在讲解赋值的时候，我不花太多时间在解释什么是赋值上面，而是直接问两个问题：</p>
+<ol>
+<li>一个赋值语句可以给几个变量赋值?</li>
+<li>不同类型的变量能否赋值?</li>
+</ol>
+<p>然后，通过编程来得到这两道题的答案。果然，我的这个做法很有效，学生不仅听得很认真，也把这些关键问题记了下来，并且在自己做题的过程中也能够按照这些问题得到的语法规则来解题。第二节课的mindmap如下：</p>
+<p><img src="/images/teaching-pascal/5.png" alt="第二日的 Mindmap"></p>
+<p><strong>同时，我也开始有意识的使用很多形象的比喻来帮助我解释一些比较抽象的概念</strong>。比如，在解释两个变量的交换的时候，我把两个变量比喻成一杯酱油和一杯醋的交换：需要额外借助一个空杯来完成，如下图：</p>
+<p><img src="/images/teaching-pascal/6.png" alt="用空杯理解变量交换"></p>
+<p>再比如，为了让学生理解为什么要引入标准数据类型，我将计算机内存比喻成一个停车场，不同的数据类型就是针对不同类型的车提供的停车位。如下图所示：</p>
+<p><img src="/images/teaching-pascal/7.png" alt="数据类型与停车位"></p>
+<p>不过，这一讲由于内容简单，所以讲的速度很快。本来我还担心超时，结果60页的slides只用了一个小时40分钟就讲完了，剩下的20分钟我只好拿布置作业的时间来打发，搞得有点狼狈。于是，这节课又有一个新的教训：<strong>要学会控制时间</strong>。</p>
+<h2 id="第三日：开始适应">第三日：开始适应</h2>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>时间：2012年1月17日</li>
+<li>主讲内容：第三讲 选择结构</li>
+</ul>
+</div></p>
+<p>到了第三日，有了前面两天的家教经验，我已经开始适应讲课的节奏。这一讲的内容是选择结构，mindmap如下：</p>
+<p><img src="/images/teaching-pascal/8.png" alt="第三日的 Mindmap"></p>
+<p>同样，我用了很多比喻来帮助学生了解不同的选择结构，比如下面这个比喻：</p>
+<p><img src="/images/teaching-pascal/9.png" alt="if 的比喻"></p>
+<p>在讲选择语句的时候，<strong>我还顺便分享了关于if语句的程序员笑话</strong>。这个笑话的笑果还不错：</p>
+<p><img src="/images/teaching-pascal/10.png" alt="if 的笑话"></p>
+<p>**同时，在时间的控制上我也有了一个策略：在课件上多写一些例题，如果时间充裕，就多在课上编程解答；如果时间不够，就只讲解题思路，选择性的编程解答。**之后的课上我就再没有出现过剩余时间的问题。</p>
+<h2 id="第四日：程序之美">第四日：程序之美</h2>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>时间：2012年1月18日</li>
+<li>主讲内容：第四讲 循环结构</li>
+</ul>
+</div></p>
+<p>第四日讲的内容是循环，mindmap如下：</p>
+<p><img src="/images/teaching-pascal/11.png" alt="第四日的 Mindmap"></p>
+<p>一开始我同样也是采用类比的方式来解释几种循环结构，比如：</p>
+<p><img src="/images/teaching-pascal/122.png" alt=""></p>
+<p><img src="/images/teaching-pascal/12.png" alt=""></p>
+<p>另外会涉及迭代和递归的概念，这对于初学者而言是比较难理解的内容，但<strong>我希望她能够理解这两个概念，并且理解递归的美妙之处</strong>。于是，我花了很多时间，收集了很多关于递归的有趣材料，例如：</p>
+<p>递归的命名：</p>
+<p><img src="/images/teaching-pascal/13.png" alt="递归的命名"></p>
+<p>关于递归的笑话：</p>
+<p><img src="/images/teaching-pascal/14.png" alt="递归的笑话"></p>
+<p>递归的摄影：</p>
+<p><img src="/images/teaching-pascal/15.jpg" alt=""></p>
+<p><img src="/images/teaching-pascal/16.jpg" alt=""></p>
+<p><img src="/images/teaching-pascal/17.jpg" alt=""></p>
+<p>我甚至还用TikZ画了几张包含递归思想的图形：</p>
+<p><img src="/images/teaching-pascal/18.png" alt=""></p>
+<p><img src="/images/teaching-pascal/19.png" alt=""></p>
+<p><img src="/images/teaching-pascal/20.png" alt=""></p>
+<p>因此，这一节课几乎成了一节美学欣赏课，学生也听的饶有兴致。<strong>让学生带着趣味来学习编程，何乐而不为</strong>？</p>
+<p>不过，这节课也花费了我很大的时间成本：我用了一天半的时间来准备课件。为了不影响上课，我将当天的上课时间从上午10点临时改成下午两点半，一直做到我坐上车去上课的前一个小时才完工。我开始反思自己花在绘图上的时间太多，在接下来的课上我必须进一步控制在制作课件上花费的时间。</p>
+<p>19日（廿五）我迎来了短暂的休息时间。不过在家发现也没时间休息，几乎所有时间都花在和亲朋好友的聚会上了。于是到了年初五回广州时，我连课都还没备好，只好将第五讲的课延期到年初七才开始上。</p>
+<h2 id="第五日-第六日：驾轻就熟">第五日、第六日：驾轻就熟</h2>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>时间：2012年1月29日、2012年1月30日</li>
+<li>主讲内容：第五讲 数组、第六讲 函数与过程 第一节</li>
+</ul>
+</div></p>
+<p>这两讲mindmap如下：</p>
+<p><img src="/images/teaching-pascal/21.png" alt="第五日的 Mindmap"></p>
+<p><img src="/images/teaching-pascal/22.png" alt="第六日的 Mindmap"></p>
+<p>有了之前四天的经验，第五日开始我更加驾轻就熟了。介绍一维数组和二维数组的基本概念时候，我同样使用类比的方法来解释。如下图：</p>
+<p><img src="/images/teaching-pascal/23.png" alt="一维数组"></p>
+<p><img src="/images/teaching-pascal/24.png" alt="二维数组"></p>
+<p>在讲到函数的时候，我将整个主程序比喻成一个大房子，函数比喻成一个个小房间，房间外的人看不到房间里面的人在干什么，但他们只知道给房间里的人传数据，这些数据经过房间里的人严格保密的处理之后就得到结果返回给房间外的人。</p>
+<h2 id="第七日：我在学院-请勿打扰">第七日：我在学院，请勿打扰</h2>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>时间：2012年2月1日</li>
+<li>主讲内容：第七讲 集合类型</li>
+</ul>
+</div></p>
+<p>在家教期间，我几乎不参与任何社交活动，每天上午去上课，下午回来后就将自己关在房间备课。不过命运有时候就喜欢跟你开玩笑，你越想一个人的时候，越有一大堆人要找你。从初五回广州开始，连续几天都有同学陆续回来，有朋自远方来，理所当然要舍命相陪，结果每天晚上都得备课到两三点以后。到了第六日家教回来，情况就更糟糕了。这一天，首先是中午的时候出宿舍打水，忘记带钥匙，结果被锁在宿舍外面，只能找舍管求助；之后，又有同学电脑坏了让我帮忙装系统；之后，宿舍洗衣机功率太大又导致断电，要等到十点半以后才来电；这时候同学找我去喝酒，等我喝完酒回来，已经十二点多，明天的课又不能不上，于是只好忍着睡意备课到4点多才上床睡觉。这一讲的内容是集合类型，没有太大的难度，为了让学生更清楚集合的操作，我用TikZ画了三个韦恩图辅助解释并、交、差的概念：</p>
+<p><img src="/images/teaching-pascal/25.png" alt="并、交、差"></p>
+<p>这一讲的mindmap如下：</p>
+<p><img src="/images/teaching-pascal/26.png" alt="第七日的 Mindmap"></p>
+<p>到了第七日家教回来，我发现学院的大门终于开了。这意味着我可以到实验室里静心备课了。于是，我补了半个小时的睡眠，然后就兴冲冲的跑到实验室，开始享受安静的实验室环境。这时候如果有人找我，恐怕我的第一句话将是：“我在学院，请勿打扰。”</p>
+<h2 id="第八日：缓冲">第八日：缓冲</h2>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>时间：2012年2月2日</li>
+<li>主讲内容：第八讲 文件操作</li>
+</ul>
+</div></p>
+<p>到了第八日，按照规划本来应该是讲指针，但是我看了一下教材上的内容，发现需要画很多个图，如果按照原定方案去备课，今晚一定是备不完的。学生4号就开学，家长希望我能够按照计划上完课，不能再拖延。因此我必须想办法提高课件准备速度。</p>
+<p>如果说教学速度是高速的CPU的话，那么做这个课件的速度就好像是低速的硬盘，因此需要通过其他比较容易准备的课件来缓冲一下。因此，我决定在指针这一讲前增加一讲：文件操作。先准备这一讲的课件，然后提前画好下一讲的图。</p>
+<p>由于前面做了比较多的课件，形成了比较完善的Beamer模板，所以做课件的时间主要花费在内容上，而不再花费在格式上。因此这讲的课件准备起来也比较容易，同时，我还利用剩余的一点时间画指针和链表这一讲的插图。在绘制插图的时候我也遇到了问题：这么多的插图如果用TikZ来画的话工作量太大，短时间内肯定画不完。于是，我使用了陈寅老师推荐的一个非常高效的方法：先在Windows下用Visio来画图，然后全部转成pdf格式，再切换回Ubuntu，将这些pdf文件插入tex文档中。这个方法画出来的图案不仅保持高清，而且绘图过程也很快。用这个方法，我很快就画完了下一讲的所有插图。</p>
+<h2 id="第九日：故事会">第九日：故事会</h2>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>时间：2012年2月3日</li>
+<li>主讲内容：第九讲 指针和链表</li>
+</ul>
+</div></p>
+<p>原定的计划是指针和链表分开来讲，但为了不影响进度，我还是将指针和链表合并成一起来讲。这一讲的形式又有点区别，由于指针和链表是很多初学者比较畏惧的内容，为了让学生更加容易接受指针和链表的概念，我准备了一个故事。</p>
+<p>一个旅店，同时提供两种租房方式：</p>
+<ul>
+<li>
+<p>常住：一旦办理了，在整个租房期限内，这个房间将一直提供给这个客户使用。即使客户需要出差一段时间，甚至提前离开旅店，这个房间依然会为这个客户留着。</p>
+</li>
+<li>
+<p>流动：有需要入住的时候,就向酒店管理员申请一个房号；当要离开的时候，可以退订这间房；这个房间将留给其他人使用；当需要再入住酒店的时候，可以再向酒店管理员申请一个新的房号。</p>
+</li>
+</ul>
+<p>现在，旅店来了一支旅游团，他们有很多人，要申请入住。为了联系方便，他们要求房间号要连在一起。旅店管理员查看了一下，暂时没有足够的连续的空房间可以让他们入住，但如果不要求房间号连续的话，就完全能够安排他们入住。怎么提供房间，才能既能容纳所有的旅客，又能让这些旅客彼此相联系呢？</p>
+<ul>
+<li>方案一：让所有人住进分散的房间，并给带团的列张清单，上面写着每个人入住哪个房间。这样，如果要通知下达所有成员时，就由带团的人根据清单一个个访问他们的房间。但带团的人拒绝了这个方案，因为他一个人要拿着清单跑遍旅馆,增加了他的负担。</li>
+<li>方案二：让所有人住进分散的房间，让旅客排好队，从第一个旅客开始，每个旅客记住下一个旅客入住的房间。这样，如果有通知要下达所有成员时，就从第一个成员开始，让每个人负责通知下一个旅客。带团的人斟酌了一下，欣然接受了这个建议。</li>
+</ul>
+<p>我在这个故事里隐含了静态类型数据（常住）和动态数据（即指针，流动），以及数组（连号房间）和链表（方案二）的概念。我还把指针比喻成一把指向某个房间的钥匙，把申请空间比喻成申请房间，把注销空间比喻成退掉房间。这个故事和这些类比都让学生更好地理解了指针和链表的作用。相信对她未来对于指针和数据结构的进一步学习会有一定的帮助。</p>
+<h2 id="第十日：玩玩游戏-吹吹牛皮-搞搞文艺">第十日：玩玩游戏、吹吹牛皮、搞搞文艺</h2>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>时间：2012年2月4日</li>
+<li>主讲内容：第十讲 复习、提高、展望</li>
+</ul>
+</div></p>
+<p>最后一天的时间，按照计划是做一个比较全面的回顾和复习，不过学生跟我说更希望我教她用RPG
+Maker做游戏。于是，我就准备了一些游戏开发方面的基础知识，给她示范了一个最基本的RPG
+Maker游戏的制作过程，并且顺便提及了底层可能的实现方法，包括图像引擎、数据库、游戏引擎的基本概念，还有碰撞检测之类的算法。尤其是站在Pascal语言的角度，探讨了如果用Pascal来实现这些功能的可能方法。</p>
+<p>在最后的半个小时，我又和她分享了游戏美工方面的基础知识，并交流了几个我在大学时期做过的一些项目作品。我们在非常轻松的氛围下结束了全部的内容。</p>
+<h2 id="结束语：路漫漫其修远兮">结束语：路漫漫其修远兮</h2>
+<p>这十天的家教，我能明显看到我的学生的技术在不断提高，并且对编程的兴趣更加浓厚，也开始形成良好的编程习惯。同时，这十天的家教不仅是给我的学生上的课，也是给我自己上的课。我从一开始如芒在背，到最后游刃有余；从一开始每晚都要熬到很晚才睡，到后来学会自己掌控时间，劳逸结合。十天的高速学习和备课也进一步提高了我的学习能力，我变得更加适应这种快速学习的节奏。</p>
+<p>我的导师李兴民老师在给我们上完一门数学课程后，在黑板上用左手留下了“路漫漫其修远兮”的题辞。这句话出自屈原，意思是告诫我们永远不要满足于已有的知识，而应该继续奋斗，探索知识。</p>
+<p>在这里，我也想以这句话作为我上完十天课的结束语，“路漫漫其修远兮”，编程之路还很漫长，需要不断求索，不断学习，我们才能在未来收获成功。这句话送给我的学生，送给我自己，也送给每一个和我们一样的Coder。</p>
+<h2 id="我的pascal课件">我的Pascal课件</h2>
+<p>这里收集了我制作的 Pascal 语言基础的课件。</p>
+<ul>
+<li><a href="http://ishare.iask.sina.com.cn/f/22765316.html" target="_blank" rel="external">第一讲 Pascal基础知识</a>
+</li>
+<li><a href="http://ishare.iask.sina.com.cn/f/22794874.html" target="_blank" rel="external">第二讲 顺序结构</a>
+</li>
+<li><a href="http://ishare.iask.sina.com.cn/f/22813509.html" target="_blank" rel="external">第三讲 选择结构</a>
+</li>
+<li><a href="http://ishare.iask.sina.com.cn/f/22843331.html" target="_blank" rel="external">第四讲 循环结构</a>
+</li>
+<li><a href="http://ishare.iask.sina.com.cn/f/22906039.html" target="_blank" rel="external">第五讲 数组类型</a>
+</li>
+<li><a href="http://ishare.iask.sina.com.cn/f/22918599.html" target="_blank" rel="external">第六讲 函数与过程</a>
+</li>
+<li><a href="http://ishare.iask.sina.com.cn/f/22930494.html" target="_blank" rel="external">第七讲 集合与数据类型</a>
+</li>
+<li><a href="http://ishare.iask.sina.com.cn/f/22950594.html" target="_blank" rel="external">第八讲 文件操作</a>
+</li>
+<li><a href="http://ishare.iask.sina.com.cn/f/22954993.html" target="_blank" rel="external">第九讲 指针与链表</a>
+</li>
+</ul>
+
+		</div>
+
+		<!-- bdshare -->
+		
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"5","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/tools/mindmap/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/codes/free-pascal-on-ubuntu/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "家教十日谈",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module" id="a_donate" class="a_donate"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Feb 6 2012 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/life/">life<span>5</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/Pascal/">Pascal<span>2</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('a_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

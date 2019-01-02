@@ -1,0 +1,605 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>叮当：一个开源的中文智能音箱项目 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="介绍我开发的一个开源的智能音箱项目 dingdang-robot 。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="叮当：一个开源的中文智能音箱项目"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> 叮当：一个开源的中文智能音箱项目</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>介绍我开发的一个开源的智能音箱项目 dingdang-robot 。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<p>这个项目其实来源于我生活中的一个需求：我每天晚上都会去厨房做一个面包当明天的早餐，当我把用料按顺序准备好放进面包机时，我需要准确预约到明天早上我吃早餐的时间。然而，几乎每次在这个时候我都没有带手机在身边，而是都放在客厅里充电，这时只能跑去客厅看时间。虽然厨房到客厅只有几步之遥，但自己又是懒癌患者，每天都要这么来回奔波就觉得很不方便。要解决这个问题当然有很多种方法，比如直接买个小时钟放在厨房。不过我更希望“连看都不用看”，直接有人告诉我时间。所以，我需要一个像 Amazon Echo 那样的智能音箱。</p>
+<p>然而，不论是 Amazon Echo 、Google Home 还是微软 Cortana 音箱，在国内的使用都是个问题。虽然国内也有类似的智能音箱产品，但我没有用过这些产品，不知道可定制性如何。比如，如果我需要开发个功能让它告诉我某种面包的配方是什么，这些产品就不一定能做到了。考虑再三，我决定自己动手写一个。整个项目用了差不多三个星期的业余零碎时间。</p>
+<p>先放上项目主页：<a href="http://dingdang.hahack.com" target="_blank" rel="external">http://dingdang.hahack.com</a></p>
+<p>下面分享一下我在开发这个项目过程中的心得。</p>
+<a id="more"></a>
+<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p>如果您在使用微信或者其他客户端程序阅读本文时发现视频无法播放，请改为在浏览器中打开。</p>
+</div></p>
+<h2 id="硬件">硬件</h2>
+<p>首先要解决的是硬件问题。我选择在 Raspberry Pi 上开发。于是我买了块 Raspberry Pi 三代主板。麦克风和音响方面，出于美观的目的，买了个自带音响的 USB 全向会议麦克风。整套设备看起来就像这样：</p>
+<p><img src="/images/dingdang-robot-intro/devices1.jpg" alt="简化体"></p>
+<p>后面觉得这个麦克风自带的音响音质太一般了，所以我又外接了一个小音箱。然后再插了一个摄像头，用来实现拍照功能。最终的完全体进化成了这样：</p>
+<p><img src="/images/dingdang-robot-intro/devices2.jpg" alt="完全体"></p>
+<p>硬件有了，接下来就得开始写软件了。主要的框架借鉴了 <a href="jasperproject.github.io">Jasper 项目</a>，并加入了我自己的定制和想法。这里说说一些有意思的部分。</p>
+<h2 id="指令接收">指令接收</h2>
+<p>智能音箱要解决的一个最重要的问题就是如何接收指令。这里头主要涉及两个问题：</p>
+<ol>
+<li>被动唤醒（Passive Listening），即“什么时候开始听”。这个阶段只监听唤醒词。当听到唤醒词时，进入主动聆听。</li>
+<li>主动聆听（Active Listening），即“什么时候结束听”。这个阶段主动聆听用户的任何语音指令，然后对听到的内容进行分析处理。</li>
+</ol>
+<p>被动唤醒阶段的基本策略是：每次以 16000 的采样率录制 1024 个采样作为一个采样集，然后对采样集进行信号强度估计，当某个采样集信号强度大于一个阈值时，就认为可能接受到了指令。然后持续录制多 1 秒时间，再转交给语音识别模块。当语音识别模块认为是唤醒词时，进入主动聆听阶段。</p>
+<p>主动聆听的策略与被动唤醒基本相似，每次以 16000 的采样率录制 1024 个采样作为一个采样集，然后对采样集进行信号强度估计，当某个采样集信号强度低于一个阈值约 1 秒的时间时，就认为用户已说完了指令。当然还要考虑环境吵杂，一直处于聆听的可能。因此可以再加一个超时保护，超过 12 秒就结束聆听。</p>
+<h2 id="语音处理">语音处理</h2>
+<p>说说STT（语音识别）引擎和TTS（文本转文本）引擎的选择。由于被动唤醒会试图识别所有听到的内容，出于隐私保护的目的，应该使用离线的语音识别引擎，因此我选择的是 <a href="https://github.com/cmusphinx/pocketsphinx" target="_blank" rel="external">PocketSphinx</a> 。而对于主动聆听，由于是在唤醒阶段才会进行转换，进入主动聆听前会有蜂鸣提示，用户也会清楚此时叮当正在听他们说话，相对来说隐私泄露的可能性就比较低，因此我选择的是在线的百度 STT 语音识别服务，也省下了扩展语音识别模型的工夫，有利于更好地实现插件可扩展。TTS 引擎方面同样也先支持了百度的语音合成。</p>
+<p>在实际测试中，PocketSphinx 的识别出乎意料的好。由于我的离线指令集只有几个候选唤醒词，PocketSphinx 对这些唤醒词的识别非常灵敏，甚至有时候其他声音也可能被误当成唤醒词而唤醒叮当。但即使被意外唤醒了，不去理会叮当就可以了。</p>
+<p>相比之下，百度的语音识别就比较迟钝了。有时候明明我发音很清晰了，还是会识别成另外的含义。通过在百度的语音识别平台<a href="https://github.com/wzpan/dingdang-robot/wiki/configuration#%E4%BC%98%E5%8C%96%E7%99%BE%E5%BA%A6%E8%AF%AD%E9%9F%B3%E8%AF%86%E5%88%AB%E5%87%86%E7%A1%AE%E5%BA%A6" target="_blank" rel="external">上传自定义的语音识别词库</a> 可以提高识别的准确率。另外，由于我用的是 Restful API，网速比较差的时候响应也比较慢。我在家用的是 10M 带宽的网络，反应速度还算可以接受。我准备后面尝试接入更多的语音识别平台，看看识别速度和准确度方面能否有所提升。</p>
+<p>下面这个视频是我与叮当对话的演示。我把唤醒词设置成了“小梅”：</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>使用手机阅读本文的用户，如果看不到视频，可以点击<a href="http://www.miaopai.com/show/-yeEBNJlvrQ-UNZzaglxr2s9JQU8TZNy.htm" target="_blank" rel="external">这个链接</a>前往观看。</p>
+</div></p>
+<center>
+<embed src="http://player.youku.com/player.php/sid/XMjg0OTQ1OTkxNg==/v.swf" allowfullscreen="true" quality="high" width="480" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+</center><br>
+<p>一个问题是当回答内容比较长（比如问叮当当天的新闻）时，合成语音的耗时会变得很长，给人的感受是叮当的响应很慢。所以我加了个 <code>read_long_content</code> 的选项。当内容过长时，改成发送到用户的邮箱或者微信。下面这段音频是一个例子：</p>
+<p><i class="fa fa-music"></i><a href="http://onmw7y6f4.bkt.clouddn.com/%E9%95%BF%E5%86%85%E5%AE%B9%E5%8F%91%E5%BE%AE%E4%BF%A1.mp3" target="_blank"> 长内容发微信 (270.37KB) </a></p>
+<p><img src="/images/dingdang-robot-intro/long_content.png" alt="微信接收长内容"></p>
+<h2 id="插件">插件</h2>
+<p>叮当最好玩的部分当然就是玩插件了，通过写插件可以让叮当接入各种各样的服务，完成各种各样的事情。我在叮当里也内置了几个插件<sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。为了方便用户扩展，我把 <code>~/.dingdang/contrib</code> 设定为第三方插件目录，允许让用户在里头编写插件并提交到 <a href="https://github.com/wzpan/dingdang-contrib" target="_blank" rel="external">dingdang-contrib</a> 项目共享。</p>
+<ul>
+<li><a href="https://github.com/wzpan/dingdang-robot/wiki/plugins#time" target="_blank" rel="external">Time</a>：顾名思义就是询问时间的，先满足我的个人需求。</li>
+<li><a href="https://github.com/wzpan/dingdang-robot/wiki/plugins#echo" target="_blank" rel="external">Echo</a>：简单的回声/传话功能。当接入微信时，可以利用这个功能实现远程给家里发语音消息。</li>
+<li><a href="https://github.com/wzpan/dingdang-robot/wiki/plugins#email" target="_blank" rel="external">Email</a>：询问邮箱中有多少未读邮件。在这之前用户需要先配置好邮箱账户。另外，叮当还有个定期消息检查机制，每 30 秒会执行一次邮件检查，如果有未读邮件，将会在当次运行会话中给用户语音播报一次。</li>
+<li><a href="https://github.com/wzpan/dingdang-robot/wiki/plugins#camera" target="_blank" rel="external">Camera</a>：用于调起摄像头拍照（如果安装了摄像头的话）。如果接入了邮箱或微信，照片将发送到用户的邮箱或微信中（选择哪种取决于配置中 prefers_email 的值）。</li>
+<li><a href="https://github.com/wzpan/dingdang-robot/wiki/plugins#unclear" target="_blank" rel="external">Unclear</a>：用于处理未知的问题。如果接入了对话机器人（例如图灵机器人），将转交给对话机器人应答；否则将给予类似 “我没听清楚” 这样的回复。</li>
+</ul>
+<p>下面这个视频是 Camera 插件的演示<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>：</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>使用手机阅读本文的用户，如果看不到视频，可以点击<a href="http://v.youku.com/v_show/id_XMjc3OTc0MDczMg==.html?spm=a2h3j.8428770.3416059.1" target="_blank" rel="external">这个链接</a>前往观看。</p>
+</div></p>
+<center>
+<embed src="http://player.youku.com/player.php/sid/XMjc3OTc0MDczMg==/v.swf" allowfullscreen="true" quality="high" width="480" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+</center><br>
+<p>另外，如果接入了微信，还可以让叮当安静地拍一张家里的照片，而不发出任何声音。下面这个视频演示了如何使用微信与家里的机器人交互，包括远程控制拍照。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>使用手机阅读本文的用户，如果看不到视频，可以点击<a href="http://v.youku.com/v_show/id_XMjc3OTcyOTE1Mg==.html?spm=a2h3j.8428770.3416059.1" target="_blank" rel="external">这个链接</a>前往观看。</p>
+</div></p>
+<center>
+<embed src="http://player.youku.com/player.php/sid/XMjc3OTcyOTE1Mg==/v.swf" allowfullscreen="true" quality="high" width="480" height="400" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+</center><br>
+<p>这对于需要远程监控家里的情况的用户而言就非常方便了，比如家里有小孩的情况。</p>
+<h2 id="音乐播放">音乐播放</h2>
+<p>既然是智能音箱，当然少不了播放音乐的功能。所以我额外写了个播放网易云音乐的插件 <a href="https://github.com/wzpan/dingdang-contrib/wiki/neteasemusic" target="_blank" rel="external">NetEaseMusic</a> 。出于版权考虑，并不集成进官方插件中，而是放进 dingdang-contrib 里头。</p>
+<p>这个插件的实现比较复杂。普通的插件接受到指令，响应完就退出了。而为了能支持各种指令控制音乐播放，这个插件在接收到播放控制指令后并不退出插件，而是进入一个播放器模式，这个模式主动聆听得到的指令只会在播放控制指令集中匹配，其他的插件指令都不起作用。只有当用户要求退出播放时才回到普通模式。NetEaseMusic 的播放控制指令如下：</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>相同指令</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>播放音乐</td>
+<td>-</td>
+<td>进入音乐播放模式。在音乐播放模式下，其他的插件功能将不可用。</td>
+</tr>
+<tr>
+<td>下一首</td>
+<td>切歌, 下一首歌, 下首歌</td>
+<td>切换到下一首歌。如果没有下一首歌，就回到列表中第一首歌</td>
+</tr>
+<tr>
+<td>上一首</td>
+<td>上一首歌，上首歌</td>
+<td>切换到上一首歌。如果没有上一首歌，就跳到列表中最后一首歌</td>
+</tr>
+<tr>
+<td>大声点</td>
+<td>大点声，大声</td>
+<td>调高播放音量</td>
+</tr>
+<tr>
+<td>小声点</td>
+<td>小点声，小声</td>
+<td>降低播放音量</td>
+</tr>
+<tr>
+<td>随机播放</td>
+<td>-</td>
+<td>随机播放列表中的音乐</td>
+</tr>
+<tr>
+<td>顺序播放</td>
+<td>-</td>
+<td>顺序播放列表中的音乐</td>
+</tr>
+<tr>
+<td>暂停播放</td>
+<td>-</td>
+<td>暂停音乐的播放</td>
+</tr>
+<tr>
+<td>播放</td>
+<td>继续</td>
+<td>继续音乐的播放</td>
+</tr>
+<tr>
+<td>榜单</td>
+<td>-</td>
+<td>播放推荐榜单</td>
+</tr>
+<tr>
+<td>歌单</td>
+<td>-</td>
+<td>播放用户的歌单（如果有多张，将只播放第一张）</td>
+</tr>
+<tr>
+<td>结束播放</td>
+<td>退出播放，停止播放</td>
+<td>退出音乐播放模式。</td>
+</tr>
+<tr>
+<td>搜索</td>
+<td>查找</td>
+<td>搜索歌曲/歌手。将自动播放搜索结果。</td>
+</tr>
+<tr>
+<td>什么歌</td>
+<td>-</td>
+<td>正在播放的是什么歌</td>
+</tr>
+</tbody>
+</table>
+<p>实现这个插件的过程中还参考了 Vellow 的 MusicBox 项目<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup>以及 yaphone 的 <a href="https://github.com/yaphone/RasWxNeteaseMusic" target="_blank" rel="external">RasWxNeteaseMusic</a> 。为了方便重用，我把 MusicBox 的核心 API 抽离了出来封成了一个 <a href="https://github.com/wzpan/MusicBoxApi" target="_blank" rel="external">MusicBoxApi 库</a> 。比较坑爹的是就在我准备发布叮当的前几天，老的获取音乐地址的方式彻底不能用了，而<a href="https://github.com/darknessomi/musicbox/wiki/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%96%B0%E7%89%88WebAPI%E5%88%86%E6%9E%90%E3%80%82" target="_blank" rel="external">新的接口</a>批量获取的地址不知道为什么是乱序的，于是我只能在播放每首歌前都调用一下新版的获取地址的 POST 接口，又增加了一点响应时间<sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>。</p>
+<p>下面这段音频是使用叮当控制音乐播放的演示：</p>
+<p><i class="fa fa-music"></i><a href="http://onmw7y6f4.bkt.clouddn.com/%E6%92%AD%E6%94%BE%E9%9F%B3%E4%B9%90.mp3" target="_blank"> 播放音乐 (2.3MB) </a></p>
+<p>完成了音乐播放功能后，叮当的好玩程度提高了很多。以前要听歌，至少得把电脑或者手机打开。现在只需要喊一声叫叮当播放歌曲就可以了。想换歌、搜索歌曲、调节音量都是说句话就搞定的事情，生活幸福指数大幅提升 <code>^_^</code> 。</p>
+<h2 id="总结和后续">总结和后续</h2>
+<p>对于有 Coding 能力的 Hacker 而言，自己动手做一个智能音箱，不仅可以当做业余练手项目，还可以自由地定制硬件模块，并实现自己需要的各种功能，这远比直接购买一个 Amazon Echo 有趣得多。</p>
+<p>后面我计划做的事情有：</p>
+<ul>
+<li>尝试接入更多的 STT / TTS 服务，优化叮当的响应时间；</li>
+<li>结合 NLP 技术实现更复杂的指令识别，比如提醒功能；</li>
+<li>加入人体感应模块等传感器，把它变得更加智能。</li>
+</ul>
+<p>更重要的，我更希望能有其他有兴趣的朋友参与进来，一同开发完善这个智能音箱项目。我相信，这种个性化服务的产品本身就应该是完全可定制的。而您的加入可以使叮当变得更智能！</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>完整的插件信息可以在<a href="https://github.com/wzpan/dingdang-robot/wiki/plugins" target="_blank" rel="external">这里</a>找到。 <a href="#fnref1" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>能支持拍照的智能音箱估计没多少吧？这就是自己开发智能音箱的好处，想接什么模块就接什么模块。想实现什么功能就实现什么功能。 <a href="#fnref2" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Github 上搜索关键词“musicbox” 可以找到好几个类似的仓库，其实都是基于 Vellow 最初的那个版本的修改。我实际上参考的是 <a href="https://github.com/darknessomi/musicbox/wiki" target="_blank" rel="external">darknessomi 的版本</a> ，但我认为最大的功劳还是该给 Vellow 。 <a href="#fnref3" class="footnote-backref">↩</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>如果您知道如何批量获取播放地址且保持原来的列表顺序，还请告诉我方法。 <a href="#fnref4" class="footnote-backref">↩</a></p>
+</li>
+</ol>
+</section>
+
+		</div>
+
+		<!-- bdshare -->
+		
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"5","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev"><a data-pjax href="/codes/how-to-write-dingdang-plugin/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/work/enterprise-class-git-version-control-5/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "叮当：一个开源的中文智能音箱项目",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module" id="a_donate" class="a_donate"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	May 22 2017 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/codes/">codes<span>35</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a data-pjax href="/tags/dingdang/">dingdang<span>4</span></a></li> <li><a data-pjax href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
+
+    </ul>
+	</div>
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('a_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

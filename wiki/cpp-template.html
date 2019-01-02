@@ -1,0 +1,736 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>模板 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="在C++中，模板是泛型的基础。
+模板定义
+定义函数模板
+定义
+123456789// impletement strcmp-like generic compare function// returns 0 if the values are equal, 1 if v1 is larger, -1">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="模板"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 模板</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<p>在C++中，模板是泛型的基础。</p>
+<h2 id="模板定义">模板定义</h2>
+<h3 id="定义函数模板">定义函数模板</h3>
+<h4 id="定义">定义</h4>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// impletement strcmp-like generic compare function</span></div><div class="line"><span class="comment">// returns 0 if the values are equal, 1 if v1 is larger, -1 if v1 is smaller</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">int</span> compare(<span class="keyword">const</span> T &v1, <span class="keyword">const</span> T &v2)</div><div class="line">{</div><div class="line">    <span class="keyword">if</span> (v1 &lt; v2) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    <span class="keyword">if</span> (v2 &lt; v1) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>模板定义以关键字 <code>template</code> 开始，后接模板形参表，模板形参表是用尖括号括住的一个或多个模板形参的列表，列表之间以括号分隔。</p>
+<p><div class="alert alert-warning"><i class="fa fa-bell"></i>  <p>模板形参表不能为空。</p>
+</div></p>
+<h4 id="模板形参表">模板形参表</h4>
+<p>模板形参表很像函数形参表，函数形参表定义了特定类型的局部变量但并不初始化那些变量，在运行时再提供实参来初始化形参。</p>
+<p>同样，模板形参表示可以在类或函数的定义中使用的类型或值。例如， compare 函数声明一个名为 T 的类型形参。在 compare 内部，可以使用名字引用一个类型，T 表示哪个实际类型由编译器根据所用的函数而确定。</p>
+<p>模板形参可以是表示类型的类型形参，也可以是表示常量表达式的非类型形参。非类型形参跟在类型说明符之后声明，类型形参跟在关键字 class 或 typename 之后定义，例如，class T 是名为 T 的类型形参，<strong>在这里 class 和 typename 没有区别</strong>。</p>
+<h4 id="使用">使用</h4>
+<p>使用函数模板时，编译器会推断哪个(或哪些)模板实参绑定到模板形参。
+一旦编译器确定了实际的模板实参，就称它实例化了函数模板的一个实例。实质
+上，编译器将确定用什么类型代替每个类型形参，以及用什么值代替每个非类型
+形参。推导出实际模板实参后，编译器使用实参代替相应的模板形参产生编译该
+版本的函数。编译器承担了为我们使用的每种类型而编写函数的单调工作。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> main()</div><div class="line">{</div><div class="line">    <span class="comment">// T is int;</span></div><div class="line">    <span class="comment">// compiler instantiates int compare(const int&, const int&)</span></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; compare(<span class="number">1</span>, <span class="number">0</span>) &lt;&lt; endl;</div><div class="line">    <span class="comment">// T is string;</span></div><div class="line">    <span class="comment">// compiler instantiates int compare(const string&, const string&)</span></div><div class="line">    <span class="built_in">string</span> s1 = <span class="string">"hi"</span>, s2 = <span class="string">"world"</span>;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; compare(s1, s2) &lt;&lt; endl;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="inline函数模板">inline函数模板</h4>
+<p>函数模板可以用与非模板函数一样的方式声明为 inline。<strong>说明符放在模板形参表之后、返回类型之前，不能放在关键字 template 之前</strong>。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ok: inline specifier follows template parameter list</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> T min(<span class="keyword">const</span> T&, <span class="keyword">const</span> T&);</div><div class="line"><span class="comment">// error: incorrect placement of inline specifier</span></div><div class="line"><span class="keyword">inline</span> <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; T min(<span class="keyword">const</span> T&, <span class="keyword">const</span> T&);</div></pre></td></tr></table></figure></p>
+<h3 id="定义类模板">定义类模板</h3>
+<h4 id="定义-v2">定义</h4>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt; <span class="keyword">class</span> Queue {</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    Queue ();			<span class="comment">// default constructor</span></div><div class="line">    Type &front ();	<span class="comment">// return element from head of Queue</span></div><div class="line">    <span class="keyword">const</span> Type &front () <span class="keyword">const</span>;</div><div class="line">    <span class="keyword">void</span> push (<span class="keyword">const</span> Type &);	<span class="comment">// add element to back of Queue</span></div><div class="line">    <span class="keyword">void</span> pop();				<span class="comment">// remove element from head of Queue</span></div><div class="line">    <span class="keyword">bool</span> empty() <span class="keyword">const</span>;		<span class="comment">// true if no elements in the Queue</span></div><div class="line"><span class="keyword">private</span>:</div><div class="line">    <span class="comment">// ...</span></div><div class="line">};</div></pre></td></tr></table></figure></p>
+<p>类模板也是模板，因此必须以关键字 template 开头，后接模板形参表。Queue 模板接受一个名为 Type 的模板类型形参。</p>
+<h4 id="使用-v2">使用</h4>
+<p>与调用函数模板形成对比，使用类模板时，必须为模板形参显式指定实参：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Queue&lt;<span class="keyword">int</span>&gt; qi;				<span class="comment">// Queue that holds ints</span></div><div class="line">Queue&lt; <span class="stl_container"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt;</span> &gt; qc;	<span class="comment">// Queue that holds vectors of doubles</span></div><div class="line">Queue&lt;<span class="built_in">string</span>&gt; qs;				<span class="comment">// Queue that holds strings</span></div></pre></td></tr></table></figure></p>
+<h3 id="模板类型形参">模板类型形参</h3>
+<p>类型形参由关键字 class 或 typename 后接说明符构成。在模板形参表中，这两个关键字具有相同的含义，都指出后面所接的名字表示一个类型。</p>
+<p>模板类型形参可作为类型说明符在模板中的任何地方，与内置类型说明符或类类型说明符的使用方式完全相同。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ok: same type used for the return type and both parameters</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; T calc (<span class="keyword">const</span> T& a, <span class="keyword">const</span> T& b)</div><div class="line">{</div><div class="line">    <span class="comment">// ok: tmp will have same type as the parameters & return type</span></div><div class="line">    T tmp = a;</div><div class="line">    <span class="comment">// ...</span></div><div class="line">    <span class="keyword">return</span> tmp;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="typename-与-class-的区别">typename 与 class 的区别</h4>
+<p>在函数模板形参表中，关键字 typename 和 class 具有相同含义，可以互换使用，两个关键字都可以在同一模板形参表中使用:</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// ok: no distinctionparameter list between typename and class in template </span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">class</span> U&gt; calc (<span class="keyword">const</span> T&, <span class="keyword">const</span> U&);</div></pre></td></tr></table></figure></p>
+<p>使用关键字 typename 代替关键字 class 指定模板类型形参也许更为直观，毕竟，可以使用内置类型(非类类型)作为实际的类型形参，而且，typename更清楚地指明后面的名字是一个类型名。但是，关键字 typename 是作为标准 C++ 的组成部分加入到 C++ 中的，因此旧的程序更有可能只用关键字 class。</p>
+<h4 id="定义类型成员">定义类型成员</h4>
+<p>除了定义数据成员或函数成员之外，类还可以定义类型成员。例如，标准库的容器类定义了不同的类型，如 size_type，使我们能够以独立于机器的方式使用容器。如果要在函数模板内部使用这样的类型，必须告诉编译器我们正在使用的名字指的是一个类型。必须显式地这样做，因为编译器(以及程序的读者)不能通过检查得知，由类型形参定义的名字何时是一个类型何时是一个值。例如，考虑下面的函数:</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> Parm, <span class="keyword">class</span> U&gt;</div><div class="line">Parm fcn(Parm* <span class="built_in">array</span>, U value)</div><div class="line">{</div><div class="line">    Parm::size_type * p; <span class="comment">// IfParm::size_typeis a type, then a declaration</span></div><div class="line">                                    <span class="comment">// If Parm::size_type is an object, then multiplication</span></div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>我们知道 size_type 必定是绑定到 Parm 的那个类型的成员，但我们不知道 size_type 是一个类型成员的名字还是一个数据成员的名字，默认情况下，编译器假定这样的名字指定数据成员，而不是类型。</p>
+<p>如果希望编译器将 size_type 当作类型，则必须显式告诉编译器这样做：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> Parm, <span class="keyword">class</span> U&gt;</div><div class="line">Parm fcn(Parm* <span class="built_in">array</span>, U value)</div><div class="line">{</div><div class="line">    <span class="keyword">typename</span> Parm::size_type * p; <span class="comment">// ok: declares p to be a pointer</span></div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>通过在成员名前加上关键字 typename 作为前缀，可以告诉编译器将成员当作类型。通过编写 <code>typename parm::size_type</code>，指出绑定到 Parm 的类型的 size_type 成员是类型的名字。当然，这一声明给用实例化 fcn 的类型增加了一个职责:那些类型必须具有名为 size_type 的成员，而且该成员是一个类型。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>如果拿不准是否需要以 typename 指明一个名字是一个类型，那么指定它是个好主意。在类型之前指定 typename 没有害处，因此，即使 typename 是不必要的，也没有关系。</p>
+</div></p>
+<h3 id="非类型模板形参">非类型模板形参</h3>
+<p>模板形参不必都是类型。在调用函数时<strong>非类型形参将用值代替</strong>，值的类型在模板形参表中指定。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// initialize elements of an array to zero</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T, size_t N&gt; <span class="keyword">void</span> array_init(T (&parm)[N])</div><div class="line">{</div><div class="line">    <span class="keyword">for</span> (size_t i = <span class="number">0</span>; i != N; ++i) {</div><div class="line">        parm[i] = <span class="number">0</span>;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>模板非类型形参是<strong>模板定义内部的常量值</strong>，在需要常量表达式的时候，可使用非类型形参(例如，像这里所做的一样)指定数组的长度。</p>
+<p>当调用 array_init 时,编译器从数组实参计算非类型形参的值:</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> x[<span class="number">42</span>];</div><div class="line"><span class="keyword">double</span> y[<span class="number">10</span>];</div><div class="line">array_init(x);	<span class="comment">// instantiates array_init(int(&)[42]</span></div><div class="line">array_init(y);	<span class="comment">// instantiates array_init(double(&)[10]</span></div></pre></td></tr></table></figure></p>
+<h2 id="实例化">实例化</h2>
+<p>模板在使用时将进行实例化，类模板在引用实际模板类类型时实例化，函数模板在调用它或用它对函数指针进行初始化或赋值时实例化。</p>
+<h3 id="模板实参推断">模板实参推断</h3>
+<h4 id="多个类型形参的实参必须完全匹配">多个类型形参的实参必须完全匹配</h4>
+<p>模板类型形参可以用作一个以上函数形参的类型。在这种情况下，模板类型推断必须为每个对应的函数实参产生相同的模板实参类型。如果推断的类型不匹配，则调用将会出错。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line"><span class="keyword">int</span> compare(<span class="keyword">const</span> T& v1, <span class="keyword">const</span> T& v2)</div><div class="line">{</div><div class="line">    <span class="keyword">if</span> (v1 &lt; v2) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    <span class="keyword">if</span> (v2 &lt; v1) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">int</span> main()</div><div class="line">{</div><div class="line">    <span class="keyword">short</span> si;</div><div class="line">    <span class="comment">// error: cannot instantiate compare(short, int)</span></div><div class="line">    <span class="comment">// must be: compare(short, short) or </span></div><div class="line">    <span class="comment">// compare(int, int)</span></div><div class="line">    compare(si, <span class="number">1024</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="类型形参的实参的受限转换">类型形参的实参的受限转换</h4>
+<p>一般而论，不会转换实参以匹配已有的实例化，相反，会产生新的实例。除了产生新的实例化之外，编译器只会执行两种转换:</p>
+<ul>
+<li>const 转换:接受 const 引用或 const 指针的函数可以分别用非 const 对象的引用或指针来调用，无须产生新的实例化。如果函数接受非引用类型，形参类型实参都忽略 const，即，无论传递 const 或非 const 对象给接受非引用类型的函数，都使用相同的实例化。</li>
+<li>数组或函数到指针的转换:如果模板形参不是引用类型，则对数组或函数类型的实参应用常规指针转换。数组实参将当作指向其第一个元素的指针，函数实参当作指向函数类型的指针。</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; T fobj(T, T); <span class="comment">// arguments are copied</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div><div class="line">T fref(<span class="keyword">const</span> T&, <span class="keyword">const</span> T&);		<span class="comment">// reference arguments</span></div><div class="line"><span class="built_in">string</span> s1(<span class="string">"a value"</span>);</div><div class="line"><span class="keyword">const</span> <span class="built_in">string</span> s2(<span class="string">"another value"</span>);</div><div class="line">fobj(s1, s2);					<span class="comment">// ok: calls f(string, string), const is ignored</span></div><div class="line">fref(s1, s2);					<span class="comment">// ok: non const object s1 converted to const reference</span></div><div class="line"><span class="keyword">int</span> a[<span class="number">10</span>], b[<span class="number">42</span>];</div><div class="line">fobj(a, b);		<span class="comment">// ok: calls f(int*, int*)</span></div><div class="line">fref(a, b);		<span class="comment">// error: array types don't match; arguments aren't converted to pointers</span></div></pre></td></tr></table></figure></p>
+<h4 id="应用于非模板实参的常规转换">应用于非模板实参的常规转换</h4>
+<p>用普通类型定义的形参可以使用常规转换。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt;{ Type sum(<span class="keyword">const</span> Type &op1, <span class="keyword">int</span> op2)</div><div class="line">    <span class="keyword">return</span> op1 + op2;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">double</span> d = <span class="number">3.14</span>;</div><div class="line"><span class="built_in">string</span> s1(<span class="string">"hiya"</span>), s2(<span class="string">" world"</span>);</div><div class="line">sum(<span class="number">1024</span>, d); <span class="comment">// ok: instantiates sum(int, int), converts d to int</span></div><div class="line">sum(<span class="number">1.4</span>, d); <span class="comment">// ok: instantiates sum(double, int), converts d to int</span></div><div class="line">sum(s1, s2); <span class="comment">// error: s2 cannot be converted to int</span></div></pre></td></tr></table></figure></p>
+<h4 id="模板实参推断与函数指针">模板实参推断与函数指针</h4>
+<p>可以使用函数模板对函数指针进行初始化或赋值，这样做的时候，编译器使用指针的类型实例化具有适当模板实参的模板版本。如果不能从函数指针类型确定模板实参，就会出错。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">int</span> compare(<span class="keyword">const</span> T&, <span class="keyword">const</span> T&);</div><div class="line"><span class="comment">// pf1 points to the instantiation int compare (const int&, const int&)</span></div><div class="line"><span class="keyword">int</span> (*pf1) (<span class="keyword">const</span> <span class="keyword">int</span>&, <span class="keyword">const</span> <span class="keyword">int</span>&) = compare;</div></pre></td></tr></table></figure></p>
+<h2 id="模板编译模型">模板编译模型</h2>
+<p>标准 C++ 为编译模板代码定义了两种模型。在两种模型中，构造程序的方式很
+大程度上是相同的：类定义和函数声明放在头文件中，而函数定义和成员定义放
+在源文件中。两种模型的不同在于，编译器怎样使用来自源文件的定义。</p>
+<h3 id="包含编译模型">包含编译模型</h3>
+<p>在包含编译模型中，编译器必须看到用到的所有模板的定义。一般而言，可以通过在声明函数模板或类模板的头文件中添加一条 <code>#include</code> 指示使定义可用，该 <code>#include</code> 引入了包含相关定义的源文件：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// header file utlities.h</span></div><div class="line"><span class="preprocessor">#ifndef UTLITIES_H <span class="comment">// header gaurd</span></span></div><div class="line"><span class="preprocessor">#<span class="keyword">define</span> UTLITIES_H</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keyword">int</span> compare(<span class="keyword">const</span> T&, <span class="keyword">const</span> T&);</div><div class="line"><span class="comment">// other declarations</span></div><div class="line"></div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "utilities.cc" <span class="comment">// get the definitions for compare etc.</span></span></div><div class="line"><span class="preprocessor">#<span class="keyword">endif</span></span></div><div class="line"></div><div class="line"><span class="comment">// implemenatation file utlities.cc</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt; <span class="keyword">int</span> compare(<span class="keyword">const</span> T &v1, <span class="keyword">const</span> T &v2)</div><div class="line">{</div><div class="line">    <span class="keyword">if</span> (v1 &lt; v2) <span class="keyword">return</span> -<span class="number">1</span>;</div><div class="line">    <span class="keyword">if</span> (v2 &lt; v1) <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">}</div><div class="line"><span class="comment">// other definitions</span></div></pre></td></tr></table></figure></p>
+<p>这一策略使我们能够保持头文件和实现文件的分享，但是需要保证编译器在编译使用模板的代码时能看到两种文件。</p>
+<p>某些使用包含模型的编译器，特别是较老的编译器，可以产生多个实例。如果两
+个或多个单独编译的源文件使用同一模板，这些编译器将为每个文件中的模板产
+生一个实例。通常，这种方法意味着给定模板将实例化超过一次。在链接的时候，
+或者在预链接阶段，编译器会选择一个实例化而丢弃其他的。在这种情况下，如
+果有许多实例化同一模板的文件，编译时性能会显著降低。对许多应用程序而言，
+这种编译时性能降低不大可能在现代计算机上成为问题，但是，在大系统环境中，
+编译时选择问题可能变得非常重要。</p>
+<h3 id="分别编译模型">分别编译模型</h3>
+<p>在分别编译模型中，编译器会为我们跟踪相关的模板定义。但是，我们必须让编
+译器知道要记住给定的模板定义，可以使用 export 关键字来做这件事。</p>
+<p>export 关键字能够指明给定的定义可能会需要在其他文件中产生实例化。在一
+个程序中，一个模板只能定义为导出一次。编译器在需要产生这些实例化时计算
+出怎样定位模板定义。export 关键字不必在模板声明中出现。</p>
+<h4 id="函数模板中使用-export">函数模板中使用 export</h4>
+<p>一般我们在函数模板的定义中指明函数模板为导出的，这是通过在关键字
+template 之前包含 export 关键字而实现的：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// the template definition goes in a separately-compiled source file</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt;</div><div class="line">Type sum(Type t1, Type t2) <span class="comment">/* ...*/</span></div></pre></td></tr></table></figure></p>
+<p>这个函数模板的声明像通常一样应放在头文件中，声明不必指定 export。</p>
+<h4 id="类模板中使用-export">类模板中使用 export</h4>
+<p>对类模板使用 export 更复杂一些。通常，类声明必须放在头文件中，头文件中
+的类定义体不应该使用关键字 export，如果在头文件中使用了 export，则该头
+文件只能被程序中的一个源文件使用。</p>
+<p>相反，应该在类的实现文件中使用 export:</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// class template header goes in shared header file</span></div><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt; <span class="keyword">class</span> Queue { ... };</div><div class="line"><span class="comment">// Queue.ccimplementation file declares Queue as exported</span></div><div class="line"><span class="keyword">export</span> <span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt; <span class="keyword">class</span> Queue;</div><div class="line"><span class="preprocessor">#<span class="keyword">include</span> "Queue.h"</span></div><div class="line"><span class="comment">// Queue member definitions</span></div></pre></td></tr></table></figure></p>
+<p>导出类的成员将自动声明为导出的。也可以将类模板的个别成员声明为导出的，
+在这种情况下，关键字 export 不在类模板本身指定，而是只在被导出的特定成
+员定义上指定。导出成员函数的定义不必在使用成员时可见。任意非导出成员的
+定义必须像在包含模型中一样对待:定义应放在定义类模板的头文件中。</p>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/cpp-exception.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/cpp-standard-io.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "模板",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+</body>
+</html>

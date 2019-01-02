@@ -1,0 +1,1147 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>图像处理 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="参考资料：
+
+《OpenCV 2 Computer Vision Application Programming Cookbook》
+《The OpenCV Reference Manual》
+《Learning OpenCV》
+
+
+读写
+读入
+1Mat img = imread(filename)">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="图像处理"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+	
+		<div class="page-header">		
+			<h1> 图像处理</h1>
+		</div>    
+	
+
+
+
+<div class="row-fluid wiki">
+	<!-- span -->
+    
+        <div class="span3 toc"></div>
+        <div class="span9 note">
+    
+
+	
+
+		<!-- content -->
+		<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>参考资料：</p>
+<ul>
+<li>《OpenCV 2 Computer Vision Application Programming Cookbook》</li>
+<li>《The OpenCV Reference Manual》</li>
+<li>《Learning OpenCV》</li>
+</ul>
+</div></p>
+<h2 id="读写">读写</h2>
+<h3 id="读入">读入</h3>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mat img = imread(filename)</div></pre></td></tr></table></figure></p>
+<p>如果读入的是 jpg 格式的图片，默认会读入三个通道的数据。如果需要当做灰度图像读入，使用：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mat img = imread(filename, <span class="number">0</span>);</div></pre></td></tr></table></figure></p>
+<p>也可以先读入再转换成灰度图：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Mat img = imread(<span class="string">"image.jpg"</span>);</div><div class="line">Mat grey;</div><div class="line">cvtColor(img, grey, CV_BGR2GRAY);</div></pre></td></tr></table></figure></p>
+<h3 id="写入">写入</h3>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">imwrite(filename, img);</div></pre></td></tr></table></figure></p>
+<h2 id="展示">展示</h2>
+<h3 id="展示一幅-8u-图像">展示一幅 <code>8U</code> 图像</h3>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Mat img = imread("image.jpg");</div><div class="line"></div><div class="line">namedWindow("image", CV_WINDOW_AUTOSIZE);</div><div class="line">imshow("image", img);</div><div class="line">waitKey();</div></pre></td></tr></table></figure></p>
+<h3 id="展示一幅-32f-的图像">展示一幅 <code>32F</code> 的图像</h3>
+<p>需要先转成 <code>8U</code> 类型。例如：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Mat img = imread(<span class="string">"image.jpg"</span>);</div><div class="line">Mat grey;</div><div class="line">cvtColor(img, grey, CV_BGR2GRAY);</div><div class="line"></div><div class="line">Mat sobelx;</div><div class="line">Sobel(grey, sobelx, CV_32F, <span class="number">1</span>, <span class="number">0</span>);</div><div class="line"></div><div class="line"><span class="keyword">double</span> minVal, maxVal;</div><div class="line">minMaxLoc(sobelx, &minVal, &maxVal); <span class="comment">//find minimum and maximum intensities</span></div><div class="line">Mat draw;</div><div class="line">sobelx.convertTo(draw, CV_8U, <span class="number">255.0</span>/(maxVal - minVal), -minVal * <span class="number">255.0</span>/(maxVal - minVal));</div><div class="line"></div><div class="line">namedWindow(<span class="string">"image"</span>, CV_WINDOW_AUTOSIZE);</div><div class="line">imshow(<span class="string">"image"</span>, draw);</div><div class="line">waitKey();</div></pre></td></tr></table></figure></p>
+<h2 id="访问像素">访问像素</h2>
+<p>要获取 Mat 容器里的像素值，例如一幅图像里某个像素的亮度值，首先要求你得了解这幅图像的类型和通道数。</p>
+<h3 id="灰度图像访问单像素值">灰度图像访问单像素值</h3>
+<p>获取单通道灰度图（类型为<code>8UC1</code>）里像素点 \((x, y)\) 的亮度值：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Scalar intensity = img.at&lt;uchar&gt;(y,x);</div></pre></td></tr></table></figure></p>
+<p>也可以这么写：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Scalar intensity = img.at&lt;uchar&gt;(Point(x, y));</div></pre></td></tr></table></figure></p>
+<p>得到的 <code>intensity.val[0]</code> 将包含一个从 0~255 之间的数值。</p>
+<h3 id="彩色图像访问单像素值">彩色图像访问单像素值</h3>
+<p>对于 3 通道的 BGR 彩色图像，可以这么写：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Vec3b intensity = img.at&lt;Vec3b&gt;(y,x);</div><div class="line">uchar blue = intensity.val[<span class="number">0</span>];</div><div class="line">uchar green = intensity.val[<span class="number">1</span>];</div><div class="line">uchar red = intensity.val[<span class="number">2</span>];</div></pre></td></tr></table></figure></p>
+<p>浮点型的图像也以此类推，注意使用浮点型的变量保存即可。</p>
+<h3 id="遍历所有像素">遍历所有像素</h3>
+<p>如果要遍历所有像素，可以使用 C 语言的方式，先从数组第一行开始，遍历每一行。<code>cv::Mat</code> 类提供了一个访问图像一行的地址方法：<code>ptr</code> 函数，该函数为一个模板函数。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * colorReduce	-	reduce color number</div><div class="line"> *</div><div class="line"> * @param image	-	the image for processing</div><div class="line"> * @param div	-	reduce factor</div><div class="line"> */</div><div class="line"><span class="keyword">void</span> colorReduce(cv::Mat &image, <span class="keyword">int</span> div=<span class="number">64</span>)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> nl = image.rows;		<span class="comment">// number of lines</span></div><div class="line">    <span class="keyword">int</span> nc = image.cols * image.channels();</div><div class="line"></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;nl; ++j) {</div><div class="line">        uchar *data = image.ptr&lt;uchar&gt;(j);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nc; ++i) {</div><div class="line">            <span class="comment">// process each pixel</span></div><div class="line">            data[i] = data[i] / div * div + div / <span class="number">2</span>;</div><div class="line">            <span class="comment">// end of pixel processing</span></div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>在系统底层，为了方便硬件解码，一幅二维图像可能会在每一行的末尾填补一个额外的像素，这个额外填补的像素不会被显示或储存，且它们所存储的值会被忽略，它们起到一个哨兵的作用。</p>
+<p>但对于没有使用额外像素填补的图像，图像中的每个像素都是实际像素，因此可以把整幅图像直接当做一维数组来遍历每个元素，从而减轻了循环的开销。<code>cv::Mat</code> 类提供了 <code>isContinuous</code> 函数来检测是否属于这种情况。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * colorReduce	-	reduce color number</div><div class="line"> *</div><div class="line"> * @param image	-	the image for processing</div><div class="line"> * @param div	-	reduce factor</div><div class="line"> */</div><div class="line"><span class="keyword">void</span> colorReduce(cv::Mat &image, <span class="keyword">int</span> div=<span class="number">64</span>)</div><div class="line">{</div><div class="line">    <span class="keyword">int</span> nl = image.rows;		<span class="comment">// number of lines</span></div><div class="line">    <span class="keyword">int</span> nc = image.cols * image.channels();</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (image.isContinuous()) {</div><div class="line">        <span class="comment">// then no padded pixels</span></div><div class="line">        nc = nc * nl;</div><div class="line">        nl = <span class="number">1</span>;		<span class="comment">// it is now a 1D array</span></div><div class="line">    }</div><div class="line">    <span class="comment">// this loop is executed only once</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;nl; ++j) {</div><div class="line">        uchar *data = image.ptr&lt;uchar&gt;(j);</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nc; ++i) {</div><div class="line">            <span class="comment">// process each pixel</span></div><div class="line">            data[i] = data[i] / div * div + div / <span class="number">2</span>;</div><div class="line">            <span class="comment">// end of pixel processing</span></div><div class="line">        }</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>另一种遍历像素的方法是使用 STL 风格的迭代器，如 <code>cv::MatIterator_</code> 和 <code>cv::MatConstIterator_</code>：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cv::MatIterator_&lt;cv::Vec3b&gt; it;</div></pre></td></tr></table></figure></p>
+<p>也可以使用 <code>iterator</code> 类型，在 <code>Mat_</code> 模板类里定义：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cv::Mat_&lt;cv::Vec3b&gt;::iterator it;</div></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * colorReduce	-	reduce color number</div><div class="line"> *</div><div class="line"> * @param image	-	the image for processing</div><div class="line"> * @param div	-	reduce factor</div><div class="line"> */</div><div class="line"><span class="keyword">void</span> colorReduce(cv::Mat &image, <span class="keyword">int</span> div=<span class="number">64</span>)</div><div class="line">{</div><div class="line">    cv::MatIterator_&lt;cv::Vec3b&gt; it = image.begin&lt;cv::Vec3b&gt;();</div><div class="line">    cv::MatIterator_&lt;cv::Vec3b&gt; itend = image.end&lt;cv::Vec3b&gt;();</div><div class="line"></div><div class="line">    <span class="comment">// loop over all pixels</span></div><div class="line">    <span class="keyword">for</span> ( ; it!= itend; ++it) {</div><div class="line">        (*it)[<span class="number">0</span>] = (*it)[<span class="number">0</span>] / div * div + div / <span class="number">2</span>;</div><div class="line">        (*it)[<span class="number">1</span>] = (*it)[<span class="number">1</span>] / div * div + div / <span class="number">2</span>;</div><div class="line">        (*it)[<span class="number">2</span>] = (*it)[<span class="number">2</span>] / div * div + div / <span class="number">2</span>;</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>Mat 的迭代器是一个<a href="/wiki/cpp-container.html#%E5%B0%8F%E7%BB%93%E4%BA%94%E7%A7%8D%E8%BF%AD%E4%BB%A3%E5%99%A8">随机访问迭代器</a>，因此支持完整的迭代器算术运算，如 <code>std::sort()</code> 等。</p>
+<h3 id="遍历并访问相邻像素">遍历并访问相邻像素</h3>
+<p>有时候需要在遍历图像的同时访问相邻的像素。例如，用于进行边缘增强的拉普拉斯算子的表达式为：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">增强后的像素值 = 5*当前 - 左 - 右 - 上 - 下</div></pre></td></tr></table></figure></p>
+<p>可使用三个指针来进行图像遍历，一个用于当前行，一个用于上面一行，一个用于下面一行：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * sharpen	-	lapracian sharpen function</div><div class="line"> *</div><div class="line"> * @param image		-	the source grey scale image</div><div class="line"> * @param result	-	the output grey scale image</div><div class="line"> */</div><div class="line"><span class="keyword">void</span> sharpen(<span class="keyword">const</span> cv::Mat &image, cv::Mat &result)</div><div class="line">{</div><div class="line">  <span class="comment">// allocate if neccessary</span></div><div class="line">  result.create(image.size(), image.type());</div><div class="line">    </div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;image.rows-<span class="number">1</span>; ++j) {  <span class="comment">// for all rows</span></div><div class="line">                      <span class="comment">// (except first and last)</span></div><div class="line">        <span class="keyword">const</span> uchar *previous =</div><div class="line">                image.ptr&lt;<span class="keyword">const</span> uchar&gt;(j-<span class="number">1</span>);  <span class="comment">// previous row</span></div><div class="line">        <span class="keyword">const</span> uchar *current =</div><div class="line">                image.ptr&lt;<span class="keyword">const</span> uchar&gt;(j);    <span class="comment">// current row</span></div><div class="line">        <span class="keyword">const</span> uchar *next  =</div><div class="line">                image.ptr&lt;<span class="keyword">const</span> uchar&gt;(j+<span class="number">1</span>);  <span class="comment">// next row</span></div><div class="line">        uchar *output = result.ptr&lt;uchar&gt;(j);  <span class="comment">// output row</span></div><div class="line">        </div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;image.cols-<span class="number">1</span>; ++i) {</div><div class="line">            *output++ = cv::saturate_cast&lt;uchar&gt;(<span class="number">5</span>*current[i]-current[i-<span class="number">1</span>]</div><div class="line">                            -current[i+<span class="number">1</span>]-previous[i]-next[i]);</div><div class="line">        }</div><div class="line">    }</div><div class="line">    <span class="comment">// Set the unprocess pixelss to 0</span></div><div class="line">    result.row(<span class="number">0</span>).setTo(cv::Scalar(<span class="number">0</span>));</div><div class="line">    result.row(result.rows-<span class="number">1</span>).setTo(cv::Scalar(<span class="number">0</span>));</div><div class="line">    result.col(<span class="number">0</span>).setTo(cv::Scalar(<span class="number">0</span>));</div><div class="line">    result.col(result.cols-<span class="number">1</span>).setTo(cv::Scalar(<span class="number">0</span>));</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="图像通道">图像通道</h2>
+<p>可以使用 <code>cv::split</code> 操作来将彩色图像分离成三个单通道图像，使用 <code>cv::merge</code> 操作可以重新将几个单通道图像合并成一个多通道图像。下面的程序演示了将一幅图像 image2 与另一幅图像 image1 的蓝色通道混合：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// create vector of 3 images</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span> planes;</div><div class="line"><span class="comment">// split 1 3-channel image into 3 1-channel images</span></div><div class="line">cv::split(image1, planes);</div><div class="line"><span class="comment">// add to blue channel</span></div><div class="line">planes[<span class="number">0</span>] += image2;</div><div class="line"><span class="comment">// merge the 3 1-channel images into 1 3-channel image</span></div><div class="line">cv::merge(planes, result);</div></pre></td></tr></table></figure></p>
+<h2 id="简单图像运算">简单图像运算</h2>
+<h3 id="图像叠加">图像叠加</h3>
+<ul>
+<li>简单叠加</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// c[i]= a[i]+b[i];</span></div><div class="line">cv::add(imageA, imageB, resultC);</div><div class="line"><span class="comment">// c[i]= a[i]+k;</span></div><div class="line">cv::add(imageA, cv::Scalar(k), resultC);</div></pre></td></tr></table></figure></p>
+<ul>
+<li>带权叠加</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// c[i]= k1*a[1]+k2*b[i]+k3;</span></div><div class="line">cv::addWeighted(imageA, k1, imageB, k2, k3, resultC);</div></pre></td></tr></table></figure></p>
+<ul>
+<li>标量叠加</li>
+</ul>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">// c[i]= k*a[1]+b[i];</div><div class="line">cv::scaleAdd(imageA, k, imageB, resultC);</div></pre></td></tr></table></figure></p>
+<ul>
+<li>带掩码叠加</li>
+</ul>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// if (mask[i]) c[i]= a[i]+b[i];</span></div><div class="line">cv::add(imageA, imageB, resultC, mask);</div></pre></td></tr></table></figure></p>
+<p>当使用 mask 时，该操作只作用在对应的掩码位置不为 0 的像素上（mask 必须为单通道）。</p>
+<h3 id="其他操作">其他操作</h3>
+<p>其他常用的操作，包括：</p>
+<ul>
+<li><code>cv::substract</code>：两个图像相减，支持 mask；</li>
+<li><code>cv::absdiff</code>：两个图像的差的绝对值，支持 mask；</li>
+<li><code>cv::multiply</code>：两个图像逐元素相乘，支持 mask；</li>
+<li><code>cv::divide</code>：两个图像逐元素相除，支持 mask；</li>
+<li>按位操作 <code>cv::bitwise_and</code>、<code>cv::bitwise_or</code>、<code>cv::bitwise_xor</code>、<code>cv::bitwise_not</code>；</li>
+<li><code>cv::max</code> 和 <code>cv::min</code> ：求每个元素的最小值或最大值返回这个矩阵，并返回结果矩阵。</li>
+<li><code>cv::saturate_cast</code>：确保值不会超出像素的取值范围（防止上溢和下溢）。</li>
+</ul>
+<p>这些图像操作都要求参与运算的两幅图像大小相同。如果不符合这种情况，可以使用 <a href="#%E5%AE%9A%E4%B9%89%E6%84%9F%E5%85%B4%E8%B6%A3%E5%8C%BA%E5%9F%9Froi">ROI</a> 。另外，因为这些运算都是逐元素进行的，因此可以在调用时直接把其中一张图像的变量直接作为输出变量。</p>
+<p>更多的操作可以参考 <a href="/wiki/opencv-tables.html#%E7%9F%A9%E9%98%B5%E6%93%8D%E4%BD%9C%E5%87%BD%E6%95%B0%E8%A1%A8-%E8%A1%A8%E6%A0%BC%E6%9D%A5%E6%BA%90ggicci">矩阵操作速查表</a> 。</p>
+<h2 id="感兴趣区域-roi">感兴趣区域（ROI）</h2>
+<p>下面的程序演示了将一幅图像叠加到另一幅图像的一个感兴趣区域中。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// define image ROI</span></div><div class="line">cv::Mat imageROI;</div><div class="line">imageROI= image(cv::Rect(<span class="number">385</span>,<span class="number">270</span>,logo.cols,logo.rows));</div><div class="line"><span class="comment">// add logo to image</span></div><div class="line">cv::addWeighted(imageROI,<span class="number">1.0</span>,logo,<span class="number">0.3</span>,<span class="number">0.</span>,imageROI);</div></pre></td></tr></table></figure></p>
+<p><img src="/images/opencv-image/1466ocn.png" alt="叠加结果图"></p>
+<h2 id="图像变换">图像变换</h2>
+<h3 id="图像缩放">图像缩放</h3>
+<p>OpenCV 提供了一个<code>cv::resize()</code> 函数，允许你指定新的图像大小，例如：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cv::Mat resizedImage;	<span class="comment">// to contain resized image</span></div><div class="line">cv::resize(image, resizedImage,</div><div class="line">        cv::Size(image.cols/<span class="number">3</span>, image.rows/<span class="number">3</span>));	<span class="comment">// 1/3 resizing</span></div></pre></td></tr></table></figure></p>
+<h3 id="查找表">查找表</h3>
+<p>查找表是一种映射，可以将图像原来的像素的灰度值根据查找表指定的规则映射到另一个值。OpenCV 提供了 <code>cv::LUT</code> 来支持这种变换。</p>
+<p>下面示例一个将图像反色的查找表变换：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">cv::Mat inverseColor(<span class="keyword">const</span> cv::Mat &image)	<span class="comment">// 1x256 uchar matrix</span></div><div class="line">{</div><div class="line">    <span class="comment">// the output image</span></div><div class="line">    cv::Mat result;</div><div class="line"></div><div class="line">    <span class="comment">// Create a image inversion table</span></div><div class="line">    <span class="keyword">int</span> dim(<span class="number">256</span>);</div><div class="line">    cv::Mat lut(<span class="number">1</span>,		<span class="comment">// 1 dimension</span></div><div class="line">                &dim,	<span class="comment">// 256 entries</span></div><div class="line">                CV_8U); <span class="comment">// uchar</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">256</span>; ++i)</div><div class="line">        lut.at&lt;uchar&gt;(i) = <span class="number">255</span>-i;</div><div class="line"></div><div class="line">    <span class="comment">// apply lookup table</span></div><div class="line">    cv::LUT(image, lut, result);</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><img src="/images/opencv-image/1466Cxz.png" alt="反色结果图"></p>
+<h3 id="阈值处理">阈值处理</h3>
+<p>阈值处理可以用来从图像中剔除低于或高于一定值的像素，其基本的思想是，给定一个数组和一个阈值，然后根据数组中的每个元素的值是低于还是高于阈值而进行一些处理。OpenCV 提供了 <code>cv::threshold()</code> 操作来进行阈值处理：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">double</span> threshold(InputArray src,	<span class="comment">// input</span></div><div class="line">                OutputArray dst,	<span class="comment">// output</span></div><div class="line">                <span class="keyword">double</span> thresh,	<span class="comment">// threshold value</span></div><div class="line">                <span class="keyword">double</span> maxval,	<span class="comment">// maximum value to use</span></div><div class="line">                <span class="keyword">int</span> type)			<span class="comment">// thresholding type</span></div></pre></td></tr></table></figure></p>
+<p>其中，阈值类型选项 <code>type</code> 可以是以下几种类型：</p>
+<table>
+<thead>
+<tr>
+<th>阈值类型</th>
+<th>说明</th>
+<th>对应的操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cv::THRESH_BINARY</code></td>
+<td>二值阈值化</td>
+<td>\(dst_i=(src_i>T)?M:0\)</td>
+</tr>
+<tr>
+<td><code>cv::THRESH_BINARY_INV</code></td>
+<td>反向二值阈值化</td>
+<td>\(dst_i=(src_i>T)?0:M\)</td>
+</tr>
+<tr>
+<td><code>cv::THRESH_TRUNC</code></td>
+<td>截断阈值化</td>
+<td>\(dst_i=(src_i>T)?M:src_i\)</td>
+</tr>
+<tr>
+<td><code>cv::THRESH_TOZERO</code></td>
+<td>超过阈值被置于0</td>
+<td>\(dst_i=(src_i>T)?src_i:0\)</td>
+</tr>
+<tr>
+<td><code>cv::THRESH_TOZERO_INV</code></td>
+<td>低于阈值被置于0</td>
+<td>\(dst_i=(src_i>T)?0:src_i\)</td>
+</tr>
+</tbody>
+</table>
+<p>各种阈值类型的操作结果可以参考下图：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>将被阈值化的值和阈值</td>
+<td><img src="/images/opencv-image/878CAZ.png" alt=""></td>
+</tr>
+<tr>
+<td>二值阈值化</td>
+<td><img src="/images/opencv-image/878PKf.png" alt=""></td>
+</tr>
+<tr>
+<td>反向二值阈值化</td>
+<td><img src="/images/opencv-image/878cUl.png" alt=""></td>
+</tr>
+<tr>
+<td>截断阈值化</td>
+<td><img src="/images/opencv-image/878per.png" alt=""></td>
+</tr>
+<tr>
+<td>超过阈值被置于0</td>
+<td><img src="/images/opencv-image/8782ox.png" alt=""></td>
+</tr>
+<tr>
+<td>低于阈值被置于0</td>
+<td><img src="/images/opencv-image/878oyA.png" alt=""></td>
+</tr>
+</tbody>
+</table>
+<p>示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cv::Mat thresholded;</div><div class="line">cv::threshold(image,thresholded,<span class="number">60</span>,<span class="number">255</span>,cv::THRESH_BINARY);</div></pre></td></tr></table></figure></p>
+<h3 id="形态学变换">形态学变换</h3>
+<h4 id="膨胀">膨胀</h4>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cv::Mat element(<span class="number">7</span>,<span class="number">7</span>,CV_8U,cv::Scalar(<span class="number">1</span>));</div><div class="line">cv::erode( image, result, element );</div></pre></td></tr></table></figure></p>
+<p>上面的 <code>element</code> 是结构元素，在这里用到了矩形结构元素。OpenCV 提供了几种形状的结构元素，可以通过 <code>cv::getStructuringElement()</code> 来定义：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Mat getStructuringElement(<span class="keyword">int</span> shape, Size ksize, Point anchor=Point(-<span class="number">1</span>,-<span class="number">1</span>))</div></pre></td></tr></table></figure></p>
+<p>其中，shape 包含几种形状：</p>
+<ul>
+<li>MORPH_Rect - 矩形结构元素；</li>
+<li>MORPH_Ellipse - 椭圆形结构元素；</li>
+<li>MORPH_CROSS - 十字形结构元素。</li>
+</ul>
+<p>也可以自己定义一个形状，例如定义一个 “X” 形结构元素：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cv::Mat x(<span class="number">5</span>,<span class="number">5</span>,CV_8U,cv::Scalar(<span class="number">0</span>));</div><div class="line"></div><div class="line"><span class="comment">// Creating the x-shaped structuring element</span></div><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++) {</div><div class="line">    x.at&lt;uchar&gt;(i,i)= <span class="number">1</span>;</div><div class="line">    x.at&lt;uchar&gt;(<span class="number">4</span>-i,i)= <span class="number">1</span>;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h4 id="腐蚀">腐蚀</h4>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cv::Mat element(<span class="number">7</span>,<span class="number">7</span>,CV_8U,cv::Scalar(<span class="number">1</span>));</div><div class="line">cv::dilate( image, result, element );</div></pre></td></tr></table></figure></p>
+<h4 id="高级形态学变换">高级形态学变换</h4>
+<p>基于膨胀和腐蚀两种基本的形态学变换，可以组合成诸如开操作、闭操作、形态学梯度、顶帽变换、黑（底）帽变换等高级的形态学变换。OpenCV 提供 <code>cv::morphologyEx()</code> 操作，以进行更高级的形态学变换：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> morphologyEx(InputArray src, OutputArray dst, <span class="keyword">int</span> op, InputArray kernel, Point anchor=Point(-<span class="number">1</span>,-<span class="number">1</span>),</div><div class="line">                <span class="keyword">int</span> iterations=<span class="number">1</span>, <span class="keyword">int</span> borderType=BORDER_CONSTANT, <span class="keyword">const</span> Scalar&</div><div class="line">                borderValue=morphologyDefaultBorderValue() )</div></pre></td></tr></table></figure></p>
+<p>其中 <code>op</code> 可以是以下几种操作类型：</p>
+<ul>
+<li><code>MORPH_OPEN</code> - 开操作</li>
+<li><code>MORPH_CLOSE</code> - 闭操作</li>
+<li><code>MORPH_GRADIENT</code> - 形态学梯度</li>
+<li><code>MORPH_TOPHAT</code> - “顶帽”</li>
+<li><code>MORPH_BLACKHAT</code> - “黑帽”</li>
+</ul>
+<p>开操作示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cv::Mat element5(<span class="number">5</span>,<span class="number">5</span>,CV_8U,cv::Scalar(<span class="number">1</span>));</div><div class="line">cv::Mat opened;</div><div class="line">cv::morphologyEx(image,opened,cv::MORPH_OPEN,element5);</div></pre></td></tr></table></figure></p>
+<h2 id="直方图">直方图</h2>
+<h3 id="计算直方图">计算直方图</h3>
+<p>使用 <code>cv::calHist</code> 来计算直方图，得到的直方图将存放到一个 <code>cv::MatND</code> 类型的容器中。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> calcHist(<span class="keyword">const</span> Mat* images,	<span class="comment">// source arrays</span></div><div class="line">            <span class="keyword">int</span> nimages,			<span class="comment">// number of source images</span></div><div class="line">            <span class="keyword">const</span> <span class="keyword">int</span>* channels,	<span class="comment">// list of the dims channels</span></div><div class="line">            InputArray mask,		<span class="comment">// optional mask</span></div><div class="line">            OutputArray hist,		<span class="comment">// output mask</span></div><div class="line">            <span class="keyword">int</span> dims,				<span class="comment">// histogram dimensionality</span></div><div class="line">            <span class="keyword">const</span> <span class="keyword">int</span>* histSize,	<span class="comment">// array of histogram sizes </span></div><div class="line">            <span class="keyword">const</span> <span class="keyword">float</span>** ranges,	<span class="comment">// array of the dims arrays</span></div><div class="line">                                    <span class="comment">// of the histogram bin boundaries</span></div><div class="line">            <span class="keyword">bool</span> uniform=<span class="keyword">true</span>,	<span class="comment">// is uniform or not </span></div><div class="line">             <span class="keyword">bool</span> accumulate=<span class="keyword">false</span> )<span class="comment">// accumulation flag.</span></div></pre></td></tr></table></figure></p>
+<h4 id="用于灰度图像">用于灰度图像</h4>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// For gray-level images</span></div><div class="line"><span class="keyword">class</span> Histogram1D {</div><div class="line">  <span class="keyword">public</span>:</div><div class="line">    Histogram1D() {</div><div class="line">        <span class="comment">// Prepare arguments for 1D histogram</span></div><div class="line">        histSize[<span class="number">0</span>] = <span class="number">256</span>;</div><div class="line">        hranges[<span class="number">0</span>] = <span class="number">0.0</span>;</div><div class="line">        hranges[<span class="number">1</span>] = <span class="number">255.0</span>;</div><div class="line">        ranges[<span class="number">0</span>] = hranges;</div><div class="line">        channels[<span class="number">0</span>] = <span class="number">0</span>;	<span class="comment">// by default, we look at channel 0</span></div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="comment">// Computes the 1D histogram.</span></div><div class="line">    cv::MatND getHistogram(<span class="keyword">const</span> cv::Mat &image) {</div><div class="line">        cv::MatND hist;</div><div class="line">        <span class="comment">// Compute histogram</span></div><div class="line">        cv::calcHist(&image,</div><div class="line">                     <span class="number">1</span>,			<span class="comment">// histogram from 1 image only</span></div><div class="line">                     channels,	<span class="comment">// the channel used</span></div><div class="line">                     cv::Mat(),	<span class="comment">// no mask is used</span></div><div class="line">                     hist,		<span class="comment">// the resulting histogram</span></div><div class="line">                     <span class="number">1</span>,			<span class="comment">// it is a 1D histogram</span></div><div class="line">                     histSize,	<span class="comment">// number of bins</span></div><div class="line">                     ranges		<span class="comment">// pixel value range</span></div><div class="line">                     );</div><div class="line">        <span class="keyword">return</span> hist;</div><div class="line">    }</div><div class="line">    <span class="comment">// Computes the 1D histogram and returns an image of it.</span></div><div class="line">    cv::Mat getHistogramImage(<span class="keyword">const</span> cv::Mat &image) {</div><div class="line">        <span class="comment">// Compute histogram first</span></div><div class="line">        cv::MatND hist = getHistogram(image);</div><div class="line">        <span class="comment">// Get min and max bin values</span></div><div class="line">        <span class="keyword">double</span> maxVal = <span class="number">0</span>;</div><div class="line">        <span class="keyword">double</span> minVal = <span class="number">0</span>;</div><div class="line">        cv::minMaxLoc(hist, &minVal, &maxVal, <span class="number">0</span>, <span class="number">0</span>);</div><div class="line">        <span class="comment">// Image on which to display histogram</span></div><div class="line">        cv::Mat histImg(histSize[<span class="number">0</span>], histSize[<span class="number">0</span>],</div><div class="line">                        CV_8U, cv::Scalar(<span class="number">255</span>));</div><div class="line">        <span class="comment">// set highest point at 90% of nbins</span></div><div class="line">        <span class="keyword">int</span> hpt = <span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(<span class="number">0.9</span>*histSize[<span class="number">0</span>]);</div><div class="line">        <span class="comment">// Draw a vertical line for each bin</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> h = <span class="number">0</span>; h &lt; histSize[<span class="number">0</span>]; ++h) {</div><div class="line">            <span class="keyword">float</span> binVal = hist.at&lt;<span class="keyword">float</span>&gt;(h);</div><div class="line">            <span class="keyword">int</span> intensity = <span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(binVal * hpt / maxVal);</div><div class="line">            <span class="comment">// This function draws a line between 2 points</span></div><div class="line">            cv::line(histImg, cv::Point(h, histSize[<span class="number">0</span>]),</div><div class="line">                     cv::Point(h, histSize[<span class="number">0</span>]-intensity),</div><div class="line">                     cv::Scalar::all(<span class="number">0</span>));</div><div class="line">        }</div><div class="line">        <span class="keyword">return</span> histImg;</div><div class="line">    }</div><div class="line">  <span class="keyword">private</span>:</div><div class="line">    <span class="keyword">int</span> histSize[<span class="number">1</span>];	<span class="comment">// number of bins</span></div><div class="line">    <span class="keyword">float</span> hranges[<span class="number">2</span>];	<span class="comment">// min and max pixel value</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">float</span>* ranges[<span class="number">1</span>];</div><div class="line">    <span class="keyword">int</span> channels[<span class="number">1</span>];	<span class="comment">// only 1 channel used here</span></div><div class="line">};</div></pre></td></tr></table></figure></p>
+<h4 id="用于彩色图像">用于彩色图像</h4>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// For color BGR images</span></div><div class="line"><span class="keyword">class</span> ColorHistogram {</div><div class="line">  <span class="keyword">public</span>:</div><div class="line">    ColorHistogram() {</div><div class="line">        <span class="comment">// Prepare arguments for color histogram</span></div><div class="line">        histSize[<span class="number">0</span>] = histSize[<span class="number">1</span>] = histSize[<span class="number">2</span>] = <span class="number">256</span>;</div><div class="line">        hranges[<span class="number">0</span>] = <span class="number">0.0</span>;	<span class="comment">// BGR rang</span></div><div class="line">        hranges[<span class="number">1</span>] = <span class="number">255.0</span>;</div><div class="line">        <span class="comment">// all channels have the same range</span></div><div class="line">        ranges[<span class="number">0</span>] = hranges;</div><div class="line">        ranges[<span class="number">1</span>] = hranges;</div><div class="line">        ranges[<span class="number">2</span>] = hranges;</div><div class="line">        channels[<span class="number">0</span>] = <span class="number">0</span>;	<span class="comment">// by default, we look at channel 0</span></div><div class="line">    }</div><div class="line">    </div><div class="line">    <span class="comment">// Computes the 3D histogram.</span></div><div class="line">    cv::MatND getHistogram(<span class="keyword">const</span> cv::Mat &image) {</div><div class="line">        cv::MatND hist;</div><div class="line">        <span class="comment">// Compute histogram</span></div><div class="line">        cv::calcHist(&image,</div><div class="line">                     <span class="number">1</span>,			<span class="comment">// histogram from 1 image only</span></div><div class="line">                     channels,	<span class="comment">// the channel used</span></div><div class="line">                     cv::Mat(),	<span class="comment">// no mask is used</span></div><div class="line">                     hist,		<span class="comment">// the resulting histogram</span></div><div class="line">                     <span class="number">3</span>,			<span class="comment">// it is a color histogram</span></div><div class="line">                     histSize,	<span class="comment">// number of bins</span></div><div class="line">                     ranges		<span class="comment">// pixel value range           </span></div><div class="line">                     );</div><div class="line">        <span class="keyword">return</span> hist;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">// Compute the sparse color histogram.</span></div><div class="line">    cv::SparseMat getSparseHistogram(<span class="keyword">const</span> cv::Mat &image) {</div><div class="line">        cv::SparseMat hist(<span class="number">3</span>, histSize, CV_32F);</div><div class="line">        <span class="comment">// Compute histogram</span></div><div class="line">        cv::calcHist(&image,	</div><div class="line">                     <span class="number">1</span>,			<span class="comment">// histogram from 1 image only </span></div><div class="line">                     channels,  <span class="comment">// the channel used            </span></div><div class="line">                     cv::Mat(), <span class="comment">// no mask is used             </span></div><div class="line">                     hist,      <span class="comment">// the resulting histogram     </span></div><div class="line">                     <span class="number">3</span>,         <span class="comment">// it is a color histogram        </span></div><div class="line">                     histSize,  <span class="comment">// number of bins              </span></div><div class="line">                     ranges     <span class="comment">// pixel value range</span></div><div class="line">                     );</div><div class="line">        <span class="keyword">return</span> hist;</div><div class="line">    }</div><div class="line">    </div><div class="line">  <span class="keyword">private</span>:</div><div class="line">    <span class="keyword">int</span> histSize[<span class="number">3</span>];	<span class="comment">// number of bins</span></div><div class="line">    <span class="keyword">float</span> hranges[<span class="number">2</span>];	<span class="comment">// min and max pixel value</span></div><div class="line">    <span class="keyword">const</span> <span class="keyword">float</span>* ranges[<span class="number">3</span>];</div><div class="line">    <span class="keyword">int</span> channels[<span class="number">3</span>];	<span class="comment">// 3 channel used here</span></div><div class="line">};</div></pre></td></tr></table></figure></p>
+<p><img src="/images/opencv-image/1466OPP.png" alt="原图"></p>
+<p><img src="/images/opencv-image/1466bZV.png" alt="计算得到的直方图"></p>
+<h3 id="直方图均衡化">直方图均衡化</h3>
+<p>在 OpenCV 中可以很方便的调用  <code>cv::equalizeHist</code> 来进行直方图均衡：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cv::Mat equalize(<span class="keyword">const</span> cv::Mat &image)</div><div class="line">{</div><div class="line">    cv::Mat result;</div><div class="line">    cv::equalizeHist(image, result);</div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>在其内部是使用了如下的查找表变换：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lookup.at&lt;uchar&gt;(i)= <span class="keyword">static_cast</span>&lt;uchar&gt;(<span class="number">255.0</span>*p[i]);</div></pre></td></tr></table></figure></p>
+<p>其中 <code>p[i]</code> 是灰度值小于或等于 i 的像素数量。<code>p[i]</code> 常被称为 <strong>累积直方图</strong>（Cumulative Histogram）。</p>
+<p><img src="/images/opencv-image/146606C.png" alt="均衡化结果"></p>
+<p><img src="/images/opencv-image/1466BFJ.png" alt="均衡化后的直方图"></p>
+<h3 id="反投影直方图">反投影直方图</h3>
+<p>可以利用直方图来检测一幅图像中是否含有目标图像类似的内容，所使用的算法称为反投影（back projection）。在 OpenCV 中，相应的操作是 <code>cv::calcBackProject</code> 操作 ：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> calcBackProject(<span class="keyword">const</span> Mat* images,	<span class="comment">// source arrays</span></div><div class="line">            <span class="keyword">int</span> nimages,			<span class="comment">// number of source images</span></div><div class="line">            <span class="keyword">const</span> <span class="keyword">int</span>* channels,	<span class="comment">// the list of channels </span></div><div class="line">            InputArray hist,		<span class="comment">// input histogram</span></div><div class="line">            OutputArray backProject,<span class="comment">// destination back projection array </span></div><div class="line">            <span class="keyword">const</span> <span class="keyword">float</span>** ranges,	<span class="comment">// array of arrays of the histogram</span></div><div class="line">                                    <span class="comment">// bin boundaries </span></div><div class="line">            <span class="keyword">double</span> scale=<span class="number">1</span>,		<span class="comment">// scale</span></div><div class="line">            <span class="keyword">bool</span> uniform=<span class="keyword">true</span> )	<span class="comment">// is uniform or not</span></div></pre></td></tr></table></figure></p>
+<p><img src="/images/opencv-image/1466ojb.png" alt=""></p>
+<p>例如，检测上图中类似云朵的部分，可以先使用 ROI 截取该图像中有云朵的部分作为目标图像：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cv::Mat imageROI;</div><div class="line">imageROI= image(cv::Rect(<span class="number">360</span>,<span class="number">55</span>,<span class="number">40</span>,<span class="number">50</span>)); <span class="comment">// Cloud region</span></div></pre></td></tr></table></figure></p>
+<p>之后提取 ROI 的直方图，用到了上面编写的 Histogram1D 类：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Histogram1D h;</div><div class="line">cv::MatND hist= h.getHistogram(imageROI);</div></pre></td></tr></table></figure></p>
+<p>对其做归一化处理，得到一个概率分布：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cv::normalize(histogram,histogram,<span class="number">1.0</span>);</div></pre></td></tr></table></figure></p>
+<p>然后可以对整幅图像做反投影变换，将图像中每个像素点的灰度值用归一化后的直方图的相应概率值来代替。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">cv::calcBackProject(&image,</div><div class="line">                    <span class="number">1</span>,	<span class="comment">// one image</span></div><div class="line">                    channels,	<span class="comment">// the channels used</span></div><div class="line">                    histogram,	<span class="comment">// the histogram we are backprojecting</span></div><div class="line">                    result,	<span class="comment">// the resulting back projection image</span></div><div class="line">                    ranges,	<span class="comment">// the range of values, for each dimension</span></div><div class="line">                    <span class="number">255.0</span>		<span class="comment">// a scaling factor</span></div><div class="line">);</div></pre></td></tr></table></figure></p>
+<p>得到如下的概率图，其中颜色越黑的部分表示概率越大：</p>
+<p><img src="/images/opencv-image/14661th.png" alt=""></p>
+<p>可以进一步使用阈值操作，将可能为云朵的像素突出出来：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cv::threshold(result, result, <span class="number">255</span>*threshold,</div><div class="line"><span class="number">255</span>, cv::THRESH_BINARY);</div></pre></td></tr></table></figure></p>
+<p><img src="/images/opencv-image/1466C4n.png" alt=""></p>
+<p>可以将这个算法封装成一个类 <a href="https://gist.github.com/8996527" target="_blank" rel="external">ObjectFinder</a> 。</p>
+<h2 id="空间滤波">空间滤波</h2>
+<h3 id="低通滤波">低通滤波</h3>
+<h4 id="均值模糊">均值模糊</h4>
+<p>OpenCV 提供 <code>cv::blur()</code> 函数来对图像进行低通滤波，从而达到平滑图像的作用。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> blur(InputArray src,	<span class="comment">// input</span></div><div class="line">        OutputArray dst,	<span class="comment">// output</span></div><div class="line">        Size ksize,		<span class="comment">// size of the square kernel</span></div><div class="line">        Point anchor=Point(-<span class="number">1</span>,-<span class="number">1</span>),	<span class="comment">// anchor point</span></div><div class="line">        <span class="keyword">int</span> borderType=BORDER_DEFAULT )</div></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<p><figure class="highlight cv"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cv::blur(image, <span class="literal">result</span>, cv::<span class="type">Size</span>(<span class="number">5</span>, <span class="number">5</span>));</div></pre></td></tr></table></figure></p>
+<p>均值模糊的卷积核形式如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|-------------|</div><div class="line">| 1/9 1/9 1/9 |</div><div class="line">| 1/9 1/9 1/9 |</div><div class="line">| 1/9 1/9 1/9 |</div><div class="line">|-------------|</div></pre></td></tr></table></figure></p>
+<p>原图：</p>
+<p><img src="/images/opencv-image/997fev.png" alt=""></p>
+<p>结果：</p>
+<p><img src="/images/opencv-image/997so1.png" alt=""></p>
+<h4 id="高斯模糊">高斯模糊</h4>
+<p>一种加权平均的模糊算法。OpenCV 提供 <code>cv::blur()</code> 函数来对图像进行高斯模糊。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> GaussianBlur(InputArray src,	<span class="comment">// input</span></div><div class="line">                OutputArray dst,	<span class="comment">// output</span></div><div class="line">                Size ksize,		<span class="comment">// size of the square kernel</span></div><div class="line">                <span class="keyword">double</span> sigmaX, <span class="keyword">double</span> sigmaY=<span class="number">0</span>,	<span class="comment">// sigma value</span></div><div class="line">                <span class="keyword">int</span> borderType=BORDER_DEFAULT )</div></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cv::GaussianBlur(image, result, cv::Size(<span class="number">5</span>,<span class="number">5</span>), <span class="number">1.5</span>);</div></pre></td></tr></table></figure></p>
+<p>高斯模糊的卷积核根据所选的 \(\sigma\) 值 sigmaX 和 sigmaY 的不同而不同。值越大，则模糊效果越明显。可以通过 <code>cv::getGaussianKernel()</code> 函数获取与 \(sigma\) 值对应的卷积核。</p>
+<p>结果：</p>
+<p><img src="/images/opencv-image/997eyE.png" alt=""></p>
+<h4 id="下采样">下采样</h4>
+<p>下采样的步骤是：</p>
+<ol>
+<li>将 \(G_{i}\) 与高斯内核卷积：</li>
+</ol>
+<p>\[\frac{1}{16} \begin{bmatrix} 1 &amp; 4 &amp; 6 &amp; 4 &amp; 1  \\ 4 &amp; 16 &amp; 24 &amp; 16 &amp; 4  \\ 6 &amp; 24 &amp; 36 &amp; 24 &amp; 6  \\ 4 &amp; 16 &amp; 24 &amp; 16 &amp; 4  \\ 1 &amp; 4 &amp; 6 &amp; 4 &amp; 1 \end{bmatrix}\]</p>
+<ol start="2">
+<li>将所有偶数行和列去除。显而易见，结果图像只有原图的四分之一。</li>
+</ol>
+<p>OpenCV 提供了 <code>cv::pyrDown()</code> 函数来完成这两步操作：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> pyrDown(InputArray src,	<span class="comment">// input</span></div><div class="line">            OutputArray dst,	<span class="comment">// output </span></div><div class="line">            <span class="keyword">const</span> Size& dstsize=Size(),	<span class="comment">// output size</span></div><div class="line">            <span class="keyword">int</span> borderType=BORDER_DEFAULT )</div></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cv::Mat reducedImage; <span class="comment">// to contain reduced image</span></div><div class="line">cv::pyrDown(image,reducedImage); <span class="comment">// reduce image size by half</span></div></pre></td></tr></table></figure></p>
+<p>下采样常被应用于缩小图像：如果要将一幅图像缩小一倍，直接隔一行或一列去掉图像的行和列是不够的——直接去掉后，解析度会降低，如果不修改图像的空间频率，就会造成空间混淆。因此，正确的做法是先进行低通滤波，去除高频分量后再进行下采样。下文将介绍的<a href="#%E9%AB%98%E6%96%AF%E9%87%91%E5%AD%97%E5%A1%94">高斯金字塔</a>就是迭代地使用下采样技术将图像逐步缩小成一个金字塔。</p>
+<h4 id="上采样">上采样</h4>
+<p><div class="alert alert-error"><i class="fa fa-bug"></i>  <p>上采样不是下采样的逆操作，因为在下采样过程中原图的部分信息将会丢失。</p>
+</div></p>
+<p>类似的，还有一种上采样操作（不是下采样的逆操作！）。步骤为：</p>
+<ul>
+<li>首先，将图像在每个方向扩大为原来的两倍，新增的行和列以 0 填充 \((0)\)。</li>
+<li>使用指定的滤波器进行卷积，获得 “新增像素” 的近似值。</li>
+</ul>
+<p>OpenCV 提供了 <code>cv::pyrUp()</code> 函数进行下采样操作。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> pyrUp(InputArray src,	<span class="comment">// input</span></div><div class="line">            OutputArray dst,	<span class="comment">// output</span></div><div class="line">            <span class="keyword">const</span> Size& dstsize=Size(),	<span class="comment">// output size</span></div><div class="line">            <span class="keyword">int</span> borderType=BORDER_DEFAULT )</div></pre></td></tr></table></figure></p>
+<p>上采样常和下采样一起用来创建<a href="#%E5%9B%BE%E5%83%8F%E9%87%91%E5%AD%97%E5%A1%94">图像金字塔</a>。</p>
+<h3 id="中值滤波">中值滤波</h3>
+<p>OpenCV 提供 <code>cv::medianBlur()</code> 函数进行中值滤波：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> medianBlur(InputArray src,	<span class="comment">// input</span></div><div class="line">                OutputArray dst,	<span class="comment">// output</span></div><div class="line">                <span class="keyword">int</span> ksize)		<span class="comment">// size of the square kernel</span></div></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cv::medianBlue(image, result, <span class="number">5</span>);</div></pre></td></tr></table></figure></p>
+<p>中值滤波并不是一个线性滤波，因此它并不能用一个核矩阵来表示。然而，它也是通过相邻像素来决定每一个像素的值的：一个像素的值，等于其相邻像素的值的中值。中值滤波的一个典型应用是滤除椒盐噪声：</p>
+<p>原图：</p>
+<p><img src="/images/opencv-image/997r8K.png" alt=""></p>
+<p>结果：</p>
+<p><img src="/images/opencv-image/997FRX.png" alt=""></p>
+<p>中值滤波还有用一个优点：可以保留图像边缘的锐利程度。然而，它会影响图像的材质等细节特征。</p>
+<h3 id="高通滤波">高通滤波</h3>
+<p>高通滤波常用来提取图像中变化比较明显的地方，例如图像边缘。</p>
+<h4 id="sobel-滤波">Sobel 滤波</h4>
+<p>Sobel 滤波是一种方向滤波器，它只影响竖直方向或水平方向的图像频率。该方向取决于卷积核的形状。OpenCV 提供了 <code>cv::Sobel()</code> 函数来进行 Sobel 滤波：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> Sobel(InputArray src,	<span class="comment">// input</span></div><div class="line">            OutputArray dst,	<span class="comment">// output</span></div><div class="line">            <span class="keyword">int</span> ddepth,		<span class="comment">// image type</span></div><div class="line">            <span class="keyword">int</span> dx, <span class="keyword">int</span> dy,	<span class="comment">// kernell specification</span></div><div class="line">            <span class="keyword">int</span> ksize=<span class="number">3</span>,		<span class="comment">// size of the square kernel</span></div><div class="line">            <span class="keyword">double</span> scale=<span class="number">1</span>,	<span class="comment">// scale</span></div><div class="line">            <span class="keyword">double</span> delta=<span class="number">0</span>,	<span class="comment">// offset</span></div><div class="line">            <span class="keyword">int</span> borderType=BORDER_DEFAULT )</div></pre></td></tr></table></figure></p>
+<p>构造一个竖直方向的 Sobel 滤波器示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cv::Sobel(image,sobelY,CV_8U,<span class="number">0</span>,<span class="number">1</span>,<span class="number">3</span>,<span class="number">0.4</span>,<span class="number">128</span>);</div></pre></td></tr></table></figure></p>
+<p>构造一个水平方向的 Sobel 滤波器示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cv::Sobel(image,sobelX,CV_8U,<span class="number">1</span>,<span class="number">0</span>,<span class="number">3</span>,<span class="number">0.4</span>,<span class="number">128</span>);</div></pre></td></tr></table></figure></p>
+<p>注意上面两个用例都是使用 <code>CV_8U</code> 这种图像类型。在这种情况下，0 值对应的像素灰度值将为 128 ，负值对应的像素将用暗一些的颜色，而正值对应的像素将用亮一些的颜色。最终的效果就如一些照片处理软件的“浮雕”特效一样：</p>
+<p>竖直 Sobel 滤波器的结果：</p>
+<p><img src="/images/opencv-image/997flj.png" alt=""></p>
+<p>水平 Sobel 滤波器的结果：</p>
+<p><img src="/images/opencv-image/997Sbd.png" alt=""></p>
+<p>两种形式的卷积如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|--------|</div><div class="line">|-1 0  1 |</div><div class="line">|-2 0  2 |</div><div class="line">|-1 0  1 |</div><div class="line">|--------|</div></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|--------|</div><div class="line">|-1 -2 -1|</div><div class="line">| 0 0  0 |</div><div class="line">| 1 2  1 |</div><div class="line">|--------|</div></pre></td></tr></table></figure></p>
+<p>由于 Sobel 滤波器的核包含正值和负值，因此更常用的图像类型是使用16位符号整型(<code>CV_16S</code>)。下面将用这种类型来提取图像边缘。</p>
+<h5 id="边缘提取">边缘提取</h5>
+<ol>
+<li>计算 Sobel 算子的 L1 范数：</li>
+</ol>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Compute norm of Sobel</span></div><div class="line">cv::sobel(image, sobelX, CV_16S, <span class="number">1</span>, <span class="number">0</span>);</div><div class="line">cv::sobel(image, sobelY, CV_16s, <span class="number">0</span>, <span class="number">1</span>);</div><div class="line">cv::Mat sobel;</div><div class="line"><span class="comment">// Compute the L1 norm</span></div><div class="line">sobel = <span class="built_in">abs</span>(sobelX) + <span class="built_in">abs</span>(sobelY);</div></pre></td></tr></table></figure></p>
+<ol start="2">
+<li>使用 <code>convertTo()</code> 方法将得到的 L1 范数转换成一幅图像，0 值对应的像素点为白色，而更高的值对应的像素点将用更暗的颜色表示：</li>
+</ol>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Find sobel max value</span></div><div class="line"><span class="keyword">double</span> sobmin, sobmax;</div><div class="line">cv::minMaxLoc(sobel, &sobmin, &sobmax);</div><div class="line"><span class="comment">// Conversion to 8-bit image</span></div><div class="line"><span class="comment">// sobelImage = -alpha*sobel + 255</span></div><div class="line">cv::Mat sobelImage;</div><div class="line">sobel.convertTo(sobelImage, CV_8U, -<span class="number">255.</span>/sobmax, <span class="number">255</span>);</div></pre></td></tr></table></figure></p>
+<p>得到如下的结果：</p>
+<p><img src="/images/opencv-image/997svp.png" alt=""></p>
+<ol start="3">
+<li>对其再进一步做阈值处理，得到一幅线条清晰的二值图像：</li>
+</ol>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cv::threshold(sobelImage, sobelThresholded,</div><div class="line">            threshold, <span class="number">255</span>, cv::THRESH_BINARY);</div></pre></td></tr></table></figure></p>
+<p><img src="/images/opencv-image/99755v.png" alt=""></p>
+<h5 id="原理">原理</h5>
+<p>从数学上讲，sobel 滤波器计算的是图像的<strong>梯度</strong>信息，即：</p>
+<p>\[\nabla f\equiv \mbox{grad}(f)\equiv{}\begin{bmatrix} g_x \\ g_y \end{bmatrix}=\begin{bmatrix} \frac{\partial{f}}{ \partial{x} } \\ \frac{\partial{f}}{\partial{y}} \end{bmatrix}\]</p>
+<p>由于梯度是一个二维向量，因此它有范数和方向。梯度的范数可以用来表示变化的幅度，通常使用欧几里得范数（称为 <em>L2 范数</em> ）来求解：</p>
+<p>\[ \left| \mbox{grad}(f) \right| =\sqrt { \left( \frac { \partial { f } }{ \partial { x } }  \right) ^{ 2 }+\left( \frac { \partial { f } }{ \partial { y } }  \right) ^{ 2 } } \]</p>
+<p>然而，在图像处理中，我们通常只需要计算两个方向的一阶导数的绝对值的和，即 <em>L1 范数</em> ，这个值与 L2 范数非常接近，但运算量要小很多：</p>
+<p>\[ \left| \mbox{grad}(f) \right| \approx \left| \frac { \partial { f } }{ \partial { x } }  \right|+\left| \frac { \partial { f } }{ \partial { y } }  \right| \]</p>
+<p>梯度向量总是指向图像中最陡峭的变化方向，这意味着在图像中，梯度方向将与图像中的边缘垂直，并且从暗的部分指向亮的部分。梯度方向可以通过下面的公式得到：</p>
+<p>\[ \angle { \mbox{grad}(f) }=\alpha tan\left( { -\frac { \partial { f } }{ \partial { y } }  }/{ \frac { \partial { f } }{ \partial { x } }  } \right) \]</p>
+<p>OpenCV 提供了 <code>cv::cartToPolar()</code> 函数来获取梯度方向：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Sobel must be computed in floating points</span></div><div class="line">cv::Sobel(image,sobelX,CV_32F,<span class="number">1</span>,<span class="number">0</span>);</div><div class="line">cv::Sobel(image,sobelY,CV_32F,<span class="number">0</span>,<span class="number">1</span>);</div><div class="line"><span class="comment">// Compute the L2 norm and direction of the gradient</span></div><div class="line">cv::Mat norm, dir;</div><div class="line">cv::cartToPolar(sobelX,sobelY,norm,dir);</div></pre></td></tr></table></figure></p>
+<p>默认情况下，得到的方向是用辐度角来表示的，通过再添加一个参数 <code>true</code> 可以得到几何角。</p>
+<h4 id="拉普拉斯变换">拉普拉斯变换</h4>
+<p>拉普拉斯滤波器是另一个高通线性滤波器。OpenCV 提供了 <code>cv::Laplacian()</code> 函数来计算图像的拉普拉斯变换。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> Laplacian(InputArray src,	<span class="comment">// input</span></div><div class="line">            OutputArray dst,		<span class="comment">// output</span></div><div class="line">            <span class="keyword">int</span> ddepth,			<span class="comment">// image type</span></div><div class="line">            <span class="keyword">int</span> ksize=<span class="number">1</span>,			<span class="comment">// size of the square kernel</span></div><div class="line">            <span class="keyword">double</span> scale=<span class="number">1</span>,		<span class="comment">// scale</span></div><div class="line">            <span class="keyword">double</span> delta=<span class="number">0</span>,		<span class="comment">// offset</span></div><div class="line">            <span class="keyword">int</span> borderType=BORDER_DEFAULT )</div></pre></td></tr></table></figure></p>
+<p>一个封装好的拉普拉斯变换类 <code>LaplacianZC</code> 如下：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> LaplacianZC {</div><div class="line">  <span class="keyword">private</span>:</div><div class="line">    <span class="comment">// orignal image</span></div><div class="line">    cv::Mat img;</div><div class="line">    <span class="comment">// 32-bit float image containing the Laplacian</span></div><div class="line">    cv::Mat laplace;</div><div class="line">    <span class="comment">// Aperture size of the laplacian kernel</span></div><div class="line">    <span class="keyword">int</span> aperture;</div><div class="line">  <span class="keyword">public</span>:</div><div class="line">    LaplacianZC() : aperture(<span class="number">3</span>) {}</div><div class="line">    <span class="comment">// Set the aperture size of the kernel</span></div><div class="line">    <span class="keyword">void</span> setAperture(<span class="keyword">int</span> a) {</div><div class="line">        aperture = a;</div><div class="line">    }</div><div class="line">    <span class="comment">// Compute the floating point Laplacian</span></div><div class="line">    cv::Mat computeLaplacian(<span class="keyword">const</span> cv::Mat &image) {</div><div class="line">        <span class="comment">// Compute Laplacian</span></div><div class="line">        cv::Laplacian(image, laplace, CV_32F, aperture);</div><div class="line">        <span class="comment">// Keep local copy of the image</span></div><div class="line">        <span class="comment">// (used for zero-crossings)</span></div><div class="line">        img = image.clone();</div><div class="line">        <span class="keyword">return</span> laplace;</div><div class="line">    }</div><div class="line">    <span class="comment">// Get the Laplacian result in 8-bit image</span></div><div class="line">    <span class="comment">// zero corresponds to gray level 128</span></div><div class="line">    <span class="comment">// if no scale is provided, then the max value will be</span></div><div class="line">    <span class="comment">// scaled to intensity 255</span></div><div class="line">    <span class="comment">// You must call computeLaplacian before calling this</span></div><div class="line">    cv::Mat getLaplacianImage(<span class="keyword">double</span> scale=-<span class="number">1.0</span>) {</div><div class="line">        <span class="keyword">if</span> (scale&lt;<span class="number">0</span>){</div><div class="line">            <span class="keyword">double</span> lapmin, lapmax;</div><div class="line">            cv::minMaxLoc(laplace, &lapmin, &lapmax);</div><div class="line">            scale = <span class="number">127</span> / std::max(-lapmin, lapmax);</div><div class="line">        }</div><div class="line">        cv::Mat laplaceImage;</div><div class="line">        laplace.convertTo(laplaceImage, CV_8U, scale, <span class="number">128</span>);</div><div class="line">        <span class="keyword">return</span> laplaceImage;</div><div class="line">    }</div><div class="line">};</div></pre></td></tr></table></figure></p>
+<p>使用示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Compute Laplacian using LaplacianZC class</span></div><div class="line">LaplacianZC laplacian;</div><div class="line">laplacian.setAperture(<span class="number">7</span>);</div><div class="line">cv::Mat flap = laplacian.computeLaplacian(image);</div><div class="line">laplace = laplacian.getLaplacianImage();</div></pre></td></tr></table></figure></p>
+<p>结果：</p>
+<p><img src="/images/opencv-image/997GE2.png" alt=""></p>
+<p>拉普拉斯变换同样可以用来提取边缘：</p>
+<h5 id="边缘提取-v2">边缘提取</h5>
+<p>图像的经过拉普拉斯变换后，可以利用结果的 zero-crossings 提取边缘：</p>
+<ol>
+<li>遍历 Laplacian 结果图像，比对当前像素点和其左邻的像素点；</li>
+<li>如果两个像素点灰度值差值大于一个阈值，且正负号不同，则当前像素点为一个 zero-crossing 点；</li>
+<li>否则，对下一个像素重复同样的测试。</li>
+</ol>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Get a binary image of the zero-crossings</span></div><div class="line"><span class="comment">// if the product of the two adjascent pixels is</span></div><div class="line"><span class="comment">// less than threshold then this zero-crossing</span></div><div class="line"><span class="comment">// will be ignored</span></div><div class="line">cv::Mat getZeroCrossings(<span class="keyword">float</span> threshold=<span class="number">1.0</span>) {</div><div class="line"></div><div class="line">    <span class="comment">// Create the iterators</span></div><div class="line">    cv::Mat_&lt;<span class="keyword">float</span>&gt;::const_iterator it=</div><div class="line">        laplace.begin&lt;<span class="keyword">float</span>&gt;()+laplace.step1();</div><div class="line">    cv::Mat_&lt;<span class="keyword">float</span>&gt;::const_iterator itend=</div><div class="line">        laplace.end&lt;<span class="keyword">float</span>&gt;();</div><div class="line">    cv::Mat_&lt;<span class="keyword">float</span>&gt;::const_iterator itup=</div><div class="line">        laplace.begin&lt;<span class="keyword">float</span>&gt;();</div><div class="line"></div><div class="line">    <span class="comment">// Binary image initialize to white</span></div><div class="line">    cv::Mat binary(laplace.size(),CV_8U,cv::Scalar(<span class="number">255</span>));</div><div class="line">    cv::Mat_&lt;uchar&gt;::iterator itout=</div><div class="line">        binary.begin&lt;uchar&gt;()+binary.step1();</div><div class="line"></div><div class="line">    <span class="comment">// negate the input threshold value</span></div><div class="line">    threshold *= -<span class="number">1.0</span>;</div><div class="line">    <span class="keyword">for</span> ( ; it!= itend; ++it, ++itup, ++itout) {</div><div class="line">        <span class="comment">// if the product of two adjascent pixel is</span></div><div class="line">        <span class="comment">// negative then there is a sign change</span></div><div class="line">        <span class="keyword">if</span> (*it * *(it-<span class="number">1</span>) &lt; threshold)</div><div class="line">            *itout= <span class="number">0</span>; <span class="comment">// horizontal zero-crossing</span></div><div class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (*it * *itup &lt; threshold)</div><div class="line">            *itout= <span class="number">0</span>; <span class="comment">// vertical zero-crossing</span></div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="keyword">return</span> binary;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p><img src="/images/opencv-image/9974NF.png" alt=""></p>
+<p>拉普拉斯变换可以提取出丰富的边缘信息，但不足在于也对噪声很敏感。</p>
+<h5 id="原理-v2">原理</h5>
+<p>拉普拉斯变换定义为 \(x\) 、 \(y\) 两个方向的二阶导数的和：</p>
+<p>\[laplace(I) = \frac{\partial^{2}{I}}{\partial{x}^2} + \frac{\partial^{2}{I}}{\partial{y}^2}\]</p>
+<p>它最简单的形式是用如下的 3x3 卷积核逼近的矩阵：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|--------|</div><div class="line">| 0  1  0|</div><div class="line">| 1 -4  1|</div><div class="line">| 0  1  0|</div><div class="line">|--------|</div></pre></td></tr></table></figure></p>
+<h3 id="图像卷积">图像卷积</h3>
+<p>OpenCV 提供了 <code>cv::filter2D</code> 函数来进行图像卷积。使用它前只需先构造一个卷积核。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> filter2D(InputArray src,	<span class="comment">// input</span></div><div class="line">            OutputArray dst,	<span class="comment">// output</span></div><div class="line">            <span class="keyword">int</span> ddepth,		<span class="comment">// image type</span></div><div class="line">            InputArray kernel,  <span class="comment">// input kernel</span></div><div class="line">            Point anchor=Point(-<span class="number">1</span>,-<span class="number">1</span>),	<span class="comment">// anchor point</span></div><div class="line">            <span class="keyword">double</span> delta=<span class="number">0</span>,	<span class="comment">// offset</span></div><div class="line">            <span class="keyword">int</span> borderType=BORDER_DEFAULT )</div></pre></td></tr></table></figure></p>
+<p>例如，用源图像减去拉普拉斯滤波结果可以增强图像细节，相应的卷积核形式为：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">|--------|</div><div class="line">| 0 -1 0 |</div><div class="line">|-1 5 -1 |</div><div class="line">| 0 -1 0 |</div><div class="line">|--------|</div></pre></td></tr></table></figure></p>
+<p>实现如下：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> sharpen2D(<span class="keyword">const</span> cv::Mat &image, cv::Mat &result) {</div><div class="line">    <span class="comment">// Construct kernel (all entries initialized to 0)</span></div><div class="line">    cv::Mat kernel(<span class="number">3</span>, <span class="number">3</span>, CV_32F, cv::Scalar(<span class="number">0</span>));</div><div class="line">    <span class="comment">// assigns kernel values</span></div><div class="line">    kernel.at&lt;<span class="keyword">float</span>&gt;(<span class="number">1</span>,<span class="number">1</span>) = <span class="number">5.0</span>;</div><div class="line">    kernel.at&lt;<span class="keyword">float</span>&gt;(<span class="number">0</span>,<span class="number">1</span>) = -<span class="number">1.0</span>;</div><div class="line">    kernel.at&lt;<span class="keyword">float</span>&gt;(<span class="number">2</span>,<span class="number">1</span>) = -<span class="number">1.0</span>;</div><div class="line">    kernel.at&lt;<span class="keyword">float</span>&gt;(<span class="number">1</span>,<span class="number">0</span>) = -<span class="number">1.0</span>;</div><div class="line">    kernel.at&lt;<span class="keyword">float</span>&gt;(<span class="number">1</span>,<span class="number">2</span>) = -<span class="number">1.0</span>;</div><div class="line"></div><div class="line">    <span class="comment">//filter the image</span></div><div class="line">    cv::filter2D(image, result, image.depth(), kernel);</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<h2 id="图像金字塔">图像金字塔</h2>
+<p>一个图像金字塔是一系列图像的集合：</p>
+<ul>
+<li>所有图像来源于同一张原始图像；</li>
+<li>通过梯次向下采样获得，直到达到某个终止条件才停止采样。</li>
+</ul>
+<p>有两种类型的图像金字塔常常出现在文献和应用中：</p>
+<ul>
+<li>高斯金字塔(Gaussian pyramid): 基于<a href="#%E4%B8%8B%E9%87%87%E6%A0%B7">下采样</a>；</li>
+<li>拉普拉斯金字塔(Laplacian pyramid): 用来从金字塔低层图像重建上层未采样图像。</li>
+</ul>
+<h3 id="高斯金字塔">高斯金字塔</h3>
+<p>高斯金字塔为一层一层的图像，层级越高，图像越小。如下图所示，每一层都按从下到上的次序编号， 层级 \((i+1)\) (表示为 \(G_{i+1}\) 尺寸小于层级 \(i (G_{i})\))。</p>
+<p><img src="/images/opencv-image/Pyramids_Tutorial_Pyramid_Theory.png" alt=""></p>
+<p>前面已经了解到，缩小图像可以使用下采样技术。而高斯金字塔就是基于 <a href="#%E4%B8%8B%E9%87%87%E6%A0%B7">下采样</a> 实现的：通过对输入图像 \(G_{0}\) (原始图像) 下采样多次就会得到整个金字塔。</p>
+<p>OpenCV 提供了一个函数 <code>cv::buildPyramid()</code> 用来从一幅图像创建高斯金字塔：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> buildPyramid(InputArray src,			<span class="comment">// source image</span></div><div class="line">                OutputArrayOfArrays dst,	<span class="comment">// destination vector of maxlevel+1 images </span></div><div class="line">                <span class="keyword">int</span> maxlevel,				<span class="comment">// max level</span></div><div class="line">                <span class="keyword">int</span> borderType=BORDER_DEFAULT )</div></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Read input image</span></div><div class="line">cv::Mat img = cv::imread(<span class="string">"./lena.png"</span>);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (!img.data) {</div><div class="line">    perror(<span class="string">"Open file failed!"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// build gaussian pyramid</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span> gPyramid;</div><div class="line">cv::buildPyramid(img, gPyramid, <span class="number">4</span>);</div><div class="line"></div><div class="line"><span class="comment">// Show the result</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span>::iterator it = gPyramid.begin();</div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span>::iterator itend = gPyramid.end();</div><div class="line"></div><div class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">std::<span class="built_in">stringstream</span> title;</div><div class="line"><span class="keyword">for</span>(; it &lt; itend; ++it){</div><div class="line">    title &lt;&lt; <span class="string">"Gaussian Pyramid "</span> &lt;&lt; i;</div><div class="line">    cv::namedWindow(title.str());</div><div class="line">    cv::imshow(title.str(), *it);</div><div class="line">    ++i;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>结果：</p>
+<p><img src="/images/opencv-image/87818G.png" alt=""></p>
+<h3 id="拉普拉斯金字塔">拉普拉斯金字塔</h3>
+<p>下采样是一个丢失信息的函数。为了恢复原来（更高分辨率）的图像，我们需要获得下采样操作中丢失的信息，这些信息可以通过上采样来预测。这些数据形成了拉普拉斯金字塔（又叫做预测残差金字塔）。下面是拉普拉斯金字塔的第 \(i\) 层的数学定义：</p>
+<p>\[L_i=G_i-UP(G_{i+1})\bigotimes \varsigma_{n\times n}\]</p>
+<p>这里的 \(G_{i}\) 和 \(G_{i+1}\) 分别代表第 \(i\) 层和第 \(i+1\) 层的高斯金字塔图像；\(UP()\) 操作将原始图像中位置为 (x, y) 的像素映射到目标图像的 (2x+1, 2y+1) 位置；符号 \(\bigotimes\) 代表卷积操作，\(\varsigma\) 是 \(n\times n\) 的高斯核。OpenCV 提供的函数 <code>cv::pyrUp()</code> 实现的功能就如 \(UP(G_{i+1})\bigotimes \varsigma_{n\times n}\) 所定义。因此，我们可以使用 OpenCV 直接进行拉普拉斯运算：</p>
+<p>\[L_i=G_i-PyrUp(G_{i+1})\]</p>
+<p>OpenCV 没有提供直接生成拉普拉斯金字塔的函数，但自己实现一个也很容易：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * buildLaplacianPyramid	-	build a laplacian pyramid from an image</div><div class="line"> *</div><div class="line"> * @param src	-	source image</div><div class="line"> * @param dst 	-	destination vector of maxlevel+1 image</div><div class="line"> * @param maxlevel	-	max level</div><div class="line"> */</div><div class="line"><span class="keyword">void</span> buildLaplacianPyramid(<span class="keyword">const</span> cv::Mat &src, std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span> &dst, <span class="keyword">const</span> <span class="keyword">int</span> maxlevel)</div><div class="line">{</div><div class="line">    <span class="keyword">if</span> (maxlevel &lt; <span class="number">2</span>)</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    </div><div class="line">    <span class="comment">// build gaussian pyramid</span></div><div class="line">    std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span> gPyramid;</div><div class="line">    cv::buildPyramid(src, gPyramid, maxlevel);</div><div class="line">    std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span>::const_iterator it = gPyramid.begin();</div><div class="line">    std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span>::const_iterator itend = gPyramid.end();</div><div class="line"></div><div class="line">    <span class="comment">// build laplacian pyramid</span></div><div class="line">    cv::Mat upsample, current;</div><div class="line">    </div><div class="line">    <span class="keyword">while</span> (it &lt; itend - <span class="number">1</span>) {</div><div class="line">        current = (*it++).clone();	<span class="comment">// current level</span></div><div class="line">        cv::pyrUp(*it, upsample);	<span class="comment">// upsampling upper level</span></div><div class="line">        dst.push_back(current - upsample);	<span class="comment">// subtract the two</span></div><div class="line">    }</div><div class="line">    <span class="comment">// top level</span></div><div class="line">    dst.push_back(*it);</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/** </span></div><div class="line"> * buildLaplacianPyramid	-	build a laplacian pyramid from a vector of images</div><div class="line"> *</div><div class="line"> * @param src	-	vector of source images</div><div class="line"> * @param dst 	-	destination vector of vectors of maxlevel+1 image</div><div class="line"> * @param maxlevel	-	max level</div><div class="line"> */</div><div class="line"><span class="keyword">void</span> buildLaplacianPyramid(<span class="keyword">const</span> std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span> &src, std::<span class="stl_container"><span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span> &gt;</span> &dst, <span class="keyword">const</span> <span class="keyword">int</span> maxlevel)</div><div class="line">{</div><div class="line">    std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span>::const_iterator it = src.begin();</div><div class="line">    std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span>::const_iterator itend = src.end();</div><div class="line"></div><div class="line">    std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span> lPyramid;</div><div class="line">    buildLaplacianPyramid(*it, lPyramid, maxlevel);</div><div class="line">    <span class="keyword">for</span> (; it &lt; itend; ++it) {</div><div class="line">        dst.push_back(lPyramid);</div><div class="line">    }</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>以上两个重载函数分别根据一张图片或一系列图片生成拉普拉斯金字塔。金字塔的最顶层是一张低分辨率近似。</p>
+<p>示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Read input image</span></div><div class="line">cv::Mat img = cv::imread(<span class="string">"./lena.png"</span>);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (!img.data) {</div><div class="line">    perror(<span class="string">"Open file failed!"</span>);</div><div class="line">    <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// build laplacian pyramid</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span> lPyramid;</div><div class="line">buildLaplacianPyramid(img, lPyramid, <span class="number">4</span>);</div><div class="line"></div><div class="line"><span class="comment">// Show the result</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span>::iterator it = lPyramid.begin();</div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Mat&gt;</span>::iterator itend = lPyramid.end();</div><div class="line"></div><div class="line"><span class="keyword">int</span> i = <span class="number">0</span>;</div><div class="line">std::<span class="built_in">stringstream</span> title;</div><div class="line"><span class="keyword">for</span>(; it &lt; itend; ++it){</div><div class="line">    title &lt;&lt; <span class="string">"Laplacian Pyramid "</span> &lt;&lt; i;</div><div class="line">    cv::namedWindow(title.str());</div><div class="line">    cv::imshow(title.str(), *it);</div><div class="line">    ++i;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>结果：</p>
+<p><img src="/images/opencv-image/laplacian.png" alt=""></p>
+<h2 id="图像分割">图像分割</h2>
+<h3 id="分水岭">分水岭</h3>
+<p>OpenCV 提供了 <code>cv::watershed()</code> 函数来实现分水岭操作。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> watershed(InputArray image, InputOutputArray markers)</div></pre></td></tr></table></figure></p>
+<p>一个封装好的 WatershedSegmenter 类如下：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> WatershedSegmenter {</div><div class="line">  <span class="keyword">private</span>:</div><div class="line">    cv::Mat markers;</div><div class="line">  <span class="keyword">public</span>:</div><div class="line">    <span class="keyword">void</span> setMarkers(<span class="keyword">const</span> cv::Mat& markerImage) {</div><div class="line">        <span class="comment">// Convert to image of ints</span></div><div class="line">        markerImage.convertTo(markers,CV_32S);</div><div class="line">    }</div><div class="line">    cv::Mat process(<span class="keyword">const</span> cv::Mat &image) {</div><div class="line">        <span class="comment">// Apply watershed</span></div><div class="line">        cv::watershed(image,markers);</div><div class="line">        <span class="keyword">return</span> markers;</div><div class="line">    }</div></pre></td></tr></table></figure></p>
+<p>应用该类的步骤是：</p>
+<ol>
+<li>构造一个 marker 图像（可以通过对源图像进行标记和处理）；</li>
+<li>调用 <code>WatershedSegmenter::setMarkters()</code> 函数设置 marker；</li>
+<li>调用 <code>WatershedSegmenter::process()</code> 函数进行分水岭处理。</li>
+</ol>
+<p><img src="/images/opencv-image/997FKj.png" alt=""></p>
+<h3 id="grabcut">GrabCut</h3>
+<p>OpenCV 提供了 <code>cv::grabCut()</code> 函数来实现 GrabCut 操作。</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> grabCut(InputArray img, InputOutputArray mask, Rect rect, InputOutputArray bgdModel, In-</div><div class="line">        putOutputArray fgdModel, <span class="keyword">int</span> iterCount, <span class="keyword">int</span> mode=GC_EVAL )</div></pre></td></tr></table></figure></p>
+<p>使用 <code>cv::grabCut()</code> 函数非常简单，你只需要输入一张图像，标记一些像素点属于前景图或背景图。然后该算法就会根据这些标记点分割出整幅图像前景和背景。</p>
+<p>一种标记的方法就是直接将一部分前景的区域用矩形框起来：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Open image</span></div><div class="line">image= cv::imread(<span class="string">"../group.jpg"</span>);</div><div class="line"><span class="comment">// define bounding rectangle</span></div><div class="line"><span class="comment">// the pixels outside this rectangle</span></div><div class="line"><span class="comment">// will be labeled as background</span></div><div class="line">cv::Rect rectangle(<span class="number">10</span>,<span class="number">100</span>,<span class="number">380</span>,<span class="number">180</span>);</div></pre></td></tr></table></figure></p>
+<p>之后可以调用 <code>cv::grabCut()</code> 函数：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">cv::Mat result;	<span class="comment">// segemtation (4 possible values)</span></div><div class="line">cv::Mat bgModel, fgModel;	<span class="comment">// the models (internally used)</span></div><div class="line"><span class="comment">// GrabCut segmentation</span></div><div class="line">cv::grabCut(image,	<span class="comment">// input image</span></div><div class="line">            result,	<span class="comment">// segmentation result</span></div><div class="line">            rectangle,  <span class="comment">// rectangle contain foreground</span></div><div class="line">            bgModel, fgModel,  <span class="comment">// models</span></div><div class="line">            <span class="number">5</span>,		<span class="comment">// number of iterations</span></div><div class="line">            cv::GC_INIT_WITH_RECT	<span class="comment">// use rectangle</span></div><div class="line">            );</div></pre></td></tr></table></figure></p>
+<p>得到的结果 <code>result</code> 将包含下面四种常量值：</p>
+<ul>
+<li><code>cv::GC_BGD</code> - 所有确定属于背景的像素（实际值为 0）；</li>
+<li><code>cv::GC_FGD</code> - 所有确定属于前景的像素（实际值为 1）；</li>
+<li><code>cv::GC_PR_BGD</code> - 所有可能属于背景的像素（实际值为 2）；</li>
+<li><code>cv::GC_PR_FGD</code> - 所有可能属于前景的像素（实际值为 3）。</li>
+</ul>
+<p>我们可以将所有可能是前景的像素提取出来：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Get the pixels marked as likely foreground</span></div><div class="line">cv::compare(result, cv::GC_PR_FGD, result, cv::CMP_EQ);</div><div class="line"><span class="comment">// Generate output image</span></div><div class="line">cv::Mat foreground(image.size(), CV_8UC3,</div><div class="line">                cv::Scalar(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>));</div><div class="line">image.copyTo(foreground,	<span class="comment">// bg pixels are not copied</span></div><div class="line">            result);</div></pre></td></tr></table></figure></p>
+<p>上面得到的 foreground 图像即是应用 GrabCut 算法分割出的前景图像。</p>
+<p>由于 <code>cv::GC_FGD</code> 和 <code>cv::PR_FGD</code> 的实际值为 1 和 3，上面的 <code>cv::compare()</code> 操作也可以简单的写成：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">result = result & <span class="number">1</span>;</div></pre></td></tr></table></figure></p>
+<p><img src="/images/opencv-image/997SUp.png" alt=""></p>
+<h2 id="形状检测">形状检测</h2>
+<h3 id="轮廓">轮廓</h3>
+<p>Canny 算法是一个有效的轮廓提取方法。OpenCV 提供了 <code>cv::Canny()</code> 函数：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> Canny(InputArray image,	<span class="comment">// input</span></div><div class="line">        OutputArray edges,	<span class="comment">// output</span></div><div class="line">        <span class="keyword">double</span> threshold1,	<span class="comment">// low threshold</span></div><div class="line">        <span class="keyword">double</span> threshold2,	<span class="comment">// high threshold</span></div><div class="line">        <span class="keyword">int</span> apertureSize=<span class="number">3</span>,	<span class="comment">// aperture size for Sobel operator</span></div><div class="line">        <span class="keyword">bool</span> L2gradient=<span class="keyword">false</span> ) <span class="comment">// whether to use L2 norm</span></div></pre></td></tr></table></figure></p>
+<p>例如：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Apply Canny algorithm</span></div><div class="line">cv::Mat contours;</div><div class="line">cv::Canny(image,	<span class="comment">// gray-level image</span></div><div class="line">        contours,	<span class="comment">// output contours</span></div><div class="line">        <span class="number">125</span>,		<span class="comment">// low threshold</span></div><div class="line">        <span class="number">350</span>);		<span class="comment">// high threshold</span></div></pre></td></tr></table></figure></p>
+<p>原图：</p>
+<p><img src="/images/opencv-image/997FYL.png" alt=""></p>
+<p>结果：</p>
+<p><img src="/images/opencv-image/997SiR.png" alt=""></p>
+<h3 id="直线">直线</h3>
+<p>Hough 变换是经典的提取直线的方法。OpenCV 提供了两个版本的 Hough 变换：</p>
+<h4 id="houghlines">HoughLines</h4>
+<p>基本的版本是 <code>cv::HoughLines()</code> 函数：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> HoughLines(InputArray image,	<span class="comment">// 8-bit, single-channel binary source image</span></div><div class="line">                OutputArray lines,  <span class="comment">// output vector of lines</span></div><div class="line">                <span class="keyword">double</span> rho,		<span class="comment">// distance resolution of the accumulator in pixels</span></div><div class="line">                <span class="keyword">double</span> theta,		<span class="comment">// angle resolution of the accumulator in radians</span></div><div class="line">                <span class="keyword">int</span> threshold,	<span class="comment">// accumulator threshold parameter                    </span></div><div class="line">                <span class="keyword">double</span> srn=<span class="number">0</span>,		<span class="comment">// a divisor for rho</span></div><div class="line">                <span class="keyword">double</span> stn=<span class="number">0</span> )	<span class="comment">// a divisor for theta</span></div></pre></td></tr></table></figure></p>
+<p>参数 <code>rho</code> 和 <code>theta</code> 决定了直线查找的步长。</p>
+<p>示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Apply Canny algorithm</span></div><div class="line">cv::Mat contours;</div><div class="line">cv::Canny(image, contours, <span class="number">125</span>, <span class="number">350</span>);</div><div class="line"><span class="comment">// Hough transform for line detection</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Vec2f&gt;</span> lines;</div><div class="line">cv::HoughLines(test, lines,</div><div class="line">                <span class="number">1</span>, PI/<span class="number">180</span>,	<span class="comment">// step size</span></div><div class="line">                <span class="number">80</span>);			<span class="comment">// minimum number of votes</span></div><div class="line"><span class="comment">// Draw the detected lines</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Vec2f&gt;</span>::const_iterator it= lines.begin();</div><div class="line"><span class="keyword">while</span> (it!=lines.end()) {</div><div class="line">    <span class="keyword">float</span> rho= (*it)[<span class="number">0</span>];</div><div class="line">    <span class="comment">// first element is distance rho</span></div><div class="line">    <span class="keyword">float</span> theta= (*it)[<span class="number">1</span>]; <span class="comment">// second element is angle theta</span></div><div class="line">    <span class="keyword">if</span> (theta &lt; PI/<span class="number">4.</span> || theta &gt; <span class="number">3.</span>*PI/<span class="number">4.</span>) { <span class="comment">// ~vertical line</span></div><div class="line">        <span class="comment">// point of intersection of the line with first row</span></div><div class="line">        cv::Point pt1(rho/<span class="built_in">cos</span>(theta),<span class="number">0</span>);</div><div class="line">        <span class="comment">// point of intersection of the line with last row</span></div><div class="line">        cv::Point pt2((rho-result.rows*<span class="built_in">sin</span>(theta))/</div><div class="line">        <span class="built_in">cos</span>(theta),result.rows);</div><div class="line">        <span class="comment">// draw a white line</span></div><div class="line">        cv::line( image, pt1, pt2, cv::Scalar(<span class="number">255</span>), <span class="number">1</span>);</div><div class="line">    } <span class="keyword">else</span> { <span class="comment">// ~horizontal line</span></div><div class="line">        <span class="comment">// point of intersection of the</span></div><div class="line">        <span class="comment">// line with first column</span></div><div class="line">        cv::Point pt1(<span class="number">0</span>,rho/<span class="built_in">sin</span>(theta));</div><div class="line">        <span class="comment">// point of intersection of the line with last column</span></div><div class="line">        cv::Point pt2(result.cols,</div><div class="line">            (rho-result.cols*<span class="built_in">cos</span>(theta))/<span class="built_in">sin</span>(theta));</div><div class="line">        <span class="comment">// draw a white line</span></div><div class="line">        cv::line(image, pt1, pt2, cv::Scalar(<span class="number">255</span>), <span class="number">1</span>);</div><div class="line">    }</div><div class="line">    ++it;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>结果：</p>
+<p><img src="/images/opencv-image/997fsX.png" alt=""></p>
+<h4 id="houghlinesp">HoughLinesP</h4>
+<p>另一个是 <code>cv::HoughLinesP()</code> 函数，提供了 Probabilistic Hough 变换操作，与前者的不同是对直线的可能性进行了估计，以防止对一些因巧合出现的像素对齐的情况的误判：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> HoughLinesP(InputArray image,	<span class="comment">// 8-bit, single-channel binary source image	  </span></div><div class="line">                OutputArray lines,	<span class="comment">// output vector of lines						  </span></div><div class="line">                <span class="keyword">double</span> rho,			<span class="comment">// distance resolution of the accumulator in pixel</span></div><div class="line">                <span class="keyword">double</span> theta,			<span class="comment">// angle resolution of the accumulator in radians</span></div><div class="line">                <span class="keyword">int</span> threshold,		<span class="comment">// accumulator threshold parameter</span></div><div class="line">                <span class="keyword">double</span> minLineLength=<span class="number">0</span>, <span class="comment">// minimum line length</span></div><div class="line">                <span class="keyword">double</span> maxLineGap=<span class="number">0</span> )	<span class="comment">// maximum allowed gap</span></div></pre></td></tr></table></figure></p>
+<p>可以将它封装成一个类 <a href="https://gist.github.com/8996550" target="_blank" rel="external">LineFinder</a> 。</p>
+<p>示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Create LineFinder instance</span></div><div class="line">LineFinder finder;</div><div class="line"><span class="comment">// Set probabilistic Hough parameters</span></div><div class="line">finder.setLineLengthAndGap(<span class="number">100</span>,<span class="number">20</span>);</div><div class="line">finder.setMinVote(<span class="number">80</span>);</div><div class="line"><span class="comment">// Detect lines and draw them</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Vec4i&gt;</span> lines= finder.findLines(contours);</div><div class="line">finder.drawDetectedLines(image);</div><div class="line">cv::namedWindow(<span class="string">"Detected Lines with HoughP"</span>);</div><div class="line">cv::imshow(<span class="string">"Detected Lines with HoughP"</span>,image);</div></pre></td></tr></table></figure></p>
+<p><img src="/images/opencv-image/997s2d.png" alt=""></p>
+<h3 id="圆">圆</h3>
+<p>Hough 变换也可以用来检测圆。OpenCV 提供了 <code>cv::HoughCircles()</code> 实现这一操作：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> HoughCircles(InputArray image,	<span class="comment">// 8-bit, single-channel, grayscale input image</span></div><div class="line">                OutputArray circles,	<span class="comment">// output vector of found circles</span></div><div class="line">                <span class="keyword">int</span> method,			<span class="comment">// detection method to use.</span></div><div class="line">                <span class="keyword">double</span> dp,			<span class="comment">// accumulator resolution (size of the image / 2)</span></div><div class="line">                <span class="keyword">double</span> minDist,		<span class="comment">// minimum distance between two circles</span></div><div class="line">                <span class="keyword">double</span> param1=<span class="number">100</span>,	<span class="comment">// Canny high threshold</span></div><div class="line">                <span class="keyword">double</span> param2=<span class="number">100</span>,	<span class="comment">// second method-specific parameter</span></div><div class="line">                <span class="keyword">int</span> minRadius=<span class="number">0</span>,		<span class="comment">// minimum circle radius</span></div><div class="line">                <span class="keyword">int</span> maxRadius=<span class="number">0</span> )		<span class="comment">// minimum number of votes</span></div></pre></td></tr></table></figure></p>
+<p>其中，<code>method</code> 参数目前只有一个可选值 <code>CV_HOUGH_GRADIENT</code>。</p>
+<p>在进行该变换前，总是建议先进行一次高斯模糊，以降低图像噪声，提高识别率。示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Smooth the image to reduce noise</span></div><div class="line">cv::GaussianBlur(image,image,cv::Size(<span class="number">5</span>,<span class="number">5</span>),<span class="number">1.5</span>);</div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Vec3f&gt;</span> circles;</div><div class="line"><span class="comment">// Detect circles</span></div><div class="line">cv::HoughCircles(image, circles, CV_HOUGH_GRADIENT,</div><div class="line">                <span class="number">2</span>,	<span class="comment">// accumulator resolution (size of the image / 2)</span></div><div class="line">                <span class="number">50</span>, <span class="comment">// minimum distance between two circles</span></div><div class="line">                <span class="number">200</span>, <span class="comment">// Canny high threshold</span></div><div class="line">                <span class="number">100</span>, <span class="comment">// minimum number of votes</span></div><div class="line">                <span class="number">25</span>, <span class="number">100</span>); <span class="comment">// min and max radius</span></div><div class="line"><span class="comment">// Draw the circles</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Vec3f&gt;</span>::const_iterator itc= circles.begin();</div><div class="line"><span class="keyword">while</span> (itc!=circles.end()) {</div><div class="line">    cv::circle(image,</div><div class="line">        cv::Point((*itc)[<span class="number">0</span>],</div><div class="line">        (*itc)[<span class="number">1</span>]),	<span class="comment">// circle centre</span></div><div class="line">        (*itc)[<span class="number">2</span>],	<span class="comment">// circle radius</span></div><div class="line">        cv::Scalar(<span class="number">255</span>),<span class="comment">// color</span></div><div class="line">        <span class="number">2</span>);			<span class="comment">// thickness</span></div><div class="line">    ++itc;</div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>结果：</p>
+<p><img src="/images/opencv-image/9975Ak.png" alt=""></p>
+<h2 id="形状拟合">形状拟合</h2>
+<h3 id="直线-v2">直线</h3>
+<p>OpenCV 提供了 <code>cv::fitLine()</code> 函数以根据一些点的集合拟合直线：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> fitLine(InputArray points,	<span class="comment">// input vector of 2D or 3D points</span></div><div class="line">            OutputArray line,		<span class="comment">// output vector of lines</span></div><div class="line">            <span class="keyword">int</span> distType,			<span class="comment">// distance type</span></div><div class="line">            <span class="keyword">double</span> param,			<span class="comment">// numerical parameter some types of distances</span></div><div class="line">            <span class="keyword">double</span> reps,			<span class="comment">// sufficient accuracy for the radius</span></div><div class="line">            <span class="keyword">double</span> aeps)			<span class="comment">// sufficient accuracy for the angle</span></div></pre></td></tr></table></figure></p>
+<p>示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">cv::Vec4f line;</div><div class="line">cv::fitLine(cv::Mat(points),line,</div><div class="line">            CV_DIST_L2, <span class="comment">// distance type</span></div><div class="line">            <span class="number">0</span>,</div><div class="line">            <span class="comment">// not used with L2 distance</span></div><div class="line">            <span class="number">0.01</span>,<span class="number">0.01</span>); <span class="comment">// accuracy</span></div></pre></td></tr></table></figure></p>
+<h3 id="椭圆">椭圆</h3>
+<p>OpenCV 提供了 <code>cv::fitEllipse()</code> 函数以根据一些点的集合拟合椭圆：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RotatedRect fitEllipse(InputArray points)</div></pre></td></tr></table></figure></p>
+<p>该操作返回一个经旋转的矩形，以表示一个椭圆的大小、形状和旋转角度。示例：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cv::RotatedRect rrect= cv::fitEllipse(cv::Mat(points));</div><div class="line">cv::ellipse(image,rrect,cv::Scalar(<span class="number">0</span>));</div></pre></td></tr></table></figure></p>
+<h2 id="形状特征">形状特征</h2>
+<h3 id="轮廓-v2">轮廓</h3>
+<p>OpenCV 提供了 <code>cv::findContours()</code> 函数以提取一幅图像中的闭合轮廓：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">void</span> findContours(InputOutputArray image,	<span class="comment">// source, an 8-bit single-channel image.</span></div><div class="line">                OutputArrayOfArrays contours, <span class="comment">// detected contours</span></div><div class="line">                OutputArray hierarchy,	<span class="comment">// optional output vector</span></div><div class="line">                <span class="keyword">int</span> mode,					<span class="comment">// contour retrieval mode</span></div><div class="line">                <span class="keyword">int</span> method,				<span class="comment">// contour approximation method </span></div><div class="line">                Point offset=Point())		<span class="comment">// point offset</span></div></pre></td></tr></table></figure></p>
+<p>示例（只提取外部轮廓，不考虑内部轮廓）：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Find contours</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;<span class="built_in">std</span>::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Point&gt;</span>&gt;</span> contours;</div><div class="line">cv::findContours(image,</div><div class="line">                contours, <span class="comment">// a vector of contours</span></div><div class="line">                CV_RETR_EXTERNAL, <span class="comment">// retrieve the external contours</span></div><div class="line">                CV_CHAIN_APPROX_NONE); <span class="comment">// all pixels of each contours</span></div><div class="line"><span class="comment">// Draw black contours on a white image</span></div><div class="line">cv::Mat result(image.size(),CV_8U,cv::Scalar(<span class="number">255</span>));</div><div class="line">cv::drawContours(result,contours,</div><div class="line">                -<span class="number">1</span>, <span class="comment">// draw all contours</span></div><div class="line">                cv::Scalar(<span class="number">0</span>), <span class="comment">// in black</span></div><div class="line">                <span class="number">2</span>); <span class="comment">// with a thickness of 2</span></div></pre></td></tr></table></figure></p>
+<p><img src="/images/opencv-image/997TVw.png" alt=""></p>
+<p>如果要同时查找内部轮廓，可以把 <code>cv::findContours()</code> 的第 3 个参数改为 <code>CV_RETR_LIST</code> 。如果要在查找内外所有的轮廓的同时保存轮廓的层次，可以改为 <code>CV_RETR_TREE</code> 。<code>CV_RETRC_COMP</code> 也可以得到层次，但只分成外轮廓和内轮廓两层。</p>
+<h3 id="边界框-bounding-box">边界框（bounding box）</h3>
+<p>获取一个形状的 bounding box：</p>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// testing the bounding box</span></div><div class="line">cv::Rect r0= cv::boundingRect(cv::Mat(contours[<span class="number">0</span>]));</div><div class="line">cv::rectangle(result,r0,cv::Scalar(<span class="number">0</span>),<span class="number">2</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="最小外接圆">最小外接圆</h3>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// testing the enclosing circle</span></div><div class="line"><span class="keyword">float</span> radius;</div><div class="line">cv::Point2f center;</div><div class="line">cv::minEnclosingCircle(cv::Mat(contours[<span class="number">1</span>]),center,radius);</div><div class="line">cv::circle(result,cv::Point(center),</div><div class="line"><span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(radius),cv::Scalar(<span class="number">0</span>),<span class="number">2</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="最小外接多边形">最小外接多边形</h3>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// testing the approximate polygon</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Point&gt;</span> poly;</div><div class="line">cv::approxPolyDP(cv::Mat(contours[<span class="number">2</span>]),</div><div class="line">                poly,</div><div class="line">                <span class="number">5</span>,	<span class="comment">// accuracy of the approximation</span></div><div class="line">                <span class="keyword">true</span>); <span class="comment">// yes it is a closed shape</span></div><div class="line"></div><div class="line"><span class="comment">// Iterate over each segment and draw it</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Point&gt;</span>::const_iterator itp= poly.begin();</div><div class="line"><span class="keyword">while</span> (itp!=(poly.end()-<span class="number">1</span>)) {</div><div class="line">    cv::line(result,*itp,*(itp+<span class="number">1</span>),cv::Scalar(<span class="number">0</span>),<span class="number">2</span>);</div><div class="line">    ++itp;</div><div class="line">}</div><div class="line"><span class="comment">// last point linked to first point</span></div><div class="line">cv::line(result,</div><div class="line">        *(poly.begin()),</div><div class="line">        *(poly.end()-<span class="number">1</span>),cv::Scalar(<span class="number">20</span>),<span class="number">2</span>);</div></pre></td></tr></table></figure></p>
+<h3 id="凸包">凸包</h3>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// testing the convex hull</span></div><div class="line">std::<span class="stl_container"><span class="built_in">vector</span>&lt;cv::Point&gt;</span> hull;</div><div class="line">cv::convexHull(cv::Mat(contours[<span class="number">3</span>]),hull);</div></pre></td></tr></table></figure></p>
+<h3 id="矩-moments">矩（moments）</h3>
+<p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// testing the moments</span></div><div class="line"><span class="comment">// iterate over all contours</span></div><div class="line">itc= contours.begin();</div><div class="line"><span class="keyword">while</span> (itc!=contours.end()) {</div><div class="line">    <span class="comment">// compute all moments</span></div><div class="line">    cv::Moments mom= cv::moments(cv::Mat(*itc++));</div><div class="line">    <span class="comment">// draw mass center</span></div><div class="line">    cv::circle(result,	<span class="comment">// position of mass center converted to integer</span></div><div class="line">            cv::Point(mom.m10/mom.m00,mom.m01/mom.m00),</div><div class="line">            <span class="number">2</span>,cv::Scalar(<span class="number">0</span>),<span class="number">2</span>); <span class="comment">// draw black dot</span></div><div class="line">}</div></pre></td></tr></table></figure></p>
+<p>上面几步的结果：</p>
+<p><img src="/images/opencv-image/997SpF.png" alt=""></p>
+
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+<ul class="pagination">
+	
+	
+	
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/opencv-basic.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	
+	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
+	
+		<li class="next"><a data-pjax href="/wiki/opencv-video.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+	    </center>
+		</div>
+				
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+		
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+				
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "图像处理",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+		
+
+	</div> <!-- span9/span12 -->
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
+. 
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+<script type="text/x-mathjax-config">
+   MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    }); 
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+</body>
+</html>
