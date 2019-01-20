@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2019-01-20T18:11:47.192Z</updated>
+  <updated>2019-01-20T21:57:25.499Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/life/2018-montage/"/>
     <id>http://hahack.com/life/2018-montage/</id>
     <published>2018-12-29T13:30:31.000Z</published>
-    <updated>2019-01-20T18:11:26.361Z</updated>
+    <updated>2019-01-20T21:56:55.321Z</updated>
     <content type="html"><![CDATA[<p>眨眼就到了 2019 年了，每年这个时候我都在纠结要不要写点什么。纠结的原因是：如果今年开了个头，那就相当于欠下一笔技术债，那么以后的每年都应该坚持写一篇总结，而我又是一个很怕欠债的人。今年我决定停止纠结：一来觉得自己已经到而立之年了，想做的事情就该放手去做。二来总结首先是写给自己看的，每年年底好好写份总结，有助于回顾自己这一年的心路历程，也能及时发现自己这一年有哪些不足，有则改之无则加勉。三来如果能坚持写下去的话，等老了的时候，回过头来看每一年的回顾，应该会有更深的感触吧。Anyway，既然是有益的债务，那还是值得去背负的。</p>
 <p>2018 年依旧是比较充（mang）实（lu）的一年，这一年我完成了买房大计，开始在 GMTC 这类的技术会议上做分享交流，开始带团队，首次挑战并完成了一次鹅厂的技术通道答辩，开始尝试担任腾讯课堂的讲师对外授课……收获颇丰。与之相对应的也有一些失去，包括一段还没来得及开始就匆匆结束的感情。</p>
 <p>为了避免把总结写得太过于流水账，我想把总结拆成几个主题来回顾：正经事（工作、开源、博客、授课），不正经事（乐器、旅行、游戏、锻炼、看书、感情）。</p>
@@ -117,7 +117,6 @@
 <p>目前这个项目进度大概是 80% ，还剩多用户、权限管理以及多语言支持没有完成。体验地址：<a href="http://livecv.hahack.com:8021" target="_blank" rel="external">http://livecv.hahack.com:8021</a> 。</p>
 <p>这是一份渲染出来的简历效果：</p>
 <p><img src="http://hahack-1253537070.file.myqcloud.com/images/wukong.png" alt="LiveCV example"></p>
-<iframe src="http://livecv.hahack.com:8021/static/res/wukong-recent.pdf?raw=true&embedded=true" width="100%" height="880" frameborder="0"></iframe>
 <br>
 <p>7 月初参与了一次鹅厂的技术通道晋升答辩，在准备 slides 的时候苦于没有找到一个简洁实用的 PPT 模板，于是仿照着 Beamer 做了一份 PPT 模板，后来干脆搞成了个开源项目 <a href="/work/introducing-beamerstyleslides/">BeamerStyleSlides</a> ，对大部分 Beamer 的模板主题进行复刻。这套模板的介绍文章上了公司内网的头条，获得了两百多个同事的收藏。</p>
 <p><img src="https://raw.githubusercontent.com/wzpan/BeamerStyleSlides/master/preview/tile.png" alt="BeamerStyleSlides"></p>
