@@ -351,83 +351,9 @@ screenInit 的调用都是正确的：</p>
 	    
 	
 	    
-	
-	    
 			
 		
 	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-			
-		
-	
-	    
-	
-	    
-			
-			
-			
 	    
 	
 	    
@@ -455,37 +381,7 @@ screenInit 的调用都是正确的：</p>
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
-			
-		
-	
-	    
-			
-			
-			
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
 		
 	
@@ -518,60 +414,6 @@ screenInit 的调用都是正确的：</p>
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
 			
 		
@@ -580,10 +422,6 @@ screenInit 的调用都是正确的：</p>
 			
 			
 			
-	    
-	
-	    
-	
 	    
 	
 	    
@@ -634,6 +472,164 @@ screenInit 的调用都是正确的：</p>
 	
 	    
 			
+			
+		
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+			
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
 		
 	
 	    
@@ -672,12 +668,16 @@ screenInit 的调用都是正确的：</p>
 	
 	    
 	
+	    
 	
-		<li class="prev"><a data-pjax href="/wiki/cpp-template.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+	    
+	
+	
+		<li class="prev"><a data-pjax href="/wiki/cpp-standard-io.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
 	
 	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
 	
-		<li class="next"><a data-pjax href="/wiki/cpp-standard-io.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+		<li class="next"><a data-pjax href="/wiki/cpp-container.html" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>
 	
 </ul>
 </div>
@@ -764,7 +764,14 @@ screenInit 的调用都是正确的：</p>
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

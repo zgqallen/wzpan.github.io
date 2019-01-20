@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   
-  <title>使用 BeamerStyleSlides 制作你的技术答辩PPT | HaHack</title>
+  <title>使用 BeamerStyleSlides 制作你的技术答辩 PPT | HaHack</title>
   <meta name="author" content="Joseph Pan">
   
   <meta name="description" content="介绍一套开源的Beamer风格幻灯片模板集 BeamerStyleSlides 。">
@@ -11,7 +11,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="使用 BeamerStyleSlides 制作你的技术答辩PPT"/>
+  <meta property="og:title" content="使用 BeamerStyleSlides 制作你的技术答辩 PPT"/>
   <meta property="og:site_name" content="HaHack"/>
 
   
@@ -136,7 +136,7 @@
 
 	
 		<div class="page-header">		
-			<h1> 使用 BeamerStyleSlides 制作你的技术答辩PPT</h1>
+			<h1> 使用 BeamerStyleSlides 制作你的技术答辩 PPT</h1>
 		</div>    
 	
 
@@ -270,8 +270,8 @@
 	 
       <ul>
 		
-		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
-        
+		<li class="prev"><a data-pjax href="/life/2018-montage/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+  		
 
 		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
 
@@ -322,11 +322,11 @@
 	<!-- donate guide -->
 	<div id="donate_guide" class="donate_bar center hidden">
         <div class="row center">
-		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
-			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		<a href="/images/misc/alipay.png" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="/images/misc/alipay.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
 		</a>&nbsp;
-		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
-			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		<a href="/images/misc/wechatpay.jpeg" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="/images/misc/wechatpay.jpeg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
 		</a>
         </div>
 		<span class="donate_txt">
@@ -382,7 +382,7 @@
 			   go_to_comment: "去留言",
 			   btn_class: "btn btn-primary",
 			   no_issue: "no_issue",
-			   issue_title: "使用 BeamerStyleSlides 制作你的技术答辩PPT",
+			   issue_title: "使用 BeamerStyleSlides 制作你的技术答辩 PPT",
 			   issue_id: "undefined",
 			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
 			   loading_target: "undefined"
@@ -484,7 +484,14 @@
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

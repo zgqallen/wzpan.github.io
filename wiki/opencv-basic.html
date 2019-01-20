@@ -264,6 +264,21 @@ OpenCV 的 C++ API 里的所有类和函数都是定义在 cv 命名空间中的
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
 			
 			
 		
@@ -281,19 +296,6 @@ OpenCV 的 C++ API 里的所有类和函数都是定义在 cv 命名空间中的
 	    
 	
 	    
-			
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 	
@@ -301,8 +303,6 @@ OpenCV 的 C++ API 里的所有类和函数都是定义在 cv 命名空间中的
 			
 			
 		
-	
-	    
 	
 	    
 	
@@ -686,7 +686,14 @@ OpenCV 的 C++ API 里的所有类和函数都是定义在 cv 命名空间中的
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

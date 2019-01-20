@@ -247,44 +247,6 @@
 	    
 	
 	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 	
@@ -311,102 +273,8 @@
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
 			
 		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 	
@@ -471,6 +339,138 @@
 	    
 	
 	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
@@ -498,13 +498,11 @@
 	    
 	
 	    
-	
+			
+			
+			
 	    
 	
-	    
-			
-			
-			
 	    
 	
 	    
@@ -523,12 +521,22 @@
 	    
 	
 	    
+	
+	    
 			
 			
 			
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
 	
 	    
 	
@@ -549,14 +557,6 @@
 		
 	
 	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
 			
 		
 	
@@ -581,7 +581,7 @@
 	    
 	
 	
-		<li class="prev"><a data-pjax href="/wiki/python3-debug.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+		<li class="prev"><a data-pjax href="/wiki/python3-closure.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
 	
 	<li><a data-pjax href="/wiki"><i class="fa fa-tasks"></i>Wiki</a></li>
 	
@@ -672,7 +672,14 @@
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

@@ -252,11 +252,11 @@ Mode刚好是相应语言的Mode，所以可以很自在的完成各种熟悉的
 	<!-- donate guide -->
 	<div id="donate_guide" class="donate_bar center hidden">
         <div class="row center">
-		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
-			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		<a href="/images/misc/alipay.png" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="/images/misc/alipay.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
 		</a>&nbsp;
-		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
-			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		<a href="/images/misc/wechatpay.jpeg" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="/images/misc/wechatpay.jpeg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
 		</a>
         </div>
 		<span class="donate_txt">
@@ -406,7 +406,14 @@ Mode刚好是相应语言的Mode，所以可以很自在的完成各种熟悉的
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

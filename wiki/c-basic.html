@@ -329,7 +329,7 @@ C语言的发展历史大致上分为三个阶段：Old Style C、C89和C99。Ke
 <p>该语句将x中对应于 <code>SET_ON</code> 中为1的那些二进制位置为1。</p>
 <p>例如：函数<code>getbits(x,p,n)</code>，它返回x中从右边数第p位开始向右数n位的字段。</p>
 <p><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* getbits: get n bits from position p */</span></div><div class="line"><span class="keyword">unsigned</span> getbits(<span class="keyword">unsigned</span> x, <span class="keyword">int</span> p, <span class="keyword">int</span> n)</div><div class="line">{</div><div class="line"><span class="keyword">return</span> (x &gt;&gt; (p+<span class="number">1</span>-n)) & ~(~<span class="number">0</span> &lt;&lt; n);</div><div class="line">}</div></pre></td></tr></table></figure></p>
-<h3 id="三元运算符">三元运算符(? :)</h3>
+<h3 id="三元运算符-😃">三元运算符(? 😃</h3>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">expr1 ? expr2 : expr3</div></pre></td></tr></table></figure></p>
 <p>应该注意，如果<code>expr2</code>与<code>expr3</code>的类型不同，结果的类型也将进行转换。例如，如果<code>f</code>为float类型，<code>n</code>为int类型，那么表达式 <code>(n &gt; 0) ? f : n</code> <strong>是float类型，与n是否为正值无关</strong> 。</p>
 <h3 id="运算符优先级与求值次序">运算符优先级与求值次序</h3>
@@ -434,6 +434,21 @@ C语言的发展历史大致上分为三个阶段：Old Style C、C89和C99。Ke
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+		
+	
+	    
 			
 			
 		
@@ -451,58 +466,11 @@ C语言的发展历史大致上分为三个阶段：Old Style C、C89和C99。Ke
 	    
 	
 	    
-			
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 	
 	    
 			
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-			
-			
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
 		
 	
@@ -521,36 +489,10 @@ C语言的发展历史大致上分为三个阶段：Old Style C、C89和C99。Ke
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
 			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
-		
+			
+	    
 	
 	    
 	
@@ -591,6 +533,64 @@ C语言的发展历史大致上分为三个阶段：Old Style C、C89和C99。Ke
 	    
 	
 	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 			
 			
 		
@@ -644,15 +644,15 @@ C语言的发展历史大致上分为三个阶段：Old Style C、C89和C99。Ke
 	    
 	
 	    
-	
+			
+			
+			
 	    
 	
 	    
 	
 	    
-			
-			
-			
+	
 	    
 	
 	    
@@ -681,10 +681,6 @@ C语言的发展历史大致上分为三个阶段：Old Style C、C89和C99。Ke
 	    
 	
 	    
-	
-	    
-	
-	    
 			
 			
 			
@@ -701,6 +697,30 @@ C语言的发展历史大致上分为三个阶段：Old Style C、C89和C99。Ke
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+			
+		
 	
 	    
 	
@@ -723,26 +743,6 @@ C语言的发展历史大致上分为三个阶段：Old Style C、C89和C99。Ke
 	    
 			
 		
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
 	
 	    
 			
@@ -880,7 +880,14 @@ C语言的发展历史大致上分为三个阶段：Old Style C、C89和C99。Ke
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

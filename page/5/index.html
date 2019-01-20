@@ -154,6 +154,41 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Oct 8 2015 </div>
+			<div class="article-title"><a data-pjax href="/codes/local-search-engine-for-hexo/" title="介绍如何为 hexo 写一个本地的搜索引擎。">jQuery-based Local Search Engine for Hexo</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/local-search-engine-for-hexo/"><img src="/images/local-search-engine-for-hexo/demo.gif" alt="jQuery-based Local Search Engine for Hexo"  class="nofancybox"></a></div>
+    
+    
+      <p>早在我最初<a href="/codes/from-ruhoh-to-hexo/">从 Ruhoh 迁移博客到 Hexo</a> 时，我就有动手写一个本地的搜索引擎的想法。比起使用第三方服务的站内搜索，本地搜索引擎有几个好处：</p>
+<ol>
+<li>更可靠。不用担心<del>由于某些显而易见的原因导致</del>第三方服务不可访问。</li>
+<li>速度更快。不管是 Google 还是 Swiftype ，第三方搜索服务的加载速度总是比较慢，影响浏览体验。</li>
+<li>定制性更强。由于是自己写的插件，检索的具体策略、界面样式都可以自己定义，满足极客们 Bigger than Bigger 的需求。</li>
+</ol>
+<p>这个想法起初是受了 Christian Fei 的 <a href="https://github.com/christian-fei/Simple-Jekyll-Search" target="_blank" rel="external">Simple Jekyll Search</a> 启发。在了解了它的原理后，我认为在 Hexo 上实现一个本地搜索引擎并不复杂。大致的思路是：</p>
+<ul>
+<li>写一个 generator ，生成站点所有文章的索引数据；</li>
+<li>当在搜索框中输入关键词时，触发 Javascript 的特定函数，在这个索引数据里头检索包含该关键词的文章；</li>
+<li>利用 jQuery 在页面中动态插入检索结果。</li>
+</ul>
+	  
+       
+   </ul>
+   <a data-pjax href="/codes/local-search-engine-for-hexo/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Jun 2 2015 </div>
 			<div class="article-title"><a data-pjax href="/tools/dockerize-your-hexo/" title="使用 Docker 打包 Hexo 写作环境。">Dockerize Your Hexo</a></div>			
 		</h3>
@@ -260,31 +295,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Jan 20 2015 </div>
-			<div class="article-title"><a data-pjax href="/codes/fcevm/" title="我的硕士学位论文及 LaTeX 源码。">Master Dissertation: Foreground-Constrained Eulerian Video Magnification</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/fcevm/"><img src="/images/fcevm/teaser.png" alt="Master Dissertation: Foreground-Constrained Eulerian Video Magnification"  class="nofancybox"></a></div>
-    
-    
-      <h2 id="前言">前言</h2>
-<p>10个月前，我写了一篇解读欧拉影像放大技术的文章 <a href="/codes/eulerian-video-magnification/">Eulerian Video Magnification</a>，这篇文章自发布以来，点击率超过了1300次，评论数达到了29篇。如果你在 baidu 上搜索“Eulerian Video Magnification”，我的文章排在第二名（第一名是原论文的链接）。而如果你在 google 或 baidu 上搜索 “欧拉影像放大” ，那么第一名的位置就是我的文章。</p>
-<p>一个促使我写出这篇博文的原因是因为我的毕业课题就和 EVM 算法有关。当时想着既然一直在钻研这个算法，不如干脆写成博文，一来帮助自己思考，二来也能够通过与其他人交流，加深自己对这个算法的理解。我的论文的想法也很简单，EVM 对于存在大幅度移动物体的细微变化的放大效果并不理想，于是我想到通过与拉格朗日视角的框架相结合，先对感兴趣区域进行跟踪（拉格朗日视角），然后对跟踪结果进行局部的欧拉视角的动作放大，最后再进行多分辨率混合。整个算法框架我称之为“前景约束的欧拉影像放大算法”（Foreground-Constrained Eulerian Video Magnification, FCEVM）。	  
-       
-   </ul>
-   <a data-pjax href="/codes/fcevm/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -345,7 +355,7 @@
 		
 			<li><a href="/categories/codes/">codes<span>35</span></a></li>
 		
-			<li><a href="/categories/life/">life<span>5</span></a></li>
+			<li><a href="/categories/life/">life<span>6</span></a></li>
 		
 			<li><a href="/categories/math/">math<span>3</span></a></li>
 		
@@ -366,45 +376,45 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/org-mode/">org-mode<span>2</span></a></li>
+			<li><a href="/tags/comment-js/">comment.js<span>1</span></a></li>
 				   
-			<li><a href="/tags/Git/">Git<span>5</span></a></li>
+			<li><a href="/tags/跨平台/">跨平台<span>1</span></a></li>
 				   
-			<li><a href="/tags/Python/">Python<span>2</span></a></li>
+			<li><a href="/tags/VS/">VS<span>1</span></a></li>
 				   
-			<li><a href="/tags/ABCmouse/">ABCmouse<span>1</span></a></li>
+			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
 				   
-			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
-				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
-				   
-			<li><a href="/tags/Flyspell/">Flyspell<span>1</span></a></li>
-				   
-			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
-				   
-			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
-				   
-			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
-				   
-			<li><a href="/tags/dingdang/">dingdang<span>4</span></a></li>
-				   
-			<li><a href="/tags/OSF/">OSF<span>1</span></a></li>
-				   
-			<li><a href="/tags/pandoc/">pandoc<span>1</span></a></li>
+			<li><a href="/tags/K350/">K350<span>1</span></a></li>
 				   
 			<li><a href="/tags/xml/">xml<span>1</span></a></li>
 				   
-			<li><a href="/tags/Awesome/">Awesome<span>3</span></a></li>
+			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
 				   
-			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
+			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
 				   
-			<li><a href="/tags/static-analysis/">static analysis<span>1</span></a></li>
+			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
 				   
-			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 				   
-			<li><a href="/tags/Arch/">Arch<span>1</span></a></li>
+			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
 				   
-			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
+			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
+				   
+			<li><a href="/tags/React-Native/">React-Native<span>1</span></a></li>
+				   
+			<li><a href="/tags/video/">video<span>6</span></a></li>
+				   
+			<li><a href="/tags/Docker/">Docker<span>1</span></a></li>
+				   
+			<li><a href="/tags/xtlang/">xtlang<span>1</span></a></li>
+				   
+			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
+				   
+			<li><a href="/tags/org-mode/">org-mode<span>2</span></a></li>
+				   
+			<li><a href="/tags/PowerPoint/">PowerPoint<span>1</span></a></li>
+				   
+			<li><a href="/tags/Graphics/">Graphics<span>1</span></a></li>
 		
 		<li><a href="/tags">...<span>93</span></a></li>
 		</ul>
@@ -432,7 +442,9 @@
 	
 		<li><i class="fa fa-globe"></i><a href="http://coolshell.cn" title="陈皓的博客，国内程序员的教父" target="_blank"]);">CoolShell</a></li>
 	
-		<li><i class="fa fa-globe  "></i><a href="http://freemind.pluskid.org" title="张弛原，Yasnippet原作者，现于 MIT 研究机器学习。多才多艺的天才。" target="_blank"]);">Pluskid</a></li>
+		<li><i class="fa fa-globe  "></i><a href="http://freemind.pluskid.org" title="张弛原，Yasnippet原作者，现于 Google Brain 。多才多艺的天才。" target="_blank"]);">Pluskid</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://chaoyanghe.com/" title="何朝阳，在百度、腾讯的同事。现于美国 USC 攻读机器学习博士学位" target="_blank"]);">Chaoyang He</a></li>
 	
 		<li><i class="fa fa-globe"></i><a href="http://xahlee.org" title="One of the best Hackers I've ever known." target="_blank"]);">Xahlee</a></li>
 	
@@ -498,7 +510,14 @@
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

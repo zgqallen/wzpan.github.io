@@ -442,99 +442,86 @@ ECMA-262 定义了 ECMAScript 支持的一套关键字（keyword）。
 	    
 			
 			
-		
-	
-	    
-			
-			
 			
 	    
 			
-		
-	
-	    
-			
-		
-	
-	    
 			
 		
 	
 	    
 			
 			
+			
+	    
+			
 		
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
+			
+		
 	
 	    
 			
 			
 		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
@@ -560,9 +547,22 @@ ECMA-262 定义了 ECMAScript 支持的一套关键字（keyword）。
 	    
 			
 			
-			
+		
+	
 	    
 	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+			
+			
 	
 		<li class="prev"><a data-pjax href="/wiki/javascript-tools.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
 	
@@ -655,7 +655,14 @@ ECMA-262 定义了 ECMAScript 支持的一套关键字（keyword）。
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

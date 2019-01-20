@@ -231,7 +231,7 @@
 </tr>
 </tbody>
 </table>
-<p>可见协议名称用“://”结束，用户名和密码以“:”分隔，以“@”结束，端口号与主机网络地址以“:”分隔，资源路径与查询字符串以“?”分隔，锚点以#开头。并且，只有协议名称、主机网络地址和资源路径是必须包含在URI里的。</p>
+<p>可见协议名称用“😕/”结束，用户名和密码以“:”分隔，以“@”结束，端口号与主机网络地址以“:”分隔，资源路径与查询字符串以“?”分隔，锚点以#开头。并且，只有协议名称、主机网络地址和资源路径是必须包含在URI里的。</p>
 <p>一个更常见的例子如下：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://www.hahack.com/</div></pre></td></tr></table></figure></p>
 <h2 id="http请求与响应">HTTP请求与响应</h2>
@@ -528,22 +528,6 @@
 	    
 	
 	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 	
@@ -564,133 +548,21 @@
 	    
 	
 	    
-			
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 			
 		
 	
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
-			
-			
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
 		
 	
@@ -721,6 +593,132 @@
 	    
 	
 	    
+			
+			
+			
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
@@ -788,6 +786,8 @@
 			
 			
 		
+	
+	    
 	
 	    
 	
@@ -911,7 +911,14 @@
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

@@ -303,6 +303,87 @@ Sublemacs Pro 是一个在 Sublime Text 里模拟 Emacs 快捷键的插件，这
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
 			
 		
 	
@@ -331,17 +412,9 @@ Sublemacs Pro 是一个在 Sublime Text 里模拟 Emacs 快捷键的插件，这
 	    
 	
 	    
-	
-	    
 			
-		
-	
-	    
-	
-	    
-	
-	    
-	
+			
+			
 	    
 	
 	    
@@ -353,79 +426,6 @@ Sublemacs Pro 是一个在 Sublime Text 里模拟 Emacs 快捷键的插件，这
 	    
 			
 		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-			
-			
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
 	
 	    
 	
@@ -695,7 +695,14 @@ Sublemacs Pro 是一个在 Sublime Text 里模拟 Emacs 快捷键的插件，这
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

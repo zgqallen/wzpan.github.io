@@ -154,6 +154,39 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Apr 29 2016 </div>
+			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-3/" title="本文将简单讨论下我们在开发过程中尝试的各种分支管理策略，在面对各种复杂场景下呈现的优势与不足，以及我们的妥协和后续期望。">化繁为简的企业级 Git 管理实战（三）：分支管理策略</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+    
+    
+      <p>说到版本控制，就不得不提到分支管理策略。就像学开车必须学学交通规则。分支管理策略是代码版本控制的基础组成部分。为团队定制一套合适的分支管理策略，就好比制定了一套合理的交通规则，可以让团队的代码的更加有序地演进，尽可能降低多分支带来的复杂度，并避免由于分支混乱引发的各种“车祸”。本文将简单讨论下我们在开发过程中尝试的各种分支管理策略，在面对各种复杂场景下呈现的优势与不足，以及我们的妥协和后续期望。</p>
+<h2 id="github-flow">Github-Flow</h2>
+<p>作为 Github 的重度用户，我首先考虑的当然是 <a href="https://guides.github.com/introduction/flow/index.html" target="_blank" rel="external">Github-Flow</a> 。</p>
+<p><img src="/images/enterprise-class-git-version-control-3/github-flow.png" alt="Github-Flow"></p>
+<p>Github-Flow 是一种非常简单的分支管理方案。它的流程只有如下几步：</p>
+<ol>
+<li>拉出一个新分支；</li>
+<li>在新分支上进行修改，并提交和推送你的改动；</li>
+<li>发起一个 Pull Request ，向代码管理员申请将你提交的分支合并到原来的分支；</li>
+<li>讨论并接受 Code Review。在这个过程中，你依然可以继续推送新的代码到你的开发分支上，并且新的提交在推送后会出现在未完成合并的 Pull Request 页面中；</li>
+<li>合并和发布。Review 通过后，代码管理员将该分支合并到原来的主分支上。</li>
+</ol>
+	  
+       
+   </ul>
+   <a data-pjax href="/work/enterprise-class-git-version-control-3/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Apr 21 2016 </div>
 			<div class="article-title"><a data-pjax href="/work/enterprise-class-git-version-control-2/" title="在本篇文章中，我仔细讨论了对子模块进行持续集成的三种方案，并利用自动化手段实现逐层往上提交子模块 commit id 从而触发主工程构建。这些构建结果为我们快速定位工程的编译问题提供了重要的线索。">化繁为简的企业级 Git 管理实战（二）：多分支子模块持续集成</a></div>			
 		</h3>
@@ -260,41 +293,6 @@
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Oct 8 2015 </div>
-			<div class="article-title"><a data-pjax href="/codes/local-search-engine-for-hexo/" title="介绍如何为 hexo 写一个本地的搜索引擎。">jQuery-based Local Search Engine for Hexo</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/local-search-engine-for-hexo/"><img src="/images/local-search-engine-for-hexo/demo.gif" alt="jQuery-based Local Search Engine for Hexo"  class="nofancybox"></a></div>
-    
-    
-      <p>早在我最初<a href="/codes/from-ruhoh-to-hexo/">从 Ruhoh 迁移博客到 Hexo</a> 时，我就有动手写一个本地的搜索引擎的想法。比起使用第三方服务的站内搜索，本地搜索引擎有几个好处：</p>
-<ol>
-<li>更可靠。不用担心<del>由于某些显而易见的原因导致</del>第三方服务不可访问。</li>
-<li>速度更快。不管是 Google 还是 Swiftype ，第三方搜索服务的加载速度总是比较慢，影响浏览体验。</li>
-<li>定制性更强。由于是自己写的插件，检索的具体策略、界面样式都可以自己定义，满足极客们 Bigger than Bigger 的需求。</li>
-</ol>
-<p>这个想法起初是受了 Christian Fei 的 <a href="https://github.com/christian-fei/Simple-Jekyll-Search" target="_blank" rel="external">Simple Jekyll Search</a> 启发。在了解了它的原理后，我认为在 Hexo 上实现一个本地搜索引擎并不复杂。大致的思路是：</p>
-<ul>
-<li>写一个 generator ，生成站点所有文章的索引数据；</li>
-<li>当在搜索框中输入关键词时，触发 Javascript 的特定函数，在这个索引数据里头检索包含该关键词的文章；</li>
-<li>利用 jQuery 在页面中动态插入检索结果。</li>
-</ul>
-	  
-       
-   </ul>
-   <a data-pjax href="/codes/local-search-engine-for-hexo/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -355,7 +353,7 @@
 		
 			<li><a href="/categories/codes/">codes<span>35</span></a></li>
 		
-			<li><a href="/categories/life/">life<span>5</span></a></li>
+			<li><a href="/categories/life/">life<span>6</span></a></li>
 		
 			<li><a href="/categories/math/">math<span>3</span></a></li>
 		
@@ -376,45 +374,45 @@
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
+			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
 				   
-			<li><a href="/tags/scrollspy/">scrollspy<span>1</span></a></li>
+			<li><a href="/tags/Disqus/">Disqus<span>1</span></a></li>
 				   
-			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
+			<li><a href="/tags/VS/">VS<span>1</span></a></li>
 				   
-			<li><a href="/tags/Math/">Math<span>2</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
 				   
-			<li><a href="/tags/shell/">shell<span>3</span></a></li>
-				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
+			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
 				   
 			<li><a href="/tags/Android/">Android<span>1</span></a></li>
 				   
-			<li><a href="/tags/M-P/">M-P<span>1</span></a></li>
+			<li><a href="/tags/Vector/">Vector<span>1</span></a></li>
 				   
-			<li><a href="/tags/Cocos/">Cocos<span>1</span></a></li>
+			<li><a href="/tags/Nuclide/">Nuclide<span>1</span></a></li>
 				   
-			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
+			<li><a href="/tags/Python/">Python<span>2</span></a></li>
 				   
-			<li><a href="/tags/dingdang/">dingdang<span>4</span></a></li>
+			<li><a href="/tags/emacs/">emacs<span>6</span></a></li>
 				   
-			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
 				   
-			<li><a href="/tags/xml/">xml<span>1</span></a></li>
+			<li><a href="/tags/static-analysis/">static analysis<span>1</span></a></li>
 				   
-			<li><a href="/tags/ABCmouse/">ABCmouse<span>1</span></a></li>
+			<li><a href="/tags/职场感悟/">职场感悟<span>1</span></a></li>
 				   
-			<li><a href="/tags/ANN/">ANN<span>2</span></a></li>
+			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
 				   
-			<li><a href="/tags/video/">video<span>6</span></a></li>
+			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
 				   
-			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
+			<li><a href="/tags/CI/">CI<span>1</span></a></li>
 				   
-			<li><a href="/tags/BP/">BP<span>1</span></a></li>
+			<li><a href="/tags/TikZ/">TikZ<span>1</span></a></li>
 				   
-			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
+			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
 				   
-			<li><a href="/tags/OSF/">OSF<span>1</span></a></li>
+			<li><a href="/tags/shell/">shell<span>3</span></a></li>
+				   
+			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
 		
 		<li><a href="/tags">...<span>93</span></a></li>
 		</ul>
@@ -442,7 +440,9 @@
 	
 		<li><i class="fa fa-globe"></i><a href="http://coolshell.cn" title="陈皓的博客，国内程序员的教父" target="_blank"]);">CoolShell</a></li>
 	
-		<li><i class="fa fa-globe  "></i><a href="http://freemind.pluskid.org" title="张弛原，Yasnippet原作者，现于 MIT 研究机器学习。多才多艺的天才。" target="_blank"]);">Pluskid</a></li>
+		<li><i class="fa fa-globe  "></i><a href="http://freemind.pluskid.org" title="张弛原，Yasnippet原作者，现于 Google Brain 。多才多艺的天才。" target="_blank"]);">Pluskid</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://chaoyanghe.com/" title="何朝阳，在百度、腾讯的同事。现于美国 USC 攻读机器学习博士学位" target="_blank"]);">Chaoyang He</a></li>
 	
 		<li><i class="fa fa-globe"></i><a href="http://xahlee.org" title="One of the best Hackers I've ever known." target="_blank"]);">Xahlee</a></li>
 	
@@ -508,7 +508,14 @@
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

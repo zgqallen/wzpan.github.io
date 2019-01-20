@@ -1162,50 +1162,12 @@ stdio.h
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
 		
 	
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
 	
 	    
 	
@@ -1244,14 +1206,10 @@ stdio.h
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
 			
 		
+	
+	    
 	
 	    
 	
@@ -1312,6 +1270,42 @@ stdio.h
 	    
 	
 	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
@@ -1374,30 +1368,6 @@ stdio.h
 	    
 	
 	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 	
 	    
 			
@@ -1410,12 +1380,46 @@ stdio.h
 	    
 	
 	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 			
 		
 	
 	    
 	
 	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 			
 			
 		
@@ -1430,10 +1434,6 @@ stdio.h
 			
 			
 			
-	    
-	
-	    
-	
 	    
 			
 		
@@ -1570,7 +1570,14 @@ stdio.h
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

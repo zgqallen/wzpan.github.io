@@ -1181,6 +1181,96 @@ Allows read/write access to the “properties” table in the checkin database, 
 	    
 	
 	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
@@ -1240,45 +1330,6 @@ Allows read/write access to the “properties” table in the checkin database, 
 	
 	    
 			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
 		
 	
@@ -1319,58 +1370,9 @@ Allows read/write access to the “properties” table in the checkin database, 
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
 			
 			
-	    
-	
-	    
-	
-	    
-	
 	    
 	
 	    
@@ -1385,8 +1387,6 @@ Allows read/write access to the “properties” table in the checkin database, 
 			
 			
 		
-	
-	    
 	
 	    
 	
@@ -1434,13 +1434,13 @@ Allows read/write access to the “properties” table in the checkin database, 
 	    
 	
 	    
-			
-			
-			
-	    
 	
 	    
 	
+	    
+			
+			
+			
 	    
 	
 	    
@@ -1494,11 +1494,11 @@ Allows read/write access to the “properties” table in the checkin database, 
 	    
 	
 	    
-	
+			
+			
+			
 	    
-			
-			
-			
+	
 	
 		<li class="prev"><a data-pjax href="/wiki/android-intent.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
 	
@@ -1591,7 +1591,14 @@ Allows read/write access to the “properties” table in the checkin database, 
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

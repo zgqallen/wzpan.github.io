@@ -152,7 +152,7 @@
 	<!-- display as entry -->
 		<h3 class="title">
 		<div class="date"> Dec 27 2018 </div>
-			<div class="article-title"><a data-pjax href="/work/introducing-beamerstyleslides/" title="介绍一套开源的Beamer风格幻灯片模板集 BeamerStyleSlides 。">使用 BeamerStyleSlides 制作你的技术答辩PPT</a></div>			
+			<div class="article-title"><a data-pjax href="/work/introducing-beamerstyleslides/" title="介绍一套开源的Beamer风格幻灯片模板集 BeamerStyleSlides 。">使用 BeamerStyleSlides 制作你的技术答辩 PPT</a></div>			
 		</h3>
 	
 
@@ -160,7 +160,7 @@
 		<div class="entry">
     <ul class="thumbnails">
        	  
-   	<div class="thumbnail"><a data-pjax href="/work/introducing-beamerstyleslides/"><img src="/images/introducing-beamerstyleslides/spread.jpg" alt="使用 BeamerStyleSlides 制作你的技术答辩PPT"  class="nofancybox"></a></div>
+   	<div class="thumbnail"><a data-pjax href="/work/introducing-beamerstyleslides/"><img src="/images/introducing-beamerstyleslides/spread.jpg" alt="使用 BeamerStyleSlides 制作你的技术答辩 PPT"  class="nofancybox"></a></div>
     
     
       <h2 id="背景：ppt之痛">背景：PPT之痛</h2>
@@ -199,6 +199,10 @@
   <ul class="entry">
     
       <li>
+        <a href="/life/2018-montage/"  title="以 montage 的形式，回顾我的 2018 年。本文所有内容仅代表个人观点，与雇主无关。" ><i class="fa fa-file-o"></i>2018 蒙太奇</a>
+      </li>
+    
+      <li>
         <a href="/work/introducing-beamerstyleslides/"  title="介绍一套开源的Beamer风格幻灯片模板集 BeamerStyleSlides 。" ><i class="fa fa-file-o"></i>使用 BeamerStyleSlides 制作你的技术...</a>
       </li>
     
@@ -212,10 +216,6 @@
     
       <li>
         <a href="/codes/easiest-way-to-make-dingdang-watch-events/"  title="要让叮当能够监控一些关键事件并触发响应操作，除了编写插件之外，还有一个简单省事的方法：利用 [IFTTT](https://ifttt.com/) 。本文将举几个简单的示例。" ><i class="fa fa-file-o"></i>0行代码实现叮当的场景联动</a>
-      </li>
-    
-      <li>
-        <a href="/work/my-2-years-at-pingan/"  title="谈谈我在平安两年的工作回顾和感受。" ><i class="fa fa-file-o"></i>我在平安的两年</a>
       </li>
     
   </ul>
@@ -235,7 +235,9 @@
 	
 		<li><i class="fa fa-globe"></i><a href="http://coolshell.cn" title="陈皓的博客，国内程序员的教父" target="_blank"]);">CoolShell</a></li>
 	
-		<li><i class="fa fa-globe  "></i><a href="http://freemind.pluskid.org" title="张弛原，Yasnippet原作者，现于 MIT 研究机器学习。多才多艺的天才。" target="_blank"]);">Pluskid</a></li>
+		<li><i class="fa fa-globe  "></i><a href="http://freemind.pluskid.org" title="张弛原，Yasnippet原作者，现于 Google Brain 。多才多艺的天才。" target="_blank"]);">Pluskid</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://chaoyanghe.com/" title="何朝阳，在百度、腾讯的同事。现于美国 USC 攻读机器学习博士学位" target="_blank"]);">Chaoyang He</a></li>
 	
 		<li><i class="fa fa-globe"></i><a href="http://xahlee.org" title="One of the best Hackers I've ever known." target="_blank"]);">Xahlee</a></li>
 	
@@ -300,7 +302,14 @@
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

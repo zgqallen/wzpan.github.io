@@ -537,6 +537,10 @@ nvm 是 node.js 的版本管理工具。安装 nvm 需要打开命令行窗口�
 	    
 	
 	    
+			
+		
+	
+	    
 	
 	    
 			
@@ -548,10 +552,6 @@ nvm 是 node.js 的版本管理工具。安装 nvm 需要打开命令行窗口�
 	
 	    
 			
-		
-	
-	    
-			
 			
 		
 	
@@ -646,10 +646,10 @@ nvm 是 node.js 的版本管理工具。安装 nvm 需要打开命令行窗口�
 	    
 	
 	    
-			
-		
 	
 	    
+			
+		
 	
 	
 		<li class="prev"><a data-pjax href="/wiki/javascript-es6.html" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
@@ -743,7 +743,14 @@ nvm 是 node.js 的版本管理工具。安装 nvm 需要打开命令行窗口�
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 

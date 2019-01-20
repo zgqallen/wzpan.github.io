@@ -281,7 +281,7 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 </table>
 <p>一个典型的 gdb 调试的过程是启动程序，<code>run</code> 运行，程序出错退出，用 <code>where</code> 查到出错的位置，设置断点，重新运行程序，然后在出错的附件使用 <code>next</code> 和 <code>step</code> 单步跟踪，并查出问题所在。</p>
 <h3 id="gdb-之歌">GDB 之歌</h3>
-<p>这是一首改编自经典儿歌 <a href="http://music.baidu.com/song/8817557" target="_blank" rel="external">ABC</a> 的歌曲，出自<a href="http://www.gnu.org/music/gdb-song.html" target="_blank" rel="external">GNU</a>。不仅有趣，而且还介绍了 run、print、set、quit 几个有用的功能。不过个人觉得D和B两句歌词的后半句应该对换，你觉得呢？;-)</p>
+<p>这是一首改编自经典儿歌 <a href="http://music.baidu.com/song/8817557" target="_blank" rel="external">ABC</a> 的歌曲，出自<a href="http://www.gnu.org/music/gdb-song.html" target="_blank" rel="external">GNU</a>。不仅有趣，而且还介绍了 run、print、set、quit 几个有用的功能。不过个人觉得D和B两句歌词的后半句应该对换，你觉得呢？😉</p>
 <p><blockquote>
 
 <p>Let’s start at the very beginning, a very good place to start,</p>
@@ -466,50 +466,12 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
 			
 		
 	
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-	
-	    
-			
-		
 	
 	    
 	
@@ -548,14 +510,10 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
-	
-	    
-	
-	    
-	
-	    
 			
 		
+	
+	    
 	
 	    
 	
@@ -616,6 +574,42 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+			
+		
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
+	
+	    
 	
 	    
 	
@@ -650,8 +644,6 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 		
 	
 	    
-	
-	    
 			
 			
 		
@@ -681,9 +673,17 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
+	
+	    
+	
+	    
 			
 			
 			
+	    
+	
+	    
+	
 	    
 	
 	    
@@ -716,16 +716,10 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
-	
-	    
 			
 			
 			
 	    
-	
-	    
-			
-		
 	
 	    
 	
@@ -740,6 +734,12 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 	    
 	
 	    
+	
+	    
+	
+	    
+			
+		
 	
 	    
 			
@@ -880,7 +880,14 @@ gdb 是由 GNU 软件系统社区提供的调试器，同 gcc 配套组成了一
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 
