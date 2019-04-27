@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2019-04-27T17:04:17.336Z</updated>
+  <updated>2019-04-27T17:25:15.751Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/codes/wukong-robot-intro/"/>
     <id>http://hahack.com/codes/wukong-robot-intro/</id>
     <published>2019-04-24T07:25:32.000Z</published>
-    <updated>2019-04-27T16:50:33.857Z</updated>
+    <updated>2019-04-27T17:24:47.385Z</updated>
     <content type="html"><![CDATA[<h2 id="dingdang-robot-之殇">dingdang-robot 之殇</h2>
 <p>在两年前，我做了第一个智能音箱项目 <a href="https://www.hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">dingdang-robot</a> 。在去年 7 月加入上报统计后，在不到一年的时间里，这个项目已经运行在 1000+ 台设备中，被唤醒了 128,000+ 次。截至今天，这个项目的个人版和社区版在 Github 上总共获得了 2,600+ 个 stars ，820+ 次 forks。</p>
 <p>在我<a href="https://www.hahack.com/life/2018-montage/" target="_blank" rel="external">去年的一篇年度总结中</a>，我提到因为 dingdang-robot 本身维护上的困难，我将项目迁移到了 <a href="https://github.com/dingdang-robot/" target="_blank" rel="external">dingdang-robot 组织</a>交由社区进行维护。很遗憾的是，即使迁到了 dingdang-robot 组织，由于组织维护者们都并不是全职维护这个项目，而且硬件和操作系统上的差异始终给 dingdang-robot 的维护带来了很大的问题，所以取得的效果并不理想。而且随着自己能力的不断提升，我对 dingdang-robot 里头的代码也越发不满意：</p>
@@ -85,6 +85,7 @@
 <li>右上角的 toast 提示：<a href="https://github.com/CodeSeven/toastr" target="_blank" rel="external">toastr</a></li>
 <li>进度条：<a href="https://github.com/usablica/progress.js" target="_blank" rel="external">progress.js</a></li>
 </ul>
+<p><img src="/images/wukong-robot-intro/wukong-admin.png" alt="wukong-robot 的后台管理端"></p>
 <p>比较费脑的是鉴权部分。除了后台管理端需要设计登录界面以避免非法访问之外，我希望后台的接口能够开放 API 以支持其他配套客户端的接入，所以后端代码需要考虑两种访问来源的鉴权。</p>
 <p>最初我使用 cookie 来鉴权，管理端登录成功后，就把用户设置的鉴权密钥 <code>validation</code> 字段存到 cookie 里头。前端在 Ajax 调用后端 API 时，可以直接从 <code>cookie</code> 里取出 <code>validation</code> 然后作为鉴权字段发给后台。然而 cookie 本身是明文保存的，这种做法会直接暴露用户的密钥，因此是一种很不安全的做法。</p>
 <p>然后我尝试了使用 <code>secure_cookie</code> 来保存鉴权信息，然而因为 <code>secure_cookie</code> 是加了密的字段，前端没办法直接解析并传回给后端，所以又暂时放弃了这个做法。</p>
