@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2019-04-27T16:47:56.679Z</updated>
+  <updated>2019-04-27T16:51:35.548Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/codes/wukong-robot-intro/"/>
     <id>http://hahack.com/codes/wukong-robot-intro/</id>
     <published>2019-04-24T07:25:32.000Z</published>
-    <updated>2019-04-27T16:46:34.716Z</updated>
+    <updated>2019-04-27T16:50:33.857Z</updated>
     <content type="html"><![CDATA[<h2 id="dingdang-robot-之殇">dingdang-robot 之殇</h2>
 <p>在两年前，我做了第一个智能音箱项目 <a href="https://www.hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">dingdang-robot</a> 。在去年 7 月加入上报统计后，在不到一年的时间里，这个项目已经运行在 1000+ 台设备中，被唤醒了 128,000+ 次。截至今天，这个项目的个人版和社区版在 Github 上总共获得了 2,600+ 个 stars ，820+ 次 forks。</p>
 <p>在我<a href="https://www.hahack.com/life/2018-montage/" target="_blank" rel="external">去年的一篇年度总结中</a>，我提到因为 dingdang-robot 本身维护上的困难，我将项目迁移到了 <a href="https://github.com/dingdang-robot/" target="_blank" rel="external">dingdang-robot 组织</a>交由社区进行维护。很遗憾的是，即使迁到了 dingdang-robot 组织，由于组织维护者们都并不是全职维护这个项目，而且硬件和操作系统上的差异始终给 dingdang-robot 的维护带来了很大的问题，所以取得的效果并不理想。而且随着自己能力的不断提升，我对 dingdang-robot 里头的代码也越发不满意：</p>
@@ -123,11 +123,12 @@
 <p>而在近期，我正在腾讯课堂上推出一套 Python 开发教程，其中会用到 wukong-robot 作为一个开发案例。</p>
 <p><img src="/images/wukong-robot-intro/course.png" alt="Python 从入门到实战课程title"></p>
 <p>这套视频课程将从零开始，一步步教你如何使用 Python 开发出 wukong-robot 。涉及 Python 的基础语法，以及离线唤醒、静音检测、语音识别、语音合成、对话机器人等知识背景的介绍及相关sdk和服务的接入，并在这个基础上如何通过一步步的重构优化，开发出一个灵活可配置的 wukong-robot 。另外，还介绍了如何使用 tornado + twitter bootstrap + jQuery + Ajax 开发后台管理端及前端页面。进阶版中还包括了爬虫技术及 Flask 等技术的相关实战。</p>
-<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>现在这门课的<a href="https://ke.qq.com/course/387931?tuin=1b8113f4" target="_blank" rel="external">基础篇</a>和<a href="https://ke.qq.com/course/384790?tuin=1b8113f4" target="_blank" rel="external">完整篇</a>都有打折优惠，想要学习 Python 开发的朋友千万别错过。</p>
+</div></p>
+<ul>
 <li>基础篇：<a href="https://ke.qq.com/course/387931?tuin=1b8113f4" target="_blank" rel="external">https://ke.qq.com/course/387931?tuin=1b8113f4</a></li>
 <li>完整篇：<a href="https://ke.qq.com/course/384790?tuin=1b8113f4" target="_blank" rel="external">https://ke.qq.com/course/384790?tuin=1b8113f4</a></li>
 </ul>
-</div></p>
 <p>这门课的准备和录制几乎占据了我全部的业余时间，录制的过程是非常痛苦和煎熬的。比如，为了讲好 subprocess ，我把 subprocess 的老版本高级 API 、新的高级 API，再到底层的 Popen 以及涉及到的 Linux 的标准输入输出和管道的概念都讲了一遍。对于讲授的方式，我比较提倡授人以鱼不如授人以渔的主张，所以我并不是直接贴 API ，而是带着读者一起看 Python 的官方文档，着重培养阅读文档的能力。这种讲法非常的累，但却是我认为每个工程师应该掌握的学习方式。</p>
 <p><img src="/images/wukong-robot-intro/wukong-robot-tutorial.jpeg" alt="wukong-robot开发"></p>
 <p>参与这门课的制作也是为了完成我在<a href="/life/2018-montage/#%E6%8E%88%E8%AF%BE">去年的个人总结中立下的 flag</a> 。Python 一直是我业余时间最常用的玩具语言，它非常适合用于原型开发。我有不少开源项目，比如 wukong-robot、dingdang-robot、<a href="https://www.hahack.com/life/2018-montage/#%E5%BC%80%E6%BA%90" target="_blank" rel="external">LiveCV</a> 都是用 Python 写的。而在我的工作中，它也帮助我完成了大量的工具和项目，这些工具和项目对个人或团队起到了非常大的作用（例如<a href="https://www.hahack.com/work/my-2-years-at-pingan/#%E6%94%AF%E7%BA%BF-v3" target="_blank" rel="external">加班统计平台</a>、已经在上百家中小银行中使用的<a href="https://www.hahack.com/work/my-2-years-at-pingan/#%E4%B8%BB%E7%BA%BF" target="_blank" rel="external">fmanager</a>），因此 Python 也无疑给我的职业发展起到了很大的推动作用。把我所掌握的 Python 知识分享给更多人，让更多人能够自如的使用这门语言来满足他们的需求，那也算是我对 Python 这门语言的回馈。</p>
