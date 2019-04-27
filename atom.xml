@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2019-04-27T17:25:15.751Z</updated>
+  <updated>2019-04-27T17:27:15.205Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/codes/wukong-robot-intro/"/>
     <id>http://hahack.com/codes/wukong-robot-intro/</id>
     <published>2019-04-24T07:25:32.000Z</published>
-    <updated>2019-04-27T17:24:47.385Z</updated>
+    <updated>2019-04-27T17:26:43.572Z</updated>
     <content type="html"><![CDATA[<h2 id="dingdang-robot-之殇">dingdang-robot 之殇</h2>
 <p>在两年前，我做了第一个智能音箱项目 <a href="https://www.hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">dingdang-robot</a> 。在去年 7 月加入上报统计后，在不到一年的时间里，这个项目已经运行在 1000+ 台设备中，被唤醒了 128,000+ 次。截至今天，这个项目的个人版和社区版在 Github 上总共获得了 2,600+ 个 stars ，820+ 次 forks。</p>
 <p>在我<a href="https://www.hahack.com/life/2018-montage/" target="_blank" rel="external">去年的一篇年度总结中</a>，我提到因为 dingdang-robot 本身维护上的困难，我将项目迁移到了 <a href="https://github.com/dingdang-robot/" target="_blank" rel="external">dingdang-robot 组织</a>交由社区进行维护。很遗憾的是，即使迁到了 dingdang-robot 组织，由于组织维护者们都并不是全职维护这个项目，而且硬件和操作系统上的差异始终给 dingdang-robot 的维护带来了很大的问题，所以取得的效果并不理想。而且随着自己能力的不断提升，我对 dingdang-robot 里头的代码也越发不满意：</p>
@@ -122,7 +122,7 @@
 </ol>
 <p>wukong-robot 后续的重要计划是训练本地的 ASR 、TTS 、NLU 及对话系统，并引入 RNN 降噪来改善环境较嘈杂的情况下难以唤醒的问题。关于项目的计划，可以关注 <a href="https://github.com/users/wzpan/projects/1#column-4364044" target="_blank" rel="external">wukong project board</a> 。</p>
 <p>而在近期，我正在腾讯课堂上推出一套 Python 开发教程，其中会用到 wukong-robot 作为一个开发案例。</p>
-<p><img src="/images/wukong-robot-intro/course.png" alt="Python 从入门到实战课程title"></p>
+<p><img src="/images/wukong-robot-intro/course.png" alt="Python 从入门到实战课程"></p>
 <p>这套视频课程将从零开始，一步步教你如何使用 Python 开发出 wukong-robot 。涉及 Python 的基础语法，以及离线唤醒、静音检测、语音识别、语音合成、对话机器人等知识背景的介绍及相关sdk和服务的接入，并在这个基础上如何通过一步步的重构优化，开发出一个灵活可配置的 wukong-robot 。另外，还介绍了如何使用 tornado + twitter bootstrap + jQuery + Ajax 开发后台管理端及前端页面。进阶版中还包括了爬虫技术及 Flask 等技术的相关实战。</p>
 <p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>现在这门课的<a href="https://ke.qq.com/course/387931?tuin=1b8113f4" target="_blank" rel="external">基础篇</a>和<a href="https://ke.qq.com/course/384790?tuin=1b8113f4" target="_blank" rel="external">完整篇</a>都有打折优惠，想要学习 Python 开发的朋友千万别错过。</p>
 </div></p>
