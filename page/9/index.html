@@ -39,8 +39,8 @@
   <![endif]-->
 
 <!--  -->
-<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
-<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 <!--  -->
   
 <script src="/dist/jquery-2.0.3.min.js"></script>
@@ -169,6 +169,37 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Dec 27 2013 </div>
+			<div class="article-title"><a data-pjax href="/codes/cmake/" title="从实例入手，讲解 CMake 的常见用法。">CMake 入门实战</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/cmake/"><img src="/images/cmake/cmake_logo.jpg" alt="CMake 入门实战"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="什么是-cmake">什么是 CMake</h2>
+<p><blockquote>
+
+<p>All problems in computer science can be solved by another level of indirection.</p>
+
+
+<footer><strong>David Wheeler</strong></footer></blockquote>
+</p>
+<p>你或许听过好几种 Make 工具，例如 <a href="/wiki/tools-makefile.html">GNU Make</a> ，QT 的 <a href="http://qt-project.org/doc/qt-4.8/qmake-manual.html" target="_blank" rel="external">qmake</a> ，微软的 <a href="http://msdn.microsoft.com/en-us/library/ms930369.aspx" target="_blank" rel="external">MS nmake</a>，BSD Make（<a href="http://www.freebsd.org/doc/en/books/pmake/" target="_blank" rel="external">pmake</a>），<a href="http://makepp.sourceforge.net/" target="_blank" rel="external">Makepp</a>，等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。这样就带来了一个严峻的问题：如果软件想跨平台，必须要保证能够在不同平台编译。而如果使用上面的 Make 工具，就得为每一种标准写一次 Makefile ，这将是一件让人抓狂的工作。	  
+       
+   </ul>
+   <a data-pjax href="/codes/cmake/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Dec 8 2013 </div>
 			<div class="article-title"><a data-pjax href="/slides/clumsy-web-worker/" title="忽悠贴，慎入！">网工修炼之道（slides）</a></div>			
 		</h3>
@@ -239,7 +270,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <li>定制性有限。由于作者一开始就把 ruhoh 定位在 language agnostic 的目标，因此在采用的模板语言也选用了最平台无关的 mustache。但 mustache 的语法能力实在有限，只支持简单的逻辑判断。像传参、循环之类的特性都不支持。比如我想实现类似 octopress 这样的 tag 插件，直接用 mustache 是不可能的，只能动 ruhoh 的 ruby 源码，而这样又和作者的设计目标相反了。</li>
 <li>太小众。用 ruhoh 的人太少，插件相应也少，不像 Jekyll 或 octopress 那样有丰富的扩展。</li>
 <li>不跨平台。ruhoh 在 Windows 下总会遇到一些奇怪的问题而无法运行。如果我因为特殊原因而需要在 Windows 下写文章的话就会很不方便。</li>
-<li>更新缓慢。在我写这篇博客之前，ruhoh 的已经半年没有什么重大更新了。我在 4 个月前给作者提交了一个<a href="https://github.com/ruhoh/ruhoh.rb/issues/198" target="_blank" rel="external">给文章生成 postid 的功能性建议</a>，到现在的标签依然还停留在 <span class="label label-success">next-release</span> 阶段。</li>
+<li>更新缓慢。在我写这篇博客之前，ruhoh 的已经半年没有什么重大更新了。我在 4 个月前给作者提交了一个<a href="https://github.com/ruhoh/ruhoh.rb/issues/198" target="_blank" rel="external">给文章生成 postid 的功能性建议</a>，到现在的标签依然还停留在 <span class="label label-next-release">success</span> 阶段。</li>
 <li>最致命的一个问题是，是连作者自己都很少用 ruhoh！在<a href="https://github.com/ruhoh/ruhoh.rb/issues/203" target="_blank" rel="external">一个 issue 页面</a>里，作者跟我们承认他自己平常也很少使用 ruhoh 。可想而知，如果一个产品连开发者自己都不用的话，很难保证这个产品会做得好。</li>
 </ol>
  	  
@@ -270,36 +301,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
        
    </ul>
    <a data-pjax href="/codes/make-scrollspy-supports-chinese-id/#more" class="btn more">Read More</a>
-</div>    
-
-		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Aug 1 2013 </div>
-			<div class="article-title"><a data-pjax href="/codes/videogfw/" title="一个根据ip所在地选择视频源的小插件。">Alternative Video Source According to IP Address</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-    
-    
-      <p>我在撰写<a href="/life/video-released">上篇博文</a>的时候遇到了一个有趣的问题：如何根据ip所在地选择视频源？</p>
-<p>由于你很了解的一个原因，国外流行的视频网站（e.g.YouTube）在国内一般不能访问。为了同时照顾大陆和其他国家地区的视频观看者，<a href="http://weibo.com/fxokgfw" target="_blank" rel="external">@李扬彦</a>博士把我们的视频分别上传到了优酷和YouTube上。于是，作为一名<del>勤奋勇敢的</del>大陆人民<del>（我自豪！）</del>，我当然是优先选择嵌入优酷上的视频。但我随后又萌生了一个念头：如果访问者是个外国朋友，访问优酷不一定能像 YouTube 般顺畅<del>（尤其是前者还有万恶的30秒广告！）</del>。能否根据ip所在地的不同，让ip地址不在中国的朋友使用YouTube上的视频源呢？</p>
-<p>于是我就基于 jQuery 和 AJAX 写了这个插件。思路很简单：</p>
-<ol>
-<li>默认先加载优酷上的视频；</li>
-<li>读取访问者的ip信息，判断其所在的国家（或地区）；</li>
-<li>如果所在地不是<del>地大物博，千秋万代的</del>大陆地区，就自动将视频源切换到YouTube上；</li>
-<li>用户还可以通过下方的选择按钮切换视频源。</li>
-</ol>
-	  
-       
-   </ul>
-   <a data-pjax href="/codes/videogfw/#more" class="btn more">Read More</a>
 </div>    
 
 		
@@ -361,7 +362,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		<h4>Categories</h4>
 		<ul class="tag_box inline">
 		
-			<li><a href="/categories/codes/">codes<span>35</span></a></li>
+			<li><a href="/categories/codes/">codes<span>36</span></a></li>
 		
 			<li><a href="/categories/life/">life<span>6</span></a></li>
 		
@@ -384,45 +385,45 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/OpenCV/">OpenCV<span>3</span></a></li>
+			<li><a href="/tags/ejs/">ejs<span>1</span></a></li>
 				   
-			<li><a href="/tags/Pascal/">Pascal<span>2</span></a></li>
+			<li><a href="/tags/跨平台/">跨平台<span>1</span></a></li>
 				   
-			<li><a href="/tags/scrollspy/">scrollspy<span>1</span></a></li>
-				   
-			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
-				   
-			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
-				   
-			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
-				   
-			<li><a href="/tags/React/">React<span>1</span></a></li>
-				   
-			<li><a href="/tags/SCNUThesis/">SCNUThesis<span>1</span></a></li>
-				   
-			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
-				   
-			<li><a href="/tags/PowerPoint/">PowerPoint<span>1</span></a></li>
+			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
 				   
 			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
 				   
+			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
+				   
+			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
+				   
+			<li><a href="/tags/vcc/">vcc<span>1</span></a></li>
+				   
+			<li><a href="/tags/Makefile/">Makefile<span>1</span></a></li>
+				   
+			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
+				   
+			<li><a href="/tags/BP/">BP<span>1</span></a></li>
+				   
+			<li><a href="/tags/Cocos-Creator/">Cocos Creator<span>1</span></a></li>
+				   
+			<li><a href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li>
+				   
 			<li><a href="/tags/xtlang/">xtlang<span>1</span></a></li>
 				   
-			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
+			<li><a href="/tags/Graphics/">Graphics<span>1</span></a></li>
 				   
-			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
-				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
-				   
-			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
-				   
-			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
+			<li><a href="/tags/SCNUThesis/">SCNUThesis<span>1</span></a></li>
 				   
 			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
 				   
-			<li><a href="/tags/emacs/">emacs<span>6</span></a></li>
+			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
 				   
-			<li><a href="/tags/CLI/">CLI<span>1</span></a></li>
+			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
+				   
+			<li><a href="/tags/npm/">npm<span>1</span></a></li>
+				   
+			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
 		
 		<li><a href="/tags">...<span>93</span></a></li>
 		</ul>

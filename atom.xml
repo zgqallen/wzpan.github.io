@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2019-04-12T19:29:57.679Z</updated>
+  <updated>2019-04-27T16:47:56.679Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -12,11 +12,134 @@
   </author>
   <generator uri="http://zespia.tw/hexo">Hexo</generator>
   <entry>
+    <title type="html"><![CDATA[wukong-robot：一个更加优雅的中文智能音箱项目]]></title>
+    <link href="http://hahack.com/codes/wukong-robot-intro/"/>
+    <id>http://hahack.com/codes/wukong-robot-intro/</id>
+    <published>2019-04-24T07:25:32.000Z</published>
+    <updated>2019-04-27T16:46:34.716Z</updated>
+    <content type="html"><![CDATA[<h2 id="dingdang-robot-之殇">dingdang-robot 之殇</h2>
+<p>在两年前，我做了第一个智能音箱项目 <a href="https://www.hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">dingdang-robot</a> 。在去年 7 月加入上报统计后，在不到一年的时间里，这个项目已经运行在 1000+ 台设备中，被唤醒了 128,000+ 次。截至今天，这个项目的个人版和社区版在 Github 上总共获得了 2,600+ 个 stars ，820+ 次 forks。</p>
+<p>在我<a href="https://www.hahack.com/life/2018-montage/" target="_blank" rel="external">去年的一篇年度总结中</a>，我提到因为 dingdang-robot 本身维护上的困难，我将项目迁移到了 <a href="https://github.com/dingdang-robot/" target="_blank" rel="external">dingdang-robot 组织</a>交由社区进行维护。很遗憾的是，即使迁到了 dingdang-robot 组织，由于组织维护者们都并不是全职维护这个项目，而且硬件和操作系统上的差异始终给 dingdang-robot 的维护带来了很大的问题，所以取得的效果并不理想。而且随着自己能力的不断提升，我对 dingdang-robot 里头的代码也越发不满意：</p>
+<ol>
+<li>dingdang-robot 是基于 Python 2 的，在 Python 3 环境里跑不起来。而 Python 2 已经停止维护了。</li>
+<li>dingdang-robot 的热词唤醒（KWS）复用的是 jasper-client 的那套，基于 PyAudio 自己实现录音和 VAD ，基于 PocketSphinx 实现热词唤醒。然而那套录音和VAD代码我个人觉得写得并不鲁棒，为了避免各种边界情况我不得不加了一些 <code>try...catch</code> ，虽然没人发现这一点，但我自己是过不了自己那一关的，每每想到自己在用一套有问题的代码作为别人的入口就像是留一个坑叫别人跳进来，内心觉得很有罪恶感；另外 PocketSphinx 的安装非常复杂，虽然我提供了树莓派的镜像，但是很多人还是希望手动安装，而 PocketSphinx 对环境要求也很苛刻，所以总会遇到各种奇怪的问题，而我又不能复现；</li>
+<li>还有一些使用上的便利性问题。比如没有更新提示，有时候修了一个bug，别人不知道，提了issue后我得告诉他请更新到最新；再比如使用YAML作为配置文件，但是很多用户不懂YAML的语法格式，常见的比如把半角冒号（<code>:</code>）打成全角（<code>：</code>），或者冒号后没有跟着空格再写键值；再比如当初我处理 log 的打印也设计得比较傻逼，为了写到文件里头，直接用的是重定向，完全没有考虑用 FileHandler 这种东西。</li>
+</ol>
+<p>到了今年，我决定对 dingdang-robot 进行完全重写，做出一个更加 <strong>优雅、灵活、鲁棒</strong> 的版本。<a id="more"></a></p>
+<p>为了区别于以前的版本，我决定起给这个新版本起一个新的名字。我觉得三个字的唤醒词误唤醒率和长度都是比较理想的，所以我想取一个三个字的名字，另外还要能提现新版本的强大之处。于是我想到了“孙悟空”<span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>后来才发现又一次跟优必选和腾讯叮当的合作项目重名了，real尴尬 😹 。</span></span></span>。</p>
+<p><img src="/images/wukong-robot-intro/plan-1.jpg" alt=""></p>
+<p><img src="/images/wukong-robot-intro/plan-2.jpg" alt=""></p>
+<p>于是，利用整个春节的假期 <span class="margin-note-marker"><sup>2</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">2</span>你没看错，我整个春节都用来写代码去了</span></span></span>。正月初五那天，<a href="https://github.com/wzpan/wukong-robot" target="_blank" rel="external">wukong-robot</a> 1.0 正式发布了。</p>
+<p>以下是一段 wukong-robot 的定制版本 ycy-robot 的演示视频（如果访问不了，可以<a href="https://www.bilibili.com/video/av48873736?from=search&amp;seid=2193314296981067836" target="_blank" rel="external">前往观看</a>）：</p>
+<center>
+<iframe src="//player.bilibili.com/player.html?aid=48873736&cid=85589172&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="80%" height="460px"> </iframe>
+</center>
+<h2 id="wukong-robot-重生之路">wukong-robot 重生之路</h2>
+<p>按照惯例，下面总结一下这个项目的一些开发心得。</p>
+<h3 id="项目管理：github-project-boards">项目管理：Github project boards</h3>
+<p><a href="https://help.github.com/en/articles/about-project-boards" target="_blank" rel="external">project boards</a> 是 Github 近期推出的一个新功能，它最大的用处是提供了类似 trello 的看板。我在开发维护 wukong-robot 的时候，也使用 project boards 管理这个项目。于是建了一个 <a href="https://github.com/users/wzpan/projects/1" target="_blank" rel="external">wukong-project</a> 。</p>
+<p><img src="/images/wukong-robot-intro/wukong-project.png" alt="wukong project boards"></p>
+<p>我把项目分成了 <code>To do</code>、<code>In Progress</code>、<code>Done</code>、<code>Pending</code> 几个状态。在规划第一个版本的时候，我就在 <code>To do</code> 栏中提了 10 个左右的需求。这使得我的项目可以朝着明确的目标演进。不过，在开发的时候，时常还会有一些新的想法冒出来，这时候我也会尽快写入需求池中。到真正发布 1.0 的时候，我已经完成了 21 个需求。</p>
+<p>project boards 的另一个作用在于充当了项目的 roadmap 。你可以看到这个项目有哪些计划要做的需求，有哪些则是我正在开发中的需求。有兴趣的朋友还能参与进来帮忙完成其中的部分需求任务。</p>
+<p>project boards 还有一个很有意思的特性：可以和 Github 的 issues 和 pull requests 等板块打通。当有人给你提 issue 或 pull request 的时候，可以设置自动追加到 <code>To do</code> 栏里。而当 issue 被 close 或者 pull request 被 accept 后，相应的条目可以自动挪入 <code>Done</code> 一栏。</p>
+<p><img src="/images/wukong-robot-intro/automation.png" alt="project boards 的 automation 特性"></p>
+<p>不过，project boards 实际用起来还是有一些问题：因为整个 wukong-robot 项目不仅包括本体，还包含了第三方插件库 wukong-contrib ，以及将来可能有的其他一些衍生客户端。所以我希望用一个 wukong-project 来同时管理几个仓库。所以 wukong-project 并不是挂靠在 wukong-robot 仓库下的，而是直接挂在我的账户下。但不知道是不是 Github 设计上的疏忽：即使我在 wukong-project 里 link 了多个仓库，那些仓库下的 project 页面并没有展示 wukong-project 😵 。这种情况下，project boards 的 automation 也玩不起来 —— wukong-robot 的新 issue 也不会自动往 wukong-project 里新增 <code>To do</code> 条目。等我发现这个问题的时候，我早已创建了几十个条目，而 Github 又不支持将 transfer project boards ，所以只能将就着这么用下去了。</p>
+<h3 id="热词唤醒：snowboy">热词唤醒：snowboy</h3>
+<p>如前面所述，dingdang-robot 早期沿用了 jasper-client 的那套热词唤醒和静音检测的逻辑。虽然后来我也尝试给 dingdang-robot 加入了 snowboy 的支持，但让我很失望的是它在树莓派上使用效果很糟糕，所以我一直没有把 snowboy 作为默认的热词唤醒引擎。后来我发现其实我错怪了 snowboy ：官方文档已经<a href="http://docs.kitt.ai/snowboy/#my-trained-model-works-well-on-laptops-but-not-on-pi-s" target="_blank" rel="external">清楚地提到了问题的原因</a>：而树莓派上或者其他板子上接的麦克风可能和 PC 上的麦克风的声音畸变差异非常大，所以现有的模型更加不能直接在树莓派上工作，否则效果会非常糟糕。</p>
+<blockquote>
+<p>This is due to the acoustic distortion that results from the different microphones. If you record your voice with two different microphones (one on your laptop and the other on your Pi) and then play them (play t.wav), you will hear that they sound very differently (even though it is the same voice)!</p>
+</blockquote>
+<p>了解到原因后，我在这个版本中去除了安装繁琐且中文识别较差的 PocketSphinx ，将 snowboy 作为主要的热词唤醒引擎。因为 snowboy 还提供了静音检测（VAD）的功能，所以我把原来 VAD 的代码全部去除，改为了直接使用 snowboy 的 VAD 。经过改写后，整个系统的稳定性和响应速度都有了质的提升。</p>
+<p>不过，接入了 snowboy 后，整个交互模式就是先热词唤醒触发一个 <code>detected_callback</code> 的响应，说完指令后通过 <code>audio_callback</code> 将语音指令返回。有些时候我们并不想完全遵循这个形式：例如当我们希望 wukong-robot 能主动询问并澄清话术的时候，总是要求用户唤醒再说指令就显得整个交互很不智能了。于是我对 snowboydecorder 做了一点 hack ：仿照 <a href="https://github.com/wzpan/wukong-robot/blob/master/snowboy/snowboydecoder.py#L201" target="_blank" rel="external">HotwordDetector</a> 写了一个 <a href="https://github.com/wzpan/wukong-robot/blob/master/snowboy/snowboydecoder.py#L80" target="_blank" rel="external">ActiveListener</a> 用来实现主动询问用户的功能。有了这个 ActiveListener 之后，当插件需要主动询问用户问题时，可以在 <code>self.say()</code> 的 <code>onCompleted</code> 回调方法中直接执行 <code>self.activeListen()</code> 方法得到即拿到用户的指令内容。例如：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">onAsk</span><span class="params">(input)</span>:</span></div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> input:</div><div class="line">        self.say(<span class="string">"指令有误，请重新尝试"</span>, cache=<span class="keyword">True</span>)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="comment"># 执行响应</span></div><div class="line">    ...</div><div class="line"></div><div class="line">self.say(<span class="string">"开始家庭助手控制，请在滴一声后说明内容"</span>, cache=<span class="keyword">True</span>, onCompleted=<span class="keyword">lambda</span>: onAsk(self.activeListen()))</div></pre></td></tr></table></figure></p>
+<p>利用这个方法可以很方便地实现多轮对话以及<a href="https://wukong.hahack.com/#/official?id=geek%EF%BC%88%E6%9E%81%E5%AE%A2%E6%A8%A1%E5%BC%8F%EF%BC%89" target="_blank" rel="external">极客模式</a>。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>关于如何在 Python 工程中接入 snowboy ，我在<a href="https://ke.qq.com/course/387931" target="_blank" rel="external">一门 Python 课程</a>中有详细的介绍。如果你感兴趣的话，可以前往观看。<a href="https://ke.qq.com/course/385849" target="_blank" rel="external">课程的免费体验课部分</a>已经包含了热词唤醒的完整内容。</p>
+</div></p>
+<h3 id="技能插件重构：abstractplugin">技能插件重构：AbstractPlugin</h3>
+<p>原来的 dingdang-robot 在处理插件接口的时候，并没有考虑到多轮对话的情况。每一次 query 都会轮询一遍所有插件。如果要让某个插件在用户指示退出前持续响应用户的 query ，那么就得为这个插件实现一个内部循环。而在这个内部循环里头，用户只能响应有限的指令。</p>
+<p>例如，<a href="https://github.com/dingdang-robot/dingdang-contrib/blob/master/NetEaseMusic.py#L288" target="_blank" rel="external">NetEaseMusic</a> 插件在一个 <code>handleForever</code> 方法中进入了一个循环，在这个循环里头，只能响应“上一首”、“下一首”等音乐播放相关的指令。而有时候，我们在播放音乐的时候，也会突然间想问一下天气再回来继续播放。对于这种情况，dingdang-robot 的插件交互模式就只能先退出音乐播放，再问天气，再重新要求播放音乐。这样的设计并不够人性化。</p>
+<p>wukong-robot 重新考虑了插件的设计。你可以为 wukong-robot 开发两类技能插件：</p>
+<ol>
+<li><strong>普通技能插件</strong>，适用于普通的查询、助手类技能。通常的交互模式是唤醒 wukong-robot 后，说出指令并触发该技能插件，由其完成处理并汇报结果。如果需要询问用户问题，则可以利用 <code>self.activeListen()</code> 方法进入主动聆听，从而实现多轮对话。</li>
+<li><strong>沉浸式技能插件</strong>，适用于音乐、电台等技能。通常的交互模式是唤醒 wukong-robot 后，说出指令并触发该技能插件，由其进入该技能的沉浸式场景中。在该技能的沉浸式场景下，用户唤醒 wukong-robot 后，允许响应更多指令以完成更丰富的操作（例如“下一首歌”、“这是什么歌”等指令）。如果唤醒后只是简单的聊天，还允许 wukong-robot 在回答后恢复该技能的沉浸式场景（例如，用户在音乐场景中唤醒 wukong-robot 并问完时间后，wukong-robot 可以自动恢复音乐播放）。</li>
+</ol>
+<p>不论是哪种类型的插件，都只需继承同一个基类 <a href="https://www.hahack.com/wukong-robot/_modules/robot/sdk/AbstractPlugin.html#AbstractPlugin" target="_blank" rel="external"><code>robot.sdk.AbstractPlugin</code></a> ，并实现相应相关接口即可。其中：</p>
+<ul>
+<li>普通技能插件只需实现 <code>isValid()</code> 和 <code>handle()</code> 两个接口，分别用来判断用户指令是否适合交给该技能插件处理，以及如何处理；</li>
+<li>沉浸式技能插件在普通技能插件的基础上，还需要设置 <code>IS_IMMERSIVE</code> 成员属性为 <code>True</code> ，此外还可以根据需求实现 <code>isValidImmersive()</code> 和 <code>restore()</code> 两个方法，分别用来支持沉浸模式下更多指令的响应以及恢复技能。</li>
+</ul>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AbstractPlugin</span><span class="params">(metaclass=ABCMeta)</span>:</span></div><div class="line">    <span class="string">""" 技能插件基类 """</span></div><div class="line"></div><div class="line">    SLUG = <span class="string">'AbstractPlugin'</span></div><div class="line">    IS_IMMERSIVE = <span class="keyword">False</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, con)</span>:</span></div><div class="line">        <span class="keyword">if</span> self.IS_IMMERSIVE <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</div><div class="line">            self.isImmersive = self.IS_IMMERSIVE</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            self.isImmersive = <span class="keyword">False</span></div><div class="line">        self.priority = <span class="number">0</span></div><div class="line">        self.con = con</div><div class="line">        self.nlu = self.con.nlu</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">(self, src, delete=False, onCompleted=None, volume=<span class="number">1</span>)</span>:</span></div><div class="line">        self.con.play(src, delete, onCompleted, volume)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(self, text, cache=False, onCompleted=None)</span>:</span></div><div class="line">        self.con.say(text, cache=cache, plugin=self.SLUG, onCompleted=onCompleted)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">activeListen</span><span class="params">(self, silent=False)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.con.activeListen(silent)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">clearImmersive</span><span class="params">(self)</span>:</span></div><div class="line">        self.con.setImmersiveMode(<span class="keyword">None</span>)</div><div class="line"></div><div class="line">    <span class="decorator">@abstractmethod</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, query, parsed)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        是否适合由该插件处理</div><div class="line"></div><div class="line">        参数：</div><div class="line">        query -- 用户的指令字符串</div><div class="line">        parsed -- 用户指令经过 NLU 解析后的结果</div><div class="line"></div><div class="line">        返回：</div><div class="line">        True: 适合由该插件处理</div><div class="line">        False: 不适合由该插件处理</div><div class="line">        """</div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"></div><div class="line">    <span class="decorator">@abstractmethod</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handle</span><span class="params">(self, query, parsed)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        处理逻辑</div><div class="line"></div><div class="line">        参数：</div><div class="line">        query -- 用户的指令字符串</div><div class="line">        parsed -- 用户指令经过 NLU 解析后的结果</div><div class="line">        """</div><div class="line">        <span class="keyword">pass</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidImmersive</span><span class="params">(self, query, parsed)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        是否适合在沉浸模式下处理，</div><div class="line">        仅适用于有沉浸模式的插件（如音乐等）</div><div class="line">        当用户唤醒时，可以响应更多指令集。</div><div class="line">        例如：“"上一首"、"下一首" 等</div><div class="line">        """</div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pause</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        暂停当前正在处理的任务，</div><div class="line">        当处于该沉浸模式下且被唤醒时，</div><div class="line">        将自动触发这个方法，</div><div class="line">        可以用于强制暂停一个耗时的操作        </div><div class="line">        """</div><div class="line">        <span class="keyword">return</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">restore</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        恢复当前插件，</div><div class="line">        仅适用于有沉浸模式的插件（如音乐等）</div><div class="line">        当用户误唤醒或者唤醒进行闲聊后，</div><div class="line">        可以自动恢复当前插件的处理逻辑</div><div class="line">        """</div><div class="line">        <span class="keyword">return</span></div></pre></td></tr></table></figure></p>
+<p>经过这次重构，所有的插件都继承自同一个基类。即使是需要多轮交互的沉浸式插件，用户不再需要为其编写类似 <code>handleForever()</code> 的循环，只需要关注核心的 query 处理即可。在沉浸式插件工作期间，wukong-robot 也支持响应其他技能的 query ，交给其他适合处理的技能插件处理，并在处理完成后根据情况恢复当前沉浸式插件的处理。作为对比，你可以看看 <a href="https://github.com/wzpan/wukong-robot/blob/master/plugins/LocalPlayer.py" target="_blank" rel="external">LocalPlayer</a> 插件，它的可读性要比 NetEaseMusic 插件强很多。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>关于如何为 wukong-robot 开发技能插件，可以阅读 wukong-robot 的 <a href="https://wukong.hahack.com/#/writing-skill" target="_blank" rel="external">插件开发教程</a> 。另外，在我的 <a href="https://ke.qq.com/course/387931" target="_blank" rel="external">Python 课程</a>的 <q>大脑模块和技能系统实现</q> 一章中将更加深入地介绍 wukong-robot 插件机制的实现原理。</p>
+</div></p>
+<h3 id="后台管理端：tornado">后台管理端：tornado</h3>
+<p>早在 dingdang-robot 发布初期，我就有为它配套开发一个后台管理端的想法。但因为种种原因（<del>主要是因为懒</del>），这个想法一直拖着没有去做。于是借着这次项目重写，趁热打铁就把后台管理端也完成了。</p>
+<p>因为对 Jinja 比较有好感，所以我起初是打算用 Flask 来写后台管理端。但后面发现 Flask 的信号机制不能直接在非主线程里工作，而直接放主线程又会跟另一个<a href="https://github.com/Kitt-AI/snowboy/issues/411" target="_blank" rel="external">必须工作在主线程的 snowboy</a> 有冲突。折腾了半天后我决定改为直接支持在非主线程工作的 tornado 。
+后台管理端的技术栈主要包括：</p>
+<ul>
+<li>开发框架：<a href="https://www.tornadoweb.org/" target="_blank" rel="external">tornado</a></li>
+<li>前端框架：<a href="https://getbootstrap.com/" target="_blank" rel="external">twitter-bootstrap</a> + <a href="https://jquery.com/" target="_blank" rel="external">jQuery</a></li>
+<li>Material Design 风格的悬浮录音按钮：<a href="https://github.com/nobitagit/material-floating-button" target="_blank" rel="external">material-floating-button</a></li>
+<li>录音：<a href="https://github.com/chris-rudmin/opus-recorder" target="_blank" rel="external">opus-recorder</a></li>
+<li>录音过程中的 spin：<a href="https://spin.js.org/" target="_blank" rel="external">spin.js</a></li>
+<li>右上角的 toast 提示：<a href="https://github.com/CodeSeven/toastr" target="_blank" rel="external">toastr</a></li>
+<li>进度条：<a href="https://github.com/usablica/progress.js" target="_blank" rel="external">progress.js</a></li>
+</ul>
+<p>比较费脑的是鉴权部分。除了后台管理端需要设计登录界面以避免非法访问之外，我希望后台的接口能够开放 API 以支持其他配套客户端的接入，所以后端代码需要考虑两种访问来源的鉴权。</p>
+<p>最初我使用 cookie 来鉴权，管理端登录成功后，就把用户设置的鉴权密钥 <code>validation</code> 字段存到 cookie 里头。前端在 Ajax 调用后端 API 时，可以直接从 <code>cookie</code> 里取出 <code>validation</code> 然后作为鉴权字段发给后台。然而 cookie 本身是明文保存的，这种做法会直接暴露用户的密钥，因此是一种很不安全的做法。</p>
+<p>然后我尝试了使用 <code>secure_cookie</code> 来保存鉴权信息，然而因为 <code>secure_cookie</code> 是加了密的字段，前端没办法直接解析并传回给后端，所以又暂时放弃了这个做法。</p>
+<p>再后来我发现还有一个 <code>csrf_cookies</code> ，可以用来防止跨站请求的问题。于是我很兴奋地加入了这个校验。但后面我发现这个跨站请求保护也适用于站点本身的保护，因为 <code>xsrf_cookies</code> 的校验会在调用我们的接口实现方法前就完成，一旦加了这个校验后，其他客户端在调用 API 时也必须带上 <code>csrf_cookies</code> ，否则会直接抛出 <code>'_xsrf' argument missing from POST</code> 的错误。因此这个校验更适合用于纯 Web 站点，而不适合用于开放 API 的应用。</p>
+<p>最后我转念一想：虽然前端没办法直接解析 <code>secure_cookie</code> 得到 validation ，但是 <code>secure_cookie</code> 也只是一个加了密的 cookie ，我依然可以取出 <code>secure_cookie</code> 里这个加了密的 <code>validation</code> 的值然后传给后台，而后台则可以使用 <code>get_cookie</code>（而不是 <code>get_secure_cookie</code> ）取出期望的加了密后的 <code>validation</code> 的值并与前端传过来的值进行比对，这样就实现了前端页面的鉴权；对于 API 的鉴权，则可以直接使用明文的 <code>validation</code> 并将其作为第三方客户端的一个配置。后端在鉴权时直接判断这个 <code>validation</code> 与后端的配置里的 <code>validation</code> 值是否相等即可。所以最终我完成了如下的一个带鉴权的基类：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseHandler</span><span class="params">(tornado.web.RequestHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidated</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.get_secure_cookie(<span class="string">'validation'</span>):</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        <span class="keyword">return</span> str(self.get_secure_cookie(<span class="string">"validation"</span>), encoding=<span class="string">'utf-8'</span>) == config.get(<span class="string">'/server/validate'</span>, <span class="string">''</span>)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">validate</span><span class="params">(self, validation)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="string">'"'</span> <span class="keyword">in</span> validation:</div><div class="line">            validation = validation.replace(<span class="string">'"'</span>, <span class="string">''</span>)</div><div class="line">        <span class="keyword">return</span> validation == config.get(<span class="string">'/server/validate'</span>, <span class="string">''</span>) <span class="keyword">or</span> validation == str(self.get_cookie(<span class="string">'validation'</span>))</div></pre></td></tr></table></figure></p>
+<p>在配置页面，我在保存配置的时候加了 <code>yaml.load()</code> 检查，如果用户修改 YAML 有格式问题，将会被拒绝写入配置。另外，我还基于 watchdog 加入了对配置文件的监听：一旦配置文件发生修改，就触发配置的重新读取，从而实现无需重启更新大部分的配置。</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8-*-</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> robot <span class="keyword">import</span> config</div><div class="line"><span class="keyword">from</span> watchdog.events <span class="keyword">import</span> FileSystemEventHandler</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConfigMonitor</span><span class="params">(FileSystemEventHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, conversation)</span>:</span></div><div class="line">        FileSystemEventHandler.__init__(self)</div><div class="line">        self._conversation = conversation</div><div class="line"></div><div class="line">    <span class="comment"># 文件修改</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_modified</span><span class="params">(self, event)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> event.is_directory:</div><div class="line">            config.reload()</div><div class="line">            self._conversation.reload()</div></pre></td></tr></table></figure></p>
+<p>要说不太满意的地方，主要是首页的聊天消息更新机制。目前我是直接使用轮询的方式实现的 —— 前端会每隔 5 秒调用一次 <code>/gethistory</code> 接口，从而更新聊天记录。这种方式无疑是低效且浪费资源的做法。我曾经尝试将更新机制改成用 websocket 来实现，但后来发现手机端的浏览器几乎都不支持 websocket ，考虑到便携性的重要程度，我就放弃了这种实现。</p>
+<p>后面我将尝试使用 tordano 的 <a href="https://www.tornadoweb.org/en/branch5.1/guide/security.html" target="_blank" rel="external">coroutine</a> 来实现长连接通信以及后端的主动更新，这会是一种更好的实现方案。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>我的 <a href="https://ke.qq.com/course/387931" target="_blank" rel="external">Python 课程</a>的整个 Part 3 将更加系统地介绍 wukong-robot 的后台管理端开发过程，欢迎前往了解。</p>
+</div></p>
+<h3 id="更新器：git-tag-scf">更新器：git tag + SCF</h3>
+<p>在即将发布 wukong-robot 的时候，我突然想到应该给 wukong-robot 一个提示升级的功能。当检测到版本更新时，提示用户进行升级。</p>
+<p><img src="https://hahack-1253537070.file.myqcloud.com/images/update.jpg" alt="wukong-robot 的提示升级"></p>
+<p>于是我给 wukong-robot 的主仓库和插件仓库设计了一套基于 git 的更新机制：</p>
+<ol>
+<li>在两个仓库的根目录各维护一个 <code>VERSION</code> 文件用于记录当前的版本号，版本号使用 <a href="https://semver.org/" target="_blank" rel="external">Semantic Versioning</a> 标准；</li>
+<li>当要发布新版本时，更新 <code>VERSION</code> 的版本号，并为其打一个新的 tag ；</li>
+<li>客户端检查到有更新时，拉取到最新的代码，然后再切到对应的 tag 。实际执行的命令为 <code>git checkout master &amp;&amp; git pull &amp;&amp; git checkout TAG名</code> 。</li>
+</ol>
+<p>剩下的主要问题是检查更新的服务应该部署到哪里。当然，简单的搭一个更新检查服务器并不复杂，但服务器的维护成本比较高。如果后面我换了服务器，又得重新到另一个服务器搭一遍更新服务。另外，我并不太希望每次要发布新版本都得打开终端登录到我的服务器进行修改。最理想的应该是有个可以随时修改的 <q>云 json 串</q> 。于是我选择使用了腾讯云的无服务器函数（SCF）：把最新版本信息写成一个SCF，通过向SCF发请求完成版本更新检查。这样的好处是无需购买和维护服务器，无需到服务器发布代码，而且SCF提供了方便的在线编辑、版本管理和测试验证的能力，这比自己发版本还要靠谱的多。</p>
+<p><img src="/images/wukong-robot-intro/scf.png" alt="使用腾讯云SCF实现更新检查"></p>
+<h2 id="总结和展望">总结和展望</h2>
+<p>wukong-robot 的改动如下：</p>
+<ol>
+<li>完全重写了 dingdang-robot 的大部分代码，新的架构我个人觉得足够漂亮。</li>
+<li>原来的版本只能在 Linux 平台运行，而且 PocketSphinx 安装很苛刻，失败率很高，PocketSphinx 对中文的识别率也很一般。新版本使用 snowboy 取代 PocketSphinx ，无论是安装成本、稳定性、唤醒成功率都是质的飞跃。</li>
+<li>提供了可视化的后台管理端，并且开放API。配套了配置页面、日志查看页面等管理页，大部分配置做到了免重启即改即生效。利用它可以轻松做出漂亮的交互界面，甚至开发出新的客户端，你可以类比为 Echo 一代到 Echo Show 的飞跃。</li>
+<li>基于腾讯云 SCF 实现了版本更新检查，向专业的开源框架标准迈进。</li>
+<li>docker 镜像安装支持，另外<a href="https://github.com/musistudio" target="_blank" rel="external">金辉同学</a>也为它贡献了一个<a href="https://github.com/musistudio/wukong-robot-install-script" target="_blank" rel="external">一键式安装脚本</a>。</li>
+<li>对技能插件接口进行了重构，支持了沉浸式插件，开发者可以轻松实现多轮对话、音乐播放，我近期支持的极客模式特性也是使用了沉浸式插件。另外还加入了NLU支持，开发者可以写出更加智能的插件，处理更复杂的语义。</li>
+<li>将一些我认为有侵权嫌疑的特性移出仓库本体。例如不再自带网易云音乐技能，另外我也把微信功能移出了本体，而是改为利用 API 实现了一个基于 itchat 的客户端。所以 wukong-robot 是一个比 dingdang-robot 更加 “君子” 的版本。</li>
+</ol>
+<p>wukong-robot 后续的重要计划是训练本地的 ASR 、TTS 、NLU 及对话系统，并引入 RNN 降噪来改善环境较嘈杂的情况下难以唤醒的问题。关于项目的计划，可以关注 <a href="https://github.com/users/wzpan/projects/1#column-4364044" target="_blank" rel="external">wukong project board</a> 。</p>
+<p>而在近期，我正在腾讯课堂上推出一套 Python 开发教程，其中会用到 wukong-robot 作为一个开发案例。</p>
+<p><img src="/images/wukong-robot-intro/course.png" alt="Python 从入门到实战课程title"></p>
+<p>这套视频课程将从零开始，一步步教你如何使用 Python 开发出 wukong-robot 。涉及 Python 的基础语法，以及离线唤醒、静音检测、语音识别、语音合成、对话机器人等知识背景的介绍及相关sdk和服务的接入，并在这个基础上如何通过一步步的重构优化，开发出一个灵活可配置的 wukong-robot 。另外，还介绍了如何使用 tornado + twitter bootstrap + jQuery + Ajax 开发后台管理端及前端页面。进阶版中还包括了爬虫技术及 Flask 等技术的相关实战。</p>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>基础篇：<a href="https://ke.qq.com/course/387931?tuin=1b8113f4" target="_blank" rel="external">https://ke.qq.com/course/387931?tuin=1b8113f4</a></li>
+<li>完整篇：<a href="https://ke.qq.com/course/384790?tuin=1b8113f4" target="_blank" rel="external">https://ke.qq.com/course/384790?tuin=1b8113f4</a></li>
+</ul>
+</div></p>
+<p>这门课的准备和录制几乎占据了我全部的业余时间，录制的过程是非常痛苦和煎熬的。比如，为了讲好 subprocess ，我把 subprocess 的老版本高级 API 、新的高级 API，再到底层的 Popen 以及涉及到的 Linux 的标准输入输出和管道的概念都讲了一遍。对于讲授的方式，我比较提倡授人以鱼不如授人以渔的主张，所以我并不是直接贴 API ，而是带着读者一起看 Python 的官方文档，着重培养阅读文档的能力。这种讲法非常的累，但却是我认为每个工程师应该掌握的学习方式。</p>
+<p><img src="/images/wukong-robot-intro/wukong-robot-tutorial.jpeg" alt="wukong-robot开发"></p>
+<p>参与这门课的制作也是为了完成我在<a href="/life/2018-montage/#%E6%8E%88%E8%AF%BE">去年的个人总结中立下的 flag</a> 。Python 一直是我业余时间最常用的玩具语言，它非常适合用于原型开发。我有不少开源项目，比如 wukong-robot、dingdang-robot、<a href="https://www.hahack.com/life/2018-montage/#%E5%BC%80%E6%BA%90" target="_blank" rel="external">LiveCV</a> 都是用 Python 写的。而在我的工作中，它也帮助我完成了大量的工具和项目，这些工具和项目对个人或团队起到了非常大的作用（例如<a href="https://www.hahack.com/work/my-2-years-at-pingan/#%E6%94%AF%E7%BA%BF-v3" target="_blank" rel="external">加班统计平台</a>、已经在上百家中小银行中使用的<a href="https://www.hahack.com/work/my-2-years-at-pingan/#%E4%B8%BB%E7%BA%BF" target="_blank" rel="external">fmanager</a>），因此 Python 也无疑给我的职业发展起到了很大的推动作用。把我所掌握的 Python 知识分享给更多人，让更多人能够自如的使用这门语言来满足他们的需求，那也算是我对 Python 这门语言的回馈。</p>
+]]></content>
+    <category scheme="http://hahack.com/categories/codes/" term="codes"/>
+  </entry>
+  <entry>
     <title type="html"><![CDATA[2018 蒙太奇]]></title>
     <link href="http://hahack.com/life/2018-montage/"/>
     <id>http://hahack.com/life/2018-montage/</id>
     <published>2018-12-29T13:30:31.000Z</published>
-    <updated>2019-02-01T12:56:14.914Z</updated>
+    <updated>2019-04-27T16:17:19.355Z</updated>
     <content type="html"><![CDATA[<p>眨眼就到了 2019 年了，每年这个时候我都在纠结要不要写点什么。纠结的原因是：如果今年开了个头，那就相当于欠下一笔技术债，那么以后的每年都应该坚持写一篇总结，而我又是一个很怕欠债的人。今年我决定停止纠结：一来觉得自己已经到而立之年了，想做的事情就该放手去做。二来总结首先是写给自己看的，每年年底好好写份总结，有助于回顾自己这一年的心路历程，也能及时发现自己这一年有哪些不足，有则改之无则加勉。三来如果能坚持写下去的话，等老了的时候，回过头来看每一年的回顾，应该会有更深的感触吧。Anyway，既然是有益的债务，那还是值得去背负的。</p>
 <p>2018 年依旧是比较充（mang）实（lu）的一年，这一年我完成了买房大计，开始在 GMTC 这类的技术会议上做分享交流，开始带团队，首次挑战并完成了一次鹅厂的技术通道答辩，开始尝试担任腾讯课堂的讲师对外授课……收获颇丰。与之相对应的也有一些失去，包括一段还没来得及开始就匆匆结束的感情。</p>
 <p>为了避免把总结写得太过于流水账，我想把总结拆成几个主题来回顾：正经事（工作、开源、博客、授课），不正经事（乐器、旅行、游戏、锻炼、看书、感情）。</p>
@@ -156,7 +279,7 @@
 <p>Ukulele 也让我对吉他重拾了兴趣。我曾在大学期间买了一把吉他，学了一段时间爬格子后就已经兴致索然。之后又在一次调琴弦的时候因为方法不当把弦弄断了，于是这把琴就被我带回家扔起来了。国庆的时候回了一趟家，找出了这把尘封多年的吉他，大概摸了半个小时很快就可以上手弹唱了。唯一遇到的困难是 F 和弦依然是按不下去，但我认为并不是自己的方法问题，而是这把琴质量太差，品距太高导致加大了 F 和弦的难度。我已经开始种草 <a href="https://www.taylorguitars.com/guitars/acoustic/114ce" target="_blank" rel="external">Taylor 114ce</a> ，说不定等搬到新房子后就拔草。不过在剁手前，我应该会先去逛下琴行看看有没有更适合自己的定制琴。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="http://hahack-1253537070.file.myqcloud.com/images/bad.jpeg" alt=" 像这种路边摊ukulele千万别买"><b>附图 3</b>  像这种路边摊ukulele千万别买</span></span></span></p>
 <p><img src="http://hahack-1253537070.file.myqcloud.com/images/taylor-114ce.jpg" width="900" height="900" title="taylor 114ce"></p>
 <p>说到买乐器这个话题，真的要相信“一分钱一分货”硬道理。不同价格的乐器，演奏效果的确有云泥之别。我的 Ukulele 是三年前 Allen 送我的 <a href="http://www.rainieukulele.com/cn_product_view.php?id=10" target="_blank" rel="external">Rainie Poet S-30L</a>，这把琴用桃花芯实木作为面板，音色饱满，琴头弦枕也很稳定，可以放好几个星期都不用调弦。弹久了之后，再去碰其他人的那种一两百块的 Ukulele ，就能明显感觉到劣质琴的廉价感——劣质琴因为用的是很差的面板，音色很单薄，拿在手上感觉很轻，而且面板和背侧板的衔接处往往都不会打磨，手臂放在上面会感觉很硌手。除此之外，劣质琴的和弦很不稳，放个一两天就又得重新调弦。用差的乐器绝对也会影响学习质量。所以我认为学习乐器并不存在所谓的“入门琴”的概念，要买就得买好一点的，这样才能真正的入门。当然，买什么价位的乐器需要量力而行，否则如果买来只是放着吃灰的话就浪费了。</p>
-<h3 id="旅-行">旅 行</h3>
+<h3 id="旅行">旅行</h3>
 <p>今年一共去了几个城市：</p>
 <ul>
 <li>亚庇（马来西亚）</li>
@@ -3115,155 +3238,6 @@ y
 ]]></content>
     <category scheme="http://hahack.com/tags/React/" term="React"/>
     <category scheme="http://hahack.com/tags/Javascript/" term="Javascript"/>
-    <category scheme="http://hahack.com/categories/codes/" term="codes"/>
-  </entry>
-  <entry>
-    <title type="html"><![CDATA[学习 React Native for Android：环境搭建]]></title>
-    <link href="http://hahack.com/codes/learn-react-native-for-android-01/"/>
-    <id>http://hahack.com/codes/learn-react-native-for-android-01/</id>
-    <published>2015-10-16T21:23:08.000Z</published>
-    <updated>2018-07-06T17:27:30.013Z</updated>
-    <content type="html"><![CDATA[<p>Facebook 于 2015 年 9 月 15 日发布了 React Native for Android 。React Native 让开发者使用 JavaScript 和 React 编写应用，利用相同的核心代码就可以创建 Web，iOS 和 Android 平台的原生应用。注意这里的 <q>核心</q> 两个词，它指的是那些底层的、与界面无关的逻辑。与 ionic / PhoneGap 这类 Web App 开发框架不同，React Native 主张使用 React 的开发方式来开发 Native 应用，因为在现阶段 Web App 还无法达到 Native App 的体验。所以，React Native 并不强调 <q>write Once, run everywhere</q> ，而是 <q>learn once, write everywhere</q> ：上层使用 JS 和 React 开发不同平台的 UI，下层则可以编写能够复用的核心代码，从而大幅提高开发效率。</p>
-<p>关于 React Native 的好处，唐巧在 《<a href="http://blog.devtang.com/blog/2015/02/01/talk-about-react-native/" target="_blank" rel="external">谈谈 React Native</a>》 里已经有比较深刻的总结，本文不再赘述。本文将作为一个 React Native for Android 学习系列的一个开篇，从零开始学习 React Native 。我尽量不偷懒，保证文章及时更新。</p>
-<a id="more"></a>
-<h2 id="准备工作">准备工作</h2>
-<ol>
-<li>操作系统：当前仅支持 OS X；</li>
-<li>由于 atom 的 package 服务 apm 国内不可用，因此国内的朋友需要做好 Cross the Wall 的准备。</li>
-</ol>
-<h2 id="基本开发环境搭建">基本开发环境搭建</h2>
-<h3 id="安装-homebrew">安装 Homebrew</h3>
-<p>Homebrew 是一个方便开发者在 MAC OS X 系统上面安装 Linux 工具包的 ruby 脚本，如果你的机器还没有安装 Homebrew ，则需要执行下面的命令安装：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ ruby <span class="operator">-e</span> <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></div></pre></td></tr></table></figure></p>
-<p>完成后可以试试执行 <code>brew -v</code> 检查下 brew 是否安装成功。</p>
-<p>如果你的机器已经安装过 Homebrew ，<strong>强烈建议</strong> 对 Homebrew 的包做一下更新：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew update && brew upgrade</div></pre></td></tr></table></figure></p>
-<h3 id="安装-node-js">安装 Node.js</h3>
-<p>建议使用 Node 的版本管理器 nvm 来安装新版本的 Node.js 。</p>
-<h4 id="安装-nvm">安装 nvm</h4>
-<p>首先需要安装 nvm 。官方推荐的做法是通过 <code>curl</code> 或者 <code>wget</code> 来安装：</p>
-<h5 id="通过-curl-安装">通过 curl 安装</h5>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ brew install curl  <span class="comment"># 确保安装了 curl</span></div><div class="line">$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.<span class="number">29.0</span>/install.sh | bash</div></pre></td></tr></table></figure></p>
-<h5 id="通过-wget-安装">通过 wget 安装</h5>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ brew install wget  <span class="comment"># 确保安装了 wget</span></div><div class="line">$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.<span class="number">29.0</span>/install.sh | bash</div></pre></td></tr></table></figure></p>
-<p>完成后可以试试执行 <code>nvm --version</code> 检查下 nvm 是否安装成功。</p>
-<h4 id="安装-node-js-v2">安装 Node.js</h4>
-<p>使用 nvm 安装 Node.js：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ nvm install node && nvm alias default node</div></pre></td></tr></table></figure></p>
-<h3 id="安装-watchman">安装 watchman</h3>
-<p><a href="https://facebook.github.io/watchman/docs/install.html" target="_blank" rel="external">watchman</a> 是 Facebook 的一个用于监控文件变更并触发指定操作的工具：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install watchman</div></pre></td></tr></table></figure></p>
-<h3 id="安装-flow">安装 flow</h3>
-<p><a href="http://flowtype.org/" target="_blank" rel="external">Flow</a> 是一个 JavaScript 的静态类型检查器，建议安装它，以方便找出代码中可能存在的类型错误：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ brew install flow</div></pre></td></tr></table></figure></p>
-<h3 id="安装-android-sdk">安装 Android SDK</h3>
-<p>如果你之前已经装过 Android SDK ，打开 Android SDK Manager，确保如下工具和开发包已经安装：</p>
-<p>SDK：</p>
-<ul>
-<li>Android SDK Build-tools version 23.0.1</li>
-<li>Android 6.0 (API 23)</li>
-<li>Android Support Repository</li>
-</ul>
-<p>模拟器：</p>
-<ul>
-<li>Intel x86 Atom System Image (for Android 5.1.1 - API 22)</li>
-<li>Intel x86 Emulator Accelerator (HAXM installer)</li>
-</ul>
-<p>如果之前没有装过 Android SDK ，可以通过如下步骤安装：</p>
-<ol>
-<li>安装最新的 JDK.</li>
-<li>使用 <code>brew install android-sdk</code> 来安装安卓 SDK。</li>
-<li>将它添加到 ~/.bashrc, ~/.zshrc 或者任何其他您的 shell 所使用的路径：<code>export ANDROID_HOME=/usr/local/opt/android-sdk</code></li>
-<li>启动一个新的 shell 并且运行 <code>android</code> ，在出现窗口中勾选上面列出的 SDK 和模拟器。</li>
-<li>点击 “Install Packages”。</li>
-</ol>
-<p>详细介绍可以参考 <a href="http://wiki.jikexueyuan.com/project/react-native/DevelopmentSetupAndroid.html" target="_blank" rel="external">这篇文章</a> 。</p>
-<h3 id="安装-react-native">安装 React Native</h3>
-<p>最后到了关键一步，安装 React Native：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install -g react-native-cli</div></pre></td></tr></table></figure></p>
-<p>至此完成 React Native 基本开发环境的搭建。</p>
-<h2 id="nuclide-ide-的安装和配置-可选">Nuclide IDE 的安装和配置（可选）</h2>
-<p>Nuclide 是 Facebook 专门为 React 开发的 IDE ，既然是官方提供的 IDE ，就意味着拥有更好的语法补全、类型检查等支持。为了开发效率，不妨尝试一下这个 IDE 。</p>
-<h3 id="安装-atom">安装 Atom</h3>
-<p>本质上，Nuclide 其实是在 Atom 的基础上提供的一系列插件集。要使用 Nuclide ，首先需要先安装 Atom 。Atom 是 Github 所推出的一个开源编辑器，其最大的特点是使用 node.js 来作为其插件语言。</p>
-<p>到<a href="https://atom.io/" target="_blank" rel="external">Atom的官网</a>下载 Atom 并安装。</p>
-<h3 id="安装-nuclide">安装 Nuclide</h3>
-<p>安装完 Atom 后，打开 Settings 面板，并点击 Install 选项卡，然后在搜索框中键入 nuclide-installer ，如图所示：</p>
-<p><img src="/images/learn-react-native-for-android-01/nuclide-installer.png" alt="搜索 nuclide-installer"></p>
-<p>第一个结果就是我们需要安装的插件，点击该插件旁边的蓝色 Install 按钮进行安装。</p>
-<p>另一种方法是直接利用 Atom 的包管理器 <code>apm</code> 安装：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ apm install nuclide-installer</div></pre></td></tr></table></figure></p>
-<p>完成后重启一下 Atom ，Atom 就会开始完成对 Nuclide 所有插件的下载安装，这个过程可能耗时比较长。完成后可以再次进入 Setting 面板，并点击 Packages 选项卡，你将可以看到一堆的 <code>Nuclide-</code> 开头的插件。</p>
-<p>为了方便编译 React Native 的工程，建议再安装一个终端插件，用于快速打开终端并定位到当前项目根路径。根据你的操作系统版本选择安装如下插件之一：</p>
-<ul>
-<li>atom-terminal：适合 Mac OSX 10.9 （Mavericks） 及以下的操作系统；</li>
-<li>atomerinal：atom-terminal 在 Mac OSX Yosmite 和 EI Capitan 下不能准确定位路径，这个插件是对 atom-terminal 的 fork 和修改，适合版本更高的操作系统；</li>
-</ul>
-<h3 id="其他推荐插件">其他推荐插件</h3>
-<p>除了 Nuclide 之外，还可以根据你的需求安装其他的一些插件，这里推荐一些插件：</p>
-<ul>
-<li>react：React 的语法补全和智能重排；</li>
-<li>react-snippets：React 的代码段；</li>
-<li>highlight-selected：高亮当前双击选中的标记；</li>
-<li>jshint：检查 JavaScript 的语法，支持 JSX （需要在插件设置中开启 Support Linting JSX）；</li>
-<li>emmet：用 emmet （Zen Coding）方式快速编写页面；</li>
-<li>save-session：让 Atom 记住上一次打开的会话；</li>
-<li>browser-plus：在 Atom 中内嵌一个浏览器窗口，方便页面调试（其实 Atom 本身就是一个浏览器）；</li>
-<li>minimap：如果你对 Sublime Text 的 minimap 念念不忘；</li>
-<li>atomic-emacs：Emacs 键盘布局，适合 Emacs 用户使用；</li>
-<li>vim-mode：Vim 键盘布局，适合 Vim 用户使用。</li>
-</ul>
-<p>但要注意，Atom 目前的性能还比较差强人意，安装太多的插件会影响整个编辑器的启动速度，所以建议只安装必需的插件。</p>
-<h2 id="第一个小程序：awesomeproject">第一个小程序：AwesomeProject</h2>
-<p>执行如下命令生成一个工程：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ react-native init AwesomeProject</div></pre></td></tr></table></figure></p>
-<p>该命令将会下载 React Native 工程源码和依赖，生成的工程文件如下图所示：</p>
-<p><img src="/images/learn-react-native-for-android-01/project-skeleton.png" alt="生成的示例工程"></p>
-<p>仔细观察这个工程，你会发现如下的内容：</p>
-<ul>
-<li><code>node_modules</code> 文件夹，这是 Node.js 用来存放和管理 npm 包的文件夹，现在这里包含了 React Native 框架。</li>
-<li>index.android.js 文件和 index.ios.js 文件。这是 React Native CLI 工具分别为 Android 和 iOS 创建的空壳应用。</li>
-<li>android 文件夹和 ios 文件夹。包含了用于生成两个平台的 App 的 Bootstrap 型项目。</li>
-</ul>
-<p>现在打开 Atom ，点击 File 菜单的 【Add Project Folder…】 菜单项，导入 AwesomeProject 工程文件夹，如下图所示：</p>
-<p><img src="/images/learn-react-native-for-android-01/atom-awesomeproject.png" alt=""></p>
-<p>通过终端插件快速打开终端（快捷键是 <code>Alt</code> + <code>Shift</code> + <code>t</code>），然后执行如下命令运行 Android 应用程序：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ react-native run-android</div></pre></td></tr></table></figure></p>
-<p>React Native 会开始构建这个工程，同时会启动 Running Packager 用于调试。如下图所示：</p>
-<p><img src="/images/learn-react-native-for-android-01/run-project.png" alt=""></p>
-<p>如果 Running Packager 提示 “Packager can’t listen on port 8081” ，说明 8081 端口被占用，可以检查是什么程序占用了这个端口并杀掉它：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">sudo</span> lsof -n -i4TCP:<span class="number">8081</span> | grep LISTEN</div><div class="line">$ kill -<span class="number">9</span> &lt;进程id&gt;</div></pre></td></tr></table></figure></p>
-<p>构建完成后，手机或模拟器将会自动运行这个 App 。如果你看到的是这样的画面：</p>
-<p><img src="/images/learn-react-native-for-android-01/unable-to-download-js-bundle.png" alt=""></p>
-<p>你还需要进行如下设置：</p>
-<ol>
-<li>更新 brew 和 watchman ：<code>brew update &amp;&amp; brew upgrade watchman</code>；</li>
-<li>摇动手机或按下菜单按钮呼出菜单，然后点击 【DeviceID Settings】 菜单项进入应用的选项界面，再点击 【Debug server host for device】 选项，填入你的 Mac 主机的 ip ；
-<img src="/images/learn-react-native-for-android-01/app-setup.png" alt=""></li>
-<li>完成后重启一下应用，或者回到主界面再次呼出菜单，点击 【Reload JS】 。应用就会开始抓取主机上的 JS Bundle 并显示如下的界面：
-<img src="/images/learn-react-native-for-android-01/hello-world.png" alt="Hello World"></li>
-</ol>
-<p>我们的第一个应用就成功执行起来了！</p>
-<p>现在试试对我们的工程做点改动。在 Atom 下打开 index.android.js 文件，并将第 20 行附件的</p>
-<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello World!</div></pre></td></tr></table></figure></p>
-<p>改成</p>
-<p><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Hello HaHack!</div></pre></td></tr></table></figure></p>
-<p>然后再次呼出菜单，点击 【Reload JS】 刷新下界面，此时界面中的 <code>Hello World!</code> 就变成了 <code>Hello HaHack!</code> ：</p>
-<p><img src="/images/learn-react-native-for-android-01/hello-hahack.png" alt="Hello HaHack"></p>
-<h2 id="小技巧">小技巧</h2>
-<h3 id="添加-alias">添加 Alias</h3>
-<p>React Native 运行一个 App 的命令有点长，可以为其编写一些 Alias ，节省时间，方便记忆。将下面两行代码添加到你的 Shell 配置文件中（<code>.bashrc</code> 或 <code>.zshrc</code>）：</p>
-<p><figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alias rna=<span class="string">"react-native run-android"</span></div><div class="line">alias rni=<span class="string">"react-native run-ios"</span></div></pre></td></tr></table></figure></p>
-<p>完成后重新打开终端，即可使用 <code>rna</code> 命令运行 React Native for Android 项目，用 <code>rni</code> 命令运行 React Native for iOS 项目。</p>
-<h3 id="自动刷新界面">自动刷新界面</h3>
-<p>如果希望每次修改 JS 脚本后自动刷新应用的界面，可以再次进入应用的选项界面，把 【Auto reload on JS Change】 选项打开：</p>
-<p><img src="/images/learn-react-native-for-android-01/auto-reload.png" alt=""></p>
-<p>这样当 watchman 发现你的 JS 文件发生更改时，就会让 Running Packager 重新加载应用的界面。</p>
-]]></content>
-    <category scheme="http://hahack.com/tags/React-Native/" term="React-Native"/>
-    <category scheme="http://hahack.com/tags/Android/" term="Android"/>
-    <category scheme="http://hahack.com/tags/Atom/" term="Atom"/>
-    <category scheme="http://hahack.com/tags/Nuclide/" term="Nuclide"/>
     <category scheme="http://hahack.com/categories/codes/" term="codes"/>
   </entry>
 </feed>

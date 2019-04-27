@@ -41,8 +41,8 @@
   <![endif]-->
 
 <!--  -->
-<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
-<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 <!--  -->
   
 <script src="/dist/jquery-2.0.3.min.js"></script>
@@ -276,17 +276,17 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </tbody>
 </table>
 <h2 id="常见问题">常见问题</h2>
-<p><span class="label label-important">Q</span> 运行过程中出现 “[GodEyes] Error occurs while generating compilation database.” 错误。</p>
-<p><span class="label label-success">A</span> 出现这个错误意味着你的 xctoolCommand 没有配对，导致编译数据库没有正确生成。请详细阅读 xctool 的说明。只有按照 xctool 的说明写好 xctoolCommand 生成编译数据库，才能在下一步调用 GodEyes 进行静态扫描。你可以在 GodEyes 的根目录执行：</p>
+<p><span class="label label-Q">important</span> 运行过程中出现 “[GodEyes] Error occurs while generating compilation database.” 错误。</p>
+<p><span class="label label-A">success</span> 出现这个错误意味着你的 xctoolCommand 没有配对，导致编译数据库没有正确生成。请详细阅读 xctool 的说明。只有按照 xctool 的说明写好 xctoolCommand 生成编译数据库，才能在下一步调用 GodEyes 进行静态扫描。你可以在 GodEyes 的根目录执行：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xctool/bin/xctool --help</div></pre></td></tr></table></figure></p>
 <p>来打印 xctool 的帮助，也可以访问 xctool 的 <a href="https://github.com/facebook/xctool" target="_blank" rel="external">Github 主页</a>获得更多的帮助。</p>
-<p><span class="label label-important">Q</span> 运行过程中出现 “LLVM ERROR: Could not auto-detect compilation database for file XXX/XXX/XXX”、“No compilation database found in XXX/XXX/XXX or any parent directory。” 等类似错误。</p>
-<p><span class="label label-success">A</span> 如果这些引发错误的源文件并非来自你的主工程，而是来自第三方库，你需要将这些第三方库的路径添加到排除列表中。如果你希望 GodEyes 扫描这些第三方库，可以直接拷贝一份 GodEyes ，然后为这些第三方库编写配置文件，再完成扫描。</p>
-<p><span class="label label-important">Q</span> 运行过程中出现 “[GodEyes] Another GodEyes instance is running!” 错误。</p>
-<p><span class="label label-success">A</span> GodEyes 运行时会在当前目录下创建一个 godeyes.tmp 临时文件，以记录程序的配置信息。为了避免多个 GodEyes 进程同时对同个临时文件进行读写导致意外错误，在任意时刻只允许运行一个 GodEyes 进程。所以，如果你遇到这个错误，请等待上一个 GodEyes 程序运行完成。如果你确定当前没有运行其他 GodEyes 程序，可以手动将 godeyes.tmp 文件删除。</p>
+<p><span class="label label-Q">important</span> 运行过程中出现 “LLVM ERROR: Could not auto-detect compilation database for file XXX/XXX/XXX”、“No compilation database found in XXX/XXX/XXX or any parent directory。” 等类似错误。</p>
+<p><span class="label label-A">success</span> 如果这些引发错误的源文件并非来自你的主工程，而是来自第三方库，你需要将这些第三方库的路径添加到排除列表中。如果你希望 GodEyes 扫描这些第三方库，可以直接拷贝一份 GodEyes ，然后为这些第三方库编写配置文件，再完成扫描。</p>
+<p><span class="label label-Q">important</span> 运行过程中出现 “[GodEyes] Another GodEyes instance is running!” 错误。</p>
+<p><span class="label label-A">success</span> GodEyes 运行时会在当前目录下创建一个 godeyes.tmp 临时文件，以记录程序的配置信息。为了避免多个 GodEyes 进程同时对同个临时文件进行读写导致意外错误，在任意时刻只允许运行一个 GodEyes 进程。所以，如果你遇到这个错误，请等待上一个 GodEyes 程序运行完成。如果你确定当前没有运行其他 GodEyes 程序，可以手动将 godeyes.tmp 文件删除。</p>
 <p>如果确实需要同时启用多个 GodEyes 扫描多个工程，可以再拷贝一份 GodEyes 目录，删掉新目录下的 godeyes.tmp 文件，然后在不同的目录下执行各自的 GodEyes 程序，由于读取的是不同位置的 godeyes.tmp 临时文件，就不会出现这个问题。</p>
-<p><span class="label label-important">Q</span> 扫描得到的 json 结果文件怎么阅读？</p>
-<p><span class="label label-success">A</span> 首先建议使用 JSON 格式化工具阅读该文件里的内容：<a href="http://www.w3cschool.cc/tool/json/index.html" target="_blank" rel="external">http://www.w3cschool.cc/tool/json/index.html</a> 。</p>
+<p><span class="label label-Q">important</span> 扫描得到的 json 结果文件怎么阅读？</p>
+<p><span class="label label-A">success</span> 首先建议使用 JSON 格式化工具阅读该文件里的内容：<a href="http://www.w3cschool.cc/tool/json/index.html" target="_blank" rel="external">http://www.w3cschool.cc/tool/json/index.html</a> 。</p>
 <p>一个经过格式化的 json 结果如下：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    "status": "ok"</div><div class="line">    "results": [</div><div class="line">        {</div><div class="line">            "rule_name": "ObjC.ReturnTypeInconsistent"</div><div class="line">            </div><div class="line">            "type": "ReturnTypeInconsistentRule",</div><div class="line">            </div><div class="line">            "num": "1",</div><div class="line">            </div><div class="line">            "rule_result": [</div><div class="line">                {</div><div class="line">                    "lines": "75,",</div><div class="line">                    "file": "/Users/wzpan/Documents/workspace/HelloWorld/HelloWorld/MyCircle.m"</div><div class="line">                }</div><div class="line">            ],</div><div class="line">            </div><div class="line">        }</div><div class="line">    ],</div><div class="line">}</div></pre></td></tr></table></figure></p>
 <p>json 是逐条规则列出违反清单的。</p>
@@ -296,15 +296,15 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 <li>rule_result 是违反规则的位置。</li>
 </ul>
 <p>从上面的结果可以看出，该项目违反了 1 次“函数返回值必须与实际返回类型一致隐患”规则，违反位置在 <code>/Users/wzpan/Documents/workspace/HelloWorld/HelloWorld/MyCircle.m</code> 文件中的第 75 行。</p>
-<p><span class="label label-important">Q</span> GodEyes-iOS 有哪些局限性？</p>
-<p><span class="label label-success">A</span> 下面这些情况是 GodEyes-iOS 目前无法正常处理的：</p>
+<p><span class="label label-Q">important</span> GodEyes-iOS 有哪些局限性？</p>
+<p><span class="label label-A">success</span> 下面这些情况是 GodEyes-iOS 目前无法正常处理的：</p>
 <ul>
 <li>不能解析宏。这意味着如果你使用了宏来检测版本，则可能会导致 API 兼容性规则误报；</li>
 <li>不能理解用户自定义的类型。这意味着 GodEyes 无法对从 NS 数据结构类继承而来的自定义类型应用相关的 NS 数据结构的规则；</li>
 <li>不支持动态分析。这意味着如果你的代码中存在一些运行时才能获取的状态，则可能导致与 GodEyes 规则冲突时产生误报。</li>
 </ul>
-<p><span class="label label-important">Q</span> GodEyes-iOS 的扫描结果有误报呀。</p>
-<p><span class="label label-success">A</span> 如果出现误报，而且不属于上一个问题列出的几种情况，可以 <a href="mailto:2983512772@qq.com" target="_blank" rel="external">联系开发者</a> ，告诉我们误报的规则名以及涉及的代码，以便进行修复。</p>
+<p><span class="label label-Q">important</span> GodEyes-iOS 的扫描结果有误报呀。</p>
+<p><span class="label label-A">success</span> 如果出现误报，而且不属于上一个问题列出的几种情况，可以 <a href="mailto:2983512772@qq.com" target="_blank" rel="external">联系开发者</a> ，告诉我们误报的规则名以及涉及的代码，以便进行修复。</p>
 
 		</div>
 
@@ -470,7 +470,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a data-pjax href="/categories/codes/">codes<span>35</span></a></li>
+    <li><a data-pjax href="/categories/codes/">codes<span>36</span></a></li>
   </li>
 
     </ul>

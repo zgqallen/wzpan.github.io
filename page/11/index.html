@@ -39,8 +39,8 @@
   <![endif]-->
 
 <!--  -->
-<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
-<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 <!--  -->
   
 <script src="/dist/jquery-2.0.3.min.js"></script>
@@ -169,6 +169,29 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Jul 2 2013 </div>
+			<div class="article-title"><a data-pjax href="/codes/ahk-awesome/" title="介绍如何在Windows下利用AutoHotKey打造接近Awesome窗口管理器的体验。">Awesome Emulator for Windows Using AutoHotKey</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+    
+    
+      <p>我从去年开始使用 <a href="/tools/awesome">Awesome</a> 作为桌面管理器，现在已经成了 Awesome 的中毒用户。以往的窗口管理器在快捷键的设置上太过分散，时而要用到 <code>Alt</code> 和最上排的功能键的组合，时而又要用到 <code>Win</code> 键的组合，记忆起来很困难。而 Awesome 的键位设置借鉴了 Vim 的操作方式，记忆起来容易得多。举个例子，切换窗口用的是 <code>Mod4+j</code> 和 <code>Mod4+k</code> 两个组合键，比起传统的 <code>Alt+Tab</code> 和 <code>Alt+Shift+Tab</code> 而言要好用很多（我相信还有不少用户不知道有 <code>Alt+Shift+Tab</code> 这个东西）。</p>
+<p>但这样的好处是有代价的。等我习惯了 Awesome 的快捷键之后，可怕的事情就来了：一旦我需要离开 Linux 到 Windows 下工作，我很难适应原先的快捷键。一个最常犯的错误就是，我总试图用 <code>Ctrl+Mod4+c</code> 来关闭窗口 <code>--bb</code>。</p>
+<p>既然感觉到别扭，那就要想办法去消除它，否则我很难在 Windows 下愉悦地工作（虽然用 Windows 的机会不多）。但是 Windows 毕竟是一家独大的产物，桌面管理器只有自带的可以选择，甚至连系统快捷键设置界面也欠奉。与之相比，Linux 要自由很多，拥有非常多的桌面环境和窗口管理器可供选择搭配，较为让人熟知的桌面环境就有KDE、GNome、Unity几个派系。	  
+       
+   </ul>
+   <a data-pjax href="/codes/ahk-awesome/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Jun 28 2013 </div>
 			<div class="article-title"><a data-pjax href="/codes/handout-with-script/" title="一个生成带幻灯片的演讲稿的LaTeX样式包。">Handout With Script</a></div>			
 		</h3>
@@ -266,32 +289,6 @@ Emacs 中搭建 VC
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Oct 7 2012 </div>
-			<div class="article-title"><a data-pjax href="/codes/opengl-on-archlinux/" title="详细介绍在ArchLinux下安装配置OpenGL的过程。">ArchLinux安装配置OpenGL</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-    
-    
-      <h2 id="1-前言">1 前言</h2>
-<p>在Linux安装配置OpenGL理论上是一件非常轻松的事情，因为OpenGL本身就是跨平台的东西。但我在看 OpenGL SuperBible 4th Edition 的时候，却总是遇到一些让我郁闷的事情：自带的GLTools类包只能在Windows和Mac OSX下使用，而且还得自己写Makefile。后来到网上找解决方法，才发现 SuperBible 已经早已经出到了 5th Edition，并且加入了对Linux的支持。 <code>--bbb</code></p>
-<p>这给我两大教训：</p>
-<ol>
-<li>当书中的内容有所欠缺的时候，应该及时去看官网，看看有没有发布新的版本，而不是自己在一旁摸索解决方法。</li>
-<li>不要总指望网上能够下载到电子版本，能够下载的大多数是Out of Date的。于是我索性网购了一本纸质版 <span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>其实我喜欢电子版本的原因是可以方便的复制书中的内容，这对我做笔记很有用。另外由于电脑屏幕够大，所以在Awesome下可以直接开Emacs和evince两个窗口，一边看书一边动手，非常顺手。</span></span></span>。	  
-       
-   </ul>
-   <a data-pjax href="/codes/opengl-on-archlinux/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -350,7 +347,7 @@ Emacs 中搭建 VC
 		<h4>Categories</h4>
 		<ul class="tag_box inline">
 		
-			<li><a href="/categories/codes/">codes<span>35</span></a></li>
+			<li><a href="/categories/codes/">codes<span>36</span></a></li>
 		
 			<li><a href="/categories/life/">life<span>6</span></a></li>
 		
@@ -373,45 +370,45 @@ Emacs 中搭建 VC
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Cocos-Creator/">Cocos Creator<span>1</span></a></li>
+			<li><a href="/tags/Makefile/">Makefile<span>1</span></a></li>
 				   
-			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
+			<li><a href="/tags/pandoc/">pandoc<span>1</span></a></li>
 				   
-			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
+			<li><a href="/tags/premiere/">premiere<span>1</span></a></li>
 				   
-			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
+			<li><a href="/tags/Matrix/">Matrix<span>1</span></a></li>
 				   
-			<li><a href="/tags/emacs/">emacs<span>6</span></a></li>
-				   
-			<li><a href="/tags/beamer/">beamer<span>1</span></a></li>
-				   
-			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
-				   
-			<li><a href="/tags/OpenCV/">OpenCV<span>3</span></a></li>
-				   
-			<li><a href="/tags/Mindmap/">Mindmap<span>1</span></a></li>
-				   
-			<li><a href="/tags/VS/">VS<span>1</span></a></li>
-				   
-			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
-				   
-			<li><a href="/tags/Awesome/">Awesome<span>3</span></a></li>
+			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
 				   
 			<li><a href="/tags/shell/">shell<span>3</span></a></li>
 				   
-			<li><a href="/tags/Disqus/">Disqus<span>1</span></a></li>
+			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
 				   
-			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
+			<li><a href="/tags/Vector/">Vector<span>1</span></a></li>
 				   
-			<li><a href="/tags/Arch/">Arch<span>1</span></a></li>
+			<li><a href="/tags/jQuery/">jQuery<span>2</span></a></li>
+				   
+			<li><a href="/tags/Cocos/">Cocos<span>1</span></a></li>
+				   
+			<li><a href="/tags/Testing/">Testing<span>2</span></a></li>
+				   
+			<li><a href="/tags/OpenCV/">OpenCV<span>3</span></a></li>
 				   
 			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
 				   
+			<li><a href="/tags/openFrameworks/">openFrameworks<span>1</span></a></li>
+				   
+			<li><a href="/tags/CLI/">CLI<span>1</span></a></li>
+				   
+			<li><a href="/tags/scrollspy/">scrollspy<span>1</span></a></li>
+				   
+			<li><a href="/tags/OpenGL/">OpenGL<span>2</span></a></li>
+				   
+			<li><a href="/tags/跨平台/">跨平台<span>1</span></a></li>
+				   
+			<li><a href="/tags/PowerPoint/">PowerPoint<span>1</span></a></li>
+				   
 			<li><a href="/tags/ANN/">ANN<span>2</span></a></li>
-				   
-			<li><a href="/tags/ruby/">ruby<span>1</span></a></li>
-				   
-			<li><a href="/tags/Atom/">Atom<span>1</span></a></li>
 		
 		<li><a href="/tags">...<span>93</span></a></li>
 		</ul>

@@ -1,0 +1,564 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>wukong-robot：一个更加优雅的中文智能音箱项目 | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  <meta name="description" content="介绍我的第二个开源智能音箱项目：wukong-robot 以及配套的教程。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="wukong-robot：一个更加优雅的中文智能音箱项目"/>
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41569408-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
+				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
+				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-th-large"></i>Works <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/wukong-robot" title="wukong-robot 是一个简单、灵活、优雅的中文语音对话机器人。"><i class="fa fa-github"></i>wukong-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/dingdang-robot-intro/" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fa fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://www.hahack.com/codes/comment-js/" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fa fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/eulerian-video-magnification/" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fa fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fa fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fa fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fa fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fa fa-github"></i>Dissertation</a></li>
+				
+                	        </ul>
+				</li>
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">		
+			<h1> wukong-robot：一个更加优雅的中文智能音箱项目</h1>
+		</div>    
+	
+
+
+
+
+
+<div class="row-fluid post">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+	<!-- <div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<i class="fa fa-gift"></i> 过年了，<a href="/donate.html" target="_blank">给HaHack派个红包吧</a>！
+</div> -->
+
+	
+		<div class="alert alert-success">
+			<i class="fa fa-info-circle"></i> <p>介绍我的第二个开源智能音箱项目：wukong-robot 以及配套的教程。</p>
+
+		</div> <!-- alert -->
+	
+		   
+
+		<!-- content -->
+		<div class="mypage">
+		<h2 id="dingdang-robot-之殇">dingdang-robot 之殇</h2>
+<p>在两年前，我做了第一个智能音箱项目 <a href="https://www.hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">dingdang-robot</a> 。在去年 7 月加入上报统计后，在不到一年的时间里，这个项目已经运行在 1000+ 台设备中，被唤醒了 128,000+ 次。截至今天，这个项目的个人版和社区版在 Github 上总共获得了 2,600+ 个 stars ，820+ 次 forks。</p>
+<p>在我<a href="https://www.hahack.com/life/2018-montage/" target="_blank" rel="external">去年的一篇年度总结中</a>，我提到因为 dingdang-robot 本身维护上的困难，我将项目迁移到了 <a href="https://github.com/dingdang-robot/" target="_blank" rel="external">dingdang-robot 组织</a>交由社区进行维护。很遗憾的是，即使迁到了 dingdang-robot 组织，由于组织维护者们都并不是全职维护这个项目，而且硬件和操作系统上的差异始终给 dingdang-robot 的维护带来了很大的问题，所以取得的效果并不理想。而且随着自己能力的不断提升，我对 dingdang-robot 里头的代码也越发不满意：</p>
+<ol>
+<li>dingdang-robot 是基于 Python 2 的，在 Python 3 环境里跑不起来。而 Python 2 已经停止维护了。</li>
+<li>dingdang-robot 的热词唤醒（KWS）复用的是 jasper-client 的那套，基于 PyAudio 自己实现录音和 VAD ，基于 PocketSphinx 实现热词唤醒。然而那套录音和VAD代码我个人觉得写得并不鲁棒，为了避免各种边界情况我不得不加了一些 <code>try...catch</code> ，虽然没人发现这一点，但我自己是过不了自己那一关的，每每想到自己在用一套有问题的代码作为别人的入口就像是留一个坑叫别人跳进来，内心觉得很有罪恶感；另外 PocketSphinx 的安装非常复杂，虽然我提供了树莓派的镜像，但是很多人还是希望手动安装，而 PocketSphinx 对环境要求也很苛刻，所以总会遇到各种奇怪的问题，而我又不能复现；</li>
+<li>还有一些使用上的便利性问题。比如没有更新提示，有时候修了一个bug，别人不知道，提了issue后我得告诉他请更新到最新；再比如使用YAML作为配置文件，但是很多用户不懂YAML的语法格式，常见的比如把半角冒号（<code>:</code>）打成全角（<code>：</code>），或者冒号后没有跟着空格再写键值；再比如当初我处理 log 的打印也设计得比较傻逼，为了写到文件里头，直接用的是重定向，完全没有考虑用 FileHandler 这种东西。</li>
+</ol>
+<p>到了今年，我决定对 dingdang-robot 进行完全重写，做出一个更加 <strong>优雅、灵活、鲁棒</strong> 的版本。<a id="more"></a></p>
+<p>为了区别于以前的版本，我决定起给这个新版本起一个新的名字。我觉得三个字的唤醒词误唤醒率和长度都是比较理想的，所以我想取一个三个字的名字，另外还要能提现新版本的强大之处。于是我想到了“孙悟空”<span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>后来才发现又一次跟优必选和腾讯叮当的合作项目重名了，real尴尬 😹 。</span></span></span>。</p>
+<p><img src="/images/wukong-robot-intro/plan-1.jpg" alt=""></p>
+<p><img src="/images/wukong-robot-intro/plan-2.jpg" alt=""></p>
+<p>于是，利用整个春节的假期 <span class="margin-note-marker"><sup>2</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">2</span>你没看错，我整个春节都用来写代码去了</span></span></span>。正月初五那天，<a href="https://github.com/wzpan/wukong-robot" target="_blank" rel="external">wukong-robot</a> 1.0 正式发布了。</p>
+<p>以下是一段 wukong-robot 的定制版本 ycy-robot 的演示视频（如果访问不了，可以<a href="https://www.bilibili.com/video/av48873736?from=search&amp;seid=2193314296981067836" target="_blank" rel="external">前往观看</a>）：</p>
+<center>
+<iframe src="//player.bilibili.com/player.html?aid=48873736&cid=85589172&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="80%" height="460px"> </iframe>
+</center>
+<h2 id="wukong-robot-重生之路">wukong-robot 重生之路</h2>
+<p>按照惯例，下面总结一下这个项目的一些开发心得。</p>
+<h3 id="项目管理：github-project-boards">项目管理：Github project boards</h3>
+<p><a href="https://help.github.com/en/articles/about-project-boards" target="_blank" rel="external">project boards</a> 是 Github 近期推出的一个新功能，它最大的用处是提供了类似 trello 的看板。我在开发维护 wukong-robot 的时候，也使用 project boards 管理这个项目。于是建了一个 <a href="https://github.com/users/wzpan/projects/1" target="_blank" rel="external">wukong-project</a> 。</p>
+<p><img src="/images/wukong-robot-intro/wukong-project.png" alt="wukong project boards"></p>
+<p>我把项目分成了 <code>To do</code>、<code>In Progress</code>、<code>Done</code>、<code>Pending</code> 几个状态。在规划第一个版本的时候，我就在 <code>To do</code> 栏中提了 10 个左右的需求。这使得我的项目可以朝着明确的目标演进。不过，在开发的时候，时常还会有一些新的想法冒出来，这时候我也会尽快写入需求池中。到真正发布 1.0 的时候，我已经完成了 21 个需求。</p>
+<p>project boards 的另一个作用在于充当了项目的 roadmap 。你可以看到这个项目有哪些计划要做的需求，有哪些则是我正在开发中的需求。有兴趣的朋友还能参与进来帮忙完成其中的部分需求任务。</p>
+<p>project boards 还有一个很有意思的特性：可以和 Github 的 issues 和 pull requests 等板块打通。当有人给你提 issue 或 pull request 的时候，可以设置自动追加到 <code>To do</code> 栏里。而当 issue 被 close 或者 pull request 被 accept 后，相应的条目可以自动挪入 <code>Done</code> 一栏。</p>
+<p><img src="/images/wukong-robot-intro/automation.png" alt="project boards 的 automation 特性"></p>
+<p>不过，project boards 实际用起来还是有一些问题：因为整个 wukong-robot 项目不仅包括本体，还包含了第三方插件库 wukong-contrib ，以及将来可能有的其他一些衍生客户端。所以我希望用一个 wukong-project 来同时管理几个仓库。所以 wukong-project 并不是挂靠在 wukong-robot 仓库下的，而是直接挂在我的账户下。但不知道是不是 Github 设计上的疏忽：即使我在 wukong-project 里 link 了多个仓库，那些仓库下的 project 页面并没有展示 wukong-project 😵 。这种情况下，project boards 的 automation 也玩不起来 —— wukong-robot 的新 issue 也不会自动往 wukong-project 里新增 <code>To do</code> 条目。等我发现这个问题的时候，我早已创建了几十个条目，而 Github 又不支持将 transfer project boards ，所以只能将就着这么用下去了。</p>
+<h3 id="热词唤醒：snowboy">热词唤醒：snowboy</h3>
+<p>如前面所述，dingdang-robot 早期沿用了 jasper-client 的那套热词唤醒和静音检测的逻辑。虽然后来我也尝试给 dingdang-robot 加入了 snowboy 的支持，但让我很失望的是它在树莓派上使用效果很糟糕，所以我一直没有把 snowboy 作为默认的热词唤醒引擎。后来我发现其实我错怪了 snowboy ：官方文档已经<a href="http://docs.kitt.ai/snowboy/#my-trained-model-works-well-on-laptops-but-not-on-pi-s" target="_blank" rel="external">清楚地提到了问题的原因</a>：而树莓派上或者其他板子上接的麦克风可能和 PC 上的麦克风的声音畸变差异非常大，所以现有的模型更加不能直接在树莓派上工作，否则效果会非常糟糕。</p>
+<blockquote>
+<p>This is due to the acoustic distortion that results from the different microphones. If you record your voice with two different microphones (one on your laptop and the other on your Pi) and then play them (play t.wav), you will hear that they sound very differently (even though it is the same voice)!</p>
+</blockquote>
+<p>了解到原因后，我在这个版本中去除了安装繁琐且中文识别较差的 PocketSphinx ，将 snowboy 作为主要的热词唤醒引擎。因为 snowboy 还提供了静音检测（VAD）的功能，所以我把原来 VAD 的代码全部去除，改为了直接使用 snowboy 的 VAD 。经过改写后，整个系统的稳定性和响应速度都有了质的提升。</p>
+<p>不过，接入了 snowboy 后，整个交互模式就是先热词唤醒触发一个 <code>detected_callback</code> 的响应，说完指令后通过 <code>audio_callback</code> 将语音指令返回。有些时候我们并不想完全遵循这个形式：例如当我们希望 wukong-robot 能主动询问并澄清话术的时候，总是要求用户唤醒再说指令就显得整个交互很不智能了。于是我对 snowboydecorder 做了一点 hack ：仿照 <a href="https://github.com/wzpan/wukong-robot/blob/master/snowboy/snowboydecoder.py#L201" target="_blank" rel="external">HotwordDetector</a> 写了一个 <a href="https://github.com/wzpan/wukong-robot/blob/master/snowboy/snowboydecoder.py#L80" target="_blank" rel="external">ActiveListener</a> 用来实现主动询问用户的功能。有了这个 ActiveListener 之后，当插件需要主动询问用户问题时，可以在 <code>self.say()</code> 的 <code>onCompleted</code> 回调方法中直接执行 <code>self.activeListen()</code> 方法得到即拿到用户的指令内容。例如：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">onAsk</span><span class="params">(input)</span>:</span></div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> input:</div><div class="line">        self.say(<span class="string">"指令有误，请重新尝试"</span>, cache=<span class="keyword">True</span>)</div><div class="line">        <span class="keyword">return</span></div><div class="line">    <span class="comment"># 执行响应</span></div><div class="line">    ...</div><div class="line"></div><div class="line">self.say(<span class="string">"开始家庭助手控制，请在滴一声后说明内容"</span>, cache=<span class="keyword">True</span>, onCompleted=<span class="keyword">lambda</span>: onAsk(self.activeListen()))</div></pre></td></tr></table></figure></p>
+<p>利用这个方法可以很方便地实现多轮对话以及<a href="https://wukong.hahack.com/#/official?id=geek%EF%BC%88%E6%9E%81%E5%AE%A2%E6%A8%A1%E5%BC%8F%EF%BC%89" target="_blank" rel="external">极客模式</a>。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>关于如何在 Python 工程中接入 snowboy ，我在<a href="https://ke.qq.com/course/387931" target="_blank" rel="external">一门 Python 课程</a>中有详细的介绍。如果你感兴趣的话，可以前往观看。<a href="https://ke.qq.com/course/385849" target="_blank" rel="external">课程的免费体验课部分</a>已经包含了热词唤醒的完整内容。</p>
+</div></p>
+<h3 id="技能插件重构：abstractplugin">技能插件重构：AbstractPlugin</h3>
+<p>原来的 dingdang-robot 在处理插件接口的时候，并没有考虑到多轮对话的情况。每一次 query 都会轮询一遍所有插件。如果要让某个插件在用户指示退出前持续响应用户的 query ，那么就得为这个插件实现一个内部循环。而在这个内部循环里头，用户只能响应有限的指令。</p>
+<p>例如，<a href="https://github.com/dingdang-robot/dingdang-contrib/blob/master/NetEaseMusic.py#L288" target="_blank" rel="external">NetEaseMusic</a> 插件在一个 <code>handleForever</code> 方法中进入了一个循环，在这个循环里头，只能响应“上一首”、“下一首”等音乐播放相关的指令。而有时候，我们在播放音乐的时候，也会突然间想问一下天气再回来继续播放。对于这种情况，dingdang-robot 的插件交互模式就只能先退出音乐播放，再问天气，再重新要求播放音乐。这样的设计并不够人性化。</p>
+<p>wukong-robot 重新考虑了插件的设计。你可以为 wukong-robot 开发两类技能插件：</p>
+<ol>
+<li><strong>普通技能插件</strong>，适用于普通的查询、助手类技能。通常的交互模式是唤醒 wukong-robot 后，说出指令并触发该技能插件，由其完成处理并汇报结果。如果需要询问用户问题，则可以利用 <code>self.activeListen()</code> 方法进入主动聆听，从而实现多轮对话。</li>
+<li><strong>沉浸式技能插件</strong>，适用于音乐、电台等技能。通常的交互模式是唤醒 wukong-robot 后，说出指令并触发该技能插件，由其进入该技能的沉浸式场景中。在该技能的沉浸式场景下，用户唤醒 wukong-robot 后，允许响应更多指令以完成更丰富的操作（例如“下一首歌”、“这是什么歌”等指令）。如果唤醒后只是简单的聊天，还允许 wukong-robot 在回答后恢复该技能的沉浸式场景（例如，用户在音乐场景中唤醒 wukong-robot 并问完时间后，wukong-robot 可以自动恢复音乐播放）。</li>
+</ol>
+<p>不论是哪种类型的插件，都只需继承同一个基类 <a href="https://www.hahack.com/wukong-robot/_modules/robot/sdk/AbstractPlugin.html#AbstractPlugin" target="_blank" rel="external"><code>robot.sdk.AbstractPlugin</code></a> ，并实现相应相关接口即可。其中：</p>
+<ul>
+<li>普通技能插件只需实现 <code>isValid()</code> 和 <code>handle()</code> 两个接口，分别用来判断用户指令是否适合交给该技能插件处理，以及如何处理；</li>
+<li>沉浸式技能插件在普通技能插件的基础上，还需要设置 <code>IS_IMMERSIVE</code> 成员属性为 <code>True</code> ，此外还可以根据需求实现 <code>isValidImmersive()</code> 和 <code>restore()</code> 两个方法，分别用来支持沉浸模式下更多指令的响应以及恢复技能。</li>
+</ul>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AbstractPlugin</span><span class="params">(metaclass=ABCMeta)</span>:</span></div><div class="line">    <span class="string">""" 技能插件基类 """</span></div><div class="line"></div><div class="line">    SLUG = <span class="string">'AbstractPlugin'</span></div><div class="line">    IS_IMMERSIVE = <span class="keyword">False</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, con)</span>:</span></div><div class="line">        <span class="keyword">if</span> self.IS_IMMERSIVE <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</div><div class="line">            self.isImmersive = self.IS_IMMERSIVE</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            self.isImmersive = <span class="keyword">False</span></div><div class="line">        self.priority = <span class="number">0</span></div><div class="line">        self.con = con</div><div class="line">        self.nlu = self.con.nlu</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">play</span><span class="params">(self, src, delete=False, onCompleted=None, volume=<span class="number">1</span>)</span>:</span></div><div class="line">        self.con.play(src, delete, onCompleted, volume)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(self, text, cache=False, onCompleted=None)</span>:</span></div><div class="line">        self.con.say(text, cache=cache, plugin=self.SLUG, onCompleted=onCompleted)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">activeListen</span><span class="params">(self, silent=False)</span>:</span></div><div class="line">        <span class="keyword">return</span> self.con.activeListen(silent)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">clearImmersive</span><span class="params">(self)</span>:</span></div><div class="line">        self.con.setImmersiveMode(<span class="keyword">None</span>)</div><div class="line"></div><div class="line">    <span class="decorator">@abstractmethod</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self, query, parsed)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        是否适合由该插件处理</div><div class="line"></div><div class="line">        参数：</div><div class="line">        query -- 用户的指令字符串</div><div class="line">        parsed -- 用户指令经过 NLU 解析后的结果</div><div class="line"></div><div class="line">        返回：</div><div class="line">        True: 适合由该插件处理</div><div class="line">        False: 不适合由该插件处理</div><div class="line">        """</div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"></div><div class="line">    <span class="decorator">@abstractmethod</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handle</span><span class="params">(self, query, parsed)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        处理逻辑</div><div class="line"></div><div class="line">        参数：</div><div class="line">        query -- 用户的指令字符串</div><div class="line">        parsed -- 用户指令经过 NLU 解析后的结果</div><div class="line">        """</div><div class="line">        <span class="keyword">pass</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidImmersive</span><span class="params">(self, query, parsed)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        是否适合在沉浸模式下处理，</div><div class="line">        仅适用于有沉浸模式的插件（如音乐等）</div><div class="line">        当用户唤醒时，可以响应更多指令集。</div><div class="line">        例如：“"上一首"、"下一首" 等</div><div class="line">        """</div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pause</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        暂停当前正在处理的任务，</div><div class="line">        当处于该沉浸模式下且被唤醒时，</div><div class="line">        将自动触发这个方法，</div><div class="line">        可以用于强制暂停一个耗时的操作        </div><div class="line">        """</div><div class="line">        <span class="keyword">return</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">restore</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        恢复当前插件，</div><div class="line">        仅适用于有沉浸模式的插件（如音乐等）</div><div class="line">        当用户误唤醒或者唤醒进行闲聊后，</div><div class="line">        可以自动恢复当前插件的处理逻辑</div><div class="line">        """</div><div class="line">        <span class="keyword">return</span></div></pre></td></tr></table></figure></p>
+<p>经过这次重构，所有的插件都继承自同一个基类。即使是需要多轮交互的沉浸式插件，用户不再需要为其编写类似 <code>handleForever()</code> 的循环，只需要关注核心的 query 处理即可。在沉浸式插件工作期间，wukong-robot 也支持响应其他技能的 query ，交给其他适合处理的技能插件处理，并在处理完成后根据情况恢复当前沉浸式插件的处理。作为对比，你可以看看 <a href="https://github.com/wzpan/wukong-robot/blob/master/plugins/LocalPlayer.py" target="_blank" rel="external">LocalPlayer</a> 插件，它的可读性要比 NetEaseMusic 插件强很多。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>关于如何为 wukong-robot 开发技能插件，可以阅读 wukong-robot 的 <a href="https://wukong.hahack.com/#/writing-skill" target="_blank" rel="external">插件开发教程</a> 。另外，在我的 <a href="https://ke.qq.com/course/387931" target="_blank" rel="external">Python 课程</a>的 <q>大脑模块和技能系统实现</q> 一章中将更加深入地介绍 wukong-robot 插件机制的实现原理。</p>
+</div></p>
+<h3 id="后台管理端：tornado">后台管理端：tornado</h3>
+<p>早在 dingdang-robot 发布初期，我就有为它配套开发一个后台管理端的想法。但因为种种原因（<del>主要是因为懒</del>），这个想法一直拖着没有去做。于是借着这次项目重写，趁热打铁就把后台管理端也完成了。</p>
+<p>因为对 Jinja 比较有好感，所以我起初是打算用 Flask 来写后台管理端。但后面发现 Flask 的信号机制不能直接在非主线程里工作，而直接放主线程又会跟另一个<a href="https://github.com/Kitt-AI/snowboy/issues/411" target="_blank" rel="external">必须工作在主线程的 snowboy</a> 有冲突。折腾了半天后我决定改为直接支持在非主线程工作的 tornado 。
+后台管理端的技术栈主要包括：</p>
+<ul>
+<li>开发框架：<a href="https://www.tornadoweb.org/" target="_blank" rel="external">tornado</a></li>
+<li>前端框架：<a href="https://getbootstrap.com/" target="_blank" rel="external">twitter-bootstrap</a> + <a href="https://jquery.com/" target="_blank" rel="external">jQuery</a></li>
+<li>Material Design 风格的悬浮录音按钮：<a href="https://github.com/nobitagit/material-floating-button" target="_blank" rel="external">material-floating-button</a></li>
+<li>录音：<a href="https://github.com/chris-rudmin/opus-recorder" target="_blank" rel="external">opus-recorder</a></li>
+<li>录音过程中的 spin：<a href="https://spin.js.org/" target="_blank" rel="external">spin.js</a></li>
+<li>右上角的 toast 提示：<a href="https://github.com/CodeSeven/toastr" target="_blank" rel="external">toastr</a></li>
+<li>进度条：<a href="https://github.com/usablica/progress.js" target="_blank" rel="external">progress.js</a></li>
+</ul>
+<p>比较费脑的是鉴权部分。除了后台管理端需要设计登录界面以避免非法访问之外，我希望后台的接口能够开放 API 以支持其他配套客户端的接入，所以后端代码需要考虑两种访问来源的鉴权。</p>
+<p>最初我使用 cookie 来鉴权，管理端登录成功后，就把用户设置的鉴权密钥 <code>validation</code> 字段存到 cookie 里头。前端在 Ajax 调用后端 API 时，可以直接从 <code>cookie</code> 里取出 <code>validation</code> 然后作为鉴权字段发给后台。然而 cookie 本身是明文保存的，这种做法会直接暴露用户的密钥，因此是一种很不安全的做法。</p>
+<p>然后我尝试了使用 <code>secure_cookie</code> 来保存鉴权信息，然而因为 <code>secure_cookie</code> 是加了密的字段，前端没办法直接解析并传回给后端，所以又暂时放弃了这个做法。</p>
+<p>再后来我发现还有一个 <code>csrf_cookies</code> ，可以用来防止跨站请求的问题。于是我很兴奋地加入了这个校验。但后面我发现这个跨站请求保护也适用于站点本身的保护，因为 <code>xsrf_cookies</code> 的校验会在调用我们的接口实现方法前就完成，一旦加了这个校验后，其他客户端在调用 API 时也必须带上 <code>csrf_cookies</code> ，否则会直接抛出 <code>'_xsrf' argument missing from POST</code> 的错误。因此这个校验更适合用于纯 Web 站点，而不适合用于开放 API 的应用。</p>
+<p>最后我转念一想：虽然前端没办法直接解析 <code>secure_cookie</code> 得到 validation ，但是 <code>secure_cookie</code> 也只是一个加了密的 cookie ，我依然可以取出 <code>secure_cookie</code> 里这个加了密的 <code>validation</code> 的值然后传给后台，而后台则可以使用 <code>get_cookie</code>（而不是 <code>get_secure_cookie</code> ）取出期望的加了密后的 <code>validation</code> 的值并与前端传过来的值进行比对，这样就实现了前端页面的鉴权；对于 API 的鉴权，则可以直接使用明文的 <code>validation</code> 并将其作为第三方客户端的一个配置。后端在鉴权时直接判断这个 <code>validation</code> 与后端的配置里的 <code>validation</code> 值是否相等即可。所以最终我完成了如下的一个带鉴权的基类：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseHandler</span><span class="params">(tornado.web.RequestHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidated</span><span class="params">(self)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.get_secure_cookie(<span class="string">'validation'</span>):</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        <span class="keyword">return</span> str(self.get_secure_cookie(<span class="string">"validation"</span>), encoding=<span class="string">'utf-8'</span>) == config.get(<span class="string">'/server/validate'</span>, <span class="string">''</span>)</div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">validate</span><span class="params">(self, validation)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="string">'"'</span> <span class="keyword">in</span> validation:</div><div class="line">            validation = validation.replace(<span class="string">'"'</span>, <span class="string">''</span>)</div><div class="line">        <span class="keyword">return</span> validation == config.get(<span class="string">'/server/validate'</span>, <span class="string">''</span>) <span class="keyword">or</span> validation == str(self.get_cookie(<span class="string">'validation'</span>))</div></pre></td></tr></table></figure></p>
+<p>在配置页面，我在保存配置的时候加了 <code>yaml.load()</code> 检查，如果用户修改 YAML 有格式问题，将会被拒绝写入配置。另外，我还基于 watchdog 加入了对配置文件的监听：一旦配置文件发生修改，就触发配置的重新读取，从而实现无需重启更新大部分的配置。</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8-*-</span></div><div class="line"></div><div class="line"><span class="keyword">from</span> robot <span class="keyword">import</span> config</div><div class="line"><span class="keyword">from</span> watchdog.events <span class="keyword">import</span> FileSystemEventHandler</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConfigMonitor</span><span class="params">(FileSystemEventHandler)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, conversation)</span>:</span></div><div class="line">        FileSystemEventHandler.__init__(self)</div><div class="line">        self._conversation = conversation</div><div class="line"></div><div class="line">    <span class="comment"># 文件修改</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">on_modified</span><span class="params">(self, event)</span>:</span></div><div class="line">        <span class="keyword">if</span> <span class="keyword">not</span> event.is_directory:</div><div class="line">            config.reload()</div><div class="line">            self._conversation.reload()</div></pre></td></tr></table></figure></p>
+<p>要说不太满意的地方，主要是首页的聊天消息更新机制。目前我是直接使用轮询的方式实现的 —— 前端会每隔 5 秒调用一次 <code>/gethistory</code> 接口，从而更新聊天记录。这种方式无疑是低效且浪费资源的做法。我曾经尝试将更新机制改成用 websocket 来实现，但后来发现手机端的浏览器几乎都不支持 websocket ，考虑到便携性的重要程度，我就放弃了这种实现。</p>
+<p>后面我将尝试使用 tordano 的 <a href="https://www.tornadoweb.org/en/branch5.1/guide/security.html" target="_blank" rel="external">coroutine</a> 来实现长连接通信以及后端的主动更新，这会是一种更好的实现方案。</p>
+<p><div class="alert alert-success"><i class="fa fa-lightbulb-o"></i>  <p>我的 <a href="https://ke.qq.com/course/387931" target="_blank" rel="external">Python 课程</a>的整个 Part 3 将更加系统地介绍 wukong-robot 的后台管理端开发过程，欢迎前往了解。</p>
+</div></p>
+<h3 id="更新器：git-tag-scf">更新器：git tag + SCF</h3>
+<p>在即将发布 wukong-robot 的时候，我突然想到应该给 wukong-robot 一个提示升级的功能。当检测到版本更新时，提示用户进行升级。</p>
+<p><img src="https://hahack-1253537070.file.myqcloud.com/images/update.jpg" alt="wukong-robot 的提示升级"></p>
+<p>于是我给 wukong-robot 的主仓库和插件仓库设计了一套基于 git 的更新机制：</p>
+<ol>
+<li>在两个仓库的根目录各维护一个 <code>VERSION</code> 文件用于记录当前的版本号，版本号使用 <a href="https://semver.org/" target="_blank" rel="external">Semantic Versioning</a> 标准；</li>
+<li>当要发布新版本时，更新 <code>VERSION</code> 的版本号，并为其打一个新的 tag ；</li>
+<li>客户端检查到有更新时，拉取到最新的代码，然后再切到对应的 tag 。实际执行的命令为 <code>git checkout master &amp;&amp; git pull &amp;&amp; git checkout TAG名</code> 。</li>
+</ol>
+<p>剩下的主要问题是检查更新的服务应该部署到哪里。当然，简单的搭一个更新检查服务器并不复杂，但服务器的维护成本比较高。如果后面我换了服务器，又得重新到另一个服务器搭一遍更新服务。另外，我并不太希望每次要发布新版本都得打开终端登录到我的服务器进行修改。最理想的应该是有个可以随时修改的 <q>云 json 串</q> 。于是我选择使用了腾讯云的无服务器函数（SCF）：把最新版本信息写成一个SCF，通过向SCF发请求完成版本更新检查。这样的好处是无需购买和维护服务器，无需到服务器发布代码，而且SCF提供了方便的在线编辑、版本管理和测试验证的能力，这比自己发版本还要靠谱的多。</p>
+<p><img src="/images/wukong-robot-intro/scf.png" alt="使用腾讯云SCF实现更新检查"></p>
+<h2 id="总结和展望">总结和展望</h2>
+<p>wukong-robot 的改动如下：</p>
+<ol>
+<li>完全重写了 dingdang-robot 的大部分代码，新的架构我个人觉得足够漂亮。</li>
+<li>原来的版本只能在 Linux 平台运行，而且 PocketSphinx 安装很苛刻，失败率很高，PocketSphinx 对中文的识别率也很一般。新版本使用 snowboy 取代 PocketSphinx ，无论是安装成本、稳定性、唤醒成功率都是质的飞跃。</li>
+<li>提供了可视化的后台管理端，并且开放API。配套了配置页面、日志查看页面等管理页，大部分配置做到了免重启即改即生效。利用它可以轻松做出漂亮的交互界面，甚至开发出新的客户端，你可以类比为 Echo 一代到 Echo Show 的飞跃。</li>
+<li>基于腾讯云 SCF 实现了版本更新检查，向专业的开源框架标准迈进。</li>
+<li>docker 镜像安装支持，另外<a href="https://github.com/musistudio" target="_blank" rel="external">金辉同学</a>也为它贡献了一个<a href="https://github.com/musistudio/wukong-robot-install-script" target="_blank" rel="external">一键式安装脚本</a>。</li>
+<li>对技能插件接口进行了重构，支持了沉浸式插件，开发者可以轻松实现多轮对话、音乐播放，我近期支持的极客模式特性也是使用了沉浸式插件。另外还加入了NLU支持，开发者可以写出更加智能的插件，处理更复杂的语义。</li>
+<li>将一些我认为有侵权嫌疑的特性移出仓库本体。例如不再自带网易云音乐技能，另外我也把微信功能移出了本体，而是改为利用 API 实现了一个基于 itchat 的客户端。所以 wukong-robot 是一个比 dingdang-robot 更加 “君子” 的版本。</li>
+</ol>
+<p>wukong-robot 后续的重要计划是训练本地的 ASR 、TTS 、NLU 及对话系统，并引入 RNN 降噪来改善环境较嘈杂的情况下难以唤醒的问题。关于项目的计划，可以关注 <a href="https://github.com/users/wzpan/projects/1#column-4364044" target="_blank" rel="external">wukong project board</a> 。</p>
+<p>而在近期，我正在腾讯课堂上推出一套 Python 开发教程，其中会用到 wukong-robot 作为一个开发案例。</p>
+<p><img src="/images/wukong-robot-intro/course.png" alt="Python 从入门到实战课程title"></p>
+<p>这套视频课程将从零开始，一步步教你如何使用 Python 开发出 wukong-robot 。涉及 Python 的基础语法，以及离线唤醒、静音检测、语音识别、语音合成、对话机器人等知识背景的介绍及相关sdk和服务的接入，并在这个基础上如何通过一步步的重构优化，开发出一个灵活可配置的 wukong-robot 。另外，还介绍了如何使用 tornado + twitter bootstrap + jQuery + Ajax 开发后台管理端及前端页面。进阶版中还包括了爬虫技术及 Flask 等技术的相关实战。</p>
+<p><div class="alert alert-info"><i class="fa fa-info"></i>  <ul>
+<li>基础篇：<a href="https://ke.qq.com/course/387931?tuin=1b8113f4" target="_blank" rel="external">https://ke.qq.com/course/387931?tuin=1b8113f4</a></li>
+<li>完整篇：<a href="https://ke.qq.com/course/384790?tuin=1b8113f4" target="_blank" rel="external">https://ke.qq.com/course/384790?tuin=1b8113f4</a></li>
+</ul>
+</div></p>
+<p>这门课的准备和录制几乎占据了我全部的业余时间，录制的过程是非常痛苦和煎熬的。比如，为了讲好 subprocess ，我把 subprocess 的老版本高级 API 、新的高级 API，再到底层的 Popen 以及涉及到的 Linux 的标准输入输出和管道的概念都讲了一遍。对于讲授的方式，我比较提倡授人以鱼不如授人以渔的主张，所以我并不是直接贴 API ，而是带着读者一起看 Python 的官方文档，着重培养阅读文档的能力。这种讲法非常的累，但却是我认为每个工程师应该掌握的学习方式。</p>
+<p><img src="/images/wukong-robot-intro/wukong-robot-tutorial.jpeg" alt="wukong-robot开发"></p>
+<p>参与这门课的制作也是为了完成我在<a href="/life/2018-montage/#%E6%8E%88%E8%AF%BE">去年的个人总结中立下的 flag</a> 。Python 一直是我业余时间最常用的玩具语言，它非常适合用于原型开发。我有不少开源项目，比如 wukong-robot、dingdang-robot、<a href="https://www.hahack.com/life/2018-montage/#%E5%BC%80%E6%BA%90" target="_blank" rel="external">LiveCV</a> 都是用 Python 写的。而在我的工作中，它也帮助我完成了大量的工具和项目，这些工具和项目对个人或团队起到了非常大的作用（例如<a href="https://www.hahack.com/work/my-2-years-at-pingan/#%E6%94%AF%E7%BA%BF-v3" target="_blank" rel="external">加班统计平台</a>、已经在上百家中小银行中使用的<a href="https://www.hahack.com/work/my-2-years-at-pingan/#%E4%B8%BB%E7%BA%BF" target="_blank" rel="external">fmanager</a>），因此 Python 也无疑给我的职业发展起到了很大的推动作用。把我所掌握的 Python 知识分享给更多人，让更多人能够自如的使用这门语言来满足他们的需求，那也算是我对 Python 这门语言的回馈。</p>
+
+		</div>
+
+		<!-- bdshare -->
+		
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"5","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+        
+
+		<!-- pagination -->
+		<div>
+		<center>
+		<div class="pagination">
+	 
+      <ul>
+		
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>Prev</a></li>
+        
+
+		<li><a data-pjax href="/archive"><i class="fa fa-archive"></i>Archive</a></li>
+
+        
+			<li class="next"><a data-pjax href="/life/2018-montage/" class="alignright next">Next<i class="fa fa-arrow-circle-o-right"></i></a></li>           
+      </ul>
+	
+</div>
+
+	        </center>
+		</div>
+
+        <!-- donate -->
+        <!-- Donate Module -->
+<div id="donate_module">
+	<!-- css -->
+	<style type="text/css">
+		.donate_bar a.btn_donate{
+			display: inline-block;
+			width: 82px;
+			height: 82px;
+			background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			_background: url("http://img.t.sinajs.cn/t5/style/images/apps_PRF/e_media/btn_reward.gif") no-repeat;
+			<!-- 因为本 hexo 生成的博客所用的 theme 的 a:hover 带动画效果，
+				 为了在让打赏按钮显示效果正常 而 添加了以下几行 css，
+				 嵌入其它博客时不一定要它们。 -->
+			-webkit-transition: background 0s;
+			-moz-transition: background 0s;
+			-o-transition: background 0s;
+			-ms-transition: background 0s;
+			transition: background 0s;
+			<!-- /让打赏按钮的效果显示正常 而 添加的几行 css 到此结束 -->
+		}
+		.donate_bar a.btn_donate:hover{ background-position: 0px -82px;}
+		.donate_bar .donate_txt {
+			display: block;
+			color: #9d9d9d;
+			font: 14px/2 "Microsoft Yahei";
+		}
+		.bold{ font-weight: bold; }
+	</style>
+	<!-- /css -->
+	<!-- btn_donate & tips -->
+	<div id="donate_board" class="donate_bar center">
+		<a id="btn_donate" class="btn_donate" target="_self" href="javascript:;" title="Donate 打赏"></a>
+	</div>
+	<!-- /btn_donate & tips -->
+	<!-- donate guide -->
+	<div id="donate_guide" class="donate_bar center hidden">
+        <div class="row center">
+		<a href="/images/misc/alipay.png" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="/images/misc/alipay.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>&nbsp;
+		<a href="/images/misc/wechatpay.jpeg" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="/images/misc/wechatpay.jpeg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		</a>
+        </div>
+		<span class="donate_txt">
+			Use App <span class="bold"><a href="http://global.alipay.com/ospay/home.htm">Alipay</a> / <a href="http://www.wechat.com/en/">WeChat</a></span>
+			to scan QRCode~ Thx for your support.<br/>
+			用手机 <span class="bold"><a href="https://mobile.alipay.com/index.htm">支付宝钱包</a> / <a href="http://weixin.qq.com/">微信</a></span>，
+			扫一扫即可~ 谢谢您的鼓励。<br/>
+			<br/>
+		</span>
+		<br/>
+	</div>
+	<!-- /donate guide -->
+	<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('btn_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
+	<!-- /donate script -->
+</div>
+<!-- /Donate Module -->
+
+
+		<!-- toc -->
+		
+   	<script type="text/javascript">
+		jQuery(document).ready(function() {
+				
+		   generatePostTOC('.mypage',  2 , 2 );
+		
+		});
+	</script>
+
+
+
+
+		<!-- comment -->
+		
+<section id="comment">
+    <h2 class="title">Comments</h2>
+	
+	 <div id="comment-thread"></div>
+	 <div id="loading-spin"></div>
+	 <script type="text/javascript">
+	   getComments({
+		       type: "github",
+	           user: "wzpan",
+	           repo: "wzpan.github.io",
+			   client_id: "1eb35434de75c06a513f",
+			   client_secret: "6e4193f8ecd619cdfac2b1aa16b3663fe18d2e90",
+			   no_comment: "暂时还没有留言呢，点击下面的按钮去留言吧！",
+			   go_to_comment: "去留言",
+			   btn_class: "btn btn-primary",
+			   no_issue: "no_issue",
+			   issue_title: "wukong-robot：一个更加优雅的中文智能音箱项目",
+			   issue_id: "undefined",
+			   comments_target: "#comment-thread" ? "#comment-thread" : "#comment-thread",
+			   loading_target: "undefined"
+			   });
+	 </script>
+	
+</section>
+
+
+
+		
+	</div> <!-- span9/span12 -->
+	
+		<div class="span3">
+
+	<!-- donate -->
+	<div class="meta-widget">
+	<a href="#donate_module" id="a_donate" class="a_donate"><i class="fa fa-smile-o"></i> Donate this article</a>
+	</div>
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	Apr 24 2019 
+	</div>
+	
+
+	<!-- categories -->
+    
+	<div class="meta-widget">
+	<a data-pjax data-toggle="collapse" data-target="#categorys"><i class="fa fa-folder"></i></a>	
+    <ul id="categorys" class="tag_box list-unstyled collapse in">
+          
+  <li>
+    <li><a data-pjax href="/categories/codes/">codes<span>36</span></a></li>
+  </li>
+
+    </ul>
+	</div>
+	
+	
+  	<!-- tags -->
+		
+	
+    <hr>
+</div><!-- span3 -->
+
+<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('a_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
+	
+
+</div><!-- row-fluid post-full -->
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+
+</body>
+</html>

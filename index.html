@@ -39,8 +39,8 @@
   <![endif]-->
 
 <!--  -->
-<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
-<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 <!--  -->
   
 <script src="/dist/jquery-2.0.3.min.js"></script>
@@ -169,6 +169,37 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 	
 	<!-- display as entry -->
 		<h3 class="title">
+		<div class="date"> Apr 24 2019 </div>
+			<div class="article-title"><a data-pjax href="/codes/wukong-robot-intro/" title="介绍我的第二个开源智能音箱项目：wukong-robot 以及配套的教程。">wukong-robot：一个更加优雅的中文智能音箱项目</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+       	  
+   	<div class="thumbnail"><a data-pjax href="/codes/wukong-robot-intro/"><img src="https://hahack-1253537070.file.myqcloud.com/images/wukong-icons/256_256.png" alt="wukong-robot：一个更加优雅的中文智能音箱项目"  class="nofancybox"></a></div>
+    
+    
+      <h2 id="dingdang-robot-之殇">dingdang-robot 之殇</h2>
+<p>在两年前，我做了第一个智能音箱项目 <a href="https://www.hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">dingdang-robot</a> 。在去年 7 月加入上报统计后，在不到一年的时间里，这个项目已经运行在 1000+ 台设备中，被唤醒了 128,000+ 次。截至今天，这个项目的个人版和社区版在 Github 上总共获得了 2,600+ 个 stars ，820+ 次 forks。</p>
+<p>在我<a href="https://www.hahack.com/life/2018-montage/" target="_blank" rel="external">去年的一篇年度总结中</a>，我提到因为 dingdang-robot 本身维护上的困难，我将项目迁移到了 <a href="https://github.com/dingdang-robot/" target="_blank" rel="external">dingdang-robot 组织</a>交由社区进行维护。很遗憾的是，即使迁到了 dingdang-robot 组织，由于组织维护者们都并不是全职维护这个项目，而且硬件和操作系统上的差异始终给 dingdang-robot 的维护带来了很大的问题，所以取得的效果并不理想。而且随着自己能力的不断提升，我对 dingdang-robot 里头的代码也越发不满意：</p>
+<ol>
+<li>dingdang-robot 是基于 Python 2 的，在 Python 3 环境里跑不起来。而 Python 2 已经停止维护了。</li>
+<li>dingdang-robot 的热词唤醒（KWS）复用的是 jasper-client 的那套，基于 PyAudio 自己实现录音和 VAD ，基于 PocketSphinx 实现热词唤醒。然而那套录音和VAD代码我个人觉得写得并不鲁棒，为了避免各种边界情况我不得不加了一些 <code>try...catch</code> ，虽然没人发现这一点，但我自己是过不了自己那一关的，每每想到自己在用一套有问题的代码作为别人的入口就像是留一个坑叫别人跳进来，内心觉得很有罪恶感；另外 PocketSphinx 的安装非常复杂，虽然我提供了树莓派的镜像，但是很多人还是希望手动安装，而 PocketSphinx 对环境要求也很苛刻，所以总会遇到各种奇怪的问题，而我又不能复现；</li>
+<li>还有一些使用上的便利性问题。比如没有更新提示，有时候修了一个bug，别人不知道，提了issue后我得告诉他请更新到最新；再比如使用YAML作为配置文件，但是很多用户不懂YAML的语法格式，常见的比如把半角冒号（<code>:</code>）打成全角（<code>：</code>），或者冒号后没有跟着空格再写键值；再比如当初我处理 log 的打印也设计得比较傻逼，为了写到文件里头，直接用的是重定向，完全没有考虑用 FileHandler 这种东西。</li>
+</ol>
+<p>到了今年，我决定对 dingdang-robot 进行完全重写，做出一个更加 <strong>优雅、灵活、鲁棒</strong> 的版本。	  
+       
+   </ul>
+   <a data-pjax href="/codes/wukong-robot-intro/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
 		<div class="date"> Dec 29 2018 </div>
 			<div class="article-title"><a data-pjax href="/life/2018-montage/" title="以 montage 的形式，回顾我的 2018 年。本文所有内容仅代表个人观点，与雇主无关。">2018 蒙太奇</a></div>			
 		</h3>
@@ -273,32 +304,6 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 </div>    
 
 		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Nov 5 2017 </div>
-			<div class="article-title"><a data-pjax href="/codes/easiest-way-to-make-dingdang-watch-events/" title="要让叮当能够监控一些关键事件并触发响应操作，除了编写插件之外，还有一个简单省事的方法：利用 [IFTTT](https://ifttt.com/) 。本文将举几个简单的示例。">0行代码实现叮当的场景联动</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-       	  
-   	<div class="thumbnail"><a data-pjax href="/codes/easiest-way-to-make-dingdang-watch-events/"><img src="/images/easiest-way-to-make-dingdang-watch-events/ifttt.jpg" alt="0行代码实现叮当的场景联动"  class="nofancybox"></a></div>
-    
-    
-      <p>要让叮当能够监控一些关键事件并触发响应操作，除了编写插件之外，还有一个简单省事的方法：利用 <a href="https://ifttt.com/" target="_blank" rel="external">IFTTT</a> 。下面我举几个简单的示例，其他的应用场景你们可以尽情发挥想象力。</p>
-<h2 id="什么是-ifttt">什么是 IFTTT</h2>
-<p><a href="https://ifttt.com/" target="_blank" rel="external">IFTTT</a> 是一个被称为 “网络自动化神器” 的创新型互联网服务，它非常实用而且完全免费。它的全称是 If this then that，意思是“如果这样，那么就那样”。简单地讲，IFTTT 的作用就是，如果「这个」网络服务满足条件，那么就自动触发「那个」网络服务去执行一个动作。而条件和动作都是可以由用户自己去根据自身需求设置的。IFTTT 能将前后这两个不同的网络服务神奇般地连通来实现各种各样的功能，并且为你不间断地工作。</p>
-<p>在阅读下面的文章前，建议先去注册一个 IFTTT 账号，为了方便关联叮当，建议使用叮当的收件邮箱注册。	  
-       
-   </ul>
-   <a data-pjax href="/codes/easiest-way-to-make-dingdang-watch-events/#more" class="btn more">Read More</a>
-</div>    
-
-		
 
 	</div>
 
@@ -357,7 +362,7 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		<h4>Categories</h4>
 		<ul class="tag_box inline">
 		
-			<li><a href="/categories/codes/">codes<span>35</span></a></li>
+			<li><a href="/categories/codes/">codes<span>36</span></a></li>
 		
 			<li><a href="/categories/life/">life<span>6</span></a></li>
 		
@@ -380,45 +385,45 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
-				   
-			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
-				   
-			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
-				   
-			<li><a href="/tags/Design-Patterns/">Design Patterns<span>1</span></a></li>
-				   
-			<li><a href="/tags/HaHack/">HaHack<span>3</span></a></li>
-				   
-			<li><a href="/tags/xml/">xml<span>1</span></a></li>
-				   
-			<li><a href="/tags/npm/">npm<span>1</span></a></li>
-				   
-			<li><a href="/tags/comment-js/">comment.js<span>1</span></a></li>
-				   
-			<li><a href="/tags/LiveReload/">LiveReload<span>2</span></a></li>
-				   
-			<li><a href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
-				   
-			<li><a href="/tags/Vector/">Vector<span>1</span></a></li>
-				   
-			<li><a href="/tags/Git/">Git<span>5</span></a></li>
-				   
-			<li><a href="/tags/Hexo/">Hexo<span>8</span></a></li>
-				   
-			<li><a href="/tags/shell/">shell<span>3</span></a></li>
-				   
-			<li><a href="/tags/跨平台/">跨平台<span>1</span></a></li>
-				   
-			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
+			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>2</span></a></li>
 				   
 			<li><a href="/tags/dingdang/">dingdang<span>4</span></a></li>
 				   
-			<li><a href="/tags/EVM/">EVM<span>2</span></a></li>
+			<li><a href="/tags/Atom/">Atom<span>1</span></a></li>
 				   
-			<li><a href="/tags/PGF/">PGF<span>1</span></a></li>
+			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
 				   
-			<li><a href="/tags/org-mode/">org-mode<span>2</span></a></li>
+			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
+				   
+			<li><a href="/tags/Unix/">Unix<span>1</span></a></li>
+				   
+			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
+				   
+			<li><a href="/tags/Ispell/">Ispell<span>1</span></a></li>
+				   
+			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
+				   
+			<li><a href="/tags/Python/">Python<span>2</span></a></li>
+				   
+			<li><a href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
+				   
+			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
+				   
+			<li><a href="/tags/AutoHotKey/">AutoHotKey<span>1</span></a></li>
+				   
+			<li><a href="/tags/Git/">Git<span>5</span></a></li>
+				   
+			<li><a href="/tags/Disqus/">Disqus<span>1</span></a></li>
+				   
+			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
+				   
+			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
+				   
+			<li><a href="/tags/SCNUThesis/">SCNUThesis<span>1</span></a></li>
+				   
+			<li><a href="/tags/Javascript/">Javascript<span>5</span></a></li>
+				   
+			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
 		
 		<li><a href="/tags">...<span>93</span></a></li>
 		</ul>
