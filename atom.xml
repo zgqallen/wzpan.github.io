@@ -4,7 +4,7 @@
   <subtitle><![CDATA[哈嘿！]]></subtitle>
   <link href="http://hahack.com/atom.xml" rel="self"/>
   <link href="http://hahack.com"/>
-  <updated>2019-04-28T14:10:37.074Z</updated>
+  <updated>2019-05-03T17:57:56.030Z</updated>
   <id>http://hahack.com/</id>
   <author>
     <name><![CDATA[Joseph Pan]]></name>
@@ -16,7 +16,7 @@
     <link href="http://hahack.com/codes/wukong-robot-intro/"/>
     <id>http://hahack.com/codes/wukong-robot-intro/</id>
     <published>2019-04-24T07:25:32.000Z</published>
-    <updated>2019-04-28T14:10:01.555Z</updated>
+    <updated>2019-05-03T17:40:35.375Z</updated>
     <content type="html"><![CDATA[<h2 id="dingdang-robot-之殇">dingdang-robot 之殇</h2>
 <p>在两年前，我做了第一个智能音箱项目 <a href="https://www.hahack.com/codes/dingdang-robot-intro/" target="_blank" rel="external">dingdang-robot</a> 。在去年 7 月加入上报统计后，在不到一年的时间里，这个项目已经运行在 1000+ 台设备中，被唤醒了 128,000+ 次。截至今天，这个项目的个人版和社区版在 Github 上总共获得了 2,600+ 个 stars ，820+ 次 forks。</p>
 <p>在我<a href="https://www.hahack.com/life/2018-montage/" target="_blank" rel="external">去年的一篇年度总结中</a>，我提到因为 dingdang-robot 本身维护上的困难，我将项目迁移到了 <a href="https://github.com/dingdang-robot/" target="_blank" rel="external">dingdang-robot 组织</a>交由社区进行维护。很遗憾的是，即使迁到了 dingdang-robot 组织，由于组织维护者们都并不是全职维护这个项目，而且硬件和操作系统上的差异始终给 dingdang-robot 的维护带来了很大的问题，所以取得的效果并不理想。而且随着自己能力的不断提升，我对 dingdang-robot 里头的代码也越发不满意：</p>
@@ -134,6 +134,10 @@
 <p><img src="/images/wukong-robot-intro/wukong-robot-tutorial.jpeg" alt="wukong-robot开发"></p>
 <p>参与这门课的制作也是为了完成我在<a href="/life/2018-montage/#%E6%8E%88%E8%AF%BE">去年的个人总结中立下的 flag</a> 。Python 一直是我业余时间最常用的玩具语言，它非常适合用于原型开发。我有不少开源项目，比如 wukong-robot、dingdang-robot、<a href="https://www.hahack.com/life/2018-montage/#%E5%BC%80%E6%BA%90" target="_blank" rel="external">LiveCV</a> 都是用 Python 写的。而在我的工作中，它也帮助我完成了大量的工具和项目，这些工具和项目对个人或团队起到了非常大的作用（例如<a href="https://www.hahack.com/work/my-2-years-at-pingan/#%E6%94%AF%E7%BA%BF-v3" target="_blank" rel="external">加班统计平台</a>、已经在上百家中小银行中使用的<a href="https://www.hahack.com/work/my-2-years-at-pingan/#%E4%B8%BB%E7%BA%BF" target="_blank" rel="external">fmanager</a>），因此 Python 也无疑给我的职业发展起到了很大的推动作用。把我所掌握的 Python 知识分享给更多人，让更多人能够自如的使用这门语言来满足他们的需求，那也算是我对 Python 这门语言的回馈。</p>
 ]]></content>
+    <category scheme="http://hahack.com/tags/dingdang/" term="dingdang"/>
+    <category scheme="http://hahack.com/tags/wukong/" term="wukong"/>
+    <category scheme="http://hahack.com/tags/Raspberry-Pi/" term="Raspberry Pi"/>
+    <category scheme="http://hahack.com/tags/Course/" term="Course"/>
     <category scheme="http://hahack.com/categories/codes/" term="codes"/>
   </entry>
   <entry>
@@ -141,7 +145,7 @@
     <link href="http://hahack.com/life/2018-montage/"/>
     <id>http://hahack.com/life/2018-montage/</id>
     <published>2018-12-29T13:30:31.000Z</published>
-    <updated>2019-04-27T16:17:19.355Z</updated>
+    <updated>2019-05-03T17:39:37.043Z</updated>
     <content type="html"><![CDATA[<p>眨眼就到了 2019 年了，每年这个时候我都在纠结要不要写点什么。纠结的原因是：如果今年开了个头，那就相当于欠下一笔技术债，那么以后的每年都应该坚持写一篇总结，而我又是一个很怕欠债的人。今年我决定停止纠结：一来觉得自己已经到而立之年了，想做的事情就该放手去做。二来总结首先是写给自己看的，每年年底好好写份总结，有助于回顾自己这一年的心路历程，也能及时发现自己这一年有哪些不足，有则改之无则加勉。三来如果能坚持写下去的话，等老了的时候，回过头来看每一年的回顾，应该会有更深的感触吧。Anyway，既然是有益的债务，那还是值得去背负的。</p>
 <p>2018 年依旧是比较充（mang）实（lu）的一年，这一年我完成了买房大计，开始在 GMTC 这类的技术会议上做分享交流，开始带团队，首次挑战并完成了一次鹅厂的技术通道答辩，开始尝试担任腾讯课堂的讲师对外授课……收获颇丰。与之相对应的也有一些失去，包括一段还没来得及开始就匆匆结束的感情。</p>
 <p>为了避免把总结写得太过于流水账，我想把总结拆成几个主题来回顾：正经事（工作、开源、博客、授课），不正经事（乐器、旅行、游戏、锻炼、看书、感情）。</p>
@@ -453,6 +457,11 @@
 </ol>
 <p>至于爱情，随缘吧。</p>
 ]]></content>
+    <category scheme="http://hahack.com/tags/travel/" term="travel"/>
+    <category scheme="http://hahack.com/tags/music/" term="music"/>
+    <category scheme="http://hahack.com/tags/games/" term="games"/>
+    <category scheme="http://hahack.com/tags/comment/" term="comment"/>
+    <category scheme="http://hahack.com/tags/summary/" term="summary"/>
     <category scheme="http://hahack.com/categories/life/" term="life"/>
   </entry>
   <entry>
@@ -561,12 +570,12 @@
     <link href="http://hahack.com/codes/writing-2048-wechat-game-in-cocos-creator/"/>
     <id>http://hahack.com/codes/writing-2048-wechat-game-in-cocos-creator/</id>
     <published>2018-12-25T16:39:54.000Z</published>
-    <updated>2019-01-06T16:57:42.439Z</updated>
+    <updated>2019-05-03T17:48:02.317Z</updated>
     <content type="html"><![CDATA[<p>上个月抽了个时间，给腾讯课堂制作了一个免费公开课《使用Cocos Creator开发微信小游戏2048》，分享了使用 Cocos Creator 开发微信小游戏的经验。</p>
 <p>如果你对微信小游戏开发感兴趣，欢迎前往观看。</p>
 <p>（PS: 请忽略散发着寒光的头像……）</p>
 <p><i class="fa fa-video-camera"></i> <a href="https://ke.qq.com/course/350627" target="_blank"> 课程免费观看地址 </a></p>
-<p><i class="fa fa-github"></i> <a href="https://github.com/wzpan/2048" target="_blank"> 课程源码 </a></p>
+<p><i class="fab fa-github"></i> <a href="https://github.com/wzpan/2048" target="_blank"> 课程源码 </a></p>
 <p><i class="fa fa-download"></i> <a href="https://share.weiyun.com/5k7jNfP" target="_blank"> slides 下载地址 </a></p>
 <a id="more"></a>
 <p>学习这门课之前需要先了解 Cocos Creator 的基本使用，以及具备一定的 JS 语法基础。如果你对这些没有足够的了解，那么看这门公开课会比较吃力。</p>
@@ -576,6 +585,7 @@
 ]]></content>
     <category scheme="http://hahack.com/tags/Cocos-Creator/" term="Cocos Creator"/>
     <category scheme="http://hahack.com/tags/Javascript/" term="Javascript"/>
+    <category scheme="http://hahack.com/tags/Course/" term="Course"/>
     <category scheme="http://hahack.com/categories/codes/" term="codes"/>
   </entry>
   <entry>
