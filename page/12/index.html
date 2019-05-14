@@ -39,8 +39,8 @@
   <![endif]-->
 
 <!--  -->
-<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
-<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 <!--  -->
   
 <script src="/dist/jquery-2.0.3.min.js"></script>
@@ -48,6 +48,19 @@
 
     <script src="/dist/videoGFW.min.js"></script>
 	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41569408-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
 	
 
 
@@ -77,18 +90,55 @@
             <div class="nav-collapse collapse">
             <ul class="nav">				
 			    
-				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
-				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
-				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				   <li><a data-pjax href="/archive" title="所有文章归档">Archive</a></li>
+    			
+				   <li><a data-pjax href="/categories" title="所有文章分类">Categories</a></li>
+    			
+				   <li><a data-pjax href="/tags" title="所有文章标签">Tags</a></li>
+    			
 				
 				<li class="divider-vertical"></li>
-			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+			   	<li><a data-pjax href="/wiki" title="我的笔记库">wiki</a></li>				   
 				
             </ul>			
 			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown">Works <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">				
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/wukong-robot" title="wukong-robot 是一个简单、灵活、优雅的中文语音对话机器人。"><i class="fab fa-github"></i>wukong-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/dingdang-robot/dingdang-robot" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fab fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/comment-js" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fab fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/qtevm" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fab fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fab fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fab fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fab fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fab fa-github"></i>Dissertation</a></li>
+				
+                </ul>                
+				</li>
+                <li class="dropdown works">
+				<a data-pjax href="#" title="课程" class="dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/list/python%20next%20潘伟洲" title="Python 从入门到实践系列"><i class="fa fa-video"></i>Python</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/326820" title="微信小游戏入门与实战"><i class="fa fa-video"></i>minigame</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/350627" title="使用Cocos Creator开发微信小游戏《2048》"><i class="fa fa-video"></i>2048</a></li>
+				
+                </ul>                
+				</li>                
 				<li class="dropdown">
-				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown">Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
 				
 				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
 				
@@ -99,7 +149,7 @@
                 	        </ul>
 				</li>
 				
-				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+				<li><a data-pjax href="/about" title="关于我">About</a></li>				   				
    					  
             </ul>
             </div> <!-- nav-collapse collapse -->
@@ -134,8 +184,8 @@
 	
 	<!-- display as entry -->
 		<h3 class="title">
-		<div class="date"> Apr 28 2012 </div>
-			<div class="article-title"><a data-pjax href="/tools/mindmap/" title="心智图相关科普。">心智图（Mindmap）</a></div>			
+		<div class="date"> Oct 7 2012 </div>
+			<div class="article-title"><a data-pjax href="/tools/a-fantastic-usage/" title="介绍org-mode里的一个有用的快捷键。">C-c &#39; 在 org-mode 中的妙用</a></div>			
 		</h3>
 	
 
@@ -144,40 +194,22 @@
     <ul class="thumbnails">
     
     
-      <h2 id="什么是心智图-mindmap-？">什么是心智图（Mindmap）？</h2>
-<p>心智图（Mind
-Map），又称脑图、心智地图、脑力激荡图、思维导图、灵感触发图、概念地图、树状图、树枝图或思维地图，是一种图像式思维的工具与及一种利用图像式思考辅助工具来表达思维的工具。</p>
-<p>心智图是使用一个中央关键词或想法引起形象化的构造和分类的想法;
-它用一个中央关键词或想法以辐射线形连接所有的代表字词、想法、任务或其它关联项目的图解方式。它可以利用不同的方式去表现人们的想法，如引题式，可见形象化式，建构系统式和分类式。它是普遍地用作在研究、组织、解决问题和政策制定中。</p>
-<p>心智图是一张集中了所有关连资讯的语义网路或认知体系图像。所有关连资讯都是被辐射线形及非线性图解方式接连在一起，以头脑风暴（激发灵感）方法为本去建立一个适当或相关的概念性组织任务框架。但脑力激荡（激发灵感）方法，语义网路
-或
-认知体系是没有一个既定制式链去互相连接使用，亦即是可以自由相连接使用的。元素是直觉地以概念的重要性而被安排及组织入分组、分支，或区域中。会集知识方法是能够支援现有的记忆，去思考语义的结构资讯。	  
-       
-   </ul>
-   <a data-pjax href="/tools/mindmap/#more" class="btn more">Read More</a>
-</div>    
-
-		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Feb 6 2012 </div>
-			<div class="article-title"><a data-pjax href="/life/teaching-pascal/" title="我家教辅导Pascal语言的心得体会。">家教十日谈</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-    
-    
-      <p>寒假偶然接到单院长的电话，问我是否愿意接一个家教，教一个高中生Pascal语言，时间为腊月廿一到廿四，中间休息几天，正月初六继续上到正月十一，共十天。说实话我自从大一用Delphi写了一个看图软件，之后就再没怎么碰过Pascal语言。而且我还真没有接过家教的工作，只在高中的时候和其他几个学生一起开过一个义务辅导班，辅导过几个初三的学生，不过这就是更久远前的事情了。</p>
-<p>不过，越是有挑战性的东西我往往越想征服它。重新掌握Pascal语言对我而言倒是很简单的一件事，这种结构化语言还是比较好学的。难就难在要怎么教好这个学生。在和这个学生以及她的家长聊了不到半个小时后，我大概摸了一下学生的底子，大概已有个基础，教起来应该不吃力。再加上我还没试过这样的工作，所以我就一口答应了下来。</p>
+      <p><div class="alert alert-error"><i class="fa fa-bug"></i>  <p>从 org-mode 8.x 开始，这两个功能已经无效。</p>
+</div></p>
+<h2 id="1-用途一：编辑代码">1 用途一：编辑代码</h2>
+<p>在org-mode中可以通过键入 <code>&lt;s</code> 快速输入代码引用段，得到下面的内容：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">#+BEGIN_SRC</div><div class="line"></div><div class="line">#+END_SRC</div></pre></td></tr></table></figure></p>
+<p>但当我们在里面编辑的时候，会发现tab无法缩进。一种解决方法是通过键入
+<code>C-q &lt;Tab&gt;</code>
+缩进，但如果整份文档都需要重排，一行一行的敲肯定很费力。这时候可以在代码段中键入
+<code>C-c '</code>
+，此时Emacs会新建一个buffer，原来代码段的内容会自动粘贴到这个buffer里，此时会发现这个buffer的Minor
+Mode刚好是相应语言的Mode，所以可以很自在的完成各种熟悉的代码编辑工作。完成后再次按
+<code>C-c '</code> 返回。</p>
 	  
        
    </ul>
-   <a data-pjax href="/life/teaching-pascal/#more" class="btn more">Read More</a>
+   <a data-pjax href="/tools/a-fantastic-usage/#more" class="btn more">Read More</a>
 </div>    
 
 		
@@ -185,8 +217,8 @@ Map），又称脑图、心智地图、脑力激荡图、思维导图、灵感�
 	
 	<!-- display as entry -->
 		<h3 class="title">
-		<div class="date"> Jan 7 2012 </div>
-			<div class="article-title"><a data-pjax href="/codes/free-pascal-on-ubuntu/" title="Pascal语言的介绍以及在Ubuntu下安装配置free-pascal的方法。">ubuntu下安装配置free-pascal</a></div>			
+		<div class="date"> Oct 7 2012 </div>
+			<div class="article-title"><a data-pjax href="/codes/opengl-on-archlinux/" title="详细介绍在ArchLinux下安装配置OpenGL的过程。">ArchLinux安装配置OpenGL</a></div>			
 		</h3>
 	
 
@@ -195,16 +227,15 @@ Map），又称脑图、心智地图、脑力激荡图、思维导图、灵感�
     <ul class="thumbnails">
     
     
-      <h2 id="pascal语言简介">Pascal语言简介</h2>
-<p>Pascal是一种计算机通用的高级程序设计语言，而且是第一个结构化编程语言，由瑞士Niklaus
-Wirth教授于六十年代末设计并创立。Pascal的取名是为了纪念十七世纪法国著名哲学家和数学家Blaise
-Pascal。Wirth还是另外几个编程语言的主设计师和发明者——Algol
-W、Euler、Modula、Modula-2、Oberon等，他还有一句在计算机领域人尽皆知的名言：“算法+数据结构=程序”（Algorithm+Data
-Structures=Programs），这个公式对计算机科学的影响程度足以和物理学中爱因斯坦的(E=mc^2)相媲美。</p>
-<p>尽管Pascal语言从诞生到现在已经经历了将近半个世纪，但凭借着自身严格的结构化形式、丰富完备的数据类型、运行效率高、查错能力强的特点，Pascal语言在现在依然具有较高的流行度，IOI(国际奥林匹克信息学竞赛)把Pascal语言作为三种程序设计语言之一，NOI(全国奥林匹克信息学竞赛)把Pascal语言和c语言、c++语言作为竞赛使用程序设计语言，在大学中Pascal语言也常常被用作学习数据结构与算法的教学语言。在TIOBE排行榜的前二十名榜单上，Pascal语言和Pascal语言分支之一的Delphi语言依然名列其中：<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/free-pascal-on-ubuntu/wirth.jpg" alt=" Niklaus Wirth"><b>图 1</b>  Niklaus Wirth</span></span></span>	  
+      <h2 id="1-前言">1 前言</h2>
+<p>在Linux安装配置OpenGL理论上是一件非常轻松的事情，因为OpenGL本身就是跨平台的东西。但我在看 OpenGL SuperBible 4th Edition 的时候，却总是遇到一些让我郁闷的事情：自带的GLTools类包只能在Windows和Mac OSX下使用，而且还得自己写Makefile。后来到网上找解决方法，才发现 SuperBible 已经早已经出到了 5th Edition，并且加入了对Linux的支持。 <code>--bbb</code></p>
+<p>这给我两大教训：</p>
+<ol>
+<li>当书中的内容有所欠缺的时候，应该及时去看官网，看看有没有发布新的版本，而不是自己在一旁摸索解决方法。</li>
+<li>不要总指望网上能够下载到电子版本，能够下载的大多数是Out of Date的。于是我索性网购了一本纸质版 <span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>其实我喜欢电子版本的原因是可以方便的复制书中的内容，这对我做笔记很有用。另外由于电脑屏幕够大，所以在Awesome下可以直接开Emacs和evince两个窗口，一边看书一边动手，非常顺手。</span></span></span>。	  
        
    </ul>
-   <a data-pjax href="/codes/free-pascal-on-ubuntu/#more" class="btn more">Read More</a>
+   <a data-pjax href="/codes/opengl-on-archlinux/#more" class="btn more">Read More</a>
 </div>    
 
 		
@@ -212,8 +243,8 @@ Structures=Programs），这个公式对计算机科学的影响程度足以和�
 	
 	<!-- display as entry -->
 		<h3 class="title">
-		<div class="date"> Dec 25 2011 </div>
-			<div class="article-title"><a data-pjax href="/tools/abbreviation-on-emacs/" title="介绍Emacs里的缩写补全功能。">Emacs的缩写补全</a></div>			
+		<div class="date"> Aug 31 2012 </div>
+			<div class="article-title"><a data-pjax href="/tools/org-beamer-cn/" title="一份用于生成中文beamer幻灯片的org-mode模板。">org-mode的中文beamer幻灯片模板</a></div>			
 		</h3>
 	
 
@@ -222,41 +253,77 @@ Structures=Programs），这个公式对计算机科学的影响程度足以和�
     <ul class="thumbnails">
     
     
-      <p>有些编辑器（比如Edit
-Plus）可以实现缩写补全，允许我们把经常要输入一大段相同的文本或者代码用简单的文本代替，这样可以大大提高我们的编辑效率。Emacs也提供了单词简写（word
-abbreviation）的支持。</p>
-<h2 id="动态简写-dynamic-abbreviations">动态简写（Dynamic Abbreviations）</h2>
-<p>如果你经常要拼写一个很长的词汇，比如“abbreviation”，你可以在<strong>输入一遍</strong>这个单词之后，在碰到要拼写这个单词的时候使用动态简写功能来偷懒：先给出单词的前面几个字母，然后使用Emacs的动态简写功能来帮助我们把它补全。</p>
-<p>要注意的是，这个动态的简写功能和前篇博文提到的<a href="/tools/ispell-and-flyspell">Ispell单词补全</a>原理不一样，Ispell的单词补全功能依据的是Ispell的辞典，而动态简写的功能依据的是在Emacs本次运行期间的所有缓存中查找位置最靠近的一个单词。	  
-       
-   </ul>
-   <a data-pjax href="/tools/abbreviation-on-emacs/#more" class="btn more">Read More</a>
-</div>    
-
-		
-			
-	
-	<!-- display as entry -->
-		<h3 class="title">
-		<div class="date"> Dec 24 2011 </div>
-			<div class="article-title"><a data-pjax href="/tools/ispell-and-flyspell/" title="介绍ispell以及emacs里的拼写检查功能。">ispell与emacs的拼写检查</a></div>			
-		</h3>
-	
-
-
-			<div class="entry">
-    <ul class="thumbnails">
-    
-    
-      <h2 id="了解ispell">了解Ispell</h2>
-<h3 id="ispell-vs-aspell">Ispell vs Aspell</h3>
-<p>Ispell是Unix下的一个拼写检查工具，支持多种语言（见：<a href="http://lasr.cs.ucla.edu/geoff/ispell-dictionaries.html" target="_blank" rel="external">ispell
-dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外一个比较出名的拼写检查工具是Aspell，两者的区别是Aspell不仅为拼错的单词提供形近的单词列表，还同时提供读音相似的单词的建议，e.g.如果你拼了一个错词“trubble”，Ispell只会建议“rubble”，而Aspell还会建议“trouble”、“dribble”、
-&quot;rubble&quot;之类的词。不过Aspell的这种匹配算法只能用在英语单词上，而且在速度上以及指令的简单程度上不及Ispell。我使用的是Ispell，Aspell的配置可以参考<a href="http://aspell.net/0.61/man-html/Using-Aspell-with-other-Applications.html#Using-Aspell-with-other-Applications" target="_blank" rel="external">这里</a>。</p>
+      <p>org-mode 是 Emacs
+的杀手级应用，使用它可以用来做很多事情，如GTD、做笔记等。它可以导出多种格式的文件，包括HTML、LaTeX、Freemind、DocBook等，因此，通过定制之后，编写一份org文件就等于同时编写（或者排版）了多种格式文件，而且每种格式的文件又可以各自拥有不同的排版效果。这正是
+org-mode 精妙之处。</p>
+<p>比如，我最喜欢的做法是先在 Emacs 里打开 evernote-mode 写一份 org-mode
+的笔记，然后 <code>C-c C-e H</code> 导出成 HTML
+代码，并发布到我的博客中或者加入到我的 wiki 里。如果有需要，我还可以
+<code>C-c C-e l</code> 生成 LaTeX 代码并编译成 PDF 文件。</p>
+<p>用 org-mode 制作 Beamer 幻灯片也很简单，官方已经给出了
+<a href="http://orgmode.org/worg/org-tutorials/org-beamer/tutorial.html" target="_blank" rel="external">详细的教程</a>
+，照着一步步做即可。官方的教程并没有针对中文进行定制，因此笔者写了一个org-mode的Beamer中文模板，这是在
+<a href="http://orgmode.org/manual/Beamer-class-export.html#Beamer-class-export" target="_blank" rel="external">Carsten
+Dominik的例子</a>
+的基础上修改得到的。</p>
 	  
        
    </ul>
-   <a data-pjax href="/tools/ispell-and-flyspell/#more" class="btn more">Read More</a>
+   <a data-pjax href="/tools/org-beamer-cn/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+		<div class="date"> Jul 23 2012 </div>
+			<div class="article-title"><a data-pjax href="/tools/latex-note/" title="一份针对初学者而编写的 LaTeX 札记。">LaTeX札记</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+    
+    
+      <p>这是一份针对初学者而编写的 LaTeX 札记。我写这份文档的主要目的是介绍一下 LaTeX 的优点，一些小技巧，还有针对初学者常犯的几个错误，提醒一下他们需要格外引起注意的问题。</p>
+<p>重点将讲讲中文处理，以及使用 JabRef 管理 BibTeX 的方法，这是很多 LaTeX 教程所缺少的内容。</p>
+<p>因此，这份材料不是一份面面俱到的教程，而适合当作其他教程的补充。其他的内容可以参考 lshort 或其他教程，里头有更丰富的介绍。Anyway，希望这份东西对正在学习LaTeX 的人有用。</p>
+<p><em>Happy TeXing</em>!	  
+       
+   </ul>
+   <a data-pjax href="/tools/latex-note/#more" class="btn more">Read More</a>
+</div>    
+
+		
+			
+	
+	<!-- display as entry -->
+		<h3 class="title">
+		<div class="date"> Jul 11 2012 </div>
+			<div class="article-title"><a data-pjax href="/codes/hacking-logitech-k350-keyboard/" title="介绍在Linux下通过一些hacking，让罗技K350键盘的部分功能键恢复工作的方法。">Hacking Logitech K350 Keyboard</a></div>			
+		</h3>
+	
+
+
+			<div class="entry">
+    <ul class="thumbnails">
+    
+    
+      <h2 id="1-前言">1 前言</h2>
+<p>作为一个重度Emacs使用者，我使用电脑的大部分时间都在用键盘。“工欲善其事，必先利其器”，为了避免患上RSI，我用上了罗技K350键盘。</p>
+<p>罗技K350是一款不错的人体工学键盘，它具有下面几个优点：</p>
+<ol>
+<li>人体工学键盘。采用曲形键盘设计，因此手可以很自然的放在键盘上面。具有较大的掌托，有助于减少手腕的疲劳。提供两段式可调节键盘支架，可以按照喜好调整键盘高度；</li>
+<li>极尽奢华的功能键。K350具有16颗独立的功能键，可以实现vista3D浏览（在XP系统下为应用程序切换键）、vista照片库（在XP系统下为我的图片）、媒体播放器、计算器、计算机休眠等功能。另外，通过右手侧的“Fn”键与F1-F12键组合，还可以实现快速启动word文档程序、excel表格程序、日历、IE、浏览器、MSN、电源状态检测以及光盘弹出开关。并且，这些功能键都是可编程的，通过使用官方的SetPoint工具，可以定制这些按键对应的功能；</li>
+<li>Unifying无线优联技术，通过简单的设置，可以和其他支持Unifying的外设共用一个接收器，因此和我的M505鼠标可以天衣无缝的配合；</li>
+<li>Ctrl、Alt键都较大，适合Emacser使用。</li>
+</ol>
+	  
+       
+   </ul>
+   <a data-pjax href="/codes/hacking-logitech-k350-keyboard/#more" class="btn more">Read More</a>
 </div>    
 
 		
@@ -318,9 +385,9 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
 		<h4>Categories</h4>
 		<ul class="tag_box inline">
 		
-			<li><a href="/categories/codes/">codes<span>32</span></a></li>
+			<li><a href="/categories/codes/">codes<span>36</span></a></li>
 		
-			<li><a href="/categories/life/">life<span>5</span></a></li>
+			<li><a href="/categories/life/">life<span>6</span></a></li>
 		
 			<li><a href="/categories/math/">math<span>3</span></a></li>
 		
@@ -330,7 +397,7 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
 		
 			<li><a href="/categories/tools/">tools<span>12</span></a></li>
 		
-			<li><a href="/categories/work/">work<span>6</span></a></li>
+			<li><a href="/categories/work/">work<span>7</span></a></li>
 		
 		</ul>
 	</div>
@@ -341,47 +408,47 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
 		<h4>Tag Cloud</h4>
 		<ul class="tag_box inline">		
 				   
-			<li><a href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
+			<li><a href="/tags/music/">music<span>1</span></a></li>
 				   
-			<li><a href="/tags/Linear-Algebra/">Linear Algebra<span>2</span></a></li>
-				   
-			<li><a href="/tags/Logitech/">Logitech<span>1</span></a></li>
-				   
-			<li><a href="/tags/Awesome/">Awesome<span>3</span></a></li>
-				   
-			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
-				   
-			<li><a href="/tags/TikZ/">TikZ<span>1</span></a></li>
-				   
-			<li><a href="/tags/Nuclide/">Nuclide<span>1</span></a></li>
-				   
-			<li><a href="/tags/Scheme/">Scheme<span>1</span></a></li>
-				   
-			<li><a href="/tags/iOS/">iOS<span>1</span></a></li>
+			<li><a href="/tags/CLI/">CLI<span>1</span></a></li>
 				   
 			<li><a href="/tags/utf-8/">utf-8<span>1</span></a></li>
 				   
-			<li><a href="/tags/CI/">CI<span>1</span></a></li>
+			<li><a href="/tags/Javascript/">Javascript<span>5</span></a></li>
 				   
-			<li><a href="/tags/Beamer/">Beamer<span>1</span></a></li>
+			<li><a href="/tags/Aspell/">Aspell<span>1</span></a></li>
 				   
-			<li><a href="/tags/Linux/">Linux<span>3</span></a></li>
+			<li><a href="/tags/PGF/">PGF<span>1</span></a></li>
 				   
-			<li><a href="/tags/MVC/">MVC<span>1</span></a></li>
+			<li><a href="/tags/职场感悟/">职场感悟<span>1</span></a></li>
 				   
-			<li><a href="/tags/Mindmap/">Mindmap<span>1</span></a></li>
+			<li><a href="/tags/node-js/">node.js<span>2</span></a></li>
 				   
-			<li><a href="/tags/ruhoh/">ruhoh<span>3</span></a></li>
+			<li><a href="/tags/Makefile/">Makefile<span>1</span></a></li>
 				   
-			<li><a href="/tags/Live-Coding/">Live Coding<span>1</span></a></li>
+			<li><a href="/tags/ajax/">ajax<span>1</span></a></li>
+				   
+			<li><a href="/tags/comment/">comment<span>1</span></a></li>
+				   
+			<li><a href="/tags/Android/">Android<span>1</span></a></li>
+				   
+			<li><a href="/tags/M-P/">M-P<span>1</span></a></li>
+				   
+			<li><a href="/tags/LFS/">LFS<span>1</span></a></li>
+				   
+			<li><a href="/tags/CMake/">CMake<span>1</span></a></li>
+				   
+			<li><a href="/tags/Gitlab/">Gitlab<span>2</span></a></li>
+				   
+			<li><a href="/tags/Raspberry-Pi/">Raspberry Pi<span>3</span></a></li>
+				   
+			<li><a href="/tags/Flyspell/">Flyspell<span>1</span></a></li>
+				   
+			<li><a href="/tags/Dropbox/">Dropbox<span>1</span></a></li>
 				   
 			<li><a href="/tags/Drawing/">Drawing<span>1</span></a></li>
-				   
-			<li><a href="/tags/Objective-C/">Objective-C<span>1</span></a></li>
-				   
-			<li><a href="/tags/Docker/">Docker<span>1</span></a></li>
 		
-		<li><a href="/tags">...<span>86</span></a></li>
+		<li><a href="/tags">...<span>100</span></a></li>
 		</ul>
 	</div>
 
@@ -390,8 +457,9 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
 			
    <div class="widget">
 	 <h4>Weibo</h4>
-   	 <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=0&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1522727845&verifier=75dfaa45&dpc=1"></iframe>
+   	 <iframe width="100%" height="550" class="share_self"  frameborder="0" scrolling="no" src="https://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=0&speed=0&skin=1&isTitle=0&noborder=0&isWeibo=1&isFans=0&uid=1522727845&verifier=75dfaa45&dpc=1"></iframe>
    </div>
+
 
 		
 			
@@ -399,7 +467,7 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
 	<h4>Links</h4>
 	<ul class="blogroll">
 	
-		<li><i class="fa fa-github"></i><a href="http://www.github.com/wzpan" title="我的 Github" target="_blank"]);">My Github</a></li>
+		<li><i class="fab fa-github"></i><a href="http://www.github.com/wzpan" title="我的 Github" target="_blank"]);">My Github</a></li>
 	
 		<li><i class="fa fa-linkedin"></i><a href="http://www.linkedin.com/pub/weizhou-pan/5b/8a0/161" title="跟我的LinkedIn建立链接吧！" target="_blank"]);">My LinkedIn</a></li>
 	
@@ -407,7 +475,9 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
 	
 		<li><i class="fa fa-globe"></i><a href="http://coolshell.cn" title="陈皓的博客，国内程序员的教父" target="_blank"]);">CoolShell</a></li>
 	
-		<li><i class="fa fa-globe  "></i><a href="http://freemind.pluskid.org" title="张弛原，Yasnippet原作者，现于 MIT 研究机器学习。多才多艺的天才。" target="_blank"]);">Pluskid</a></li>
+		<li><i class="fa fa-globe  "></i><a href="http://freemind.pluskid.org" title="张弛原，Yasnippet原作者，现于 Google Brain 。多才多艺的天才。" target="_blank"]);">Pluskid</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://chaoyanghe.com/" title="何朝阳，在百度、腾讯的同事。现于美国 USC 攻读机器学习博士学位" target="_blank"]);">Chaoyang He</a></li>
 	
 		<li><i class="fa fa-globe"></i><a href="http://xahlee.org" title="One of the best Hackers I've ever known." target="_blank"]);">Xahlee</a></li>
 	
@@ -444,11 +514,8 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2017 Joseph Pan
+  &copy; 2019 Joseph Pan
   
-      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
-. 
     <small>
      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
     </small>
@@ -472,13 +539,18 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
 <script src="/dist/main.min.js"></script>
 
 
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
 
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 
@@ -504,6 +576,7 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
   </script>
 
 
+
 <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
   (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
@@ -512,6 +585,9 @@ dictionaries</a>），并且提供很多接口，其中包括了Emacs。另外�
 
   _st('install','ney3Rb77vMaWT2KUKFyt');
 </script>
+
+
+
 
 
 </body>

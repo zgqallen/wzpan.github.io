@@ -1,0 +1,390 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Beamer | HaHack</title>
+  <meta name="author" content="Joseph Pan">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+  <meta property="og:site_name" content="HaHack"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/images/favicon.png" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="HaHack" type="application/atom+xml">
+  
+  <link rel="stylesheet" href="/dist/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bootstrap-responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/font-awesome.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/style.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/highlight.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/sidenav.min.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/dist/responsive.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/bubble.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/google-fonts.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/nprogress.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/dist/comment.min.css" media="screen" type="text/css">
+  
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+  <!--[if lte IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"></script>
+  <![endif]-->
+
+<!--  -->
+<!--     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--  -->
+  
+<script src="/dist/jquery-2.0.3.min.js"></script>
+
+
+    <script src="/dist/videoGFW.min.js"></script>
+	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41569408-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+	
+
+
+    <link rel="stylesheet" href="/dist/highlight-default.min.css" media="screen" type="text/css">
+    
+    <script src="/dist/comment.min.js"></script>
+    <script src="/dist/marked.min.js"></script>
+    
+    <script src="/dist/highlight.min.js"></script>
+    <script src="/dist/timeago.min.js"></script>
+	<script src="/dist/spin.min.js"></script>
+
+
+</head>
+
+
+<body data-spy="scroll" data-target=".toc">  
+  <header id="header" class="inner"><div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+            <a data-pjax class="brand" href="/">HaHack</a>
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="nav-collapse collapse">
+            <ul class="nav">				
+			    
+				   <li><a data-pjax href="/archive" title="所有文章归档">Archive</a></li>
+    			
+				   <li><a data-pjax href="/categories" title="所有文章分类">Categories</a></li>
+    			
+				   <li><a data-pjax href="/tags" title="所有文章标签">Tags</a></li>
+    			
+				
+				<li class="divider-vertical"></li>
+			   	<li><a data-pjax href="/wiki" title="我的笔记库">wiki</a></li>				   
+				
+            </ul>			
+			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown">Works <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">				
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/wukong-robot" title="wukong-robot 是一个简单、灵活、优雅的中文语音对话机器人。"><i class="fab fa-github"></i>wukong-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/dingdang-robot/dingdang-robot" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fab fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/comment-js" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fab fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/qtevm" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fab fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fab fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fab fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fab fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fab fa-github"></i>Dissertation</a></li>
+				
+                </ul>                
+				</li>
+                <li class="dropdown works">
+				<a data-pjax href="#" title="课程" class="dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/list/python%20next%20潘伟洲" title="Python 从入门到实践系列"><i class="fa fa-video"></i>Python</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/326820" title="微信小游戏入门与实战"><i class="fa fa-video"></i>minigame</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/350627" title="使用Cocos Creator开发微信小游戏《2048》"><i class="fa fa-video"></i>2048</a></li>
+				
+                </ul>                
+				</li>                
+				<li class="dropdown">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown">Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/wechat.html" title="订阅 HaHack 的公众平台"><i class="fa fa-qrcode"></i>WeChat</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" href="http://toutiao.io/u/147640" title=""><i class="fa fa-align-justify"></i>Toutiao</a></li>
+				
+                	        </ul>
+				</li>
+				
+				<li><a data-pjax href="/about" title="关于我">About</a></li>				   				
+   					  
+            </ul>
+            </div> <!-- nav-collapse collapse -->
+        </div> <!-- container -->
+     </div> <!-- navbar-inner -->
+</div> <!-- navbar navbar-inverse -->
+</header>
+  <div class="container" id="container">
+  	<div class="content">
+    	 
+
+<!-- title -->
+<div class="page-header">
+     <h1><i class="fa fa-tag"></i> Beamer</h1>    
+</div>
+
+<div class="row-fluid page">
+	<!-- span -->
+	
+	<div class="span9">
+	
+
+
+
+	<!-- display as entry -->
+	<div class="mypage">
+	
+		
+	
+	<!-- display as entry -->
+		<h3 class="title">
+		<div class="date"> Aug 31 2012 </div>
+			<div class="article-title"><a data-pjax href="/tools/org-beamer-cn/" title="一份用于生成中文beamer幻灯片的org-mode模板。">org-mode的中文beamer幻灯片模板</a></div>			
+		</h3>
+	
+
+
+		<div class="entry">
+    <ul class="thumbnails">
+    
+    
+      <p>org-mode 是 Emacs
+的杀手级应用，使用它可以用来做很多事情，如GTD、做笔记等。它可以导出多种格式的文件，包括HTML、LaTeX、Freemind、DocBook等，因此，通过定制之后，编写一份org文件就等于同时编写（或者排版）了多种格式文件，而且每种格式的文件又可以各自拥有不同的排版效果。这正是
+org-mode 精妙之处。</p>
+<p>比如，我最喜欢的做法是先在 Emacs 里打开 evernote-mode 写一份 org-mode
+的笔记，然后 <code>C-c C-e H</code> 导出成 HTML
+代码，并发布到我的博客中或者加入到我的 wiki 里。如果有需要，我还可以
+<code>C-c C-e l</code> 生成 LaTeX 代码并编译成 PDF 文件。</p>
+<p>用 org-mode 制作 Beamer 幻灯片也很简单，官方已经给出了
+<a href="http://orgmode.org/worg/org-tutorials/org-beamer/tutorial.html" target="_blank" rel="external">详细的教程</a>
+，照着一步步做即可。官方的教程并没有针对中文进行定制，因此笔者写了一个org-mode的Beamer中文模板，这是在
+<a href="http://orgmode.org/manual/Beamer-class-export.html#Beamer-class-export" target="_blank" rel="external">Carsten
+Dominik的例子</a>
+的基础上修改得到的。</p>
+	  
+       
+   </ul>
+   <a data-pjax href="/tools/org-beamer-cn/#more" class="btn more">Read More</a>
+</div>    
+
+	
+	</div>
+	<div>
+	<center>
+	<div class="pagination">
+	 
+</div>
+
+
+	</center>
+	</div>	
+
+
+</div> <!-- span9/span12 -->
+
+
+	<div class="span3">
+	<div id="sidebar">
+	
+		
+			
+<div class="widget">
+  <h4>Recent Posts</h4>
+  <ul class="entry">
+    
+      <li>
+        <a href="/codes/wukong-robot-intro/"  title="介绍我的第二个开源智能音箱项目：wukong-robot 以及配套的教程。" ><i class="fa fa-file-o"></i>wukong-robot：一个更加优雅的中文智能音箱项目</a>
+      </li>
+    
+      <li>
+        <a href="/life/2018-montage/"  title="以 montage 的形式，回顾我的 2018 年。本文所有内容仅代表个人观点，与雇主无关。" ><i class="fa fa-file-o"></i>2018 蒙太奇</a>
+      </li>
+    
+      <li>
+        <a href="/work/introducing-beamerstyleslides/"  title="介绍一套开源的Beamer风格幻灯片模板集 BeamerStyleSlides 。" ><i class="fa fa-file-o"></i>使用 BeamerStyleSlides 制作你的技术...</a>
+      </li>
+    
+      <li>
+        <a href="/codes/writing-2048-wechat-game-in-cocos-creator/" ><i class="fa fa-file-o"></i>公开课：使用Cocos Creator开发微信小游戏《...</a>
+      </li>
+    
+      <li>
+        <a href="/codes/cocos-based-high-performance-cross-platform-app-developing/"  title="我在GMTC上分享的Cocos跨平台应用开发心得。" ><i class="fa fa-file-o"></i>基于 Cocos 的高性能跨平台开发方案</a>
+      </li>
+    
+  </ul>
+</div>
+
+		
+			
+<div class="widget">
+	<h4>Links</h4>
+	<ul class="blogroll">
+	
+		<li><i class="fab fa-github"></i><a href="http://www.github.com/wzpan" title="我的 Github" target="_blank"]);">My Github</a></li>
+	
+		<li><i class="fa fa-linkedin"></i><a href="http://www.linkedin.com/pub/weizhou-pan/5b/8a0/161" title="跟我的LinkedIn建立链接吧！" target="_blank"]);">My LinkedIn</a></li>
+	
+		<li><i class="fa fa-weibo"></i><a href="http://weibo.com/weizhoupan" title="深恶痛绝僵尸粉、广告账户、troller和其他spam，宁删错不放过" target="_blank"]);">My Weibo</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://coolshell.cn" title="陈皓的博客，国内程序员的教父" target="_blank"]);">CoolShell</a></li>
+	
+		<li><i class="fa fa-globe  "></i><a href="http://freemind.pluskid.org" title="张弛原，Yasnippet原作者，现于 Google Brain 。多才多艺的天才。" target="_blank"]);">Pluskid</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://chaoyanghe.com/" title="何朝阳，在百度、腾讯的同事。现于美国 USC 攻读机器学习博士学位" target="_blank"]);">Chaoyang He</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://xahlee.org" title="One of the best Hackers I've ever known." target="_blank"]);">Xahlee</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://blog.sina.com.cn/lanbow" title="哥儿们" target="_blank"]);">Pritry</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://web.siat.ac.cn/~jiacheng/" title="VCC知名设计师，漫画家" target="_blank"]);">大成の梦之园</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://www.cnblogs.com/qwcbeyond/" title="超哥" target="_blank"]);">30斤大番薯</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://popozhu.github.io/" title="大学同学" target="_blank"]);">popozhu</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://blog.onlyice.net/" title="师弟" target="_blank"]);">only4ice</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://yunying.me/" title="师弟" target="_blank"]);">云影</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://daoluan.net/" title="师弟" target="_blank"]);">捣乱</a></li>
+	
+		<li><i class="fa fa-globe"></i><a href="http://bibodeng.com/" title="师弟" target="_blank"]);">bibodeng</a></li>
+	
+	</ul>
+</div>
+
+
+		
+	
+	</div> <!-- sidebar -->
+</div> <!-- span3 -->
+
+
+
+
+	</div>	
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2019 Joseph Pan
+  
+    <small>
+     <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
+    </small>
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+
+
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/dist/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/dist/gallery.min.js"></script>
+<script src="/dist/bootstrap.min.js"></script>
+<script src="/dist/jquery.tableofcontents.min.js"></script>
+<script src="/dist/tocgenerator.min.js"></script>
+<script src="/dist/require.min.js"></script>
+<script src="/dist/main.min.js"></script>
+
+
+
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
+})(jQuery);
+</script>
+
+
+
+
+<!-- syntax highlighting -->
+
+  <script>
+  marked.setOptions({
+    highlight: function (code, lang) {
+        return hljs.highlightAuto(code).value;
+    }
+  });
+  function Highlighting(){
+    var markdowns = document.getElementsByClassName('markdown');
+    for(var i=0;i<markdowns.length;i++){
+        if(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);
+    }
+  }
+  window.addEventListener('DOMContentLoaded', Highlighting, false);
+  window.addEventListener('load', Highlighting, false);
+  </script>
+
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+  (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+  e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v1/st.js','_st');
+
+  _st('install','ney3Rb77vMaWT2KUKFyt');
+</script>
+
+
+
+
+
+</body>
+</html>

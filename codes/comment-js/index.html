@@ -41,8 +41,8 @@
   <![endif]-->
 
 <!--  -->
-<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
-<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 <!--  -->
   
 <script src="/dist/jquery-2.0.3.min.js"></script>
@@ -50,6 +50,19 @@
 
     <script src="/dist/videoGFW.min.js"></script>
 	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41569408-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
 	
 
 
@@ -79,18 +92,55 @@
             <div class="nav-collapse collapse">
             <ul class="nav">				
 			    
-				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
-				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
-				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				   <li><a data-pjax href="/archive" title="所有文章归档">Archive</a></li>
+    			
+				   <li><a data-pjax href="/categories" title="所有文章分类">Categories</a></li>
+    			
+				   <li><a data-pjax href="/tags" title="所有文章标签">Tags</a></li>
+    			
 				
 				<li class="divider-vertical"></li>
-			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+			   	<li><a data-pjax href="/wiki" title="我的笔记库">wiki</a></li>				   
 				
             </ul>			
 			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown">Works <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">				
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/wukong-robot" title="wukong-robot 是一个简单、灵活、优雅的中文语音对话机器人。"><i class="fab fa-github"></i>wukong-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/dingdang-robot/dingdang-robot" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fab fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/comment-js" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fab fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/qtevm" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fab fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fab fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fab fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fab fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fab fa-github"></i>Dissertation</a></li>
+				
+                </ul>                
+				</li>
+                <li class="dropdown works">
+				<a data-pjax href="#" title="课程" class="dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/list/python%20next%20潘伟洲" title="Python 从入门到实践系列"><i class="fa fa-video"></i>Python</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/326820" title="微信小游戏入门与实战"><i class="fa fa-video"></i>minigame</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/350627" title="使用Cocos Creator开发微信小游戏《2048》"><i class="fa fa-video"></i>2048</a></li>
+				
+                </ul>                
+				</li>                
 				<li class="dropdown">
-				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown">Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
 				
 				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
 				
@@ -101,7 +151,7 @@
                 	        </ul>
 				</li>
 				
-				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+				<li><a data-pjax href="/about" title="关于我">About</a></li>				   				
    					  
             </ul>
             </div> <!-- nav-collapse collapse -->
@@ -181,7 +231,7 @@
 </ul>
 <h3 id="0-添加静态资源文件">0. 添加静态资源文件</h3>
 <p>在页面中添加这些资源：</p>
-<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- stylesheet --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"path_to_comment_css/comment.css"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- for IE support --&gt;</span></div><div class="line"><span class="comment">&lt;!--[if lte IE 9]&gt;</span></div><div class="line">    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"&gt;&lt;/script&gt;</div><div class="line">    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"&gt;&lt;/script&gt;</div><div class="line">&lt;![endif]--&gt;</div><div class="line"></div><div class="line"><span class="comment">&lt;!-- javascripts --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"</span>&gt;</span><span class="javascript">/script&gt;</span></div><div class="line"><span class="xml"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"</span>&gt;</span><span class="javascript"></span></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/timeago.js/3.0.2/timeago.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- loading spin indicator(optional) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- syntax highlighting(optional) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">  marked.setOptions({</div><div class="line">  highlight: <span class="function"><span class="keyword">function</span> <span class="params">(code, lang)</span> </span>{</div><div class="line">     <span class="keyword">return</span> hljs.highlightAuto(code).value;</div><div class="line">  }</div><div class="line">  });</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Highlighting</span><span class="params">()</span></span>{</div><div class="line">    <span class="keyword">var</span> markdowns = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'markdown'</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;markdowns.length;i++){</div><div class="line">       <span class="keyword">if</span>(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);</div><div class="line">    }</div><div class="line">  }</div><div class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, Highlighting, <span class="literal">false</span>);</div><div class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, Highlighting, <span class="literal">false</span>);</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- comment.js --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"path_to_comment_js/comment.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- stylesheet --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"path_to_comment_css/comment.css"</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- for IE support --&gt;</span></div><div class="line"><span class="comment">&lt;!--[if lte IE 9]&gt;</span></div><div class="line">    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.9/es5-shim.min.js"&gt;&lt;/script&gt;</div><div class="line">    &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-sham.min.js"&gt;&lt;/script&gt;</div><div class="line">&lt;![endif]--&gt;</div><div class="line"></div><div class="line"><span class="comment">&lt;!-- javascripts --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.6/marked.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/timeago.js/3.0.2/timeago.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- loading spin indicator(optional) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- syntax highlighting(optional) --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">link</span> <span class="attribute">rel</span>=<span class="value">"stylesheet"</span> <span class="attribute">href</span>=<span class="value">"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">  marked.setOptions({</div><div class="line">  highlight: <span class="function"><span class="keyword">function</span> <span class="params">(code, lang)</span> </span>{</div><div class="line">     <span class="keyword">return</span> hljs.highlightAuto(code).value;</div><div class="line">  }</div><div class="line">  });</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">Highlighting</span><span class="params">()</span></span>{</div><div class="line">    <span class="keyword">var</span> markdowns = <span class="built_in">document</span>.getElementsByClassName(<span class="string">'markdown'</span>);</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;markdowns.length;i++){</div><div class="line">       <span class="keyword">if</span>(markdowns[i].innerHTML) markdowns[i].innerHTML =marked(markdowns[i].innerHTML);</div><div class="line">    }</div><div class="line">  }</div><div class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'DOMContentLoaded'</span>, Highlighting, <span class="literal">false</span>);</div><div class="line">  <span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, Highlighting, <span class="literal">false</span>);</div><div class="line"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="comment">&lt;!-- comment.js --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"path_to_comment_js/comment.js"</span>&gt;</span><span class="javascript"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <h3 id="1-注册-oauth-app">1. 注册 OAuth App</h3>
 <p>为了避免 API 被恶意滥用，Github API （以及 OSChina API）设定了一个<a href="https://developer.github.com/v3/#rate-limiting" target="_blank" rel="external">API调用频率限制</a>。为了提高频率限额，建议 [注册一个 Oauth App](Register a OAuth application](<a href="https://github.com/settings/applications/new" target="_blank" rel="external">https://github.com/settings/applications/new</a>)。</p>
 <p>完成注册后，你将得到一个 <code>client id</code> 以及一个 <code>client_secret</code> ，先将这两个值记下来，后面我们会用到。</p>
@@ -254,14 +304,10 @@
 
 		</div>
 
-		<!-- jiathis -->
+		<!-- bdshare -->
 		
-<!-- JiaThis Button BEGIN -->
-<script type="text/javascript">
-var jiathis_config = {data_track_clickback:'true'};
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
-<!-- JiaThis Button END -->
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"5","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
 
         
 
@@ -324,11 +370,11 @@ var jiathis_config = {data_track_clickback:'true'};
 	<!-- donate guide -->
 	<div id="donate_guide" class="donate_bar center hidden">
         <div class="row center">
-		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
-			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		<a href="/images/misc/alipay.png" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="/images/misc/alipay.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
 		</a>&nbsp;
-		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
-			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		<a href="/images/misc/wechatpay.jpeg" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="/images/misc/wechatpay.jpeg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
 		</a>
         </div>
 		<span class="donate_txt">
@@ -346,9 +392,6 @@ var jiathis_config = {data_track_clickback:'true'};
 		document.getElementById('btn_donate').onclick = function(){
 			$('#donate_board').addClass('hidden');
 			$('#donate_guide').removeClass('hidden');
-		}
-		function donate_on_web(){
-			$('#donate').submit();
 		}
 	</script>
 	<!-- /donate script -->
@@ -405,7 +448,7 @@ var jiathis_config = {data_track_clickback:'true'};
 
 	<!-- donate -->
 	<div class="meta-widget">
-	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	<a href="#donate_module" id="a_donate" class="a_donate"><i class="fa fa-smile-o"></i> Donate this article</a>
 	</div>
 
 	<!-- date -->
@@ -423,7 +466,7 @@ var jiathis_config = {data_track_clickback:'true'};
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a data-pjax href="/categories/codes/">codes<span>32</span></a></li>
+    <li><a data-pjax href="/categories/codes/">codes<span>36</span></a></li>
   </li>
 
     </ul>
@@ -445,6 +488,13 @@ var jiathis_config = {data_track_clickback:'true'};
     <hr>
 </div><!-- span3 -->
 
+<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('a_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
 	
 
 </div><!-- row-fluid post-full -->
@@ -453,11 +503,8 @@ var jiathis_config = {data_track_clickback:'true'};
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2017 Joseph Pan
+  &copy; 2019 Joseph Pan
   
-      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
-. 
     <small>
      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
     </small>
@@ -481,13 +528,18 @@ var jiathis_config = {data_track_clickback:'true'};
 <script src="/dist/main.min.js"></script>
 
 
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
 
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 
@@ -513,6 +565,7 @@ var jiathis_config = {data_track_clickback:'true'};
   </script>
 
 
+
 <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
   (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
@@ -521,6 +574,9 @@ var jiathis_config = {data_track_clickback:'true'};
 
   _st('install','ney3Rb77vMaWT2KUKFyt');
 </script>
+
+
+
 
 
 </body>

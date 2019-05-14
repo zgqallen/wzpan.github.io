@@ -41,8 +41,8 @@
   <![endif]-->
 
 <!--  -->
-<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
-<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 <!--  -->
   
 <script src="/dist/jquery-2.0.3.min.js"></script>
@@ -50,6 +50,19 @@
 
     <script src="/dist/videoGFW.min.js"></script>
 	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41569408-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
 	
 
 
@@ -79,18 +92,55 @@
             <div class="nav-collapse collapse">
             <ul class="nav">				
 			    
-				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
-				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
-				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				   <li><a data-pjax href="/archive" title="所有文章归档">Archive</a></li>
+    			
+				   <li><a data-pjax href="/categories" title="所有文章分类">Categories</a></li>
+    			
+				   <li><a data-pjax href="/tags" title="所有文章标签">Tags</a></li>
+    			
 				
 				<li class="divider-vertical"></li>
-			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+			   	<li><a data-pjax href="/wiki" title="我的笔记库">wiki</a></li>				   
 				
             </ul>			
 			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown">Works <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">				
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/wukong-robot" title="wukong-robot 是一个简单、灵活、优雅的中文语音对话机器人。"><i class="fab fa-github"></i>wukong-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/dingdang-robot/dingdang-robot" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fab fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/comment-js" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fab fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/qtevm" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fab fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fab fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fab fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fab fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fab fa-github"></i>Dissertation</a></li>
+				
+                </ul>                
+				</li>
+                <li class="dropdown works">
+				<a data-pjax href="#" title="课程" class="dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/list/python%20next%20潘伟洲" title="Python 从入门到实践系列"><i class="fa fa-video"></i>Python</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/326820" title="微信小游戏入门与实战"><i class="fa fa-video"></i>minigame</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/350627" title="使用Cocos Creator开发微信小游戏《2048》"><i class="fa fa-video"></i>2048</a></li>
+				
+                </ul>                
+				</li>                
 				<li class="dropdown">
-				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown">Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
 				
 				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
 				
@@ -101,7 +151,7 @@
                 	        </ul>
 				</li>
 				
-				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+				<li><a data-pjax href="/about" title="关于我">About</a></li>				   				
    					  
             </ul>
             </div> <!-- nav-collapse collapse -->
@@ -241,17 +291,17 @@
 </tbody>
 </table>
 <h2 id="常见问题">常见问题</h2>
-<p><span class="label label-important">Q</span> 运行过程中出现 “[GodEyes] Error occurs while generating compilation database.” 错误。</p>
-<p><span class="label label-success">A</span> 出现这个错误意味着你的 xctoolCommand 没有配对，导致编译数据库没有正确生成。请详细阅读 xctool 的说明。只有按照 xctool 的说明写好 xctoolCommand 生成编译数据库，才能在下一步调用 GodEyes 进行静态扫描。你可以在 GodEyes 的根目录执行：</p>
+<p><span class="label label-Q">important</span> 运行过程中出现 “[GodEyes] Error occurs while generating compilation database.” 错误。</p>
+<p><span class="label label-A">success</span> 出现这个错误意味着你的 xctoolCommand 没有配对，导致编译数据库没有正确生成。请详细阅读 xctool 的说明。只有按照 xctool 的说明写好 xctoolCommand 生成编译数据库，才能在下一步调用 GodEyes 进行静态扫描。你可以在 GodEyes 的根目录执行：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xctool/bin/xctool --help</div></pre></td></tr></table></figure></p>
 <p>来打印 xctool 的帮助，也可以访问 xctool 的 <a href="https://github.com/facebook/xctool" target="_blank" rel="external">Github 主页</a>获得更多的帮助。</p>
-<p><span class="label label-important">Q</span> 运行过程中出现 “LLVM ERROR: Could not auto-detect compilation database for file XXX/XXX/XXX”、“No compilation database found in XXX/XXX/XXX or any parent directory。” 等类似错误。</p>
-<p><span class="label label-success">A</span> 如果这些引发错误的源文件并非来自你的主工程，而是来自第三方库，你需要将这些第三方库的路径添加到排除列表中。如果你希望 GodEyes 扫描这些第三方库，可以直接拷贝一份 GodEyes ，然后为这些第三方库编写配置文件，再完成扫描。</p>
-<p><span class="label label-important">Q</span> 运行过程中出现 “[GodEyes] Another GodEyes instance is running!” 错误。</p>
-<p><span class="label label-success">A</span> GodEyes 运行时会在当前目录下创建一个 godeyes.tmp 临时文件，以记录程序的配置信息。为了避免多个 GodEyes 进程同时对同个临时文件进行读写导致意外错误，在任意时刻只允许运行一个 GodEyes 进程。所以，如果你遇到这个错误，请等待上一个 GodEyes 程序运行完成。如果你确定当前没有运行其他 GodEyes 程序，可以手动将 godeyes.tmp 文件删除。</p>
+<p><span class="label label-Q">important</span> 运行过程中出现 “LLVM ERROR: Could not auto-detect compilation database for file XXX/XXX/XXX”、“No compilation database found in XXX/XXX/XXX or any parent directory。” 等类似错误。</p>
+<p><span class="label label-A">success</span> 如果这些引发错误的源文件并非来自你的主工程，而是来自第三方库，你需要将这些第三方库的路径添加到排除列表中。如果你希望 GodEyes 扫描这些第三方库，可以直接拷贝一份 GodEyes ，然后为这些第三方库编写配置文件，再完成扫描。</p>
+<p><span class="label label-Q">important</span> 运行过程中出现 “[GodEyes] Another GodEyes instance is running!” 错误。</p>
+<p><span class="label label-A">success</span> GodEyes 运行时会在当前目录下创建一个 godeyes.tmp 临时文件，以记录程序的配置信息。为了避免多个 GodEyes 进程同时对同个临时文件进行读写导致意外错误，在任意时刻只允许运行一个 GodEyes 进程。所以，如果你遇到这个错误，请等待上一个 GodEyes 程序运行完成。如果你确定当前没有运行其他 GodEyes 程序，可以手动将 godeyes.tmp 文件删除。</p>
 <p>如果确实需要同时启用多个 GodEyes 扫描多个工程，可以再拷贝一份 GodEyes 目录，删掉新目录下的 godeyes.tmp 文件，然后在不同的目录下执行各自的 GodEyes 程序，由于读取的是不同位置的 godeyes.tmp 临时文件，就不会出现这个问题。</p>
-<p><span class="label label-important">Q</span> 扫描得到的 json 结果文件怎么阅读？</p>
-<p><span class="label label-success">A</span> 首先建议使用 JSON 格式化工具阅读该文件里的内容：<a href="http://www.w3cschool.cc/tool/json/index.html" target="_blank" rel="external">http://www.w3cschool.cc/tool/json/index.html</a> 。</p>
+<p><span class="label label-Q">important</span> 扫描得到的 json 结果文件怎么阅读？</p>
+<p><span class="label label-A">success</span> 首先建议使用 JSON 格式化工具阅读该文件里的内容：<a href="http://www.w3cschool.cc/tool/json/index.html" target="_blank" rel="external">http://www.w3cschool.cc/tool/json/index.html</a> 。</p>
 <p>一个经过格式化的 json 结果如下：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">{</div><div class="line">    "status": "ok"</div><div class="line">    "results": [</div><div class="line">        {</div><div class="line">            "rule_name": "ObjC.ReturnTypeInconsistent"</div><div class="line">            </div><div class="line">            "type": "ReturnTypeInconsistentRule",</div><div class="line">            </div><div class="line">            "num": "1",</div><div class="line">            </div><div class="line">            "rule_result": [</div><div class="line">                {</div><div class="line">                    "lines": "75,",</div><div class="line">                    "file": "/Users/wzpan/Documents/workspace/HelloWorld/HelloWorld/MyCircle.m"</div><div class="line">                }</div><div class="line">            ],</div><div class="line">            </div><div class="line">        }</div><div class="line">    ],</div><div class="line">}</div></pre></td></tr></table></figure></p>
 <p>json 是逐条规则列出违反清单的。</p>
@@ -261,26 +311,22 @@
 <li>rule_result 是违反规则的位置。</li>
 </ul>
 <p>从上面的结果可以看出，该项目违反了 1 次“函数返回值必须与实际返回类型一致隐患”规则，违反位置在 <code>/Users/wzpan/Documents/workspace/HelloWorld/HelloWorld/MyCircle.m</code> 文件中的第 75 行。</p>
-<p><span class="label label-important">Q</span> GodEyes-iOS 有哪些局限性？</p>
-<p><span class="label label-success">A</span> 下面这些情况是 GodEyes-iOS 目前无法正常处理的：</p>
+<p><span class="label label-Q">important</span> GodEyes-iOS 有哪些局限性？</p>
+<p><span class="label label-A">success</span> 下面这些情况是 GodEyes-iOS 目前无法正常处理的：</p>
 <ul>
 <li>不能解析宏。这意味着如果你使用了宏来检测版本，则可能会导致 API 兼容性规则误报；</li>
 <li>不能理解用户自定义的类型。这意味着 GodEyes 无法对从 NS 数据结构类继承而来的自定义类型应用相关的 NS 数据结构的规则；</li>
 <li>不支持动态分析。这意味着如果你的代码中存在一些运行时才能获取的状态，则可能导致与 GodEyes 规则冲突时产生误报。</li>
 </ul>
-<p><span class="label label-important">Q</span> GodEyes-iOS 的扫描结果有误报呀。</p>
-<p><span class="label label-success">A</span> 如果出现误报，而且不属于上一个问题列出的几种情况，可以 <a href="mailto:2983512772@qq.com" target="_blank" rel="external">联系开发者</a> ，告诉我们误报的规则名以及涉及的代码，以便进行修复。</p>
+<p><span class="label label-Q">important</span> GodEyes-iOS 的扫描结果有误报呀。</p>
+<p><span class="label label-A">success</span> 如果出现误报，而且不属于上一个问题列出的几种情况，可以 <a href="mailto:2983512772@qq.com" target="_blank" rel="external">联系开发者</a> ，告诉我们误报的规则名以及涉及的代码，以便进行修复。</p>
 
 		</div>
 
-		<!-- jiathis -->
+		<!-- bdshare -->
 		
-<!-- JiaThis Button BEGIN -->
-<script type="text/javascript">
-var jiathis_config = {data_track_clickback:'true'};
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
-<!-- JiaThis Button END -->
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"5","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
 
         
 
@@ -343,11 +389,11 @@ var jiathis_config = {data_track_clickback:'true'};
 	<!-- donate guide -->
 	<div id="donate_guide" class="donate_bar center hidden">
         <div class="row center">
-		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
-			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		<a href="/images/misc/alipay.png" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="/images/misc/alipay.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
 		</a>&nbsp;
-		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
-			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		<a href="/images/misc/wechatpay.jpeg" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="/images/misc/wechatpay.jpeg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
 		</a>
         </div>
 		<span class="donate_txt">
@@ -365,9 +411,6 @@ var jiathis_config = {data_track_clickback:'true'};
 		document.getElementById('btn_donate').onclick = function(){
 			$('#donate_board').addClass('hidden');
 			$('#donate_guide').removeClass('hidden');
-		}
-		function donate_on_web(){
-			$('#donate').submit();
 		}
 	</script>
 	<!-- /donate script -->
@@ -424,7 +467,7 @@ var jiathis_config = {data_track_clickback:'true'};
 
 	<!-- donate -->
 	<div class="meta-widget">
-	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	<a href="#donate_module" id="a_donate" class="a_donate"><i class="fa fa-smile-o"></i> Donate this article</a>
 	</div>
 
 	<!-- date -->
@@ -442,7 +485,7 @@ var jiathis_config = {data_track_clickback:'true'};
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a data-pjax href="/categories/codes/">codes<span>32</span></a></li>
+    <li><a data-pjax href="/categories/codes/">codes<span>36</span></a></li>
   </li>
 
     </ul>
@@ -464,6 +507,13 @@ var jiathis_config = {data_track_clickback:'true'};
     <hr>
 </div><!-- span3 -->
 
+<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('a_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
 	
 
 </div><!-- row-fluid post-full -->
@@ -472,11 +522,8 @@ var jiathis_config = {data_track_clickback:'true'};
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2017 Joseph Pan
+  &copy; 2019 Joseph Pan
   
-      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
-. 
     <small>
      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
     </small>
@@ -500,13 +547,18 @@ var jiathis_config = {data_track_clickback:'true'};
 <script src="/dist/main.min.js"></script>
 
 
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
 
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 
@@ -532,6 +584,7 @@ var jiathis_config = {data_track_clickback:'true'};
   </script>
 
 
+
 <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
   (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
@@ -540,6 +593,9 @@ var jiathis_config = {data_track_clickback:'true'};
 
   _st('install','ney3Rb77vMaWT2KUKFyt');
 </script>
+
+
+
 
 
 </body>

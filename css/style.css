@@ -53,6 +53,10 @@ body {
   font-size: 0.9em;
 }
 
+a {
+    word-break: break-word;
+}
+
 .meta-widget {
   margin: 10px 0;
 }
@@ -314,7 +318,8 @@ blockquote {
 }
 
 blockquote p, blockquote ol, blockquote ul, blockquote li, .slogan{  
-  font-family: 'Open Sans', "Helvetica Neue", Helvetica, "Segoe UI", Ubuntu, "Hiragino Sans GB", '楷体', 'STKaiti';
+    font-family: 'Lora', 'Georgia', "Times New Roman", '楷体', 'STKaiti', 'serif';
+    font-style: italic;
 }
 
 /* =============================================================================

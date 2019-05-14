@@ -41,8 +41,8 @@
   <![endif]-->
 
 <!--  -->
-<!--     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
-<!--     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow|PT+Sans:400,400italic,700,700italic|Droid+Serif:400,400italic' rel='stylesheet' type='text/css'> -->
+<!--     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
 <!--  -->
   
 <script src="/dist/jquery-2.0.3.min.js"></script>
@@ -50,6 +50,19 @@
 
     <script src="/dist/videoGFW.min.js"></script>
 	
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-41569408-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+
+ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
 	
 
 
@@ -79,18 +92,55 @@
             <div class="nav-collapse collapse">
             <ul class="nav">				
 			    
-				   <li><a data-pjax href="/archive" title="所有文章归档"><i class="fa fa-archive"></i>Archive</a></li>				   			    			
-				   <li><a data-pjax href="/categories" title="所有文章分类"><i class="fa fa-folder"></i>Categories</a></li>				   			    			
-				   <li><a data-pjax href="/tags" title="所有文章标签"><i class="fa fa-tags"></i>Tags</a></li>				   			    			
+				   <li><a data-pjax href="/archive" title="所有文章归档">Archive</a></li>
+    			
+				   <li><a data-pjax href="/categories" title="所有文章分类">Categories</a></li>
+    			
+				   <li><a data-pjax href="/tags" title="所有文章标签">Tags</a></li>
+    			
 				
 				<li class="divider-vertical"></li>
-			   	<li><a data-pjax href="/wiki" title="我的笔记库"><i class="fa fa-tasks"></i>wiki</a></li>				   
+			   	<li><a data-pjax href="/wiki" title="我的笔记库">wiki</a></li>				   
 				
             </ul>			
 			<ul class="nav navright">
+				<li class="dropdown works">
+				<a data-pjax href="#" title="作品集" class="dropdown-toggle" data-toggle="dropdown">Works <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">				
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/wukong-robot" title="wukong-robot 是一个简单、灵活、优雅的中文语音对话机器人。"><i class="fab fa-github"></i>wukong-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/dingdang-robot/dingdang-robot" title="叮当是一款可以工作在 Raspberry Pi 上的中文语音对话机器人/智能音箱项目。"><i class="fab fa-github"></i>dingdang-robot</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/comment-js" title="纯JS实现的静态站点评论系统，使用 Github/OSChina 作为 backend。"><i class="fab fa-github"></i>comment.js</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://github.com/wzpan/qtevm" title="首个完整的 C++ 开源实现，能同时放大动作变化和颜色变化"><i class="fab fa-github"></i>QtEVM</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/hexo-series" title="为 Hexo 写的一系列主题/工具/插件"><i class="fab fa-github"></i>hexo-series</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/scnu/scnuthesis" title="符合华南师范大学硕士/博士学位论文格式要求的LaTeX模板。"><i class="fab fa-github"></i>SCNUThesis</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://github.com/wzpan/wzpan.github.io/wiki/slides" title="一些幻灯片作品"><i class="fab fa-github"></i>Slides</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="http://hahack.com/codes/fcevm/" title="硕士毕业论文"><i class="fab fa-github"></i>Dissertation</a></li>
+				
+                </ul>                
+				</li>
+                <li class="dropdown works">
+				<a data-pjax href="#" title="课程" class="dropdown-toggle" data-toggle="dropdown">Courses <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/list/python%20next%20潘伟洲" title="Python 从入门到实践系列"><i class="fa fa-video"></i>Python</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/326820" title="微信小游戏入门与实战"><i class="fa fa-video"></i>minigame</a></li>
+				
+				   <li role="presentation"><a role="menuitem" tabindex="-1" target="_blank" href="https://ke.qq.com/course/350627" title="使用Cocos Creator开发微信小游戏《2048》"><i class="fa fa-video"></i>2048</a></li>
+				
+                </ul>                
+				</li>                
 				<li class="dropdown">
-				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-rss"></i>Subscribe <b class="caret"></b></a>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+				<a data-pjax href="#" title="订阅本站" class="dropdown-toggle" data-toggle="dropdown">Subscribe <b class="caret"></b></a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="drop2">
 				
 				   <li role="presentation"><a role="menuitem" tabindex="-1" href="/atom.xml" title="使用 RSS 阅读器订阅 HaHack"><i class="fa fa-rss-square"></i>RSS</a></li>
 				
@@ -101,7 +151,7 @@
                 	        </ul>
 				</li>
 				
-				<li><a data-pjax href="/about" title="关于我"><i class="fa fa-user"></i>About</a></li>				   				
+				<li><a data-pjax href="/about" title="关于我">About</a></li>				   				
    					  
             </ul>
             </div> <!-- nav-collapse collapse -->
@@ -150,7 +200,7 @@
 <p>应该说，OpenCV 和设计模式并没有什么必然的联系，在 OpenCV 程序中实现 MVC 也没有什么特别的魔法。但在这之前，我已经读完了被称为 <em>Gang of Four</em> 的《<a href="http://c2.com/cgi/wiki?DesignPatternsBook" target="_blank" rel="external">设计模式：可复用面向对象软件的基础</a>》，感觉内容有点偏学术，不太好读。而通过 OpenCV 的实际案例来掌握几种设计模式，比起直接去阅读各种设计模式的定义要容易让人接受得多。 <a id="more"></a></p>
 <p>好东西当然要拿出来分享，所以我结合自己的理解，重新组织了这部分的内容 <span class="margin-note-marker"><sup>1</sup></span> <span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><span class="margin-note-marker">1</span>本文源代码可以在 <a href="https://github.com/wzpan/Qt_Toys/tree/master/ColorDetector" target="_blank" rel="external">这里</a> 找到。 </span></span></span> 。</p>
 <h2 id="什么是-mvc-架构">什么是 MVC 架构</h2>
-<p>MVC 架构是一种将用户界面和内部逻辑清晰地分离的手段，它由三个部分构成：<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/opencv-and-mvc/837UdX.png" alt=" OpenCV 2 Computer Vision Application Programming Cookbook"><b>图 1</b>  OpenCV 2 Computer Vision Application Programming Cookbook</span></span></span></p>
+<p>MVC 架构是一种将用户界面和内部逻辑清晰地分离的手段，它由三个部分构成：<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/opencv-and-mvc/837UdX.png" alt=" OpenCV 2 Computer Vision Application Programming Cookbook"><b>附图 1</b>  OpenCV 2 Computer Vision Application Programming Cookbook</span></span></span></p>
 <ul>
 <li><strong>模型（Model）</strong> 保存着与应用相关的数据信息。模型保存着所有需要交给应用程序处理的数据。当产生新的数据时，模型就通知它的视图，而视图将与模型通信以展示这些新数据。</li>
 <li><strong>视图（View）</strong> 与用户的界面对应。视图由多个不同的窗口元素组成，用于将数据展现给用户，并与用户交互。视图的一个作用是将用户的指令发送给控制器。当有可用的新数据时，视图将得到刷新，并展现新内容给用户。</li>
@@ -165,7 +215,7 @@
 <p>颜色检测算法的思路很简单：对图像做一次遍历，并计算每个像素的颜色与目标颜色的欧氏距离，下面给出一个未经重构的简单实现：</p>
 <p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/** </span></div><div class="line"> * detectColor	-	detect color with target </div><div class="line"> *</div><div class="line"> * @param image		-	the color to be detected</div><div class="line"> * @param target	-	the target color</div><div class="line"> * @param minDist	-	minimum distance</div><div class="line"> *</div><div class="line"> * @return the detected result</div><div class="line"> */</div><div class="line">cv::Mat detectColor(<span class="keyword">const</span> cv::Mat &image,</div><div class="line">                    <span class="keyword">const</span> cv::Vec3b &target,</div><div class="line">                    <span class="keyword">const</span> <span class="keyword">int</span> minDist = <span class="number">100</span>) {</div><div class="line">    <span class="comment">// create a Mat container for storing result</span></div><div class="line">    cv::Mat result;</div><div class="line">    <span class="comment">// same size as input image, but 1-channel</span></div><div class="line">    result.create(image.rows,</div><div class="line">                  image.cols,</div><div class="line">                  CV_8U);</div><div class="line">    </div><div class="line">    <span class="comment">// get the iterators</span></div><div class="line">    cv::Mat_&lt;cv::Vec3b&gt;::const_iterator it =</div><div class="line">            image.begin&lt;cv::Vec3b&gt;();</div><div class="line">    cv::Mat_&lt;cv::Vec3b&gt;::const_iterator itend =</div><div class="line">            image.end&lt;cv::Vec3b&gt;();</div><div class="line">    </div><div class="line">    cv::Mat_&lt;uchar&gt;::iterator itout =</div><div class="line">            result.begin&lt;uchar&gt;();</div><div class="line"></div><div class="line">    <span class="comment">// for each pixel</span></div><div class="line">    <span class="keyword">for</span> ( ; it!=itend; ++it, ++itout) {</div><div class="line">        <span class="comment">// process each pixel</span></div><div class="line">        <span class="comment">// compute distance from target color</span></div><div class="line">        <span class="keyword">if</span> (getDistance(*it, target) &lt; minDist) {</div><div class="line">            *itout = <span class="number">255</span>;</div><div class="line">        } <span class="keyword">else</span> {</div><div class="line">            *itout = <span class="number">0</span>;</div><div class="line">        }</div><div class="line">    } <span class="comment">// end of pixel precessing</span></div><div class="line">    <span class="keyword">return</span> result;</div><div class="line">}</div></pre></td></tr></table></figure></p>
 <h2 id="编写模型-model">编写模型（Model）</h2>
-<p>对于图像处理程序，模型是若干个算法模块的组合，所有这些算法模块都是模型的一部分。这些模块往往采取 <strong>策略（Strategy）模式</strong> 来实现。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/opencv-and-mvc/gof.jpg" alt=" Design Patterns: Elements of Reusable Object-Oriented Software"><b>图 2</b>  Design Patterns: Elements of Reusable Object-Oriented Software</span></span></span> GoF 将策略模式定义为：</p>
+<p>对于图像处理程序，模型是若干个算法模块的组合，所有这些算法模块都是模型的一部分。这些模块往往采取 <strong>策略（Strategy）模式</strong> 来实现。<span class="block margin-div-outer"><span class="block margin-div-inner"><span class="block margin-note"><img src="/images/opencv-and-mvc/gof.jpg" alt=" Design Patterns: Elements of Reusable Object-Oriented Software"><b>附图 2</b>  Design Patterns: Elements of Reusable Object-Oriented Software</span></span></span> GoF 将策略模式定义为：</p>
 <p><blockquote>
 
 <p>Define a family of algorithms, encapsulate each one, and make them interchangeable. Strategy lets the algorithm vary independently from clients that use it.</p>
@@ -221,18 +271,14 @@
 <p>相关的代码如下：</p>
 <p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div></pre></td><td class="code"><pre><div class="line">/** </div><div class="line"> * showImage	-	display an image on label</div><div class="line"> *</div><div class="line"> * @param image	-	image for displaying</div><div class="line"> */</div><div class="line">void MainWindow::showImage(cv::Mat image)</div><div class="line">{</div><div class="line">    cv::Mat tmp;</div><div class="line">    QImage img;</div><div class="line">    if (image.channels() == 3) {    // color image</div><div class="line">        cv::cvtColor(image, tmp, CV_BGR2RGB);</div><div class="line">        img = QImage((const unsigned char*)(tmp.data),</div><div class="line">                        tmp.cols, tmp.rows, QImage::Format_RGB888);</div><div class="line">    } else if (image.channels() == 1) {     // gray scale image</div><div class="line">        cv::cvtColor(image, tmp, CV_GRAY2RGB);</div><div class="line">        img = QImage((const unsigned char*)(tmp.data),</div><div class="line">                        tmp.cols, tmp.rows, tmp.step, QImage::Format_RGB888);</div><div class="line">    }</div><div class="line">    // display on label</div><div class="line">    ui-&gt;imageLabel-&gt;setPixmap(QPixmap::fromImage(img));</div><div class="line">    ui-&gt;imageLabel-&gt;repaint();</div><div class="line">}</div><div class="line"></div><div class="line">/** </div><div class="line"> * onOpen()	-	open image</div><div class="line"> *</div><div class="line"> */</div><div class="line">void MainWindow::onOpen()</div><div class="line">{</div><div class="line">    // Callback method of "Open" button.</div><div class="line">    QString fileName = QFileDialog::getOpenFileName(</div><div class="line">                this,</div><div class="line">                tr("Open Image"),</div><div class="line">                ".",</div><div class="line">                tr("Image Files (</div><div class="line">                *.png *.jpg *.jpeg *.bmp)")</div><div class="line">                );</div><div class="line">    if(fileName.isEmpty()) {</div><div class="line">        return;</div><div class="line">    }</div><div class="line"></div><div class="line">    // change the cursor</div><div class="line">    QApplication::setOverrideCursor(Qt::WaitCursor);</div><div class="line"></div><div class="line">    // set and display the input image</div><div class="line">    ColorDetectController::getInstance()-&gt;setInputImage(</div><div class="line">                fileName.toStdString());</div><div class="line"></div><div class="line">    showImage(ColorDetectController::getInstance()-&gt;getInputImage());</div><div class="line"></div><div class="line">    // restore the cursor</div><div class="line">    QApplication::restoreOverrideCursor();</div><div class="line"></div><div class="line">    // get the file's standard location</div><div class="line">    curFile = QFileInfo(fileName).canonicalPath();</div><div class="line"></div><div class="line">    ui-&gt;processBtn-&gt;setEnabled(true);</div><div class="line">    ui-&gt;thresholdSlider-&gt;setEnabled(true);</div><div class="line">    ui-&gt;colorBtn-&gt;setEnabled(true);</div><div class="line">    ui-&gt;saveBtn-&gt;setEnabled(true);</div><div class="line">}</div><div class="line"></div><div class="line">/** </div><div class="line"> * onSelectColor()	-	select target color</div><div class="line"> *</div><div class="line"> */</div><div class="line">void MainWindow::onSelectColor()</div><div class="line">{</div><div class="line">    QColor color = QColorDialog::getColor(Qt::green, this);</div><div class="line">    if (color.isValid()) {</div><div class="line">        ColorDetectController::getInstance()</div><div class="line">            -&gt;setTargetColor(color.red(),</div><div class="line">                color.green(),</div><div class="line">                color.blue()</div><div class="line">                );</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line">/** </div><div class="line"> * onSelectThreshold	-	select threshold</div><div class="line"> *</div><div class="line"> */</div><div class="line">void MainWindow::onSelectThreshold()</div><div class="line">{</div><div class="line">    ui-&gt;thresholdLabel-&gt;setText(tr("Color Distance Threshold: %1")</div><div class="line">            .arg(ui-&gt;thresholdSlider-&gt;value()));</div><div class="line">    ColorDetectController::getInstance()</div><div class="line">            -&gt;setColorDistanceThreshold(</div><div class="line">                ui-&gt;thresholdSlider-&gt;value());</div><div class="line">}</div><div class="line"></div><div class="line">/**</div><div class="line"> * saveImage	-	Save the file to a specified location</div><div class="line"> *</div><div class="line"> * @param fileName	-	the target location</div><div class="line"> *</div><div class="line"> * @return true if the file is successfully saved</div><div class="line"> */</div><div class="line">bool MainWindow::saveImage(const QString &amp;fileName)</div><div class="line">{</div><div class="line">    QFile file(fileName);</div><div class="line"></div><div class="line">    if (!file.open(QFile::WriteOnly)) {</div><div class="line">        QMessageBox::warning(this, tr("ImageViewer"),</div><div class="line">                tr("Enable to save %1: \n %2")</div><div class="line">                .arg(fileName).arg(file.errorString()));</div><div class="line">        return false;</div><div class="line">    }</div><div class="line"></div><div class="line">    // change the cursor</div><div class="line">    QApplication::setOverrideCursor(Qt::WaitCursor);</div><div class="line"></div><div class="line">    // save all the contents to file</div><div class="line">    cv::imwrite(fileName.toStdString(),</div><div class="line">            ColorDetectController::getInstance()-&gt;</div><div class="line">            getLastResult());</div><div class="line"></div><div class="line">    // restore the cursor</div><div class="line">    QApplication::restoreOverrideCursor();</div><div class="line"></div><div class="line">    return true;</div><div class="line">}</div><div class="line"></div><div class="line">/** </div><div class="line"> * onProcess	-	process image</div><div class="line"> *</div><div class="line"> */</div><div class="line">void MainWindow::onProcess()</div><div class="line">{</div><div class="line">    ColorDetectController::getInstance()-&gt;process();</div><div class="line">    cv::Mat resulting =</div><div class="line">            ColorDetectController::getInstance()-&gt;getLastResult();</div><div class="line">    if (!resulting.empty())</div><div class="line">        showImage(resulting);</div><div class="line">}</div><div class="line"></div><div class="line">/** </div><div class="line"> * onSave	-	save the image</div><div class="line"> *</div><div class="line"> */</div><div class="line">void MainWindow::onSave()</div><div class="line">{</div><div class="line">    QString fileName = QFileDialog::getSaveFileName(this,</div><div class="line">                                                    tr("Save as"),</div><div class="line">                                                    curFile);</div><div class="line">    if (!fileName.isEmpty())</div><div class="line">        saveImage(fileName);</div><div class="line">}</div><div class="line"></div><div class="line">/** </div><div class="line"> * onClose	-	destroy the instance</div><div class="line"> *</div><div class="line"> */</div><div class="line">void MainWindow::onClose()</div><div class="line">{</div><div class="line">    ColorDetectController::getInstance()-&gt;destroy();</div><div class="line">}</div></pre></td></tr></table></figure></p>
 <h2 id="本文源代码">本文源代码</h2>
-<p><i class="fa fa-github"></i> 本文的源代码可以在 <a href="https://github.com/wzpan/Qt_Toys/tree/master/ColorDetector" target="_blank" rel="external">这里</a> 找到。</p>
+<p><i class="fab fa-github"></i> 本文的源代码可以在 <a href="https://github.com/wzpan/Qt_Toys/tree/master/ColorDetector" target="_blank" rel="external">这里</a> 找到。</p>
 
 		</div>
 
-		<!-- jiathis -->
+		<!-- bdshare -->
 		
-<!-- JiaThis Button BEGIN -->
-<script type="text/javascript">
-var jiathis_config = {data_track_clickback:'true'};
-</script>
-<script type="text/javascript" src="http://v3.jiathis.com/code/jiathis_r.js?type=left&amp;move=0&amp;btn=l2.gif&amp;uid=1538060" charset="utf-8"></script>
-<!-- JiaThis Button END -->
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"slide":{"type":"slide","bdImg":"5","bdPos":"left","bdTop":"100"}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
 
         
 
@@ -295,11 +341,11 @@ var jiathis_config = {data_track_clickback:'true'};
 	<!-- donate guide -->
 	<div id="donate_guide" class="donate_bar center hidden">
         <div class="row center">
-		<a href="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Alipay_Scan_Payment" class="fancybox">
-			<img src="http://7xj89i.com1.z0.glb.clouddn.com/ali_pay_01.jpg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		<a href="/images/misc/alipay.png" title="Alipay_Scan_Payment" class="fancybox">
+			<img src="/images/misc/alipay.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
 		</a>&nbsp;
-		<a href="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="WeChat_Scan_Payment" class="fancybox">
-			<img src="http://7xj89i.com1.z0.glb.clouddn.com/wechat_pay_02.png" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
+		<a href="/images/misc/wechatpay.jpeg" title="WeChat_Scan_Payment" class="fancybox">
+			<img src="/images/misc/wechatpay.jpeg" title="Donate 打赏" height="164px" width="164px" style="display:inherit;"/>
 		</a>
         </div>
 		<span class="donate_txt">
@@ -317,9 +363,6 @@ var jiathis_config = {data_track_clickback:'true'};
 		document.getElementById('btn_donate').onclick = function(){
 			$('#donate_board').addClass('hidden');
 			$('#donate_guide').removeClass('hidden');
-		}
-		function donate_on_web(){
-			$('#donate').submit();
 		}
 	</script>
 	<!-- /donate script -->
@@ -376,7 +419,7 @@ var jiathis_config = {data_track_clickback:'true'};
 
 	<!-- donate -->
 	<div class="meta-widget">
-	<a href="#donate_module"><i class="fa fa-smile-o"></i> Donate this article</a>
+	<a href="#donate_module" id="a_donate" class="a_donate"><i class="fa fa-smile-o"></i> Donate this article</a>
 	</div>
 
 	<!-- date -->
@@ -394,7 +437,7 @@ var jiathis_config = {data_track_clickback:'true'};
     <ul id="categorys" class="tag_box list-unstyled collapse in">
           
   <li>
-    <li><a data-pjax href="/categories/codes/">codes<span>32</span></a></li>
+    <li><a data-pjax href="/categories/codes/">codes<span>36</span></a></li>
   </li>
 
     </ul>
@@ -416,6 +459,13 @@ var jiathis_config = {data_track_clickback:'true'};
     <hr>
 </div><!-- span3 -->
 
+<!-- donate script -->
+	<script type="text/javascript">
+		document.getElementById('a_donate').onclick = function(){
+			$('#donate_board').addClass('hidden');
+			$('#donate_guide').removeClass('hidden');
+		}
+	</script>
 	
 
 </div><!-- row-fluid post-full -->
@@ -424,11 +474,8 @@ var jiathis_config = {data_track_clickback:'true'};
   </div>
   <div class="container-narrow">
   <footer> <p>
-  &copy; 2017 Joseph Pan
+  &copy; 2019 Joseph Pan
   
-      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and 
-<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254469760'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1254469760' type='text/javascript'%3E%3C/script%3E"));</script>
-. 
     <small>
      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/deed.zh"><img title="知识共享许可协议" style="border-width: 0px; vertical-align: middle; display: inline; " src="/images/license.png"></a>
     </small>
@@ -452,13 +499,18 @@ var jiathis_config = {data_track_clickback:'true'};
 <script src="/dist/main.min.js"></script>
 
 
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
 
 <script src="/fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
 (function($){
-  $('.fancybox').fancybox();
+  $('.fancybox').fancybox({
+    helpers : { 
+        title : { type : 'inside' }
+    },
+    afterLoad : function() {
+        this.title = (this.title ? '' + this.title + '<br />' : '') + 'Image ' + (this.index + 1) + ' of ' + this.group.length;
+    }
+  });
 })(jQuery);
 </script>
 
@@ -484,6 +536,7 @@ var jiathis_config = {data_track_clickback:'true'};
   </script>
 
 
+
 <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
   (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
@@ -492,6 +545,9 @@ var jiathis_config = {data_track_clickback:'true'};
 
   _st('install','ney3Rb77vMaWT2KUKFyt');
 </script>
+
+
+
 
 
 </body>
